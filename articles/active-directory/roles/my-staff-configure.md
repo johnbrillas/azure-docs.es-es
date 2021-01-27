@@ -3,22 +3,22 @@ title: 'Uso de Mi personal para delegar la administración de usuarios (versión
 description: Delegación de la administración de usuarios mediante Mi personal y unidades administrativas
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373452"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740149"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Administración de los usuarios con Mi personal (versión preliminar)
 
@@ -54,8 +54,8 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 Una vez que haya configurado las UA, puede aplicar este ámbito a los usuarios con acceso a Mi personal. Solo los usuarios a los que se ha asignado un rol administrativo pueden tener acceso a Mi personal. Para habilitar Mi personal, siga los pasos siguientes:
 
 1. Inicie sesión en Azure Portal como administrador de usuarios.
-2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Versiones preliminares de características de usuarios** > **Administrar la configuración de la versión preliminar de características del usuario** .
-3. En **Los administradores pueden tener acceso a Mi personal** , puede elegir habilitar para todos los usuarios, para usuarios seleccionados o sin acceso de los usuarios.
+2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Versiones preliminares de características de usuarios** > **Administrar la configuración de la versión preliminar de características del usuario**.
+3. En **Los administradores pueden tener acceso a Mi personal**, puede elegir habilitar para todos los usuarios, para usuarios seleccionados o sin acceso de los usuarios.
 
 > [!Note]
 > Solo los usuarios a los que se ha asignado un rol administrativo pueden tener acceso a Mi personal. Si habilita Mi personal para un usuario que no tiene asignado un rol administrativo, no podrá tener acceso a Mi personal.
@@ -94,7 +94,7 @@ Los roles siguientes tienen permiso para restablecer la contraseña de un usuari
 - [Administrador de usuarios](permissions-reference.md#user-administrator)
 - [Administrador de contraseñas](permissions-reference.md#password-administrator)
 
-En **Mi personal** , abra el perfil de un usuario. Seleccione **Restablecer contraseña** .
+En **Mi personal**, abra el perfil de un usuario. Seleccione **Restablecer contraseña**.
 
 - Si el usuario es solo de nube, puede ver una contraseña temporal que puede proporcionar al usuario.
 - Si el usuario se sincroniza desde Active Directory local, puede escribir una contraseña que cumpla las directivas de AD locales. A continuación, puede proporcionar esa contraseña al usuario.
@@ -105,7 +105,7 @@ Se obliga al usuario a cambiar su contraseña la próxima vez que inicie sesión
 
 ## <a name="manage-a-phone-number"></a>Administración de un número de teléfono
 
-En **Mi personal** , abra el perfil de un usuario.
+En **Mi personal**, abra el perfil de un usuario.
 
 - Seleccione la sección **Agregar número de teléfono** para agregar un número de teléfono del usuario.
 - Seleccione **Editar número de teléfono** para cambiar el número de teléfono.

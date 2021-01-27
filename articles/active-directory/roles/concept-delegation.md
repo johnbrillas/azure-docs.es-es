@@ -3,7 +3,7 @@ title: Información sobre la delegación de roles de administración en Azure Ac
 description: Modelos de delegación, ejemplos y seguridad de los roles en Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378370"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740319"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegación de administración en Azure Active Directory
 
@@ -66,8 +66,8 @@ Cada tarea se debe evaluar de acuerdo a su frecuencia, importancia y dificultad.
 
 La proliferación de aplicaciones dentro de su organización puede forzar el modelo de delegación de la misma. Si este modelo coloca la carga de administración de acceso a aplicaciones en el administrador global, es probable que vaya sobrecargándose a medida que pasa el tiempo. Si ha concedido a algunas personas el rol de administrador global para cosas como la configuración de aplicaciones empresariales, ahora puede descargar a estos usuarios concediéndoles los siguientes roles con menos privilegios. Con ello, ayuda a mejorar su posición de seguridad y reduce la posibilidad de errores indeseables. Los roles de administración de aplicación con más privilegios son:
 
-* El rol de **administrador de aplicación** , que concede la capacidad para administrar todas las aplicaciones del directorio, incluidos los registros, configuraciones de inicio de sesión único, asignaciones y configuración de licencias de usuario y de grupo, configuración del proxy de aplicación y consentimiento. No concede la capacidad de administrar el acceso condicional.
-* El rol de **administrador de la aplicación en la nube** , que concede todas las capacidades del administrador de aplicación, salvo el acceso a la configuración del proxy de aplicación (porque no tiene ningún permiso en el entorno local).
+* El rol de **administrador de aplicación**, que concede la capacidad para administrar todas las aplicaciones del directorio, incluidos los registros, configuraciones de inicio de sesión único, asignaciones y configuración de licencias de usuario y de grupo, configuración del proxy de aplicación y consentimiento. No concede la capacidad de administrar el acceso condicional.
+* El rol de **administrador de la aplicación en la nube**, que concede todas las capacidades del administrador de aplicación, salvo el acceso a la configuración del proxy de aplicación (porque no tiene ningún permiso en el entorno local).
 
 ## <a name="delegate-app-registration"></a>Delegación del registro de aplicaciones
 

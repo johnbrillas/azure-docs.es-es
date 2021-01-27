@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763122"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724067"
 ---
 # <a name="upstream-settings"></a>Configuración ascendente
 
@@ -59,7 +59,7 @@ La dirección URL ascendente no es el cifrado en reposo. Si tiene información c
 
 1. Agregue una identidad asignada por el sistema o una asignada por el usuario. Consulte [Adición de identidad administrada en Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity).
 
-2. Conceda el permiso de lectura de secreto para la identidad administrada en las directivas de acceso de Key Vault. Consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal).
+2. Conceda el permiso de lectura de secreto para la identidad administrada en las directivas de acceso de Key Vault. Consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../key-vault/general/assign-access-policy-portal.md).
 
 3. Reemplace el texto confidencial con la sintaxis `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` en el patrón de dirección URL ascendente.
 

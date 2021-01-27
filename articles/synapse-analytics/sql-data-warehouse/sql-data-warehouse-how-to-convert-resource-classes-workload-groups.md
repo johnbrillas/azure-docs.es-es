@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1207f4856882d8aa0e6d1e41712071536bfecf29
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461897"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728563"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Conversión de las clases de recursos en grupos de cargas de trabajo
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Creación del clasificador
 
-Anteriormente, la asignación de consultas a las clases de recursos se realizaba con [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para lograr la misma funcionalidad y asignar las solicitudes a los grupos de cargas de trabajo, use la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  El uso de sp_addrolemember solo permite asignar recursos a una solicitud basada en un inicio de sesión.  Un clasificador proporciona opciones adicionales además del inicio de sesión, como las siguientes:
+Anteriormente, la asignación de consultas a las clases de recursos se realizaba con [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para lograr la misma funcionalidad y asignar las solicitudes a los grupos de cargas de trabajo, use la sintaxis [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  El uso de sp_addrolemember solo permite asignar recursos a una solicitud basada en un inicio de sesión.  Un clasificador proporciona opciones adicionales además del inicio de sesión, como las siguientes:
     - etiqueta
     - hora de sesión
     - En el ejemplo siguiente se asignan consultas del inicio de sesión de `AdfLogin` que también tienen la [ETIQUETA DE OPCIÓN](sql-data-warehouse-develop-label.md) establecida en `factloads` al grupo de cargas de trabajo `wgDataLoads` creado anteriormente.
@@ -90,5 +90,5 @@ SELECT request_id, [label], classifier_name, group_name, command
 
 - [Aislamiento de cargas de trabajo](sql-data-warehouse-workload-isolation.md)
 - [Creación de un grupo de carga de trabajo](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql??view=azure-sqldw-latest&preserve-view=true)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

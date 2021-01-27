@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919126"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724667"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Aumento de la resistencia en el acceso a las aplicaciones con Application Proxy
 
@@ -27,7 +27,7 @@ Application Proxy es una característica de Azure AD que permite a los usuarios 
 Los usuarios acceden a los recursos locales mediante una dirección URL publicada a través de Application Proxy. Se les redirige a la página de inicio de sesión de Azure AD. A continuación, el servicio Application Proxy de Azure AD envía un token al conector de Application Proxy en la red corporativa, que pasa el token a Active Directory local. El usuario autenticado puede acceder al recurso local. En el diagrama siguiente, se muestran [conectores](../manage-apps/application-proxy-connectors.md) en un [grupo de conectores](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Al publicar las aplicaciones a través de Application Proxy, debe implementar [planeamiento de capacidad y la redundancia adecuada para los conectores de Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
+> Al publicar las aplicaciones a través de Application Proxy, debe implementar [planeamiento de capacidad y la redundancia adecuada para los conectores de Application Proxy](../manage-apps/application-proxy-connectors.md#capacity-planning).
 
 ![Diagrama de la arquitectura de la aplicación](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028937"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728244"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -139,7 +139,7 @@ El usuario con el atributo en conflicto en Azure AD debe limpiarse para poder ap
 El usuario basado en la nube de Azure AD no debe tener el delimitador de origen. En este caso no se admite la actualización del delimitador de origen. Se requiere una corrección manual en el entorno local. 
 
 **El proceso de corrección no pudo actualizar los valores.**
-No se admite la configuración específica, como [UserWriteback en Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback). Deshabilítela en la configuración. 
+No se admite la configuración específica, como [UserWriteback en Azure AD Connect](./how-to-connect-preview.md#user-writeback). Deshabilítela en la configuración. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **P.** ¿Qué ocurre si se produce un error al ejecutarse **Aplicar corrección**?  

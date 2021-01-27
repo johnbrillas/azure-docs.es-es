@@ -3,23 +3,23 @@ title: 'Solución de problemas de las unidades administrativas y Preguntas frecu
 description: Investigue las unidades administrativas para conceder permisos con ámbito restringido en Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394686"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740387"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas de Azure AD: Solución de problemas y preguntas frecuentes
 
@@ -47,7 +47,7 @@ Para evitar una elevación de privilegios, un administrador con ámbito de unida
 
 **P: ¿Por qué son necesarias las unidades administrativas? ¿No podrían usarse grupos de seguridad para definir un ámbito?**
 
-**R:** Los grupos de seguridad tienen un propósito y modo de autorización existentes. Un *administrador de usuarios* , por ejemplo, puede administrar la pertenencia a todos los grupos de seguridad de la organización de Azure AD. El rol podría usar grupos para administrar el acceso a aplicaciones como Salesforce. Un *administrador de usuarios* no debe poder administrar el modelo de delegación, que sucedería si los grupos de seguridad se ampliaran para admitir escenarios de "agrupación de recursos". 
+**R:** Los grupos de seguridad tienen un propósito y modo de autorización existentes. Un *administrador de usuarios*, por ejemplo, puede administrar la pertenencia a todos los grupos de seguridad de la organización de Azure AD. El rol podría usar grupos para administrar el acceso a aplicaciones como Salesforce. Un *administrador de usuarios* no debe poder administrar el modelo de delegación, que sucedería si los grupos de seguridad se ampliaran para admitir escenarios de "agrupación de recursos". 
 
 Las unidades administrativas, como las unidades organizativas en Windows Server Active Directory, están diseñadas para proporcionar una manera de administrar con ámbito una amplia gama de objetos de directorio. Los grupos de seguridad pueden ser miembros de los ámbitos de recursos. El uso de grupos de seguridad para definir el conjunto de grupos de seguridad que un administrador puede administrar podría resultar confuso.
 

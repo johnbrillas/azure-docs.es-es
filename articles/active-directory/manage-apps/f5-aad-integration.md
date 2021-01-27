@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8210e00824d7680f4eecde2f0b299dfcdc93b90
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935247"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730578"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
 
@@ -29,19 +29,20 @@ El acceso híbrido seguro se encarga de remediar este "punto débil", ya que per
 
 Hacer que Azure AD realice una autenticación previa para el acceso a los servicios publicados de BIG-IP proporciona muchas ventajas:
 
-- Autenticación sin contraseña mediante [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install), [Claves de Fast Identity Online (FIDO)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key) y [autenticación basada en certificados](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started).
+- Autenticación sin contraseña mediante [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](../user-help/user-help-auth-app-download-install.md), [Claves de Fast Identity Online (FIDO)](../authentication/howto-authentication-passwordless-security-key.md) y [autenticación basada en certificados](../authentication/active-directory-certificate-based-authentication-get-started.md).
 
-- [Acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) preventivo y [autenticación multifactor (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+- [Acceso condicional](../conditional-access/overview.md) preventivo y [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md).
 
-- [Protección de identidades](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection#:~:text=Identity%20Protection%20is%20a%20tool%20that%20allows%20organizations,detection%20data%20to%20third-party%20utilities%20for%20further%20analysis): control adaptable mediante la generación de perfiles de riesgo de usuario y sesión.
+- [Protección de identidades](../identity-protection/overview-identity-protection.md): control adaptable mediante la generación de perfiles de riesgo de usuario y sesión.
 
-- [Detección de credenciales filtradas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks).
 
-- [Autoservicio de restablecimiento de contraseña (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [Detección de credenciales filtradas](../identity-protection/concept-identity-protection-risks.md).
 
-- [Colaboración de asociados](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users): administración de derechos para el acceso controlado de invitados.
+- [Autoservicio de restablecimiento de contraseña (SSPR)](../authentication/tutorial-enable-sspr.md)
 
-- [Cloud App Security (CASB)](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security): para un control y detección de aplicaciones completo.
+- [Colaboración de asociados](../governance/entitlement-management-external-users.md): administración de derechos para el acceso controlado de invitados.
+
+- [Cloud App Security (CASB)](/cloud-app-security/what-is-cloud-app-security): para un control y detección de aplicaciones completo.
 
 - Supervisión de amenazas: [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) para el análisis avanzado de amenazas.
 
@@ -61,7 +62,7 @@ Local Traffic Manager (LTM) permite la publicación segura de servicios mediante
 
 La integración se basa en una confianza de federación estándar entre el APM y Azure AD que es común para la mayoría de los casos de uso de acceso híbrido seguro que incluye el [escenario SSL-VPN](f5-aad-password-less-vpn.md). Los recursos de Lenguaje de marcado de aserción de seguridad (SAML), OAuth y Open ID Connect (OIDC) no son una excepción, ya que también estos se pueden proteger para el acceso remoto. También podría haber escenarios en los que una instancia de BIG-IP se convierta en un cuello de botella para el acceso de Confianza cero a todos los servicios, incluidas las aplicaciones SaaS.
 
-Una ventaja de BIG-IP para su integración con Azure AD es la que permite la transición de protocolos necesaria para proteger los servicios heredados o no integrados de Azure AD con controles modernos como la [autenticación sin contraseña](https://www.microsoft.com/security/business/identity/passwordless) y el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). En este escenario, una instancia de BIG-IP sigue cumpliendo su rol como proxy inverso, al tiempo que deja la autenticación previa y la autorización a Azure AD, que las realiza servicio a servicio.
+Una ventaja de BIG-IP para su integración con Azure AD es la que permite la transición de protocolos necesaria para proteger los servicios heredados o no integrados de Azure AD con controles modernos como la [autenticación sin contraseña](https://www.microsoft.com/security/business/identity/passwordless) y el [acceso condicional](../conditional-access/overview.md). En este escenario, una instancia de BIG-IP sigue cumpliendo su rol como proxy inverso, al tiempo que deja la autenticación previa y la autorización a Azure AD, que las realiza servicio a servicio.
 
 Los pasos 1-4 del diagrama ilustran el intercambio de autenticación previa de front-end entre un usuario, una instancia de BIG-IP y Azure AD, en un flujo iniciado por el proveedor de servicios. Los pasos 5-6 muestran el enriquecimiento de la sesión de APM subsiguiente y el inicio de sesión único en los servicios back-end individuales.
 
@@ -71,16 +72,16 @@ Los pasos 1-4 del diagrama ilustran el intercambio de autenticación previa de f
 |:------|:-----------|
 | 1. | El usuario selecciona un icono de aplicación en el portal y resuelve la dirección URL en el proveedor de servicios de SAML (BIG-IP). |
 | 2. | BIG-IP redirige al usuario a IDP de SAML (Azure AD) para la autenticación previa.|
-| 3. | Azure AD procesa directivas de acceso condicional y [controles de sesión](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) para la autorización.|
+| 3. | Azure AD procesa directivas de acceso condicional y [controles de sesión](../conditional-access/concept-conditional-access-session.md) para la autorización.|
 | 4. | El usuario se redirige de nuevo a BIG-IP presentando las notificaciones de SAML que emite Azure AD. |
-| 5. | BIG-IP solicita cualquier información de sesión adicional para incluirla en el [inicio de sesión único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) y el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) del servicio publicado. |
+| 5. | BIG-IP solicita cualquier información de sesión adicional para incluirla en el [inicio de sesión único](../hybrid/how-to-connect-sso.md) y el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md) del servicio publicado. |
 | 6. | BIG-IP reenvía la solicitud del cliente al servicio back-end.
 
 ## <a name="user-experience"></a>Experiencia del usuario
 
 Tanto si se trata de un empleado directo, un afiliado o un consumidor, la mayoría de los usuarios ya están familiarizados con la experiencia de inicio de sesión de Office 365, por lo que el acceso a los servicios de BIG-IP a través del acceso híbrido seguro resulta muy familiar.
 
-Ahora, los usuarios encuentran sus servicios publicados de BIG-IP consolidados en [MyApps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) o las [plataformas de lanzamiento de O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) junto con las funcionalidades de autoservicio para un conjunto más amplio de servicios, independientemente del tipo de dispositivo o ubicación. Los usuarios pueden incluso seguir accediendo a los servicios publicados directamente a través del portal de webtops propiedad de BIG-IP, si lo prefiere. Al cerrar la sesión, el acceso híbrido seguro garantiza que la sesión de los usuarios finaliza en ambos extremos, BIG-IP y Azure AD, lo cual garantiza que los servicios permanecen completamente protegidos frente a accesos no autorizados.  
+Ahora, los usuarios encuentran sus servicios publicados de BIG-IP consolidados en [MyApps](../user-help/my-apps-portal-end-user-access.md) o las [plataformas de lanzamiento de O365](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) junto con las funcionalidades de autoservicio para un conjunto más amplio de servicios, independientemente del tipo de dispositivo o ubicación. Los usuarios pueden incluso seguir accediendo a los servicios publicados directamente a través del portal de webtops propiedad de BIG-IP, si lo prefiere. Al cerrar la sesión, el acceso híbrido seguro garantiza que la sesión de los usuarios finaliza en ambos extremos, BIG-IP y Azure AD, lo cual garantiza que los servicios permanecen completamente protegidos frente a accesos no autorizados.  
 
 Las capturas de pantallas que se proporcionan proceden del portal de aplicaciones de Azure AD al que los usuarios pueden acceder de forma segura para encontrar sus servicios publicados de BIG-IP y administrar las propiedades de sus cuentas.  
 
@@ -92,7 +93,7 @@ Las capturas de pantallas que se proporcionan proceden del portal de aplicacione
 
 El rol de BIG-IP es fundamental para cualquier empresa, por lo que se deben supervisar las instancias de BIG-IP implementadas para garantizar que los servicios publicados tengan una alta disponibilidad, tanto en un nivel de acceso híbrido seguro como también en el nivel operativo.
 
-Existen varias opciones para registrar eventos, ya sea de forma local o remota, mediante una solución de administración de eventos e información de seguridad (SIEM) que permite el almacenamiento y el procesamiento de datos de telemetría. Una solución muy eficaz para la supervisión de Azure AD y de actividades específicas del acceso híbrido seguro es usar [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) y [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview) que ofrecen lo siguiente:
+Existen varias opciones para registrar eventos, ya sea de forma local o remota, mediante una solución de administración de eventos e información de seguridad (SIEM) que permite el almacenamiento y el procesamiento de datos de telemetría. Una solución muy eficaz para la supervisión de Azure AD y de actividades específicas del acceso híbrido seguro es usar [Azure Monitor](../../azure-monitor/overview.md) y [Azure Sentinel](../../sentinel/overview.md) que ofrecen lo siguiente:
 
 - Información general detallada de su organización, posiblemente en varias nubes, y en ubicaciones locales, como la infraestructura de BIG-IP.
 
@@ -126,9 +127,9 @@ La integración de F5 BIG-IP con Azure AD para el acceso híbrido seguro tiene 
 
 - Licencias de Azure AD mediante cualquiera de las siguientes opciones:
 
-   - Una [suscripción gratuita](https://docs.microsoft.com/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) de Azure AD proporciona los requisitos básicos mínimos para implementar el acceso híbrido seguro con autenticación sin contraseña.
+   - Una [suscripción gratuita](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) de Azure AD proporciona los requisitos básicos mínimos para implementar el acceso híbrido seguro con autenticación sin contraseña.
 
-   - Una [suscripción Premium](https://azure.microsoft.com/pricing/details/active-directory/) proporciona todo el valor adicional que se indica en el prefacio, incluido el [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), la [autenticación multifactor](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) y la [protección de identidades](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
+   - Una [suscripción Premium](https://azure.microsoft.com/pricing/details/active-directory/) proporciona todo el valor adicional que se indica en el prefacio, incluido el [acceso condicional](../conditional-access/overview.md), la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) y la [protección de identidades](../identity-protection/overview-identity-protection.md).
 
 No se necesita experiencia ni conocimientos previos de F5 BIG-IP para implementar el acceso híbrido seguro, aunque es recomendable que se familiarice con la terminología de F5 BIG-IP. La [knowledge base](https://www.f5.com/services/resources/glossary) enriquecida de F5 también es un buen punto de partida para empezar a conocer BIG-IP.
 
@@ -138,9 +139,9 @@ En los siguientes tutoriales se proporcionan instrucciones detalladas sobre la i
 
 - [Tutorial de implementación de F5 BIG-IP en Azure](f5-bigip-deployment-guide.md)
 
-- [Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones de Kerberos](https://docs.microsoft.com/azure/active-directory/saas-apps/kerbf5-tutorial#configure-f5-single-sign-on-for-kerberos-application)
+- [Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones de Kerberos](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
 
-- [Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones basadas en encabezados](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial#configure-f5-single-sign-on-for-header-based-application)
+- [Inicio de sesión único de F5 BIG-IP APM y Azure AD para aplicaciones basadas en encabezados](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Protección de F5 BIG-IP SSL-VPN con el acceso híbrido seguro de Azure AD](f5-aad-password-less-vpn.md)
 

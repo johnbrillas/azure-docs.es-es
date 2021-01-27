@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060459"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733190"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
-Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview) y [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
+Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) y [Log Analytics](./data-platform-logs.md). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
 
 En el diagrama siguiente se muestra el flujo entre servicios de Azure Monitor:
 
@@ -62,8 +62,8 @@ No se admiten las consultas entre inquilinos en los servicios. Debe iniciar sesi
 
 Si el recurso de Azure Data Explorer está en el inquilino A y el área de trabajo de Log Analytics está en el inquilino B, use uno de los métodos siguientes:
 
-*  Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino B como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) del clúster de Azure Data Explorer contiene al inquilino B. Ejecute la consulta cruzada completamente en el inquilino B.
-*  Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) para proyectar el recurso de Azure Monitor en el inquilino A.
+*  Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino B como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) del clúster de Azure Data Explorer contiene al inquilino B. Ejecute la consulta cruzada completamente en el inquilino B.
+*  Use [Lighthouse](../../lighthouse/index.yml) para proyectar el recurso de Azure Monitor en el inquilino A.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Conexión a clústeres de Azure Data Explorer desde otros inquilinos
 
@@ -72,6 +72,6 @@ Kusto Explorer inicia sesión automáticamente en el inquilino al que pertenece 
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Escritura de consultas](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Consulta de datos en Azure Monitor mediante Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Consulta de registros entre recursos en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Escritura de consultas](/azure/data-explorer/write-queries)
+* [Consulta de datos en Azure Monitor mediante Azure Data Explorer](/azure/data-explorer/query-monitor-data)
+* [Consulta de registros entre recursos en Azure Monitor](../log-query/cross-workspace-query.md)

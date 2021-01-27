@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecde474abf3c814b7c3afa4ae18d044868785cf5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff7505e7c47b93f32efd9de60463873026247329
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919230"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724932"
 ---
 # <a name="resilience-through-developer-best-practices"></a>Resistencia mediante los procedimientos recomendados para desarrolladores
 
@@ -28,7 +28,7 @@ En este artículo, compartimos algunos aprendizajes que se basan en la experienc
 
 ## <a name="use-the-microsoft-authentication-library-msal"></a>Uso de la Biblioteca de autenticación de Microsoft (MSAL)
 
-La [Biblioteca de autenticación de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) y la [biblioteca de autenticación web de Microsoft Identity para ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries) simplifican la adquisición, administración, almacenamiento en caché y actualización de los tokens que requiere una aplicación. Estas bibliotecas están optimizadas específicamente para admitir Microsoft Identity, incluidas unas características que mejoran la resistencia de las aplicaciones.
+La [Biblioteca de autenticación de Microsoft (MSAL)](../develop/msal-overview.md) y la [biblioteca de autenticación web de Microsoft Identity para ASP.NET](../develop/reference-v2-libraries.md) simplifican la adquisición, administración, almacenamiento en caché y actualización de los tokens que requiere una aplicación. Estas bibliotecas están optimizadas específicamente para admitir Microsoft Identity, incluidas unas características que mejoran la resistencia de las aplicaciones.
 
 Los desarrolladores deben adoptar las versiones más recientes de MSAL y mantenerlas actualizadas. Consulte el artículo sobre [cómo aumentar la resistencia de la autenticación y la autorización](resilience-app-development-overview.md) en las aplicaciones. Siempre que sea posible, evite implementar su propia pila de autenticación y utilice bibliotecas bien establecidas.
 
@@ -40,7 +40,7 @@ El servicio de directorio de Microsoft Azure AD B2C admite miles de millones de
 
 - **Evite las funciones de escritura en el directorio en el inicio de sesión**: No ejecute nunca una escritura en el inicio de sesión sin una condición previa (cláusula if) en las directivas personalizadas. Un caso de uso que requiere una escritura en un inicio de sesión es la [migración Just-in-Time de las contraseñas de usuario](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Evite cualquier escenario que requiera una escritura en cada inicio de sesión.
 
-  - Las [condiciones previas](https://docs.microsoft.com/azure/active-directory-b2c/userjourneys) en un recorrido del usuario tendrán el siguiente aspecto:
+  - Las [condiciones previas](../../active-directory-b2c/userjourneys.md) en un recorrido del usuario tendrán el siguiente aspecto:
 
   ``
   <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
@@ -50,7 +50,7 @@ El servicio de directorio de Microsoft Azure AD B2C admite miles de millones de
   ``
   - Aumente la resistencia de los [registros controlados por bots mediante la integración con un sistema CAPTCHA](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
 
-  - Utilice un [ejemplo de prueba de carga](https://docs.microsoft.com/azure/active-directory-b2c/best-practices#testing) para simular el registro y el inicio de sesión. 
+  - Utilice un [ejemplo de prueba de carga](../../active-directory-b2c/best-practices.md#testing) para simular el registro y el inicio de sesión. 
 
 - **Descripción de la limitación**: el directorio implementa reglas de limitación tanto en el nivel de aplicación como de inquilino. Existen más límites de frecuencia para las operaciones de lectura/GET, escritura/POST, actualización/PUT y eliminación/DELETE, y cada operación tiene límites diferentes.
 
@@ -62,11 +62,11 @@ El servicio de directorio de Microsoft Azure AD B2C admite miles de millones de
 
   - Comprenda y planee la escala de tiempo de migración. Al planear la migración de usuarios a Azure AD B2C mediante Microsoft Graph, tenga en cuenta los límites de la aplicación y del inquilino a fin de calcular el tiempo necesario para completar la migración de los usuarios. Si divide el trabajo o el script de creación de usuarios con dos aplicaciones, puede usar el límite por aplicación. Aún así, debe permanecer por debajo del umbral por inquilino.
 
-  - Comprenda los efectos del trabajo de migración en otras aplicaciones. Tenga en cuenta el tráfico dinámico atendido por otras aplicaciones de confianza para asegurarse de que no se produce una limitación en el nivel de inquilino y el colapso de los recursos para la aplicación activa. Para más información, consulte [Guía de limitación de Microsoft Graph](https://docs.microsoft.com/graph/throttling).
+  - Comprenda los efectos del trabajo de migración en otras aplicaciones. Tenga en cuenta el tráfico dinámico atendido por otras aplicaciones de confianza para asegurarse de que no se produce una limitación en el nivel de inquilino y el colapso de los recursos para la aplicación activa. Para más información, consulte [Guía de limitación de Microsoft Graph](/graph/throttling).
   
 ## <a name="extend-token-lifetimes"></a>Ampliación de las duraciones de tokens
 
-En el caso improbable de que el servicio de autenticación de Azure AD B2C no pueda completar nuevos registros e inicios de sesión, aún puede proporcionar una mitigación para los usuarios que hayan iniciado sesión. Con [configuración](https://docs.microsoft.com/azure/active-directory-b2c/configure-tokens), puede permitir que los usuarios que ya hayan iniciado sesión sigan utilizando la aplicación sin que perciban interrupción alguna hasta que el usuario salga de la aplicación o se agote el tiempo de espera de la [sesión](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior) por inactividad.
+En el caso improbable de que el servicio de autenticación de Azure AD B2C no pueda completar nuevos registros e inicios de sesión, aún puede proporcionar una mitigación para los usuarios que hayan iniciado sesión. Con [configuración](../../active-directory-b2c/configure-tokens.md), puede permitir que los usuarios que ya hayan iniciado sesión sigan utilizando la aplicación sin que perciban interrupción alguna hasta que el usuario salga de la aplicación o se agote el tiempo de espera de la [sesión](../../active-directory-b2c/session-behavior.md) por inactividad.
 
 Sus requisitos empresariales y la experiencia del usuario final que desee determinarán la frecuencia de actualización de los tokens para aplicaciones web y de página única (SPA).
 
@@ -82,7 +82,7 @@ Sus requisitos empresariales y la experiencia del usuario final que desee determ
 
   - Compile la aplicación para que utilice una puerta de enlace de API como proxy de autenticación. En esta configuración, la SPA se carga sin autenticación, y las llamadas API se realizan en la puerta de enlace de API. La puerta de enlace de API envía el usuario a un proceso de inicio de sesión mediante una [concesión de código de autorización](https://oauth.net/2/grant-types/authorization-code/) basada en una directiva y autentica al usuario. Posteriormente, la sesión de autenticación entre la puerta de enlace de API y el cliente se mantiene mediante una cookie de autenticación. Las API se atienden desde la puerta de enlace de API mediante el token obtenido por la puerta de enlace de API u otro método de autenticación directo, como certificados, credenciales de cliente o claves de API.
 
-  - [Migre la SPA desde una concesión implícita](https://developer.microsoft.com/identity/blogs/msal-js-2-0-supports-authorization-code-flow-is-now-generally-available/) a un [flujo de concesión de código de autorización](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) con la clave de prueba para el intercambio de códigos (PKCE) y la compatibilidad con el uso compartido de recursos entre orígenes (CORS). Migre su aplicación de MSAL.js 1.x a MSAL.js 2.x para obtener la resistencia de las aplicaciones web.
+  - [Migre la SPA desde una concesión implícita](https://developer.microsoft.com/identity/blogs/msal-js-2-0-supports-authorization-code-flow-is-now-generally-available/) a un [flujo de concesión de código de autorización](../../active-directory-b2c/implicit-flow-single-page-application.md) con la clave de prueba para el intercambio de códigos (PKCE) y la compatibilidad con el uso compartido de recursos entre orígenes (CORS). Migre su aplicación de MSAL.js 1.x a MSAL.js 2.x para obtener la resistencia de las aplicaciones web.
 
   - En el caso de las aplicaciones móviles, se recomienda ampliar las duraciones de actualización y de token de acceso.
 
@@ -90,25 +90,25 @@ Sus requisitos empresariales y la experiencia del usuario final que desee determ
 
 ## <a name="configure-single-sign-on"></a>Configuración del inicio de sesión único
 
-Con el [inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on), los usuarios inician sesión una vez con una sola cuenta y obtienen acceso a varias aplicaciones. La aplicación puede ser una aplicación web, de móvil o de página única (SPA), sea cual sea la plataforma o el nombre de dominio. Cuando el usuario inicia sesión por primera vez en una aplicación, Azure AD B2C conserva una [sesión basada en cookies](https://docs.microsoft.com/azure/active-directory-b2c/session-overview).
+Con el [inicio de sesión único (SSO)](../manage-apps/what-is-single-sign-on.md), los usuarios inician sesión una vez con una sola cuenta y obtienen acceso a varias aplicaciones. La aplicación puede ser una aplicación web, de móvil o de página única (SPA), sea cual sea la plataforma o el nombre de dominio. Cuando el usuario inicia sesión por primera vez en una aplicación, Azure AD B2C conserva una [sesión basada en cookies](../../active-directory-b2c/session-behavior.md).
 
 En las solicitudes de autenticación posteriores, Azure AD B2C lee y valida la sesión basada en cookies y emite un token de acceso sin pedir al usuario que vuelva a iniciar sesión. Si el inicio de sesión único se configura con un ámbito limitado en una directiva o una aplicación, el acceso posterior a otras directivas y aplicaciones requerirá una autenticación nueva.
 
 ### <a name="how-to-configure-sso"></a>Configuración del inicio de sesión único (SSO)
 
-[Configure SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start) de forma que sea para todo el inquilino (opción predeterminada) y permitir que varias aplicaciones y flujos de usuario del inquilino compartan la misma sesión de usuario. La configuración de todo el inquilino proporciona la mayor resistencia a una autenticación nueva.  
+[Configure SSO](../hybrid/how-to-connect-sso-quick-start.md) de forma que sea para todo el inquilino (opción predeterminada) y permitir que varias aplicaciones y flujos de usuario del inquilino compartan la misma sesión de usuario. La configuración de todo el inquilino proporciona la mayor resistencia a una autenticación nueva.  
 
 ## <a name="safe-deployment-practices"></a>Procedimientos de implementación seguros
 
-Las interrupciones más comunes del servicio son los cambios en el código y la configuración. La adopción de procesos y herramientas de integración continua y entrega continua (CICD) contribuye a una implementación rápida a gran escala y reduce los errores humanos durante las pruebas y la implementación en producción. Adopte CICD para lograr la reducción de errores, eficacia y coherencia. [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) es un ejemplo de CICD.
+Las interrupciones más comunes del servicio son los cambios en el código y la configuración. La adopción de procesos y herramientas de integración continua y entrega continua (CICD) contribuye a una implementación rápida a gran escala y reduce los errores humanos durante las pruebas y la implementación en producción. Adopte CICD para lograr la reducción de errores, eficacia y coherencia. [Azure Pipelines](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) es un ejemplo de CICD.
 
 ## <a name="web-application-firewall"></a>Firewall de aplicaciones web
 
 Proteja sus aplicaciones frente a puntos vulnerables conocidos como ataques de denegación de servicio distribuido (DDoS), inyecciones de SQL, scripts entre sitios, ejecución remota de código y muchos otros, tal como se documenta en [OWASP Top 10](https://owasp.org/www-project-top-ten/). La implementación de Firewall de aplicaciones web (WAF) puede proteger frente a puntos vulnerables comunes.
 
-- Utilice Azure [WAF](https://docs.microsoft.com/azure/web-application-firewall/overview), que proporciona protección centralizada frente a los ataques.
+- Utilice Azure [WAF](../../web-application-firewall/overview.md), que proporciona protección centralizada frente a los ataques.
 
-- Use WAF con [Identity Protection y acceso condicional para Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/conditional-access-identity-protection-overview) para proporcionar protección de varios niveles cuando se utiliza Azure AD B2C.  
+- Use WAF con [Identity Protection y acceso condicional para Azure AD B2C](../../active-directory-b2c/conditional-access-identity-protection-overview.md) para proporcionar protección de varios niveles cuando se utiliza Azure AD B2C.  
 
 ## <a name="secrets-rotation"></a>Cambio de secretos
 
@@ -116,9 +116,9 @@ Azure AD B2C usa secretos para las aplicaciones, las API, las directivas y el c
 
 ### <a name="how-to-implement-secret-rotation"></a>Implementación de la rotación de secretos
 
-- Utilice [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para recursos admitidos a fin de autenticarse en los servicios que admiten la autenticación de Azure AD. Al utilizar identidades administradas, puede administrar los recursos de forma automática, incluida la rotación de credenciales.
+- Utilice [identidades administradas](../managed-identities-azure-resources/overview.md) para recursos admitidos a fin de autenticarse en los servicios que admiten la autenticación de Azure AD. Al utilizar identidades administradas, puede administrar los recursos de forma automática, incluida la rotación de credenciales.
 
-- Realice un inventario de todas las [claves y certificados configurados](https://docs.microsoft.com/azure/active-directory-b2c/policy-keys-overview) en Azure AD B2C. Es probable que esta lista incluya las claves usadas en directivas personalizadas, [API](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api), token de identificador de firma y certificados para SAML.
+- Realice un inventario de todas las [claves y certificados configurados](../../active-directory-b2c/policy-keys-overview.md) en Azure AD B2C. Es probable que esta lista incluya las claves usadas en directivas personalizadas, [API](../../active-directory-b2c/secure-rest-api.md), token de identificador de firma y certificados para SAML.
 
 - Con CICD, rote los secretos que van a expirar en un plazo de dos meses desde el período máximo previsto. El período criptográfico máximo recomendado de las claves privadas asociadas a un certificado es de un año.
 
@@ -130,7 +130,7 @@ En el contexto de resistencia, las pruebas de las API REST deben incluir la comp
 
 ### <a name="how-to-test-apis"></a>Procedimientos para probar API
 
-Se recomienda que el plan de pruebas incluya unas [pruebas de API completas](https://docs.microsoft.com/azure/active-directory-b2c/best-practices#testing). Si está planeando realizar un aumento en breve debido al tráfico que generan las promociones o los períodos de vacaciones, debe revisar las pruebas de carga con las nuevas estimaciones. Realice pruebas de carga de las API y Content Delivery Network (CDN) en un entorno de desarrollo y no en producción.
+Se recomienda que el plan de pruebas incluya unas [pruebas de API completas](../../active-directory-b2c/best-practices.md#testing). Si está planeando realizar un aumento en breve debido al tráfico que generan las promociones o los períodos de vacaciones, debe revisar las pruebas de carga con las nuevas estimaciones. Realice pruebas de carga de las API y Content Delivery Network (CDN) en un entorno de desarrollo y no en producción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

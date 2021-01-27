@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 93b6160b495b609e23e10b3f709d130792067423
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6d9ad775f91778f95380a19fbe253e2cbbebd3fc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803789"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736463"
 ---
 # <a name="it-service-management-connector-overview"></a>Información general de Conector de Administración de servicios de TI
 
@@ -32,7 +32,7 @@ ITSMC admite conexiones con las siguientes herramientas ITSM:
 -   Cherwell
 
    >[!NOTE]
-> Proponemos a nuestros clientes de Cherwell y Provance que utilicen la [acción de Webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) en el punto de conexión a Cherwell y Provance como otra solución para la integración.
+> Proponemos a nuestros clientes de Cherwell y Provance que utilicen la [acción de Webhook](./action-groups.md#webhook) en el punto de conexión a Cherwell y Provance como otra solución para la integración.
 
 Con ITSMC, puede:
 

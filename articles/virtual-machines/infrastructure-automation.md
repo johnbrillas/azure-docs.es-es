@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7a702fbf405011a9df3e7e77936a9a37f0fdfad7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198006"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730645"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Uso de herramientas de automatización de la infraestructura con máquinas virtuales de Azure
 
@@ -87,8 +87,8 @@ Los scripts se pueden descargar desde Azure Storage o desde cualquier ubicación
 
 Obtenga información sobre cómo:
 
-- [Crear una máquina virtual Linux con la CLI de Azure y usar la extensión de script personalizado](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Crear una máquina virtual Windows con Azure PowerShell y usar la extensión de script personalizado](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
+- [Crear una máquina virtual Linux con la CLI de Azure y usar la extensión de script personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Crear una máquina virtual Windows con Azure PowerShell y usar la extensión de script personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Packer
@@ -126,7 +126,7 @@ Obtenga información sobre cómo:
 
 Más información sobre:
 
-- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -144,7 +144,7 @@ Obtenga información sobre cómo:
 
 - [Implementar máquinas virtuales de Spot mediante una plantilla de Resource Manager](./linux/spot-template.md).
 - [Crear una máquina virtual Windows con una plantilla de Resource Manager](./windows/ps-template.md).
-- [Descargar la plantilla para una máquina virtual](./windows/download-template.md).
+- [Descargar la plantilla para una máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Crear una plantilla de Azure Image Builder](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

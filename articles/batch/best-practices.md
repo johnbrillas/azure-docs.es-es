@@ -3,12 +3,12 @@ title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934295"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732418"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -149,7 +149,7 @@ De forma similar a otras tareas, la [tarea de inicio](jobs-and-tasks.md#start-ta
 
 ### <a name="isolated-nodes"></a>Nodos aislados
 
-Considere la posibilidad de usar tamaños de VM aislados para las cargas de trabajo que cuenten con requisitos normativos o de cumplimiento. Los tamaños aislados admitidos en el modo de configuración de máquina virtual incluyen `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5` y `Standard_E64i_v3`. Para obtener más información sobre los tamaños de VM aislados, consulte [Aislamiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Considere la posibilidad de usar tamaños de VM aislados para las cargas de trabajo que cuenten con requisitos normativos o de cumplimiento. Los tamaños aislados admitidos en el modo de configuración de máquina virtual incluyen `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5` y `Standard_E64i_v3`. Para obtener más información sobre los tamaños de VM aislados, consulte [Aislamiento de máquinas virtuales en Azure](../virtual-machines/isolation.md).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Administración de servicios de larga duración a través de la interfaz de servicios del sistema operativo
 

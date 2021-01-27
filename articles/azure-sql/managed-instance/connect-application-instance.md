@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791263"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732618"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ También puede conectar la aplicación local a Instancia administrada de SQL. El
 
 Hay dos opciones para conectarse de forma local a una red virtual de Azure:
 
-- Conexión VPN de sitio a sitio ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI de Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Conexión VPN de sitio a sitio ([Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI de Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexión de [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Si ha establecido una conexión local a Azure correctamente y no puede establecer una conexión a Instancia administrada de SQL, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como el intervalo de puertos 11000-11999 para el redireccionamiento.
@@ -71,10 +71,10 @@ Otro escenario implementado por los clientes es cuando una puerta de enlace de V
 
 ![Emparejamiento de redes virtuales de Azure](./media/connect-application-instance/vnet-peering.png)
 
-Una vez configurada la infraestructura básica, deberá modificar alguna configuración para que la puerta de enlace de VPN pueda ver las direcciones IP en la red virtual que hospeda Instancia administrada de SQL. Para ello, realice los siguientes cambios específicos en la **Configuración de emparejamiento** .
+Una vez configurada la infraestructura básica, deberá modificar alguna configuración para que la puerta de enlace de VPN pueda ver las direcciones IP en la red virtual que hospeda Instancia administrada de SQL. Para ello, realice los siguientes cambios específicos en la **Configuración de emparejamiento**.
 
-1. En la red virtual que hospeda la puerta de enlace de VPN, vaya a **Emparejamientos** , vaya a la conexión de red virtual emparejada de Instancia administrada de SQL y, luego, haga clic en **Permitir tránsito de puerta de enlace** .
-2. En la red virtual que hospeda Instancia administrada de SQL, vaya a **Emparejamientos** , vaya a la conexión de red virtual emparejada de la puerta de enlace de VPN y, luego, haga clic en **Usar puertas de enlace remotas** .
+1. En la red virtual que hospeda la puerta de enlace de VPN, vaya a **Emparejamientos**, vaya a la conexión de red virtual emparejada de Instancia administrada de SQL y, luego, haga clic en **Permitir tránsito de puerta de enlace**.
+2. En la red virtual que hospeda Instancia administrada de SQL, vaya a **Emparejamientos**, vaya a la conexión de red virtual emparejada de la puerta de enlace de VPN y, luego, haga clic en **Usar puertas de enlace remotas**.
 
 ## <a name="connect-azure-app-service"></a>Conexión de Azure App Service 
 
@@ -101,7 +101,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 - Si no puede conectarse a Instancia administrada de SQL desde una máquina virtual de Azure dentro de la misma red virtual, pero una subred diferente, compruebe que no haya un grupo de seguridad de red establecido en la subred de la máquina virtual que bloquee el acceso. Además, abra la conexión saliente en el puerto 1433 de SQL, así como los puertos del intervalo 11000-11999, ya que son necesarios para conectarse mediante redireccionamiento dentro del límite de Azure.
 - Asegúrese de que la propagación de BGP está establecida en **Habilitado** para la tabla de rutas asociada a la red virtual.
-- Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida** . Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
+- Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida**. Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
 
    ![Números de entrada/salida](./media/connect-application-instance/ingress-egress-numbers.png)
 

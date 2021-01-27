@@ -3,23 +3,23 @@ title: 'Adición, eliminación y enumeración de usuarios en una unidad administ
 description: Administración de usuarios y sus permisos de rol en una unidad administrativa en Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d3dc7b37c96d2d82ae42d9bce32a97beab2d91e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395536"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740523"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adición y administración de usuarios en las unidades administrativas en Azure Active Directory
 
@@ -49,7 +49,7 @@ Puede asignar usuarios a unidades administrativas de forma individual o en masa.
 
    1. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com) con permisos de Administrador de roles con privilegios.
    1. Seleccione **Unidades administrativas** y, luego, elija la unidad administrativa a la que se va a asignar el usuario.
-   1. Seleccione **Todos los usuarios** , elija **Agregar miembro** y, luego, en el panel **Agregar miembro** , seleccione uno o más usuarios que quiera asignar a la unidad administrativa.
+   1. Seleccione **Todos los usuarios**, elija **Agregar miembro** y, luego, en el panel **Agregar miembro**, seleccione uno o más usuarios que quiera asignar a la unidad administrativa.
 
         ![Captura de pantalla del panel "Usuarios" de la unidad administrativa para asignar un usuario a una unidad administrativa.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 

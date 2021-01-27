@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763190"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731591"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades administradas para Azure SignalR Service
 
@@ -104,7 +104,7 @@ SignalR Service puede tener acceso a Key Vault para obtener el secreto mediante 
 
 1. Agregue una identidad asignada por el sistema o una identidad asignada por el usuario para Azure SignalR Service.
 
-2. Conceda el permiso de lectura de secreto para la identidad administrada en las directivas de acceso de Key Vault. Consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Conceda el permiso de lectura de secreto para la identidad administrada en las directivas de acceso de Key Vault. Consulte [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../key-vault/general/assign-access-policy-portal.md)
 
 Actualmente, esta característica se puede usar en los escenarios siguientes:
 

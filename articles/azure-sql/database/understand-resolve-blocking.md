@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224255"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725793"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Descripción y resolución de problemas de bloqueo en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -345,7 +345,7 @@ Los siguientes escenarios explicarán estos escenarios.
     Después de enviar una consulta al servidor, todas las aplicaciones deben recuperar inmediatamente todas las filas de resultados hasta su finalización. Si una aplicación no recupera todas las filas de resultados, se pueden quedar bloqueos en las tablas que impiden el acceso a otros usuarios. Si usa una aplicación que envía de manera transparente instrucciones SQL al servidor, la aplicación debe capturar todas las filas de resultados. De lo contrario (y si no se puede configurar para ello), es posible que no pueda resolver el problema de bloqueo. Para evitar este problema, puede restringir las aplicaciones con un comportamiento deficiente a una base de datos de informes o de ayuda para la toma de decisiones.
     
     > [!NOTE]
-    > Consulte la [guía de lógica de reintento](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) para las aplicaciones que se conectan a Azure SQL Database. 
+    > Consulte la [guía de lógica de reintento](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) para las aplicaciones que se conectan a Azure SQL Database. 
     
     **Solución:** se debe volver a escribir la aplicación para que recupere todas las filas de resultados hasta su finalización. Esto no descarta el uso de [OFFSET y FETCH en la cláusula ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) de una consulta para realizar la paginación del servidor.
 

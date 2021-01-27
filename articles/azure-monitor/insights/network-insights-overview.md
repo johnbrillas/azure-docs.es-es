@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: e4b555f4727d2d1fb5b64814ae07aa15b78da42c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510930"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734164"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
-Azure Monitor para redes ofrece una vista completa del [estado](../../service-health/resource-health-checks-resource-types.md) y las [métricas](../platform/metrics-supported.md) de todos los recursos de red implementados sin necesitar ninguna configuración. También proporciona acceso a funcionalidades de supervisión de red como [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [registro de flujo para los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) y [Análisis de tráfico](../../network-watcher/traffic-analytics.md). Además, proporciona otras características de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics).
+Azure Monitor para redes ofrece una vista completa del [estado](../../service-health/resource-health-checks-resource-types.md) y las [métricas](../platform/metrics-supported.md) de todos los recursos de red implementados sin necesitar ninguna configuración. También proporciona acceso a funcionalidades de supervisión de red como [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [registro de flujo para los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) y [Análisis de tráfico](../../network-watcher/traffic-analytics.md). Además, proporciona otras características de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics).
 
 Azure Monitor para redes está estructurado en torno a estos componentes clave de supervisión:
 - [Estado y métricas de red](#networkhealth)

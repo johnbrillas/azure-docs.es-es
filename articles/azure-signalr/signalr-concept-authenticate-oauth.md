@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8dd3c60c3d1b714ab75b496a94ba4bd5aec4e43d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: cd5b709843ba2d98170aaa58eb5c3cc1ec8883af
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558477"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734688"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticación de Azure SignalR Service
 
@@ -48,7 +48,7 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 - Una cuenta creada en [GitHub](https://github.com/)
 - [Git](https://git-scm.com/)
 - [SDK de .NET Core](https://www.microsoft.com/net/download/windows)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) configurado para el entorno de Bash.
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) configurado para el entorno de Bash.
 - Descargue o clone el repositorio de GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Creación de una aplicación de OAuth

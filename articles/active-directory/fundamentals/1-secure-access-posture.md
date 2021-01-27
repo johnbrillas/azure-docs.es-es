@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222452"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725448"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Determinación de la posición de seguridad para el acceso externo 
 
@@ -69,7 +69,7 @@ Sea lo que fuere que apruebe para su organización y escenarios, deberá:
 
 * **Controlar el acceso a las aplicaciones, los datos y el contenido**. Esto puede realizarse a través de diversos métodos, en función de las versiones de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) y [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Reducir la superficie expuesta a ataques**. [Privileged Identity Management](../privileged-identity-management/pim-configure.md), [la prevención de pérdida de datos (DLP)](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) y las [capacidades de cifrado](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reducen la superficie expuesta a ataques.
+* **Reducir la superficie expuesta a ataques**. [Privileged Identity Management](../privileged-identity-management/pim-configure.md), [la prevención de pérdida de datos (DLP)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) y las [capacidades de cifrado](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reducen la superficie expuesta a ataques.
 
 * **Revise periódicamente el registro de actividad y auditoría para confirmar el cumplimiento**. TI puede delegar las decisiones de acceso a los propietarios de empresas a través de la administración de derechos, mientras que las revisiones de acceso proporcionan una forma de confirmar periódicamente el acceso continuo. La clasificación de datos automatizada con etiquetas de confidencialidad ayuda a automatizar el cifrado de contenido confidencial, lo que facilita el cumplimiento por parte los usuarios finales de los empleados.
 
@@ -96,4 +96,3 @@ Consulte los siguientes artículos sobre cómo proteger el acceso externo a los 
 9. [Acceso seguro a Microsoft Teams, OneDrive y SharePoint](9-secure-access-teams-sharepoint.md)
  
 
- 

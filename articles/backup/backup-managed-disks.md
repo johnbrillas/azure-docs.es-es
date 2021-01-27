@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Managed Disks
 description: Obtenga información sobre cómo realizar una copia de seguridad de Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573129"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738159"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Copia de seguridad de Azure Managed Disks (en versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98573129"
 >
 >[Rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para suscribirse a la versión preliminar.
 
-En este artículo se explica cómo realizar copias de seguridad de [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) desde Azure Portal.
+En este artículo se explica cómo realizar copias de seguridad de [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) desde Azure Portal.
 
 En este artículo, aprenderá a:
 
@@ -46,7 +46,7 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
 
    ![Iniciar: Crear almacén](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. En la pestaña **Datos básicos**, proporcione la suscripción, el grupo de recursos, el nombre del almacén de Backup, la región y la redundancia del almacenamiento de copias de seguridad. A continuación, seleccione **Revisar y crear**. Obtenga más información sobre cómo [crear un almacén de Backup](https://docs.microsoft.com/azure/backup/backup-vault-overview#create-a-backup-vault).
+1. En la pestaña **Datos básicos**, proporcione la suscripción, el grupo de recursos, el nombre del almacén de Backup, la región y la redundancia del almacenamiento de copias de seguridad. A continuación, seleccione **Revisar y crear**. Obtenga más información sobre cómo [crear un almacén de Backup](./backup-vault-overview.md#create-a-backup-vault).
 
    ![Revisar y crear almacén](./media/backup-managed-disks/review-and-create.png)
 
@@ -67,7 +67,7 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
 
    ![Selección de la frecuencia de programación de la copia de seguridad](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   Azure Disk Backup le ofrece varias copias de seguridad al día. Si necesita realizar copias de seguridad con más frecuencia, elija la frecuencia de copia de seguridad **Cada hora**, ya que le ofrece la posibilidad de realizar copias de seguridad a intervalos de 4, 6, 8 o 12 horas. Las copias de seguridad se programan en función del intervalo de **tiempo** seleccionado. Por ejemplo, si selecciona **Cada 4 horas**, las copias de seguridad se realizan aproximadamente cada 4 horas, por lo que las mismas se distribuyen equitativamente a lo largo del día. Si realizar una copia de seguridad al día es suficiente, elija la frecuencia **Diaria**. En la frecuencia de copia de seguridad diaria, puede especificar la hora del día en la que se realizarán las copias de seguridad. Es importante tener en cuenta que la hora del día indica la hora de inicio de la copia de seguridad y no la hora en que se completa la misma. El tiempo necesario para completar la operación de copia de seguridad depende de varios factores, como el tamaño del disco y la tasa de abandono entre copias de seguridad consecutivas. No obstante, Azure Disk Backup es una opción de copias de seguridad sin agente que usa [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal), lo que no afecta al rendimiento de la aplicación de producción.
+   Azure Disk Backup le ofrece varias copias de seguridad al día. Si necesita realizar copias de seguridad con más frecuencia, elija la frecuencia de copia de seguridad **Cada hora**, ya que le ofrece la posibilidad de realizar copias de seguridad a intervalos de 4, 6, 8 o 12 horas. Las copias de seguridad se programan en función del intervalo de **tiempo** seleccionado. Por ejemplo, si selecciona **Cada 4 horas**, las copias de seguridad se realizan aproximadamente cada 4 horas, por lo que las mismas se distribuyen equitativamente a lo largo del día. Si realizar una copia de seguridad al día es suficiente, elija la frecuencia **Diaria**. En la frecuencia de copia de seguridad diaria, puede especificar la hora del día en la que se realizarán las copias de seguridad. Es importante tener en cuenta que la hora del día indica la hora de inicio de la copia de seguridad y no la hora en que se completa la misma. El tiempo necesario para completar la operación de copia de seguridad depende de varios factores, como el tamaño del disco y la tasa de abandono entre copias de seguridad consecutivas. No obstante, Azure Disk Backup es una opción de copias de seguridad sin agente que usa [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md), lo que no afecta al rendimiento de la aplicación de producción.
 
 1. En la pestaña **Directiva de copia de seguridad**, seleccione la configuración de retención que cumpla el requisito del objetivo de punto de recuperación (RPO).
 
@@ -80,7 +80,7 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
    ![Configuración de retención](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >Azure Backup para Managed Disks usa instantáneas incrementales que se limitan a 200 instantáneas por disco. Para que pueda realizar copias de seguridad a petición además de las copias de seguridad programadas, la directiva de copia de seguridad limita el número total de copias de seguridad a 180. Obtenga más información sobre las [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) del disco administrado.
+   >Azure Backup para Managed Disks usa instantáneas incrementales que se limitan a 200 instantáneas por disco. Para que pueda realizar copias de seguridad a petición además de las copias de seguridad programadas, la directiva de copia de seguridad limita el número total de copias de seguridad a 180. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco administrado.
 
 1. Para completar la creación de la directiva de copia de seguridad, seleccione **Revisar y crear**.
 
@@ -88,7 +88,7 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
 
 El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para configurar la copia de seguridad de los discos administrados, la identidad administrada del almacén de Backup requiere un conjunto de permisos en los discos de origen y los grupos de recursos donde se crean y administran las instantáneas.
 
-Cada recurso solo puede tener una identidad administrada asignada por el sistema, y cada una de ellas está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Cada recurso solo puede tener una identidad administrada asignada por el sistema, y cada una de ellas está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Los siguientes requisitos previos son necesarios para configurar la copia de seguridad de los discos administrados:
 
@@ -115,7 +115,7 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
 
    - Puede usar este grupo de recursos para almacenar instantáneas en varios discos que se vayan a incluir (o que tenga planeado incluir) en la copia de seguridad.  
 
-   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por lo tanto, elija el grupo de recursos de la misma suscripción que el disco del que se va a realizar la copia de seguridad. Obtenga más información sobre las [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de discos administrados.
+   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por lo tanto, elija el grupo de recursos de la misma suscripción que el disco del que se va a realizar la copia de seguridad. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados.
 
    Siga estos pasos para asignar un rol:
 
@@ -129,8 +129,6 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
    >Escriba el nombre del almacén de Backup para seleccionar la identidad administrada del mismo.
 
    ![Agregar el rol de colaborador de instantáneas de discos](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. Si el disco del que se va a realizar la copia de seguridad está cifrado con [claves administradas por el cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o con el [cifrado doble que usa claves administradas por la plataforma y claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), asigne el permiso del rol **Lector** a la identidad administrada del almacén de Backup del recurso **Conjunto de cifrado de disco**.
 
 1. Compruebe que la identidad administrada del almacén de Backup tiene el conjunto adecuado de asignaciones de roles en el disco de origen y el grupo de recursos que servirán de almacén de datos de instantáneas.
 
@@ -154,7 +152,7 @@ Los siguientes requisitos previos son necesarios para configurar la copia de seg
    ![Selección de Azure Disk](./media/backup-managed-disks/select-azure-disk.png)
 
    >[!NOTE]
-   >Azure Backup usa [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de discos administrados, que solo almacenan los cambios diferenciales en el disco desde la última instantánea en almacenamiento HDD estándar, independientemente del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, las instantáneas incrementales se guardan de forma predeterminada en el almacenamiento con redundancia de zona (ZRS) en aquellas regiones que admiten ZRS. Actualmente, Azure Disk Backup admite la copia de seguridad operativa de discos administrados que no copie las copias de seguridad en el almacenamiento del almacén de Backup. Por lo tanto, la configuración de redundancia del almacenamiento de Backup no se aplica a los puntos de recuperación.
+   >Azure Backup usa [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados, que solo almacenan los cambios diferenciales en el disco desde la última instantánea en almacenamiento HDD estándar, independientemente del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, las instantáneas incrementales se guardan de forma predeterminada en el almacenamiento con redundancia de zona (ZRS) en aquellas regiones que admiten ZRS. Actualmente, Azure Disk Backup admite la copia de seguridad operativa de discos administrados que no copie las copias de seguridad en el almacenamiento del almacén de Backup. Por lo tanto, la configuración de redundancia del almacenamiento de Backup no se aplica a los puntos de recuperación.
 
 1. En la pestaña **Directivas de copia de seguridad**, elija una directiva de copia de seguridad.
 

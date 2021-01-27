@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013499"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735040"
 ---
 # <a name="app-service-environment-networking"></a>Redes de App Service Environment
 
@@ -52,7 +52,7 @@ A diferencia de ASEv2, con ASEv3 puede establecer grupos de seguridad de red (NS
 
 ## <a name="dns"></a>DNS
 
-Las aplicaciones de ASE usarán el DNS con el que está configurada la VNet. Siga las instrucciones que se indican en [Uso de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) para configurar el servidor DNS de modo que apunte a su ASE. Si desea que algunas aplicaciones usen un servidor DNS distinto al que está configurado en la VNet, puede establecerlo manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal. 
+Las aplicaciones de ASE usarán el DNS con el que está configurada la VNet. Siga las instrucciones que se indican en [Uso de App Service Environment](./using.md#dns-configuration) para configurar el servidor DNS de modo que apunte a su ASE. Si desea que algunas aplicaciones usen un servidor DNS distinto al que está configurado en la VNet, puede establecerlo manualmente en cada aplicación con las configuraciones de aplicación WEBSITE_DNS_SERVER y WEBSITE_DNS_ALT_SERVER. La configuración de aplicación WEBSITE_DNS_ALT_SERVER configura el servidor DNS secundario. El servidor DNS secundario solo se usa cuando no hay ninguna respuesta del servidor DNS principal. 
 
 ## <a name="preview-limitation"></a>Limitación de la versión preliminar
 
@@ -61,4 +61,3 @@ Hay algunas características de red que no están disponibles con ASEv3.  Los el
 • FTP • Depuración remota • Implementación del equilibrador de carga externo • Capacidad de acceder a un registro de contenedor privado para implementaciones de contenedores • Capacidad para realizar llamadas a redes virtuales emparejadas globalmente • Capacidad para realizar copias de seguridad o restaurar con una cuenta de almacenamiento protegida de punto de conexión de servicio o punto de conexión privado • Capacidad de hacer referencia a keyvault de la configuración de aplicación en cuentas de keyvault protegidas de punto de conexión de servicio o punto de conexión privado • Capacidad de usar BYOS para una cuenta de almacenamiento protegida de punto de conexión de servicio o punto de conexión privado • Uso de Network Watcher o NSG Flow en el tráfico de salida
     
     
-

@@ -4,12 +4,12 @@ description: Conozca los componentes de la copia de seguridad sin conexión. Por
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c65cf6b36af3057fb06c6a6584fa458b1030c72
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86503632"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704142"
 ---
 # <a name="overview-of-offline-backup"></a>Introducción a la copia de seguridad sin conexión
 
@@ -45,7 +45,7 @@ Para usar copia de seguridad sin conexión basada en Azure Data Box, consulte [C
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Copia de seguridad sin conexión basada en el servicio Azure Import/Export
 
-Esta opción es compatible con Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A y el agente de MARS. Además, usa el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). Puede transferir los datos de la copia de seguridad inicial a Azure mediante sus propios discos y conectores compatibles con Azure. Este enfoque requiere el aprovisionamiento de un almacenamiento temporal conocido como ubicación de almacenamiento provisional y el uso de utilidades pregeneradas para dar formato y copiar los datos de copia de seguridad en discos propiedad del cliente.
+Esta opción es compatible con Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A y el agente de MARS. Además, usa el [servicio Azure Import/Export](../import-export/storage-import-export-service.md). Puede transferir los datos de la copia de seguridad inicial a Azure mediante sus propios discos y conectores compatibles con Azure. Este enfoque requiere el aprovisionamiento de un almacenamiento temporal conocido como ubicación de almacenamiento provisional y el uso de utilidades pregeneradas para dar formato y copiar los datos de copia de seguridad en discos propiedad del cliente.
 
 A continuación se muestra una arquitectura que describe el movimiento de los datos de copia de seguridad con esta opción.
 
@@ -73,7 +73,7 @@ En la tabla siguiente se comparan las dos opciones disponibles, de modo que pued
 | Número máximo de datos de copia de seguridad por servidor (MARS) o por grupo de protección (MABS, DPM-A) | [Disco de Azure Data Box](../databox/data-box-disk-overview.md): 7,2 TB <br> [Azure Data Box:](../databox/data-box-overview.md) 80 TB       | 80 TB (hasta 10 discos de 8 TB cada uno)                          |
 | Seguridad (datos, dispositivo y servicio)                           | [Datos](../databox/data-box-security.md#data-box-data-protection): cifrados con AES de 256 bits <br> [Dispositivo](../databox/data-box-security.md#data-box-device-protection): interfaz propia basada en credenciales, en carcasa resistente para copiar datos <br> [Servicio](../databox/data-box-security.md#data-box-service-protection): protegido por las características de seguridad de Azure | Datos: cifrados con BitLocker                                 |
 | Aprovisionamiento de ubicación de almacenamiento provisional temporal                     | No se requiere                                                | Mayor o igual que el tamaño estimado de los datos de copia de seguridad        |
-| Regiones admitidas                                           | [Regiones de Azure Data Box Disk](../databox/data-box-disk-overview.md#region-availability) <br> [Regiones de Azure Data Box](../databox/data-box-disk-overview.md#region-availability) | [Regiones de servicios Azure Import/Export](../storage/common/storage-import-export-service.md#region-availability) |
+| Regiones admitidas                                           | [Regiones de Azure Data Box Disk](../databox/data-box-disk-overview.md#region-availability) <br> [Regiones de Azure Data Box](../databox/data-box-disk-overview.md#region-availability) | [Regiones de servicios Azure Import/Export](../import-export/storage-import-export-service.md#region-availability) |
 | Envío entre países                                     | No compatible  <br>    La dirección de origen y el centro de datos de Azure de destino deben estar en el mismo país o región*. | Compatible                                                    |
 | Logística de transferencia (entrega, transporte, recogida)           | Administrada totalmente por Microsoft                                     | Administrado por el cliente                                            |
 | Precios                                                      | [Precios de Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Precios de Azure Data Box Disk](https://azure.microsoft.com/pricing/details/databox/disk/) | [Precios del servicio Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |

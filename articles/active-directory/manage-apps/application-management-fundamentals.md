@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656414"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736976"
 ---
 # <a name="application-management-best-practices"></a>Procedimientos recomendados de administración de aplicaciones
 
@@ -33,9 +33,9 @@ Este artículo contiene recomendaciones y procedimientos recomendados para admin
 | Consultar la galería de aplicaciones de Azure AD para aplicaciones  | Azure AD dispone de una galería que contiene miles de aplicaciones previamente integradas que se habilitan con el inicio de sesión único empresarial (SSO). Para obtener instrucciones sobre la configuración específica de la aplicación, consulte la [Lista de tutoriales de aplicaciones SaaS](../saas-apps/tutorial-list.md).  | 
 | Usar SSO basado en SAML federado  | Cuando una aplicación lo admita, use el SSO basado en SAML federado con Azure AD en lugar de SSO basado en contraseña y ADFS.  | 
 | Usar SHA-256 para la firma de certificados  | Azure AD utiliza el algoritmo predeterminado SHA-256 para firmar la respuesta SAML. Use SHA-256 a menos que la aplicación requiera SHA-1 (consulte [Opciones de firma de certificados](certificate-signing-options.md) y [Problema de inicio de sesión de la aplicación](application-sign-in-problem-application-error.md)).  | 
-| Requerir la asignación de usuario  | De forma predeterminada, los usuarios pueden acceder a sus aplicaciones empresariales sin tener que asignarlas. Sin embargo, si la aplicación expone roles o si quiere que aparezca en la página Aplicaciones de un usuario, exija la asignación de usuarios. (Consulte [Guía del desarrollador para la integración de aplicaciones](developer-guidance-for-integrating-applications.md)).  | 
+| Requerir la asignación de usuario  | De forma predeterminada, los usuarios pueden acceder a sus aplicaciones empresariales sin tener que asignarlas. Sin embargo, si la aplicación expone roles o si quiere que aparezca en la página Aplicaciones de un usuario, exija la asignación de usuarios.  | 
 | Implementación de la página Aplicaciones en los usuarios | La página [Aplicaciones](end-user-experiences.md) en `https://myapps.microsoft.com` es un portal web que proporciona a los usuarios un único punto de entrada para las aplicaciones basadas en la nube asignadas. A medida que se agreguen funcionalidades adicionales, como la administración de grupos y el autoservicio de restablecimiento de contraseña, los usuarios pueden encontrarlas en dicho portal. Consulte [Planeamiento de una implementación de Aplicaciones](access-panel-deployment-plan.md).
-| Usar asignación de un grupo  | Si se incluye en la suscripción, asigne grupos a una aplicación para que pueda delegar la administración de acceso continuo al propietario del grupo. (Consulte [Guía del desarrollador para la integración de aplicaciones](developer-guidance-for-integrating-applications.md)).   | 
+| Usar asignación de un grupo  | Si se incluye en la suscripción, asigne grupos a una aplicación para que pueda delegar la administración de acceso continuo al propietario del grupo.  | 
 | Establecer un proceso para administrar certificados | La duración máxima de un certificado de firma es de tres años. Para evitar o minimizar la interrupción debido a la expiración de un certificado, use las listas de distribución de correo electrónico y roles para asegurarse de que las notificaciones de cambios relacionadas con los certificados se supervisan con atención. |
 
 ## <a name="provisioning-recommendations"></a>Aprovisionar las recomendaciones

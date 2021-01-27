@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251223"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735518"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -106,7 +106,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 > Actualmente, la serie DC está en **versión preliminar pública**.
 
 - El hardware de la serie DC utiliza procesadores Intel con tecnología Software Guard Extensions (Intel SGX).
-- La serie DC es necesaria para [Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), que no es compatible con otras configuraciones de hardware.
+- La serie DC es necesaria para [Always Encrypted con enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves), que no es compatible con otras configuraciones de hardware.
 - La serie DC está diseñada para cargas de trabajo que procesan datos confidenciales y requieren funcionalidades de procesamiento de consultas confidenciales, proporcionadas por Always Encrypted con enclaves seguros.
 - El hardware de la serie DC proporciona recursos de proceso y memoria equilibrados.
 

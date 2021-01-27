@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602191"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724617"
 ---
 # <a name="build-resilience-with-device-states"></a>Aumento de la resistencia con estados de dispositivos
 
@@ -40,11 +40,11 @@ Cuando se usa un PRT para solicitar acceso a una aplicación, sus notificaciones
 
   Si hay versiones anteriores de Windows en la organización, actualice esos dispositivos para usar Windows 10.
 
-* Estandarice el acceso al explorador del usuario para usar [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) o Google Chrome con [extensiones](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [compatibles](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que habiliten el inicio de sesión único de conexión directa a aplicaciones web mediante el PRT.
+* Estandarice el acceso al explorador del usuario para usar [Microsoft Edge](/deployedge/microsoft-edge-security-identity) o Google Chrome con [extensiones](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [compatibles](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que habiliten el inicio de sesión único de conexión directa a aplicaciones web mediante el PRT.
 
-* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, implemente la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Además de las funcionalidades de inicio de sesión con autenticación multifactor y sin contraseña, la aplicación Microsoft Authenticator habilitará el inicio de sesión único en la aplicación nativa a través de la [autenticación con intermediación](../develop/brokered-auth.md) con menos solicitudes de autenticación para los usuarios finales.
+* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, implemente la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Además de las funcionalidades de inicio de sesión con autenticación multifactor y sin contraseña, la aplicación Microsoft Authenticator habilitará el inicio de sesión único en la aplicación nativa a través de la [autenticación con intermediación](../develop/msal-android-single-sign-on.md) con menos solicitudes de autenticación para los usuarios finales.
 
-* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, use la [administración de aplicaciones móviles](https://docs.microsoft.com/mem/intune/apps/app-management) para tener acceso de forma segura a los recursos de la empresa con menos solicitudes de autenticación. 
+* En el caso de los dispositivos iOS y Android de propiedad personal o de la empresa, use la [administración de aplicaciones móviles](/mem/intune/apps/app-management) para tener acceso de forma segura a los recursos de la empresa con menos solicitudes de autenticación. 
 
 * [Use el complemento de Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)](../develop/apple-sso-plugin.md). Esto registra el dispositivo y proporciona SSO en todas las aplicaciones de Azure AD nativas y del explorador. 
 
@@ -59,11 +59,11 @@ Recursos de resistencia para administradores y arquitectos
 
 * [Aumento de la resistencia en la autenticación híbrida](resilience-in-hybrid.md)
 
-* [Aumento de la resistencia en el acceso a las aplicaciones con Application Proxy](resilience-on-premises-access.md)
+* [Aumento de la resistencia en el acceso a la aplicación con Application Proxy](resilience-on-premises-access.md)
 
 
 Recursos de resistencia para desarrolladores
 
-* [Aumento de la resistencia de IAM en las aplicaciones](resilience-app-development-overview.md)
+* [Aumento de la resistencia IAM en las aplicaciones](resilience-app-development-overview.md)
 
 * [Aumento de la resistencia en los sistemas CIAM](resilience-b2c.md)

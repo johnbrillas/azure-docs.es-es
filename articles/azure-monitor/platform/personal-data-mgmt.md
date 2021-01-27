@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505280"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734939"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
 
@@ -91,7 +91,7 @@ Para ver y exportar las solicitudes de datos, debe usarse la [API de consulta de
 Como parte de un caso de tratamiento de privacidad, hemos publicado una ruta de acceso a una API de *purga*. Esta ruta de acceso debe usarse con moderación debido al riesgo asociado inherente, al posible impacto en el rendimiento y a la posibilidad de sesgar completamente agregaciones, medidas y otros aspectos de los datos de Log Analytics. Consulte la sección [Estrategia de tratamiento de datos personales](#strategy-for-personal-data-handling) para conocer otras maneras de administrar los datos privados.
 
 > [!NOTE]
-> Una vez que se ha realizado la operación de purga, no se puede acceder a los datos mientras el [estado de la operación de purga](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) sea *pendiente*. 
+> Una vez que se ha realizado la operación de purga, no se puede acceder a los datos mientras el [estado de la operación de purga](/rest/api/loganalytics/workspacepurge/getpurgestatus) sea *pendiente*. 
 
 La purga es una operación con privilegios elevados que ninguna aplicación ni usuario de Azure (incluido incluso el propietario del recurso) tiene permisos para ejecutar sin que se le haya concedido expresamente un rol en Azure Resource Manager. Este rol es _Purgador de datos_ y se debe delegar con cuidado debido a la posibilidad de pérdida de datos. 
 
@@ -129,4 +129,3 @@ Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener más información sobre cómo se recopilan, procesan y protegen los datos de Log Analytics, consulte [Seguridad de datos de Log Analytics](./data-security.md).
 - Para obtener más información sobre cómo se recopilan, procesan y protegen los datos de Application Insights, vea [Seguridad de datos de Application Insights](../app/data-retention-privacy.md).
-

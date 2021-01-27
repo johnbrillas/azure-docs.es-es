@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562767"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735867"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -77,7 +77,7 @@ Azure Backup usa la identidad administrada asignada por el sistema para autentic
 
 **Con PowerShell:**
 
-Use el comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para habilitar la identidad administrada asignada por el sistema para el almacén de Recovery Services.
+Use el comando [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para habilitar la identidad administrada asignada por el sistema para el almacén de Recovery Services.
 
 Ejemplo:
 
@@ -121,7 +121,7 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 
 **Con PowerShell**:
 
-Use el comando [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
+Use el comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
 
 Ejemplo:
 
@@ -290,7 +290,7 @@ El conjunto de cifrado de discos se especifica en Configuración de cifrado en e
 
 **Con PowerShell**:
 
-Use el comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con el parámetro [`-DiskEncryptionSetId <string>`] para [especificar el DES](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) que se usará para cifrar el disco restaurado. Para más información sobre cómo restaurar discos a partir de una copia de seguridad de VM, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Use el comando [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con el parámetro [`-DiskEncryptionSetId <string>`] para [especificar el DES](/powershell/module/az.compute/get-azdiskencryptionset) que se usará para cifrar el disco restaurado. Para más información sobre cómo restaurar discos a partir de una copia de seguridad de VM, consulte [este artículo](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Ejemplo:
 

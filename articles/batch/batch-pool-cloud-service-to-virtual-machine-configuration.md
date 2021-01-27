@@ -3,16 +3,16 @@ title: Migración de la configuración del grupo de Batch de Cloud Services a Vi
 description: Obtenga información acerca de cómo actualizar la configuración del grupo a la configuración más reciente y recomendada.
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234314"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731506"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migración de la configuración del grupo de Batch de Cloud Services a Virtual Machines
 
-Los grupos de Batch se pueden crear mediante [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) o [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). "virtualMachineConfiguration" es la configuración recomendada, ya que es compatible con todas las funcionalidades de Batch. Los grupos "cloudServiceConfiguration" no admiten todas las características y no se han planeado nuevas características.
+Los grupos de Batch se pueden crear mediante [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) o [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration). "virtualMachineConfiguration" es la configuración recomendada, ya que es compatible con todas las funcionalidades de Batch. Los grupos "cloudServiceConfiguration" no admiten todas las características y no se han planeado nuevas características.
 
 Si usa grupos "cloudServiceConfiguration", se recomienda encarecidamente que se mueva para usar grupos "virtualMachineConfiguration". Esto le permitirá beneficiarse de todas las funcionalidades de Batch, como una ampliada [selección de serie de máquinas virtuales](batch-pool-vm-sizes.md), máquinas virtuales de Linux, [contenedores](batch-docker-container-workloads.md), [redes virtuales de Azure Resource Manager](batch-virtual-network.md) y [de cifrado de discos de nodo](disk-encryption.md).
 
@@ -41,4 +41,4 @@ Al actualizar la configuración del grupo, debe tener en cuenta lo siguiente:
 
 - Obtenga más información sobre las [configuraciones de grupo](nodes-and-pools.md#configurations).
 - Obtenga más información sobre los [procedimientos recomendados de los grupos](best-practices.md#pools).
-- Referencia de la API REST para la [adición de grupos](https://docs.microsoft.com/rest/api/batchservice/pool/add) y [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+- Referencia de la API REST para la [adición de grupos](/rest/api/batchservice/pool/add) y [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223166"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737802"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparación de máquinas virtuales para una FCI (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ La configuración de la máquina virtual varía en función de la opción de alm
 
 ## <a name="configure-vm-availability"></a>Configuración de la disponibilidad de máquinas virtuales 
 
-La característica de clúster de conmutación por error requiere que las máquinas virtuales se coloquen en un [conjunto de disponibilidad](../../../virtual-machines/linux/tutorial-availability-sets.md) o en una [zona de disponibilidad](../../../availability-zones/az-overview.md#availability-zones). Si elige conjuntos de disponibilidad, puede utilizar [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) para ubicar las máquinas virtuales más cerca. De hecho, los grupos con ubicación por proximidad son un requisito previo para el uso de discos compartidos de Azure. 
+La característica de clúster de conmutación por error requiere que las máquinas virtuales se coloquen en un [conjunto de disponibilidad](../../../virtual-machines/linux/tutorial-availability-sets.md) o en una [zona de disponibilidad](../../../availability-zones/az-overview.md#availability-zones). Si elige conjuntos de disponibilidad, puede utilizar [grupos con ubicación por proximidad](../../../virtual-machines/co-location.md#proximity-placement-groups) para ubicar las máquinas virtuales más cerca. De hecho, los grupos con ubicación por proximidad son un requisito previo para el uso de discos compartidos de Azure. 
 
 Seleccione cuidadosamente la opción de disponibilidad de la máquina virtual que coincida con la configuración de clúster prevista: 
 

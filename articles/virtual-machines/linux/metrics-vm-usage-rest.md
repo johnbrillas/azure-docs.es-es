@@ -8,12 +8,12 @@ ms.custom: REST
 ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 0a448d4b4538d62c1631cf16d88ec0a7e7f2a399
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9430eaeb3ba22bd0d9fc0675ab97c84944a0cf7c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508040"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737853"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtener métricas de utilización de máquina virtual mediante la API de REST
 
@@ -42,7 +42,7 @@ Los siguientes encabezados son obligatorios:
 
 | Nombre | Descripción |
 | :--- | :---------- |
-| subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | El nombre del grupo de recursos de Azure asociado al recurso. Puede obtener este valor de la API Azure Resource Manager, la CLI o el portal. |
 | vmname | El nombre de la máquina virtual de Azure. |
 | metricnames | Lista separada por comas de [métricas válidas de Load Balancer](../../load-balancer/load-balancer-standard-diagnostics.md). |

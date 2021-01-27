@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632216"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730877"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperación ante desastres con la herramienta Azure Application Consistent Snapshot (versión preliminar)
 
@@ -40,7 +40,7 @@ Antes de planear la conmutación por error de recuperación ante desastres, se d
 - Tener la replicación del almacenamiento en funcionamiento. El equipo de Microsoft Operations realiza la configuración de la replicación de almacenamiento en el momento del aprovisionamiento automático para la recuperación ante desastres. Puede supervisar la replicación del almacenamiento mediante el comando `azacsnap -c details --details replication` en el sitio de recuperación ante desastres.
 - Haber configurado las instantáneas de almacenamiento en la ubicación principal.
 - Tener una instancia de HANA instalada en el sitio de recuperación ante desastres para la instancia principal con el mismo identificador de seguridad que la instancia principal.
-- Leer y comprender el procedimiento de conmutación por error para la recuperación ante desastres descrito en [Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- Leer y comprender el procedimiento de conmutación por error para la recuperación ante desastres descrito en [Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md).
 - Haber configurado las instantáneas de almacenamiento en la ubicación de recuperación ante desastres.
 - Haber creado un archivo de configuración (por ejemplo, `DR.json`) con los volúmenes de almacenamiento para la recuperación ante desastres y la información asociada en el servidor de recuperación ante desastres.
 - Haber completado los pasos que se indican en el sitio de recuperación ante desastres para:

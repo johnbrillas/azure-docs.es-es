@@ -3,12 +3,12 @@ title: Recurso compartido de archivos de Azure para grupos de Azure Batch
 description: Cómo montar un recurso compartido de archivos de Azure a partir de nodos de proceso en un grupo de Linux o Windows en Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986430"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735501"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Uso de un recurso compartido de archivos con un grupo de Batch
 
@@ -20,7 +20,7 @@ ms.locfileid: "87986430"
 
 * Los recursos compartidos de archivos de Azure son [rentables](https://azure.microsoft.com/pricing/details/storage/files/) y se pueden configurar con la replicación de datos en otra región, así que son redundantes de forma global. 
 
-* Se puede montar al mismo tiempo un recurso compartido de archivos de Azure desde un equipo local. Sin embargo, asegúrese de que comprende las [implicaciones de simultaneidad](../storage/common/storage-concurrency.md) especialmente al usar las API REST.
+* Se puede montar al mismo tiempo un recurso compartido de archivos de Azure desde un equipo local. Sin embargo, asegúrese de que comprende las [implicaciones de simultaneidad](../storage/blobs/concurrency-manage.md) especialmente al usar las API REST.
 
 * Consulte también las [consideraciones de planeación](../storage/files/storage-files-planning.md) sobre los recursos compartidos de archivos de Azure.
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914967"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728098"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extracción de configuraciones a App Configuration con Azure Pipelines
 
@@ -47,7 +47,7 @@ Ahora que ha creado la conexión de servicio, busque el nombre de la entidad de 
 
 Asigne el rol de App Configuration adecuado a la conexión de servicio que se va a utilizar en la tarea de forma que esta pueda acceder al almacén de App Configuration.
 
-1. Navegue al almacén de App Configuration de destino. Para ver un tutorial sobre cómo configurar un almacén de App Configuration, consulte [Creación de un almacén de App Configuration](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) en una de las guías de inicio rápido de Azure App Configuration.
+1. Navegue al almacén de App Configuration de destino. Para ver un tutorial sobre cómo configurar un almacén de App Configuration, consulte [Creación de un almacén de App Configuration](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) en una de las guías de inicio rápido de Azure App Configuration.
 1. En el lado izquierdo, seleccione **Control de acceso (IAM)** .
 1. En la parte superior, seleccione **+ Agregar** y elija **Agregar asignación de roles**.
 1. En **Rol**, seleccione **Lector de los datos de App Configuration**. Este rol permite que la tarea lea en el almacén de App Configuration. 

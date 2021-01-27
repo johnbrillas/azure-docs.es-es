@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803194"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737140"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Sugerencias y trucos de uso de la herramienta Azure Application Consistent Snapshot (versión preliminar)
 
@@ -27,7 +27,7 @@ En este artículo se ofrecen sugerencias y trucos que pueden resultar útiles cu
 
 ## <a name="limit-service-principal-permissions"></a>Limitación de permisos de entidad de servicio
 
-Puede que sea necesario limitar el ámbito de la entidad de servicio de AzAcSnap.  Revise la [documentación de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/) para obtener más información sobre la administración de acceso específico de recursos de Azure.  
+Puede que sea necesario limitar el ámbito de la entidad de servicio de AzAcSnap.  Revise la [documentación de Azure RBAC](../role-based-access-control/index.yml) para obtener más información sobre la administración de acceso específico de recursos de Azure.  
 
 A continuación se proporciona una definición de roles de ejemplo con las acciones mínimas necesarias para que AzAcSnap funcione.
 

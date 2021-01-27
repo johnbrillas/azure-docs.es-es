@@ -5,19 +5,19 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c30051008474a32ae6c847ee3f840c8ae35b469b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349042"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726820"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Reducción de la latencia con grupos con ubicación por proximidad
 
 > [!Note]
 > Cuando se usan los grupos con ubicación por proximidad en AKS, la coubicación solo se aplica a los nodos agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
 
-Al implementar la aplicación en Azure, la propagación de instancias de máquina virtual (VM) entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. Un grupo con ubicación por proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Algunas aplicaciones como juegos, simulaciones de ingeniería y operaciones bursátiles de alta frecuencia (HFT) requieren una latencia baja y tareas que se completen rápidamente. En escenarios de informática de alto rendimiento (HPC), como estos, considere la posibilidad de usar [grupos con ubicación por proximidad](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) en los grupos de nodos del clúster.
+Al implementar la aplicación en Azure, la propagación de instancias de máquina virtual (VM) entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. Un grupo con ubicación por proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Algunas aplicaciones como juegos, simulaciones de ingeniería y operaciones bursátiles de alta frecuencia (HFT) requieren una latencia baja y tareas que se completen rápidamente. En escenarios de informática de alto rendimiento (HPC), como estos, considere la posibilidad de usar [grupos con ubicación por proximidad](../virtual-machines/co-location.md#proximity-placement-groups) (PPG) en los grupos de nodos del clúster.
 
 ## <a name="before-you-begin"></a>Antes de comenzar
 
@@ -133,7 +133,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
+[proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

@@ -4,16 +4,16 @@ description: Los grupos de imágenes personalizadas son una manera eficaz de con
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327311"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731368"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
-Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear un grupo de máquinas virtuales con una imagen de Azure Marketplace compatible o crear una imagen personalizada con una [imagen de Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear un grupo de máquinas virtuales con una imagen de Azure Marketplace compatible o crear una imagen personalizada con una [imagen de Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Ventajas de Shared Image Gallery
 
@@ -31,7 +31,7 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 - **Copia de grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen de Shared Image administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
 - **Aumento de los grupos a tamaños más grandes.** Con Shared Image Gallery puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image.
 - **Mejor rendimiento que el uso de una imagen administrada como imagen personalizada.** Para un grupo de imágenes personalizadas de Shared Image, el tiempo necesario para alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la máquina virtual es hasta un 30 % más breve.
-- **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -226,4 +226,4 @@ Si tiene previsto crear un grupo con cientos o miles de VM o más mediante una i
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general detallada sobre Batch, consulte [Recursos y flujo de trabajo del servicio de Batch](batch-service-workflow-features.md).
-- Obtenga información sobre [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+- Obtenga información sobre [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).

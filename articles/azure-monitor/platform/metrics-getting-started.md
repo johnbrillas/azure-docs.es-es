@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250407"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736396"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al Explorador de métricas de Azure
 
@@ -29,7 +29,7 @@ El explorador de métricas de Azure Monitor es un componente de Microsoft Azure 
 
 Para crear un gráfico de métricas, abra la pestaña **Métricas** desde el recurso, el grupo de recursos, la suscripción o la vista de Azure Monitor y haga lo siguiente:
 
-1. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector de ámbito de recursos. Esto le permitirá seleccionar los recursos para los que desea ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. Para obtener información sobre cómo ver las métricas en varios recursos, [lea este artículo](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+1. Haga clic en el botón "Seleccionar un ámbito" para abrir el selector de ámbito de recursos. Esto le permitirá seleccionar los recursos para los que desea ver las métricas. El ámbito ya aparece rellenado al abrir el explorador de métricas desde el menú de un recurso. Para obtener información sobre cómo ver las métricas en varios recursos, [lea este artículo](./metrics-dynamic-scope.md).
     > ![Selección de un recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. En algunos recursos, debe elegir un espacio de nombres. El espacio de nombres es una forma de organizar las métricas para que se puedan encontrar fácilmente. Por ejemplo, las cuentas de almacenamiento tienen espacios de nombres aparte para almacenar las métricas de File service, Table service, Blob service y Queue service. Muchos tipos de recursos solo tienen un espacio de nombres.

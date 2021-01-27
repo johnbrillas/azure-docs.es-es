@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809724"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733847"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -542,7 +542,7 @@ El ciclo de vida de estos recursos se controla mediante las siguientes propiedad
 > [!NOTE]
 > No se recomienda usar la cuenta de almacenamiento ni la instancia de contenedor que genera el servicio de script para otros fines. Los dos recursos podrían quitarse en función del ciclo de vida del script.
 
-La instancia de contenedor y la cuenta de almacenamiento se eliminan según lo establecido en `cleanupPreference`. Sin embargo, si se produce un error en el script y `cleanupPreference` no está establecido en **Siempre**, el proceso de implementación mantiene automáticamente el contenedor en ejecución durante una hora. Puede usar esta hora para solucionar problemas del script. Si desea mantener el contenedor en ejecución después de implementaciones correctas, agregue un paso de suspensión al script. Por ejemplo, agregue [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) (Iniciar-Suspender) al final del script. Si no agrega el paso de suspensión, el contenedor se establece en un estado terminal y no se puede acceder a él aunque aún no se haya eliminado.
+La instancia de contenedor y la cuenta de almacenamiento se eliminan según lo establecido en `cleanupPreference`. Sin embargo, si se produce un error en el script y `cleanupPreference` no está establecido en **Siempre**, el proceso de implementación mantiene automáticamente el contenedor en ejecución durante una hora. Puede usar esta hora para solucionar problemas del script. Si desea mantener el contenedor en ejecución después de implementaciones correctas, agregue un paso de suspensión al script. Por ejemplo, agregue [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) (Iniciar-Suspender) al final del script. Si no agrega el paso de suspensión, el contenedor se establece en un estado terminal y no se puede acceder a él aunque aún no se haya eliminado.
 
 ## <a name="run-script-more-than-once"></a>Ejecución del script más de una vez
 

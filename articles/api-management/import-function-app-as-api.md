@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147035"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732969"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -38,7 +38,7 @@ Aprenderá a:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Complete la guía de inicio rápido [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-* Asegúrese de que tiene una aplicación de Azure Functions en la suscripción. Para más información, consulte [Creación de una instancia de Azure Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Debe contener funciones con desencadenador HTTP y la configuración del nivel de autorización debe establecerse en *Anónimo* o *Función*.
+* Asegúrese de que tiene una aplicación de Azure Functions en la suscripción. Para más información, consulte [Creación de una instancia de Azure Function App](../azure-functions/functions-get-started.md). Debe contener funciones con desencadenador HTTP y la configuración del nivel de autorización debe establecerse en *Anónimo* o *Función*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -78,7 +78,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
 
 Siga estos pasos para anexar Azure Function App a una API existente.
 
-1. En la instancia del servicio **Azure API Management** , seleccione **API** en el menú de la izquierda.
+1. En la instancia del servicio **Azure API Management**, seleccione **API** en el menú de la izquierda.
 
 2. Elija una API que desea importar en una instancia de Azure Function App. Haga clic en **...**  y seleccione **Importar** en el menú contextual.
 
@@ -112,8 +112,8 @@ Siga estos pasos para anexar Azure Function App a una API existente.
 
 La importación de una instancia de Azure Function App genera automáticamente:
 
-* una clave de host en la aplicación de función con el nombre apim-{ *nombre de instancia del servicio Azure API Management* }.
-* un valor con nombre dentro de la instancia de Azure API Management con el nombre { *nombre de la instancia de Azure Function App* }-key, que contiene la clave de host creada.
+* una clave de host en la aplicación de función con el nombre apim-{*nombre de instancia del servicio Azure API Management*}.
+* un valor con nombre dentro de la instancia de Azure API Management con el nombre {*nombre de la instancia de Azure Function App*}-key, que contiene la clave de host creada.
 
 En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de función.
 

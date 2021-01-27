@@ -3,23 +3,23 @@ title: 'Incorporación y eliminación de unidades administrativas: Azure Active 
 description: Uso de unidades administrativas para restringir el ámbito de los permisos de rol en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395400"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740455"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Administración de unidades administrativas en Azure Active Directory
 
@@ -33,7 +33,7 @@ Para un control administrativo más pormenorizado en Azure Active Directory (Azu
     
     b. En la lista de aplicaciones, seleccione **Probador de Graph**.
     
-    c. En el panel **Permisos** , seleccione **Conceder consentimiento de administrador para Probador de Graph**.
+    c. En el panel **Permisos**, seleccione **Conceder consentimiento de administrador para Probador de Graph**.
 
     ![Captura de pantalla en la que se muestra el vínculo "Conceder consentimiento de administrador para Probador de Graph".](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -50,7 +50,7 @@ Puede agregar una unidad administrativa mediante Azure Portal o PowerShell.
 
     ![Captura de pantalla en la que se muestra el vínculo "Unidades administrativas" en Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. Seleccione el botón **Agregar** en la parte superior del panel y, a continuación, en el cuadro **Nombre** , escriba el nombre de la unidad administrativa. Si quiere, agregue una descripción de la unidad administrativa.
+1. Seleccione el botón **Agregar** en la parte superior del panel y, a continuación, en el cuadro **Nombre**, escriba el nombre de la unidad administrativa. Si quiere, agregue una descripción de la unidad administrativa.
 
     ![Captura de pantalla en la que se muestra el botón Agregar y el cuadro Nombre para escribir el nombre de la unidad administrativa.](./media/admin-units-manage/add-new-admin-unit.png)
 

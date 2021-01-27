@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1e9d65baacb9c712b92ef6f00abda169031b47e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581307"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735271"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalización de la configuración de nodos en los grupos de nodos de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -132,7 +132,7 @@ La configuración siguiente se puede usar para optimizar el funcionamiento del s
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Este valor controla si el kernel debe hacer un uso intensivo de la compactación de memoria para que haya más elementos `hugepages` disponibles. | 
 
 > [!IMPORTANT]
-> Para facilitar la búsqueda y la legibilidad, la configuración del sistema operativo se muestra en este documento por su nombre, pero debe agregarse al archivo JSON de configuración o a la API AKS mediante la [convención de uso de mayúsculas camelCase](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> Para facilitar la búsqueda y la legibilidad, la configuración del sistema operativo se muestra en este documento por su nombre, pero debe agregarse al archivo JSON de configuración o a la API AKS mediante la [convención de uso de mayúsculas camelCase](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Cree un archivo `kubeletconfig.json` con el siguiente contenido:
 

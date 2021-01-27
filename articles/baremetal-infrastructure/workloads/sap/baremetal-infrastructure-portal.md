@@ -3,12 +3,12 @@ title: Unidades de instancia de BareMetal en Azure
 description: Aprenda a identificar e interactuar con las unidades de instancia de BareMetal mediante Azure Portal.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861030"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733270"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Administración de instancias de BareMetal mediante Azure Portal
  
@@ -33,7 +33,7 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
  
 Para más información, consulte el artículo [Tipos y proveedores de recursos de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell).
  
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
  
 Puede registrar el proveedor de recursos BareMetalInfrastructure mediante Azure Portal.
  
@@ -97,10 +97,10 @@ Las revisiones de hardware posibles son:
 >[!NOTE]
 >Rev 4.2 es la infraestructura BareMetal Infrastructure cuyo nombre se ha cambiado más reciente que usa la arquitectura Rev 4 existente. Rev 4 proporciona mayor proximidad a los hosts de máquina virtual (VM) de Azure. Presenta mejoras significativas en la latencia de red entre las máquinas virtuales de Azure y las unidades de instancia de BareMetal implementadas en los sellos o filas de Rev 4. Puede tener acceso a sus instancias de BareMetal y administrarlas en Azure Portal. Para obtener más información, consulte [Administración de instancias de BareMetal mediante Azure Portal](baremetal-overview-architecture.md).
  
-Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por proximidad de Azure](../../../virtual-machines/linux/co-location.md), que se crea automáticamente para cada unidad de instancia implementada de BareMetal. Cuando implemente las máquinas virtuales de Azure que hospedan la capa de aplicación, haga referencia al grupo con ubicación por proximidad. Cuando use el grupo con ubicación por proximidad asociado a la unidad de instancia de BareMetal, asegúrese de que las máquinas virtuales de Azure se implementan cerca de la unidad de instancia de BareMetal.
+Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por proximidad de Azure](../../../virtual-machines/co-location.md), que se crea automáticamente para cada unidad de instancia implementada de BareMetal. Cuando implemente las máquinas virtuales de Azure que hospedan la capa de aplicación, haga referencia al grupo con ubicación por proximidad. Cuando use el grupo con ubicación por proximidad asociado a la unidad de instancia de BareMetal, asegúrese de que las máquinas virtuales de Azure se implementan cerca de la unidad de instancia de BareMetal.
  
 >[!TIP]
->Para encontrar la capa de aplicación en el mismo centro de recursos de Azure que la revisión 4.x, consulte [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+>Para encontrar la capa de aplicación en el mismo centro de datos de Azure que la revisión 4.x, consulte [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
  
 ## <a name="check-activities-of-a-single-instance"></a>Comprobación de las actividades de una sola instancia
  

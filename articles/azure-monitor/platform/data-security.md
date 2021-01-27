@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 87cdecd29d684c712853970c8246002132d274ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094342"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728866"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -183,11 +183,10 @@ Puede usar estas características de seguridad adicionales para proteger aún m�
 - [Claves administradas por el cliente (seguridad)](customer-managed-keys.md): puede usar claves administradas por el cliente para cifrar los datos que se envían a las áreas de trabajo de Log Analytics. Se requiere el uso de Azure Key Vault. 
 - [Almacenamiento privado o administrado por el cliente](private-storage.md): administre su cuenta de almacenamiento con cifrado personal e indique a Log Analytics que la use para almacenar los datos de supervisión. 
 - [Redes de Private Link](private-link-security.md): Azure Private Link le permite vincular de forma segura los servicios PaaS de Azure (incluido Azure Monitor) a la red virtual con puntos de conexión privados. 
-- [Caja de seguridad del cliente de Azure](/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview): proporciona una interfaz para los clientes que les permite revisar y aprobar o rechazar las solicitudes de acceso a los datos de clientes. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
+- [Caja de seguridad del cliente de Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview): proporciona una interfaz para los clientes que les permite revisar y aprobar o rechazar las solicitudes de acceso a los datos de clientes. Se utiliza en casos donde un ingeniero de Microsoft necesita obtener acceso a los datos del cliente durante una solicitud de soporte técnico.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a recopilar datos con Log Analytics para las máquinas virtuales de Azure con la [guía de inicio rápido de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md).  
 
 *  Si desea recopilar datos desde equipos físicos o virtuales de Windows o Linux del entorno, consulte la [guía de inicio rápido para equipos con Linux](../learn/quick-collect-linux-computer.md) o la [guía de inicio rápido para equipos con Windows](../learn/quick-collect-windows-computer.md)
-

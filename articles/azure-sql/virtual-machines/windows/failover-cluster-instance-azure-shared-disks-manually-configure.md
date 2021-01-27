@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607276"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736421"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Para más información, consulte la información general de [FCI con SQL Server 
 Antes de completar las instrucciones de este artículo, ya debe tener:
 
 - Suscripción a Azure. Comience a usarla [gratis](https://azure.microsoft.com/free/). 
-- [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Ultra Disks admite [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG) compatibles con SSD Premium y [zonas de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
+- [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Ultra Disks admite [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPG) compatibles con SSD Premium y [zonas de disponibilidad](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
 - La versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
 

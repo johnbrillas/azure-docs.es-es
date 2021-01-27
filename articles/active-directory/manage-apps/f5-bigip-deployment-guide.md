@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095192"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730664"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
 
@@ -264,7 +264,7 @@ Un sistema de BIG-IP se administra a través de su interfaz de usuario de la con
 
 - Desde un cliente VPN conectado a la red interna de la máquina virtual de BIG-IP
 
-- Publicado mediante [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Publicado mediante [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
 
 Tendrá que decidir cuál es el método más adecuado para poder continuar con las configuraciones restantes. Si es necesario, puede conectarse directamente a la configuración web desde Internet mediante la configuración de la dirección IP principal de BIG-IP con una IP pública. Después, agregue una regla de grupo de seguridad de red para permitir el tráfico del puerto 8443 a esa dirección IP principal. Asegúrese de restringir el origen a su propia dirección IP de confianza; de lo contrario, cualquiera podrá conectarse.
 
@@ -276,7 +276,7 @@ Una vez que esté listo, confirme que puede conectarse a la configuración web d
 
 Un sistema de BIG-IP también se puede administrar mediante su entorno SSH subyacente, el cual se usa normalmente para las tareas de la línea de comandos (CLI) y el acceso de nivel raíz. Existen varias opciones para conectarse a la CLI, entre las que se incluyen:
 
-- [El servicio Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview): permite conexiones rápidas y seguras a cualquier máquina virtual de una red virtual, desde cualquier ubicación.
+- [El servicio Azure Bastion](../../bastion/bastion-overview.md): permite conexiones rápidas y seguras a cualquier máquina virtual de una red virtual, desde cualquier ubicación.
 
 - Conexión directa a través de un cliente SSH como PuTTy a través del enfoque JIT
 
@@ -423,7 +423,7 @@ Con el sistema de BIG-IP ya aprovisionado totalmente, se recomienda realizar una
 
 6. Guarde el archivo del conjunto de configuración del usuario (UCS) localmente; para ello, elija el vínculo de la copia de seguridad y seleccione **Download** (Descargar).
 
-Como paso opcional, también puede realizar una copia de seguridad de todo el disco del sistema con [instantáneas de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) que, a diferencia de la copia de seguridad de la configuración web, proporcionaría cierta contingencia para realizar pruebas entre versiones de TMOS o revertir a un sistema nuevo.
+Como paso opcional, también puede realizar una copia de seguridad de todo el disco del sistema con [instantáneas de Azure](../../virtual-machines/windows/snapshot-copy-managed-disk.md) que, a diferencia de la copia de seguridad de la configuración web, proporcionaría cierta contingencia para realizar pruebas entre versiones de TMOS o revertir a un sistema nuevo.
 
 ```PowerShell
 # Install modules

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: e75eef86a4a0c679a44a61267f94d337538daaa8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007626"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736211"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage (versión preliminar) como un recurso compartido de red desde un contenedor de App Service
 
@@ -39,7 +39,7 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 
 - [Una aplicación de contenedor de Windows existente en Azure App Service](quickstart-custom-container.md)
 - [Creación de un recurso compartido de Azure Files](../storage/files/storage-how-to-use-files-cli.md)
-- [Carga de archivos en un recurso compartido de Azure Files](../storage/files/storage-files-deployment-guide.md)
+- [Carga de archivos en un recurso compartido de Azure Files](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
 

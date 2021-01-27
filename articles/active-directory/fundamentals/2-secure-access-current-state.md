@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 302e4becd337c8e7b0b425a52ed46d562db5bae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222418"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725334"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Detección del estado actual de la colaboración externa en su organización 
 
@@ -34,11 +34,11 @@ Es probable que las personas de su organización ya estén colaborando con usuar
 
 Los usuarios que inician la colaboración externa comprenden mejor las aplicaciones más importantes para la colaboración externa y cuándo ese acceso debe finalizar. Comprender a estos usuarios puede ayudarlo a determinar a quién se le debe delegar permiso para invitar a usuarios externos, crear paquetes de acceso y completar revisiones de acceso.
 
-Para encontrar los usuarios que están colaborando actualmente, revise el [registro de auditoría de Microsoft 365 en busca de actividades de solicitud de acceso y uso compartido](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities). También puede revisar el [registro de auditoría de Azure AD para obtener más información sobre quién invitó a los usuarios de B2B](../external-identities/auditing-and-reporting.md) a su directorio.
+Para encontrar los usuarios que están colaborando actualmente, revise el [registro de auditoría de Microsoft 365 en busca de actividades de solicitud de acceso y uso compartido](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide#sharing-and-access-request-activities). También puede revisar el [registro de auditoría de Azure AD para obtener más información sobre quién invitó a los usuarios de B2B](../external-identities/auditing-and-reporting.md) a su directorio.
 
 ## <a name="find-current-collaboration-partners"></a>Búsqueda de asociados de colaboración actuales
 
-Los usuarios externos pueden ser [usuarios de B2B de Azure AD](../external-identities/what-is-b2b.md) (preferible) con credenciales administradas por el asociado, o usuarios externos con credenciales aprovisionadas localmente. Estos usuarios suelen marcarse (pero no siempre) con un tipo de usuario de invitado. Puede enumerar los usuarios invitados a través de [Microsoft Graph API](https://docs.microsoft.com/graph/api/user-list?view=graph-rest-1.0&tabs=http), [PowerShell](https://docs.microsoft.com/graph/api/user-list?view=graph-rest-1.0&tabs=http) o [Azure Portal](../enterprise-users/users-bulk-download.md).
+Los usuarios externos pueden ser [usuarios de B2B de Azure AD](../external-identities/what-is-b2b.md) (preferible) con credenciales administradas por el asociado, o usuarios externos con credenciales aprovisionadas localmente. Estos usuarios suelen marcarse (pero no siempre) con un tipo de usuario de invitado. Puede enumerar los usuarios invitados a través de [Microsoft Graph API](/graph/api/user-list?tabs=http&view=graph-rest-1.0), [PowerShell](/graph/api/user-list?tabs=http&view=graph-rest-1.0) o [Azure Portal](../enterprise-users/users-bulk-download.md).
 
 ### <a name="use-email-domains-and-companyname-property"></a>Uso de dominios de correo electrónico y la propiedad companyName
 
@@ -55,7 +55,7 @@ Si usa la administración de derechos, también puede limitar el ámbito de los 
 
 ## <a name="find-access-being-granted-to-external-users"></a>Búsqueda del acceso que se concede a los usuarios externos
 
-Una vez que tenga un inventario de usuarios externos y organizaciones, puede determinar el acceso concedido a estos usuarios mediante Microsoft Graph API para determinar la [pertenencia a grupos](https://docs.microsoft.com/graph/api/resources/groups-overview?view=graph-rest-1.0) de Azure AD o la [asignación de aplicaciones directa](https://docs.microsoft.com/graph/api/resources/approleassignment?view=graph-rest-1.0) en Azure AD.
+Una vez que tenga un inventario de usuarios externos y organizaciones, puede determinar el acceso concedido a estos usuarios mediante Microsoft Graph API para determinar la [pertenencia a grupos](/graph/api/resources/groups-overview?view=graph-rest-1.0) de Azure AD o la [asignación de aplicaciones directa](/graph/api/resources/approleassignment?view=graph-rest-1.0) en Azure AD.
 
 
 ### <a name="enumerate-application-specific-permissions"></a>Enumeración de permisos específicos de la aplicación
@@ -65,7 +65,7 @@ También puede realizar la enumeración de permisos específicos de la aplicaci�
 Investigue específicamente el acceso a todas las aplicaciones empresariales y críticas para la empresa, de modo que sea plenamente consciente de cualquier acceso externo.
 
 ### <a name="detect-ad-hoc-sharing"></a>Detección del uso compartido ad hoc
-Si el correo electrónico y los planes de red lo posibilitan, puede investigar el contenido que se comparte a través del correo electrónico o a través de aplicaciones de software como servicio (SaaS) no autorizadas. La [protección de pérdida de datos de Microsoft 365](https://docs.microsoft.com/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) ayuda a identificar, prevenir y supervisar el uso compartido accidental de información confidencial en la infraestructura de Microsoft 365. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) puede ayudarlo a identificar el uso de aplicaciones SaaS no autorizadas en su entorno.
+Si el correo electrónico y los planes de red lo posibilitan, puede investigar el contenido que se comparte a través del correo electrónico o a través de aplicaciones de software como servicio (SaaS) no autorizadas. La [protección de pérdida de datos de Microsoft 365](/microsoft-365/compliance/data-loss-prevention-policies?view=o365-worldwide) ayuda a identificar, prevenir y supervisar el uso compartido accidental de información confidencial en la infraestructura de Microsoft 365. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) puede ayudarlo a identificar el uso de aplicaciones SaaS no autorizadas en su entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969000"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733577"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -121,7 +121,7 @@ Al configurar las copias de seguridad de VM, se recomienda seguir estos procedim
 - Si va a restaurar las máquinas virtuales desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](../storage/common/storage-account-upgrade.md) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
 - Para la copia de seguridad de VM que usan almacenamiento Premium con restauración instantánea, se recomienda asignar un espacio libre del *50 %* del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 - El límite del número de discos por cuenta de almacenamiento es relativo a la frecuencia de acceso a los discos de parte de las aplicaciones que se ejecutan en una VM de infraestructura como servicio (IaaS). Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, mueva algunos discos a cuentas de almacenamiento separadas para equilibrar la carga.
-- Para restaurar las máquinas virtuales con discos administrados mediante PowerShell, proporcione el parámetro adicional **_TargetResourceGroupName_* _ para especificar el grupo de recursos en el que se restaurarán los discos administrados. [Más información aquí](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
+- Para restaurar las máquinas virtuales con discos administrados mediante PowerShell, proporcione el parámetro adicional **_TargetResourceGroupName_* _ para especificar el grupo de recursos en el que se restaurarán los discos administrados. [Más información aquí](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad
 

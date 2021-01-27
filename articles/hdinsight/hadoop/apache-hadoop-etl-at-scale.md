@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e7a8a72d0669f39cc27c997d83af1e6272d045a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462161"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704159"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -82,7 +82,7 @@ Para cargar conjuntos de datos en el intervalo de terabytes, la latencia de red 
 
 - **Azure ExpressRoute:** permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura local. Estas conexiones ofrecen una opción confiable para transferir grandes cantidades de datos. Para obtener más información, consulte la [documentación de Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- **Carga de datos desde unidades de disco duro**: puede usar el [servicio Azure Import/Export](../../storage/common/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero en Azure Blob Storage. Después, puede usar Azure Data Factory o la herramienta AdlCopy para copiar datos desde Azure Blob Storage a Data Lake Storage.
+- **Carga de datos desde unidades de disco duro**: puede usar el [servicio Azure Import/Export](../../import-export/storage-import-export-service.md) para enviar unidades de disco duro con sus datos a un centro de datos de Azure. Los datos se cargan primero en Azure Blob Storage. Después, puede usar Azure Data Factory o la herramienta AdlCopy para copiar datos desde Azure Blob Storage a Data Lake Storage.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032769"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724278"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [asignaciones de roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados. Los permisos de usuario predeterminados solo se pueden cambiar en la configuración de usuario de Azure AD.
@@ -63,7 +63,7 @@ Los permisos predeterminados de los usuarios invitados se pueden restringir de l
 
 Permiso | Explicación del valor
 ---------- | ------------
-Restricciones de acceso de usuarios invitados (versión preliminar) | Establecer esta opción en **Los usuarios invitados tienen el mismo acceso que los miembros** concede de manera predeterminada todos los permisos de usuario miembro a los usuarios invitados.<p>Establecer esta opción en **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio** restringe de manera predeterminada el acceso de un invitado solo a su propio perfil de usuario. Ya no se permite el acceso a otros usuarios ni siquiera al buscar por Nombre principal de usuario, Id. de objeto o Nombre para mostrar. Además, ya no se permite el acceso a la información de grupos, incluidas las pertenencias a grupos.<p>**Nota**: Esta configuración no impide el acceso a unidos grupos de otros servicios de Microsoft 365 como Microsoft Teams. Consulte [Acceso de invitado en Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/guest-access) para más información.<p>Los usuarios invitados se pueden seguir agregando a los roles Administrador independientemente de esta configuración de permiso.
+Restricciones de acceso de usuarios invitados (versión preliminar) | Establecer esta opción en **Los usuarios invitados tienen el mismo acceso que los miembros** concede de manera predeterminada todos los permisos de usuario miembro a los usuarios invitados.<p>Establecer esta opción en **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio** restringe de manera predeterminada el acceso de un invitado solo a su propio perfil de usuario. Ya no se permite el acceso a otros usuarios ni siquiera al buscar por Nombre principal de usuario, Id. de objeto o Nombre para mostrar. Además, ya no se permite el acceso a la información de grupos, incluidas las pertenencias a grupos.<p>**Nota**: Esta configuración no impide el acceso a unidos grupos de otros servicios de Microsoft 365 como Microsoft Teams. Consulte [Acceso de invitado en Microsoft Teams](/MicrosoftTeams/guest-access) para más información.<p>Los usuarios invitados se pueden seguir agregando a los roles Administrador independientemente de esta configuración de permiso.
 Los invitados pueden invitar | Establecer esta opción en Sí permite que los invitados inviten a otros usuarios. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para más información.
 Los miembros pueden invitar | Establecer esta opción en Sí permite que miembros que no son administradores de su directorio inventen a otros usuarios. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) para más información.
 Los administradores y los usuarios del rol de invitador de personas pueden invitar | Establecer esta opción en Sí permite que los administradores y usuarios con el rol "Invitador de usuarios invitados" inviten a otros usuarios. Cuando se establece en Sí, los usuarios con el rol Invitador de usuarios invitados todavía podrán invitar a otros usuarios, independientemente de la configuración Los miembros pueden invitar. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) para más información.

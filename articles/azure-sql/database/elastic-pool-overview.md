@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008595"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732701"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,7 +156,7 @@ Después de terminar de configurar el grupo, puede hacer clic en "Aplicar", asig
 
 En Azure Portal puede supervisar el uso de un grupo elástico y las bases de datos de ese grupo. También puede realizar un conjunto de cambios en el grupo elástico y enviar todos los cambios a la vez. Estos cambios incluyen agregar o quitar bases de datos, cambiar la configuración del grupo elástico o cambiar la configuración de la base de datos.
 
-Puede utilizar las herramientas integradas de [supervisión de rendimiento](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) y de [alertas](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal) en combinación con las clasificaciones del rendimiento.  Además, SQL Database puede [emitir métricas y registros de recurso](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) para facilitar la supervisión.
+Puede utilizar las herramientas integradas de [supervisión de rendimiento](./performance-guidance.md) y de [alertas](./alerts-insights-configure-portal.md) en combinación con las clasificaciones del rendimiento.  Además, SQL Database puede [emitir métricas y registros de recurso](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) para facilitar la supervisión.
 
 ## <a name="customer-case-studies"></a>Casos prácticos de clientes
 

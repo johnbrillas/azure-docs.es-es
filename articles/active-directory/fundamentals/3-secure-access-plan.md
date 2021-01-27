@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222337"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725218"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Creación de un plan de seguridad para el acceso externo 
 
@@ -93,7 +93,7 @@ Las condiciones de inicio de sesión se configuran en [Acceso condicional de Azu
 | Riesgo alto| Exigir MFA siempre para usuarios externos |
 
 
-En la actualidad, puede [exigir la autenticación multifactor para los usuarios de B2B del inquilino](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). 
+En la actualidad, puede [exigir la autenticación multifactor para los usuarios de B2B del inquilino](../external-identities/b2b-tutorial-require-mfa.md). 
 
 **Condiciones de inicio de sesión basadas en el usuario y en el dispositivo**.
 
@@ -106,11 +106,11 @@ En la actualidad, puede [exigir la autenticación multifactor para los usuarios 
 
 En la actualidad, para usar el estado del dispositivo como entrada para una directiva, el dispositivo debe estar registrado o unido al inquilino. 
 
-Se pueden usar [directivas basadas en riesgos de Identity Protection](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk). Sin embargo, los problemas se deben mitigar en el inquilino de inicio del usuario.
+Se pueden usar [directivas basadas en riesgos de Identity Protection](../conditional-access/howto-conditional-access-policy-risk.md). Sin embargo, los problemas se deben mitigar en el inquilino de inicio del usuario.
 
-En las [ubicaciones de red](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location), puede restringir el acceso a cualquier intervalo de direcciones IP que posea. Puede hacer esto si solo quiere que los asociados externos accedan a una aplicación mientras están en el sitio de su organización.
+En las [ubicaciones de red](../conditional-access/howto-conditional-access-policy-location.md), puede restringir el acceso a cualquier intervalo de direcciones IP que posea. Puede hacer esto si solo quiere que los asociados externos accedan a una aplicación mientras están en el sitio de su organización.
 
-[Más información sobre las directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+[Más información sobre las directivas de acceso condicional](../conditional-access/overview.md).
 
 ## <a name="document-access-review-policies"></a>Documentación de las directivas de revisión de acceso
 
@@ -126,13 +126,13 @@ A pesar de que las directivas estarán adaptadas en gran medida a sus necesidade
 
 * **Revisiones de acceso de administración de derechos**. Use la funcionalidad de administración de derechos para:
 
-   * [Hacer caducar automáticamente los paquetes de acceso](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-lifecycle-policy) y, por tanto, el acceso de los usuarios externos a los recursos incluidos.
+   * [Hacer caducar automáticamente los paquetes de acceso](../governance/entitlement-management-access-package-lifecycle-policy.md) y, por tanto, el acceso de los usuarios externos a los recursos incluidos.
 
-   * Establecer una [frecuencia de revisión requerida](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-reviews-create) para las revisiones de acceso.
+   * Establecer una [frecuencia de revisión requerida](../governance/entitlement-management-access-reviews-create.md) para las revisiones de acceso.
 
-   * Si va a usar [organizaciones conectadas](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) para agrupar a todos los usuarios de un solo asociado, programe revisiones periódicas con el propietario de la empresa y el representante asociado.
+   * Si va a usar [organizaciones conectadas](../governance/entitlement-management-organization.md) para agrupar a todos los usuarios de un solo asociado, programe revisiones periódicas con el propietario de la empresa y el representante asociado.
 
-* **Grupos de Microsoft 365**. Establezca una [directiva de expiración del grupo](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) para los grupos de Microsoft 365 a los que se invita a los usuarios externos. 
+* **Grupos de Microsoft 365**. Establezca una [directiva de expiración del grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) para los grupos de Microsoft 365 a los que se invita a los usuarios externos. 
 
 * **Otras opciones**. Si los usuarios externos tienen acceso fuera de los paquetes de acceso de administración de derechos o de los grupos de Microsoft 365, configure el proceso de negocio para revisar cuándo se deben inactivar o eliminar las cuentas. Por ejemplo:
 
@@ -146,9 +146,9 @@ A pesar de que las directivas estarán adaptadas en gran medida a sus necesidade
 
 Ahora que sabe sobre qué quiere aplicar el control de acceso, cómo se deben agrupar esos recursos para el acceso común y las directivas necesarias de inicio de sesión y revisión de acceso, puede decidir cómo llevar a cabo el plan. 
 
-Algunas funciones, por ejemplo, la [administración de derechos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview), solo están disponibles con licencias de Azure AD Premium 2 (P2). Las licencias de Microsoft 365 E5 y Office 365 E5 incluyen licencias de Azure AD P2. 
+Algunas funciones, por ejemplo, la [administración de derechos](../governance/entitlement-management-overview.md), solo están disponibles con licencias de Azure AD Premium 2 (P2). Las licencias de Microsoft 365 E5 y Office 365 E5 incluyen licencias de Azure AD P2. 
 
-Otras combinaciones de Microsoft 365, Office 365 y Azure AD también permiten alguna funcionalidad para administrar los usuarios externos. Para más información, consulte [Protección de la información](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
+Otras combinaciones de Microsoft 365, Office 365 y Azure AD también permiten alguna funcionalidad para administrar los usuarios externos. Para más información, consulte [Protección de la información](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
 
 > [!NOTE]
 > Las licencias son por usuario. Por lo tanto, puede tener usuarios específicos, como administradores y propietarios de empresa con control de acceso delegado en el nivel Azure AD P2 o Microsoft 365 E5 sin habilitar dichas licencias para todos los usuarios. Los primeros 50 000 usuarios externos son gratuitos. Si no habilita las licencias P2 para los otros usuarios internos, no podrán usar la funcionalidad de administración de derechos, como los paquetes de acceso. 
@@ -180,7 +180,7 @@ Azure AD P2 y Microsoft 365 E5 poseen el conjunto completo de herramientas d
 
 ### <a name="entitlement-management"></a>Administración de derechos 
 
-Los [paquetes de acceso de administración de derechos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-create) permiten el aprovisionamiento y el desaprovisionamiento del acceso a grupos y equipos, aplicaciones y sitios de SharePoint. Puede definir a qué organizaciones conectadas se les permite el acceso, si se permiten solicitudes de autoservicio y qué flujos de trabajo de aprobación son necesarios (si los hay) para conceder el acceso. Para garantizar que el acceso no se mantenga más tiempo del necesario, puede definir directivas de expiración y revisiones de acceso para cada paquete de acceso. 
+Los [paquetes de acceso de administración de derechos](../governance/entitlement-management-access-package-create.md) permiten el aprovisionamiento y el desaprovisionamiento del acceso a grupos y equipos, aplicaciones y sitios de SharePoint. Puede definir a qué organizaciones conectadas se les permite el acceso, si se permiten solicitudes de autoservicio y qué flujos de trabajo de aprobación son necesarios (si los hay) para conceder el acceso. Para garantizar que el acceso no se mantenga más tiempo del necesario, puede definir directivas de expiración y revisiones de acceso para cada paquete de acceso. 
 
  
 

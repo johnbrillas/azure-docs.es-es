@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673447"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728206"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: Configuración de Bizagi Studio for Digital Process Automation para el aprovisionamiento automático de usuarios
 
-En este tutorial se describen los pasos que debe realizar en Bizagi Studio for Digital Process Automation y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura para hacerlo, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+En este tutorial se describen los pasos que debe realizar en Bizagi Studio for Digital Process Automation y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura para hacerlo, Azure AD aprovisiona y desaprovisiona automáticamente usuarios y grupos en [Bizagi Studio for Digital Process Automation](https://www.bizagi.com/) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
@@ -32,22 +32,22 @@ En este tutorial se describen los pasos que debe realizar en Bizagi Studio for D
 > * Creación de usuarios en Bizagi Studio for Digital Process Automation
 > * Eliminación de usuarios de Bizagi Studio for Digital Process Automation cuando ya no necesitan acceso
 > * Sincronización de los atributos de usuario entre Azure AD y Bizagi Studio for Digital Process Automation
-> * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/bizagi-studio-for-digital-process-automation-tutorial) en Bizagi Studio for Digital Process Automation (recomendado)
+> * [Inicio de sesión único](./bizagi-studio-for-digital-process-automation-tutorial.md) en Bizagi Studio for Digital Process Automation (recomendado)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
-* Una cuenta de usuario en Azure AD con [permisos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento. Algunos ejemplos son el administrador de aplicaciones, el administrador de aplicaciones en la nube, el propietario de la aplicación o el administrador global. 
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md). 
+* Una cuenta de usuario en Azure AD con [permisos](../roles/permissions-reference.md) para configurar el aprovisionamiento. Algunos ejemplos son el administrador de aplicaciones, el administrador de aplicaciones en la nube, el propietario de la aplicación o el administrador global. 
 * Bizagi Studio for Digital Process Automation versión 11.2.4.2X o posterior.
 
 ## <a name="plan-your-provisioning-deployment"></a>Planeación de la implementación de aprovisionamiento
 Para realizar el planeamiento, siga estos pasos:
 
-1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine qué datos [asignar entre Azure AD y Bizagi Studio for Digital Process Automation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine qué datos [asignar entre Azure AD y Bizagi Studio for Digital Process Automation](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="configure-to-support-provisioning-with-azure-ad"></a>Configuración para admitir el aprovisionamiento con Azure AD
 Para configurar Bizagi Studio for Digital Process Automation de forma que admita el aprovisionamiento con Azure AD, siga estos pasos:
@@ -69,17 +69,17 @@ Para configurar Bizagi Studio for Digital Process Automation de forma que admita
 
 ## <a name="add-the-application-from-the-azure-ad-gallery"></a>Incorporación de la aplicación desde la galería de Azure AD
 
-Para empezar a administrar el aprovisionamiento en Bizagi Studio for Digital Process Automation, agregue la aplicación desde la galería de aplicaciones de Azure AD. Si ha configurado anteriormente Bizagi Studio for Digital Process Automation para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, cuando se está probando inicialmente la integración, se debe crear otra aplicación. Para más información, consulte [Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
+Para empezar a administrar el aprovisionamiento en Bizagi Studio for Digital Process Automation, agregue la aplicación desde la galería de aplicaciones de Azure AD. Si ha configurado anteriormente Bizagi Studio for Digital Process Automation para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, cuando se está probando inicialmente la integración, se debe crear otra aplicación. Para más información, consulte [Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)](../manage-apps/add-application-portal.md) 
 
 ## <a name="define-who-is-in-scope-for-provisioning"></a>Definir quién está en el ámbito de aprovisionamiento 
 
-Con el servicio de aprovisionamiento de Azure AD, puede determinar quién se aprovisiona en función de la asignación a la aplicación o de los atributos del usuario, el grupo o ambos. Si el ámbito se basa en la asignación, consulte los pasos descritos en [Asignación o desasignación de usuarios y grupos para una aplicación mediante Graph API](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si el ámbito se basa únicamente en los atributos del usuario o el grupo, puede utilizar un filtro de ámbito. Para más información, consulte [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Con el servicio de aprovisionamiento de Azure AD, puede determinar quién se aprovisiona en función de la asignación a la aplicación o de los atributos del usuario, el grupo o ambos. Si el ámbito se basa en la asignación, consulte los pasos descritos en [Asignación o desasignación de usuarios y grupos para una aplicación mediante Graph API](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si el ámbito se basa únicamente en los atributos del usuario o el grupo, puede utilizar un filtro de ámbito. Para más información, consulte [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 Tenga en cuenta los siguientes puntos sobre la definición del ámbito:
 
-* Al asignar usuarios y grupos a Bizagi Studio for Digital Process Automation, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados de forma definitiva en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar más roles. 
+* Al asignar usuarios y grupos a Bizagi Studio for Digital Process Automation, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados de forma definitiva en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar más roles. 
 
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando se establece el ámbito de aprovisionamiento en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando se establece el ámbito de aprovisionamiento en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="configure-automatic-user-provisioning"></a>Configuración del aprovisionamiento automático de usuarios 
@@ -121,7 +121,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Bizagi Studio for Digital Process Automation** (Sincronizar usuarios de Azure Active Directory con Bizagi Studio for Digital Process Automation).
 
-9. En la sección **Asignación de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Bizagi Studio for Digital Process Automation. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Bizagi Studio for Digital Process Automation con el objetivo de realizar operaciones de actualización. Si cambia el [atributo de destino coincidente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), deberá asegurarse de que la API de Bizagi Studio for Digital Process Automation admita el filtrado de usuarios en función de ese atributo. Para confirmar los cambios, seleccione **Guardar**.
+9. En la sección **Asignación de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Bizagi Studio for Digital Process Automation. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Bizagi Studio for Digital Process Automation con el objetivo de realizar operaciones de actualización. Si cambia el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de Bizagi Studio for Digital Process Automation admita el filtrado de usuarios en función de ese atributo. Para confirmar los cambios, seleccione **Guardar**.
 
    |Atributo|Tipo|Compatible con el filtrado|
    |---|---|---|
@@ -137,12 +137,12 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    
     ![Edite la lista de atributos.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
 
-   Puede encontrar más información sobre cómo agregar atributos personalizados en [Personalización de atributos de la aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+   Puede encontrar más información sobre cómo agregar atributos personalizados en [Personalización de atributos de la aplicación](../app-provisioning/customize-application-attributes.md).
 
 > [!NOTE]
 > Solo se admiten las propiedades de tipo básico (por ejemplo, String, Integer, Boolean, DateTime, etc.). Todavía no se admiten las propiedades vinculadas a tablas paramétricas o a varios tipos.
 
-10. Para configurar los filtros de ámbito, consulte el [tutorial sobre el filtro de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar los filtros de ámbito, consulte el [tutorial sobre el filtro de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para habilitar el servicio de aprovisionamiento de Azure AD para Bizagi Studio for Digital Process Automation, cambie el valor de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
@@ -161,15 +161,15 @@ Esta operación inicia el ciclo de sincronización inicial de todos los usuarios
 ## <a name="monitor-your-deployment"></a>Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
 
-- Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente y los que no.
-- Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
-- Si la configuración de aprovisionamiento está en mal estado, la aplicación pasará a estar en cuarentena. Para más información, consulte [Aprovisionamiento de aplicaciones en el estado de cuarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+- Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente y los que no.
+- Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+- Si la configuración de aprovisionamiento está en mal estado, la aplicación pasará a estar en cuarentena. Para más información, consulte [Aprovisionamiento de aplicaciones en el estado de cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)

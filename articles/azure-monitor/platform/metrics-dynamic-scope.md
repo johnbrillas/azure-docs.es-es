@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5f5f75e63a0b201144329a6e2b7c0d503de54692
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250492"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736480"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Visualización de varios recursos en el Explorador de métricas de Azure
 
@@ -33,7 +33,7 @@ Algunos tipos de recursos pueden consultar las métricas de varios recursos. Las
 ![Captura de pantalla que muestra un menú de recursos que son compatibles con varios recursos.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> Debe tener el permiso de tipo Lector de supervisión en el nivel de suscripción para visualizar las métricas de varios recursos, grupos de recursos o de una suscripción. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 Para visualizar las métricas en varios recursos, seleccione varios recursos en el selector del ámbito de recursos. 
 
@@ -81,13 +81,12 @@ En este ejemplo, se filtra por TailspinToysDemo. En este caso, el filtro quita l
 
 ## <a name="pin-multiple-resource-charts"></a>Anclar gráficos de varios recursos 
 
-Los gráficos de varios recursos que visualizan las métricas de grupos de recursos y suscripciones requieren que el usuario tenga permiso de tipo *Lector de supervisión* en el nivel de suscripción. Asegúrese de que todos los usuarios de los paneles a los que ancla gráficos de varios recursos tienen permisos suficientes. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Los gráficos de varios recursos que visualizan las métricas de grupos de recursos y suscripciones requieren que el usuario tenga permiso de tipo *Lector de supervisión* en el nivel de suscripción. Asegúrese de que todos los usuarios de los paneles a los que ancla gráficos de varios recursos tienen permisos suficientes. Para obtener más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-Para anclar el gráfico de varios recursos a un panel, consulte [Anclar a paneles](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
+Para anclar el gráfico de varios recursos a un panel, consulte [Anclar a paneles](./metrics-charts.md#pinning-to-dashboards). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Solución de problemas del Explorador de métricas](metrics-troubleshoot.md)
 * [Vea una lista de métricas disponibles para servicios de Azure](metrics-supported.md)
 * [Vea ejemplos de gráficos configurados](metric-chart-samples.md)
-

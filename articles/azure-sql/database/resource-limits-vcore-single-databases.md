@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251478"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735249"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -411,7 +411,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máx. de IOPS de datos *|5760|6400|7680|10240|11 520|23 040|
+|Número máx. de IOPS de datos *|5760|6400|7680|10240|11 520|12800|
 |Velocidad de registro máx. (Mbps)|36|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|900|1000|1200|1600|1800|3600|
 |Máximo de inicios de sesión simultáneos|1800|2000|2400|3200|3600|7200|

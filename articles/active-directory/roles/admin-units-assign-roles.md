@@ -3,23 +3,23 @@ title: 'Asignación y enumeración de roles con ámbito de unidad administrativa
 description: Use unidades administrativas para restringir el ámbito de las asignaciones de roles en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393445"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740404"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Asignación de roles con ámbito a una unidad administrativa
 
@@ -62,7 +62,7 @@ Puede asignar un rol con ámbito mediante Azure Portal, PowerShell o Microsoft 
 
 1. Seleccione el rol que se va a asignar y luego **Agregar asignaciones**. 
 
-1. En el panel **Agregar asignaciones** , seleccione uno o más usuarios para asignar al rol.
+1. En el panel **Agregar asignaciones**, seleccione uno o más usuarios para asignar al rol.
 
    ![Seleccione el rol al que se agregará el ámbito y, a continuación, seleccione Agregar asignaciones.](./media/admin-units-assign-roles/select-add-assignment.png)
 

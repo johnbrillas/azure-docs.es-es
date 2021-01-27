@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/15/2021
-ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251495"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737564"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -218,7 +218,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máximo de IOPS de datos por grupo <sup>2</sup>|5760|6400|7680|10240|11 520|23 040|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|5760|6400|7680|10240|11 520|12800|
 |Velocidad de registro máxima por grupo (MBps)|48|48|48|48|48|48|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|1800|2000|2400|3200|3600|7200|

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6ecea10c884bffb10c936ca7c619d70d2449467
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030083"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728498"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -169,7 +169,7 @@ La mejor manera de identificar y solucionar problemas de conectividad del conect
 Puede usar la herramienta de supervisión que prefiera. En este artículo, hemos usado Analizador de mensajes de Microsoft.
 
 > [!NOTE]
-> [El analizador de mensajes de Microsoft (MMA) se retiró](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) y sus paquetes de descarga se eliminaron de los sitios de microsoft.com el 25 de noviembre de 2019.  Actualmente no hay ningún reemplazo de Microsoft para el analizador de mensajes de Microsoft en desarrollo por el momento.  Para obtener una funcionalidad similar, considere la posibilidad de usar una herramienta de análisis de protocolos de red de terceros como Wireshark.
+> [El analizador de mensajes de Microsoft (MMA) se retiró](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) y sus paquetes de descarga se eliminaron de los sitios de microsoft.com el 25 de noviembre de 2019.  Actualmente no hay ningún reemplazo de Microsoft para el analizador de mensajes de Microsoft en desarrollo por el momento.  Para obtener una funcionalidad similar, considere la posibilidad de usar una herramienta de análisis de protocolos de red de terceros como Wireshark.
 
 Los ejemplos siguientes son específicos del Analizador de mensajes pero los principios se pueden aplicar a cualquier herramienta de análisis.
 

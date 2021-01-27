@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676502"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724176"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importación o exportación de una base de datos de Azure SQL Database sin permitir que los servicios de Azure accedan al servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,22 +46,22 @@ En los pasos siguientes se muestra cómo conectarse a la máquina virtual median
 
    ![Captura de pantalla que muestra la página de información general de una máquina virtual con el botón Conectar.](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Seleccione **Conectar** .
+2. Seleccione **Conectar**.
 
    Aparece un formulario de archivo de Protocolo de escritorio remoto (archivo .rdp) con la dirección IP pública y el número de puerto de la máquina virtual.
 
    ![Formulario RDP](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Seleccione **Descargar archivo RDP** .
+3. Seleccione **Descargar archivo RDP**.
 
    > [!NOTE]
    > También puede usar SSH para conectarse a la máquina virtual.
 
-4. Cierre el formulario **Conexión a la máquina virtual** .
+4. Cierre el formulario **Conexión a la máquina virtual**.
 5. Para conectarse a la máquina virtual, abra el archivo RDP descargado.
 6. Cuando se le pida, seleccione **Connect** (Conectar). En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) de Mac App Store.
 
-7. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar** .
+7. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar**.
 
 8. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Elija **Sí** o en **Continuar** para continuar con la conexión.
 
@@ -77,7 +77,7 @@ Agregue la dirección IP pública de la máquina virtual al firewall del servido
 
 En los pasos siguientes se crea una regla de Firewall de IP de nivel de servidor para la dirección IP pública de la máquina virtual y se habilita la conectividad de la máquina virtual.
 
-1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database** . Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **servername.database.windows.net** ) y ofrece otras opciones de configuración.
+1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **servername.database.windows.net**) y ofrece otras opciones de configuración.
 
 2. Copie este nombre de servidor completo para conectarse a su servidor y a sus bases de datos.
 
@@ -89,9 +89,9 @@ En los pasos siguientes se crea una regla de Firewall de IP de nivel de servidor
 
 4. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP pública de la máquina virtual a la nueva regla de firewall de IP en el nivel de servidor. Esta regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Seleccione **Guardar** . Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP pública de la máquina virtual en el servidor.
+5. Seleccione **Guardar**. Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP pública de la máquina virtual en el servidor.
 
-6. Cierre la página **Configuración de firewall** .
+6. Cierre la página **Configuración de firewall**.
 
 ## <a name="export-a-database-using-sqlpackage"></a>Exportación de una base de datos mediante SqlPackage
 
@@ -111,7 +111,7 @@ Para importar una base de datos de SQL Server mediante la utilidad de línea de 
 
 Para el escalado y rendimiento, se recomienda usar SqlPackage en la mayoría de los entornos de producción en lugar de usar Azure Portal. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) en el blog de Customer Advisory Team de SQL Server sobre cómo migrar usuarios con archivos `BACPAC`.
 
-El siguiente comando SqlPackage importa la base de datos **AdventureWorks2017** del almacenamiento local a Azure SQL Database. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6** . Cambie estos valores según corresponda para su entorno.
+El siguiente comando SqlPackage importa la base de datos **AdventureWorks2017** del almacenamiento local a Azure SQL Database. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6**. Cambie estos valores según corresponda para su entorno.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=myMigratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2017.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -147,7 +147,7 @@ Para lograr el mejor rendimiento, utilice Azure Files. SqlPackage funciona con 
 
 Para reducir el costo, use blobs de Azure, que cuestan menos que un recurso compartido de archivos Premium de Azure. Sin embargo, deberá copiar el [archivo .BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre el blob y el sistema de archivos local antes de la operación de importación o exportación. Como resultado, el proceso tardará más.
 
-Para cargar o descargar los archivos .BACPAC, consulte [Transferir datos con AzCopy y BLOB Storage](../../storage/common/storage-use-azcopy-blobs.md) y [Transferir datos con AzCopy y almacenamiento de archivos](../../storage/common/storage-use-azcopy-files.md).
+Para cargar o descargar los archivos .BACPAC, consulte [Transferir datos con AzCopy y BLOB Storage](../../storage/common/storage-use-azcopy-v10.md#transfer-data) y [Transferir datos con AzCopy y almacenamiento de archivos](../../storage/common/storage-use-azcopy-files.md).
 
 En función de su entorno, es posible que necesite [Configurar firewalls y redes virtuales de Azure Storage](../../storage/common/storage-network-security.md).
 

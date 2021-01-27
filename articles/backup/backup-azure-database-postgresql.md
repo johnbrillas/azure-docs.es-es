@@ -4,12 +4,12 @@ description: Más información sobre la copia de seguridad de Azure Database for
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569494"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737579"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -31,7 +31,7 @@ Puede usar esta solución de forma independiente o sumada a la solución de copi
 
 |Soporte técnico  |Detalles  |
 |---------|---------|
-|Implementaciones admitidas   |  [Azure Database for PostgreSQL: Servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Implementaciones admitidas   |  [Azure Database for PostgreSQL: Servidor único](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Regiones de Azure compatibles |  Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Sur de Brasil, Centro de Canadá, Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Centro-oeste de Alemania, Norte de Suiza, Oeste de Suiza, Este de Asia, Sudeste de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro de la India, Este de Australia, Centro de Australia, Centro de Australia 2 y Norte de Emiratos Árabes Unidos  |
 |Versiones admitidas de Azure PostgreSQL    |   9.5, 9.6, 10, 11      |
 

@@ -3,18 +3,18 @@ title: Creación e implementación de proyectos de grupos de recursos de Visual 
 description: Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372653"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704421"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
 Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede implementar el host web, el sitio web y el código del sitio web. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web.
 
-En este artículo se muestra cómo usar [Visual Studio 2019 o posterior con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/visualstudio/install/install-visual-studio?view=vs-2019). Si utiliza Visual Studio 2017, su experiencia es muy similar.
+En este artículo se muestra cómo usar [Visual Studio 2019 o posterior con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/visualstudio/install/install-visual-studio). Si utiliza Visual Studio 2017, su experiencia es muy similar.
 
 ## <a name="create-azure-resource-group-project"></a>Creación de un proyecto de grupo de recursos de Azure
 

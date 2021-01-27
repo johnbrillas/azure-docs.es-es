@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 56a2cbf88cec47417e992990c16a76ec84c6433d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b70694011aa0467d8ca037ac309ffb0811c79c01
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117816"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737955"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introducción a Visual Studio 2019
 
@@ -40,10 +40,10 @@ En ocasiones, es posible que las versiones de actualización de características
 
 
 - [Administración de cargas de trabajo](sql-data-warehouse-workload-management.md): grupos y clasificadores de cargas de trabajo.
-- [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (incluye funciones con valores de tabla)
+- [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (incluye funciones con valores de tabla)
   - Envíe una [incidencia de soporte técnico o vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obtener la característica admitida.
   - Envíe una [incidencia de soporte técnico o vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obtener la característica admitida.
-- Tablas con una [columna de identidad](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
+- Tablas con una [columna de identidad](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true)
 - Ciertas características de T-SQL, como:
    - Cláusula *WITHIN GROUP* de la función de cadena [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql).
 

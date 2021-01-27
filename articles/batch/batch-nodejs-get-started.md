@@ -3,12 +3,12 @@ title: Uso de la biblioteca cliente de Azure Batch para Node.js
 description: Aprenda los conceptos básicos de Azure Batch y cree una solución sencilla mediante Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106706"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737293"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
 
@@ -38,7 +38,7 @@ El cliente de node.js implementa un trabajo por lotes con una tarea de preparaci
 
 > [!TIP]
 > El cliente de Node.js del enlace especificado no contiene código específico para implementarse como una instancia de Azure Function App. Puede consultar los siguientes enlaces para obtener instrucciones de cómo crear una.
-> - [Creación de una instancia de Function App](../azure-functions/functions-create-first-azure-function.md)
+> - [Creación de una instancia de Function App](../azure-functions/functions-get-started.md)
 > - [Creación de una función de desencadenador de temporizador](../azure-functions/functions-bindings-timer.md)
 
 ## <a name="build-the-application"></a>Compilar la aplicación

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499754"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730628"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo conectar un disco persistente a la máquina v
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Conexión de un nuevo disco a una máquina virtual
 
-Si quiere agregar un nuevo disco de datos en la VM, use el comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) con el parámetro `--new`. Si la máquina virtual está en una zona de disponibilidad, el disco se crea automáticamente en la misma zona que la máquina virtual. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../../availability-zones/az-overview.md). En el ejemplo siguiente se crea un disco denominado *myDataDisk* que tiene un tamaño de 50 Gb:
+Si quiere agregar un nuevo disco de datos en la VM, use el comando [az vm disk attach](/cli/azure/vm/disk) con el parámetro `--new`. Si la máquina virtual está en una zona de disponibilidad, el disco se crea automáticamente en la misma zona que la máquina virtual. Para obtener más información, consulte [Introducción a las zonas de disponibilidad](../../availability-zones/az-overview.md). En el ejemplo siguiente se crea un disco denominado *myDataDisk* que tiene un tamaño de 50 Gb:
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>un disco existente
 
-Para conectar un disco existente, busque el identificador del disco y páselo al comando [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest). El ejemplo siguiente consulta un disco llamado *myDataDisk* en *myResourceGroup* y, a continuación, lo asocia a la máquina virtual denominada *myVM*:
+Para conectar un disco existente, busque el identificador del disco y páselo al comando [az vm disk attach](/cli/azure/vm/disk). El ejemplo siguiente consulta un disco llamado *myDataDisk* en *myResourceGroup* y, a continuación, lo asocia a la máquina virtual denominada *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -181,5 +181,5 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
+* Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](/previous-versions/azure/virtual-machines/linux/optimization) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 * Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) para obtener un mayor rendimiento.

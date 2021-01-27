@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 8a30c0a0527f98cc00f7888299c09f1f26c3dd09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708439"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735221"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
@@ -19,7 +19,7 @@ Las alertas del registro de actividad son alertas que se activan cuando un nuevo
 
 > [!NOTE]
 > * **No se pueden** crear alertas para eventos en la categoría Alerta del registro de actividad.
-> * Las alertas del registro de actividad con la categoría de Seguridad pueden definirse también en un [nuevo flujo actualizado](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) como [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem).
+> * Las alertas del registro de actividad con la categoría de Seguridad pueden definirse también en un [nuevo flujo actualizado](../../security-center/continuous-export.md?tabs=azure-portal) como [ServiceNow](../../security-center/export-to-siem.md).
 
 Por lo general, se crean alertas del registro de actividad para recibir notificaciones cuando:
 

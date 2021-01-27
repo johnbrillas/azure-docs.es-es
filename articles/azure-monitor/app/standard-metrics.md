@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.subservice: application-insights
-ms.openlocfilehash: f59dce5a450cd745ad05ea3b53d85606706a8eaa
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8da719f399c0c49efd478f05a0114d85233c880f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512103"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732635"
 ---
 # <a name="application-insights-standard-metrics"></a>Métricas estándar de Application Insights
 
@@ -272,5 +272,5 @@ Recuento de instrucciones de seguimiento registradas con la llamada API de Appli
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda sobre las [métricas basadas en registros y agregadas previamente](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Definiciones y consultas de métricas basadas en registros](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics).
+* Aprenda sobre las [métricas basadas en registros y agregadas previamente](./pre-aggregated-metrics-log-metrics.md).
+* [Definiciones y consultas de métricas basadas en registros](../platform/app-insights-metrics.md).

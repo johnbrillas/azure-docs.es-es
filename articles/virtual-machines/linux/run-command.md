@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970578"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737870"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Ejecución de scripts de shell en la máquina virtual Linux con Ejecutar comando
 
@@ -21,7 +21,7 @@ La función Ejecutar comando usa el agente de máquina virtual (VM) para ejecuta
 
 ## <a name="benefits"></a>Ventajas
 
-Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. La función Ejecutar comando se usa a través de Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o la [CLI de Azure ](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para las VM con Linux.
+Puede acceder a las máquinas virtuales de varias maneras. Ejecutar comando puede ejecutar scripts en sus máquinas virtuales de forma remota con el agente de VM. La función Ejecutar comando se usa a través de Azure Portal, la [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o la [CLI de Azure ](/cli/azure/vm/run-command#az_vm_run_command_invoke) para las VM con Linux.
 
 Esta funcionalidad es útil en todos los escenarios en los que quiera ejecutar un script en una máquina virtual. Es uno de los únicos métodos para solucionar problemas y corregir una máquina virtual que no tiene abierto el puerto RDP o SSH debido a una configuración incorrecta de red o de usuario administrativo.
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Azure CLI
 
-El siguiente ejemplo utiliza el comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para ejecutar un script de shell en una máquina virtual Linux de Azure.
+El siguiente ejemplo utiliza el comando [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) para ejecutar un script de shell en una máquina virtual Linux de Azure.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"

@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 74bfc9eeeb8375fca2c88a3fd3c31f17e130fc99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7b8f893026bb96c8d768d2e6d07d0240ecb81fa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919219"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724848"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-daemon-applications-you-develop"></a>Aumento de la resistencia de la autenticación y la autorización en las aplicaciones demonio que se desarrollan
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones sobre cómo pueden los desarroll
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Uso de identidades administradas para Azure Resources
 
-Los desarrolladores que crean aplicaciones demonio en Microsoft Azure pueden utilizar [identidades administradas para Azure Resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Las identidades administradas eliminan la necesidad de que los desarrolladores administren secretos y credenciales. La característica mejora la resistencia y evita los errores relacionados con la expiración del certificado, los errores de rotación o la confianza. También tiene varias características integradas diseñadas específicamente para aumentar la resistencia.
+Los desarrolladores que crean aplicaciones demonio en Microsoft Azure pueden utilizar [identidades administradas para Azure Resources](../managed-identities-azure-resources/overview.md). Las identidades administradas eliminan la necesidad de que los desarrolladores administren secretos y credenciales. La característica mejora la resistencia y evita los errores relacionados con la expiración del certificado, los errores de rotación o la confianza. También tiene varias características integradas diseñadas específicamente para aumentar la resistencia.
 
 Las identidades administradas utilizan tokens de acceso de larga duración e información de Microsoft Identity para adquirir nuevos tokens de forma proactiva dentro de un amplio período de tiempo antes de que expire el token existente. La aplicación puede continuar ejecutándose mientras intenta adquirir un nuevo token.
 
@@ -34,11 +34,11 @@ Las identidades administradas también utilizan puntos de conexión regionales p
 
 ## <a name="use-the-microsoft-authentication-library"></a>Uso de la biblioteca de autenticación de Microsoft
 
-Los desarrolladores de aplicaciones demonio que no utilizan identidades administradas pueden usar la [Biblioteca de autenticación de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), que facilita la implementación de la autenticación y la autorización y aplica automáticamente los procedimientos recomendados para la resistencia. MSAL facilita el proceso para proporcionar las credenciales de cliente necesarias. Por ejemplo, la aplicación no necesita implementar la creación y la firma de aserciones de JSON Web Token cuando se utilizan credenciales basadas en certificados.
+Los desarrolladores de aplicaciones demonio que no utilizan identidades administradas pueden usar la [Biblioteca de autenticación de Microsoft (MSAL)](../develop/msal-overview.md), que facilita la implementación de la autenticación y la autorización y aplica automáticamente los procedimientos recomendados para la resistencia. MSAL facilita el proceso para proporcionar las credenciales de cliente necesarias. Por ejemplo, la aplicación no necesita implementar la creación y la firma de aserciones de JSON Web Token cuando se utilizan credenciales basadas en certificados.
 
 ### <a name="use-microsoftidentityweb-for-net-developers"></a>Uso de Microsoft.Identity.Web para desarrolladores de .NET
 
-Los desarrolladores que crean aplicaciones demonio en ASP.NET Core pueden utilizar la biblioteca [Microsoft.Identity.Web](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web). Esta biblioteca se basa en MSAL, lo que facilita aún más la implementación de la autorización para las aplicaciones de ASP.NET Core. Incluye varias estrategias de [caché de tokens distribuidos](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) para las aplicaciones distribuidas que se pueden ejecutar en varias regiones.
+Los desarrolladores que crean aplicaciones demonio en ASP.NET Core pueden utilizar la biblioteca [Microsoft.Identity.Web](../develop/microsoft-identity-web.md). Esta biblioteca se basa en MSAL, lo que facilita aún más la implementación de la autorización para las aplicaciones de ASP.NET Core. Incluye varias estrategias de [caché de tokens distribuidos](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) para las aplicaciones distribuidas que se pueden ejecutar en varias regiones.
 
 ## <a name="cache-and-store-tokens"></a>Almacenamiento y almacenamiento en caché de tokens
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 26874c33c496b57bf6317a7b837b3afddc2f5e37
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 41457f26c22e3b8ed529ce77cfaf452618b03655
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955657"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737649"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en VM Linux
 
@@ -98,7 +98,7 @@ Al acabar, pulse la tecla **Esc** y escriba **:wq** para guardar y cerrar el arc
 
 ## <a name="create-the-policy"></a>Creación de la directiva
 
-Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment?view=azure-cli-latest).
+Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment).
 
 En este ejemplo, las reglas y los parámetros son los archivos creados y almacenados como archivos .json en Cloud Shell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 En este ejemplo se asigna la directiva a un grupo de recursos mediante la [creación de la asignación de directivas az](/cli/azure/policy/assignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar el acceso a VM Linux ni las extensiones del script personalizado para Linux. El grupo de recursos debe existir para poder asignar la directiva.
 
-Use la [lista de cuentas de az](/cli/azure/account?view=azure-cli-latest) para obtener el id. de suscripción que se debe utilizar en lugar del del ejemplo.
+Use la [lista de cuentas de az](/cli/azure/account) para obtener el id. de suscripción que se debe utilizar en lugar del del ejemplo.
 
 
 ```azurecli-interactive

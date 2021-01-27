@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704176"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -57,7 +57,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Data Factory|[Captura de credenciales del almacén de datos en Key Vault desde Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
-|Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](../../storage/common/storage-import-export-encryption-key-portal.md)
+|Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Cifrado del registro con claves administradas por el cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]

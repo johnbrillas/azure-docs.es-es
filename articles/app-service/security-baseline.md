@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197938"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736095"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Base de referencia de seguridad de Azure para App Service
 
@@ -71,7 +71,7 @@ Use Azure Firewall para enviar el tráfico y crear, aplicar y registrar directiv
 
 - [Descripción de la seguridad de red proporcionada por Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Habilitación de la supervisión y la protección de App Service](/azure/security-center/defender-for-app-service-introduction)
+- [Habilitación de la supervisión y la protección de App Service](../security-center/defender-for-app-service-introduction.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -168,7 +168,7 @@ Para más información, revise los vínculos a los que se hace referencia.
 
 - [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](/azure/app-service/environment/firewall-integration)
+- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](./environment/firewall-integration.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -205,7 +205,7 @@ Para más información, revise los vínculos a los que se hace referencia.
 
 - [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](/azure/app-service/environment/firewall-integration)
+- [Proteja el ASE tal y como se describe en Bloqueo de una instancia de App Service](./environment/firewall-integration.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -221,7 +221,7 @@ Aplique cualquiera de las definiciones integradas de Azure Policy relacionadas c
 
 - [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-- [Restricciones de acceso de Azure App Service](/azure/app-service/app-service-ip-restrictions)
+- [Restricciones de acceso de Azure App Service](./app-service-ip-restrictions.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

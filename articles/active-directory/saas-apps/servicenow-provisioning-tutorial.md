@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 928b8118c614d7d16293c8d6e0cec194a270314e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955474"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729930"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -155,7 +155,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 * **Intervalos IP** 
 
-   El servicio de aprovisionamiento de Azure AD funciona actualmente en determinados intervalos IP. Por lo tanto, si es necesario, puede restringir otros intervalos IP y agregar estos intervalos de direcciones IP concretos a la lista de permitidos de la aplicación para permitir el flujo de tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Consulte la documentación sobre los [intervalos IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+   El servicio de aprovisionamiento de Azure AD funciona actualmente en determinados intervalos IP. Por lo tanto, si es necesario, puede restringir otros intervalos IP y agregar estos intervalos de direcciones IP concretos a la lista de permitidos de la aplicación para permitir el flujo de tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. Consulte la documentación sobre los [intervalos IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

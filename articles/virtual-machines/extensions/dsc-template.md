@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 01a41e9acccdb40bf198031d13c3ea3f13c079ce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180156"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735697"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -32,7 +32,7 @@ En este artículo se describe la plantilla de Azure Resource Manager para el [co
 
 El fragmento de código siguiente corresponde a la sección **Resource** de la plantilla.
 La extensión DSC hereda las propiedades de extensión predeterminadas.
-Para más información, consulte la [clase VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet).
+Para más información, consulte la [clase VirtualMachineExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension).
 
 ```json
 {
@@ -85,7 +85,7 @@ Un nodo del conjunto de escalado de máquinas virtuales tiene una sección **pro
 En **extensiones**, agregue los detalles para la extensión DSC.
 
 La extensión DSC hereda las propiedades de extensión predeterminadas.
-Para más información, consulte la [clase VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para más información, consulte la [clase VirtualMachineScaleSetExtension](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension).
 
 ```json
 "extensionProfile": {

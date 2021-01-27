@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631183"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732107"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Asignación de acceso de identidad administrada a un rol de aplicación mediante PowerShell
 
@@ -36,7 +36,7 @@ En este artículo, aprenderá a asignar una identidad administrada a un rol de a
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para ejecutar los scripts de ejemplo, tiene dos opciones:
     - Use el servicio [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar**, ubicado en la esquina superior derecha de los bloques de código.
-    - Ejecute scripts localmente mediante la instalación de la versión más reciente de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+    - Ejecute scripts localmente mediante la instalación de la versión más reciente de [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Asignación de acceso de identidad administrada al rol de aplicación de otra aplicación
 

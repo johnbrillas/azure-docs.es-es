@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132552"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724227"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -100,7 +100,7 @@ Ahora, puede automatizar la creación, actualización y eliminación de cuentas 
 - [Bizagi Studio para la automatización de procesos digitales](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Para mostrar su aplicación en la galería de aplicaciones de Azure AD, lea los
 **Categoría del servicio:** RBAC  
 **Funcionalidad del producto:** Control de acceso
  
- [Los roles de RBAC personalizados para la administración delegada de aplicaciones empresariales](../users-groups-roles/roles-custom-available-permissions.md) ahora están en versión preliminar pública. Estos nuevos permisos se basan en los roles personalizados para la administración del registro de aplicaciones, lo que permite un control exhaustivo sobre el acceso que tienen los administradores. Con el tiempo, se publicarán permisos adicionales para la administración delegada de Azure AD.
+ [Los roles de RBAC personalizados para la administración delegada de aplicaciones empresariales](../roles/custom-available-permissions.md) ahora están en versión preliminar pública. Estos nuevos permisos se basan en los roles personalizados para la administración del registro de aplicaciones, lo que permite un control exhaustivo sobre el acceso que tienen los administradores. Con el tiempo, se publicarán permisos adicionales para la administración delegada de Azure AD.
 
 Estos son algunos escenarios de delegación comunes:
 - asignación de usuarios y grupos que pueden acceder a aplicaciones de inicio de sesión único basadas en SAML
@@ -247,7 +247,7 @@ Ahora, puede automatizar la creación, actualización y eliminación de cuentas 
 - [Tic - Tac Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Para más información, consulte [Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD](../manage-apps/user-provisioning.md).
+Para más información, consulte [Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ El agente de aprovisionamiento en la nube se ha publicado en versión preliminar
  
 Anteriormente, podía recuperar las claves de BitLocker mediante el punto de conexión /bitlocker. Finalmente vamos a dejar de usar este punto de conexión y los clientes deberían empezar a consumir la API que ahora está en /informationProtection. 
 
-Consulte [Tipo de recurso bitlockerRecoveryKey](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para conocer las actualizaciones de la documentación para reflejar estos cambios.
+Consulte [Tipo de recurso bitlockerRecoveryKey](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para conocer las actualizaciones de la documentación para reflejar estos cambios.
 
 ---
 
@@ -1126,4 +1126,3 @@ Si su organización usa el SDK de Azure MFA, debe realizar la migración antes d
 
 ---
 
- 

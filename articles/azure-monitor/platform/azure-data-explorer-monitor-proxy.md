@@ -7,16 +7,16 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8942735ed65f8aa0cf6d315568e00412adcb353a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a31ef69d84f64e4bcaa46adac26a29d2cc367351
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060544"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731707"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Monitor con Azure Data Explorer (versión preliminar)
 
-Azure Data Explorer admite las consultas entre los servicios Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview) y [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs). Asimismo, puede consultar el área de trabajo de Log Analytics/Application Insights mediante herramientas de Azure Data Explorer y hacer referencia a la misma en una consulta entre servicios. En este artículo se muestra cómo crear una consulta entre servicios y cómo agregar el área de trabajo de Log Analytics/Application Insights a la interfaz de usuario web de Azure Data Explorer.
+Azure Data Explorer admite las consultas entre los servicios Azure Data Explorer, [Application Insights (AI)](../app/app-insights-overview.md) y [Log Analytics (LA)](./data-platform-logs.md). Asimismo, puede consultar el área de trabajo de Log Analytics/Application Insights mediante herramientas de Azure Data Explorer y hacer referencia a la misma en una consulta entre servicios. En este artículo se muestra cómo crear una consulta entre servicios y cómo agregar el área de trabajo de Log Analytics/Application Insights a la interfaz de usuario web de Azure Data Explorer.
 
 Flujo de consultas entre servicios de Azure Data Explorer: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flujo del proxy de Azure Data Explorer.":::
 
@@ -62,7 +62,7 @@ Puede ejecutar las consultas usando herramientas de cliente que admitan consulta
 > * El nombre de la base de datos debe tener el mismo nombre que el recurso especificado en la consulta entre servicios. Los nombres distinguen mayúsculas de minúsculas.
 > * En consultas entre clústeres, asegúrese de que la nomenclatura de las aplicaciones de Application Insights y las áreas de trabajo de Log Analytics sea correcta.
 > * Si los nombres contienen caracteres especiales, se sustituyen por la codificación URL de la consulta entre servicios.
-> * Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guion **-** .
+> * Si los nombres incluyen caracteres que no cumplen las [reglas del nombre del identificador KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), se sustituyen por el carácter de guion **-** .
 
 ### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Consulta directa en las áreas de trabajo de Log Analytics o Application Insights desde las herramientas de cliente de Azure Data Explorer
 
@@ -90,7 +90,7 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Consulta entre servicios desde Azure Data Explorer":::.
 
-Usar el [`join` operador](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator), en lugar de union, puede requerir una [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) para ejecutarla en un clúster nativo de Azure Data Explorer.
+Usar el [`join` operador](/azure/data-explorer/kusto/query/joinoperator), en lugar de union, puede requerir una [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) para ejecutarla en un clúster nativo de Azure Data Explorer.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Combinación de datos desde un clúster de Azure Data Explorer de un inquilino con un recurso de Azure Monitor de otro inquilino
 
@@ -98,9 +98,9 @@ No se admiten las consultas entre inquilinos en los servicios. Ha iniciado sesi�
 
 Si el recurso de Azure Data Explorer está en el inquilino "A" y el área de trabajo de Log Analytics está en el inquilino "B", use uno de los dos métodos siguientes:
 
-1. Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino "B" como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad *["TrustedExternalTenant"](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* del clúster de Azure Data Explorer contiene al inquilino "B". Ejecute la consulta cruzada completamente en el inquilino "B".
+1. Azure Data Explorer permite agregar roles para entidades de seguridad de distintos inquilinos. Agregue su identificador de usuario en el inquilino "B" como usuario autorizado en el clúster de Azure Data Explorer. Compruebe que la propiedad *["TrustedExternalTenant"](/powershell/module/az.kusto/update-azkustocluster)* del clúster de Azure Data Explorer contiene al inquilino "B". Ejecute la consulta cruzada completamente en el inquilino "B".
 
-2. Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) para proyectar el recurso de Azure Monitor en el inquilino "A".
+2. Use [Lighthouse](../../lighthouse/index.yml) para proyectar el recurso de Azure Monitor en el inquilino "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Conexión a clústeres de Azure Data Explorer desde otros inquilinos
 
 Kusto Explorer inicia sesión automáticamente en el inquilino al que pertenece originalmente la cuenta de usuario. Para acceder a los recursos de otros inquilinos con la misma cuenta de usuario, se tiene que especificar explícitamente el valor de `tenantId` en la cadena de conexión: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
@@ -134,4 +134,4 @@ Las opciones de sintaxis siguientes están disponibles cuando se llama a los cl�
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea más sobre la [estructura de datos de las áreas de trabajo de Log Analytics y Application Insights](data-platform-logs.md).
-- Aprenda a [escribir consultas en Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Aprenda a [escribir consultas en Azure Data Explorer](/azure/data-explorer/write-queries).
