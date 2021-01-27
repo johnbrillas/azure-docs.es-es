@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b29cdda66186587c43471d6d6e819dfbde658e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dacf34d7098472e98c7f68f7f60fa9bac1a4e5ec
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075027"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875778"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella
 Para iniciar una sesión de Escritorio remoto (RDP) desde un escritorio de Windows, usará el botón **Conectar** de Azure Portal. En primer lugar, conéctese a la máquina virtual e inicie sesión.
@@ -41,7 +41,7 @@ Para conectarse a una máquina virtual Windows desde un equipo Mac, debe instala
 
 
    > [!TIP]
-   > Si el botón **Conectar** del portal está atenuado y no está conectado a Azure a través de una conexión [Express Route](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar RDP. Para obtener más información, consulte [Public IP addresses in Azure](../../virtual-network/public-ip-addresses.md) (Direcciones IP públicas en Azure).
+   > Si el botón **Conectar** del portal está atenuado y no está conectado a Azure a través de una conexión [Express Route](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/tutorial-site-to-site-portal.md), deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar RDP. Para obtener más información, consulte [Public IP addresses in Azure](../../virtual-network/public-ip-addresses.md) (Direcciones IP públicas en Azure).
    > 
    > 
 
@@ -64,4 +64,4 @@ Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si tiene problemas con la conexión, consulte [Troubleshoot Remote Desktop connections](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json) (Seleccionar problemas con las conexiones del Escritorio remoto). 
+Si tiene problemas con la conexión, consulte [Troubleshoot Remote Desktop connections](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json) (Seleccionar problemas con las conexiones del Escritorio remoto).

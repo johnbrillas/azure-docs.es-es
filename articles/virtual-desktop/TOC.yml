@@ -120,6 +120,10 @@
       href: azure-monitor.md
     - name: Configuración de un plan de recuperación ante desastres
       href: disaster-recovery.md
+    - name: Configuración del proxy KDC
+      href: key-distribution-center-proxy.md
+    - name: Configuración del rol Puerta de enlace de escritorio remoto
+      href: rd-gateway-role.md
 - name: Conceptos
   items:
     - name: Roles integrados
@@ -170,6 +174,10 @@
       href: azure-monitor-glossary.md
     - name: Ubicaciones de datos
       href: data-locations.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Solución de problemas
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'

@@ -223,14 +223,26 @@
           href: bookmarks.md
         - name: Uso de LiveStream para la búsqueda
           href: livestream.md
-        - name: Administración de consultas de búsqueda con API REST
-          href: hunting-with-rest-api.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
 - name: Referencia (nuevo)
   items:
-    - name: API REST
-      href: /rest/api/securityinsights/
+    - name: Roles RBAC de Azure
+      items:
+        - name: Todos los roles de Azure
+          href: /azure/role-based-access-control/built-in-roles#all
+        - name: Roles de Azure Sentinel
+          href: /azure/role-based-access-control/built-in-roles#security
+    - name: API de REST
+      items:
+        - name: API REST de Azure Sentinel
+          href: /rest/api/securityinsights/
+        - name: Administración de consultas de búsqueda con API REST
+          href: hunting-with-rest-api.md
+        - name: Administración de listas de reproducción con API REST
+          href: watchlist-with-rest-api.md
+    - name: Conector de Azure Sentinel en Logic Apps
+      href: /connectors/azuresentinel/
     - name: Esquema de normalización de la red
       href: normalization-schema.md
     - name: Enriquecimientos con UEBA

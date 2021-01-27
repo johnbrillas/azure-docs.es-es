@@ -3,13 +3,12 @@
 - name: Información general
   href: overview.md
   items:
-    - name: Novedades
-      href: release-notes.md
     - name: Arquitectura de la solución
       href: architecture.md
-- name: Guías de inicio rápido
-  expanded: true
-  items:
+    - name: Novedades
+      href: release-notes.md
+    - name: Guías de inicio rápido
+      expanded: true
     - name: Una solución sin agente para organizaciones
       items:
         - name: Requisitos previos del sistema
@@ -154,6 +153,16 @@
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
         - name: Uso de alertas en la consola de administración local
           href: how-to-work-with-alerts-on-premises-management-console.md
+        - name: Crear informes
+          items:
+            - name: Creación de informes de evaluación de riesgos
+              href: how-to-create-risk-assessment-reports.md
+            - name: Creación de informes de vectores de ataque
+              href: how-to-create-attack-vector-reports.md
+            - name: Creación de informes de minería de datos
+              href: how-to-create-data-mining-queries.md
+            - name: Creación de informes de tendencias y estadísticas
+              href: how-to-create-data-mining-queries.md
         - name: Enriquecimiento de la información del dispositivo
           items:
             - name: Uso de las notificaciones de dispositivos
@@ -168,8 +177,6 @@
         - name: Seguimiento de la actividad del sensor
           href: how-to-track-sensor-activity.md
           displayName: 'timeline, time line, time-line, event'
-        - name: Generación de informes
-          href: how-to-generate-reports.md
         - name: Solución de problemas del sensor y de la consola de administración local
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Configuración de la supervisión de MIB del protocolo simple de administración de redes

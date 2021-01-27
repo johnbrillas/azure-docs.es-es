@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900661"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875743"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -70,13 +70,13 @@ Actualmente no tenemos una solución relacionada con RBAC de Azure para otros ti
 ### <a name="recommended-azure-built-in-roles"></a>Roles integrados de Azure recomendados
 
 Hay varios roles integrados de Azure que pueden proporcionar los permisos necesarios para usar el Explorador de Storage. Algunos de estos roles son:
-- [Propietario](/azure/role-based-access-control/built-in-roles#owner): administra todo, incluido el acceso a los recursos.
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): administra todo, excepto el acceso a los recursos.
-- [Lector](/azure/role-based-access-control/built-in-roles#reader): lee y enumera los recursos.
-- [Colaborador de la cuenta de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): administración completa de cuentas de almacenamiento.
-- [Propietario de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acceso completo a contenedores de blobs y datos de Azure Storage.
-- [Colaborador de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Lee, escribe y elimina blobs y contenedores de Azure Storage.
-- [Lector de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Lee y enumera blobs y contenedores de Azure Storage.
+- [Propietario](../../role-based-access-control/built-in-roles.md#owner): administra todo, incluido el acceso a los recursos.
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): administra todo, excepto el acceso a los recursos.
+- [Lector](../../role-based-access-control/built-in-roles.md#reader): lee y enumera los recursos.
+- [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): administración completa de cuentas de almacenamiento.
+- [Propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): acceso completo a contenedores de blobs y datos de Azure Storage.
+- [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Lee, escribe y elimina blobs y contenedores de Azure Storage.
+- [Lector de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Lee y enumera blobs y contenedores de Azure Storage.
 
 > [!NOTE]
 > Los roles de propietario, colaborador y colaborador de la cuenta de almacenamiento conceden acceso a la clave de cuenta.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425524"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874254"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -77,7 +77,7 @@ Dado que la replicación de Site Recovery no depende de la aplicación, se esper
 
 
 
-**Conectividad de sitio a sitio**: Debe establecerse una conexión directa entre el sitio local y la red de Azure para permitir la comunicación entre servidores. Utilice una conexión VPN de sitio a sitio segura con una red virtual de Azure que se utiliza como el sitio de recuperación ante desastres. Para más información, consulte [Establecimiento de una conexión VPN de sitio a sitio entre un sitio local y una red virtual de Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Conectividad de sitio a sitio**: Debe establecerse una conexión directa entre el sitio local y la red de Azure para permitir la comunicación entre servidores. Utilice una conexión VPN de sitio a sitio segura con una red virtual de Azure que se utiliza como el sitio de recuperación ante desastres. Para más información, consulte [Establecimiento de una conexión VPN de sitio a sitio entre un sitio local y una red virtual de Azure](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Active Directory**: DFSR depende de Active Directory. Esto significa que el bosque de Active Directory con controladores de dominio locales se amplía al sitio de recuperación ante desastres en Azure. Incluso si no está utilizando DFSR, si es necesario garantizar o verificar el acceso de los usuarios, debe realizar estos pasos. Para más información, consulte [Extensión de Active Directory local a Azure](./site-recovery-active-directory.md).
 

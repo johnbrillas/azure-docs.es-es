@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196085"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874120"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -102,7 +102,7 @@ Para los datos que se desplazan entre la infraestructura local y Azure, debe pla
 Estos son los procedimientos recomendados específicos para usar Azure VPN Gateway, SSL/TLS y HTTPS.
 
 **Procedimiento recomendado**: proteja el acceso a una red virtual de Azure desde varias estaciones de trabajo situadas en el entorno local.   
-**Detalles**: use [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Detalles**: use [VPN de sitio a sitio](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Procedimiento recomendado**: proteja el acceso a una red virtual de Azure desde una estación de trabajo situada en el entorno local.   
 **Detalles**: use [VPN de punto a sitio](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
