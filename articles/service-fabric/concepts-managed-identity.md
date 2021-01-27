@@ -3,12 +3,12 @@ title: Identidades administradas para Azure
 description: Obtenga información sobre el uso de identidades administradas para Azure con Service Fabric.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574758"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881727"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso de identidades administradas para Azure con Service Fabric
 
@@ -56,7 +56,7 @@ Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que
 
 - Eliminación o cambio de las identidades asignadas a una aplicación. Si debe realizar cambios, envíe implementaciones independientes para agregar primero una nueva asignación de identidad y, después, quitar una ya asignada. La eliminación de una identidad de una aplicación existente puede tener efectos no deseados, como dejar la aplicación en un estado que no se puede actualizar. Es seguro eliminar la aplicación por completo si es necesario quitar una identidad. Tenga en cuenta que de este modo se eliminará la identidad asignada por el sistema (si se ha definido) asociada a la aplicación y se quitarán todas las asociaciones con las identidades asignadas por el usuario que se han asignado a la aplicación.
 
-- En este momento, la compatibilidad de Service Fabric con identidades administradas no está integrada en [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
+- En este momento, la compatibilidad de Service Fabric con identidades administradas no está integrada en [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

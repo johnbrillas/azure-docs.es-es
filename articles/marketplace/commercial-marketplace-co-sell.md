@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/08/2020
-ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904915"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880968"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Opción de venta conjunta en el marketplace comercial
 
-Proporcionar información en la pestaña **Co-sell with Microsoft** (Venta conjunta con Microsoft) es totalmente opcional. Es necesario para lograr los estados [Co-sell Ready e IP Co-sell Incentivized](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. No está disponible directamente para los clientes. Para obtener más información, vea [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Proporcionar información en la pestaña **Co-sell with Microsoft** (Venta conjunta con Microsoft) es totalmente opcional. Es necesario para lograr los estados [Co-sell Ready e IP Co-sell Incentivized](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Los equipos de ventas de Microsoft usan la información que se proporciona para obtener más información sobre la oferta al evaluar su idoneidad para las necesidades de los clientes. No está disponible directamente para los clientes. Para obtener más información, vea [Venta conjunta con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 La opción de venta conjunta del Centro de partners está disponible para los siguientes tipos de ofertas.
 

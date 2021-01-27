@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251512"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881085"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -32,12 +32,6 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 **P.** : ¿Está registrando un dispositivo y acepta la concesión de acceso a dicho dispositivo para la empresa o el servicio?
 
 **R.** : El registro de un dispositivo permite que el dispositivo acceda a los servicios de la organización, pero no que la organización acceda al dispositivo.
-
-### <a name="too-many-app-permissions"></a>Demasiados permisos de aplicación
-
-**P.** : ¿Por qué la aplicación solicita tantos permisos?
-
-**R.** : Esta es una lista completa de permisos que se pueden solicitar y una explicación de cómo se utilizan en la aplicación. Los permisos específicos que aparezcan dependerán del tipo de teléfono que tenga. A veces, su organización quiere conocer su **ubicación** antes de permitirle acceder a determinados recursos. La aplicación solicitará este permiso solo si su organización tiene una directiva que requiera la ubicación.
 
 ### <a name="error-adding-account"></a>Error al agregar cuenta
 
@@ -144,7 +138,7 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : ¿Por qué la aplicación solicita tantos permisos?
 
-**R.** : Esta es una lista completa de permisos que se pueden solicitar y una explicación de cómo se utilizan en la aplicación. Los permisos específicos que aparezcan dependerán del tipo de teléfono que tenga.<ul><li>**Usar hardware biométrico.** Algunas cuentas profesionales o educativas requieran un PIN adicional cada vez que comprueba su identidad. La aplicación requiere su consentimiento para usar el reconocimiento biométrico o facial en lugar de escribir el PIN.</li><li>**Cámara.** Se usa para digitalizar códigos QR al agregar una cuenta Microsoft profesional, educativa o de otro tipo.</li><li>**Contactos y teléfono.** La aplicación requiere este permiso para buscar las cuentas profesionales o educativas de Microsoft en el teléfono y agregarlas a la aplicación.</li><li>**SMS.** Se utiliza para asegurarnos de que su número de teléfono coincide con el que tenemos en el registro cuando inicia sesión con su cuenta personal de Microsoft por primera vez. Enviamos un mensaje de texto al teléfono donde instaló la aplicación con un código de verificación de 6-8 caracteres. No es necesario que busque este código y lo especifique porque Authenticator lo encuentra automáticamente en el mensaje de texto.</li><li>**Extensión a otras aplicaciones.** La notificación que verifica su identidad también aparece en cualquier otra aplicación en ejecución.</li><li>**Recibir datos de internet.** Este permiso es necesario para enviar notificaciones.</li><li>**Impedir que el teléfono entre en modo de suspensión.** Si registra el dispositivo con su organización, dicha organización puede cambiar esta directiva en su teléfono.</li><li>**Controlar la vibración.** Puede elegir si quiere que el dispositivo vibre cada vez que se recibe una notificación para comprobar su identidad.</li><li>**Usar hardware de huella digital.** Algunas cuentas profesionales o educativas requieran un PIN adicional cada vez que comprueba su identidad. Para facilitar el proceso, se permite el uso de la huella digital en lugar de escribir el PIN.</li><li> **Ver conexiones de red.** Cuando se agrega una cuenta de Microsoft, la aplicación requiere conexión de red o a Internet.</li><li>**Leer el contenido del almacenamiento**. Este permiso solo se usa al notificar un problema técnico a través de la configuración de la aplicación. Parte de la información de su almacenamiento se recopila para diagnosticar el problema.</li><li>**Acceso completo a la red.** Este permiso es necesario para enviar notificaciones para comprobar su identidad.</li><li>**Ejecutar al inicio.** Si reinicia el teléfono, este permiso garantiza que continuará recibiendo notificaciones para comprobar su identidad.</li></ul>
+**R.** : Esta es una lista completa de permisos que se pueden solicitar y una explicación de cómo se utilizan en la aplicación. Los permisos específicos que aparezcan dependerán del tipo de teléfono que tenga.<ul><li>**Ubicación**. A veces, su organización quiere conocer su ubicación antes de permitirle tener acceso a determinados recursos. La aplicación solicitará este permiso solo si su organización tiene una directiva que requiera la ubicación.</li><li>**Usar hardware biométrico.** Algunas cuentas profesionales o educativas requieran un PIN adicional cada vez que comprueba su identidad. La aplicación requiere su consentimiento para usar el reconocimiento biométrico o facial en lugar de escribir el PIN.</li><li>**Cámara.** Se usa para digitalizar códigos QR al agregar una cuenta Microsoft profesional, educativa o de otro tipo.</li><li>**Contactos y teléfono.** La aplicación requiere este permiso para buscar las cuentas profesionales o educativas de Microsoft en el teléfono y agregarlas a la aplicación.</li><li>**SMS.** Se utiliza para asegurarnos de que su número de teléfono coincide con el que tenemos en el registro cuando inicia sesión con su cuenta personal de Microsoft por primera vez. Enviamos un mensaje de texto al teléfono donde instaló la aplicación con un código de verificación de 6-8 caracteres. No es necesario que busque este código y lo especifique porque Authenticator lo encuentra automáticamente en el mensaje de texto.</li><li>**Extensión a otras aplicaciones.** La notificación que verifica su identidad también aparece en cualquier otra aplicación en ejecución.</li><li>**Recibir datos de internet.** Este permiso es necesario para enviar notificaciones.</li><li>**Impedir que el teléfono entre en modo de suspensión.** Si registra el dispositivo con su organización, dicha organización puede cambiar esta directiva en su teléfono.</li><li>**Controlar la vibración.** Puede elegir si quiere que el dispositivo vibre cada vez que se recibe una notificación para comprobar su identidad.</li><li>**Usar hardware de huella digital.** Algunas cuentas profesionales o educativas requieran un PIN adicional cada vez que comprueba su identidad. Para facilitar el proceso, se permite el uso de la huella digital en lugar de escribir el PIN.</li><li> **Ver conexiones de red.** Cuando se agrega una cuenta de Microsoft, la aplicación requiere conexión de red o a Internet.</li><li>**Leer el contenido del almacenamiento**. Este permiso solo se usa al notificar un problema técnico a través de la configuración de la aplicación. Parte de la información de su almacenamiento se recopila para diagnosticar el problema.</li><li>**Acceso completo a la red.** Este permiso es necesario para enviar notificaciones para comprobar su identidad.</li><li>**Ejecutar al inicio.** Si reinicia el teléfono, este permiso garantiza que continuará recibiendo notificaciones para comprobar su identidad.</li></ul>
 
 ### <a name="approve-requests-without-unlocking"></a>Aprobación de solicitudes sin desbloqueo
 

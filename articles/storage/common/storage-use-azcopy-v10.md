@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108155"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881001"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -79,7 +79,7 @@ Use esta tabla como guía:
 Esta opción solo está disponible para Blob storage. Con Azure Active Directory, puede proporcionar credenciales una vez en lugar de anexar un token de SAS a cada comando.  
 
 > [!NOTE]
-> En la versión actual, si tiene previsto copiar blobs entre distintas cuentas de almacenamiento, deberá anexar un token de SAS a cada URL de origen. Puede omitir el token de SAS solo de la dirección URL de destino. Si necesita ejemplos, vea [Copia de blobs entre cuentas de almacenamiento](storage-use-azcopy-blobs.md).
+> En la versión actual, si tiene previsto copiar blobs entre distintas cuentas de almacenamiento, deberá anexar un token de SAS a cada URL de origen. Puede omitir el token de SAS solo de la dirección URL de destino. Si necesita ejemplos, vea [Copia de blobs entre cuentas de almacenamiento](#transfer-data).
 
 Para autorizar el acceso mediante Azure AD, consulte [Autorización del acceso a blobs con AzCopy y Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 

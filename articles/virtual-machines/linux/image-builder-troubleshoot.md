@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 52801d0d7b02bb3637b5edb03072bde04a023de9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969983"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881795"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solución de problemas del servicio Azure Image Builder
 
@@ -586,7 +586,7 @@ Puede haber algunos casos en los que necesite investigar las compilaciones corre
 
 Si un usuario no canceló la compilación, entonces lo hizo el agente de usuario de Azure DevOps. Lo más probable es que se haya agotado el tiempo de espera de una hora debido a las funcionalidades de Azure DevOps. Si usa un proyecto y un agente privados, dispondrá de 60 minutos de tiempo de compilación. Si la compilación supera el tiempo de espera, DevOps cancela la tarea en ejecución.
 
-Para más información sobre las funcionalidades y limitaciones de Azure DevOps, vea [Agentes hospedados por Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
+Para más información sobre las funcionalidades y limitaciones de Azure DevOps, vea [Agentes hospedados por Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations).
  
 #### <a name="solution"></a>Solución
 
@@ -674,4 +674,4 @@ Support Subtopic: Azure Image Builder
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, vea [Introducción a Azure Image Builder](image-builder-overview.md).
+Para más información, vea [Introducción a Azure Image Builder](../image-builder-overview.md).

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964565"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881744"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Desencadenamiento de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá a programar mediante programación una canalizaci�
 
 * Entorno de Python en el que está instalado el SDK de Azure Machine Learning para Python. Para más información, consulte [Creación y administración de entornos reutilizables para aprendizaje e implementación con Azure Machine Learning](how-to-use-environments.md).
 
-* Un área de trabajo Machine Learning con una canalización publicada. Puede usar la creada en [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+* Un área de trabajo Machine Learning con una canalización publicada. Puede usar la creada en [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Inicialización del área de trabajo y obtención de los datos
 
@@ -142,7 +142,7 @@ Si vuelve a ejecutar `Schedule.list(ws)`, obtendrá una lista vacía.
 
 Se pueden crear reglas o comportamientos de desencadenadores más complejos mediante una instancia de [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-Para usar una instancia de Azure Logic Apps para desencadenar una canalización Machine Learning, necesitará el punto de conexión de REST para una canalización de Machine Learning publicada. [Cree y publique la canalización](how-to-create-your-first-pipeline.md). Luego, busque el punto de conexión de REST de `PublishedPipeline` mediante el identificador de canalización:
+Para usar una instancia de Azure Logic Apps para desencadenar una canalización Machine Learning, necesitará el punto de conexión de REST para una canalización de Machine Learning publicada. [Cree y publique la canalización](./how-to-create-machine-learning-pipelines.md). Luego, busque el punto de conexión de REST de `PublishedPipeline` mediante el identificador de canalización:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

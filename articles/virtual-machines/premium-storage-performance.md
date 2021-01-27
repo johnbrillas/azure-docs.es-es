@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201967"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882389"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -35,8 +35,8 @@ Proporcionamos estas directrices específicamente para Premium Storage porque la
 >
 > Si desea realizar un banco de pruebas del disco, consulte nuestros artículos sobre cómo ejecutar bancos de pruebas de un disco:
 >
-> * Para Linux: [Ejecución de un banco de pruebas de la aplicación en Azure Disk Storage](linux/disks-benchmarks.md).
-> * Para Windows: [Ejecución de un banco de pruebas de un disco](windows/disks-benchmarks.md).
+> * Para Linux: [Ejecución de un banco de pruebas de la aplicación en Azure Disk Storage](./disks-benchmarks.md).
+> * Para Windows: [Ejecución de un banco de pruebas de un disco](./disks-benchmarks.md).
 >
 > Si la VM admite redes aceleradas, debe asegurarse de que esta opción esté habilitada. Si no está habilitada, puede habilitarla en VM ya implementadas, tanto en [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) como en [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -380,8 +380,8 @@ Azure Premium Storage aprovisiona un número especificado de IOPS y rendimiento 
 
 Si desea realizar un banco de pruebas del disco, consulte nuestros artículos sobre cómo ejecutar bancos de pruebas de un disco:
 
-* Para Linux: [Ejecución de un banco de pruebas de la aplicación en Azure Disk Storage](linux/disks-benchmarks.md).
-* Para Windows: [Ejecución de un banco de pruebas de un disco](windows/disks-benchmarks.md).
+* Para Linux: [Ejecución de un banco de pruebas de la aplicación en Azure Disk Storage](./disks-benchmarks.md).
+* Para Windows: [Ejecución de un banco de pruebas de un disco](./disks-benchmarks.md).
 
 Más información sobre los tipos de disco disponibles:
 

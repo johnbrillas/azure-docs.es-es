@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916327"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882253"
 ---
 # <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
@@ -56,7 +56,7 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2, lo que significa que la versión 3 funciona con los recursos cifrados de almacenamiento existentes, pero no permite la creación de nuevos.
 
 ## <a name="double-encryption"></a>Cifrado doble
-Media Services admite el cifrado doble.  Para más información sobre el cifrado doble, consulte [Cifrado doble de Azure](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
+Media Services admite el cifrado doble.  Para más información sobre el cifrado doble, consulte [Cifrado doble de Azure](../../security/fundamentals/double-encryption.md).
 
 ## <a name="storage-account-errors"></a>Errores de cuentas de almacenamiento
 

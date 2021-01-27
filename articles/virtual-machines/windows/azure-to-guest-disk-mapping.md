@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: f16e34f372016f284d4af79443e84d9d5cdea957
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 373fd26c36bf2f77de6a376f738bd3caaf735f00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523354"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881879"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Asignación de discos de Azure a discos invitados de una máquina virtual Windows
 
@@ -29,11 +29,11 @@ En nuestro ejercicio, solo tiene que usar el LUN.
 
 ## <a name="finding-the-lun"></a>Búsqueda del LUN
 
-Hay dos métodos para buscar el LUN y su elección dependerá de si usa [Espacios de almacenamiento](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview).
+Hay dos métodos para buscar el LUN y su elección dependerá de si usa [Espacios de almacenamiento](/windows-server/storage/storage-spaces/overview).
 
 ### <a name="disk-management"></a>Administración de discos
 
-Si no usa bloques de almacenamiento, puede usar la utilidad [Administración de discos](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) a fin de buscar el LUN.
+Si no usa bloques de almacenamiento, puede usar la utilidad [Administración de discos](/windows-server/storage/disk-management/overview-of-disk-management) a fin de buscar el LUN.
 
 1. Conéctese a la máquina virtual y abra Administración de discos. a. Haga clic con el botón derecho en el botón Inicio y elija "Administración de discos" a. También puede escribir `diskmgmt.msc` en el cuadro Iniciar búsqueda.
 1. En el panel inferior, haga clic con el botón derecho en cualquiera de los discos y elija "Propiedades".

@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6fcd7ba0e3582a614acab46bffd5f76e5baa982f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6099afc82e76ed28e8557ac0eee3e64cb292a715
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496362"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882015"
 ---
 # <a name="list-update-and-delete-image-resources"></a>Enumeración, actualización y eliminación de recursos de imagen 
 
@@ -27,4 +27,4 @@ Puede administrar sus recursos de Shared Image Gallery mediante la CLI de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Azure Image Builder (versión preliminar)](./linux/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (versión preliminar)](./image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md).

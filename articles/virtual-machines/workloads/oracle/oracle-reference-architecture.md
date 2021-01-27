@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486749"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882304"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquitecturas de referencia para Oracle Database Enterprise Edition en Azure
 
@@ -207,7 +207,7 @@ Durante la solicitud inicial, el servidor de aplicaciones se conecta al director
 
 Al implementar las cargas de trabajo de Oracle en Azure, Microsoft se encarga de todas las aplicaciones de revisión de nivel de sistema operativo del host. Cualquier mantenimiento planeado de nivel de sistema operativo se comunica a los clientes con anterioridad para facilitar el mantenimiento planeado del cliente. Nunca se aplican revisiones a dos servidores de dos Availability Zones diferentes simultáneamente. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../manage-availability.md) para obtener más detalles sobre el mantenimiento y la aplicación de revisión de VM. 
 
-La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
+La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) o [Azure Automation Update Management](../../../automation/update-management/overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Consideraciones sobre la arquitectura y el diseño
 
@@ -216,7 +216,7 @@ La aplicación de revisiones al sistema operativo de una máquina virtual se pue
 - Use las zonas de disponibilidad para lograr una alta disponibilidad en la región.
 - Considere la posibilidad de usar discos Ultra (si están disponibles) o discos Premium para la base de datos de Oracle.
 - Considere la posibilidad de configurar una base de datos de Oracle en espera en otra región de Azure mediante Oracle Data Guard.
-- Considere la posibilidad de usar [grupos de selección de ubicación de proximidad](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) para reducir la latencia entre la aplicación y la capa de base de datos.
+- Considere la posibilidad de usar [grupos de selección de ubicación de proximidad](../../co-location.md#proximity-placement-groups) para reducir la latencia entre la aplicación y la capa de base de datos.
 - Configure [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) para la administración, la supervisión y el registro.
 - Considere la posibilidad de usar la administración automática del almacenamiento (ASM) de Oracle para simplificar la administración del almacenamiento de la base de datos.
 - Use [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para administrar la aplicación de revisión y las actualizaciones de la base de datos sin tiempo de inactividad.

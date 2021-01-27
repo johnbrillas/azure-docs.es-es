@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250985"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876218"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -345,7 +345,7 @@ Para habilitar zonas en un conjunto de escalado de máquinas virtuales, debe inc
 
 * El primer valor es la propiedad **zones**, que especifica las zonas de disponibilidad presentes en el conjunto de escalado de máquinas virtuales.
 * El segundo valor es la propiedad "singlePlacementGroup", que se debe establecer en true. **El conjunto de escalado distribuido en tres zonas de disponibilidad puede escalar hasta 300 máquinas virtuales, incluso con "singlePlacementGroup = true".**
-* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta si se establece en true. Recomendamos su establecimiento en true, a fin de evitar la distribución desequilibrada de máquinas virtuales entre zonas. Lea sobre el [equilibrio de zona](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta si se establece en true. Recomendamos su establecimiento en true, a fin de evitar la distribución desequilibrada de máquinas virtuales entre zonas. Lea sobre el [equilibrio de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * No es necesario que las invalidaciones FaultDomain y UpgradeDomain estén configuradas.
 
 ```json
@@ -416,9 +416,9 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migración al tipo de nodo con varias zonas de disponibilidad
 En todos los escenarios de migración, es necesario agregar un elemento nodeType nuevo que tendrá varias zonas de disponibilidad admitidas. No se puede migrar un elemento nodeType existente para admitir varias zonas.
-En [este artículo](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) se encuentran los pasos detallados para agregar un elemento nodeType nuevo y para agregar también los otros recursos necesarios para el elemento nodeType nuevo, como los recursos de IP y LB. En el mismo artículo se describe también cómo retirar el elemento nodeType existente una vez que se agrega al clúster el elemento nodeType con varias zonas disponibles.
+En [este artículo](./service-fabric-scale-up-primary-node-type.md) se encuentran los pasos detallados para agregar un elemento nodeType nuevo y para agregar también los otros recursos necesarios para el elemento nodeType nuevo, como los recursos de IP y LB. En el mismo artículo se describe también cómo retirar el elemento nodeType existente una vez que se agrega al clúster el elemento nodeType con varias zonas disponibles.
 
-* Migración desde un elemento nodeType que usa recursos IP y LB básicos: Esto ya se describe [aquí](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para la solución con un tipo de nodo por zona de disponibilidad. 
+* Migración desde un elemento nodeType que usa recursos IP y LB básicos: Esto ya se describe [aquí](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) para la solución con un tipo de nodo por zona de disponibilidad. 
     Para el tipo de nodo nuevo, la única diferencia es que solo hay 1 conjunto de escalado de máquinas virtuales y 1 elemento nodeType para todas las zonas de disponibilidad, en lugar de uno de cada uno por zona de disponibilidad.
 * Migración desde un elemento nodeType que usa los recursos de IP y LB de SKU estándar con NSG:   Siga el mismo procedimiento descrito anteriormente, excepto que no es necesario agregar recursos de LB, IP y NSG nuevos, y los mismos recursos se pueden volver a usar en el elemento nodeType nuevo.
 

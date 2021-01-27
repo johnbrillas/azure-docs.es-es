@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e28b23f20a0336498abbc357f4c96bdfa5b089f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486528"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881845"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -46,7 +46,7 @@ En las siguientes secciones se describen las consideraciones de configuración b
 Como se documenta en la [guía de planeamiento de Azure Virtual Machines](./planning-guide.md), existen dos métodos básicos para conectarse a máquinas virtuales de Azure:
 
 - Conéctese a través de Internet y de los puntos de conexión públicos en una máquina virtual de Jump o en la máquina virtual que ejecuta SAP HANA.
-- Conéctese a través de una [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) o de Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Conéctese a través de una [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) o de Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 La conectividad de sitio a sitio a través de VPN o ExpressRoute es necesaria para los escenarios de producción. Este tipo de conexión también es necesario para escenarios de no producción que se incorporan en escenarios de producción cuando se usa el software SAP. La imagen siguiente muestra un ejemplo de conectividad entre sitios:
 
