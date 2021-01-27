@@ -10,26 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 563a3e224ffedc98bcc3102ea865f06315294365
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 28cc0e27e5ac97ca52f5e94a556795b1404f6961
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573112"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663203"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
 
 Cuando esté listo para crear un modelo personalizado de texto a voz para su aplicación, el primer paso es reunir las grabaciones de audio y los scripts asociados para empezar a entrenar el modelo de voz. El servicio de voz usan estos datos para crear una voz única optimizada para que coincida con la de las grabaciones. Cuando haya entrenado la voz, puede comenzar a sintetizarla en sus aplicaciones.
 
-Antes de entrenar su propio modelo de texto a voz, necesitará las grabaciones de audio y las transcripciones de texto asociadas. En esta página, revisaremos los tipos de datos, cómo se usan y cómo administrar cada uno.
-
-> [!NOTE]
-> Si desea entrenar una voz neuronal, debe especificar un perfil de talento de voz con el archivo de consentimiento de audio del talento de voz aceptando que se usen sus datos de voz para entrenar un modelo de voz personalizado. Cuando prepare el script de grabación, asegúrese de incluir la frase siguiente. 
-
-> "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice." ("Yo [indique su nombre y apellido] acepto que [indique el nombre de empresa] use grabaciones de mi voz para crear y usar una versión sintética de la voz").
-Esta frase se usará para comprobar si los datos de entrenamiento se corresponden con la persona que otorga el consentimiento. Para más información sobre la comprobación del talento de voz, consulte [aquí](https://aka.ms/CNV-data-privacy).
-
-> Voz neuronal personalizada está disponible con acceso limitado. Asegúrese de comprender los [requisitos de IA responsable](https://aka.ms/gating-overview) y [aplicar el acceso aquí](https://aka.ms/customneural). 
+Puede comenzar con una pequeña cantidad de datos para crear una prueba de concepto. Sin embargo, cuantos más datos proporcione, más natural sonará su voz personalizada. Antes de entrenar su propio modelo de texto a voz, necesitará las grabaciones de audio y las transcripciones de texto asociadas. En esta página, revisaremos los tipos de datos, cómo se usan y cómo administrar cada uno.
 
 ## <a name="data-types"></a>Tipos de datos
 
@@ -39,22 +31,22 @@ En algunos casos, puede que no tenga listo el conjunto de datos adecuado y quier
 
 En esta tabla se enumeran los tipos de datos y cómo se usa cada uno para crear un modelo personalizado de texto a voz.
 
-| Tipo de datos | Descripción | Cuándo se usa | Se requiere procesamiento adicional | 
-| --------- | ----------- | ----------- | --------------------------- |
-| **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. |
-| **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. | 
-| **Solo audio (beta)** | Una colección (.zip) de archivos de audio sin una transcripción. | Solo dispone de archivos de audio, sin transcripciones. | Segmentación + generación de transcripciones (mediante la transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario.| 
+| Tipo de datos | Descripción | Cuándo se usa | Servicio adicional necesario | Cantidad para entrenar un modelo | Configuraciones regionales |
+| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
+| **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. | Sin requisitos fijos para en-US y zh-CN. Más de 2000 expresiones diferentes para otras configuraciones regionales. | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
+| **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. | Sin requisitos fijos  | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
+| **Solo audio (beta)** | Una colección (.zip) de archivos de audio sin una transcripción. | Solo dispone de archivos de audio, sin transcripciones. | Segmentación + generación de transcripciones (mediante la transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario.| Sin requisitos fijos | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
 
 Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como un archivo zip. Cada conjunto de datos solo puede contener un tipo de datos.
 
 > [!NOTE]
-> El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de una suscripción gratuita (F0) y 500 para usuarios de la suscripción estándar (S0).
+> El número máximo de conjuntos de datos que se pueden importar por suscripción es de 10 archivos ZIP para usuarios de la suscripción gratuita (F0) y 500 para usuarios para la suscripción estándar (S0).
 
 ## <a name="individual-utterances--matching-transcript"></a>Expresiones individuales + transcripción relacionada
 
 Puede preparar las grabaciones de expresiones individuales y la transcripción relacionada de dos maneras. Escriba un guion y haga que lo lea un locutor, o bien use el audio disponible públicamente y transcríbalo a texto. En este último caso, deberá editar las disfluencias de los archivos de audio, como las muletillas ("em") y otros sonidos de relleno, tartamudeos, palabras entre dientes o pronunciaciones erróneas.
 
-Para crear un modelo óptimo de voz, realice las grabaciones en una sala silenciosa con un micrófono de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar y las particularidades expresivas del habla son esenciales.
+Para crear una buena fuente de voz, realice las grabaciones en una sala silenciosa con un micrófono de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar y las particularidades expresivas del habla son esenciales.
 
 > [!TIP]
 > Para crear una voz que se vaya a usar en una producción, le recomendamos que use un estudio de grabación profesional y un locutor. Para obtener más información, consulte [Cómo grabar ejemplos de voz para una voz personalizada](record-custom-voice-samples.md).
@@ -97,6 +89,9 @@ Este es un ejemplo de cómo las transcripciones se organizan en expresiones (de 
 0000000003[tab] It was Janet Maslin.
 ```
 Es importante que las transcripciones tengan una precisión del 100 % respecto al audio correspondiente. Los errores en las transcripciones darán lugar a la pérdida de calidad durante el entrenamiento.
+
+> [!TIP]
+> Al compilar las transformaciones de texto a voz en producción, seleccione aquellas expresiones (o scripts de escritura) que tengan en cuenta tanto la cobertura fonética como la eficiencia. ¿Tiene problemas para obtener los resultados que desea? [Póngase en contacto con el equipo de voz personalizada](mailto:speechsupport@microsoft.com) para averiguar más sobre nuestro asesoramiento.
 
 ## <a name="long-audio--transcript-beta"></a>Audio largo + transcripciones (beta)
 

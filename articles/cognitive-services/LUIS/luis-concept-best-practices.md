@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019320"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788492"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS:
@@ -141,7 +141,7 @@ Use la **revisión de las expresiones del punto de conexión** del [aprendizaje 
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 
-Supervise la precisión de las predicciones mediante un conjunto de [pruebas de lote](luis-concept-batch-test.md).
+Supervise la precisión de las predicciones mediante un conjunto de [pruebas de lote](./luis-how-to-batch-test.md).
 
 Mantenga un conjunto de expresiones que no se use como [expresiones de ejemplo](luis-concept-utterance.md) o de punto de conexión. Siga mejorando la aplicación del conjunto de pruebas. Adapte el conjunto de pruebas para que refleje expresiones de usuarios reales. Use este conjunto de pruebas para evaluar cada iteración o versión de la aplicación.
 

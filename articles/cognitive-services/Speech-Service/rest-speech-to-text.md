@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033649"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790620"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
 La conversión de texto a voz tiene dos API de REST diferentes. Cada API sirve a su propósito especial y usa conjuntos diferentes de puntos de conexión.
 
 Las API de REST de conversión de voz en texto son:
-- La [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30) se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- La [API de REST de conversión de voz en texto v3.0](#speech-to-text-rest-api-v30) se usa para realizar [transcripciones por lotes](batch-transcription.md) y para el [Habla personalizada](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](./migrate-v2-to-v3.md).
 - La [API de REST de conversión de voz en texto para audios breves](#speech-to-text-rest-api-for-short-audio) se usa para la transcripción en línea como alternativa al [SDK de voz](speech-sdk.md). Las solicitudes que usan esta API solo pueden transmitir hasta 60 segundos de audio por solicitud. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>API de REST de conversión de voz en texto v3.0
@@ -45,7 +45,7 @@ La API de REST v 3.0 incluye características como las siguientes:
 
 Consulte los ejemplos sobre el uso de la API de REST v3.0 con la transcripción por lotes en [este artículo](batch-transcription.md).
 
-Si usa la API de REST de conversión de voz en texto v2.0, consulte cómo puede migrar a la versión 3.0 en [esta guía](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+Si usa la API de REST de conversión de voz en texto v2.0, consulte cómo puede migrar a la versión 3.0 en [esta guía](./migrate-v2-to-v3.md).
 
 Consulte la referencia completa de la API de REST de conversión de voz en texto v3.0 [aquí](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 

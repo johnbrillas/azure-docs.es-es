@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862294"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703333"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -373,13 +373,6 @@ Si tiene varias frases para agregar, llame a `.addPhrase()` por cada frase para 
 # <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
 El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
-
-> [!IMPORTANT]
-> El modelo de Voz personalizada debe entrenarse desde una de las siguientes versiones del modelo:
-> * **20181201 (v3.3 unificada)**
-> * **20190520 (v4.14 unificada)**
-> * **20190701 (v4.17 unificada)**<br>
-> ![Modelo de contenedor de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 El **identificador de modelo** de Habla personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Habla personalizada. En el portal de Habla personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
 <br>

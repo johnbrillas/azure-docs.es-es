@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151987"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786951"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio LUIS.
@@ -50,12 +50,13 @@ El recurso de creación tiene una "clase" de Azure de `LUIS-Authoring`.
 
 ## <a name="batch-test"></a>Pruebas en lote
 
-Las pruebas por lotes es la capacidad de validar los modelos de una aplicación LUIS actual con un conjunto de pruebas coherentes y conocidas de expresiones del usuario. La prueba por lotes se define en un [archivo con formato JSON](luis-concept-batch-test.md#batch-file-format).
+Las pruebas por lotes es la capacidad de validar los modelos de una aplicación LUIS actual con un conjunto de pruebas coherentes y conocidas de expresiones del usuario. La prueba por lotes se define en un [archivo con formato JSON](./luis-how-to-batch-test.md#batch-test-file).
+
 
 Consulte también:
-* [Conceptos](luis-concept-batch-test.md)
+* [Conceptos](./luis-how-to-batch-test.md)
 * [Procedimientos](luis-how-to-batch-test.md) para ejecutar una prueba por lotes
-* [Tutorial](luis-tutorial-batch-testing.md): Creación y ejecución de una prueba por lotes
+* [Tutorial](./luis-how-to-batch-test.md): Creación y ejecución de una prueba por lotes
 
 ### <a name="f-measure"></a>Medida F
 
@@ -188,7 +189,7 @@ Etiquetar, o marcar, es el proceso de asociar un ejemplo positivo o negativo a u
 En LUIS, las intenciones dentro de una aplicación son mutuamente excluyentes. Esto significa que cuando se agrega una expresión a una intención, se considera un ejemplo _positivo_ para esa intención y un ejemplo _negativo_ para todas las demás intenciones. Los ejemplos negativos no se deben confundir con la intención "Ninguno", que representa las expresiones que están fuera del ámbito de la aplicación.
 
 ### <a name="labeling-for-entities"></a>Etiquetado para entidades
-En LUIS, se [etiqueta](label-entity-example-utterance.md) una palabra o frase en la expresión de ejemplo de una intención con una entidad como un ejemplo _positivo_ . El etiquetado muestra la intención de lo que se debe predecir para esa expresión. Las expresiones etiquetadas se usan para entrenar la intención.
+En LUIS, se [etiqueta](label-entity-example-utterance.md) una palabra o frase en la expresión de ejemplo de una intención con una entidad como un ejemplo _positivo_. El etiquetado muestra la intención de lo que se debe predecir para esa expresión. Las expresiones etiquetadas se usan para entrenar la intención.
 
 ## <a name="luis-app"></a>Aplicación de LUIS
 
@@ -305,7 +306,7 @@ Vea [Cambiar la zona horaria de la entidad datetimeV2 creada previamente](luis-c
 ## <a name="token"></a>Token
 Un [token](luis-language-support.md#tokenization) es la unidad mínima de texto que LUIS puede reconocer. Es ligeramente diferente según el idioma.
 
-Para el **inglés** , un token es un fragmento continuo (sin espacios ni puntuación) de letras y números. Un espacio NO es un token.
+Para el **inglés**, un token es un fragmento continuo (sin espacios ni puntuación) de letras y números. Un espacio NO es un token.
 
 |Frase|Recuento de tokens|Explicación|
 |--|--|--|

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955219"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787019"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
@@ -99,7 +99,7 @@ El ejemplo JSON incluye una expresión con una entidad etiquetada para ilustrar 
 
 Para revisar los resultados de la prueba por lotes, seleccione **Ver resultados**. Los resultado de la prueba muestran gráficamente cómo se han predicho las expresiones de prueba con respecto a la versión activa.
 
-El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. El filtro contiene intenciones y entidades. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico.
+El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. El filtro contiene intenciones y entidades. Cuando se selecciona una [sección del gráfico](#review-batch-results-for-intents) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico.
 
 Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados.
 
@@ -166,7 +166,7 @@ Las dos secciones del gráfico en color verde coincidieron con la predicción es
 
 ## <a name="batch-testing-using-the-rest-api"></a>Prueba por lotes mediante la API de REST 
 
-LUIS le permite realizar pruebas por lotes mediante el portal de LUIS y la API de REST. A continuación, se enumeran los puntos de conexión de la API de REST. Para obtener información sobre las pruebas por lotes mediante el portal de LUIS, vea [Tutorial: pruebas por lotes de conjuntos de datos](luis-tutorial-batch-testing.md). Use las direcciones URL completas que se indican a continuación y reemplace los valores de marcador de posición por su propia clave de predicción de LUIS y punto de conexión. 
+LUIS le permite realizar pruebas por lotes mediante el portal de LUIS y la API de REST. A continuación, se enumeran los puntos de conexión de la API de REST. Para obtener información sobre las pruebas por lotes mediante el portal de LUIS, vea [Tutorial: pruebas por lotes de conjuntos de datos](). Use las direcciones URL completas que se indican a continuación y reemplace los valores de marcador de posición por su propia clave de predicción de LUIS y punto de conexión. 
 
 No olvide agregar la clave de LUIS a `Ocp-Apim-Subscription-Key` en el encabezado y establecer `Content-Type` en `application/json`.
 
@@ -265,5 +265,3 @@ Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y la
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) (Etiquetado de expresiones sugeridas con LUIS)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS)
-* [Comprenda las pruebas por lotes con este tutorial](luis-tutorial-batch-testing.md)
-* [Obtenga información sobre los conceptos de las pruebas por lotes](luis-concept-batch-test.md).

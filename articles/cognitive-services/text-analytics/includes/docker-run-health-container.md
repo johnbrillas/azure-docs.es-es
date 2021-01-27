@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: b19fb3f86be46a5db60fb87f9c7f5c3e28ac6428
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965153"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689623"
 ---
 ## <a name="install-the-container"></a>Instalación del contenedor
 
@@ -84,7 +84,7 @@ La [Web App for Containers](https://azure.microsoft.com/services/app-service/con
 
 Ejecute este script de PowerShell con la CLI de Azure para crear una Web App for Containers mediante su suscripción y la imagen del contenedor a través de HTTPS. Espere a que se complete el script (aproximadamente de 25 a 30 minutos) antes de enviar la primera solicitud.
 
-```bash
+```azurecli
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            #    and AppSerivce to be attached to.
@@ -118,7 +118,7 @@ Para obtener información de disponibilidad, consulte el artículo [Compatibilid
 > [!NOTE] 
 > Azure Container Instances no incluye compatibilidad con HTTPS para los dominios integrados. Si necesita HTTPS, tendrá que configurarlo manualmente, incluida la creación de un certificado y el registro de un dominio. Puede encontrar instrucciones para hacerlo con NGINX a continuación.
 
-```bash
+```azurecli
 $subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            # and AppService to be attached to.

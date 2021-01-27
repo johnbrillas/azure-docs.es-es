@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327194"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738091"
 ---
 # <a name="data-collection-for-your-app"></a>Recopilación de datos de la aplicación
 
@@ -71,7 +71,7 @@ Los siguientes pasos de preprocesamiento le ayudarán a crear una aplicación de
 
 ## <a name="test-data-selection-for-batch-testing"></a>Selección de datos de prueba para las pruebas por lotes
 
-Todos los principios enumerados anteriormente para el entrenamiento de expresiones se aplican a las expresiones que debe usar para el [conjunto de pruebas](luis-concept-batch-test.md). Asegúrese de que la distribución entre las intenciones y las entidades refleje la real tanto como sea posible.
+Todos los principios enumerados anteriormente para el entrenamiento de expresiones se aplican a las expresiones que debe usar para el [conjunto de pruebas](./luis-how-to-batch-test.md). Asegúrese de que la distribución entre las intenciones y las entidades refleje la real tanto como sea posible.
 
 No vuelva a usar expresiones del conjunto de entrenamiento en el conjunto de pruebas. Esto sesga los resultados de forma incorrecta y no le proporcionará la indicación adecuada de cómo se ejecutará la aplicación de LUIS en producción.
 

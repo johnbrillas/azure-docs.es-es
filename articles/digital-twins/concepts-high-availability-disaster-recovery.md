@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938553"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790823"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de Azure Digital Twins
 
@@ -41,7 +41,7 @@ La **conmutación por error iniciada por Microsoft** la ejecuta Microsoft en sit
 
 ## <a name="monitor-service-health"></a>Supervisar el estado del servicio
 
-Como las instancias de Azure Digital Twins se conmutan por error y se recuperan, puede supervisar el proceso con la herramienta [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview). Service Health realiza un seguimiento del estado de los servicios de Azure en diferentes regiones y suscripciones, y comparte las comunicaciones que afectan al servicio sobre las interrupciones y los tiempos de inactividad.
+Como las instancias de Azure Digital Twins se conmutan por error y se recuperan, puede supervisar el proceso con la herramienta [Azure Service Health](../service-health/service-health-overview.md). Service Health realiza un seguimiento del estado de los servicios de Azure en diferentes regiones y suscripciones, y comparte las comunicaciones que afectan al servicio sobre las interrupciones y los tiempos de inactividad.
 
 Durante un evento de conmutación por error, Service Health puede proporcionar una indicación de si el servicio está inactivo y de cuándo se realiza la copia de seguridad.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196133"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786849"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Uso de los servicios de voz mediante un punto de conexión privado
 
@@ -293,7 +293,7 @@ Los servicios de voz tienen las API REST [Speech-to-Text](rest-speech-to-text.md
 Speech-to-Text tiene dos API REST. Cada API sirve para un propósito diferente, usa puntos de conexión distintos y requiere un enfoque diferente cuando se emplea en el escenario con puntos de conexión privados habilitados.
 
 Las API REST de Speech-to-Text son:
-- [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), que se usa con [transcripciones por lotes](batch-transcription.md) y [Custom Speech](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), que se usa con [transcripciones por lotes](batch-transcription.md) y [Custom Speech](custom-speech-overview.md). La versión 3.0 es la [sucesora de la versión 2.0](./migrate-v2-to-v3.md).
 - [Speech-to-Text REST API para audios de corta duración](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), que se usa para transcripciones en línea. 
 
 El uso de Speech-to-Text REST API para audios de corta duración y Text-to-Speech REST API en el escenario de puntos de conexión privados es el mismo. Es equivalente al [caso del SDK de voz](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) que se describe más adelante en este artículo. 

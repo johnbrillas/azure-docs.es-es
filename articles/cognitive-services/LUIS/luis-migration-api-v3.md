@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018794"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624310"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
 
@@ -66,9 +66,6 @@ Esta API no es compatible en la versión 3 del punto de conexión para predicci
 
 Siga usando la versión 2 de la API del punto de conexión para predicciones hasta que aparezca la versión 4.7 de Bot Framework.
 
-## <a name="v2-api-deprecation"></a>Desuso de la versión 2 de la API
-
-La versión 2 de Prediction API no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3, el 8 de junio de 2020.
 
 ## <a name="endpoint-url-changes"></a>Cambios en la dirección URL del punto de conexión
 
@@ -268,9 +265,6 @@ En la versión 3, el mismo resultado con la marca `verbose` para devolver los me
 
 Conozca los [conceptos](schema-change-prediction-runtime.md) sobre cómo ampliar la aplicación en el entorno de ejecución de predicción.
 
-## <a name="deprecation"></a>Desuso
-
-La API v2 no entrará en desuso durante un mínimo de 9 meses después del lanzamiento de la versión preliminar v3.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

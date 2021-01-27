@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601771"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786883"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
 
@@ -136,4 +136,4 @@ En este artículo, se usará el cliente del asistente de voz de Windows que desc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, se usó una aplicación existente. A continuación, en las [secciones de procedimientos](how-to-custom-commands-create-application-with-simple-commands.md), aprenderá a diseñar, desarrollar, depurar, probar e integrar una aplicación de Comandos personalizados desde cero.
+En este artículo, se usó una aplicación existente. A continuación, en las [secciones de procedimientos](./how-to-develop-custom-commands-application.md), aprenderá a diseñar, desarrollar, depurar, probar e integrar una aplicación de Comandos personalizados desde cero.

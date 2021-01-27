@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561229"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788458"
 ---
 # <a name="testing-for-luis-devops"></a>Pruebas de DevOps de LUIS
 
@@ -28,7 +28,7 @@ En los flujos de trabajo de integración continua se deben realizar dos tipos di
 Este tipo de pruebas son similares a las [pruebas interactivas](./luis-concept-test.md) que puede realizar en el [portal de LUIS](https://www.luis.ai/).
 
 - **Pruebas por lotes**: las pruebas por lotes son una prueba completa sobre el modelo entrenado actual para medir su rendimiento. A diferencia de las pruebas unitarias, las pruebas por lotes no consisten en superar o no superar. La expectativa con las pruebas por lotes no es que todas las pruebas devuelvan la intención esperada y las entidades esperadas. En su lugar, una prueba por lotes ayuda a ver la precisión de cada intención y entidad de la aplicación y ayuda a comparar a lo largo del tiempo a medida que se realizan mejoras.  
-Estas pruebas son del mismo tipo que las [pruebas por lotes](./luis-concept-batch-test.md) que puede realizar de forma interactiva en el portal de LUIS.
+Estas pruebas son del mismo tipo que las [pruebas por lotes](./luis-how-to-batch-test.md) que puede realizar de forma interactiva en el portal de LUIS.
 
 Puede emplear pruebas unitarias desde el principio del proyecto. Las pruebas por lotes solo son realmente de valor una vez que se ha desarrollado el esquema de la aplicación de LUIS y se trabaja para mejorar su precisión.
 
@@ -42,7 +42,7 @@ Al escribir un conjunto de pruebas, para cada prueba debe definir:
 * Intención esperada
 * Entidades esperadas.
 
-Use la [sintaxis de archivo por lotes](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) de LUIS para definir un grupo de pruebas en un archivo con formato JSON. Por ejemplo:
+Use la [sintaxis de archivo por lotes](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) de LUIS para definir un grupo de pruebas en un archivo con formato JSON. Por ejemplo:
 
 ```JSON
 [
@@ -85,7 +85,7 @@ En las pruebas unitarias, es una buena idea probar que se han devuelto las entid
 
 #### <a name="designing-batch-tests"></a>Diseño de pruebas por lotes
 
-Los conjuntos de pruebas por lotes deben contener un gran número de casos de prueba, diseñados para probar en todas las intenciones y todas las entidades de la aplicación de LUIS. Consulte [Pruebas por lotes en el portal de LUIS](./luis-concept-batch-test.md) para obtener información sobre cómo definir un conjunto de pruebas por lotes.
+Los conjuntos de pruebas por lotes deben contener un gran número de casos de prueba, diseñados para probar en todas las intenciones y todas las entidades de la aplicación de LUIS. Consulte [Pruebas por lotes en el portal de LUIS](./luis-how-to-batch-test.md) para obtener información sobre cómo definir un conjunto de pruebas por lotes.
 
 ### <a name="running-tests"></a>Ejecución de las pruebas
 
@@ -93,7 +93,7 @@ El portal de LUIS ofrece características para ayudar con las pruebas interactiv
 
 * Las [**pruebas interactivas**](./luis-concept-test.md) le permiten enviar una expresión de ejemplo y obtener una respuesta de las intenciones y las entidades reconocidas por LUIS. Se comprueba que la prueba se ha realizado correctamente mediante una inspección visual.
 
-* Las [**pruebas por lotes**](./luis-concept-batch-test.md) utilizan un archivo de pruebas por lotes como entrada para validar la versión entrenada actual con el fin de medir la precisión de su predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico.
+* Las [**pruebas por lotes**](./luis-how-to-batch-test.md) utilizan un archivo de pruebas por lotes como entrada para validar la versión entrenada actual con el fin de medir la precisión de su predicción. Una prueba por lotes ayuda a ver la precisión de cada intención y entidad en la versión activa, mostrando los resultados en un gráfico.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Ejecución de pruebas en un flujo de trabajo de compilación automatizada
 

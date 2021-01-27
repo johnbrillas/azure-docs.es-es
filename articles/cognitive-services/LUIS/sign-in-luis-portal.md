@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368191"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790908"
 ---
 # <a name="sign-in-to-luis-portal"></a>Inicio de sesión en el portal de LUIS
 
@@ -47,8 +47,8 @@ Use este artículo para comenzar con el portal de LUIS y crear un recurso de cre
     * **Nombre de inquilino**: el inquilino al que está asociada la suscripción de Azure. No podrá cambiar los inquilinos de la ventana existente. Para cambiar de inquilinos, cierre esta ventana y seleccione el avatar en la esquina superior derecha de la pantalla, que contiene sus iniciales. Seleccione **Elegir un recurso de creación diferente** en la parte superior para volver a abrir la ventana.
     * **Grupo de recursos**: nombre del grupo de recursos personalizado que elige en la suscripción. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración. Si actualmente no tiene ningún grupo de recursos en la suscripción, no se le permitirá crear uno en el portal de LUIS. Vaya a [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para crear uno y vuelva a LUIS para continuar con el proceso de inicio de sesión.
     * **Nombre del recurso**: el nombre personalizado que elija, que se usa como parte de la dirección URL para las transacciones de creación. Este nombre solo puede incluir caracteres alfanuméricos o el carácter `-`, y no puede terminar ni comenzar por `-`. Si se incluye algún otro símbolo en el nombre, se producirá un error al crear el recurso.
-    * **Ubicación**: elija la opción de crear las aplicaciones en una de las [tres ubicaciones de creación](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) que se admiten actualmente en LUIS, incluidas: Oeste de EE. UU., Oeste de Europa y Este de Australia.
-    * **Plan de tarifa**: de manera predeterminada, se selecciona el plan de tarifa de creación F0, ya que es el recomendado. Cree una [clave administrada por el cliente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) desde Azure Portal si está buscando una capa adicional de seguridad.
+    * **Ubicación**: elija la opción de crear las aplicaciones en una de las [tres ubicaciones de creación](./luis-reference-regions.md) que se admiten actualmente en LUIS, incluidas: Oeste de EE. UU., Oeste de Europa y Este de Australia.
+    * **Plan de tarifa**: de manera predeterminada, se selecciona el plan de tarifa de creación F0, ya que es el recomendado. Cree una [clave administrada por el cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) desde Azure Portal si está buscando una capa adicional de seguridad.
 8. Ha cerrado sesión correctamente en LUIS. Ahora puede empezar a crear aplicaciones.
 
 ## <a name="troubleshooting"></a>Solución de problemas

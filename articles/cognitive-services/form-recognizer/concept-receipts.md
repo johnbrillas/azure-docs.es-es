@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131462"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792089"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de recibos de ventas mediante sus modelos de recibos creados previamente. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con modelos de aprendizaje profundo de reconocimiento de recibos para extraer información clave de recibos en inglés. Receipt API extrae la información clave de los recibos de venta en inglés, como el nombre del comerciante, la fecha de la transacción, el total de la transacción, los apuntes, etc. 
+Azure Form Recognizer puede analizar y extraer información de recibos de ventas mediante sus modelos de recibos creados previamente. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/concept-recognizing-text.md) con modelos de aprendizaje profundo de reconocimiento de recibos para extraer información clave de recibos en inglés. Receipt API extrae la información clave de los recibos de venta en inglés, como el nombre del comerciante, la fecha de la transacción, el total de la transacción, los apuntes, etc. 
 
 ## <a name="understanding-receipts"></a>Descripción de los recibos 
 

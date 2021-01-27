@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535855"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787560"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Prueba de expresiones de ejemplo en LUIS
 
@@ -33,7 +33,7 @@ Vea los conceptos de [puntuación de predicción](luis-concept-prediction-score.
 Las pruebas interactivas se llevan a cabo desde el panel **Test** (Prueba) del portal de LUIS. Puede introducir una expresión para ver cómo se identifican y puntúan las intenciones y las entidades. Si LUIS no predice en el panel de pruebas las intenciones y entidades tal como espera en una expresión, cópiela en la página **Intent** (Intención) como una expresión nueva. Después, etiquete las partes de esa expresión para las entidades y entrene LUIS. 
 
 ## <a name="batch-testing"></a>Pruebas por lotes
-Vea [Pruebas por lotes](luis-concept-batch-test.md) si va a probar más de una expresión a la vez.
+Vea [Pruebas por lotes](./luis-how-to-batch-test.md) si va a probar más de una expresión a la vez.
 
 ## <a name="endpoint-testing"></a>Pruebas de punto de conexión
 Puede hacer pruebas mediante el [punto de conexión](luis-glossary.md#endpoint) con un máximo de dos versiones de la aplicación. Con la versión principal o activa de la aplicación establecida como punto de conexión de **producción**, agregue una segunda versión al punto de conexión de **ensayo**. Este enfoque le proporciona tres versiones de una expresión: el modelo actual en el panel Prueba del sitio web de [LUIS](luis-reference-regions.md) y las dos versiones en los dos puntos de conexión diferentes. 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: e51354b1c2905d0532ce4eb49236dda8550f98a4
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 83d7263d430ed9dc8f2f61711fc4c1339ba03810
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600082"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662937"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -128,8 +128,6 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 ## <a name="text-to-speech"></a>Texto a voz
 
 Tanto el SDK de Voz de Microsoft como las API REST admiten estas voces, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional. También puede obtener una lista completa de los idiomas y las voces que se admiten para cada región o punto de conexión específico a través de [voices/list API](rest-text-to-speech.md#get-a-list-of-voices). 
-
-Para más información sobre cómo configurar y ajustar los estilos de habla, incluidas las voces neuronales, consulte el [procedimiento](speech-synthesis-markup.md#adjust-speaking-styles) sobre el lenguaje de marcado de síntesis de voz.
 
 > [!IMPORTANT]
 > Los precios son distintos para voces estándar, personalizadas y neuronales. Consulte la página de [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para más información.
@@ -289,6 +287,8 @@ Las siguientes voces neuronales se encuentran en versión preliminar pública.
 
 Para más información acerca de la disponibilidad regional, consulte las [regiones](regions.md#standard-and-neural-voices).
 
+Para más información sobre cómo configurar y ajustar las voces neuronales, por ejemplo, los estilos de habla, consulte [Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md#adjust-speaking-styles).
+
 > [!IMPORTANT]
 > La voz `en-US-JessaNeural` ha cambiado a `en-US-AriaNeural`. Si usaba "Jessa" antes, conviértalo a "Aria".
 
@@ -392,30 +392,10 @@ Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuracion
 
 ### <a name="customization"></a>Personalización
 
-Voz personalizada está disponible en el nivel estándar y neuronal. Los idiomas admitidos son diferentes para estos dos niveles. 
-
-| Idioma | Configuración regional | Estándar | Neuronal |
-|--|--|--|--|
-| Chino (mandarín, simplificado) | `zh-CN` | Sí | Sí |
-| Chino (mandarín, simplificado), inglés bilingüe | `zh-CN` bilingüe | Sí | Sí |
-| Inglés (Australia) | `en-AU` | No | Sí |
-| Inglés (India) | `en-IN` | Sí | Sí |
-| Inglés (Reino Unido) | `en-GB` | Sí | Sí |
-| Spanish (Traditional Sort) - Spain | `en-US` | Sí | Sí |
-| Francés (Canadá) | `fr-CA` | No | Sí |
-| Francés (Francia) | `fr-FR` | Sí | Sí |
-| Alemán (Alemania) | `de-DE` | Sí | Sí |
-| Italiano (Italia) | `it-IT` | Sí | Sí |
-| Japonés (Japón) | `ja-JP` | No | Sí |
-| Coreano (Corea) | `ko-KR` | No | Sí |
-| Portugués (Brasil) | `pt-BR` | Sí | Sí |
-| Español (México) | `es-MX` | Sí | Sí |
-| Español (España) | `es-ES` | No | Sí |
-
-Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
+La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR` y `zh-CN`. Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
 
 > [!NOTE]
-> No se admite el entrenamiento de modelos bilingües en la funcionalidad de voz personalizada, excepto en el caso de chino-inglés bilingüe. Seleccione la opción de chino-inglés bilingüe si quiere entrenar una voz china que pueda hablar también inglés. El entrenamiento de modelos de chino-inglés bilingüe con el método estándar está disponible únicamente en Norte de Europa y Centro y norte de EE. UU. El entrenamiento de Voz neuronal personalizada está disponible en Sur de Reino Unido y Este de EE. UU. 
+> No se admite el entrenamiento de modelos bilingües en la funcionalidad de voz personalizada, excepto en el caso de chino-inglés bilingüe. Seleccione la opción de chino-inglés bilingüe si quiere entrenar una voz china que pueda hablar también inglés. El entrenamiento de la voz de todas las configuraciones regionales se inicia con un conjunto de datos de más de 2000 expresiones, excepto en el caso de `en-US` y `zh-CN`, que puede comenzar con cualquier tamaño de datos de entrenamiento.
 
 ## <a name="speech-translation"></a>Traducción de voz
 
