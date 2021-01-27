@@ -3,12 +3,12 @@ title: Replicación de mensajes y federación entre regiones en Azure Service Bu
 description: En este artículo se proporciona información general sobre la replicación de eventos y la federación entre regiones con Azure Service Bus.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803279"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880834"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>Replicación de mensajes y federación entre regiones
 
@@ -150,7 +150,7 @@ Azure Functions puede ejecutarse en una [identidad administrada de Azure](../act
 
 Además, Azure Functions permite que las tareas de replicación se integren directamente con las redes virtuales y los [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) de Azure en todos los servicios de mensajería de Azure, y se integra fácilmente con [Azure Monitor](../azure-monitor/overview.md).
 
-Más importante aún es que Azure Functions cuenta con desencadenadores y enlaces de salida pregenerados y escalables para [Azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md) y [Azure Queue Storage](/azure/azure-functions/functions-bindings-storage-queue), extensiones personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) y [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La mayoría de los desencadenadores se adaptan dinámicamente a las necesidades de rendimiento al escalar y reducir verticalmente el número de instancias que se ejecutan a la vez en función de las métricas documentadas. 
+Más importante aún es que Azure Functions cuenta con desencadenadores y enlaces de salida pregenerados y escalables para [Azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md) y [Azure Queue Storage](../azure-functions/functions-bindings-storage-queue.md), extensiones personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) y [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La mayoría de los desencadenadores se adaptan dinámicamente a las necesidades de rendimiento al escalar y reducir verticalmente el número de instancias que se ejecutan a la vez en función de las métricas documentadas. 
 
 Con el plan de consumo de Azure Functions, los desencadenadores pregenerados pueden incluso realizar la reducción vertical a cero mientras no haya mensajes disponibles para la replicación, lo que significa que no se generan costos por mantener la configuración lista para escalarse de nuevo horizontalmente. La principal desventaja de usar el plan de consumo es que la latencia de las tareas de replicación "que se reactivan" desde este estado es bastante mayor que con los planes de hospedaje en los que la infraestructura se mantiene en ejecución.  
 
@@ -167,4 +167,4 @@ A continuación, podría documentarse sobre cómo configurar una aplicación de 
 - [Enrutamiento de eventos a Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
 - [Adquisición de eventos de Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
-[1]: ./media/service-bus-auto-forwarding/IC628632.gif 
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif

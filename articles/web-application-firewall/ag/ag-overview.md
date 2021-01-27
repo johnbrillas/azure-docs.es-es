@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621032"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879434"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
@@ -157,7 +157,7 @@ Los registros de Application Gateway se integran con [Azure Monitor](../../azure
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Security Center](../../security-center/security-center-introduction.md) ayuda a evitar y a detectar las amenazas, además de responder a ellas. Brinda una visibilidad mejorada y más control sobre la seguridad de los recursos de Azure. Application Gateway se [integra con Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center examina su entorno para detectar aplicaciones web no protegidas. Puede recomendar el firewall de aplicaciones web (WAF) de Application Gateway para proteger estos recursos vulnerables. Puede crear los firewalls directamente desde Security Center. Estas instancias de WAF se integran con Security Center. Envían alertas e información de estado a Security Center para generar informes.
+[Security Center](../../security-center/security-center-introduction.md) ayuda a evitar y a detectar las amenazas, además de responder a ellas. Brinda una visibilidad mejorada y más control sobre la seguridad de los recursos de Azure. Application Gateway se [integra con Security Center](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). Security Center examina su entorno para detectar aplicaciones web no protegidas. Puede recomendar el firewall de aplicaciones web (WAF) de Application Gateway para proteger estos recursos vulnerables. Puede crear los firewalls directamente desde Security Center. Estas instancias de WAF se integran con Security Center. Envían alertas e información de estado a Security Center para generar informes.
 
 ![Ventana de información general de Security Center](../media/ag-overview/figure1.png)
 

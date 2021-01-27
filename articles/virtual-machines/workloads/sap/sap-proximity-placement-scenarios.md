@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827230"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879619"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
 Las aplicaciones SAP basadas en la arquitectura SAP NetWeaver o SAP S/4HANA son sensibles a la latencia de red entre la capa de aplicación de SAP y el nivel de base de datos de SAP. Esta sensibilidad es el resultado de la mayor parte de la lógica de negocios que se ejecuta en el nivel de aplicación. Dado que el nivel de aplicación de SAP ejecuta la lógica de negocios, emite consultas al nivel de base de datos con una elevada frecuencia a una velocidad de miles o decenas de miles de consultas por segundo. En la mayoría de los casos, la naturaleza de estas consultas es sencilla. A menudo, se pueden ejecutar en el nivel de base de datos en 500 microsegundos o menos.
@@ -30,11 +30,11 @@ El tiempo invertido en la red para enviar una consulta de este tipo desde la cap
 
 En muchas regiones de Azure, el número de centros de datos ha crecido. Al mismo tiempo, los clientes, especialmente en el caso de los sistemas SAP de gama alta, usan SKU de VM más especiales de la familia de la serie M o Mv2, o HANA (instancias grandes). Son tipos de máquinas virtuales de Azure que no siempre están disponibles en todos los centros de datos de una región de Azure complementaria. Estos hechos pueden crear oportunidades para optimizar la latencia de red entre la capa de aplicación de SAP y la capa de DBMS de SAP.
 
-Para ofrecer la posibilidad de optimizar la latencia de red, Azure ofrece [grupos con ubicación por proximidad](../../linux/co-location.md). Los grupos con ubicación por proximidad se pueden usar para forzar la agrupación de distintos tipos de máquinas virtuales en un único centro de datos de Azure a fin de optimizar el máximo posible la latencia de red entre estos tipos diferentes de máquinas virtuales. En el proceso de implementación de la primera máquina virtual en un grupo con ubicación por proximidad, la máquina virtual se enlaza a un centro de datos específico. Aunque esta posibilidad sea muy atractiva, el uso de la construcción incluye también algunas restricciones:
+Para ofrecer la posibilidad de optimizar la latencia de red, Azure ofrece [grupos con ubicación por proximidad](../../co-location.md). Los grupos con ubicación por proximidad se pueden usar para forzar la agrupación de distintos tipos de máquinas virtuales en un único centro de datos de Azure a fin de optimizar el máximo posible la latencia de red entre estos tipos diferentes de máquinas virtuales. En el proceso de implementación de la primera máquina virtual en un grupo con ubicación por proximidad, la máquina virtual se enlaza a un centro de datos específico. Aunque esta posibilidad sea muy atractiva, el uso de la construcción incluye también algunas restricciones:
 
 - No se puede suponer que todos los tipos de máquinas virtuales de Azure están disponibles en todos los centros de datos de Azure. Como resultado, se puede restringir la combinación de diferentes tipos de máquinas virtuales dentro de un grupo con ubicación por proximidad. Estas restricciones se producen porque es posible que el hardware del host necesario para ejecutar un determinado tipo de VM no esté presente en el centro de datos en el que se implementó el grupo con ubicación.
 - Cuando cambia el tamaño de las partes de las máquinas virtuales que se encuentran en un grupo con ubicación por proximidad, no puede suponer que en todos los casos el nuevo tipo de máquina virtual está disponible en el mismo centro de datos que las otras máquinas virtuales que forman parte del grupo con ubicación por proximidad.
-- A medida que Azure retira hardware, puede forzar que determinadas máquinas virtuales de un grupo con ubicación por proximidad se muevan a otro centro de datos de Azure. Para obtener más información acerca de este caso, lea el documento [Colocación de recursos para mejorar la latencia](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups).  
+- A medida que Azure retira hardware, puede forzar que determinadas máquinas virtuales de un grupo con ubicación por proximidad se muevan a otro centro de datos de Azure. Para obtener más información acerca de este caso, lea el documento [Colocación de recursos para mejorar la latencia](../../co-location.md#planned-maintenance-and-proximity-placement-groups).  
 
 > [!IMPORTANT]
 > Como resultado de las posibles restricciones, se deben usar grupos con ubicación por proximidad:

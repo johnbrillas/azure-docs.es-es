@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 02ce065c9eecf4b4bf616e40913fc5abd319c5a8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442310"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876316"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Vista previa: Creación de una imagen de Linux y distribución a Shared Image Gallery mediante la CLI de Azure
 
-En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../windows/shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
+En este artículo se muestra cómo puede usar Azure Image Builder y la CLI de Azure para crear una versión de la imagen en el servicio [Shared Image Gallery](../shared-image-galleries.md) y después distribuirla globalmente. También puede hacerlo mediante [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [galerías de imágenes compartidas de Azure](shared-image-galleries.md).
+Obtenga más información sobre las [galerías de imágenes compartidas de Azure](../shared-image-galleries.md).

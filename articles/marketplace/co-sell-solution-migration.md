@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043785"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880362"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -44,7 +44,7 @@ Después de inscribirse en el marketplace comercial, prepárese para migrar las 
 
 Siga estos pasos antes de importar las soluciones de OCP GTM:
 
-1. Visite la [lista de publicadores](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Visite la [lista de publicadores](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de su empresa. Esta lista incluye el propietario de la cuenta, los administradores y los desarrolladores que tienen acceso de publicación. Obtenga más información sobre los [roles de usuario del Centro de partners](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
 2. Pida a uno de los contactos indicados que [agregue usuarios](https://partner.microsoft.com/dashboard/account/usermanagement) al marketplace comercial como *administradores* o *desarrolladores*, ya que solo estos roles pueden editar y publicar soluciones.
 3. Colabore sus desarrolladores para migrar sus soluciones de la cuenta de OCP GTM al marketplace comercial.
 4. Decida cuál de las siguientes opciones desea realizar:
@@ -156,4 +156,3 @@ Para obtener instrucciones detalladas sobre la información que debe proporciona
 - [Reventa a través de asociados de CSP](cloud-solution-providers.md)
 - [Envío de materiales de venta conjunta en el Centro de partners](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Revisión de estas [preguntas más frecuentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
-

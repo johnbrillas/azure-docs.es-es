@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410222"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879721"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -45,11 +45,11 @@ Con el cifrado de cliente, los proveedores de servicios en la nube no tienen acc
 
 Los tres modelos de cifrado del servidor ofrecen características de administración de claves diferentes, que se pueden elegir según sus requisitos:
 
-- **Claves administradas del servicio** : proporcionan una combinación de control y comodidad con una sobrecarga reducida.
+- **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas por el cliente** : le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware controlado por el cliente** : le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -181,7 +181,7 @@ Puede configurar una conexión de VPN de sitio a sitio a una red virtual mediant
 
 Para más información, consulte:
 
-[Creación de una conexión de sitio a sitio mediante Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Creación de una conexión de sitio a sitio mediante Azure Portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Creación de una conexión de sitio a sitio en PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

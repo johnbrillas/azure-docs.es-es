@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019232"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879602"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -711,7 +711,7 @@ Entre las excepciones que se producen cuando la biblioteca de clientes de Storag
 También debe considerar cómo afecta su diseño a la forma en que la aplicación cliente trata las operaciones de simultaneidad y actualización.  
 
 ### <a name="managing-concurrency"></a>Administrar la simultaneidad
-De forma predeterminada, Table service implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce a Table service a omitir estas comprobaciones. Para más información sobre cómo Table service administra la simultaneidad, consulte [Administración de la simultaneidad en Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+De forma predeterminada, Table service implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones **Insertar**, **Combinar** y **Eliminar**, aunque es posible que un cliente fuerce a Table service a omitir estas comprobaciones. Para más información sobre cómo Table service administra la simultaneidad, consulte [Administración de la simultaneidad en Microsoft Azure Storage](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Combinar o reemplazar
 El método **Replace** de la clase **TableOperation** siempre reemplaza toda la entidad en Table service. Si no incluye una propiedad en la solicitud cuando esa propiedad existe en la entidad almacenada, la solicitud quita esa propiedad de la entidad almacenada. A menos que desee quitar una propiedad de forma explícita de entidad almacenada, debe incluir todas las propiedades en la solicitud.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 3fff58c240341776a3bb99c059c179cc4f9d96e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6b3f4ef82813fd4c0e5b3b24be59b68a2dc5b2a7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999151"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880396"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -817,4 +817,4 @@ az group delete --name myResourceGroup
 
 [Tutorial de creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 
-[Ejemplos de la CLI de implementación de máquinas virtuales](../../linux/cli-samples.md)
+[Ejemplos de la CLI de implementación de máquinas virtuales](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

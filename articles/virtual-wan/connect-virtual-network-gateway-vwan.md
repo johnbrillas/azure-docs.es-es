@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922954"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880379"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -91,7 +91,7 @@ En esta sección, descargará el archivo de configuración de VPN para cada uno 
 
 En esta sección, creará dos puertas de enlace de red local de Azure VPN Gateway. Los archivos de configuración del paso anterior contienen los valores de configuración de la puerta de enlace. Use estos valores para crear y configurar las puertas de enlace de red local de Azure VPN Gateway.
 
-1. Cree la puerta de enlace de red local con estos valores. Para más información sobre cómo crear una puerta de enlace de red local VPN Gateway, consulte el artículo de VPN Gateway [Creación de una puerta de enlace de red local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Cree la puerta de enlace de red local con estos valores. Para más información sobre cómo crear una puerta de enlace de red local VPN Gateway, consulte el artículo de VPN Gateway [Creación de una puerta de enlace de red local](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Dirección IP**: Use la dirección IP de Instance0 que se muestra para *gatewayconfiguration* del archivo de configuración.
    * **BGP**: Si la conexión es a través de BGP, seleccione **Configurar los valores de BGP** y escriba el ASN '65515'. Escriba la dirección IP del mismo nivel BGP. Use 'Instance0 BgpPeeringAddresses' para *gatewayconfiguration* del archivo de configuración.
@@ -105,7 +105,7 @@ En esta sección, creará dos puertas de enlace de red local de Azure VPN Gatewa
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Crear conexiones
 
-En esta sección, creará una conexión entre las puertas de enlace de red local VPN Gateway y la puerta de enlace de red virtual. Para conocer los pasos para crear una conexión VPN Gateway, consulte [Configurar una conexión](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+En esta sección, creará una conexión entre las puertas de enlace de red local VPN Gateway y la puerta de enlace de red virtual. Para conocer los pasos para crear una conexión VPN Gateway, consulte [Configurar una conexión](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. En el portal, vaya a la puerta de enlace de red virtual y haga clic en **Conexiones**. En la parte superior de la página Conexiones, haga clic en **+Agregar** para abrir la página **Agregar conexión**.
 2. En la página **Agregar conexión**, configure los valores de la conexión:

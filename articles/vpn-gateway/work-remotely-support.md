@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440821"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880091"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabajo remoto de punto a sitio de Azure VPN Gateway
 
@@ -65,7 +65,7 @@ En un nivel alto, se deben seguir estos pasos para que los usuarios puedan conec
 4. Configure un dispositivo local para conectarse a la puerta de enlace de red virtual de Azure.
 5. Descargar el perfil de punto a sitio desde Azure Portal y distribuirlo a los clientes
 
-Para aprender a configurar un túnel VPN de sitio a sitio, consulte [este vínculo](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Para aprender a configurar un túnel VPN de sitio a sitio, consulte [este vínculo](./tutorial-site-to-site-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Preguntas más frecuentes acerca de la autenticación de certificado nativa de Azure
 

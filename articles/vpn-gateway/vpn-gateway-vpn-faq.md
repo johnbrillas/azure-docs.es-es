@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419782"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880108"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -38,7 +38,7 @@ No.
 
 Se admiten las siguientes conexiones entre locales:
 
-* Sitio a sitio: conexión VPN sobre IPsec (IKE v1 e IKE v2). Este tipo de conexión requiere un dispositivo VPN o RRAS. Para más información, consulte [Sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Sitio a sitio: conexión VPN sobre IPsec (IKE v1 e IKE v2). Este tipo de conexión requiere un dispositivo VPN o RRAS. Para más información, consulte [Sitio a sitio](./tutorial-site-to-site-portal.md).
 * De punto a sitio: conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros) o IKE v2. Esta conexión no requiere un dispositivo VPN. Para más información, consulte [Punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Red virtual a red virtual: este tipo de conexión es el mismo que el de la configuración de sitio a sitio. La conexión de red virtual a red virtual es una conexión VPN sobre IPsec (IKE v1 e IKE v2). No requiere un dispositivo VPN. Para más información, consulte [Red virtual a red virtual](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Varios sitios: esta es una variación de una configuración de sitio a sitio que le permite conectar varios sitios locales a una red virtual. Para más información, consulte [Varios sitios](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -70,13 +70,13 @@ Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutam
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
 
-No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
+No.  No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
 1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
 1. Elimine la puerta de enlace:
    - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](./tutorial-site-to-site-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
 

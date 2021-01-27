@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 0232682661387e635e6ce8bfb5fc6e03301d130c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694800"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882406"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registro y examen de Azure Data Lake Storage Gen2
 
@@ -48,7 +48,7 @@ Al elegir la **Identidad administrada** para configurar la conexión, primero de
 1. Establezca el **Rol** en el **Lector de datos de blobs de almacenamiento** y escriba el nombre de la cuenta de Azure Purview en el cuadro de entrada **Seleccionar**. A continuación, seleccione **Guardar** para dar esta asignación de rol a su cuenta de Purview.
 
 > [!Note]
-> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> Para obtener más información, consulte los pasos que se detallan en [Autorización del acceso a blobs y colas con Azure Active Directory](../storage/common/storage-auth-aad.md).
 
 #### <a name="account-key"></a>Clave de cuenta
 

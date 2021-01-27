@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 987281bd13b7ac053f07a4ef1fb7605c85686d56
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898630"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878670"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -362,7 +362,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 
-**Problema con el grupo de seguridad de red de la subred de Application Gateway V2**: El registro de flujo en el grupo de seguridad de red de la subred de Application Gateway V2 [no se admite](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actualmente. Este problema no afecta a Application Gateway V1.
+**Problema con el grupo de seguridad de red de la subred de Application Gateway V2**: El registro de flujo en el grupo de seguridad de red de la subred de Application Gateway V2 [no se admite](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actualmente. Este problema no afecta a Application Gateway V1.
 
 **Servicios incompatibles**: debido a las limitaciones actuales de la plataforma, los registros de flujo de NSG no admiten un pequeño conjunto de servicios de Azure. La lista actual de servicios incompatibles es:
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555896"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880951"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -76,7 +76,7 @@ Defina las iteraciones, la configuración de hiperparámetros, la caracterizaci�
 Las canalizaciones de aprendizaje automático pueden usar los métodos de entrenamiento mencionados anteriormente. Las canalizaciones tienen más que ver con la creación de un flujo de trabajo, por lo que abarcan algo más que solo el entrenamiento de los modelos. En una canalización, puede entrenar un modelo mediante el aprendizaje automático automatizado o las configuraciones de ejecución.
 
 * [¿Qué son las canalizaciones de Machine Learning en Azure Machine Learning?](concept-ml-pipelines.md)
-* [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Uso de canalizaciones de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md)
 * [Ejemplos: ejemplos de Jupyter Notebook para las canalizaciones de aprendizaje automático](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
@@ -109,7 +109,6 @@ El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el
 
 Para más información, consulte los siguientes artículos.
 
-* [Tutorial: Crear un modelo de regresión logística](tutorial-1st-r-experiment.md)
 * [Referencia del SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning

@@ -11,7 +11,7 @@
   items:
     - name: Creación de un trabajo
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: stream-analytics-quick-create-portal.md
         - name: Azure CLI
           href: quick-create-azure-cli.md
@@ -39,7 +39,7 @@
     - name: Creación de un deserializador de .NET personalizado
       href: custom-deserializer.md
     - name: Creación de un trabajo de IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+      href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
       maintainContext: true
 - name: Ejemplos
   items:

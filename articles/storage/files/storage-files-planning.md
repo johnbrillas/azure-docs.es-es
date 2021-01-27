@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724240"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879854"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -131,6 +131,6 @@ En el [artículo de introducción a la migración](storage-files-migration-overv
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
-* [Implementación de Azure Files](storage-files-deployment-guide.md)
+* [Implementación de Azure Files](./storage-how-to-create-file-share.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Consulte el artículo de introducción a la migración para encontrar la guía de migración para su escenario.](storage-files-migration-overview.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 255b34fc683628846d2776d9db7a0fbe8fe32a45
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879670"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Creación de una instantánea mediante el portal o PowerShell
 
@@ -82,4 +82,4 @@ En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y conéctelo como disco del sistema operativo. Para más información, consulte el ejemplo de [Creación de una máquina virtual a partir de una instantánea con PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md).
+Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y conéctelo como disco del sistema operativo. Para más información, consulte el ejemplo de [Creación de una máquina virtual a partir de una instantánea con PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).
