@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903877"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678136"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre los servicios de Weather de Azure Maps (versión preliminar)
 
@@ -21,7 +21,7 @@ ms.locfileid: "96903877"
 > Los servicios de Weather de Azure Maps están actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se responde a preguntas comunes sobre los datos y las características de los [servicios de Weather](https://docs.microsoft.com/rest/api/maps/weather) de Azure Maps. Se tratan los siguientes temas:
+En este artículo se responde a preguntas comunes sobre los datos y las características de los [servicios de Weather](/rest/api/maps/weather) de Azure Maps. Se tratan los siguientes temas:
 
 * Orígenes de datos y modelos de datos
 * Cobertura y disponibilidad de los servicios de Weather
@@ -59,7 +59,7 @@ Para formular previsiones en todo el mundo, se usan numerosos sistemas de guía 
 
 **¿Qué tipo de cobertura puedo esperar en distintos países o regiones?**
 
-La cobertura del servicio Weather varía según el país o la región. Todas las características no están disponibles en todos los países o regiones. Para más información, consulte la [documentación sobre cobertura](https://docs.microsoft.com/azure/azure-maps/weather-coverage).
+La cobertura del servicio Weather varía según el país o la región. Todas las características no están disponibles en todos los países o regiones. Para más información, consulte la [documentación sobre cobertura](./weather-coverage.md).
 
 ## <a name="data-update-frequency"></a>Frecuencia de actualización de los datos
 
@@ -79,7 +79,7 @@ Las API de previsión de Azure Maps se almacenan en caché durante un período d
 
 **¿Los SDK de Azure Maps admiten de forma nativa la integración de los servicios de Weather (versión preliminar)?**
 
-El SDK web de Azure Maps proporciona un módulo de servicios. Este módulo es una biblioteca auxiliar que facilita el uso de los servicios de REST de Azure Maps en aplicaciones web o de Node.js mediante JavaScript o TypeScript. Para empezar, consulte nuestra [documentación](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
+El SDK web de Azure Maps proporciona un módulo de servicios. Este módulo es una biblioteca auxiliar que facilita el uso de los servicios de REST de Azure Maps en aplicaciones web o de Node.js mediante JavaScript o TypeScript. Para empezar, consulte nuestra [documentación](./how-to-use-services-module.md).
 
 **¿Android SDK de Azure Maps admite de forma nativa la integración de los servicios de Weather (versión preliminar)?**
 
@@ -91,26 +91,26 @@ Está previsto crear un módulo de servicios para Java/Android similar al módul
 
 **¿Admite el objeto visual de Power BI de Azure Maps los mosaicos meteorológicos?**
 
-Sí. Para información sobre cómo migrar mosaicos de satélite radar y de infrarrojos al objeto visual de Microsoft Power BI, consulte [Adición de una capa de mosaicos al objeto visual de Power BI](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Sí. Para información sobre cómo migrar mosaicos de satélite radar y de infrarrojos al objeto visual de Microsoft Power BI, consulte [Adición de una capa de mosaicos al objeto visual de Power BI](./power-bi-visual-add-tile-layer.md). 
 
 **¿Cómo se interpretan los colores usados para los mosaicos de radar y satélite?**
 
-El [artículo sobre conceptos de Weather](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#radar-and-satellite-imagery-color-scale) incluye una guía para ayudar a interpretar los colores usados en los mosaicos de radar y satélite. En el artículo se tratan las muestras de color y los códigos de color hexadecimales.
+El [artículo sobre conceptos de Weather](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) incluye una guía para ayudar a interpretar los colores usados en los mosaicos de radar y satélite. En el artículo se tratan las muestras de color y los códigos de color hexadecimales.
  
 **¿Puedo crear animaciones de mosaicos de radar y satélite?**
 
-Sí. Además de los mosaicos de radar y satélite en tiempo real, los clientes de Azure Maps pueden solicitar mosaicos pasados y futuros para mejorar las visualizaciones de datos con las superposiciones de mapas. Para ello, se puede llamar directamente a [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles ) o solicitar mosaicos mediante el SDK web de Azure Maps. Se proporcionan mosaicos de radar para 1,5 horas en el pasado y 2 horas en el futuro, como máximo. Los mosaicos están disponibles en intervalos de 5 minutos. Se proporcionan mosaicos de infrarrojos para 3 horas en el pasado como máximo y están disponibles en intervalos de 10 minutos. Para más información, consulte el [ejemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer) de la animación de mosaicos meteorológicos de código abierto.  
+Sí. Además de los mosaicos de radar y satélite en tiempo real, los clientes de Azure Maps pueden solicitar mosaicos pasados y futuros para mejorar las visualizaciones de datos con las superposiciones de mapas. Para ello, se puede llamar directamente a [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) o solicitar mosaicos mediante el SDK web de Azure Maps. Se proporcionan mosaicos de radar para 1,5 horas en el pasado y 2 horas en el futuro, como máximo. Los mosaicos están disponibles en intervalos de 5 minutos. Se proporcionan mosaicos de infrarrojos para 3 horas en el pasado como máximo y están disponibles en intervalos de 10 minutos. Para más información, consulte el [ejemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer) de la animación de mosaicos meteorológicos de código abierto.  
 
 **¿Se ofrecen iconos para distintas condiciones meteorológicas?**
 
-Sí. Puede buscar iconos y sus códigos respectivos [aquí](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Tenga en cuenta que solo algunas de las API del servicio Weather (versión preliminar), como [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), devuelven el valor de *iconCode* en la respuesta. Para más información, consulte el [ejemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location) de Current WeatherConditions.
+Sí. Puede buscar iconos y sus códigos respectivos [aquí](./weather-services-concepts.md#weather-icons). Tenga en cuenta que solo algunas de las API del servicio Weather (versión preliminar), como [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview), devuelven el valor de *iconCode* en la respuesta. Para más información, consulte el [ejemplo de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location) de Current WeatherConditions.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
 * La sección Comentarios de este artículo.
-* [Página de preguntas y respuestas de MSFT para Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* [Página de preguntas y respuestas de MSFT para Azure Maps](/answers/topics/azure-maps.html).
 * Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en [Azure Portal](https://portal.azure.com/), vaya a la pestaña Ayuda, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 * [UserVoice de Azure Maps](https://feedback.azure.com/forums/909172-azure-maps) para enviar solicitudes de características.
 

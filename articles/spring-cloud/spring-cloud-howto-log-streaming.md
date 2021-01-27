@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcfddce568be6c641a5bf5be70c2cd0ad368095f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843611"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680525"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 
@@ -31,7 +31,7 @@ Azure Spring Cloud permite el streaming de registros en la CLI de Azure para obt
 ## <a name="use-cli-to-tail-logs"></a>Uso de la CLI para el final de los registros
 
 Para evitar especificar repetidamente el nombre del grupo de recursos y el nombre de la instancia de servicio, establezca el nombre del grupo de recursos y el nombre del clúster predeterminados.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
@@ -39,11 +39,11 @@ En los siguientes ejemplos, el grupo de recursos y el nombre del servicio se omi
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Final del registro de la aplicación con una sola instancia
 Si una aplicación denominada auth-service solo tiene una instancia, puede ver el registro de la instancia de la aplicación con el siguiente comando:
-```
+```azurecli
 az spring-cloud app logs -n auth-service
 ```
 Esto devolverá registros:
-```
+```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
 2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
@@ -58,12 +58,12 @@ Si existen varias instancias de la aplicación denominada `auth-service`, puede 
 
 En primer lugar, puede obtener los nombres de instancia de la aplicación con el siguiente comando.
 
-```
+```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
 Con resultados:
 
-```
+```output
 Name                                         Status    DiscoveryStatus
 -------------------------------------------  --------  -----------------
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
@@ -72,7 +72,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
 Después, puede transmitir los registros de una instancia de la aplicación con la opción `-i/--instance`:
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
@@ -81,11 +81,11 @@ También puede obtener los detalles de las instancias de la aplicación en Azure
 ### <a name="continuously-stream-new-logs"></a>Streaming continuo de nuevos registros
 De forma predeterminada, `az spring-cloud ap log tail` imprime solo los registros existentes transmitidos a la consola de la aplicación y, a continuación, se cierra. Si desea hacer streaming de los nuevos registros, agregue-f (--follow):  
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -f
 ``` 
 Para comprobar todas las opciones de registro admitidas:
-``` 
+```azurecli
 az spring-cloud app logs -h 
 ```
 

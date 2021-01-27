@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a557d4045b18b5c0ff71b3e47f0c189028702863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289538"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685334"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics
 
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Para implementar clases de recursos, debe asignar usuarios a los roles de base de datos. Cuando un usuario ejecuta una consulta, la consulta se ejecuta con la clase de recurso del usuario. Por ejemplo, si un usuario es miembro del rol de base de datos "staticrc10", las consultas se ejecutan con pequeñas cantidades de memoria. Si un usuario de base de datos es miembro del rol de base de datos "xlargerc" o "staticrc80", las consultas se ejecutan con grandes cantidades de memoria.
 
-Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos "largerc".  Cada solicitud obtiene un 22 % de la memoria del sistema.
+Para aumentar la clase de recursos de un usuario, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para agregar el usuario a un rol de base de datos de una clase de recursos grande.  El siguiente código agrega un usuario al rol de base de datos "largerc".  Cada solicitud obtiene un 22 % de la memoria del sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para reducir la clase de recursos, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Si "loaduser" no es un miembro o cualquier otra clase de recurso, entran en la clase de recursos "smallrc" predeterminada con una concesión de memoria del 3 %.  
+Para reducir la clase de recursos, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Si "loaduser" no es un miembro o cualquier otra clase de recurso, entran en la clase de recursos "smallrc" predeterminada con una concesión de memoria del 3 %.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763547"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684617"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Actualización automática de imágenes del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure
 
@@ -49,7 +49,7 @@ El orquestador de actualización del sistema operativo del conjunto de escalado 
 >La actualización automática del sistema operativo no actualiza la SKU de la imagen de referencia en el conjunto de escalado. Para cambiar la SKU (por ejemplo de Ubuntu 16.04-LTS a 18.04-LTS), debe actualizar el [modelo de conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directamente con la SKU de imagen deseada. No se puede cambiar la oferta y el publicador de imágenes para un conjunto de escalado existente.  
 
 ## <a name="supported-os-images"></a>Imágenes de sistema operativo compatibles
-Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. [Se admiten imágenes personalizadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si el conjunto de escalado usa imágenes personalizadas a través de la [Galería de imágenes compartidas](shared-image-galleries.md).
+Actualmente se admiten solo determinadas imágenes de plataforma del sistema operativo. [Se admiten imágenes personalizadas](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si el conjunto de escalado usa imágenes personalizadas a través de la [Galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md).
 
 Las siguientes SKU de plataforma se admiten actualmente (y periódicamente se agregan más):
 
@@ -89,11 +89,11 @@ Asegúrese de que la configuración de durabilidad coincida con la del clúster 
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Actualización automática de la imagen del sistema operativo para imágenes personalizadas
 
-Se admite la actualización automática de la imagen del sistema operativo para imágenes personalizadas implementadas a través de la [Galería de imágenes compartidas](shared-image-galleries.md). No se admiten otras imágenes personalizadas para las actualizaciones automáticas de imágenes del sistema operativo.
+Se admite la actualización automática de la imagen del sistema operativo para imágenes personalizadas implementadas a través de la [Galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md). No se admiten otras imágenes personalizadas para las actualizaciones automáticas de imágenes del sistema operativo.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionales de las imágenes personalizadas
 - El proceso de instalación y configuración para la actualización automática de la imagen del sistema operativo es el mismo para todos los conjuntos de escalado que se detallan en la [sección configuración](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de esta página.
-- Las instancias de conjuntos de escalado configuradas para actualizaciones automáticas de imágenes del sistema operativo se actualizarán a la versión más reciente de la imagen de Shared Image Gallery cuando se publique una nueva versión de la imagen y se [replique](shared-image-galleries.md#replication) en la región de ese conjunto de escalado. Si la nueva imagen no se replica en la región donde se implementa la escala, las instancias del conjunto de escalado no se actualizarán a la versión más reciente. La replicación de imagen regional permite controlar el lanzamiento de la nueva imagen para los conjuntos de escalado.
+- Las instancias de conjuntos de escalado configuradas para actualizaciones automáticas de imágenes del sistema operativo se actualizarán a la versión más reciente de la imagen de Shared Image Gallery cuando se publique una nueva versión de la imagen y se [replique](../virtual-machines/shared-image-galleries.md#replication) en la región de ese conjunto de escalado. Si la nueva imagen no se replica en la región donde se implementa la escala, las instancias del conjunto de escalado no se actualizarán a la versión más reciente. La replicación de imagen regional permite controlar el lanzamiento de la nueva imagen para los conjuntos de escalado.
 - La nueva versión de la imagen no se debe excluir de la versión más reciente de esa imagen de la galería. Las versiones de las imágenes excluidas de la versión más reciente de la imagen de la galería no se implementan en el conjunto de escalado mediante la actualización automática de la imagen del sistema operativo.
 
 > [!NOTE]

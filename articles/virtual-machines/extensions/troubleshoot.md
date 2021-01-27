@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127148"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676766"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solución de problemas de la extensión de máquina virtual de Microsoft Azure.
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Ese certificado se volverá a generar automáticamente al reiniciar el agente in
 - Haga clic con el botón derecho y seleccione "Finalizar tarea". El proceso se reiniciará de forma automática.
 
 
-También puede desencadenar un nuevo objeto GoalState en la máquina virtual mediante la ejecución de "Volver a aplicar la VM". [Volver a aplicar](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) la VM es una API que se introdujo en 2020 para volver a aplicar el estado de una máquina virtual. Se recomienda hacerlo cuando se pueda permitir un breve periodo de inactividad en la máquina virtual. Aunque Volver a aplicar no provoca un reinicio de la máquina virtual y la inmensa mayoría de las veces las llamadas a Volver a aplicar no reiniciarán la máquina virtual, hay un riesgo muy pequeño de que se aplique alguna otra actualización pendiente al modelo de máquina virtual cuando Volver a aplicar desencadene un nuevo estado de objetivo y que el otro cambio podría requerir un reinicio. 
+También puede desencadenar un nuevo objeto GoalState en la máquina virtual mediante la ejecución de "Volver a aplicar la VM". [Volver a aplicar](/rest/api/compute/virtualmachines/reapply) la VM es una API que se introdujo en 2020 para volver a aplicar el estado de una máquina virtual. Se recomienda hacerlo cuando se pueda permitir un breve periodo de inactividad en la máquina virtual. Aunque Volver a aplicar no provoca un reinicio de la máquina virtual y la inmensa mayoría de las veces las llamadas a Volver a aplicar no reiniciarán la máquina virtual, hay un riesgo muy pequeño de que se aplique alguna otra actualización pendiente al modelo de máquina virtual cuando Volver a aplicar desencadene un nuevo estado de objetivo y que el otro cambio podría requerir un reinicio. 
 
 Azure Portal:
 

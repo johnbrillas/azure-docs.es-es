@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601669"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685113"
 ---
 # <a name="create-an-image-from-a-vm"></a>Creación de una imagen a partir de una máquina virtual
 
 Si tiene una máquina virtual existente que le gustaría usar para crear varias máquinas virtuales idénticas, puede usarla para crear una imagen en una instancia de Shared Image Gallery mediante Azure PowerShell. También puede crear una imagen a partir de una máquina virtual usando la [CLI de Azure](image-version-vm-cli.md).
 
-Puede capturar una imagen a partir de máquinas virtuales [especializadas y generalizadas](./windows/shared-image-galleries.md#generalized-and-specialized-images) mediante Azure PowerShell. 
+Puede capturar una imagen a partir de máquinas virtuales [especializadas y generalizadas](./shared-image-galleries.md#generalized-and-specialized-images) mediante Azure PowerShell. 
 
 Las imágenes de una galería de imágenes tienen dos componentes, que se crearán durante este ejemplo:
 - Una **definición de imagen**, que contiene información sobre la imagen y los requisitos para usarla. Esto incluye si la imagen es Windows o Linux, si es generalizada o especializada, las notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. 
@@ -77,7 +77,7 @@ Las definiciones de imagen crean una agrupación lógica de imágenes. Se usan p
 
 Al crear la definición de la imagen, asegúrese de tener toda la información correcta. Si ha hecho generalizada la máquina virtual (con Sysprep para Windows o waagent-deprovision para Linux), debe crear una definición de imagen mediante `-OsState generalized`. Si no ha generalizado la máquina virtual, cree una definición de imagen mediante `-OsState specialized`.
 
-Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./windows/shared-image-galleries.md#image-definitions).
+Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./shared-image-galleries.md#image-definitions).
 
 Cree la definición de imagen mediante [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 

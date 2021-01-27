@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019897"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693382"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Uso del paquete NuGet de CI/CD de Azure Stream Analytics para la integración y el desarrollo 
 En este artículo se describe cómo usar el paquete NuGet de CI/CD de Azure Stream Analytics para configurar un proceso de integración e implementación continuas.
@@ -51,7 +51,7 @@ Los parámetros predeterminados en el archivo parameters.json provienen de la co
       "value": null
     },
 ```
-Obtenga más información acerca de cómo [implementar con un archivo de plantilla de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Obtenga más información acerca de cómo [utilizar un objeto como un parámetro en una plantilla de Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Obtenga más información acerca de cómo [implementar con un archivo de plantilla de Resource Manager y Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Obtenga más información acerca de cómo [utilizar un objeto como un parámetro en una plantilla de Resource Manager](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 Para usar la identidad administrada para Azure Data Lake Store Gen1 como receptor de salida, deberá proporcionar acceso a la entidad de servicio con PowerShell antes de la implementación en Azure. Más información acerca de cómo [implementar ADLS Gen1 con identidad administrada con la plantilla de Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42b1aed2f6c66dbfc0f04759b232855f3b7f0a2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487660"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676825"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Comprobación del estado de cifrado para Linux 
 
@@ -31,19 +31,19 @@ Este escenario se aplica a las extensiones de pase doble y de pase único de Azu
 
 ## <a name="portal"></a>Portal
 
-En Azure Portal, dentro de la sección **Extensiones** , seleccione en la lista la extensión Azure Disk Encryption. La información del **Mensaje de estado** indica el estado de cifrado actual:
+En Azure Portal, dentro de la sección **Extensiones**, seleccione en la lista la extensión Azure Disk Encryption. La información del **Mensaje de estado** indica el estado de cifrado actual:
 
 ![Comprobación del portal con el estado, la versión y el mensaje de estado resaltados](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
 En la lista de extensiones, verá la versión de la extensión de Azure Disk Encryption correspondiente. La versión 0. x corresponde a Azure Disk Encryption de pase doble y la versión 1. x corresponde a Azure Disk Encryption de pase único.
 
-Puede obtener más detalles seleccionando primero la extensión y después **Ver estado detallado** . Se mostrará un estado más detallado del proceso de cifrado en formato JSON.
+Puede obtener más detalles seleccionando primero la extensión y después **Ver estado detallado**. Se mostrará un estado más detallado del proceso de cifrado en formato JSON.
 
 ![Comprobación del portal con el vínculo "Ver estado detallado" resaltado](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
 ![Estado detallado en formato JSON](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-Otra manera de validar el estado de cifrado es examinar la sección **Configuración del disco** .
+Otra manera de validar el estado de cifrado es examinar la sección **Configuración del disco**.
 
 ![Estado de cifrado del disco del sistema operativo y los discos de datos](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
@@ -70,7 +70,7 @@ Puede capturar la configuración de cifrado de cada disco mediante los siguiente
 ### <a name="single-pass"></a>Pase único
 En un pase único, la configuración de cifrado se marca en cada uno de los discos (sistema operativo y datos). Puede capturar la configuración de cifrado de un disco del sistema operativo en un pase único, como se indica a continuación:
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -160,7 +160,7 @@ Write-Host "====================================================================
 
 Puede comprobar el estado de cifrado *general* de una máquina virtual cifrada con los siguientes comandos de la CLI de Azure:
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -170,14 +170,14 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### <a name="single-pass"></a>Pase único
 Puede validare la configuración de cifrado de cada disco mediante los siguientes comandos de la CLI de Azure:
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
 ![Configuración del cifrado de datos](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Si el disco no tiene la configuración de cifrado marcada, verá el texto **El disco no está cifrado** .
+> Si el disco no tiene la configuración de cifrado marcada, verá el texto **El disco no está cifrado**.
 
 Use los comandos siguientes para obtener la configuración detallada de estado y cifrado.
 
@@ -203,7 +203,7 @@ done
 
 Discos de datos:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -223,7 +223,7 @@ done
 
 ### <a name="dual-pass"></a>Pase doble
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -276,7 +276,7 @@ Para obtener los detalles de un disco específico, tiene que proporcionar:
 
 Este comando muestra todos los identificadores de todas las cuentas de almacenamiento:
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 Los identificadores de la cuenta de almacenamiento se muestran en este formato:
@@ -295,7 +295,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 El siguiente comando muestra todos los contenedores en una cuenta de almacenamiento:
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 El contenedor que se usa para los discos se denomina normalmente "vhds".
@@ -306,7 +306,7 @@ ContainerName="name of the container"
 ```
 
 Use este comando para enumerar todos los blobs de un contenedor determinado:
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Elija el disco que desea consultar y almacene su nombre en una variable:
@@ -314,24 +314,24 @@ Elija el disco que desea consultar y almacene su nombre en una variable:
 DiskName="diskname.vhd"
 ```
 Consulte la configuración de cifrado de disco:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
 ## <a name="operating-system"></a>Sistema operativo
 Compruebe si las particiones de disco de datos están cifradas (y si el disco del sistema operativo no lo está).
 
-Cuando una partición o un disco están cifrados, se muestra como un tipo **crypt** . Cuando no lo están, se muestra como un tipo **part/disk** .
+Cuando una partición o un disco están cifrados, se muestra como un tipo **crypt**. Cuando no lo están, se muestra como un tipo **part/disk**.
 
-``` bash
+```bash
 lsblk
 ```
 
 ![Nivel de cifrado de sistema operativo para una partición](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-Puede obtener más detalles con la siguiente variante **lsblk** . 
+Puede obtener más detalles con la siguiente variante **lsblk**. 
 
-Verá una capa de tipo **crypt** que está montada por la extensión. En el ejemplo siguiente se muestran los volúmenes lógicos y los discos normales con **crypto\_LUKS FSTYPE** .
+Verá una capa de tipo **crypt** que está montada por la extensión. En el ejemplo siguiente se muestran los volúmenes lógicos y los discos normales con **crypto\_LUKS FSTYPE**.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
@@ -340,15 +340,15 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 Como paso adicional, también puede comprobar si el disco de datos tiene claves cargadas:
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 
-Y puede comprobar qué dispositivos **dm** se muestran como **crypt** :
+Y puede comprobar qué dispositivos **dm** se muestran como **crypt**:
 
 ```bash
 dmsetup ls --target crypt

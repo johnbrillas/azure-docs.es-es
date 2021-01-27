@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: 08b18dae6cec3f30ba9ecc69a3537eec428cc9ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372729"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685096"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creación y carga de una imagen de máquina virtual de OpenBSD en Azure
 En este artículo se muestra cómo crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo OpenBSD. Después de cargarlo, puede utilizarlo como su propia imagen para crear una máquina virtual (VM) en Azure a través de la CLI de Azure.
@@ -56,7 +56,7 @@ En la máquina virtual donde se instaló el sistema operativo OpenBSD 6.1, que a
     ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
     ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
     ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. Siempre puede encontrar la versión más reciente del agente de Azure en [GitHub](https://github.com/Azure/WALinuxAgent/releases). Instale el agente de la forma siguiente:
@@ -140,7 +140,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Creación de una máquina virtual desde el disco duro virtual
-Puede crear una máquina virtual con un [script de ejemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) o directamente con [az vm create](/cli/azure/vm). Para especificar el VHD de OpenBSD cargado, utilice el parámetro `--image` como sigue:
+Puede crear una máquina virtual con un [script de ejemplo](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd) o directamente con [az vm create](/cli/azure/vm). Para especificar el VHD de OpenBSD cargado, utilice el parámetro `--image` como sigue:
 
 ```azurecli
 az vm create \
@@ -168,4 +168,4 @@ ssh azureuser@<ip address>
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener más información sobre la compatibilidad de Hyper-V en OpenBSD6.1, consulte [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](https://man.openbsd.org/hyperv.4).
 
-Si quiere crear una máquina virtual desde el disco administrado, consulte [az disk](/cli/azure/disk). 
+Si quiere crear una máquina virtual desde el disco administrado, consulte [az disk](/cli/azure/disk).

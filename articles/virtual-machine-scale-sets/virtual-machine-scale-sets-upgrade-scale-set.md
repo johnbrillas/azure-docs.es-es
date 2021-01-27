@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358748"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684600"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -350,7 +350,7 @@ Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actu
 
 - **singlePlacementGroup**: si singlePlacementGroup es true, se puede cambiar a false. Sin embargo, si singlePlacementGroup es false, **no se puede** cambiar a true.
 - **subnet**: la subred de un conjunto de escalado se puede modificar siempre y cuando la subred original y la nueva subred estén en la misma red virtual.
-- **imageReferenceSku**: la SKU de la imagen de referencia se puede actualizar para las [distribuciones de Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) reconocidas, las imágenes de servidor o cliente de Windows y las imágenes sin [información de planeamiento](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
+- **imageReferenceSku**: la SKU de la imagen de referencia se puede actualizar para las [distribuciones de Linux](../virtual-machines/linux/endorsed-distros.md) reconocidas, las imágenes de servidor o cliente de Windows y las imágenes sin [información de planeamiento](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propiedades que requieren desasignación para poder cambiar
 Algunas propiedades solo pueden cambiar a ciertos valores si se desasignan las máquinas virtuales del conjunto de escalado. Estas propiedades incluyen:

@@ -4,12 +4,12 @@ description: Supervise la aplicación web en tiempo real con métricas personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803585"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679473"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -36,7 +36,7 @@ Actualmente, Live Metrics se admite en aplicaciones de ASP.NET, ASP.NET Core, Az
    * [ASP.NET Core](./asp-net-core.md): Live Metrics está habilitada de forma predeterminada.
    * [.NET, Consola de .NET Core o Worker](./worker-service.md): Live Metrics está habilitada de forma predeterminada.
    * [Aplicaciones .NET: se habilita mediante código](#enable-livemetrics-using-code-for-any-net-application).
-    * [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent): Live Metrics está habilitado de forma predeterminada.
+    * [Java](./java-in-process-agent.md): Live Metrics está habilitado de forma predeterminada.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. En [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights de la aplicación y, a continuación, abra Live Stream.

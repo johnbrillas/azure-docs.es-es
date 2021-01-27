@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4a649115f8e89c27f435888b682b7de36e9894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8aa2623722b5e75480e68324d76e4a1493501df
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533927"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685147"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Creación de la versión de una imagen a partir de una máquina virtual de Azure mediante la CLI de Azure
 
@@ -57,11 +57,11 @@ Los nombres de las definiciones de imagen pueden estar formados por letras mayú
 
 Asegúrese de que la definición de la imagen sea del tipo correcto. Si ha generalizado la máquina virtual (con Sysprep para Windows o waagent-deprovision para Linux), debe crear una definición de imagen generalizada mediante `--os-state generalized`. Si quiere usar la máquina virtual sin quitar las cuentas de usuario existentes, cree una definición de imagen especializada mediante `--os-state specialized`.
 
-Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./linux/shared-image-galleries.md#image-definitions).
+Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./shared-image-galleries.md#image-definitions).
 
 Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-En este ejemplo, la definición de la imagen se denomina *myImageDefinition* y es para una imagen del sistema operativo Linux [especializada](./linux/shared-image-galleries.md#generalized-and-specialized-images). Para crear una definición de las imágenes que emplean un sistema operativo Windows, use `--os-type Windows`. 
+En este ejemplo, la definición de la imagen se denomina *myImageDefinition* y es para una imagen del sistema operativo Linux [especializada](./shared-image-galleries.md#generalized-and-specialized-images). Para crear una definición de las imágenes que emplean un sistema operativo Windows, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas Windows con el agente de MARS
 description: Use el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052229"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702775"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Copia de seguridad de carpetas y archivos de Windows Server en Azure
 
@@ -38,7 +38,7 @@ Azure Backup no tiene en cuenta automáticamente el horario de verano. Esta conf
 
 Para crear una directiva de copia de seguridad:
 
-1. Después de descargar y registrar el agente de MARS, abra la consola del agente. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.  
+1. Después de descargar y registrar el agente de MARS, abra la consola del agente. Para encontrarlo, busque **Microsoft Azure Backup** en la máquina.  
 
 1. En **Acciones**, seleccione **Programar copia de seguridad**.
 
@@ -104,7 +104,7 @@ Para realizar una transferencia sin conexión:
 1. Escriba los datos de copia de seguridad en una ubicación de almacenamiento provisional.
 1. Use la herramienta AzureOfflineBackupDiskPrep para copiar los datos de la ubicación de almacenamiento provisional en uno o más discos SATA.
 
-    La herramienta crea un trabajo de importación de Azure. Para más información, consulte [¿Qué es el servicio Azure Import/Export?](../storage/common/storage-import-export-service.md).
+    La herramienta crea un trabajo de importación de Azure. Para más información, consulte [¿Qué es el servicio Azure Import/Export?](../import-export/storage-import-export-service.md).
 1. Envíe los discos SATA a un centro de datos de Azure.
 
     En el centro de datos, los datos de los discos se copian en una cuenta de almacenamiento de Azure. Azure Backup copia los datos de la cuenta de almacenamiento en el almacén y se programan copias de seguridad incrementales.

@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: f1e7b33630ea52bb0cb675b81fff9cc738f27980
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 543aa50d72de5a06a9a1c7ac88ac5ecae993bc9d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95563674"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697941"
 ---
 | Recurso | Límite |
 | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "95563674"
 | Tamaño de la plantilla |4 MB |
 | Tamaño del archivo de parámetros |64 KB |
 
-Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas al implementar recursos de Azure](../articles/azure-resource-manager/templates/linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas al implementar recursos de Azure](../articles/azure-resource-manager/templates/linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654632"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702141"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Preguntas más frecuentes
 
@@ -66,7 +66,7 @@ Por ejemplo, si quiere mover datos de su ubicación en Canadá a una cuenta de a
 
 ### <a name="option-1"></a>Opción 1: 
 
-Envíe un [disco compatible](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) que contenga datos mediante el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md) desde la ubicación de origen en Canadá hasta el centro de datos del Oeste de EE. UU. de Azure.
+Envíe un [disco compatible](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) que contenga datos mediante el [servicio Azure Import/Export](../import-export/storage-import-export-service.md) desde la ubicación de origen en Canadá hasta el centro de datos del Oeste de EE. UU. de Azure.
 
 ### <a name="option-2"></a>Opción 2:
 

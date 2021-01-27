@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070582"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703511"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -379,7 +379,7 @@ Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servic
 | Azure Event Hubs         | Microsoft.EventHub         | Archivo de datos con Event Hubs Capture. [Más información](../../event-hubs/event-hubs-capture-overview.md). |
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar el servidor de archivos local en una memoria caché para recursos compartidos de archivos de Azure. Permite la sincronización de varios sitios, la recuperación rápida ante desastres y la copia de seguridad en la nube. [Más información](../files/storage-sync-files-planning.md) |
 | HDInsight de Azure          | Microsoft.HDInsight        | Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
-| Azure Import/Export      | Microsoft.ImportExport     | Habilita la importación de datos a Azure Storage o la exportación de datos desde Azure Storage mediante el servicio de importación y exportación de Azure Storage. [Más información](./storage-import-export-service.md).  |
+| Azure Import/Export      | Microsoft.ImportExport     | Habilita la importación de datos a Azure Storage o la exportación de datos desde Azure Storage mediante el servicio de importación y exportación de Azure Storage. [Más información](../../import-export/storage-import-export-service.md).  |
 | Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](../../azure-monitor/platform/roles-permissions-security.md). |
 | Conexión a Azure         | Microsoft.Network          | Almacene y analice los registros de tráfico de red, incluidos los servicios de Network Watcher y Análisis de tráfico. [Más información](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |

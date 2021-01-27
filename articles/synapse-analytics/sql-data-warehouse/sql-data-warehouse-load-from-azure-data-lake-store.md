@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f881dcc0d26589c4029246019119fa0555dcd5d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0974e880b75cce69f2b5ac82e3c4b39de53e03ce
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117782"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677111"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Carga de datos de Azure Data Lake Storage a un grupo de SQL dedicado en Azure Synapse Analytics
 
-En esta guía se indica cómo usar el [comando COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para cargar datos de Azure Data Lake Storage. Para obtener ejemplos rápidos sobre el uso de la instrucción COPY en todos los métodos de autenticación, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de grupos de SQL dedicados](./quickstart-bulk-load-copy-tsql-examples.md).
+En esta guía se indica cómo usar el [comando COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para cargar datos de Azure Data Lake Storage. Para obtener ejemplos rápidos sobre el uso de la instrucción COPY en todos los métodos de autenticación, consulte la siguiente documentación: [Carga de datos de forma segura mediante el uso de grupos de SQL dedicados](./quickstart-bulk-load-copy-tsql-examples.md).
 
 > [!NOTE]  
 > Para proporcionar comentarios o informar de problemas sobre la instrucción COPY, envíe un mensaje de correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 Para ejecutar este tutorial, necesitará:
 
@@ -133,6 +133,6 @@ La carga de datos es el primer paso para desarrollar una solución de almacenami
 > [Obtenga información acerca de cómo desarrollar tablas para almacenar datos](sql-data-warehouse-tables-overview.md)
 
 Para obtener más ejemplos y referencias de carga, consulte la siguiente documentación:
-- [Documentación de referencia de la instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Documentación de referencia de la instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [Ejemplos de la instrucción COPY para cada método de autenticación](./quickstart-bulk-load-copy-tsql-examples.md)
 - [Inicio rápido de la instrucción COPY para una sola tabla](./quickstart-bulk-load-copy-tsql.md)

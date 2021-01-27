@@ -11,12 +11,12 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38fb842cf90c110266f53b79a9ab2ef6157025b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461913"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681292"
 ---
 # <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Configuración de la importancia de la carga de trabajo en un grupo de SQL dedicado para Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Establecer la importancia en un grupo de SQL dedicado para Azure Synapse permite
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Crear un clasificador de cargas de trabajo con importancia
 
-En un escenario de almacenamiento de datos, a menudo tiene usuarios en un sistema ocupado que necesitan que sus consultas se ejecuten rápidamente.  El usuario podría ser un ejecutivo de la compañía que necesita ejecutar informes, o podría ser un analista que ejecuta una consulta ad hoc. Para asignar importancia a una consulta, deberá crear un clasificador de carga de trabajo y asignar importancia a una consulta.  Los ejemplos siguientes usan la sintaxis para [crear un clasificador de carga de trabajo](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y crear dos clasificadores. `Membername` puede ser un usuario único o un grupo.  Para buscar usuarios de un grupo de SQL dedicado existente, ejecute:
+En un escenario de almacenamiento de datos, a menudo tiene usuarios en un sistema ocupado que necesitan que sus consultas se ejecuten rápidamente.  El usuario podría ser un ejecutivo de la compañía que necesita ejecutar informes, o podría ser un analista que ejecuta una consulta ad hoc. Para asignar importancia a una consulta, deberá crear un clasificador de carga de trabajo y asignar importancia a una consulta.  Los ejemplos siguientes usan la sintaxis para [crear un clasificador de carga de trabajo](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y crear dos clasificadores. `Membername` puede ser un usuario único o un grupo.  Para buscar usuarios de un grupo de SQL dedicado existente, ejecute:
 
 ```sql
 Select name from sys.sysusers

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d85cbeb99264b5b730fe585fd39f658e6448467f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 495b6bc68e79e50a0bda773e7229225595236fac
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515770"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694349"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes heredados de Azure Media Services
 
@@ -49,4 +49,4 @@ Los siguientes procesadores de multimedia de Media Analytics están en desuso o 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Guía de migración para mover de Media Services v2 a v3](../latest/migrate-from-v2-to-v3.md)
+[Guía de migración para mover de Media Services v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md)

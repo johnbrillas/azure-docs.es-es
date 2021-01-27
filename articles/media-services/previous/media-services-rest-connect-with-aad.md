@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 8bea4c049c3d7ea17e173f069a3e99cbcca1fe48
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 28719046c9a8ccc65d231244ef8b5b3f8e116282
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041993"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694737"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Si usa la autenticación de Azure AD con Azure Media Services, puede autenticarse de alguna de estas dos formas:
 
@@ -56,7 +56,7 @@ En este tutorial, aprenderá a:
 - Revise el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Instale el cliente de REST de [Postman](https://www.getpostman.com/) para ejecutar las API de REST que aparecen en este artículo. 
 
-    En este tutorial usamos **Postman** , pero cualquier herramienta de REST sería adecuada. Otras alternativas son: **Visual Studio Code** con el complemento de REST o **Telerik Fiddler**. 
+    En este tutorial usamos **Postman**, pero cualquier herramienta de REST sería adecuada. Otras alternativas son: **Visual Studio Code** con el complemento de REST o **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtener la información de autenticación desde Azure Portal
 
@@ -92,7 +92,7 @@ Para obtener la información, siga estos pasos:
    1. Presione **Crear nuevo**.
    2. Escriba un nombre.
    3. Presione **Crear nuevo** otra vez.
-   4. Presione **Save** (Guardar).
+   4. Presione **Save**(Guardar).
 
       ![Captura de pantalla que muestra el cuadro de diálogo "Crear nuevo" con el cuadro de texto "Crear aplicación" resaltado y el botón "Guardar" seleccionado.](./media/connect-with-rest/new-app.png)
 
@@ -107,13 +107,13 @@ Para obtener la información, siga estos pasos:
 
 7. Obtenga la **clave** de la aplicación (secreto del cliente). 
 
-   1. Haga clic en el botón **Administrar aplicación** (observe que la información del identificador de cliente figura debajo del **identificador de aplicación** ). 
+   1. Haga clic en el botón **Administrar aplicación** (observe que la información del identificador de cliente figura debajo del **identificador de aplicación**). 
    2. Presione **Claves**.
     
        ![Captura de pantalla que muestra el botón "Administrar aplicación" seleccionado, "Id. de aplicación" en el panel central resaltado y "Claves" seleccionado en el panel derecho.](./media/connect-with-rest/manage-app.png)
    3. Genere la clave de aplicación (secreto del cliente); para ello, complete **DESCRIPCIÓN** y **EXPIRA** y presione **Guardar**.
     
-       Una vez que se presione el botón **Guardar** , aparece el valor de la clave. Copie el valor de la clave antes de salir de la hoja.
+       Una vez que se presione el botón **Guardar**, aparece el valor de la clave. Copie el valor de la clave antes de salir de la hoja.
 
    ![Acceso de API](./media/connect-with-rest/connect-with-rest03.png)
 
@@ -124,11 +124,11 @@ Puede agregar valores para parámetros de conexión de AD en el archivo web.conf
 
 ## <a name="get-the-access-token-using-postman"></a>Obtener el token de acceso mediante Postman
 
-Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que devuelve un token de portador JWT (token de acceso). Para llamar a cualquier API de REST de Media Services, debe agregar el encabezado "Authorization" a las llamadas y agregar el valor de "Bearer *su_token_de_acceso* " a cada llamada (como se muestra en la siguiente sección de este tutorial). 
+Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que devuelve un token de portador JWT (token de acceso). Para llamar a cualquier API de REST de Media Services, debe agregar el encabezado "Authorization" a las llamadas y agregar el valor de "Bearer *su_token_de_acceso*" a cada llamada (como se muestra en la siguiente sección de este tutorial). 
 
 1. Abra **Postman**.
 2. Seleccione **POST**.
-3. Escriba la dirección URL que incluye el nombre de inquilino con el formato siguiente: el nombre del inquilino debe terminar por **. onmicrosoft.com** y la dirección URL debe terminar por **oauth2/token** : 
+3. Escriba la dirección URL que incluye el nombre de inquilino con el formato siguiente: el nombre del inquilino debe terminar por **. onmicrosoft.com** y la dirección URL debe terminar por **oauth2/token**: 
 
     `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
@@ -178,7 +178,7 @@ Esta sección muestra cómo obtener acceso a la API **Assets** mediante **Postma
     ![obtención del token](./media/connect-with-rest/connect-with-rest05.png)
 
     > [!NOTE]
-    > Postman UX puede variar entre un Mac y un PC. Si la versión de Mac no tiene la opción "Token de portador" en el desplegable de la sección **Autenticación** , debe agregar el encabezado **Autorización** manualmente en el cliente de Mac.
+    > Postman UX puede variar entre un Mac y un PC. Si la versión de Mac no tiene la opción "Token de portador" en el desplegable de la sección **Autenticación**, debe agregar el encabezado **Autorización** manualmente en el cliente de Mac.
 
    ![Encabezado de autenticación](./media/connect-with-rest/auth-header.png)
 

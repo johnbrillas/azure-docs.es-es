@@ -12,23 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 817a912dabfc5365eabe8e0dabd7e0b40e40c525
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fb34051f7d4b24190806dde939c8cc6d9c2a4896
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462499"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679954"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 
 La seguridad de nivel de columna permite a los clientes controlar el acceso a columnas de tablas según el contexto de ejecución del usuario o su pertenencia a grupos.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) también está disponible para un grupo de SQL dedicado en Azure Synapse.
+Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) también está disponible para un grupo de SQL dedicado en Azure Synapse.
 
 La seguridad de nivel de columna simplifica el diseño y la codificación de la seguridad de la aplicación y esto le permite restringir el acceso a las columnas para proteger información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que la seguridad resulte más sólida y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, la seguridad de nivel de columna también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
 
-Puede implementar este tipo de seguridad con la instrucción [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL. Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (Azure AD).
+Puede implementar este tipo de seguridad con la instrucción [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de T-SQL. Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (Azure AD).
 
 ![En el diagrama se muestra una tabla esquemática con la primera columna encabezada por un candado cerrado, cuyas celdas son de color naranja, mientras que las celdas de las demás columnas son blancas.](./media/column-level-security/cls.png)
 

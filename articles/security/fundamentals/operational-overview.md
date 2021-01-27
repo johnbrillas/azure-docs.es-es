@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698672"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693619"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -171,21 +171,21 @@ Los planos técnicos ofrecen una manera declarativa de organizar la implementaci
 
 ## <a name="devops"></a>DevOps
 
-Antes del desarrollo de aplicaciones de [Developer Operations (DevOps)](https://www.visualstudio.com/learn/what-is-devops/), los equipos eran los responsables de recopilar los requisitos de negocio para un programa de software y de escribir el código. A continuación, un equipo independiente de QA probaba el programa en un entorno de desarrollo aislado. Si se cumplían los requisitos, el equipo de QA liberaba el código de las operaciones para implementarlo. Los equipos de implementación se dividieron más en grupos, como redes y bases de datos. Cada vez que se pasaba un programa de software a un equipo independiente, se agregaban cuellos de botella.
+Antes del desarrollo de aplicaciones de [Developer Operations (DevOps)](https://azure.microsoft.com/overview/what-is-devops/), los equipos eran los responsables de recopilar los requisitos de negocio para un programa de software y de escribir el código. A continuación, un equipo independiente de QA probaba el programa en un entorno de desarrollo aislado. Si se cumplían los requisitos, el equipo de QA liberaba el código de las operaciones para implementarlo. Los equipos de implementación se dividieron más en grupos, como redes y bases de datos. Cada vez que se pasaba un programa de software a un equipo independiente, se agregaban cuellos de botella.
 
 DevOps permite a los equipos ofrecer soluciones más seguras y de mayor calidad, además de más rápidas y baratas. Los clientes esperan una experiencia dinámica y confiable al consumir servicios y software. Los equipos deben iterar rápidamente en actualizaciones de software y medir el impacto de las actualizaciones. Deben responder rápidamente con nuevas iteraciones de desarrollo para solucionar problemas o para proporcionar más valor.  
 
 Las plataformas en la nube, como Microsoft Azure, han quitado los cuellos de botella tradicionales y ayudaron a homogeneizar la infraestructura. El software impera en cada negocio como factor y diferenciador claves en los resultados empresariales. Ninguna organización, desarrollador o trabajador de TI puede o debe evitar el movimiento de DevOps.
 
-Los profesionales de DevOps consolidados adoptarán algunos de los siguientes procedimientos. Estos procedimientos [implican que personas](https://www.visualstudio.com/learn/what-is-devops-culture/) realicen estrategias basadas en escenarios empresariales. Las herramientas pueden ayudar a automatizar varios procedimientos.
+Los profesionales de DevOps consolidados adoptarán algunos de los siguientes procedimientos. Estos procedimientos [implican que personas](/azure/devops/learn/what-is-devops-culture) realicen estrategias basadas en escenarios empresariales. Las herramientas pueden ayudar a automatizar varios procedimientos.
 
 - Las técnicas de [administración de proyectos y planificación ágiles](https://www.visualstudio.com/learn/what-is-agile/) se usan para planear y aislar el trabajo en sprints, administrar la capacidad del equipo y ayudar a los equipos a adaptarse rápidamente ante las cambiantes necesidades empresariales.
-- [Control de versiones, normalmente con Git](https://www.visualstudio.com/learn/what-is-git/), permite que los equipos ubicados en cualquier lugar del mundo para compartir código fuente e integrarlo con herramientas de desarrollo de software para automatizar la canalización de versiones.
-- La [integración continua](https://www.visualstudio.com/learn/what-is-continuous-integration/) impulsa la fusión en curso y la prueba de código, que permite la detección temprana de defectos.  Entre otras ventajas se incluye menos tiempo perdido en la lucha de problemas de fusión y comentarios rápidos para los equipos de desarrollo.
-- La [entrega continua](https://www.visualstudio.com/learn/what-is-continuous-delivery/) de soluciones de software para los entornos de producción y prueba ayudan a las organizaciones a solucionar los problemas rápidamente y a responder a los requisitos empresariales en constante cambio.
-- La [supervisión](https://www.visualstudio.com/learn/what-is-monitoring/) de aplicaciones en ejecución, incluidos los entornos de producción para el estado de la aplicación, así como el uso del cliente, ayudan a las organizaciones a plantear una hipótesis y validar o refutar estrategias rápidamente.  Los datos enriquecidos se capturan y almacenan en distintos formatos de registro.
-- La [infraestructura como código (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de hospedaje de aplicaciones estables y seguras.
-- La arquitectura de [microservicios](https://www.visualstudio.com/learn/what-are-microservices/) se usa para aislar casos de uso empresariales en pequeños servicios reutilizables.  Esta arquitectura permite la escalabilidad y la eficacia.
+- [Control de versiones, normalmente con Git](/azure/devops/learn/git/what-is-git), permite que los equipos ubicados en cualquier lugar del mundo para compartir código fuente e integrarlo con herramientas de desarrollo de software para automatizar la canalización de versiones.
+- La [integración continua](/azure/devops/learn/what-is-continuous-integration) impulsa la fusión en curso y la prueba de código, que permite la detección temprana de defectos.  Entre otras ventajas se incluye menos tiempo perdido en la lucha de problemas de fusión y comentarios rápidos para los equipos de desarrollo.
+- La [entrega continua](/azure/devops/learn/what-is-continuous-delivery) de soluciones de software para los entornos de producción y prueba ayudan a las organizaciones a solucionar los problemas rápidamente y a responder a los requisitos empresariales en constante cambio.
+- La [supervisión](/azure/devops/learn/what-is-monitoring) de aplicaciones en ejecución, incluidos los entornos de producción para el estado de la aplicación, así como el uso del cliente, ayudan a las organizaciones a plantear una hipótesis y validar o refutar estrategias rápidamente.  Los datos enriquecidos se capturan y almacenan en distintos formatos de registro.
+- La [infraestructura como código (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) es un procedimiento que permite la automatización y validación de la creación y destrucción de redes y máquinas virtuales para ayudar a proporcionar plataformas de hospedaje de aplicaciones estables y seguras.
+- La arquitectura de [microservicios](/azure/devops/learn/what-are-microservices) se usa para aislar casos de uso empresariales en pequeños servicios reutilizables.  Esta arquitectura permite la escalabilidad y la eficacia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

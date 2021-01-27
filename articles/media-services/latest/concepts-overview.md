@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5564051ae11a1237cc924ee6bf557e3c85d8866a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017818"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696420"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Terminología y conceptos de Media Services
 
@@ -38,7 +38,7 @@ Deben revisarse los conceptos fundamentales que se describen en estos temas ante
 
 |Término|Descripción|
 |---|---|
-|Evento en directo|Un **evento en directo** representa una canalización para ingerir, transcodificar (opcionalmente) y empaquetar secuencias en directo de metadatos de audio, vídeo y tiempo real.<br/><br/>En el caso de los clientes que migran desde las API de Media Services v2, la entidad **Live Event** reemplaza a la entidad **Channel** en la versión 2. Para más información, consulte [Migración de v2 a v3](migrate-from-v2-to-v3.md).|
+|Evento en directo|Un **evento en directo** representa una canalización para ingerir, transcodificar (opcionalmente) y empaquetar secuencias en directo de metadatos de audio, vídeo y tiempo real.<br/><br/>En el caso de los clientes que migran desde las API de Media Services v2, la entidad **Live Event** reemplaza a la entidad **Channel** en la versión 2. Para más información, consulte [Migración de v2 a v3](migrate-v-2-v-3-migration-introduction.md).|
 |Punto de conexión de streaming, empaquetado y origen|Un **punto de conexión de streaming** representa un empaquetado dinámico (just-in-time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de administración de derechos digitales (DRM) líderes del sector.<br/><br/>En el sector del streaming multimedia, este servicio se conoce comúnmente como **empaquetador** u **origen**.  Otros términos comunes en el sector para esta funcionalidad incluyen JITP (Just-in-time-packager) o JITE (Just-in-time-encryption).
 
 ## <a name="media-services-v3-concepts"></a>Conceptos de Media Services v3

@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 812bbb2507310d088c42fa1cf2cad4c330755892
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: ec99be6082e01ea49e75ff29b5fb3c37d56b6dd5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072333"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683381"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
@@ -101,7 +101,7 @@ Cree el primer experimento con el método que prefiera:
 
   + [Uso de su propio entorno](tutorial-1st-experiment-sdk-setup-local.md)
   + [Uso de cuadernos de Python](tutorial-1st-experiment-sdk-setup.md)
-  + [Uso de R Markdown](tutorial-1st-r-experiment.md) 
+  + [Uso de R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
   + [Uso de Aprendizaje automático automatizado](tutorial-designer-automobile-price-train-score.md) 
   + [Usar las funciones arrastrar y colocar del diseñador](tutorial-first-experiment-automated-ml.md) 
   + [Uso de la extensión ML en la CLI](tutorial-train-deploy-model-cli.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266602"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693899"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
 
@@ -31,7 +31,7 @@ ms.locfileid: "89266602"
 > * [Versión 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Azure Media Services admite la descarga o reproducción sin conexión con protección DRM. En este artículo, se explica la compatibilidad sin conexión de Azure Media Services para clientes de Windows 10/PlayReady. Para obtener información sobre la compatibilidad del modo sin conexión para iOS/FairPlay y dispositivos Android/Widevine, vea los artículos siguientes:
 
@@ -42,7 +42,7 @@ Azure Media Services admite la descarga o reproducción sin conexión con protec
 
 En esta sección, se proporciona información sobre la reproducción del modo sin conexión, especialmente por estos motivos:
 
-* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
+* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada.  Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
 * Como se informó en la conferencia de accionistas de Netflix del tercer trimestre de 2016, la descarga de contenido es una “característica muy solicitada” y, según afirma Reed Hastings (consejero delegado de Netflix), “están estudiando su implementación”.
 * Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país o una región. Si un usuario necesita viajar al extranjero y quiere ver contenido, se necesita la descarga sin conexión.
  

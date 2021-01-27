@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695767"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696183"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Preguntas más frecuentes sobre Azure Automanage para máquinas virtuales
 
@@ -28,7 +28,6 @@ Si su problema con Azure no se trata en este artículo, visite los foros de Azur
 
 Los requisitos previos para habilitar Azure Automanage son los siguientes:
 - Solo máquinas virtuales de Windows Server.
-- Las máquinas virtuales deben estar en ejecución
 - Las máquinas virtuales deben estar en una región admitida.
 - El usuario debe tener los permisos correctos.
 - Solo máquinas virtuales que no son de conjunto de escalado.

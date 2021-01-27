@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378464"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701820"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (MABS)
 
@@ -17,7 +17,7 @@ ms.locfileid: "89378464"
 
 System Center Data Protection Manager y Azure Backup Server (MABS) se integran con Azure Backup y usan varias eficacias integradas que ahorran costos de redes y almacenamiento durante las copias de seguridad completas de datos iniciales en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.
 
-El proceso de propagación sin conexión de Azure Backup se integra estrechamente con el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). Puede usar este servicio para transferir datos a Azure mediante el uso de discos. Si tiene terabytes (TB) de datos de copia de seguridad inicial que se deben transferir a través de una red de latencia alta y ancho de banda de red bajo, puede usar el flujo de trabajo de propagación sin conexión para enviar la copia de seguridad inicial de una o varias unidades de disco duro a un centro de datos de Azure. En este artículo se proporciona información general y pasos adicionales que finalizan este flujo de trabajo para System Center Data Protection Manager (DPM) y Microsoft Azure Backup Server (MABS).
+El proceso de propagación sin conexión de Azure Backup se integra estrechamente con el [servicio Azure Import/Export](../import-export/storage-import-export-service.md). Puede usar este servicio para transferir datos a Azure mediante el uso de discos. Si tiene terabytes (TB) de datos de copia de seguridad inicial que se deben transferir a través de una red de latencia alta y ancho de banda de red bajo, puede usar el flujo de trabajo de propagación sin conexión para enviar la copia de seguridad inicial de una o varias unidades de disco duro a un centro de datos de Azure. En este artículo se proporciona información general y pasos adicionales que finalizan este flujo de trabajo para System Center Data Protection Manager (DPM) y Microsoft Azure Backup Server (MABS).
 
 > [!NOTE]
 > El proceso de copia de seguridad sin conexión para el agente de Microsoft Azure Recovery Services (MARS) es distinto del de DPM y el de MABS. Para obtener información sobre cómo usar la copia de seguridad sin conexión con el agente de MARS, consulte el artículo que explica el [flujo de trabajo de la copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md). No se admite la copia de seguridad sin conexión para copias de seguridad de estado del sistema realizadas mediante el agente de Azure Backup.
@@ -59,12 +59,12 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
        ![Registro del proveedor de recursos](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
 * Se crea una ubicación de almacenamiento provisional, que puede ser un recurso compartido de red o cualquier unidad adicional en el equipo, interna o externa, con suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
-* Con respecto a los discos que se enviarán a Azure, asegúrese de que solo se utilizan unidades de disco duro SSD de 2,5 pulgadas o SATA II/III de 2,5 o 3,5 pulgadas internas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
+* Con respecto a los discos que se enviarán a Azure, asegúrese de que solo se utilizan unidades de disco duro SSD de 2,5 pulgadas o SATA II/III de 2,5 o 3,5 pulgadas internas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
 * Las unidades de disco SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la ubicación de almacenamiento provisional a SATA. Asegúrese de que BitLocker está habilitado en el equipo de copia.
 
 ## <a name="workflow"></a>Flujo de trabajo
 
-La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/common/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
+La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../import-export/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
 
 ## <a name="initiate-offline-backup"></a>Inicio de la copia de seguridad sin conexión
 
@@ -188,7 +188,7 @@ La cantidad de tiempo que se tarda en procesar un trabajo de importación de Azu
 
 ### <a name="monitor-azure-import-job-status"></a>Supervisión del estado del trabajo de importación de Azure
 
-Para supervisar el estado del trabajo de importación en Azure Portal, vaya a la página **Trabajos de Import/Export** y seleccione el trabajo. Para más información sobre el estado de los trabajos de importación, consulte el artículo sobre el [servicio de Import/Export de Storage](../storage/common/storage-import-export-service.md).
+Para supervisar el estado del trabajo de importación en Azure Portal, vaya a la página **Trabajos de Import/Export** y seleccione el trabajo. Para más información sobre el estado de los trabajos de importación, consulte el artículo sobre el [servicio de Import/Export de Storage](../import-export/storage-import-export-service.md).
 
 ### <a name="complete-the-workflow"></a>Finalización del flujo de trabajo
 
@@ -198,4 +198,4 @@ En el momento del trabajo de creación de réplica en línea programado siguient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si tiene dudas del flujo de trabajo del servicio Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
+* Si tiene dudas del flujo de trabajo del servicio Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../import-export/storage-import-export-service.md).

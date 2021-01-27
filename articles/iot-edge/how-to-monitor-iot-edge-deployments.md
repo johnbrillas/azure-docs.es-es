@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450178"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684210"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Supervisión de las implementaciones de IoT Edge
 
@@ -41,7 +41,7 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a su instancia de IoT Hub.
 1. Seleccione **IoT Edge** en el menú del panel de la izquierda.
 1. Seleccione la pestaña **Implementaciones de IoT Edge**.
-1. Examine la lista de implementaciones. Para cada implementación, puede ver los detalles siguientes:
+1. Examine la lista de implementaciones.  Para cada implementación, puede ver los detalles siguientes:
 
     | Columna | Descripción |
     | --- | --- |
@@ -54,7 +54,7 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
     | Métricas personalizadas | El número de dispositivos IoT Edge que notifican datos de cualquiera de las métricas que haya definido para la implementación. |
     | Hora de creación | La marca de tiempo de cuando se creó la implementación. Esta marca de tiempo se utiliza para dirimir cuando dos implementaciones tienen la misma prioridad. |
 
-1. Seleccione la implementación que desea supervisar.  
+1. Seleccione la implementación que desea supervisar.  
 1. En la página **Detalles de la implementación**, desplácese hacia abajo hasta la sección inferior y seleccione la pestaña **Condición de destino**. Seleccione **Ver** para enumerar los dispositivos que coinciden con la condición de destino. Puede cambiar la condición y también la **Prioridad**. Seleccione **Guardar** si hizo cambios.
 
    ![Visualización de los dispositivos de destino de una implementación](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
@@ -69,7 +69,7 @@ Si quiere hacer cambios en la implementación, consulte [Modificación de una im
 
 Use el comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) para mostrar los detalles de una sola implementación:
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -78,7 +78,7 @@ El comando deployment show toma los parámetros siguientes:
 * **--deployment-id**: el nombre de la implementación que está en IoT Hub. Parámetro obligatorio.
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
-Inspeccione la implementación en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
+Inspeccione la implementación en la ventana de comandos.  La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
 
 * **targetedCount**: es una métrica del sistema que especifica la cantidad de dispositivos gemelos que hay en IoT Hub que coinciden con las condiciones del destino.
 * **appliedCount**: es una métrica del sistema que especifica la cantidad de dispositivos cuyo contenido de implementación se ha aplicado a sus módulos gemelos en IoT Hub.
@@ -87,7 +87,7 @@ Inspeccione la implementación en la ventana de comandos. La propiedad **metric
 
 Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

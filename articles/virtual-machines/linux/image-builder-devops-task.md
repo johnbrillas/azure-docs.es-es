@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196510"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684549"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarea de DevOps del servicio Azure Image Builder
 
@@ -71,10 +71,10 @@ Use el grupo de recursos donde se almacenará el artefacto de plantilla de image
  
 ### <a name="location"></a>Location
 
-La ubicación es la región donde se ejecutará Image Builder. Solo se admite un número establecido de [regiones](../windows/image-builder-overview.md#regions). Las imágenes de origen deben estar presentes en esta ubicación. Por ejemplo, si usa Shared Image Gallery, debe existir una réplica en esa región.
+La ubicación es la región donde se ejecutará Image Builder. Solo se admite un número establecido de [regiones](../image-builder-overview.md#regions). Las imágenes de origen deben estar presentes en esta ubicación. Por ejemplo, si usa Shared Image Gallery, debe existir una réplica en esa región.
 
 ### <a name="managed-identity-required"></a>Identidad administrada (requerida)
-Image Builder requiere una identidad administrada, que se usa para leer imágenes personalizadas de origen, conectarse a Azure Storage y crear imágenes personalizadas. Obtenga más información [aquí](./image-builder-overview.md#permissions).
+Image Builder requiere una identidad administrada, que se usa para leer imágenes personalizadas de origen, conectarse a Azure Storage y crear imágenes personalizadas. Obtenga más información [aquí](../image-builder-overview.md#permissions).
 
 ### <a name="vnet-support"></a>Compatibilidad de redes virtuales
 
@@ -335,4 +335,4 @@ El artefacto de recurso de la plantilla de imagen está en el grupo de recursos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, vea [Introducción a Azure Image Builder](image-builder-overview.md).
+Para más información, vea [Introducción a Azure Image Builder](../image-builder-overview.md).

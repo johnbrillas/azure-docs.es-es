@@ -4,12 +4,12 @@ description: Conozca las distintas formas de implementación de código en Azure
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936964"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681837"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -181,7 +181,7 @@ Puede usar FTP para transferir archivos directamente a Azure Functions.
 
 En el editor basado en el portal, puede editar directamente los archivos que se encuentran en la aplicación de funciones (en esencia, se implementan cada vez que guarde los cambios).
 
->__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](functions-create-first-azure-function.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`).
+>__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](./functions-get-started.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`).
 
 >__Cuándo se debe usar__: El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar una de las herramientas de cliente siguientes:
 >

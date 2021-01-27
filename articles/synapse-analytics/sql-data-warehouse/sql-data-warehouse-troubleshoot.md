@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 8db1825e7abfaaeca4650cbd03dd05eec4777c21
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121284"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678464"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Solución de problemas del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -30,13 +30,13 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 | La entidad de seguridad del servidor "MyUserName" no puede obtener acceso a la base de datos "maestra" en el contexto de seguridad actual. No se puede abrir la base de datos predeterminada del usuario. Error de inicio de sesión. Error de inicio de sesión del usuario 'MyUserName'. (Microsoft SQL Server, Error: 916) | Este error se produce cuando un usuario de Azure AD intenta conectarse a la base de datos maestra, pero no tiene un usuario en esta.  Para corregir este problema, especifique el grupo de SQL dedicado (anteriormente SQL DW) al que quiera conectarse en el momento de la conexión o agregue el usuario a la base de datos maestra.  Consulte el artículo [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md) para más detalles. |
 | Error CTAIP                                                  | Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Database, pero no en la base de datos SQL específica.  Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad](sql-data-warehouse-overview-manage-security.md) .  En este artículo se explica cómo crear un inicio de sesión y un usuario en la base de datos maestra y cómo crear un usuario en una base de datos SQL. |
 | Bloqueado por el firewall                                          | Los grupos de SQL dedicados(anteriormente SQL DW) están protegidos por firewalls para garantizar que las direcciones IP conocidas son las únicas que tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse.  Para configurar el firewall para el acceso, siga los pasos de la sección de [configuración del acceso de nivel de firewall para el cliente IP](create-data-warehouse-portal.md) en las [instrucciones de aprovisionamiento](create-data-warehouse-portal.md). |
-| No se puede conectar con una herramienta o un controlador                           | El grupo de SQL dedicado (anteriormente SQL DW) recomienda usar [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SSDT para Visual Studio](sql-data-warehouse-install-visual-studio.md) o [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar los datos. Para más información sobre los controladores y la conexión a Azure Synapse, consulte los artículos [Controladores para Azure Synapse](sql-data-warehouse-connection-strings.md) y [Conexión a Azure Synapse](sql-data-warehouse-connect-overview.md). |
+| No se puede conectar con una herramienta o un controlador                           | El grupo de SQL dedicado (anteriormente SQL DW) recomienda usar [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [SSDT para Visual Studio](sql-data-warehouse-install-visual-studio.md) o [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar los datos. Para más información sobre los controladores y la conexión a Azure Synapse, consulte los artículos [Controladores para Azure Synapse](sql-data-warehouse-connection-strings.md) y [Conexión a Azure Synapse](sql-data-warehouse-connect-overview.md). |
 
 ## <a name="tools"></a>Herramientas
 
 | Incidencia                                                        | Resolución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| El Explorador de objetos de Visual Studio no muestra usuarios de Azure AD           | Este es un problema conocido.  Como solución alternativa, vea los usuarios de [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Para obtener más información sobre el uso de Azure Active Directory con el grupo de SQL dedicado (anteriormente SQL DW), consulte [Autenticación en Azure Synapse](sql-data-warehouse-authentication.md). |
+| El Explorador de objetos de Visual Studio no muestra usuarios de Azure AD           | Este es un problema conocido.  Como solución alternativa, vea los usuarios de [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Para obtener más información sobre el uso de Azure Active Directory con el grupo de SQL dedicado (anteriormente SQL DW), consulte [Autenticación en Azure Synapse](sql-data-warehouse-authentication.md). |
 | El scripting manual, mediante el Asistente para scripting, o la conexión a través de SSMS es lenta, no responde o genera errores | Asegúrese de que se han creado usuarios en la base de datos maestra. En las opciones de scripting, asegúrese también de que la edición del motor se ha establecido como "Microsoft Azure Synapse Analytics Edition" y que el tipo de motor es "Microsoft Azure SQL Database". |
 | Errores de generación de scripts en SSMS                               | No se puede generar un script para el grupo de SQL dedicado (anteriormente SQL DW) si la opción "Generar script para objetos dependientes" está establecida en "True". Como solución alternativa, los usuarios deben ir manualmente a **Herramientas -> Opciones ->Explorador de objetos de SQL Server -> opción "Generar script para objetos dependientes" y establecerla en False**. |
 
@@ -75,7 +75,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 | Características de SQL Database no admitidas     | Consulte [Características no compatibles de las tablas](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Tipos de datos de SQL Database no admitidos   | Consulte [Tipos de datos no admitidos](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Limitaciones de procedimientos almacenados          | Consulte [Limitaciones de procedimientos almacenados](sql-data-warehouse-develop-stored-procedures.md#limitations) para conocer algunas de las limitaciones de los procedimientos almacenados. |
-| Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF.  Consulte [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para comprobar la sintaxis que se admite. |
+| Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF.  Consulte [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para comprobar la sintaxis que se admite. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

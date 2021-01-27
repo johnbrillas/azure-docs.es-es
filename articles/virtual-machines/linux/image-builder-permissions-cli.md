@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: f598ed3e2aef2f53b90b213d0bd1b002f56bd30c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517757"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676774"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configuración de permisos del servicio Azure Image Builder mediante la CLI de Azure
 
@@ -238,4 +238,4 @@ Para obtener más información sobre el uso de una identidad administrada asigna
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Introducción a Azure Image Builder](image-builder-overview.md).
+Para obtener más información, consulte [Introducción a Azure Image Builder](../image-builder-overview.md).

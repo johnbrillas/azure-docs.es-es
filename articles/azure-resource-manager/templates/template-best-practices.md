@@ -3,12 +3,12 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager (plantillas de ARM). Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724993"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696353"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -26,7 +26,7 @@ También está limitado a:
 * 64 valores de salida
 * 24 576 caracteres en una expresión de plantilla
 
-Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para más información, consulte [Uso de plantillas vinculadas y anidadas al implementar recursos de Azure](linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 ## <a name="resource-group"></a>Resource group
 

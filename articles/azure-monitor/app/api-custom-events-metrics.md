@@ -4,12 +4,12 @@ description: Inserte unas cuantas líneas de código en su aplicación de dispos
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233753"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678119"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -534,7 +534,7 @@ Si el [muestreo](./sampling.md) está en uso, en la propiedad itemCount se muest
 Utilice la llamada de TrackDependency para realizar un seguimiento de los tiempos de respuesta y las tasas de éxito de las llamadas a un fragmento de código externo. Los resultados se muestran en los gráficos de dependencia del portal. Es necesario agregar el fragmento de código siguiente siempre que se realice una llamada de dependencia.
 
 > [!NOTE]
-> En el caso de .NET y .NET Core, también puede usar el método `TelemetryClient.StartOperation` (extensión) que rellena las propiedades `DependencyTelemetry` que son necesarias para la correlación y otras propiedades como la hora de inicio y la duración, por lo que no es necesario crear un temporizador personalizado como con los ejemplos siguientes. Para obtener más información, consulte la sección [ de este artículo sobre el seguimiento de dependencias salientes](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> En el caso de .NET y .NET Core, también puede usar el método `TelemetryClient.StartOperation` (extensión) que rellena las propiedades `DependencyTelemetry` que son necesarias para la correlación y otras propiedades como la hora de inicio y la duración, por lo que no es necesario crear un temporizador personalizado como con los ejemplos siguientes. Para obtener más información, consulte la sección [ de este artículo sobre el seguimiento de dependencias salientes](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 

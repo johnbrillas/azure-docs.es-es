@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fb0a5fbf33b48521882646bf8fb5eb3fe5dacca6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 12b75ad3746cd0f54e27e474e0fd13bb0bba0e05
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459217"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685249"
 ---
 # <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Administración y supervisión de la importancia de la carga de trabajo en un grupo de SQL dedicado para Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Administre y supervise la importancia del nivel de solicitud de un grupo de SQL 
 
 ## <a name="monitor-importance"></a>Supervisión de la importancia
 
-Supervise la importancia con la nueva columna de importancia de la vista de administración dinámica [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Supervise la importancia con la nueva columna de importancia de la vista de administración dinámica [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 En la consulta de supervisión siguiente se muestran la hora de envío y la de inicio para las consultas. Revise la hora de envío y la de inicio junto con la importancia para ver cómo ha influido la importancia en la programación.
 
 ```sql
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-La vista de catálogo [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contiene información sobre los parámetros que se usan en la creación del clasificador.  En la consulta siguiente se muestra que se ha creado ExecReportsClassifier en el parámetro ```membername``` para los valores con ExecutiveReports:
+La vista de catálogo [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contiene información sobre los parámetros que se usan en la creación del clasificador.  En la consulta siguiente se muestra que se ha creado ExecReportsClassifier en el parámetro ```membername``` para los valores con ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value

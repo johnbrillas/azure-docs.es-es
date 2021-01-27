@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311041"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683347"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a usar las identidades administradas para:
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - La [extensión de la CLI de Azure para el servicio Machine Learning](reference-azure-machine-learning-cli.md).
 - El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](../role-based-access-control/built-in-roles.md#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__ ).
+- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](../role-based-access-control/built-in-roles.md#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__).
 - Debe estar familiarizado con la creación y el uso de [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Configuración de identidades administradas
@@ -59,7 +59,7 @@ Si la directiva de suscripción no permite el usuario administrador de ACR, debe
 [Cree una instancia de ACR desde la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md) sin establecer el argumento ```--admin-enabled```, o desde Azure Portal sin habilitar el usuario administrador. A continuación, al crear el área de trabajo de Azure Machine Learning, especifique el identificador de recurso de Azure de la instancia de ACR. En el ejemplo siguiente se muestra cómo crear una nueva área de trabajo de Azure Machine Learning que use una instancia de ACR existente:
 
 > [!TIP]
-> Para obtener el valor del parámetro `--container-registry`, use el comando [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) para mostrar la información de la instancia de ACR. El campo `id` contiene el identificador de recurso de su instancia de ACR.
+> Para obtener el valor del parámetro `--container-registry`, use el comando [az acr show](/cli/azure/acr#az_acr_show) para mostrar la información de la instancia de ACR. El campo `id` contiene el identificador de recurso de su instancia de ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Si no trae su propia instancia de ACR, el servicio Azure Machine Learning crear�
 
     Este comando devuelve un valor similar al siguiente texto: Solo desea la última parte del texto, que es el nombre de la instancia de ACR:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

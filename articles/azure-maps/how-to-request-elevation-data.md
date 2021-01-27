@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d14eda84144105bf2e04f1238284bc58a91c4c03
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602429"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684062"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicitud de datos de elevación mediante el servicio Elevation de Azure Maps (versión preliminar)
 
@@ -22,7 +22,7 @@ ms.locfileid: "98602429"
 > El servicio Elevation de Azure Maps se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-El [servicio Elevation](https://docs.microsoft.com/rest/api/maps/elevation) de Azure Maps proporciona unas API para consultar datos de elevación en cualquier parte de la superficie terrestre. Puede solicitar datos de elevación muestreados a lo largo de trazados, dentro de un rectángulo delimitador o en coordenadas específicas. También, puede usar [Get Map Tile API de Render V2](https://docs.microsoft.com/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico. Los mosaicos se entregan en formato de trama GeoTIFF. En este artículo se muestra cómo usar el servicio Elevation de Azure Maps y Get Map Tile API para solicitar datos de elevación. Los datos de elevación se pueden solicitar en los formatos GeoJSON y GeoTiff.
+El [servicio Elevation](/rest/api/maps/elevation) de Azure Maps proporciona unas API para consultar datos de elevación en cualquier parte de la superficie terrestre. Puede solicitar datos de elevación muestreados a lo largo de trazados, dentro de un rectángulo delimitador o en coordenadas específicas. También, puede usar [Get Map Tile API de Render V2](/rest/api/maps/renderv2) para recuperar datos de elevación en formato de mosaico. Los mosaicos se entregan en formato de trama GeoTIFF. En este artículo se muestra cómo usar el servicio Elevation de Azure Maps y Get Map Tile API para solicitar datos de elevación. Los datos de elevación se pueden solicitar en los formatos GeoJSON y GeoTiff.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 
 ## <a name="request-elevation-data-in-raster-tiled-format"></a>Solicitud de datos de elevación en formato de mosaico de trama
 
-Para solicitar datos de elevación en formato de mosaico de trama, use [Get Map Tile API de Render V2](https://docs.microsoft.com/rest/api/maps/renderv2). Si se puede encontrar el mosaico, la API lo devuelve como formato GeoTIFF. De lo contrario, la API devuelve 0. Todos los mosaicos DEM de trama usan el modo geoide (nivel de mar) de la Tierra. En este ejemplo, solicitaremos datos de elevación del Monte Everest.
+Para solicitar datos de elevación en formato de mosaico de trama, use [Get Map Tile API de Render V2](/rest/api/maps/renderv2). Si se puede encontrar el mosaico, la API lo devuelve como formato GeoTIFF. De lo contrario, la API devuelve 0. Todos los mosaicos DEM de trama usan el modo geoide (nivel de mar) de la Tierra. En este ejemplo, solicitaremos datos de elevación del Monte Everest.
 
 >[!TIP]
 >Para recuperar un mosaico de un área específica del mapa mundial, deberá encontrar el mosaico correcto con el nivel de zoom adecuado. Tenga en cuenta también que WorldDEM abarca toda la masa continental mundial, pero no incluye los océanos.  Para más información, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
@@ -58,9 +58,9 @@ Use las API del servicio Elevation (versión preliminar) para solicitar datos de
 
 * [Get Data for Points](/rest/api/maps/elevation/getdataforpoints)
 * [Post Data for Points](/rest/api/maps/elevation/postdataforpoints)
-* [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
-* [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
-* [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+* [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline)
+* [Post Data for Polyline](/rest/api/maps/elevation/postdataforpolyline)
+* [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
 > Cuando no se puede devolver ningún dato, todas las API devuelven `0`.
@@ -126,11 +126,11 @@ En este ejemplo, se usará [Get Data for Points API](/rest/api/maps/elevation/ge
 
 ### <a name="request-elevation-data-samples-along-a-polyline"></a>Solicitud de muestras de datos de elevación a lo largo de una polilínea
 
-En este ejemplo, se usará [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) para solicitar cinco muestras de datos de elevación equidistantes a lo largo de una línea recta entre las coordenadas de las montañas Everest y Chamlang. Ambas coordenadas deben definirse en formato de longitud y latitud. Si no especifica un valor para el parámetro `samples`, el número de muestras predeterminado es 10. El número máximo de muestras es de 2000.
+En este ejemplo, se usará [Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline) para solicitar cinco muestras de datos de elevación equidistantes a lo largo de una línea recta entre las coordenadas de las montañas Everest y Chamlang. Ambas coordenadas deben definirse en formato de longitud y latitud. Si no especifica un valor para el parámetro `samples`, el número de muestras predeterminado es 10. El número máximo de muestras es de 2000.
 
 A continuación, usaremos Get Data for Polyline para solicitar tres muestras de datos de elevación equidistantes a lo largo de un trazado. Para definir la ubicación exacta de las muestras, se pasarán tres pares de coordenadas de longitud y latitud.
 
-Por último, se usará [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) para solicitar datos de elevación de las mismas tres muestras equidistantes.
+Por último, se usará [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) para solicitar datos de elevación de las mismas tres muestras equidistantes.
 
 Se espera que las latitudes y las longitudes de la dirección URL estén en grados decimales de WGS84 (Sistema geodésico mundial).
 
@@ -229,7 +229,7 @@ Se espera que las latitudes y las longitudes de la dirección URL estén en grad
     }
     ```
 
-7. Ahora, llamaremos a [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) para obtener datos de elevación de los mismos tres puntos. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
+7. Ahora, llamaremos a [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) para obtener datos de elevación de los mismos tres puntos. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la dirección URL siguiente. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
@@ -256,7 +256,7 @@ Se espera que las latitudes y las longitudes de la dirección URL estén en grad
 
 ### <a name="request-elevation-data-by-bounding-box"></a>Solicitud de datos de elevación por rectángulo delimitador
 
-Ahora usaremos [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) para solicitar datos de elevación cerca del Monte Rainier, en Washington. Los datos de elevación se devolverán en ubicaciones equidistantes dentro de un rectángulo delimitador. El área de delimitación definida por (2) conjuntos de coordenadas de latitud y longitud (latitud sur, longitud oeste | latitud norte, longitud este) se divide en filas y columnas. Los bordes del rectángulo delimitador corresponden a dos (2) de las filas y dos (2) de las columnas. Se devuelven elevaciones para los vértices de cuadrícula creados en las intersecciones de filas y columnas. Se pueden devolver hasta 2000 elevaciones en una sola solicitud.
+Ahora usaremos [Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox) para solicitar datos de elevación cerca del Monte Rainier, en Washington. Los datos de elevación se devolverán en ubicaciones equidistantes dentro de un rectángulo delimitador. El área de delimitación definida por (2) conjuntos de coordenadas de latitud y longitud (latitud sur, longitud oeste | latitud norte, longitud este) se divide en filas y columnas. Los bordes del rectángulo delimitador corresponden a dos (2) de las filas y dos (2) de las columnas. Se devuelven elevaciones para los vértices de cuadrícula creados en las intersecciones de filas y columnas. Se pueden devolver hasta 2000 elevaciones en una sola solicitud.
 
 En este ejemplo, se especifican 3 filas y 6 columnas. Se devuelven 18 valores de elevación en la respuesta. En el diagrama siguiente, los valores de elevación se ordenan empezando por la esquina suroeste y continuando de oeste a este y de sur a norte.  Los puntos de elevación se numeran en el orden en que se devuelven.
 
@@ -488,15 +488,15 @@ Para explorar aún más las API de Elevation de Azure Maps (versión preliminar)
 > [Elevation (versión preliminar): obtención de datos para las coordenadas de latitud y longitud](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Elevation (versión preliminar): obtención de datos para el rectángulo delimitador](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevation (versión preliminar): obtención de datos para el rectángulo delimitador](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevation (versión preliminar): obtención de datos para Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+> [Elevation (versión preliminar): obtención de datos para Polyline](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
-> [Get Map Tile de Render V2](https://docs.microsoft.com/rest/api/maps/renderv2)
+> [Get Map Tile de Render V2](/rest/api/maps/renderv2)
 
 Para obtener una lista completa de las API REST de Azure Maps, consulte:
 
 > [!div class="nextstepaction"]
-> [API REST de Azure Maps](https://docs.microsoft.com/rest/api/maps/)
+> [API REST de Azure Maps](/rest/api/maps/)

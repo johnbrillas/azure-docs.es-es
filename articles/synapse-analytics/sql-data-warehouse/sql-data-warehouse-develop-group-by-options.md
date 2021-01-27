@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: cdac3b1e502a203c272db75eb4345446b0f7c0c8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f0879aa9b6f9e084d0c51f0bb371740d333c1b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462765"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683263"
 ---
 # <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Opciones de Agrupar por para grupos de SQL dedicados en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ En este artículo, encontrará sugerencias para implementar las opciones de Agru
 
 ## <a name="what-does-group-by-do"></a>¿Qué hace GROUP BY?
 
-La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL se usa para agregar datos a un conjunto de filas de resumen. GROUP BY tiene algunas opciones que el grupo de SQL dedicado no admite. Estas opciones tienen soluciones alternativas, que son las siguientes:
+La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de T-SQL se usa para agregar datos a un conjunto de filas de resumen. GROUP BY tiene algunas opciones que el grupo de SQL dedicado no admite. Estas opciones tienen soluciones alternativas, que son las siguientes:
 
 * GROUP BY con ROLLUP
 * GROUPING SETS

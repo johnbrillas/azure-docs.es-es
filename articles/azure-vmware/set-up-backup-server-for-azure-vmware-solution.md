@@ -3,12 +3,12 @@ title: Configuración de Azure Backup Server para Azure VMware Solution
 description: Configure el entorno de Azure VMware Solution para realizar copias de seguridad de máquinas virtuales mediante Azure Backup Server.
 ms.topic: how-to
 ms.date: 10/23/2020
-ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517385"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703409"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configuración de Azure Backup Server para Azure VMware Solution
 
@@ -16,8 +16,8 @@ Azure Backup Server contribuye a la estrategia de continuidad empresarial y recu
 
 Azure Backup Server puede almacenar datos de copia de seguridad en:
 
-- **Disco** : para el almacenamiento a corto plazo, Azure Backup Server realiza copias de seguridad de los datos en grupos de discos.
-- **Azure** : para el almacenamiento a corto y a largo plazo fuera de las instalaciones, pueden realizarse copias de seguridad de los datos de Azure Backup Server que estén almacenados en grupos de discos en la nube de Microsoft Azure mediante Azure Backup.
+- **Disco**: para el almacenamiento a corto plazo, Azure Backup Server realiza copias de seguridad de los datos en grupos de discos.
+- **Azure**: para el almacenamiento a corto y a largo plazo fuera de las instalaciones, pueden realizarse copias de seguridad de los datos de Azure Backup Server que estén almacenados en grupos de discos en la nube de Microsoft Azure mediante Azure Backup.
 
 Use Azure Backup Server para restaurar los datos en el origen o en una ubicación alternativa. De este modo, si los datos originales no están disponibles debido a problemas planeados o inesperados, puede restaurarlos en una ubicación alternativa.
 
@@ -118,9 +118,9 @@ Para almacenar datos de copia de seguridad en Azure, cree o use un almacén de R
 
 Si quiere escalar su implementación, tiene las siguientes opciones:
 
-- **Escalado vertical** : aumente el tamaño de la máquina virtual de Azure Backup Server de la serie A a la serie DS3 y aumente el almacenamiento local.
-- **Descarga de datos** : envíe los datos antiguos a Azure y conserve solo los más recientes en el almacenamiento conectado a la máquina de Azure Backup Server.
-- **Escalado horizontal** : agregue más máquinas de Azure Backup Server para proteger las cargas de trabajo.
+- **Escalado vertical**: aumente el tamaño de la máquina virtual de Azure Backup Server de la serie A a la serie DS3 y aumente el almacenamiento local.
+- **Descarga de datos**: envíe los datos antiguos a Azure y conserve solo los más recientes en el almacenamiento conectado a la máquina de Azure Backup Server.
+- **Escalado horizontal**: agregue más máquinas de Azure Backup Server para proteger las cargas de trabajo.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -142,26 +142,26 @@ Un almacén de Recovery Services es una entidad de almacenamiento que almacena l
 
    ![En el menú izquierdo, seleccione Todos los servicios.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
-1. En el cuadro de diálogo **Todos los servicios** , escriba **Recovery Services** y, en la lista, seleccione **Almacenes de Recovery Services**.
+1. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services** y, en la lista, seleccione **Almacenes de Recovery Services**.
 
    ![Escribir y elegir almacenes de Recovery Services.](../backup/media/backup-create-rs-vault/all-services.png)
 
    Aparece la lista de almacenes de Recovery Services de la suscripción.
 
-1. En el panel **Almacenes de Recovery Services** , seleccione **Agregar**.
+1. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
 
    ![Agregar un almacén de Recovery Services.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    Se abre el cuadro de diálogo **Almacén de Recovery Services**.
 
-1. Especifique los valores de **Nombre** , **Suscripción** , **Grupo de recursos** y **Ubicación**.
+1. Especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
    ![Configurar el almacén de Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Name** : escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga un mínimo de 2 caracteres y un máximo de 50. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
-   - **Suscripción** : elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
-   - **Grupo de recursos** : Use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en la lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre.
-   - **Ubicación** : seleccione la región geográfica del almacén. Para crear un almacén con el fin de proteger las máquinas virtuales de Azure VMware Solution, dicho almacén *debe* estar en la misma región que la nube privada de Azure VMware Solution.
+   - **Name**: escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga un mínimo de 2 caracteres y un máximo de 50. El nombre debe comenzar por una letra y consta solo de letras, números y guiones.
+   - **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure.
+   - **Grupo de recursos**: Use un grupo de recursos existente o cree uno. Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en la lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre.
+   - **Ubicación**: seleccione la región geográfica del almacén. Para crear un almacén con el fin de proteger las máquinas virtuales de Azure VMware Solution, dicho almacén *debe* estar en la misma región que la nube privada de Azure VMware Solution.
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 
@@ -178,9 +178,9 @@ La opción de replicación de almacenamiento permite elegir entre almacenamiento
 > [!IMPORTANT]
 > El cambio del valor de **Tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services se debe realizar antes de configurar las copias de seguridad en el almacén. Tras la configuración de las copias de seguridad, la opción para modificarla está deshabilitada y el tipo de replicación del almacenamiento no se puede cambiar.
 
-1. En **Almacenes de Recovery Services** , seleccione el nuevo almacén. 
+1. En **Almacenes de Recovery Services**, seleccione el nuevo almacén. 
 
-1. En **Configuración** , seleccione **Propiedades**. En **Configuración de copia de seguridad** , seleccione **Actualizar**.
+1. En **Configuración**, seleccione **Propiedades**. En **Configuración de copia de seguridad**, seleccione **Actualizar**.
 
 1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
 
@@ -196,7 +196,7 @@ Siga los pasos de esta sección para descargar, extraer e instalar el paquete de
 
    1. En la lista de recursos, escriba **Recovery Services**.
 
-   1. Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Recovery Services** , haga clic en ella.
+   1. Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
    ![Creación del almacén de Recovery Services (paso 1)](../backup/media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -230,7 +230,7 @@ Siga los pasos de esta sección para descargar, extraer e instalar el paquete de
 
    1. Seleccione el vínculo **Descargar** para instalar Azure Backup Server.
 
-   1. 1. Seleccione **Ya se ha descargado o se usa la última instalación de Azure Backup Server** y después **Descargar** para descargar las credenciales del almacén. Usará estas credenciales cuando registre Azure Backup Server en el almacén de Recovery Services. Los vínculos redirigen al Centro de descarga, donde se puede descargar el paquete de software.
+   1. Seleccione **Ya se ha descargado o se usa la última instalación de Azure Backup Server** y después **Descargar** para descargar las credenciales del almacén. Usará estas credenciales cuando registre Azure Backup Server en el almacén de Recovery Services. Los vínculos redirigen al Centro de descarga, donde se puede descargar el paquete de software.
 
    :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Preparación de la infraestructura: Azure Backup Server":::
 
@@ -263,11 +263,11 @@ Si ha descargado el paquete de software en otro servidor, copie los archivos en 
 
 ### <a name="install-the-software-package"></a>Instalación del paquete de software
 
-1. En la ventana de instalación, en **Instalar** , seleccione **Microsoft Azure Backup** para abrir el Asistente para instalación.
+1. En la ventana de instalación, en **Instalar**, seleccione **Microsoft Azure Backup** para abrir el Asistente para instalación.
 
    ![En la ventana de instalación, en Instalar, seleccione Microsoft Azure Backup para abrir el Asistente para instalación.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-1. En la **pantalla de bienvenida** , seleccione **Siguiente** para ir a la página **Comprobaciones de requisitos previos**.
+1. En la **pantalla de bienvenida**, seleccione **Siguiente** para ir a la página **Comprobaciones de requisitos previos**.
 
 1. Seleccione **Volver a comprobar** para determinar si se cumplen los requisitos previos de hardware y software para Azure Backup Server. Si se cumplen, seleccione **Siguiente**.
 
@@ -288,7 +288,7 @@ Si ha descargado el paquete de software en otro servidor, copie los archivos en 
 
    **Configuración del servicio de informes con SQL Server 2017**
 
-   Si usa una instancia propia de SQL Server 2017, debe configurar SQL Server 2017 Reporting Services (SSRS) de forma manual. Después de configurar SSRS, asegúrese de establecer la propiedad **IsInitialized** de SSRS en **True**. Cuando se establece en **True** , Azure Backup Server presupone que SSRS ya está configurado y omite la configuración de SSRS.
+   Si usa una instancia propia de SQL Server 2017, debe configurar SQL Server 2017 Reporting Services (SSRS) de forma manual. Después de configurar SSRS, asegúrese de establecer la propiedad **IsInitialized** de SSRS en **True**. Cuando se establece en **True**, Azure Backup Server presupone que SSRS ya está configurado y omite la configuración de SSRS.
 
    Para comprobar el estado de configuración de SSRS, ejecute lo siguiente:
 
@@ -302,10 +302,10 @@ Si ha descargado el paquete de software en otro servidor, copie los archivos en 
 
    Se usarán los siguientes valores para la configuración de SSRS:
 
-   * **Cuenta de servicio** : **Usar cuenta integrada** debe estar en **Servicio de red**.
-   * **Dirección URL del servicio web** : **Directorio virtual** debe estar en **ReportServer_\<SQLInstanceName>** .
-   * **Base de datos** : **DatabaseName** debe estar en **ReportServer$\<SQLInstanceName>** .
-   * **Dirección URL del Portal web** : **Directorio virtual** debe estar en **Reports_\<SQLInstanceName>** .
+   * **Cuenta de servicio**: **Usar cuenta integrada** debe estar en **Servicio de red**.
+   * **Dirección URL del servicio web**: **Directorio virtual** debe estar en **ReportServer_\<SQLInstanceName>** .
+   * **Base de datos**: **DatabaseName** debe estar en **ReportServer$\<SQLInstanceName>** .
+   * **Dirección URL del Portal web**: **Directorio virtual** debe estar en **Reports_\<SQLInstanceName>** .
 
    [Obtenga más información](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) acerca de la configuración de SSRS.
 
@@ -378,7 +378,7 @@ Azure Backup Server v3 solo acepta volúmenes de almacenamiento. Al agregar un 
 
 ### <a name="add-volumes-to-azure-backup-server-disk-storage"></a>Adición de volúmenes al almacenamiento de disco de Azure Backup Server
 
-1. En el panel **Administración** , vuelva a examinar el almacenamiento y seleccione **Agregar**. 
+1. En el panel **Administración**, vuelva a examinar el almacenamiento y seleccione **Agregar**. 
 
 1. Entre los volúmenes disponibles, seleccione los que quiere agregar al bloque de almacenamiento. 
 

@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d04a5c0e53e9a5db8bba03a5a9e9d95b87a8b5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 940b7ac90f85e0254d59459b70ccc15312cd69f4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855680"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700846"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Storage Gen1
 
-En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Data Lake Storage Gen1 mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
+En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Data Lake Storage Gen1 mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../import-export/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
 
 El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a Azure Blob Storage mediante el envío de unidades de disco duro a un centro de datos de Azure.
 
@@ -44,7 +44,7 @@ La operación de división crea archivos con los nombres siguientes.
 
 ## <a name="get-disks-ready-with-data"></a>Preparación de los discos con datos
 
-Siga las instrucciones de [Uso del servicio Azure Import/Export para transferir datos a Azure Storage](../storage/common/storage-import-export-service.md) (sección **Preparación de las unidades**) para preparar los discos duros. Aquí se muestra la secuencia general:
+Siga las instrucciones de [Uso del servicio Azure Import/Export para transferir datos a Azure Storage](../import-export/storage-import-export-service.md) (sección **Preparación de las unidades**) para preparar los discos duros. Aquí se muestra la secuencia general:
 
 1. Adquiera un disco duro que cumpla los requisitos para poder utilizarse con el servicio Azure Import/Export.
 2. Identifique una cuenta de Azure Storage donde vayan a copiarse los datos cuando se envíen al centro de datos de Azure.
@@ -53,12 +53,12 @@ Siga las instrucciones de [Uso del servicio Azure Import/Export para transferir 
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ```
-    Consulte [Uso del servicio Azure Import/Export](../storage/common/storage-import-export-service.md) para obtener más fragmentos de código de ejemplo.
+    Consulte [Uso del servicio Azure Import/Export](../import-export/storage-import-export-service.md) para obtener más fragmentos de código de ejemplo.
 4. El comando anterior crea un archivo de diario en la ubicación especificada. Use este archivo de diario para crear un trabajo de importación desde [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Crear un trabajo de importación
 
-Ahora puede crear un trabajo de importación con las instrucciones de [Uso del servicio Azure Import/Export ](../storage/common/storage-import-export-service.md) (sección **Creación de un trabajo de importación**). Para este trabajo de importación, proporcione también el archivo de diario creado al preparar las unidades de disco, además de otros detalles.
+Ahora puede crear un trabajo de importación con las instrucciones de [Uso del servicio Azure Import/Export](../import-export/storage-import-export-service.md) (sección **Creación de un trabajo de importación**). Para este trabajo de importación, proporcione también el archivo de diario creado al preparar las unidades de disco, además de otros detalles.
 
 ## <a name="physically-ship-the-disks"></a>Envío físico de los discos
 
