@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c640478170049bd06e11f7f89b1e213b7b305642
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 210f7daa9305f2fb343dfae050354264e2fd823e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032820"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898569"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planificación para administrar costos de Azure
 
@@ -35,7 +35,7 @@ Si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscr
 Use una de las siguientes herramientas para calcular el costo de usar un servicio de Azure:
 - Calculadora de precios de Azure
 - Hoja de precios de Azure
-- Portal de Azure
+- Azure Portal
 
 Las imágenes de las secciones siguientes muestran ejemplos de precios en dólares estadounidenses. Los precios mencionados son solo para este ejemplo. No implican costos reales. 
 
@@ -125,7 +125,7 @@ Consulte el tutorial guiado [Optimización de costos a partir de las recomendaci
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integración con las API de facturación y consumo
 
-Use las API de [facturación](/rest/api/billing/) y [consumo](/rest/api/consumption/) de Azure para obtener datos de facturación y de costos mediante programación. Use la API de RateCard y la API de uso juntas para obtener el uso facturado. Para más información, consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](../manage/usage-rate-card-overview.md).
+Use las API de [facturación](/rest/api/billing/) y [consumo](/rest/api/consumption/) de Azure para obtener datos de facturación y de costos mediante programación. Use la API de RateCard y la API de uso juntas para obtener el uso facturado. Para más información, consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](../manage/consumption-api-overview.md#usage-details-api).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Recursos adicionales y casos especiales
 
