@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bffa7894f7603f95c4840019be5e5670797881df
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913630"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873253"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos
 
@@ -142,4 +142,4 @@ Esta es una lista de herramientas que puede usar para descargar datos de Data La
 |Azure Data Factory | [Actividad de copia en Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
 |Explorador de Azure Storage|[Uso del Explorador de Azure Storage para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
-|Herramienta AzCopy|[Transferencia de datos con AzCopy y Blob Storage](../common/storage-use-azcopy-blobs.md)|
+|Herramienta AzCopy|[Transferencia de datos con AzCopy y Blob Storage](../common/storage-use-azcopy-v10.md#transfer-data)|

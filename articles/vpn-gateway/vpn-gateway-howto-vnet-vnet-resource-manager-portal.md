@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660549"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872407"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -44,7 +44,7 @@ Cuando se crea una conexión de red virtual a red virtual, el espacio de direcci
 
 ### <a name="site-to-site-ipsec"></a>De sitio a sitio (IPsec)
 
-Si trabaja con una configuración de red complicada, puede que, en su lugar, prefiera conectar las redes virtuales mediante una [conexión de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Cuando se siguen las instrucciones para la conexión IPsec de sitio a sitio, las puertas de enlace de red locales se crean y se configuran manualmente. La puerta de enlace de red local de cada red virtual trata a la otra red virtual como un sitio local. Estos pasos le permiten especificar espacios de direcciones adicionales para que la puerta de enlace de red local enrute el tráfico. Si el espacio de direcciones de una red virtual cambia, debe actualizar automáticamente la puerta de enlace de red local correspondiente.
+Si trabaja con una configuración de red complicada, puede que, en su lugar, prefiera conectar las redes virtuales mediante una [conexión de sitio a sitio](./tutorial-site-to-site-portal.md). Cuando se siguen las instrucciones para la conexión IPsec de sitio a sitio, las puertas de enlace de red locales se crean y se configuran manualmente. La puerta de enlace de red local de cada red virtual trata a la otra red virtual como un sitio local. Estos pasos le permiten especificar espacios de direcciones adicionales para que la puerta de enlace de red local enrute el tráfico. Si el espacio de direcciones de una red virtual cambia, debe actualizar automáticamente la puerta de enlace de red local correspondiente.
 
 ### <a name="vnet-peering"></a>Emparejamiento de VNET
 
@@ -200,7 +200,7 @@ A continuación, cree una conexión de VNet4 a VNet1. En el portal, busque la pu
 
 ## <a name="add-additional-connections"></a>Incorporación de conexiones adicionales
 
-Si quiere agregar más conexiones, vaya a la puerta de enlace de red virtual desde la que quiere crear la conexión y, luego, seleccione **Conexiones**. Puede crear otra conexión entre redes virtual o bien crear una conexión de IPsec de sitio a sitio en una ubicación local. Asegúrese de ajustar el **Tipo de conexión** para coincidir con el tipo de conexión que desea crear. Antes de crear más conexiones, compruebe que el espacio de direcciones de la red virtual no se superponga con ninguno de los espacios de direcciones con los que quiere conectarse. Para saber qué pasos son necesarios para crear una conexión de sitio a sitio, consulte [Creación de una conexión de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Si quiere agregar más conexiones, vaya a la puerta de enlace de red virtual desde la que quiere crear la conexión y, luego, seleccione **Conexiones**. Puede crear otra conexión entre redes virtual o bien crear una conexión de IPsec de sitio a sitio en una ubicación local. Asegúrese de ajustar el **Tipo de conexión** para coincidir con el tipo de conexión que desea crear. Antes de crear más conexiones, compruebe que el espacio de direcciones de la red virtual no se superponga con ninguno de los espacios de direcciones con los que quiere conectarse. Para saber qué pasos son necesarios para crear una conexión de sitio a sitio, consulte [Creación de una conexión de sitio a sitio](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>P+F sobre conexiones de red virtual a red virtual
 

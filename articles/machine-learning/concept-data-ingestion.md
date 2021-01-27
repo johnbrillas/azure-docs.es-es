@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 60cf97c4cb650120a4b6e2989b93d96ea120d040
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: a096375e32e3d8a6760da88fe5ec86a70d364aff
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360129"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872102"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opciones de ingesta de datos para flujos de trabajo de Azure Machine Learning
 
@@ -60,7 +60,7 @@ Aprenda a crear una canalización de ingesta de datos para Machine Learning con 
 
 ## <a name="azure-machine-learning-python-sdk"></a>SDK de Python de Azure Machine Learning 
 
-Con el [SDK de Python](/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Con el [SDK de Python](/python/api/overview/azure/ml), puede incorporar las tareas de ingesta de datos en un paso de [canalización de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 En la siguiente tabla se resumen las ventajas y desventajas del uso del SDK y un paso de canalizaciones de ML para las tareas de ingesta de datos.
 
