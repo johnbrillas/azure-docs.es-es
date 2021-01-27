@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933938"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664357"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Creación de un almacén de claves de Azure y una directiva de acceso al almacén mediante una plantilla de Resource Manager
 
@@ -150,7 +150,7 @@ Puede implementar directivas de acceso en un almacén de claves existente sin te
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Puede implementar directivas de acceso en un almacén de claves existente sin te
 }
 
 ```
+
 Para más información sobre la configuración de la plantilla de Key Vault, consulte [Referencia de la plantilla de Resource Manager para Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Más plantillas de Resource Manager para Key Vault

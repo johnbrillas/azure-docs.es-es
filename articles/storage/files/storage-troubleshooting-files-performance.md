@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724670"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632502"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -46,7 +46,7 @@ Para confirmar si se está limitando el recurso compartido, puede acceder y usar
 ### <a name="solution"></a>Solución
 
 - Si usa un recurso compartido de archivos Estándar, habilite [Recursos compartidos de archivos grandes](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) en su cuenta de almacenamiento. Los recursos compartidos de archivos grandes admiten hasta 10 000 IOPS por recurso compartido.
-- Si usa un recurso compartido de archivos Premium, aumente el tamaño del recurso compartido de archivos aprovisionado para aumentar el límite de IOPS. Para más información, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos premium](./understanding-billing.md#provisioned-billing).
+- Si usa un recurso compartido de archivos Premium, aumente el tamaño del recurso compartido de archivos aprovisionado para aumentar el límite de IOPS. Para más información, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos premium](./understanding-billing.md#provisioned-model).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: Carga de trabajo pesada del espacio de nombres o los metadatos
 

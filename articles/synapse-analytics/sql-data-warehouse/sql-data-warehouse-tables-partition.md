@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a59c24100b433719ccfd3a9ea1b6a676695d381
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448031"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673441"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL dedicado
 
@@ -58,9 +58,9 @@ Para obtener más información, consulte el artículo [Indexación](sql-data-war
 
 El grupo de SQL dedicado introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en el grupo de SQL dedicado que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. 
 
-Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL dedicado admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL dedicado admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
+En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -90,8 +90,8 @@ WITH
 
 Para migrar las definiciones de particiones de SQL Server al grupo de SQL dedicado, basta con que haga lo siguiente:
 
-- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de SQL Server.
-- Agregue la definición de [función de partición](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) a CREATE TABLE.
+- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de SQL Server.
+- Agregue la definición de [función de partición](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) a CREATE TABLE.
 
 Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se usa la misma granularidad de particiones en el grupo de SQL dedicado, el número de filas por partición se reduce en un factor de 60.  
 
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Modificación de particiones
 
-El grupo de SQL dedicado admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+El grupo de SQL dedicado admite la separación, la combinación y la modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones CHECK no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si los límites de partición no son iguales, el cambio de partición genera un error dado que los metadatos de la partición no se sincronizan.
 

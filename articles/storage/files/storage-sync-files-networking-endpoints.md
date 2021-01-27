@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673866"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuración de puntos de conexión de red de Azure File Sync
 Azure Files y Azure File Sync proporcionan dos tipos principales de puntos de conexión para el acceso a los recursos compartidos de archivos de Azure: 
@@ -52,13 +52,13 @@ Al crear un punto de conexión privado para un recurso de Azure, se implementan 
 
 Si tiene una máquina virtual dentro de la red virtual o ha configurado el reenvío de DNS tal como se describe en [Configuración del reenvío de DNS para Azure Files](storage-files-networking-dns.md), puede comprobar que el punto de conexión privado se ha configurado correctamente mediante la ejecución de los siguientes comandos desde PowerShell, la línea de comandos o el terminal (sirve para Windows, Linux o macOS). Debe reemplazar `<storage-account-name>` por el nombre adecuado de la cuenta de almacenamiento:
 
-```
+```console
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
 Si todo ha funcionado correctamente, verá la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual (salida mostrada para Windows):
 
-```Output
+```output
 Server:  UnKnown
 Address:  10.2.4.4
 
@@ -73,7 +73,7 @@ Aliases:  storageaccount.file.core.windows.net
 
 Si tiene una máquina virtual dentro de la red virtual o ha configurado el reenvío de DNS tal como se describe en [Configuración del reenvío de DNS para Azure Files](storage-files-networking-dns.md), puede comprobar que el punto de conexión privado se ha configurado correctamente mediante los siguientes comandos:
 
-```PowerShell
+```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
@@ -82,7 +82,7 @@ Resolve-DnsName -Name $storageAccountHostName
 
 Si todo ha funcionado correctamente, verá la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual:
 
-```Output
+```output
 Name                             Type   TTL   Section    NameHost
 ----                             ----   ---   -------    --------
 storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
@@ -113,7 +113,7 @@ nslookup $hostName
 
 Si todo ha funcionado correctamente, verá la siguiente salida, donde `192.168.0.5` es la dirección IP privada del punto de conexión privado de la red virtual:
 
-```Output
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -168,7 +168,7 @@ Get-AzPrivateEndpoint `
 
 Si todo ha funcionado correctamente, debería ver la siguiente salida, donde `192.168.1.4`, `192.168.1.5`, `192.168.1.6` y `192.168.1.7` son las direcciones IP privadas asignadas al punto de conexión privado:
 
-```Output
+```output
 Name     : mysssmanagement.westus2.afs.azure.net
 Type     : CNAME
 TTL      : 60
@@ -244,7 +244,7 @@ if ($null -eq $storageSyncService) {
 
 Para crear un punto de conexión privado, debe crear una conexión de servicio Private Link privada al servicio de sincronización de almacenamiento. La conexión de Private Link es una entrada para la creación del punto de conexión privado.
 
-```PowerShell 
+```powershell 
 # Disable private endpoint network policies
 $subnet.PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork = $virtualNetwork | `
@@ -325,7 +325,7 @@ if ($null -eq $dnsZone) {
 ```
 Ahora que tiene una referencia a la zona DNS privada, debe crear registros D para el servicio de sincronización de almacenamiento.
 
-```PowerShell 
+```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
     Select-Object -ExpandProperty NetworkInterfaces | `
     Select-Object -ExpandProperty Id | `
@@ -607,7 +607,8 @@ $storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Forc
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>La CLI de Azure no admite el establecimiento de la propiedad `incomingTrafficPolicy` en el servicio de sincronización de almacenamiento. Seleccione la pestaña de Azure PowerShell para obtener instrucciones sobre cómo deshabilitar el punto de conexión público del servicio de sincronización de almacenamiento.
+La CLI de Azure no admite el establecimiento de la propiedad `incomingTrafficPolicy` en el servicio de sincronización de almacenamiento. Seleccione la pestaña de Azure PowerShell para obtener instrucciones sobre cómo deshabilitar el punto de conexión público del servicio de sincronización de almacenamiento.
+
 ---
 
 ## <a name="see-also"></a>Consulte también

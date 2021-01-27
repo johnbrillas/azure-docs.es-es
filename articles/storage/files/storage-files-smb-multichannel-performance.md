@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724823"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630860"
 ---
 # <a name="smb-multichannel-performance"></a>Rendimiento de SMB multicanal
 
@@ -119,7 +119,7 @@ Las siguientes sugerencias pueden ayudarle a optimizar el rendimiento:
 - Asegúrese de que la cuenta de almacenamiento y el cliente se colocan en la misma región de Azure para reducir la latencia de red.
 - Use aplicaciones multiproceso y distribuya la carga entre varios archivos.
 - Las ventajas de rendimiento de SMB multicanal aumentan con el número de archivos que distribuyen la carga.
-- El rendimiento del recurso compartido Premium está limitado por el tamaño del recurso compartido aprovisionado (IOPS/salida/entrada) y los límites de un solo archivo. Para obtener detalles, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos Premium](understanding-billing.md#provisioned-billing).
+- El rendimiento del recurso compartido Premium está limitado por el tamaño del recurso compartido aprovisionado (IOPS/salida/entrada) y los límites de un solo archivo. Para obtener detalles, consulte [Descripción del aprovisionamiento de recursos compartidos de archivos Premium](understanding-billing.md#provisioned-model).
 - El rendimiento máximo de un solo cliente de VM sigue estando enlazado a los límites de máquina virtual. Por ejemplo, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) puede admitir un ancho de banda máximo de 16 000 MBps (o 2 GBps), la salida de la máquina virtual (escrituras en el almacenamiento) se mide, la entrada (lecturas del almacenamiento) no. El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, las CPU, el almacenamiento interno, el ancho de banda de red disponible, los tamaños de E/S, el paralelismo, así como otros factores.
 - La prueba inicial normalmente es una preparación. Descarte sus resultados y repita la prueba.
 - Si el rendimiento está limitado por un solo cliente y la carga de trabajo aún se encuentra por debajo de los límites de recursos compartidos aprovisionados, se puede conseguir un rendimiento más alto mediante la distribución de la carga por varios clientes.

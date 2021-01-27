@@ -3,15 +3,15 @@ title: Rotación de certificados para Azure Database for MariaDB
 description: Información sobre los próximos cambios del certificado raíz que afectarán a Azure Database for MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ac7019abab1aefaee95c155e34fbc0cb551b4d94
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 66db443c4c52e4994e62a9f83f8a624319b349ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659893"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Descripción de los cambios en la CA raíz para Azure Database for MariaDB
 
@@ -42,7 +42,7 @@ Todas las aplicaciones que usan SSL/TLS y comprueban el certificado raíz tienen
 Si usa un cliente que abstrae la cadena de conexión, revise la documentación del cliente para saber si comprueba los certificados.
 Para comprender el parámetro sslmode de Azure Database for MariaDB, revise las [descripciones del modo SSL](concepts-ssl-connection-security.md#default-settings).
 
-Para evitar que se interrumpa la disponibilidad de la aplicación como resultado de la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
+Para evitar que se interrumpa la disponibilidad de la aplicación como resultado de la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **"¿Qué tengo que hacer para mantener la conectividad?"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>¿Qué tengo que hacer para mantener la conectividad?
 

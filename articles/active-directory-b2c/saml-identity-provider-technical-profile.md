@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db99fbdea38dd30401a8aeedb7ebc23c71c5236c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655193"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674950"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de proveedor de identidades de SAML en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con un perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como [ADFS](identity-provider-adfs2016-custom.md) y [Salesforce](identity-provider-salesforce-saml.md). Esta federación permite a sus usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
+Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad con el proveedor de identidades SAML 2.0. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con un perfil técnico de SAML puede federarse con un proveedor de identidades basado en SAML, como [ADFS](./identity-provider-adfs.md) y [Salesforce](identity-provider-salesforce-saml.md). Esta federación permite a sus usuarios iniciar sesión con sus identidades de redes sociales o de empresa existentes.
 
 ## <a name="metadata-exchange"></a>Intercambio de metadatos
 

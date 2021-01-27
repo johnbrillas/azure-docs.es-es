@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fea314d595fb39a1e35dec8ab24533ad4b893f98
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448078"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673525"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexación de tablas de un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -24,9 +24,9 @@ Recomendaciones y ejemplos para indexar tablas en un grupo de SQL dedicado.
 
 ## <a name="index-types"></a>Tipos de índice
 
-El grupo de SQL dedicado ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [índices agrupados e índices no agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y una opción que no es de índice también conocida como [montón](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+El grupo de SQL dedicado ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [índices agrupados e índices no agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y una opción que no es de índice también conocida como [montón](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 
-Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de almacén de columnas en clúster
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
-Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
+Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La regeneración de un índice en el grupo de SQL dedicado es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+La regeneración de un índice en el grupo de SQL dedicado es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Paso 3: Comprobación de que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
 
@@ -260,7 +260,7 @@ Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficient
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Regeneración de índices con CTAS y conmutación de particiones
 
-Este ejemplo utiliza la instrucción [CREATE TABLE AS SELECT (CTAS) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y el cambio de partición para volver a crear una partición de tabla.
+Este ejemplo utiliza la instrucción [CREATE TABLE AS SELECT (CTAS) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) y el cambio de partición para volver a crear una partición de tabla.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS

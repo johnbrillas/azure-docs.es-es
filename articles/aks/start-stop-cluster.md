@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 026da4237fe14726766b265e55930346293c71df
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968793"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662904"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -28,7 +28,6 @@ En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clú
 Cuando se usa la característica de inicio o detención del clúster, se aplican las restricciones siguientes:
 
 - Esta característica solo se admite para clústeres respaldados por Virtual Machine Scale Sets.
-- Durante la versión preliminar, esta característica no es compatible con los clústeres privados.
 - El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
 - Durante la versión preliminar, debe detener el escalador automático (CA) del clúster antes de intentar detenerlo.
 - Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.

@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 95e78c7557092a4d1203a8df3a107fe7b63eac9b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 67bc104434dc0db30f5973bec0979afb7480fe4c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631448"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621386"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>Conexión de los datos de Azure Defender (anteriormente Azure Security Center) para IoT con Azure Sentinel 
-
-
-> [!IMPORTANT]
-> El conector de datos de Defender para IoT se encuentra actualmente en versión preliminar pública. Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use el conector de Defender para IoT a fin de transmitir todos los eventos de esta solución a Azure Sentinel. 
 

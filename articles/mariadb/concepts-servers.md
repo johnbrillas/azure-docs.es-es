@@ -1,17 +1,17 @@
 ---
 title: 'Servidores: Azure Database for MariaDB'
 description: En este tema se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f519ac30468d197c14fcf53d386168ebde5cf8ac
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504363"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664136"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceptos sobre servidores de Azure Database for MariaDB
 En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MariaDB.

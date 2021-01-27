@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681324"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674650"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Creación de un origen de datos (Android SDK)
 
@@ -355,10 +355,10 @@ Un origen de mosaico vectorial describe cómo acceder a una capa de mosaico vect
 
 Azure Maps se adhiere a la [especificación de mosaicos vectoriales de Mapbox](https://github.com/mapbox/vector-tile-spec), un estándar abierto. Azure Maps proporciona los siguientes servicios de mosaicos vectoriales como parte de la plataforma:
 
-- [Documentación](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
-- [Documentación](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de incidentes de tráfico
-- [Documentación](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
-- El Creador de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2 de obtención de mosaicos](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview).
+- [Documentación](/rest/api/maps/renderv2/getmaptilepreview) | [Detalles del formato de datos](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) de mosaicos de carreteras
+- [Documentación](/rest/api/maps/traffic/gettrafficincidenttile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de incidentes de tráfico
+- [Documentación](/rest/api/maps/traffic/gettrafficflowtile) | [Detalles del formato de datos](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de flujo de tráfico
+- El Creador de Azure Maps también permite crear mosaicos vectoriales personalizados y acceder a ellos a través de [Render V2 de obtención de mosaicos](/rest/api/maps/renderv2/getmaptilepreview).
 
 Para mostrar los datos de un origen de mosaico vectorial en el mapa, conecte el origen a una de las capas de representación de datos. Todas las capas que usan un origen vectorial deben especificar un valor `sourceLayer` en las opciones. El código siguiente carga el servicio de mosaico vectorial de flujo de tráfico de Azure Maps como un origen de mosaico vectorial y, a continuación, lo muestra en un mapa mediante una capa de línea. Este origen de mosaico vectorial tiene un único conjunto de datos en la capa de origen denominado "Traffic flow". Los datos de línea de este conjunto de datos tienen una propiedad denominada `traffic_level` que se usa en este código para seleccionar el color y escalar el tamaño de las líneas.
 
@@ -523,4 +523,4 @@ Para obtener más ejemplos de código para agregar a los mapas:
 > [Adición de un mapa térmico](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Ejemplos de código de SDK web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Ejemplos de código de SDK web](/samples/browse/?products=azure-maps)

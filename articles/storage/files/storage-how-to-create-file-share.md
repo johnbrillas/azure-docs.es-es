@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724806"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673813"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -129,7 +129,7 @@ Para crear una cuenta de almacenamiento con la CLI de Azure, usaremos el comando
 
 Para simplificar la creación de la cuenta de almacenamiento y el recurso compartido de archivos subsiguiente, almacenaremos varios parámetros en variables. Puede reemplazar el contenido de la variable por los valores que desee, pero tenga en cuenta que el nombre de la cuenta de almacenamiento debe ser único globalmente.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure estándar, usaremos el siguiente comando. El parámetro `--sku` está relacionado con el tipo de redundancia deseado; si desea una cuenta de almacenamiento con redundancia geográfica o con redundancia de zona geográfica, también debe quitar el parámetro `--enable-large-file-share`.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 Para crear una cuenta de almacenamiento capaz de almacenar recursos compartidos de archivos de Azure prémium, usaremos el siguiente comando. Observe que el parámetro `--sku` ha cambiado para incluir tanto `Premium` como el nivel de redundancia deseado de redundancia local (`LRS`). El parámetro `--kind` es `FileStorage` en lugar de `StorageV2` porque los recursos compartidos de archivos prémium deben crearse en una cuenta de almacenamiento de FileStorage en lugar de en una cuenta de almacenamiento de GPv2.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -172,7 +172,7 @@ La propiedad **quota** significa algo ligeramente distinto en los recursos compa
 
 - En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. El objetivo principal de la cuota para un recurso compartido de archivos estándar es presupuestario: "no quiero que este recurso compartido de archivos crezca más allá de este punto". Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB (o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento).
 
-- En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-billing).
+- En el caso de recursos compartidos de archivos prémium, la cuota se sobrecarga para indicar **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Al aprovisionar un recurso compartido de archivos prémium, se deben tener en cuenta dos factores: 1) el crecimiento futuro del recurso compartido desde una perspectiva de uso del espacio y 2) las IOPS necesarias para la carga de trabajo. Cada GiB aprovisionado le da derecho a IOPS reservadas y de ráfaga adicionales. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Si ya ha creado la cuenta de almacenamiento anteriormente, puede navegar a esta a través del grupo de recursos que la contiene. Una vez en la cuenta de almacenamiento, seleccione el icono con la etiqueta **Recursos compartidos de archivos** (también puede navegar a **Recursos compartidos de archivos** a través de la tabla de contenido de la cuenta de almacenamiento).
@@ -233,7 +233,7 @@ La funcionalidad para crear o mover un recurso compartido de archivos a un nivel
 > [!Important]  
 > En el caso de los recursos compartidos de archivos prémium, el parámetro `--quota` hace referencia al tamaño aprovisionado del recurso compartido de archivos. El tamaño aprovisionado del recurso compartido de archivos es la cantidad que se facturará, independientemente del uso. Los recursos compartidos de archivos estándar se facturan en función del uso en lugar de basarse en el tamaño aprovisionado.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 En el siguiente comando de la CLI de Azure se supone que ha establecido las variables `$resourceGroupName`, `$storageAccountName` y `$shareName` como se describe en las secciones anteriores de este documento.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

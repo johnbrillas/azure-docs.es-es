@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601397"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674157"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -36,8 +36,8 @@ El ejemplo siguiente describe cómo crear una aplicación de función C# en Visu
 
 Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos siguientes le ayudarán a crear las aplicaciones y funciones necesarias para admitir las pruebas:
 
-1. [Cree una nueva aplicación de Functions](./functions-create-first-azure-function.md) y asígnele el nombre **Functions**.
-2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre **MyHttpTrigger**.
+1. [Cree una nueva aplicación de Functions](./functions-get-started.md) y asígnele el nombre **Functions**.
+2. [Cree una función HTTP a partir de la plantilla](./functions-get-started.md) y asígnele el nombre **MyHttpTrigger**.
 3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre **MyTimerTrigger**.
 4. [Cree una aplicación de prueba en xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) en la solución y asígnele el nombre **Functions.Test**.
 5. Use NuGet para agregar referencias desde la aplicación de prueba a [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)

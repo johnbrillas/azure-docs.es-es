@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5cc112767b2204d019cb1b7bd23b1603cefdf416
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882524"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629154"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Introducción a la integración de Azure Service Bus en Event Grid
 
@@ -186,7 +186,7 @@ Para crear una nueva suscripción de Event Grid, haga lo siguiente:
 
 ## <a name="azure-cli-instructions"></a>Instrucciones para la CLI de Azure
 
-En primer lugar, asegúrese de que dispone de la CLI de Azure versión 2.0 o posterior instalada. [Descargue el instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
+En primer lugar, asegúrese de que dispone de la CLI de Azure versión 2.0 o posterior instalada. [Descargue el instalador](/cli/azure/install-azure-cli). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
 
 Ejecute el código siguiente:
 

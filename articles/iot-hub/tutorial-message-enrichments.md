@@ -4,16 +4,16 @@ description: Tutorial que muestra cómo usar el enriquecimiento de mensajes para
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436715"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624062"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub
 
@@ -386,7 +386,7 @@ Para quitar todos los recursos que creó en este tutorial, elimine el grupo de r
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Uso de la CLI de Azure para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). Recuerde que `$resourceGroup` se estableció en **ContosoResourcesMsgEn** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Recuerde que `$resourceGroup` se estableció en **ContosoResourcesMsgEn** al principio de este tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -397,6 +397,7 @@ az group delete --name $resourceGroup
 En este tutorial, ha configurado y probado la adición del enriquecimiento de mensajes para mensajes de IoT Hub mediante los pasos siguientes:
 
 **Uso del enriquecimiento de mensajes de IoT Hub**
+
 > [!div class="checklist"]
 > * Primer método: Cree recursos y configure el enrutamiento de mensajes mediante la CLI de Azure. Configure el enriquecimiento de mensajes de forma manual mediante [Azure Portal](https://portal.azure.com).
 > * Segundo método: Cree recursos y configure el enrutamiento de mensajes y el enriquecimiento de mensajes mediante una plantilla de Azure Resource Manager.
@@ -407,5 +408,8 @@ Para obtener más información sobre el enriquecimiento de mensajes, consulte la
 
 Para obtener más información sobre el enrutamiento de mensajes, consulte estos artículos:
 
-* [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
-* [Tutorial: Enrutamiento de IoT Hub](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Enrutamiento de IoT Hub](tutorial-routing.md)

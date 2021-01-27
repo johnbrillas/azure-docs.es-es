@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3f56fc1b321396c5cc6aa93e3f47fcaafcbe4ae4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0fbd7cda4723b62863d7d9bb0fe6aa2fac32dcd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202341"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633110"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea de base de seguridad de Azure para Event Hubs
 
@@ -293,9 +293,9 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 **Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos. 
 
-Obtención de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Obtención de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-Obtención de los miembros de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Obtención de los miembros de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -633,7 +633,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Visualización de las suscripciones de Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Descripción de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 Directiva integrada de Azure para espacio de nombres de Event Hubs: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Visualización de los alias de Azure Policy disponibles: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Para obtener más información, consulte los efectos de Azure Policy: https://do
 
 **Guía**: Si usa definiciones personalizadas de Azure Policy para los recursos de Event Hubs u otros relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
-Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Cómo almacenar código en Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/index
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -986,7 +986,7 @@ Realización de copias de seguridad de secretos de Key Vault: https://docs.micro
 
  
 
-Restauración de las claves del almacén de claves en Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Restauración de las claves del almacén de claves en Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Supervisión de Azure Security Center**: No aplicable
 

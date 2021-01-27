@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968541"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610988"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
@@ -211,31 +211,30 @@ Para usar el comando de PySpark Interactive con el fin de enviar las consultas, 
 
    ![pyspark se ha instalado correctamente](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Use el símbolo del sistema para ejecutar **pip install numpy == 1.19.3** y luego vuelva a cargar la ventana VSCode.
 
-8. En la barra de menús, vaya a **View** (Ver)  > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Python: Seleccione Interpreter (Intérprete) para iniciar el servidor de Jupyter**.
+7. En la barra de menús, vaya a **View** (Ver)  > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Python: Seleccione Interpreter (Intérprete) para iniciar el servidor de Jupyter**.
 
    ![Seleccionar Interpreter para iniciar el servidor de Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. Seleccione la opción de Python que aparece a continuación.
+8. Seleccione la opción de Python que aparece a continuación.
 
    ![Elija la opción siguiente](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-10. En la barra de menús, vaya a **View**(Ver) > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Desarrollador: Recargar ventana**.
+9. En la barra de menús, vaya a **View**(Ver) > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Desarrollador: Recargar ventana**.
 
     ![Recargar ventana](./media/hdinsight-for-vscode/reload-window.png)
 
-11. [Conéctese](#connect-to-an-azure-account) a su cuenta de Azure o vincule un clúster si no lo ha hecho aún.
+10. [Conéctese](#connect-to-an-azure-account) a su cuenta de Azure o vincule un clúster si no lo ha hecho aún.
 
-12. Seleccione todo el código, haga clic con el botón derecho en el editor de scripts y seleccione **Spark: PySpark Interactive/Synapse: Pyspark Interactive** para enviar la consulta. 
+11. Seleccione todo el código, haga clic con el botón derecho en el editor de scripts y seleccione **Spark: PySpark Interactive/Synapse: Pyspark Interactive** para enviar la consulta. 
 
     ![menú contextual de PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-13. Seleccione el clúster si no ha especificado un clúster predeterminado. En un momento, los resultados de **Python Interactive** se mostrarán en una pestaña nueva. Haga clic en PySpark para cambiar el kernel a **PySpark/Synapse Pyspark** y así el código se ejecuta correctamente. Si se quiere cambiar al kernel de Synapse Pyspark, se recomienda deshabilitar la configuración automática en Azure Portal. En caso contrario, es posible que se tarde mucho tiempo en reactivar el clúster y establecer el kernel de Synapse para el primer uso. Si las herramientas también permiten enviar un bloque de código en lugar del archivo de script completo mediante el menú contextual:
+12. Seleccione el clúster si no ha especificado un clúster predeterminado. En un momento, los resultados de **Python Interactive** se mostrarán en una pestaña nueva. Haga clic en PySpark para cambiar el kernel a **PySpark/Synapse Pyspark** y así el código se ejecuta correctamente. Si se quiere cambiar al kernel de Synapse Pyspark, se recomienda deshabilitar la configuración automática en Azure Portal. En caso contrario, es posible que se tarde mucho tiempo en reactivar el clúster y establecer el kernel de Synapse para el primer uso. Si las herramientas también permiten enviar un bloque de código en lugar del archivo de script completo mediante el menú contextual:
 
     ![ventana de Python Interactive de PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-14. Escriba **%%info** y presione Mayús+Entrar para ver información sobre el trabajo (opcional):
+13. Escriba **%%info** y presione Mayús+Entrar para ver información sobre el trabajo (opcional):
 
     ![PySpark interactivo: ver información de trabajo](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 

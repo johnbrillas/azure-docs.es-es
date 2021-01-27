@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9958fa07d6e814cdf886c3f559d57ae1e397264a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968339"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625088"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalación del entorno de desarrollo y pruebas de IBM zD&T en Azure
 
@@ -96,12 +96,13 @@ El archivo de instalación del servidor web es **ZDT\_Install\_EE\_V12.0.0.1.tgz
 
     ```
     cd ZDT
-    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.tgz
+    tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
     ```
 
 2. Ejecute el instalador:
 
     ```
+    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 

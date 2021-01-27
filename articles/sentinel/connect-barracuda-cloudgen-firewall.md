@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e0aa186e742318ab5793fa8390251d94327bf08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588508"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632714"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Conexión del Firewall de Barracuda CloudGen
 
 El conector del Firewall de Barracuda CloudGen (CGFW) le permite conectar fácilmente los registros de Barracuda CGFW con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. Esto le ofrece más información sobre la red de su organización y mejora las capacidades de las operaciones de seguridad.
-
-
-
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -38,15 +35,14 @@ El conector del Firewall de Barracuda CloudGen (CGFW) le permite conectar fácil
 
 1. En el Azure Portal, vaya a **Azure Sentinel** > **Conectores de datos** y, después, seleccione el conector de **Firewall de Barracuda C4**.
 
-2. Seleccione **Open connector page** (Abrir página del conector).
+1. Seleccione **Open connector page** (Abrir página del conector).
 
-3. Siga las instrucciones que aparecen en la página del **Firewall de Barracuda CloudGen**.
-
+1. Siga las instrucciones que aparecen en la página del **Firewall de Barracuda CloudGen**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este documento, ha aprendido a conectar dispositivos del Firewall de Barracuda a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.
-
-

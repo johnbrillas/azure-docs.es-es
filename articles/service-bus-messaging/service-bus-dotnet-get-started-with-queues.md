@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862129"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631647"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Envío y recepción de mensajes con destino y origen en colas de Azure Service Bus (.NET)
 En este tutorial, creará una aplicación de consola de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella mediante el paquete **Azure.Messaging.ServiceBus**. 
@@ -272,4 +272,4 @@ Consulte la documentación y los ejemplos siguientes:
 
 - [Biblioteca cliente de Azure Service Bus para .NET: léame](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Ejemplos en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Referencia de API de .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [Referencia de API de .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

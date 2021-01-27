@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398222"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621885"
 ---
 # <a name="configure-private-link"></a>Configuración del vínculo privado
-
-> [!IMPORTANT]
-> Esta funcionalidad se encuentra en versión preliminar pública, se ofrece sin contrato de nivel de servicio y no se recomienda usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El vínculo privado le permite acceder a Azure API for FHIR a través de un punto de conexión privado, una interfaz de red que le conecta de forma privada y segura mediante una dirección IP privada desde la red virtual. Con el vínculo privado, puede acceder a nuestros servicios de forma segura desde la red virtual como un servicio propietario sin tener que pasar por un DNS público. En este artículo se explica cómo crear, probar y administrar el punto de conexión privado para Azure API for FHIR.
 
@@ -90,6 +87,6 @@ Los puntos de conexión privados y la NIC asociada son visibles en Azure Portal 
 
 ### <a name="delete"></a>Eliminar
 
-Los puntos de conexión privados solo se pueden eliminar desde Azure Portal a través de la hoja Información general (como se muestra a continuación), o bien a través de la opción Eliminar de la pestaña "Conexiones de punto de conexión privado" de Redes (versión preliminar). Al hacer clic en el botón Eliminar, se eliminará el punto de conexión privado y la NIC asociada. Si elimina todos los puntos de conexión privados del recurso FHIR y el acceso a la red pública está deshabilitado, no llegará ninguna solicitud al servidor FHIR. Todos los puntos de conexión privados se deben eliminar del recurso FHIR antes de que este se pueda eliminar o mover.
+Los puntos de conexión privados solo se pueden eliminar desde Azure Portal a través de la hoja Información general (como se muestra a continuación), o bien a través de la opción Eliminar de la pestaña "Conexiones de punto de conexión privado" de Redes (versión preliminar). Al hacer clic en el botón Eliminar, se eliminará el punto de conexión privado y la NIC asociada. Si elimina todos los puntos de conexión privados del recurso FHIR y el acceso a la red pública está deshabilitado, no llegará ninguna solicitud al servidor FHIR.
 
 ![Eliminación del punto de conexión privado](media/private-link/private-link-delete.png)

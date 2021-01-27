@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655377"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632189"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conexión de registros de Office 365 a Azure Sentinel
 
 El conector de registro de [Office 365](/office/) incluye información de Azure Sentinel sobre las actividades de usuario y administración continuas en **Exchange** y **SharePoint** (incluido **OneDrive**) y ahora también en **Teams**. Esta información incluye detalles de acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo, operaciones de buzón de correo, eventos de Teams (como chat, equipo, miembro y eventos de canal), así como los detalles del usuario que realizó las acciones. La conexión de registros de Office 365 a Azure Sentinel le permite ver y analizar estos datos en los libros, consultarlos para crear alertas personalizadas e incorporarlas para mejorar el proceso de investigación, lo que le proporciona más información sobre la seguridad de Office 365.
-
-> [!IMPORTANT]
-> **La extensión de registros para Microsoft Teams** del conector de registro de Office 365 se encuentra actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

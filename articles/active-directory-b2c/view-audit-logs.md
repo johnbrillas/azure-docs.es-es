@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952733"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661109"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -223,4 +223,4 @@ Esta es la representación JSON del evento de actividad de ejemplo que se mostr�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede automatizar otras tareas de administración, por ejemplo, [administrar cuentas de usuario de Azure AD B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
+Puede automatizar otras tareas de administración, por ejemplo, [administrar cuentas de usuario de Azure AD B2C con Microsoft Graph](microsoft-graph-operations.md).

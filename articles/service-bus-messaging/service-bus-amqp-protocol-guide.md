@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736721"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624496"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -73,7 +73,7 @@ Las conexiones, los canales y las sesiones son efímeros. Si la conexión subyac
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de puertos de salida de AMQP
 
-Los clientes que usan conexiones AMQP a través de TCP requieren que se abran los puertos 5671 y 5672 en el firewall local. Junto con estos puertos, podría ser necesario abrir puertos adicionales si está habilitada la característica [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet). `EnableLinkRedirect` es una nueva característica de mensajería que ayuda a omitir un salto al recibir mensajes, lo que ayuda a mejorar el rendimiento. El cliente comenzará a comunicarse directamente con el servicio back-end a través del intervalo de puertos 104XX como se muestra en la siguiente imagen. 
+Los clientes que usan conexiones AMQP a través de TCP requieren que se abran los puertos 5671 y 5672 en el firewall local. Junto con estos puertos, podría ser necesario abrir puertos adicionales si está habilitada la característica [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect). `EnableLinkRedirect` es una nueva característica de mensajería que ayuda a omitir un salto al recibir mensajes, lo que ayuda a mejorar el rendimiento. El cliente comenzará a comunicarse directamente con el servicio back-end a través del intervalo de puertos 104XX como se muestra en la siguiente imagen. 
 
 ![Lista de puertos de destino][4]
 
@@ -240,14 +240,14 @@ Hay algunas otras propiedades de mensaje de Service Bus, que no forman parte de 
 
 | Clave de asignación de anotaciones | Uso | Nombre de la API |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Indica en qué momento debe aparecer el mensaje en la entidad. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Clave que define la aplicación que determina a qué partición debe llegar el mensaje. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | Valor de clave de partición que define la aplicación cuando se va a utilizar una transacción para enviar mensajes a través de una cola de transferencias. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | Hora UTC que define el servicio que representa la hora real al poner en cola el mensaje. Se omite en la entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Número único que define el servicio asignado a un mensaje. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Número de secuencia en cola que define el servicio y que pertenece al mensaje. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | El servicio se encarga de definir este valor. Es la fecha y la hora hasta las cuales se bloqueará el mensaje en la cola o la suscripción. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | El servicio se encarga de definir este valor. Si el mensaje se recibe de la cola de mensajes fallidos, este es la fuente del mensaje original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Indica en qué momento debe aparecer el mensaje en la entidad. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Clave que define la aplicación que determina a qué partición debe llegar el mensaje. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | Valor de clave de partición que define la aplicación cuando se va a utilizar una transacción para enviar mensajes a través de una cola de transferencias. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | Hora UTC que define el servicio que representa la hora real al poner en cola el mensaje. Se omite en la entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Número único que define el servicio asignado a un mensaje. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Número de secuencia en cola que define el servicio y que pertenece al mensaje. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | El servicio se encarga de definir este valor. Es la fecha y la hora hasta las cuales se bloqueará el mensaje en la cola o la suscripción. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | El servicio se encarga de definir este valor. Si el mensaje se recibe de la cola de mensajes fallidos, este es la fuente del mensaje original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Capacidad de transacciones
 

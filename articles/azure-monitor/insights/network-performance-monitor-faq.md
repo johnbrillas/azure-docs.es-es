@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8e26a4d996e4c1767856b3dd98ae318d8992a89b
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562699"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625172"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -34,7 +34,7 @@ A continuación se muestran los requisitos de plataforma para diversas funcional
 - La funcionalidad Supervisión de ExpressRoute de NPM solo admite el sistema operativo Windows Server (2008 SP1 o posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>¿Se pueden usar máquinas Linux como nodos de supervisión en NPM?
-La funcionalidad de supervisión de redes con nodos basados en Linux se encuentra disponible con carácter general. Acceda al agente [aquí](../../virtual-machines/extensions/oms-linux.md). Los agentes de Linux solo ofrecen funcionalidad de supervisión con la funcionalidad Monitor de rendimiento de NPM y no está disponible para las funcionalidades Monitor de conectividad de servicio y Supervisión de ExpressRoute.
+La funcionalidad de supervisión de redes con nodos basados en Linux se encuentra disponible con carácter general. Acceda al agente [aquí](../../virtual-machines/extensions/oms-linux.md). 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>¿Cuáles son los requisitos de tamaño de los nodos que se van a usar para la supervisión por parte de NPM?
 Para ejecutar la solución NPM en máquinas virtuales de nodo para supervisar redes, los nodos deben tener al menos 500 MB de memoria y un núcleo. No es necesario usar nodos independientes para ejecutar NPM. La solución pueda ejecutarse en nodos en los que haya otras cargas de trabajo en ejecución. La solución tiene la capacidad de detener el proceso de supervisión si usa más del 5 % de CPU.

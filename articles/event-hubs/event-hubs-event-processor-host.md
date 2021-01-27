@@ -4,12 +4,12 @@ description: En este artículo se describe el host del procesador de eventos de 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319509"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622069"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
@@ -42,7 +42,7 @@ En lugar de compilar su propia solución para esto, Event Hubs ofrece esta funci
 
 ## <a name="ieventprocessor-interface"></a>Interfaz de IEventProcessor
 
-En primer lugar, las aplicaciones de consumo implementan la interfaz de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor), que tiene cuatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync y ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Esta interfaz contiene el código real para consumir los eventos que envía Event Hubs. El código siguiente muestra una implementación sencilla:
+En primer lugar, las aplicaciones de consumo implementan la interfaz de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor), que tiene cuatro métodos: [OpenAsync, CloseAsync, ProcessErrorAsync y ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor#methods). Esta interfaz contiene el código real para consumir los eventos que envía Event Hubs. El código siguiente muestra una implementación sencilla:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -150,7 +150,7 @@ Como se explicó anteriormente, la tabla de seguimiento simplifica en gran medid
 
 ## <a name="control-event-processor-host-options"></a>Control de las opciones del host del procesador de eventos
 
-Además, una sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) toma un objeto [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) como parámetro. Utilice este parámetro para controlar el comportamiento del propio [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) define cuatro propiedades y un evento:
+Además, una sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) toma un objeto [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) como parámetro. Utilice este parámetro para controlar el comportamiento del propio [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) define cuatro propiedades y un evento:
 
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): el tamaño máximo de la colección que desea recibir en una invocación de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). Este tamaño no incluye el tamaño mínimo, solo el máximo. Si hay menos mensajes que recibir, **ProcessEventsAsync** se ejecuta con tantos como haya disponibles.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): un valor utilizado por el canal AMQP subyacente para determinar el límite superior de mensajes que debe recibir el cliente. Este valor debe ser superior o igual a [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
@@ -163,7 +163,7 @@ Además, una sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microsoft.a
 Así es cómo funciona la época de recepción:
 
 ### <a name="with-epoch"></a>Con época
-La época es un identificador único (valor de tiempo) que usa el servicio para aplicar la propiedad de la partición o de la concesión. Para crear un receptor de época se usa el método [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Este método crea un receptor basado en época. El receptor se crea para una partición de centro de eventos específica desde el grupo de consumidores especificado.
+La época es un identificador único (valor de tiempo) que usa el servicio para aplicar la propiedad de la partición o de la concesión. Para crear un receptor de época se usa el método [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver). Este método crea un receptor basado en época. El receptor se crea para una partición de centro de eventos específica desde el grupo de consumidores especificado.
 
 La característica de época ofrece a los usuarios la posibilidad de garantizar que solo hay un receptor en un grupo de consumidores en cualquier momento dado, con las siguientes reglas:
 
@@ -172,7 +172,7 @@ La característica de época ofrece a los usuarios la posibilidad de garantizar 
 - Si hay un receptor con un valor de época de e1 y se crea un receptor con un valor de época de e2 donde e1 > e2 y, a continuación, la creación de e2 generará un error que indica que ya existe un receptor con la época e1.
 
 ### <a name="no-epoch"></a>No hay época
-Creará un receptor no basado en época mediante el método [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
+Creará un receptor no basado en época mediante el método [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver). 
 
 Hay algunos escenarios en el procesamiento de streaming en los que a los usuarios les gustaría crear varios receptores en un solo grupo de consumidores. Para admitir estos escenarios, tenemos la posibilidad de crear un receptor sin época y, en este caso, se permiten hasta cinco receptores simultáneos en el grupo de consumidores.
 

@@ -3,15 +3,15 @@ title: 'Notificación de mantenimiento planeado: Azure Database for MariaDB'
 description: En este artículo se describe la característica Notificación de mantenimiento planeado en Azure Database for MariaDB
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c290236dfe7e88999847f8cb0d66b2d3c868c1ab
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a206d108b0935836fbc1cd5b7a1987dcf4e4725b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453293"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664272"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificación de mantenimiento planeado en Azure Database for MariaDB
 

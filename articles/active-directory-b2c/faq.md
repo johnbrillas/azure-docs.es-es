@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108729"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660291"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -96,7 +96,7 @@ Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Ad
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 
-No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Microsoft Graph API](manage-user-accounts-graph-api.md) para la migración de usuarios. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
+No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Microsoft Graph API](microsoft-graph-operations.md) para la migración de usuarios. Consulte la [guía de migración para el usuario](user-migration.md) para detalles.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>¿Mi aplicación puede abrir páginas de Azure AD B2C dentro de un iFrame?
 

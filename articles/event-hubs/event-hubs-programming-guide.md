@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo escribir 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131243"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623055"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guía de programación de .NET para Azure Event Hubs (paquete heredado Microsoft.Azure.EventHubs)
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](./event-hubs-about.md).
@@ -97,7 +97,7 @@ Un único lote no debe superar el límite de 1 MB de un evento. Además, cada m
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar de forma asincrónica y enviar a escala
 
-Los eventos se envían a un centro de eventos de forma asincrónica. Al enviar de forma asincrónica aumenta la velocidad a la que un cliente es capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devuelve un objeto [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1). Puede usar la clase [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) en el cliente para controlar opciones de reintento del cliente.
+Los eventos se envían a un centro de eventos de forma asincrónica. Al enviar de forma asincrónica aumenta la velocidad a la que un cliente es capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devuelve un objeto [Task](/dotnet/api/system.threading.tasks.task). Puede usar la clase [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) en el cliente para controlar opciones de reintento del cliente.
 
 ## <a name="event-consumers"></a>Consumidores de eventos
 La clase [EventProcessorHost][] procesa los datos de Event Hubs. Debe usar esta implementación para generar los lectores de eventos en la plataforma .NET. [EventProcessorHost][] proporciona un entorno de tiempo de ejecución seguro, seguro para subprocesos y de varios procesos para las implementaciones de procesadores de eventos que también ofrecen administración de concesión de puntos de comprobación y particiones.

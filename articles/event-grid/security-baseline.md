@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e085c5c2dbb608692ff7e766744743d3f640387b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341042"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633212"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Línea de base de seguridad de Azure para Event Grid
 
@@ -58,7 +58,7 @@ de tráfico.
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -293,9 +293,9 @@ El control de acceso basado en roles de Azure (RBAC de Azure) permite administra
 
 - [Autorización de acceso a recursos de Event Grid](security-authorization.md)
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -696,7 +696,7 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de s
 
 Azure Resource Manager tiene la capacidad de exportar la plantilla en notación de objetos JavaScript (JSON), que se debe revisar para asegurarse de que las configuraciones cumplan los requisitos de seguridad de la organización antes de realizar implementaciones.
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -738,9 +738,9 @@ Azure Resource Manager tiene la capacidad de exportar la plantilla en notación 
 
 **Guía**: si usa definiciones personalizadas de Azure Policy para los recursos de Event Grid u otros relacionados, use Azure Repos para almacenar y administrar el código de forma segura.
 
-- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/index)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -804,7 +804,7 @@ Use identidades administradas con Azure Key Vault para simplificar la administra
 
 - [Creación de un almacén de claves](../key-vault/general/quick-create-portal.md)
 
-- [Autenticación en Key Vault](../key-vault/general/authentication.md)
+- [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
 
 - [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

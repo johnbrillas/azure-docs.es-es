@@ -12,41 +12,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 068296a02af0abd2fb18d284fdaf01b7c1b198fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655976"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631149"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Conexión de máquinas virtuales de Azure Stack Hub a Azure Sentinel
-
-
-
 
 Con Azure Sentinel, puede supervisar las máquinas virtuales que se ejecutan en Azure y Azure Stack Hub en un solo lugar. Para incorporar sus máquinas de Azure Stack a Azure Sentinel, primero debe agregar la extensión de máquina virtual a las máquinas virtuales de Azure Stack Hub existentes. 
 
 Después de conectar las máquinas de Azure Stack Hub, elija de una galería de paneles que exponen información basada en los datos. Estos paneles se pueden personalizar fácilmente en función de sus necesidades.
-
-
 
 ## <a name="add-the-virtual-machine-extension"></a>Adición de la extensión de máquina virtual 
 
 Agregue la extensión de máquina virtual **Azure Monitor, Update and Configuration Management** a las máquinas virtuales que se ejecutan en Azure Stack Hub. 
 
 1. En una nueva pestaña del explorador, inicie sesión en el portal de [Azure Stack Hub](/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Vaya a la página **Máquinas virtuales** y seleccione la máquina virtual que desea proteger con Azure Sentinel. Para obtener información sobre cómo crear una máquina virtual en Azure Stack Hub, consulte [Creación de una máquina virtual Windows Server con el portal de Azure Stack Hub](/azure-stack/user/azure-stack-quick-windows-portal) o [Creación de una VM de servidor Linux mediante el portal de Azure Stack Hub](/azure-stack/user/azure-stack-quick-linux-portal).
-3. Seleccione **Extensiones**. Se muestra la lista de extensiones de máquina virtual instaladas en esta máquina virtual.
-4. Haga clic en la pestaña **Agregar**. Se abre la hoja del menú **Nuevo recurso** y muestra la lista de extensiones de máquina virtual disponibles. 
-5. Seleccione la extensión **Azure Monitor, Update and Configuration Management** y haga clic en **Create** (Crear). Se abre la ventana de configuración **Instalar extensión**.
+
+1. Vaya a la página **Máquinas virtuales** y seleccione la máquina virtual que desea proteger con Azure Sentinel. Para obtener información sobre cómo crear una máquina virtual en Azure Stack Hub, consulte [Creación de una máquina virtual Windows Server con el portal de Azure Stack Hub](/azure-stack/user/azure-stack-quick-windows-portal) o [Creación de una VM de servidor Linux mediante el portal de Azure Stack Hub](/azure-stack/user/azure-stack-quick-linux-portal).
+
+1. Seleccione **Extensiones**. Se muestra la lista de extensiones de máquina virtual instaladas en esta máquina virtual.
+
+1. Haga clic en la pestaña **Agregar**. Se abre la hoja del menú **Nuevo recurso** y muestra la lista de extensiones de máquina virtual disponibles. 
+
+1. Seleccione la extensión **Azure Monitor, Update and Configuration Management** y haga clic en **Create** (Crear). Se abre la ventana de configuración **Instalar extensión**.
 
    ![Configuración de Azure Monitor, Update, and Configuration Management](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
    >[!NOTE]
    > Si no ve la extensión **Azure Monitor, Update and Configuration Management** en Marketplace, póngase en contacto con su operador de Azure Stack Hub para que se la proporcione.
 
-6. En el menú de Azure Sentinel, seleccione **Configuración del área de trabajo** y, después, **Avanzado** y copie el **Id. del área de trabajo** y la **Clave de área de trabajo (clave principal)** . 
+1. En el menú de Azure Sentinel, seleccione **Configuración del área de trabajo** y, después, **Avanzado** y copie el **Id. del área de trabajo** y la **Clave de área de trabajo (clave principal)** . 
+
 1. En la ventana **Instalar extensión** de Azure Stack Hub, péguelos en los campos indicados y haga clic en **Aceptar**.
+
 1. Una vez que se complete la instalación de la extensión, su estado se mostrará como **Aprovisionamiento realizado correctamente**. La máquina virtual puede tardar hasta una hora en aparecer en el portal de Azure Sentinel.
 
 Para más información sobre cómo instalar y configurar el agente para Windows, vea [Conexión de equipos Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
@@ -56,18 +57,23 @@ Para solucionar problemas en Linux del agente, consulte [Solución de problemas 
 En el portal de Azure Sentinel de Azure, en **Virtual Machines**, dispone de información general de todas las máquinas virtuales y los equipos, junto con sus estados. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Cuando deje de ser necesaria, la extensión se puede eliminar de la máquina virtual desde el portal de Azure Stack Hub.
 
 Para eliminar la extensión:
 
 1. Abra el **portal de Azure Stack Hub**.
-2. Vaya a la página **Máquinas virtuales** y seleccione la máquina virtual de la que desea quitar la extensión.
-3. Seleccione **Extensions** (Extensiones) y, después, la extensión **Microsoft.EnterpriseCloud.Monitoring**.
-4. Haga clic en **Uninstall** (Desinstalar) y confirme la opción elegida.
+
+1. Vaya a la página **Máquinas virtuales** y seleccione la máquina virtual de la que desea quitar la extensión.
+
+1. Seleccione **Extensions** (Extensiones) y, después, la extensión **Microsoft.EnterpriseCloud.Monitoring**.
+
+1. Haga clic en **Uninstall** (Desinstalar) y confirme la opción elegida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Transmita datos desde [dispositivos con formatos de error comunes](connect-common-event-format.md) a Azure Sentinel.
+- Transmita datos desde [dispositivos de formato de evento común](connect-common-event-format.md) a Azure Sentinel.

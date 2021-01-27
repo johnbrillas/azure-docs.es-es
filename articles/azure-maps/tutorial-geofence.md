@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997280"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625039"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -471,6 +471,10 @@ En la respuesta GeoJSON anterior, el equipo ha salido de la geovalla del sitio p
 
 
 También puede consultar [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) y [Controladores de eventos admitidos en Event Grid](../event-grid/event-handlers.md) mediante Azure Maps.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

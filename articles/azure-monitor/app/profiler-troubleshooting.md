@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 47a452377c8fed9808957f45fcc4ec686fcef87d
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561042"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675703"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -214,7 +214,7 @@ Para comprobar la configuración que se usó para configurar Azure Diagnostics:
 
 Si la aplicación se conecta a Internet a través de un proxy o un firewall, es posible que tenga que actualizar las reglas para comunicarse con el servicio de Profiler.
 
-Las direcciones IP que se usan en Application Insights Profiler se incluyen en la etiqueta de servicio de Azure Monitor. Para obtener más información, consulte la [documentación sobre las etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Las direcciones IP que se usan en Application Insights Profiler se incluyen en la etiqueta de servicio de Azure Monitor. Para obtener más información, consulte la [documentación sobre las etiquetas de servicio](../../virtual-network/service-tags-overview.md).
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888774"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673339"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub
 
@@ -22,13 +22,14 @@ Key Vault es un lugar seguro para almacenar claves. Los usuarios empresariales d
 
 ## <a name="generate-credential"></a>Generación de una credencial
 Para generar una clave para acceder a Key Vault, ejecute el comando siguiente en el equipo local:
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 El ámbito especificado por el parámetro `--scopes` limita el acceso de la clave al recurso.  Solo puede acceder a la caja fuerte.
 
 Con resultados:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -59,12 +60,12 @@ Copie el nombre de la credencial, por ejemplo, `azure-cli-2020-01-19-04-39-02`. 
 ## <a name="generate-full-scope-azure-credential"></a>Generación de una credencial de Azure de ámbito completo
 Esta es la llave maestra que abre todas las puertas del edificio. El procedimiento es similar al paso anterior, pero aquí cambiamos el ámbito para generar la llave maestra:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Una vez más, resultados:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -84,7 +85,7 @@ Copie toda la cadena JSON.  Vuelva al panel de **Key Vault**. Abra el menú **Se
 ## <a name="combine-credentials-in-github-actions"></a>Combinación de credenciales en Acciones de GitHub
 Establezca las credenciales que se usan cuando se ejecuta la canalización CI/CD:
 
-```
+```console
 on: [push]
 
 jobs:

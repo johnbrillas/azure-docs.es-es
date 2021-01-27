@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3b61df954e913671eafff4b739e0f53a4d420c28
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5aefe869041d9fff8112b6aa380961ca6568ae0b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117306"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673576"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guía de diseño de tablas distribuidas mediante un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -96,7 +96,7 @@ Los datos almacenados en la columna de distribución se pueden actualizar. Las a
 
 La elección de una columna de distribución es una decisión de diseño importante, puesto que los valores de esta columna determinan cómo se distribuyen las filas. La mejor opción depende de varios factores y, normalmente, supone tener que buscar un compromiso. Una vez que se elige una columna de distribución, no se puede cambiar.  
 
-Si no eligió la columna más adecuada la primera vez, puede usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para volver a crear la tabla con una columna de distribución diferente.
+Si no eligió la columna más adecuada la primera vez, puede usar [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para volver a crear la tabla con una columna de distribución diferente.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Elección de una columna de distribución con datos que se distribuyen de manera uniforme
 
@@ -133,7 +133,7 @@ Después de cargar datos en una tabla distribuida por hash, compruebe con qué u
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Determinar si la tabla tiene asimetría de datos
 
-Una forma rápida de comprobar la asimetría de datos consiste en usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). El siguiente código SQL devuelve el número de filas de la tabla que están almacenadas en cada una de las 60 distribuciones. Para obtener el máximo rendimiento equilibrado, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
+Una forma rápida de comprobar la asimetría de datos consiste en usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). El siguiente código SQL devuelve el número de filas de la tabla que están almacenadas en cada una de las 60 distribuciones. Para obtener el máximo rendimiento equilibrado, las filas de la tabla distribuida se deben repartir uniformemente entre todas las distribuciones.
 
 ```sql
 -- Find data skew for a distributed table
@@ -183,7 +183,7 @@ Como no se puede cambiar la columna de distribución de una tabla existente, la 
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Volver a crear la tabla con una columna de distribución nueva
 
-En este ejemplo se usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para volver a crear una tabla con una columna de distribución por hash diferente.
+En este ejemplo se usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para volver a crear una tabla con una columna de distribución por hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para crear una tabla distribuida, use una de estas instrucciones:
 
-- [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT (grupo de SQL dedicado)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: 3060bd6ea8d7fbc4a4bf005b84cd07d420987ab6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696321"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675536"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Habilitación de Snapshot Debugger para aplicaciones .NET y .NET Core en Azure Functions
 
@@ -22,7 +22,7 @@ Para la mayoría de las aplicaciones, los niveles de servicio Gratis y Compartid
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Habilitar la supervisión de Application Insights en la aplicación de funciones](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#add-to-an-existing-function-app)
+* [Habilitar la supervisión de Application Insights en la aplicación de funciones](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
 ## <a name="enable-snapshot-debugger"></a> Habilitación de Snapshot Debugger
 
@@ -147,5 +147,5 @@ Recomendamos que tenga habilitado Snapshot Debugger en todas las aplicaciones p
 
 - Genere tráfico para la aplicación que pueda desencadenar una excepción. A continuación, espere de 10 a 15 minutos para que se empiecen a enviar instantáneas a la instancia de Application Insights.
 - [Vea las instantáneas](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) en Azure Portal.
-- Personalice la configuración de Snapshot Debugger según su caso de uso en la aplicación de funciones. Para obtener más información, vea la [configuración de instantáneas en host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsightssnapshotconfiguration).
+- Personalice la configuración de Snapshot Debugger según su caso de uso en la aplicación de funciones. Para obtener más información, vea la [configuración de instantáneas en host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
 - Por ayuda para solucionar problemas de Snapshot Debugger, consulte la sección [Solución de problemas de Snapshot Debugger](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387044"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674481"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
@@ -53,7 +53,7 @@ Las [transformaciones de notificaciones](claimstransformations.md) son funciones
 
 ### <a name="customize-and-localize-your-ui"></a>Personalización y localización de la interfaz de usuario
 
-Si desea recopilar información de los usuarios presentando una página en su explorador web, use el [perfil técnico autoafirmado](self-asserted-technical-profile.md). Puede editar el perfil técnico autoafirmado para [agregar notificaciones y personalizar la entrada de usuario](custom-policy-configure-user-input.md).
+Si desea recopilar información de los usuarios presentando una página en su explorador web, use el [perfil técnico autoafirmado](self-asserted-technical-profile.md). Puede editar el perfil técnico autoafirmado para [agregar notificaciones y personalizar la entrada de usuario](./configure-user-input.md).
 
 Para [personalizar la interfaz de usuario](customize-ui-with-html.md) para su perfil técnico autoafirmado, especifique una dirección URL en el elemento [definición de contenido](contentdefinitions.md) con contenido HTML personalizado. En el perfil técnico autoafirmado, apunte a este identificador de definición de contenido.
 
@@ -133,11 +133,11 @@ Dentro de una directiva personalizada de Azure AD B2C, puede integrar su propia 
 
 - Cree la lógica dentro de la **directiva de extensión** o la **directiva del usuario de confianza**. Puede agregar nuevos elementos, lo que invalidará la directiva base haciendo referencia al mismo identificador. Esto le permitirá escalar horizontalmente el proyecto mientras se facilita la actualización de la directiva base posteriormente si Microsoft lanza nuevos paquetes de inicio.
 - En la **directiva base**, recomendamos encarecidamente evitar realizar cualquier tipo de cambio.  Cuando sea necesario, realice comentarios donde se hayan hecho los cambios.
-- Al invalidar un elemento, como los metadatos del perfil técnico, evite copiar todo el perfil técnico de la directiva base. En su lugar, copie solo la sección necesaria del elemento. Consulte [Deshabilitación de la comprobación de correo electrónico](custom-policy-disable-email-verification.md) para ver un ejemplo de cómo hacer el cambio.
+- Al invalidar un elemento, como los metadatos del perfil técnico, evite copiar todo el perfil técnico de la directiva base. En su lugar, copie solo la sección necesaria del elemento. Consulte [Deshabilitación de la comprobación de correo electrónico](./disable-email-verification.md) para ver un ejemplo de cómo hacer el cambio.
 - Para reducir la duplicación de perfiles técnicos, donde se comparte la funcionalidad básica, use la [inclusión del perfil técnico](technicalprofiles.md#include-technical-profile).
 - Evite escribir en el directorio de Azure AD durante el inicio de sesión, lo que puede provocar problemas de limitación.
 - Si la directiva tiene dependencias externas, como la API de REST, asegúrese de que tengan alta disponibilidad.
-- Para lograr una mejor experiencia de usuario, asegúrese de que las plantillas HTML personalizadas se implementan globalmente con la [entrega de contenido en línea](https://docs.microsoft.com/azure/cdn/). Azure Content Delivery Network (CDN) le permite reducir los tiempos de carga, ahorrar ancho de banda y acelerar la capacidad de respuesta.
+- Para lograr una mejor experiencia de usuario, asegúrese de que las plantillas HTML personalizadas se implementan globalmente con la [entrega de contenido en línea](../cdn/index.yml). Azure Content Delivery Network (CDN) le permite reducir los tiempos de carga, ahorrar ancho de banda y acelerar la capacidad de respuesta.
 - Si desea hacer un cambio en el recorrido del usuario. Copie todo el recorrido del usuario de la directiva base en la directiva de extensión. Proporcione un identificador de recorrido del usuario único al recorrido del usuario que ha copiado. A continuación, en la [directiva del usuario de confianza](relyingparty.md), cambie el elemento del [recorrido del usuario predeterminado](relyingparty.md#defaultuserjourney) para apuntar al nuevo recorrido del usuario.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -168,9 +168,9 @@ Empiece a trabajar con la directiva personalizada de Azure AD B2C:
 
 Después de configurar y probar la directiva de Azure AD B2C, puede empezar a personalizar la directiva. Consulte los artículos siguientes para obtener información sobre cómo:
 
-- [Agregar notificaciones y personalizar la entrada de usuario](custom-policy-configure-user-input.md) mediante directivas personalizadas. Aprenda a definir una notificación y agregue una notificación a la interfaz de usuario personalizando algunos de los perfiles técnicos del paquete de inicio.
+- [Agregar notificaciones y personalizar la entrada de usuario](./configure-user-input.md) mediante directivas personalizadas. Aprenda a definir una notificación y agregue una notificación a la interfaz de usuario personalizando algunos de los perfiles técnicos del paquete de inicio.
 - [Personalizar la interfaz de usuario](customize-ui-with-html.md) de la aplicación mediante una directiva personalizada. Aprenda a crear su propio contenido HTML y personalice la definición de contenido.
-- [Encontrar la interfaz de usuario](custom-policy-localization.md) de la aplicación mediante una directiva personalizada. Aprenda a configurar la lista de idiomas admitidos y proporcione etiquetas específicas del idioma agregando el elemento de recursos localizado.
-- Durante el desarrollo y las pruebas de la directiva, puede [deshabilitar la comprobación de correo electrónico](custom-policy-disable-email-verification.md). Aprenda a sobrescribir los metadatos de un perfil técnico.
-- [Configurar el inicio de sesión con una cuenta de Google](identity-provider-google-custom.md) mediante directivas personalizadas. Aprenda a crear un nuevo proveedor de notificaciones con el perfil técnico de OAuth2. A continuación, personalice el recorrido del usuario para incluir la opción de inicio de sesión de Google.
+- [Encontrar la interfaz de usuario](./language-customization.md) de la aplicación mediante una directiva personalizada. Aprenda a configurar la lista de idiomas admitidos y proporcione etiquetas específicas del idioma agregando el elemento de recursos localizado.
+- Durante el desarrollo y las pruebas de la directiva, puede [deshabilitar la comprobación de correo electrónico](./disable-email-verification.md). Aprenda a sobrescribir los metadatos de un perfil técnico.
+- [Configurar el inicio de sesión con una cuenta de Google](./identity-provider-google.md) mediante directivas personalizadas. Aprenda a crear un nuevo proveedor de notificaciones con el perfil técnico de OAuth2. A continuación, personalice el recorrido del usuario para incluir la opción de inicio de sesión de Google.
 - Para diagnosticar problemas con las directivas personalizadas, puede [recopilar registros de Azure Active Directory B2C con Application Insights](troubleshoot-with-application-insights.md). Aprenda a agregar nuevos perfiles técnicos y configure la directiva del usuario de confianza.

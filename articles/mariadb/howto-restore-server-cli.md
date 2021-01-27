@@ -1,19 +1,19 @@
 ---
 title: Copia de seguridad y restauración en Azure Database for MariaDB mediante la CLI de Azure
 description: Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 98782f02c871f676ec3506d0bad45cd8cce079a8
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ceda6c99493818042aa281ab545465e91493a80e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516533"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664841"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure
 

@@ -7,20 +7,16 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538380"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621352"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Conexión de datos desde Azure DDoS Protection
-
-> [!IMPORTANT]
-> El conector de datos de Azure DDoS Protection en Azure Sentinel se encuentra actualmente en versión preliminar pública.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Los ataques de denegación de servicio distribuido (DDoS) intentan agotar los recursos de una aplicación haciendo que esta no esté disponible para los usuarios legítimos. Los ataques DDoS pueden ir dirigidos a cualquier punto de conexión que sea públicamente accesible a través de Internet. [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md), junto con los procedimientos recomendados de diseño de aplicaciones, constituyen una defensa sólida frente a los ataques DDoS. Los registros de Azure DDoS Protection se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar sus investigaciones. 
 

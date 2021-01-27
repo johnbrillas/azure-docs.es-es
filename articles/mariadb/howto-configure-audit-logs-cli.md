@@ -1,18 +1,18 @@
 ---
 title: Acceso a los registros de auditoría de Azure Database for MariaDB mediante la CLI de Azure
 description: En este artículo se describe cómo configurar los registros de auditoría de Azure Database for MariaDB, y acceder a ellos, mediante la CLI de Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+author: savjani
+ms.author: pariks
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8e532902e1e6da90d4c81320b34a0b2b5dd1133f
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 57fc79e88e3268c37dd932a5618bd661f000e09c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518114"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665181"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configuración de los registros de auditoría de Azure Database for Maria DB y acceso a ellos en el CLI de Azure
 

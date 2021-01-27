@@ -3,15 +3,15 @@ title: 'Planes de tarifa: Azure Database for MariaDB'
 description: Obtenga información sobre los distintos planes de tarifa para Azure Database for MariaDB, incluidas las generaciones de procesos, los tipos de almacenamiento, el tamaño de almacenamiento, los núcleos virtuales, la memoria y los períodos de retención de copias de seguridad.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536292"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664255"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 

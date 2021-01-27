@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c620aa60e134379614a905226caa4a66d179fae
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323596"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673542"
 ---
 # <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Uso de la propiedad IDENTITY para crear claves suplentes mediante un grupo de SQL dedicado en AzureSynapse Analytics
 
@@ -26,7 +26,7 @@ En este artículo, encontrará recomendaciones y ejemplos de uso de la propiedad
 
 Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.
 > [!NOTE]
-> En Azure Synapse Analytics, el valor IDENTITY aumenta por sí mismo en cada distribución y no se superpone con los valores IDENTITY de otras distribuciones.  No se garantiza que el valor de IDENTITY de Synapse sea único si el usuario inserta explícitamente un valor duplicado con “SET IDENTITY_INSERT ON” o propaga IDENTITY. Para detalles, consulte [CREATE TABLE (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> En Azure Synapse Analytics, el valor IDENTITY aumenta por sí mismo en cada distribución y no se superpone con los valores IDENTITY de otras distribuciones.  No se garantiza que el valor de IDENTITY de Synapse sea único si el usuario inserta explícitamente un valor duplicado con “SET IDENTITY_INSERT ON” o propaga IDENTITY. Para detalles, consulte [CREATE TABLE (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true). 
 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creación de una tabla con una columna IDENTITY
@@ -168,7 +168,7 @@ Para obtener más información sobre la carga de datos, consulte [Diseño de un 
 
 ## <a name="system-views"></a>Vistas del sistema
 
-Puede usar la vista del catálogo [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para identificar una columna que tiene la propiedad IDENTITY.
+Puede usar la vista del catálogo [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para identificar una columna que tiene la propiedad IDENTITY.
 
 Para ayudarle a comprender mejor el esquema de la base de datos, en este ejemplo se muestra cómo integrar sys.identity_column con otras vistas de catálogo del sistema:
 
@@ -200,12 +200,12 @@ No se puede usar la propiedad IDENTITY:
 
 No se admiten las siguientes funciones relacionadas en el grupo de SQL dedicado:
 
-- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="common-tasks"></a>Tareas comunes
 
@@ -245,5 +245,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general sobre las tablas](sql-data-warehouse-tables-overview.md)
-- [Crear tabla (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Crear tabla (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)

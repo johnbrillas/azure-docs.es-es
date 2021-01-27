@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c4db7bf989a0062f87a5c3e6303ba64224996554
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224241"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660376"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de inicio de sesión en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ La directiva de inicio de sesión contiene las siguientes directrices:
 * Los usuarios pueden iniciar sesión con una cuenta local de Azure AD B2C
 * Registrarse o iniciar sesión con una cuenta de redes sociales
 * Restablecimiento de contraseña
-* Los usuarios no pueden suscribirse a una cuenta local de Azure AD B2C. Para crear una cuenta, un administrador puede usar [MS Graph API](manage-user-accounts-graph-api.md).
+* Los usuarios no pueden suscribirse a una cuenta local de Azure AD B2C. Para crear una cuenta, un administrador puede usar [MS Graph API](microsoft-graph-operations.md).
 
 ![Flujo de edición de perfiles](./media/add-sign-in-policy/sign-in-user-flow.png)
 

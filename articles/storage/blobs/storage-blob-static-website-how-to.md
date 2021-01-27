@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537856"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664756"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedaje de un sitio web estático en Azure Storage
 
@@ -54,9 +54,9 @@ El hospedaje de sitios web estáticos es una característica que permite habilit
 
 <a id="cli"></a>
 
-Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/?view=azure-cli-latest).
+Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/).
 
-1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) o, si ha [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
+1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado](/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
 
 2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
 

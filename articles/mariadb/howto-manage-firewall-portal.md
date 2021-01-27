@@ -3,15 +3,15 @@ title: Administración de reglas de firewall en Azure Database for MariaDB media
 description: Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a708326db1a782cf3ded5f9108e1b87c6d53fe20
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021782"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665062"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal
 Las reglas de firewall de nivel de servidor se pueden usar para administrar el acceso a un servidor de Azure Database for MariaDB desde una dirección IP o desde un intervalo de direcciones IP específicos.

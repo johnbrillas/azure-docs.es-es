@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 9f8f697da7499d370c96b77e7e543dec9fbafa3e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033343"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664102"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -90,7 +90,7 @@ Cree un nuevo clúster y no use el Acuerdo de Nivel de Servicio de tiempo de act
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Use el comando [`az aks update`][az-aks-nodepool-update] para actualizar el clúster existente:
+Use el comando [`az aks update`][az-aks-update] para actualizar el clúster existente:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
@@ -135,6 +135,6 @@ Configure el clúster para [limitar el tráfico de salida](limit-egress-traffic.
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
+[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

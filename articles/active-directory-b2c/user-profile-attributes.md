@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178728"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675753"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 
@@ -160,7 +160,7 @@ En los escenarios de migración de usuarios, si las cuentas que se van a migrar 
 
 ## <a name="mfa-phone-number-attribute"></a>Atributo de número de teléfono para MFA
 
-Cuando se usa un teléfono para autenticación multifactor (MFA), el teléfono móvil se usa para comprobar la identidad del usuario. Para [agregar](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) un número de teléfono nuevo mediante programación, [actualizar](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [obtener](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)o [eliminar](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) el número de teléfono, use el [método de autenticación de teléfono](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod) de Graph API de MS.
+Cuando se usa un teléfono para autenticación multifactor (MFA), el teléfono móvil se usa para comprobar la identidad del usuario. Para [agregar](/graph/api/authentication-post-phonemethods) un número de teléfono nuevo mediante programación, [actualizar](/graph/api/b2cauthenticationmethodspolicy-update), [obtener](/graph/api/b2cauthenticationmethodspolicy-get)o [eliminar](/graph/api/phoneauthenticationmethod-delete) el número de teléfono, use el [método de autenticación de teléfono](/graph/api/resources/phoneauthenticationmethod) de Graph API de MS.
 
 En las [directivas personalizadas](custom-policy-overview.md) de Azure AD B2C, el número de teléfono está disponible a través del tipo de notificación `strongAuthenticationPhoneNumber`.
 

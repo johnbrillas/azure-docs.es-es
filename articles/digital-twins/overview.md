@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400614"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664034"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -33,6 +33,8 @@ Este es un resumen de las características proporcionadas por Azure Digital Twin
 En Azure Digital Twins, se definen las entidades digitales que representan las personas, los lugares y las cosas del entorno físico mediante tipos de gemelos personalizados denominados [**modelos**](concepts-models.md). 
 
 Puede pensar en estas definiciones de modelo como un vocabulario especializado para describir su negocio. Para una solución de administración de edificios, por ejemplo, puede definir modelos como "edificio", "planta" y "ascensor". Después, puede crear **gemelos digitales** basados en estos modelos para representar su entorno específico.
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 Los modelos se definen en un lenguaje similar a JSON denominado [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), y describen gemelos en términos de sus propiedades de estado, eventos de telemetría, comandos, componentes y relaciones.
 * Los modelos definen **relaciones semánticas** entre las entidades para que pueda conectar su gemelos a un gráfico de información que refleje sus interacciones. Puede considerar los modelos como nombres en una descripción de su mundo y las relaciones como verbos.

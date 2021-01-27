@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42880eed3c694029ef70ee29a00a9ade7f1d398f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058997"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675159"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 | token_endpoint_auth_method | No | Especifica cómo Azure AD B2C envía el encabezado de autenticación al punto de conexión del token. Valores posibles: `client_secret_post` (valor predeterminado) y `client_secret_basic` (versión preliminar pública). Para obtener más información, consulte la sección [Autenticación de cliente de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | No | Algoritmo de firma utilizado para las aserciones de cliente cuando los metadatos de **token_endpoint_auth_method** se establecen en `private_key_jwt`. Valores posibles: `RS256` (predeterminado). |
-| SingleLogoutEnabled | No | Indica si, durante el inicio de sesión, el perfil técnico intenta cerrar sesión desde los proveedores de identidades federados. Para obtener más información, consulte [Cierre de sesión de Azure AD B2C](session-overview.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`. |
+| SingleLogoutEnabled | No | Indica si, durante el inicio de sesión, el perfil técnico intenta cerrar sesión desde los proveedores de identidades federados. Para obtener más información, consulte [Cierre de sesión de Azure AD B2C](./session-behavior.md#sign-out).  Valores posibles: `true` (opción predeterminada) o `false`. |
 
 ```xml
 <Metadata>

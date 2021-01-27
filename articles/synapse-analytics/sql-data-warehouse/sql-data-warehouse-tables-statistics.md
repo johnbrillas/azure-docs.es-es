@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e7fc89dcc0e7938ea2958d5c804abe82e20f186d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447944"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673373"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Estadísticas de tablas para el grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -70,9 +70,9 @@ La creación automática de estadísticas se realiza de forma sincrónica, por l
 Para evitar la degradación del rendimiento cuantificable, debe asegurarse de que antes se han creado estadísticas mediante la ejecución de la carga de trabajo de la prueba comparativa antes de la generación de perfiles del sistema.
 
 > [!NOTE]
-> La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en un contexto de usuario diferente.
+> La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en un contexto de usuario diferente.
 
-Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest):
+Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -188,7 +188,7 @@ Por el contrario, es posible que las estadísticas en una columna de género de 
 
 Si el grupo de SQL dedicado contiene solo un género y un nuevo requisito da como resultado varios géneros, tiene que actualizar las estadísticas en la columna de género.
 
-Para más información, consulte [Estadísticas](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) en la guía general.
+Para más información, consulte [Estadísticas](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) en la guía general.
 
 ## <a name="implementing-statistics-management"></a>Implementación de administración de estadísticas
 
@@ -204,7 +204,7 @@ Los siguientes principios fundamentales se proporcionan para actualizar las esta
 - Considere la posibilidad de actualizar columnas de distribución estática con menor frecuencia.
 - Recuerde que cada objeto de estadística se actualiza en secuencia. Implementar solo `UPDATE STATISTICS <TABLE_NAME>` no es siempre recomendable, especialmente para las tablas amplias con muchos objetos de estadísticas.
 
-Para obtener más información, consulte [Estimación de cardinalidad](/sql/relational-databases/performance/cardinality-estimation-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obtener más información, consulte [Estimación de cardinalidad](/sql/relational-databases/performance/cardinality-estimation-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="examples-create-statistics"></a>Ejemplos: Creación de estadísticas
 
@@ -273,7 +273,7 @@ También puede combinar las opciones. En el ejemplo siguiente se crea un objeto 
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obtener la referencia completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="create-multi-column-statistics"></a>Crear estadísticas de varias columnas
 
@@ -466,7 +466,7 @@ Es fácil usar la instrucción UPDATE STATISTICS. Solo tiene que recordar que se
 
 Para obtener una implementación de un procedimiento `UPDATE STATISTICS`, consulte [Tablas temporales](sql-data-warehouse-tables-temporary.md). El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS`, pero el resultado es el mismo.
 
-Para obtener la sintaxis completa, consulte [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para obtener la sintaxis completa, consulte [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="statistics-metadata"></a>Metadatos de las estadísticas
 
@@ -478,13 +478,13 @@ Estas vistas del sistema proporcionan información acerca de las estadísticas:
 
 | Vista de catálogo | Descripción |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada columna. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada objeto de la base de datos. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada esquema de la base de datos. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada objeto de estadísticas. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada tabla (incluye tablas externas). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Una fila por cada tipo de datos. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de la base de datos. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada esquema de la base de datos. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada objeto de estadísticas. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tabla (incluye tablas externas). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Una fila por cada tipo de datos. |
 
 ### <a name="system-functions-for-statistics"></a>Funciones del sistema para las estadísticas
 
@@ -492,8 +492,8 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 | Función del sistema | Descripción |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Fecha en que se actualizó por última vez el objeto de estadísticas. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Información resumida y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Fecha en que se actualizó por última vez el objeto de estadísticas. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Información resumida y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar funciones y columnas de estadísticas en una vista
 
