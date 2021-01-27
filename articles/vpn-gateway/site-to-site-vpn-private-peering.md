@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657897"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880532"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configuración de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute
 
@@ -72,7 +72,7 @@ En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexi�
 
 ## <a name="portal-steps"></a><a name="portal"></a>Pasos del portal
 
-1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. 
+1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de sitio a sitio](./tutorial-site-to-site-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. 
 
    Las SKU con redundancia de zona tienen "AZ" al final. Por ejemplo, **VpnGw1AZ**. Las puertas de enlace con redundancia de zona solo están disponibles en las regiones donde está disponible el servicio de zona de disponibilidad. Para información sobre las regiones en las que se admiten zonas de disponibilidad, consulte [Regiones que admiten zonas de disponibilidad](../availability-zones/az-region.md).
 
@@ -89,7 +89,7 @@ En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexi�
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>pasos de PowerShell
 
-1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de una VPN de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. Las SKU con redundancia de zona tienen "AZ" al final. Por ejemplo, VpnGw1AZ.
+1. Configure una conexión de sitio a sitio. Para conocer los pasos, consulte el artículo [Configuración de una VPN de sitio a sitio](./tutorial-site-to-site-portal.md). Asegúrese de elegir una SKU de puerta de enlace con redundancia de zona como puerta de enlace. Las SKU con redundancia de zona tienen "AZ" al final. Por ejemplo, VpnGw1AZ.
 1. Establezca la marca para usar la dirección IP privada en la puerta de enlace con los siguientes comandos de PowerShell:
 
    ```azurepowershell-interactive

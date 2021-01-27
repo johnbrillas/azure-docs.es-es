@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567721"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880464"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Introducción a la evaluación del servidor (migración a Azure VMware Solution)
 
@@ -207,7 +207,7 @@ Una vez determinado el valor de uso efectivo, el ajuste de tamaño del almacenam
 
 Si usa *el ajuste de tamaño como local*, Server Assessment no tiene en cuenta el historial de rendimiento de las máquinas virtuales ni los discos. En su lugar, asigna nodos de AVS según el tamaño asignado en el entorno local. El tipo de almacenamiento predeterminado es vSAN en AVS.
 
-[Obtenga más información](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) sobre cómo revisar una evaluación de Azure VMware Solution.
+[Obtenga más información](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) sobre cómo revisar una evaluación de Azure VMware Solution.
 
 ## <a name="confidence-ratings"></a>Clasificaciones de confianza
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746325"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880294"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -49,7 +49,7 @@ En esta tabla se enumeran los pasos y requisitos necesarios para hacer que su of
 ||Dynamics|<ul><li>Tiene una inscripción activa en el nivel Premium de ISV Connect.</li></ul>|Venta conjunta con incentivos de Business Applications|
 |||
 
-Para más información sobre los requisitos para las ofertas de soluciones de venta conjunta, consulte [Requisitos de estado de venta conjunta](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Para más información sobre los requisitos para las ofertas de soluciones de venta conjunta, consulte [Requisitos de estado de venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Envío de materiales de venta conjunta en el Centro de partners
 

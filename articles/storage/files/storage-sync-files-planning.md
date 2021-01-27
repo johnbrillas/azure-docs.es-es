@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492099"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880582"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -50,6 +50,9 @@ Los grupos de sincronización se implementan en los **servicios de sincronizaci�
 Para poder crear un grupo de sincronización en un servicio de sincronización de almacenamiento, antes es preciso registrar un servidor Windows Server en el servicio. De esta forma se crea un objeto de **servidor registrado**, que representa una relación de confianza entre el servidor o clúster y el servicio de sincronización de almacenamiento. Para registrar un servicio de sincronización de almacenamiento, antes hay que instalar el agente de Azure File Sync en el servidor. Un servidor o un clúster individuales no se puede registrar con varios servicios de sincronización de almacenamiento simultáneos.
 
 Un grupo de sincronización contiene un punto de conexión en la nube, o un recurso compartido de archivos de Azure, y al menos un punto de conexión de servidor. El objeto de punto de conexión de servidor contiene los valores que configuran la funcionalidad de **nube por niveles**, que proporciona la funcionalidad de almacenamiento en caché de Azure File Sync. Para realizar la sincronización con un recurso compartido de archivos de Azure, la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure debe estar en la misma región de Azure que el servicio de sincronización de almacenamiento.
+
+> [!Important]  
+> Puede realizar cambios en cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
 
 ### <a name="management-guidance"></a>Guía de administración
 Al implementar Azure File Sync, se recomienda:
@@ -384,6 +387,6 @@ Si prefiere usar una solución de copia de seguridad local, las copias de seguri
 ## <a name="next-steps"></a>Pasos siguientes
 * [Tenga en cuenta los valores de proxy y firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
-* [Implementación de Azure Files](storage-files-deployment-guide.md)
+* [Implementación de Azure Files](./storage-how-to-create-file-share.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

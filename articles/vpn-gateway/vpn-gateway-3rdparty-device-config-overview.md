@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880159"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.
@@ -27,7 +27,7 @@ La primera configuración del ejemplo consta de un solo túnel VPN S2S entre una
 
 ![Diagrama de túnel VPN S2S único](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Para obtener instrucciones paso a paso para configurar un túnel VPN único, consulte la [configuración de una conexión de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Las siguientes secciones especifican los parámetros de conexión para la configuración de ejemplo y proporcionarán un script de PowerShell para ayudarle a empezar a trabajar.
+Para obtener instrucciones paso a paso para configurar un túnel VPN único, consulte la [configuración de una conexión de sitio a sitio](./tutorial-site-to-site-portal.md). Las siguientes secciones especifican los parámetros de conexión para la configuración de ejemplo y proporcionarán un script de PowerShell para ayudarle a empezar a trabajar.
 
 ### <a name="connection-parameters"></a>Parámetros de conexión
 Esta sección enumera los parámetros para los ejemplos que se describen en las secciones anteriores.
@@ -150,4 +150,3 @@ Al crear la conexión VPN S2S, también tiene la opción de usar [BGP para la pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Configuración activo-activo de puertas de enlace de VPN para conexiones entre locales y de red virtual a red virtual](vpn-gateway-activeactive-rm-powershell.md) para ver las instrucciones paso a paso para configurar puertas de enlace VPN activo-activo.
-

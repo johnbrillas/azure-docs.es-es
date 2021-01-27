@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres en Hyper-V con Az
 description: En este artículo se resumen preguntas comunes sobre la configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V locales a Azure con el sitio de Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754358"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879451"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
@@ -167,7 +167,7 @@ Las máquinas virtuales de Hyper-V se pueden replicar cada treinta segundos (exc
 
 ### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>¿Se pueden configurar juntos Azure Site Recovery y réplica de Hyper-V en una máquina de Hyper-V?
 
-Sí, tanto Azure Site Recovery como réplica de Hyper-V se pueden configurar juntos en una máquina. Sin embargo, la máquina tendrá que protegerse como máquina física y se replicará a Azure mediante un servidor de configuración o proceso. Obtenga más información sobre cómo proteger las máquinas físicas [aquí](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture).
+Sí, tanto Azure Site Recovery como réplica de Hyper-V se pueden configurar juntos en una máquina. Sin embargo, la máquina tendrá que protegerse como máquina física y se replicará a Azure mediante un servidor de configuración o proceso. Obtenga más información sobre cómo proteger las máquinas físicas [aquí](./physical-azure-architecture.md).
 
 ### <a name="can-i-extend-replication"></a>¿Se puede extender la replicación?
 No se admite la replicación extendida o encadenada. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

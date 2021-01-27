@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897865"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881051"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -22,7 +22,7 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o 
 > [!NOTE]
 > Si busca contenido que le ayude a empezar a trabajar con AzCopy, vea cualquiera de los artículos siguientes:
 > - [Introducción a AzCopy](storage-use-azcopy-v10.md)
-> - [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+> - [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 > - [Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ Los niveles de registro disponibles son: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ER
 Si quiere quitar todos los archivos de registro y de plan de la máquina local para ahorrar espacio en disco, use el comando `azcopy jobs clean`.
 
 Para quitar los archivos de registro y de plan asociados a un solo trabajo, use `azcopy jobs rm <job-id>`. Reemplace el marcador de posición `<job-id>` en este ejemplo por el identificador del trabajo.
-
-
