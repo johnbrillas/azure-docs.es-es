@@ -3,27 +3,27 @@ title: Configuración de una galería de imágenes compartidas en Azure DevTest 
 description: Aprenda a configurar una galería de imágenes compartidas en Azure DevTest Labs, que permite a los usuarios acceder a imágenes desde una ubicación compartida mientras se crean recursos de laboratorio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: febcff640efc29eb4916250366641635f9d8721e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328001"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788428"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configuración de una galería de imágenes compartidas en Azure DevTest Labs
-DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Esta característica permite que los usuarios de laboratorios accedan a imágenes de una ubicación compartida cuando crean recursos de laboratorio. También facilita la estructuración y la organización de las imágenes de máquina virtual administradas y personalizadas. La característica Shared Image Gallery admite lo siguiente:
+DevTest Labs ofrece ahora la característica [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Esta característica permite que los usuarios de laboratorios accedan a imágenes de una ubicación compartida cuando crean recursos de laboratorio. También facilita la estructuración y la organización de las imágenes de máquina virtual administradas y personalizadas. La característica Shared Image Gallery admite lo siguiente:
 
 - Replicación administrada global de imágenes.
 - Control de versiones y agrupación de imágenes para facilitar su administración.
 - Alta disponibilidad para sus imágenes con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones que admitan zonas de disponibilidad. ZRS ofrece mejor resistencia a errores de zona.
 - Uso compartido entre suscripciones e, incluso, entre inquilinos, con el control de acceso basado en roles de Azure (Azure RBAC).
 
-Para más información, consulte la [documentación de Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). 
+Para más información, consulte la [documentación de Shared Image Gallery](../virtual-machines/shared-image-galleries.md). 
  
 Si tiene un gran número de imágenes administradas que se deben mantener y quiere que estén disponibles en toda la empresa, puede usar una galería de imágenes compartidas como repositorio que facilite la tarea de actualizar y compartir las imágenes. Como propietario de un laboratorio, puede asociar al laboratorio una galería de imágenes compartidas que ya exista. Una vez asociada la galería, los usuarios del laboratorio pueden crear máquinas con estas últimas imágenes. Una ventaja fundamental de esta característica es que ahora DevTest Labs puede aprovechar el uso compartido de imágenes entre laboratorios, suscripciones y regiones. 
 
 > [!NOTE]
-> Para más información sobre los costos asociados al servicio Shared Image Gallery, consulte [Facturación para Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md#billing).
+> Para más información sobre los costos asociados al servicio Shared Image Gallery, consulte [Facturación para Shared Image Gallery](../virtual-machines/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Consideraciones
 - Solo es posible asociar una galería de imágenes compartidas a un laboratorio cada vez. Si quiere asociar otra galería, deberá desasociar la existente y asociar otra. 
@@ -35,7 +35,7 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Todos los servicios** en el menú de navegación izquierdo.
 1. Seleccione **DevTest Labs** en la lista.
-1. En la lista de laboratorios, seleccione el **suyo** .
+1. En la lista de laboratorios, seleccione el **suyo**.
 1. Seleccione **Configuración y directivas** en la sección **Configuración** en el menú de la izquierda.
 1. Seleccione **Galerías de imágenes compartidas** en **Bases para máquinas virtuales** en el menú izquierdo.
 
@@ -45,7 +45,7 @@ Si tiene un gran número de imágenes administradas que se deben mantener y quie
     ![Attach](./media/configure-shared-image-gallery/attach-options.png)
 1. Después de adjuntar la galería de imágenes, selecciónela para ir a la galería adjunta. Configure la galería para **habilitar o deshabilitar** imágenes compartidas para la creación de VM. Seleccione una galería de imágenes de la lista para configurarla. 
 
-    De forma predeterminada **Permitir que se usen todas las imágenes como bases de máquinas virtuales** está establecido en **Sí** . Significa que todas las imágenes disponibles de la galería de imágenes compartidas asociadas estarán disponibles para un usuario de laboratorio al crear una nueva máquina virtual de laboratorio. Si es necesario restringir el acceso a determinadas imágenes, cambie **Permitir que se usen todas las imágenes como bases de máquinas virtuales** a **No** , seleccione las imágenes que desea permitir al crear máquinas virtuales y, después, seleccione el botón **Guardar** .
+    De forma predeterminada **Permitir que se usen todas las imágenes como bases de máquinas virtuales** está establecido en **Sí**. Significa que todas las imágenes disponibles de la galería de imágenes compartidas asociadas estarán disponibles para un usuario de laboratorio al crear una nueva máquina virtual de laboratorio. Si es necesario restringir el acceso a determinadas imágenes, cambie **Permitir que se usen todas las imágenes como bases de máquinas virtuales** a **No**, seleccione las imágenes que desea permitir al crear máquinas virtuales y, después, seleccione el botón **Guardar**.
 
     :::image type="content" source="./media/configure-shared-image-gallery/enable-disable.png" alt-text="Habilitación o deshabilitación de imágenes":::
 

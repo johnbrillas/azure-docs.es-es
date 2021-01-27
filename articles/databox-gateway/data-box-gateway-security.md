@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 11122b57a1971f328a8a83c3dea136813426c060
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 13d3809611714992f24a66a96c22074e69fba9bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581386"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786663"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Gateway
 
@@ -85,7 +85,7 @@ En esta sección se describen las características de seguridad de Data Box Gate
 
 Para proteger los discos virtuales de la máquina virtual Data Box Gateway, se recomienda habilitar BitLocker. De forma predeterminada, BitLocker no está habilitado. Para más información, consulte:
 
-- [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Configuración de la compatibilidad con el cifrado en el administrador de Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Compatibilidad con BitLocker en una máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Administración de información personal

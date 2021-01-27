@@ -4,7 +4,6 @@ description: Obtenga información sobre la creación de una máquina virtual con
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
@@ -17,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43c2e2c8905ca60e59caed3fdf1b4920f509fd88
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222605"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783791"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creación de una máquina virtual con una dirección IP privada estática mediante PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Puede crear una máquina virtual (VM) con una dirección IP privada estática. Asigne una dirección IP privada estática en lugar de una dirección dinámica si quiere seleccionar la dirección de una subred que se asignará a una VM. Obtenga más información sobre las [direcciones IP privadas estáticas](./public-ip-addresses.md#allocation-method). Para cambiar una dirección IP privada asignada a una VM existente de dinámica a estática, o para trabajar con direcciones IP públicas, consulte [Incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 

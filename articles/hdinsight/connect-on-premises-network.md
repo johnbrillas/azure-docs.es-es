@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005374"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786527"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -52,7 +52,7 @@ En el diagrama siguiente, las líneas verdes son solicitudes de recursos que fin
 
 Use los documentos siguientes para obtener información sobre cómo crear una instancia de Azure Virtual Network conectada a la red local:
 
-* [Uso de Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Uso de Azure Portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Uso de Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Uso de la CLI de Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358854"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788271"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -112,7 +112,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 Los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) recopilan los archivos de contador y de registros de eventos. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
 
-Para ver consultas de ejemplo, consulte [Ejemplos de Log Analytics en Azure Firewall](log-analytics-samples.md).
+Para ver consultas de ejemplo, consulte [Ejemplos de Log Analytics en Azure Firewall](./firewall-workbook.md).
 
 El [libro de Azure Firewall](firewall-workbook.md) proporciona un lienzo flexible para el análisis de datos de Azure Firewall. Puede utilizarlo para crear informes visuales completos en Azure Portal. Puede acceder a varias instancias de Firewall implementadas en Azure y combinarlas en experiencias interactivas unificadas.
 

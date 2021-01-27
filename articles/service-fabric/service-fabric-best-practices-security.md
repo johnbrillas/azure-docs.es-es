@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257596"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784670"
 ---
 # <a name="azure-service-fabric-security"></a>Seguridad de Azure Service Fabric 
 
@@ -56,7 +56,7 @@ Para implementar certificados desde un almacén de claves colocalizado en un con
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Aplicación de una lista de control de acceso (ACL) a su certificado para el clúster de Service Fabric
 
-El publicador de [extensiones de conjuntos de escalado de máquinas virtuales](/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric se usa para configurar la seguridad de los nodos.
+El publicador de [extensiones de conjuntos de escalado de máquinas virtuales](/cli/azure/vmss/extension) Microsoft.Azure.ServiceFabric se usa para configurar la seguridad de los nodos.
 Para aplicar una ACL a los certificados para los procesos de clúster de Service Fabric, use las siguientes propiedades de plantilla de Resource Manager:
 
 ```json

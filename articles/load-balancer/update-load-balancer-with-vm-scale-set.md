@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
-ms.openlocfilehash: f8f664375e53a1cef28b0c7b95207770434f67fa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d5614490bfd2cfb67b6b7afd7b7b8643bbf754bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893243"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790096"
 ---
 # <a name="how-to-updatedelete-azure-load-balancer-used-by-virtual-machine-scale-sets"></a>Cómo actualizar o eliminar la instancia de Azure Load Balancer usada por Virtual Machine Scale Sets
 
 ## <a name="how-to-set-up-azure-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Cómo configurar Azure Load Balancer para el escalado horizontal de Virtual Machine Scale Sets
-  * Asegúrese de que Load Balancer tenga configurado un [grupo NAT de entrada](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) y que el conjunto de escalado de máquinas virtuales esté colocado en el grupo de back-end de Load Balancer. Azure Load Balancer creará automáticamente nuevas reglas NAT de entrada en el grupo NAT de entrada cuando se agreguen nuevas instancias de máquina virtual al conjunto de escalado de máquinas virtuales. 
+  * Asegúrese de que Load Balancer tenga configurado un [grupo NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) y que el conjunto de escalado de máquinas virtuales esté colocado en el grupo de back-end de Load Balancer. Azure Load Balancer creará automáticamente nuevas reglas NAT de entrada en el grupo NAT de entrada cuando se agreguen nuevas instancias de máquina virtual al conjunto de escalado de máquinas virtuales. 
   * Para comprobar si el grupo NAT de entrada está correctamente configurado: 
   1. Inicie sesión en Azure Portal en https://portal.azure.com.
   
@@ -35,7 +35,7 @@ Si ve en el panel derecho una lista de reglas creadas para cada instancia del co
 ## <a name="how-to-add-inbound-nat-rules"></a>¿Cómo se agregan reglas NAT de entrada? 
   * No se puede agregar una sola regla NAT de entrada. Sin embargo, se puede agregar un conjunto de reglas NAT de entrada con un intervalo de puertos de front-end y un puerto de back-end definidos para todas las instancias del conjunto de escalado de máquinas virtuales.
   * Para agregar un conjunto completo de reglas NAT de entrada para los conjuntos de escalado de máquinas virtuales, primero debe crear un grupo NAT de entrada en Load Balancer y, luego, hacer referencia a él desde el perfil de red del conjunto de escalado de máquinas virtuales. A continuación, se muestra un ejemplo completo que usa la CLI:
-  * El nuevo grupo NAT de entrada no debe tener un intervalo de puertos de front-end superpuestos con grupos NAT de entrada existentes. Para ver los grupos NAT de entrada existentes configurados, puede usar este [comando de la CLI](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list).
+  * El nuevo grupo NAT de entrada no debe tener un intervalo de puertos de front-end superpuestos con grupos NAT de entrada existentes. Para ver los grupos NAT de entrada existentes configurados, puede usar este [comando de la CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list).
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
@@ -92,7 +92,7 @@ az network lb inbound-nat-pool update
    
 1. En la página **Agregar dirección IP de front-end**, escriba los valores y seleccione **Aceptar**.
 
-1. Siga el [paso 5](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) y el [paso 6](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) de este tutorial si se necesitan nuevas reglas de equilibrio de carga
+1. Siga el [paso 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) y el [paso 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) de este tutorial si se necesitan nuevas reglas de equilibrio de carga
 
 1. Si es necesario, cree un conjunto de reglas NAT de entrada con las configuraciones de IP de front-end recién creadas. En la [sección anterior] se puede encontrar un ejemplo.
 

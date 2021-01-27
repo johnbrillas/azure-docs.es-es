@@ -3,12 +3,12 @@ title: Uso de Azure DevTest Labs en varios laboratorios y suscripciones
 description: Aprenda a notificar el uso de Azure DevTest Labs en varios laboratorios y suscripciones.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152196"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789945"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Notificación del uso de Azure DevTest Labs en varios laboratorios y suscripciones
 
@@ -82,5 +82,5 @@ Una vez configurado el sistema y trasladado los datos al almacenamiento a largo 
     ¿Eligen los usuarios tamaños de máquina virtual de alto rendimiento (más caros)?
 -   ¿Qué imágenes de Marketplace se están usando?
 
-    ¿Son las imágenes personalizadas la base más habitual de las máquinas virtuales? ¿Se debe compilar un almacén de imágenes común como [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) o como [imagen de fábrica](image-factory-create.md)?
+    ¿Son las imágenes personalizadas la base más habitual de las máquinas virtuales? ¿Se debe compilar un almacén de imágenes común como [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) o como [imagen de fábrica](image-factory-create.md)?
 -   ¿Qué imágenes personalizadas se usan y cuáles no?

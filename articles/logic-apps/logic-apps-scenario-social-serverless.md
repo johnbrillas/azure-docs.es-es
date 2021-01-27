@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520756"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784819"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
@@ -67,7 +67,7 @@ También puede crear una función de Azure para poder realizar procesamientos pe
 
 ## <a name="process-data-with-azure-functions"></a>Procesamiento de datos con Azure Functions
 
-Antes de crear una función, cree una aplicación de función en la suscripción de Azure. Además, para que la aplicación lógica llame directamente a una función, esta última debe tener un enlace de desencadenador HTTP; por ejemplo, use la plantilla **HttpTrigger**. Obtenga información sobre [cómo crear su primera aplicación de función y función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+Antes de crear una función, cree una aplicación de función en la suscripción de Azure. Además, para que la aplicación lógica llame directamente a una función, esta última debe tener un enlace de desencadenador HTTP; por ejemplo, use la plantilla **HttpTrigger**. Obtenga información sobre [cómo crear su primera aplicación de función y función en Azure Portal](../azure-functions/functions-get-started.md).
 
 En este escenario, use el texto del tweet como el cuerpo de la solicitud de la función de Azure. En el código de la función, defina la lógica que determina si el texto del tweet contiene una palabra clave o frase. Mantenga la función tan sencilla o compleja como sea necesario para el escenario.
 Al final de la función, devuelva una respuesta a la aplicación lógica con algunos datos; por ejemplo, un valor booleano sencillo, como `containsKeyword` o un objeto complejo.

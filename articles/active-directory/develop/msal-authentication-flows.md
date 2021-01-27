@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437877"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755013"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -223,7 +223,7 @@ Esto significa que una de las siguientes condiciones es verdad:
 - Proporcionó una manera para que los usuarios den su consentimiento a la aplicación. Consulte [Solicitud de consentimiento de usuario individual](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Proporcionó una forma para que el administrador de inquilinos dé su consentimiento para la aplicación. Consulte [Consentimiento de administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows. En .NET Core, debe proporcionar el nombre de usuario a IWA, porque .NET Core no puede obtener los nombres de usuario del sistema operativo.
+El flujo de IWA está habilitado para el escritorio. NET, .NET Core y aplicaciones de la Plataforma universal de Windows.
 
 Para más información sobre el consentimiento, consulte [Permiso y consentimiento de v2.0](v2-permissions-and-consent.md).
 

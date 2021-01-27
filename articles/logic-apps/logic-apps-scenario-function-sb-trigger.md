@@ -7,12 +7,12 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7df9ba1318f40de8af392cfaedbe51d7a5df755
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000341"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784942"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Llamada o desencadenamiento de aplicaciones lógicas con Azure Functions y Azure Service Bus
 
@@ -24,7 +24,7 @@ Puede utilizar [Azure Functions](../azure-functions/functions-overview.md) para 
 
 * Un espacio de nombres de Azure Service Bus. Si no tiene un espacio de nombres [creélo primero](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Una aplicación de función, que es un contenedor de las funciones. Si no tiene una aplicación de función, [créela primero](../azure-functions/functions-create-first-azure-function.md) y asegúrese de seleccionar .NET como la pila en tiempo de ejecución.
+* Una aplicación de función, que es un contenedor de las funciones. Si no tiene una aplicación de función, [créela primero](../azure-functions/functions-get-started.md) y asegúrese de seleccionar .NET como la pila en tiempo de ejecución.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5fcb3226eebf39ab18fb3bb24f0521a0523748d4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bc9601dbea5c73c6909bd658f322c345143a526c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134184"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790281"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -194,7 +194,7 @@ Para más información, incluido cómo configurar esta opción, consulte [Azure 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitación del registro de Key Vault](howto-logging.md)
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Azure Monitor](../../azure-monitor/index.yml)
 - Para ver un tutorial que use Azure Key Vault en una aplicación web .NET, consulte [Uso de Azure Key Vault desde una aplicación web](tutorial-net-create-vault-azure-web-app.md).
 - Para conocer las referencias de programación, consulte la [Guía del desarrollador de Azure Key Vault](developers-guide.md).
 - Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)(Cmdlets de Azure Key Vault).

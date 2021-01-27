@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503172"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785827"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registros de Azure Monitor para Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
-El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
+El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](../azure-monitor/platform/activity-log.md). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 Puede ver y analizar los datos del registro de actividad con cualquiera de los métodos siguientes:
 
@@ -112,5 +112,5 @@ La característica de exportación de métricas a registros para Load Balancer t
 * Las métricas de los puertos SNAT usados y las métricas de puertos SNAT asignados no están disponibles actualmente para exportarse como registros.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Revise las métricas disponibles de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [Revise las métricas disponibles de Load Balancer](./load-balancer-standard-diagnostics.md)
+* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

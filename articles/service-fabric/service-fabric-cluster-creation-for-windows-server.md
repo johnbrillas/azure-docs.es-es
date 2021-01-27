@@ -3,12 +3,12 @@ title: Creación de un clúster de Azure Service Fabric independiente
 description: Cree un clúster de Azure Service Fabric en cualquier máquina (física o virtual) que ejecute Windows Server, ya sea local o en una nube.
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843199"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785691"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server. Los clústeres tradicionales de Service Fabric en Azure están disponibles como un servicio administrado, mientras que los clústeres independientes son de autoservicio. Para más información sobre las diferencias, consulte [Comparación de clústeres de Service Fabric de Azure e independientes](./service-fabric-deploy-anywhere.md).
@@ -116,7 +116,7 @@ El paquete en tiempo de ejecución se puede descargar por separado desde otra m�
 *.\ClusterConfig.json* y *.\MicrosoftAzureServiceFabric.cab* son las rutas de acceso a la configuración del clúster y el archivo .cab en tiempo de ejecución, respectivamente.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Paso 2: Conectarse al clúster
-Conéctese al clúster para verificar que el clúster se está ejecutando y está disponible. El módulo ServiceFabric PowerShell está instalado con el paquete en tiempo de ejecución.  Puede conectarse al clúster desde uno de los nodos del clúster o desde un equipo remoto con el entorno de tiempo de ejecución de Service Fabric.  El cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) establece una conexión con el clúster.
+Conéctese al clúster para verificar que el clúster se está ejecutando y está disponible. El módulo ServiceFabric PowerShell está instalado con el paquete en tiempo de ejecución.  Puede conectarse al clúster desde uno de los nodos del clúster o desde un equipo remoto con el entorno de tiempo de ejecución de Service Fabric.  El cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) establece una conexión con el clúster.
 
 Para conectarse a un clúster no seguro, ejecute el siguiente comando de PowerShell:
 
@@ -129,7 +129,7 @@ Por ejemplo:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-Consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md) para ver ejemplos de conexión a un clúster. Después de conectarse al clúster, use el cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar una lista de nodos en el clúster e información sobre el estado de cada uno. **HealthState** debe ser *OK* para cada nodo.
+Consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md) para ver ejemplos de conexión a un clúster. Después de conectarse al clúster, use el cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) para mostrar una lista de nodos en el clúster e información sobre el estado de cada uno. **HealthState** debe ser *OK* para cada nodo.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table

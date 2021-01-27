@@ -3,12 +3,12 @@ title: Trabajo con Reliable Collections
 description: Conozca los procedimientos recomendados para trabajar con Reliable Collections dentro de una aplicación de Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651913"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787882"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
 Service Fabric ofrece un modelo de programación con estado a los desarrolladores de .NET a través de Reliable Collections. En concreto, Service Fabric proporciona un diccionario confiable y clases de cola confiables. Al utilizar estas clases, se crean particiones en el estado (para escalabilidad) y este se replica (para disponibilidad) y se tramita dentro de una partición (para semántica ACID). Veamos un uso típico de un objeto de diccionario de confianza y verá lo que está haciendo realmente.
@@ -226,4 +226,4 @@ Para obtener los procedimientos recomendados sobre el control de versiones de co
 
 Para obtener más información sobre cómo implementar contratos de datos tolerantes a versiones, consulte [Version-Tolerant Serialization Callbacks](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks) (Devoluciones de llamadas en la serialización tolerante a versiones).
 
-Para obtener más información sobre cómo proporcionar una estructura de datos que pueda interoperar entre varias versiones, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1).
+Para obtener más información sobre cómo proporcionar una estructura de datos que pueda interoperar entre varias versiones, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject).

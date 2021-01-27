@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: a193ccd060c75cf4031449ddf3318af6e4691436
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165066"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786476"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -84,7 +84,7 @@ En lugar de preocuparse por la creación y la administración de toda una aplica
 
 > **Cuándo se debe usar**: use Azure Functions si tiene código que se desencadena mediante otros servicios de Azure, por medio de eventos basados en web o según una programación. También puede usar Functions cuando no necesite la sobrecarga de un proyecto completo hospedado o si desea pagar solo por el tiempo que el código se ejecuta. Para más información, consulte [Introducción a Azure Functions](../../azure-functions/functions-overview.md).
 >
-> **Introducción**: siga el tutorial de inicio rápido de Functions para [crear la primera función](../../azure-functions/functions-create-first-azure-function.md) desde el portal.
+> **Introducción**: siga el tutorial de inicio rápido de Functions para [crear la primera función](../../azure-functions/functions-get-started.md) desde el portal.
 >
 > **Pruébelo ya**: Azure Functions permite ejecutar código sin necesidad de registrarse para obtener una cuenta de Azure. Pruébelo ahora y [cree su primera función de Azure](https://tryappservice.azure.com/).
 

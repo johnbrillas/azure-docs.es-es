@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183837"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789202"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box
 
@@ -100,7 +100,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |---------|---------|
     |Cuenta de almacenamiento     | Cuenta de Azure Storage desde la que desea exportar los datos. |
     |Tipo de exportación     | Especifica el tipo de datos que se va a exportar de **Todos los objetos** y **Usar archivo XML**.<ul><li> **Todos los objetos**: especifica que el trabajo exporta todos los datos en función de la selección de **Opciones de transferencia**.</li><li> **Usar archivo XML**: especifica un archivo XML que contiene un conjunto de rutas de acceso y prefijos para los blobs o archivos que se van a exportar desde la cuenta de almacenamiento. El archivo XML debe estar en el contenedor seleccionado de la cuenta de almacenamiento; actualmente no se admite la selección desde recursos compartidos de archivos. Debe ser un archivo .xml que no esté vacío.</li></ul>        |
-    |Opciones de transferencia     |  Especifica las opciones de transferencia de datos de **Seleccionar todos**, **Todos los blobs** y **Todos los archivos**. <ul><li> **Seleccionar todos**: especifica que se exportarán todos los blobs y archivos de Azure Files. Si está utilizando una cuenta de almacenamiento que solo admite blobs (cuenta de Blob Storage), no se podrá seleccionar la opción **Todos los archivos**.</li><li> **Todos los blobs**: especifica que solo se exportan los blobs en bloques y en páginas.</li><li> **Todos los archivos**: especifica que se exportan todos los archivos, pero quedan excluidos los blobs. El tipo de cuenta de almacenamiento que tenga (GPv1 y GPv2, Premium Storage o Blob Storage) determinará los tipos de datos que se pueden exportar. Para más información, consulte las [cuentas de almacenamiento admitidas para exportación](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opciones de transferencia     |  Especifica las opciones de transferencia de datos de **Seleccionar todos**, **Todos los blobs** y **Todos los archivos**. <ul><li> **Seleccionar todos**: especifica que se exportarán todos los blobs y archivos de Azure Files. Si está utilizando una cuenta de almacenamiento que solo admite blobs (cuenta de Blob Storage), no se podrá seleccionar la opción **Todos los archivos**.</li><li> **Todos los blobs**: especifica que solo se exportan los blobs en bloques y en páginas.</li><li> **Todos los archivos**: especifica que se exportan todos los archivos, pero quedan excluidos los blobs. El tipo de cuenta de almacenamiento que tenga (GPv1 y GPv2, Premium Storage o Blob Storage) determinará los tipos de datos que se pueden exportar. Para más información, consulte las [cuentas de almacenamiento admitidas para exportación](../import-export/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Incluir registro detallado     | Indica si desea un archivo de registro detallado que contenga una lista de todos los archivos que se han exportado correctamente.        |
 
     > [!NOTE]
@@ -179,7 +179,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 15. Seleccione una identidad de usuario que vaya a usar para administrar el acceso a este recurso. Elija **Select a user identity** (Seleccione una identidad de usuario). En el panel de la derecha, seleccione la suscripción y la identidad administrada que se va a usar. Luego, elija **Seleccionar**.
 
-    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Una identidad administrada asignada por el usuario es un recurso independiente de Azure que se puede usar para administrar varios recursos. Para más información, vea [Tipos de identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).  
 
     Si necesita crear una identidad administrada, siga la guía que se proporciona en [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     

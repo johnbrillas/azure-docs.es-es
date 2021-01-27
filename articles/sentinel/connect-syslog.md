@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Syslog a Azure Sentinel | Microsoft Docs
-description: Conecte cualquier máquina o dispositivo que admita Syslog en Azure Sentinel mediante un agente en una máquina Linux entre el dispositivo y Sentinel. 
+description: Conecte cualquier máquina o dispositivo que admita Syslog en Azure Sentinel mediante un agente en una máquina Linux entre el dispositivo y Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88566155"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747197"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recopilación de datos de orígenes basados en Linux mediante Syslog
 
@@ -120,8 +120,12 @@ Esta detección requiere una configuración específica del conector de datos de
 
 2. Deje tiempo suficiente para que se recopile la información de Syslog. A continuación, vaya a **Azure Sentinel: Registros** y copie y pegue la siguiente consulta:
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
     Cambie el **intervalo de tiempo** si es necesario y seleccione **Ejecutar**.

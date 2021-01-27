@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1c290032f7a33079b560d3c4cc1fcb9526e70331
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607371"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762151"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronización del repositorio de GitHub con App Configuration
 
@@ -20,9 +20,9 @@ Los equipos que quieran seguir usando sus procedimientos de control de código f
 &nbsp;&nbsp;&nbsp;&nbsp;• Actualizaciones de la configuración sin volver a implementar toda la aplicación <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integración con servicios como Azure App Service y Functions 
 
-Un [flujo de trabajo](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) de Acciones de GitHub define un proceso automatizado en un repositorio de GitHub. La acción *Sincronización de Azure App Configuration* desencadena actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. Asimismo, usa un archivo YAML (.yml) que se encuentra en la ruta de acceso `/.github/workflows/` del repositorio para definir los pasos y los parámetros. Puede desencadenar actualizaciones de configuración al insertar, revisar o bifurcar archivos de configuración de la aplicación, de la misma forma que lo hace con el código de la aplicación.
+Un [flujo de trabajo](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) de Acciones de GitHub define un proceso automatizado en un repositorio de GitHub. La acción *Sincronización de Azure App Configuration* desencadena actualizaciones en una instancia de configuración de App Configuration cuando se realizan cambios en el repositorio de origen. Asimismo, usa un archivo YAML (.yml) que se encuentra en la ruta de acceso `/.github/workflows/` del repositorio para definir los pasos y los parámetros. Puede desencadenar actualizaciones de configuración al insertar, revisar o bifurcar archivos de configuración de la aplicación, de la misma forma que lo hace con el código de la aplicación.
 
-La [documentación](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
+La [documentación](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitación de Acciones de GitHub en el repositorio
 Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Seleccione **Nuevo flujo de trabajo** y, luego, **Configurar un flujo de trabajo por su cuenta**. Por último, busque en Marketplace "Azure App Configuration Sync".
@@ -35,7 +35,7 @@ Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronización de los archivos de configuración después de una inserción
 Esta acción sincroniza los archivos de Azure App Configuration cuando se inserta un cambio en `appsettings.json`. Cuando un desarrollador inserta un cambio en `appsettings.json`, la acción App Configuration Sync actualiza la instancia de App Configuration con los nuevos valores.
 
-La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la rama *principal*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en GitHub, consulte este [artículo de GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) sobre la creación y el uso de secretos cifrados.
+La primera sección de este flujo de trabajo especifica que la acción se desencadena *en* una *inserción* que contiene `appsettings.json` para la rama *principal*. En la segunda sección se enumeran los trabajos que se ejecutan una vez que se desencadena la acción. La acción desprotege los archivos pertinentes y actualiza la instancia de App Configuration con la cadena de conexión almacenada como un secreto en el repositorio.  Para más información sobre el uso de secretos en GitHub, consulte este [artículo de GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) sobre la creación y el uso de secretos cifrados.
 
 ```json
 on: 
@@ -300,7 +300,7 @@ Dada una profundidad de 2, el ejemplo anterior devuelve ahora el siguiente par c
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>Descripción de las entradas de acción
-Los parámetros de entrada especifican los datos usados por la acción durante el tiempo de ejecución.  La tabla siguiente contiene los parámetros de entrada aceptados por la sincronización de App Configuration y los valores esperados para cada uno.  Para más información sobre las entradas de acción para Acciones de GitHub, consulte la [documentación](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs) de GitHub.
+Los parámetros de entrada especifican los datos usados por la acción durante el tiempo de ejecución.  La tabla siguiente contiene los parámetros de entrada aceptados por la sincronización de App Configuration y los valores esperados para cada uno.  Para más información sobre las entradas de acción para Acciones de GitHub, consulte la [documentación](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs) de GitHub.
 
 > [!Note]
 > Los identificadores de entradas no distinguen mayúsculas de minúsculas.

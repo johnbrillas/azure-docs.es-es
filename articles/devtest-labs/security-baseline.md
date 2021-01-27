@@ -3,12 +3,12 @@ title: Base de referencia de seguridad de Azure para Azure DevTest Labs
 description: Base de referencia de seguridad de Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: eabb55956f97f40312c894ccabd7a341ecc5688c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202018"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789911"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de referencia de seguridad de Azure para Azure DevTest Labs
 
@@ -619,7 +619,7 @@ Además, las imágenes de máquinas virtuales de Azure Marketplace que publica M
 
 - [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Introducción a Azure Automation State Configuration](../automation/automation-dsc-overview.md)
-- [Script de ejemplo para cargar un disco duro virtual en Azure y crear una máquina virtual nueva](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de ejemplo para cargar un disco duro virtual en Azure y crear una máquina virtual nueva](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 - [Creación de un generador de imágenes personalizadas en Azure DevTest Labs](image-factory-create.md)
 
 **Supervisión de Azure Security Center:** Sí

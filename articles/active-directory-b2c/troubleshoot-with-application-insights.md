@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132064"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746009"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan los pasos para recopilar registros de Active D
 Los registros de actividad detallados aquí **SOLO** deben estar habilitados durante el desarrollo de las directivas personalizadas.
 
 > [!WARNING]
-> No establezca `DeploymentMode` en `Developer` en entornos de producción. Los registros recopilan todas las notificaciones que se envían a los proveedores de identidad y se reciben de estos. Usted, como desarrollador, asume la responsabilidad de los datos personales recopilados en los registros de Application Insights. Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLADOR** .
+> No establezca `DeploymentMode` en `Development` en entornos de producción. Los registros recopilan todas las notificaciones que se envían a los proveedores de identidad y se reciben de estos. Usted, como desarrollador, asume la responsabilidad de los datos personales recopilados en los registros de Application Insights. Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLADOR**.
 
 ## <a name="set-up-application-insights"></a>Configuración de Application Insights
 
@@ -35,15 +35,15 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
 1. Seleccione **Crear un recurso** en el panel de navegación izquierdo.
-1. Busque y seleccione **Application Insights** y, luego, seleccione **Crear** .
-1. Complete el formulario, seleccione **Revisar y crear** y seleccione **Crear** .
-1. Cuando la implementación se haya completado, seleccione **Ir al recurso** .
-1. En **Configurar** , en el menú de Application Insights, seleccione **Propiedades** .
+1. Busque y seleccione **Application Insights** y, luego, seleccione **Crear**.
+1. Complete el formulario, seleccione **Revisar y crear** y seleccione **Crear**.
+1. Cuando la implementación se haya completado, seleccione **Ir al recurso**.
+1. En **Configurar**, en el menú de Application Insights, seleccione **Propiedades**.
 1. Registre la **CLAVE DE INSTRUMENTACIÓN** para su uso en un paso posterior.
 
 ## <a name="configure-the-custom-policy"></a>Configuración de la directiva personalizada
 
-1. Abra el archivo de usuario de confianza (RP), por ejemplo *SignUpOrSignin.xml* .
+1. Abra el archivo de usuario de confianza (RP), por ejemplo *SignUpOrSignin.xml*.
 1. Agregue los siguientes atributos al elemento `<TrustFrameworkPolicy>`:
 
    ```xml
@@ -89,7 +89,7 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 Hay un breve retraso, normalmente inferior a cinco minutos, antes de que pueda ver nuevos registros en Application Insights.
 
 1. Abra el recurso de Application Insights que ha creado en [Azure Portal](https://portal.azure.com).
-1. En la página **Información general** , seleccione **Registros** .
+1. En la página **Información general**, seleccione **Registros**.
 1. Abra una nueva pestaña en Application Insights.
 
 A continuación se muestra una lista de consultas que puede usar para ver los registros:

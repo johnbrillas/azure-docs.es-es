@@ -3,12 +3,12 @@ title: 'Azure Lab Services: carga de una imagen personalizada en Shared Image Ga
 description: Se describe cómo cargar una imagen personalizada en Shared Image Gallery. Los departamentos de TI de la universidad podrán importar imágenes especialmente beneficiosas.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e2f38b0cab87eab27181ddef79d0c02bd8c9bdb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654650"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787170"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carga de una imagen compartida en Shared Image Gallery
 
@@ -66,5 +66,5 @@ Existen muchas opciones para crear un VHD a partir de un entorno de laboratorio 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la galería de imágenes compartidas](../virtual-machines/windows/shared-image-galleries.md)
+* [Introducción a la galería de imágenes compartidas](../virtual-machines/shared-image-galleries.md)
 * [Uso de Shared Image Gallery](how-to-use-shared-image-gallery.md)

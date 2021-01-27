@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: d8727bd747ef6d035cabbccf2ad42b80937a06a8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d3aa0ca83b28708fde81cba12993ac6e79e79a88
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180207"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760610"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configuración de un flujo de trabajo de acciones de GitHub para implementar el sitio web estático en Azure Storage
 
-Aprenda a usar las [Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions) mediante un flujo de trabajo para implementar un sitio estático en una cuenta de Azure Storage. Una vez que haya configurado el flujo de trabajo de acciones de GitHub, podrá implementar automáticamente el sitio en Azure desde GitHub cuando realice cambios en el código del sitio.
+Aprenda a usar las [Acciones de GitHub](https://docs.github.com/en/actions) mediante un flujo de trabajo para implementar un sitio estático en una cuenta de Azure Storage. Una vez que haya configurado el flujo de trabajo de acciones de GitHub, podrá implementar automáticamente el sitio en Azure desde GitHub cuando realice cambios en el código del sitio.
 
 > [!NOTE]
 > Si usa [Azure Static Web Apps](../../static-web-apps/index.yml), no es necesario configurar manualmente un flujo de trabajo de acciones de GitHub.

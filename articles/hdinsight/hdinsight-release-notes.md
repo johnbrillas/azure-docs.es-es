@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883357"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786358"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -48,7 +48,7 @@ A partir del 16 de noviembre de 2020, HDInsight impide que los nuevos clientes c
 
 ## <a name="behavior-changes"></a>Cambios de comportamiento
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Incorporación de comprobaciones de las reglas de NSG antes de la operación de escalado
-HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) en la operación de escalado. Esta misma validación se realiza durante el escalado de clústeres, así como durante su creación. Gracias a estas pruebas, se pueden evitar errores imprevisibles. Si no se superan correctamente, se producirán errores en el escalado. Para más información acerca de cómo configurar correctamente los NSG y las UDR, consulte este artículo sobre las [direcciones IP de administración de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) en la operación de escalado. Esta misma validación se realiza durante el escalado de clústeres, así como durante su creación. Gracias a estas pruebas, se pueden evitar errores imprevisibles. Si no se superan correctamente, se producirán errores en el escalado. Para más información acerca de cómo configurar correctamente los NSG y las UDR, consulte este artículo sobre las [direcciones IP de administración de HDInsight](./hdinsight-management-ip-addresses.md).
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios.
@@ -84,4 +84,3 @@ HDInsight está implementando correcciones y aplicando revisiones para todos los
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

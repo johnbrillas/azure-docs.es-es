@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920051"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784315"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -1126,7 +1126,7 @@ El código extrae las direcciones de correo electrónico de la propiedad `Body` 
 
 ### <a name="function-action"></a>Acción de la función
 
-Esta acción llama a una [función de Azure](../azure-functions/functions-create-first-azure-function.md) creada previamente.
+Esta acción llama a una [función de Azure](../azure-functions/functions-get-started.md) creada previamente.
 
 ```json
 "<Azure-function-name>": {

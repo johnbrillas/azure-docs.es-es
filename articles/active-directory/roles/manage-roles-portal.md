@@ -2,23 +2,23 @@
 title: 'Visualización y asignación de permisos de roles de administrador: Azure AD | Microsoft Docs'
 description: Ahora puede ver y administrar los miembros de un rol de administrador de Azure AD en el portal. Para aquellos que administran con frecuencia las asignaciones de roles.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 26217930b79b958ae86d976d06a28ba4a4852ab6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376789"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742036"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -59,7 +59,7 @@ Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para v
 
 ## <a name="download-role-assignments"></a>Descarga de asignaciones de rol
 
-Para descargar todas las asignaciones de un rol específico, en la página **Roles y administradores** , seleccione un rol y luego **Descargar asignaciones de roles**. Se descargará un archivo CSV en el que se enumeran las asignaciones en todos los ámbitos para ese rol.
+Para descargar todas las asignaciones de un rol específico, en la página **Roles y administradores**, seleccione un rol y luego **Descargar asignaciones de roles**. Se descargará un archivo CSV en el que se enumeran las asignaciones en todos los ámbitos para ese rol.
 
 ![Descarga de todas las asignaciones de un rol](./media/manage-roles-portal/download-role-assignments.png)
 

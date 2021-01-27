@@ -3,12 +3,12 @@ title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511338"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789745"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -463,7 +463,7 @@ Para obtener más información, vea [Depuración de Gatekeeper](https://github.c
 
 ## <a name="troubleshooting-the-add-on"></a>Solución de problemas del complemento
 
-Para más información acerca de cómo solucionar los problemas del complemento de Kubernetes, consulte la sección [Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) en el artículo de solución de problemas de Azure Policy.
+Para más información acerca de cómo solucionar los problemas del complemento de Kubernetes, consulte la sección [Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) en el artículo de solución de problemas de Azure Policy.
 
 ## <a name="remove-the-add-on"></a>Eliminar el complemento
 

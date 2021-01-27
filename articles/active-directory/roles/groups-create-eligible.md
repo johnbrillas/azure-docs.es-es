@@ -2,23 +2,23 @@
 title: Creación de un grupo para asignar roles en Azure Active Directory | Microsoft Docs
 description: Aprenda a crear un grupo al que se pueden asignar roles en Azure AD. Administre roles de Azure en Azure Portal, PowerShell o Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378625"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742105"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creación de un grupo al que se pueden asignar roles en Azure Active Directory
 
@@ -31,7 +31,7 @@ Solo puede asignar un rol a un grupo que se ha creado con la propiedad "isAssign
 
     [![Apertura de Azure Active Directory para crear un nuevo grupo.](./media/groups-create-eligible/new-group.png "Apertura de Azure Active Directory para crear un nuevo grupo.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
-1. En la pestaña **Nuevo grupo** , proporcione el tipo, el nombre y la descripción del grupo.
+1. En la pestaña **Nuevo grupo**, proporcione el tipo, el nombre y la descripción del grupo.
 1. Active **Los roles de Azure AD se pueden asignar a un grupo**. Este modificador solo es visible para los administradores de roles con privilegios y los administradores globales, ya que estos son los dos únicos roles que pueden establecer el modificador.
 
     [![Hacer que el nuevo grupo sea válido para la asignación de roles](./media/groups-create-eligible/eligible-switch.png "Hacer que el nuevo grupo sea válido para la asignación de roles")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)

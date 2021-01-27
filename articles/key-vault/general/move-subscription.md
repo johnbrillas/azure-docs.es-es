@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724772"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790298"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724772"
 > Asegúrese de entender el impacto de este cambio y siga atentamente las instrucciones de este artículo antes de decidir si desea trasladar el almacén de claves a una nueva suscripción.
 > Si usa identidades de servicio administradas (MSI), lea las instrucciones posteriores al traslado, al final del documento. 
 
-[Azure Key Vault](overview.md) se asocia automáticamente al identificador de inquilino predeterminado de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para la suscripción en la que se ha creado. Puede encontrar el identificador de inquilino asociado a la suscripción si sigue esta [guía](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). Todas las entradas de la directiva de acceso y las asignaciones de roles también se asocian con este identificador de inquilino.  Al trasladar una suscripción de Azure del inquilino A al inquilino B, las entidades de servicio (usuarios y aplicaciones) del inquilino B no podrán acceder a los almacenes de claves ya existentes. Para corregir este problema, es necesario:
+[Azure Key Vault](overview.md) se asocia automáticamente al identificador de inquilino predeterminado de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) para la suscripción en la que se ha creado. Puede encontrar el identificador de inquilino asociado a la suscripción si sigue esta [guía](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Todas las entradas de la directiva de acceso y las asignaciones de roles también se asocian con este identificador de inquilino.  Al trasladar una suscripción de Azure del inquilino A al inquilino B, las entidades de servicio (usuarios y aplicaciones) del inquilino B no podrán acceder a los almacenes de claves ya existentes. Para corregir este problema, es necesario:
 
 * Cambiar el identificador de inquilino asociado a todas las instancias de Key Vault existentes en la suscripción al inquilino B.
 * Quitar todas las entradas de la directiva de acceso existentes.
@@ -37,8 +37,8 @@ ms.locfileid: "97724772"
 
 Para obtener más información sobre Azure Key Vault y Azure Active Directory, vea
 - [Acerca de Azure Key Vault](overview.md)
-- [¿Qué es Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Búsqueda de un identificador de inquilino](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [¿Qué es Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Búsqueda de un identificador de inquilino](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -49,11 +49,11 @@ Algunas entidades de servicio (usuarios y aplicaciones) están enlazadas a un in
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Acceso de nivel de [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o superior a la suscripción actual en la que existe el almacén de claves. Puede asignar el rol mediante [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Acceso de nivel de [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o superior a la suscripción actual a la que quiera cambiar el almacén de claves. Puede asignar el rol mediante [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Un grupo de recursos en la nueva suscripción. Puede crear uno mediante [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell) o la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* Acceso de nivel de [colaborador](../../role-based-access-control/built-in-roles.md#contributor) o superior a la suscripción actual en la que existe el almacén de claves. Puede asignar el rol mediante [Azure Portal](../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Acceso de nivel de [colaborador](../../role-based-access-control/built-in-roles.md#contributor) o superior a la suscripción actual a la que quiera cambiar el almacén de claves. Puede asignar el rol mediante [Azure Portal](../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Un grupo de recursos en la nueva suscripción. Puede crear uno mediante [Azure Portal](../../azure-resource-manager/management/manage-resource-groups-portal.md), [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md) o la [CLI de Azure](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-Puede comprobar los roles existentes mediante [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli) o la [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+Puede comprobar los roles existentes mediante [Azure Portal](../../role-based-access-control/role-assignments-list-portal.md), [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), la [CLI de Azure](../../role-based-access-control/role-assignments-list-cli.md) o la [API REST](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>Traslado de un almacén de claves a una nueva suscripción
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>Actualización de las directivas de acceso y las asignaciones de roles
 
 > [!NOTE]
-> Si Key Vault usa el modelo de permisos [RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). También tendrá que quitar las asignaciones de roles del almacén de claves. Puede quitar las asignaciones de roles [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> Si Key Vault usa el modelo de permisos [RBAC de Azure](../../role-based-access-control/overview.md). También tendrá que quitar las asignaciones de roles del almacén de claves. Puede quitar las asignaciones de roles [Azure Portal](../../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../../role-based-access-control/role-assignments-cli.md) o [PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Ahora que el almacén está asociado al identificador de inquilino correcto y que se han quitado las entradas de la directiva de acceso antiguas o las asignaciones de roles, establezca nuevas entradas o asignaciones.
 
@@ -106,9 +106,9 @@ Para asignar directivas, vea lo siguiente:
 - [Asignación de directivas de acceso mediante PowerShell](assign-access-policy-powershell.md)
 
 Para agregar asignaciones de roles, vea lo siguiente:
-- [Adición de una asignación de roles mediante el portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Adición de una asignación de roles mediante la CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Adición de una asignación de roles mediante PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Adición de una asignación de roles mediante el portal](../../role-based-access-control/role-assignments-portal.md)
+- [Adición de una asignación de roles mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Adición de una asignación de roles mediante PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Actualización de identidades administradas

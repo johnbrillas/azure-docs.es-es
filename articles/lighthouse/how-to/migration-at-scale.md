@@ -3,18 +3,18 @@ title: Administración de proyectos de migración a gran escala con Azure Migrat
 description: Obtenga información sobre cómo usar Azure Migrate con eficacia en recursos delegados de clientes.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095396"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788950"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Administración de proyectos de migración a gran escala con Azure Migrate
 
 Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../overview.md). Azure Lighthouse permite a los proveedores de servicios realizar operaciones a escala a través de varios inquilinos de Azure Active Directory (Azure AD) a la vez, lo que hace que las tareas de administración sean más eficaces.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) proporciona un centro centralizado para evaluar y migrar a Azure servidores, infraestructuras, aplicaciones y datos locales. Normalmente, los asociados que realizan evaluaciones y migración a gran escala para varios clientes deben acceder a cada suscripción de cliente individualmente mediante el [modelo de suscripción CSP (proveedor de soluciones en la nube)](/partner-center/customers-revoke-admin-privileges) o la [creación de un usuario invitado en el inquilino del cliente](/azure/active-directory/external-identities/what-is-b2b).
+[Azure Migrate](../../migrate/migrate-services-overview.md) proporciona un centro centralizado para evaluar y migrar a Azure servidores, infraestructuras, aplicaciones y datos locales. Normalmente, los asociados que realizan evaluaciones y migración a gran escala para varios clientes deben acceder a cada suscripción de cliente individualmente mediante el [modelo de suscripción CSP (proveedor de soluciones en la nube)](/partner-center/customers-revoke-admin-privileges) o la [creación de un usuario invitado en el inquilino del cliente](../../active-directory/external-identities/what-is-b2b.md).
 
 La integración de Azure Lighthouse con Azure Migrate permite a los proveedores de servicios detectar, evaluar y migrar cargas de trabajo para diferentes clientes a gran escala, a la vez que permite a los clientes tener una visibilidad y un control completos de sus entornos. Mediante la administración de recursos delegados de Azure, los proveedores de servicios tienen una vista única de todos los proyectos de Azure Migrate que administran en varios inquilinos de los clientes.
 
@@ -39,7 +39,7 @@ Este enfoque minimiza el cambio de contexto para los proveedores de servicios qu
 El flujo de trabajo de este modelo será similar al siguiente:
 
 1. El cliente se [incorpora a Azure Lighthouse](onboard-customer.md). El rol integrado de colaborador es necesario para la identidad que se usará con Azure Migrate. Para ver un ejemplo de uso de este rol, vea la plantilla de ejemplo [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate).
-1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/azure/migrate/create-manage-projects), mediante selección de la suscripción de cliente delegada adecuada.
+1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](../../migrate/create-manage-projects.md), mediante selección de la suscripción de cliente delegada adecuada.
 1. A continuación, el usuario [realiza pasos de detección y evaluación](../../migrate/tutorial-discover-vmware.md).
 
    Si se trata de máquinas virtuales de VMware, antes de configurar el dispositivo, puede limitar la detección a centros de datos, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o VM concretas de vCenter Server. Para establecer el ámbito, asigne permisos en la cuenta que usa el dispositivo para acceder a vCenter Server. Esto resulta útil si se hospedan varias máquinas virtuales de clientes en el hipervisor. No se puede limitar el ámbito de detección de Hyper-V.
@@ -61,7 +61,7 @@ Este enfoque permite a los proveedores de servicios iniciar rápidamente proyect
 El flujo de trabajo de este modelo será similar al siguiente:
 
 1. El cliente se [incorpora a Azure Lighthouse](onboard-customer.md). El rol integrado de colaborador es necesario para la identidad que se usará con Azure Migrate. Para ver un ejemplo de uso de este rol, vea la plantilla de ejemplo [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate).
-1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](/azure/migrate/create-manage-projects) en una suscripción que pertenece al inquilino de administración.
+1. El usuario designado inicia sesión en el inquilino de administración en Azure Portal y, después, pasa a Azure Migrate. Este usuario [crea un proyecto de Azure Migrate](../../migrate/create-manage-projects.md) en una suscripción que pertenece al inquilino de administración.
 1. A continuación, el usuario [realiza pasos de detección y evaluación](../../migrate/tutorial-discover-vmware.md). Las máquinas virtuales locales se detectarán y evaluarán dentro del proyecto de migración creado en el inquilino de administración y, después, se migrarán desde allí.
 
    Si administra varios clientes en el mismo host de Hyper-V, puede detectar todas las cargas de trabajo a la vez. Las máquinas virtuales específicas del cliente se pueden seleccionar en el mismo grupo, se puede crear una evaluación y se puede realizar la migración seleccionando la suscripción del cliente adecuada como destino específico. No es necesario limitar el ámbito de detección, y se puede mantener una visión general completa de todas las cargas de trabajo de cliente en un proyecto de migración.
@@ -80,4 +80,3 @@ Para más información, consulte [Vinculación de un identificador de asociado p
 
 - Más información sobre [Azure Migrate](../../migrate/migrate-services-overview.md)
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).
-

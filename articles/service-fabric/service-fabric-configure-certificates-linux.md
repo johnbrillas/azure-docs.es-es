@@ -4,12 +4,12 @@ description: Configuración de certificados para una aplicación con el sistema 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258675"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785573"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados y seguridad en clústeres Linux
 
@@ -21,7 +21,7 @@ Por lo general, Service Fabric espera que los certificados X.509 se encuentren e
 
 En el caso de los clústeres Linux, Service Fabric espera que los certificados estén como un archivo .pem que contiene el certificado y la clave privada o como un archivo .crt que contiene el certificado y un archivo .key que contiene la clave privada. Todos los archivos deben estar en formato PEM. 
 
-Si instala el certificado desde Azure Key Vault mediante una [plantilla de Resource Manager](./service-fabric-cluster-creation-create-template.md) o comandos de [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0), el certificado se instala en el formato correcto en el directorio */var/lib/sfcerts* en cada nodo. Si instala un certificado con otro método, debe asegurarse de que el certificado está instalado correctamente en los nodos del clúster.
+Si instala el certificado desde Azure Key Vault mediante una [plantilla de Resource Manager](./service-fabric-cluster-creation-create-template.md) o comandos de [PowerShell](/powershell/module/az.servicefabric/), el certificado se instala en el formato correcto en el directorio */var/lib/sfcerts* en cada nodo. Si instala un certificado con otro método, debe asegurarse de que el certificado está instalado correctamente en los nodos del clúster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados a los que se hace referencia en el manifiesto de aplicación
 

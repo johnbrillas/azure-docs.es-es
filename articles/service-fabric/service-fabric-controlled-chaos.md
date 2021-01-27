@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013119"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789658"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios distribuidos confiables en una infraestructura no confiable. Para escribir servicios distribuidos sólidos en una infraestructura no confiable, los desarrolladores necesitan poder probar la estabilidad de sus servicios, mientras que la infraestructura no confiable subyacente pasa por transiciones de estado complicadas debido a los errores.
 
-El [servicio de inserción de errores y análisis de clúster](./service-fabric-testability-overview.md) (también denominado servicio de análisis de errores) proporciona a los desarrolladores la posibilidad de inducir errores para probar sus servicios. Estos errores simulados de destino, como [reiniciar una partición](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), pueden ayudar a ejercer las transiciones de estado más comunes. Sin embargo, los errores simulados de destino están sesgados por definición y, por consiguiente, pueden perder errores que se muestran solo en una secuencia de transiciones de estado larga, complicada y difícil de predecir. Para una prueba no sesgada, se puede usar Chaos.
+El [servicio de inserción de errores y análisis de clúster](./service-fabric-testability-overview.md) (también denominado servicio de análisis de errores) proporciona a los desarrolladores la posibilidad de inducir errores para probar sus servicios. Estos errores simulados de destino, como [reiniciar una partición](/powershell/module/servicefabric/start-servicefabricpartitionrestart), pueden ayudar a ejercer las transiciones de estado más comunes. Sin embargo, los errores simulados de destino están sesgados por definición y, por consiguiente, pueden perder errores que se muestran solo en una secuencia de transiciones de estado larga, complicada y difícil de predecir. Para una prueba no sesgada, se puede usar Chaos.
 
 Chaos simula errores periódicos intercalados (tanto correctos como incorrectos) en todo el clúster durante períodos prolongados. Un error correcto consta de un conjunto de llamadas API de Service Fabric, por ejemplo, reiniciar un error de réplica es un error correcto porque se trata de un cierre seguido de una apertura en una réplica. Quitar la réplica, mover la réplica principal y mover la réplica secundaria de movimiento son los otros errores correctos que desempeña Chaos. Los errores incorrectos son salidas de procesos, como reiniciar el nodo y reiniciar el paquete de código. 
 

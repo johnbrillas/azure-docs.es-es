@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504889"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746077"
 ---
 # <a name="risky-ip-report-public-preview"></a>Informe de direcciones IP de riesgo (versión preliminar pública)
 Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Microsoft 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
@@ -37,9 +37,6 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 > Para usar este informe, debe asegurarse de que está habilitada la auditoría de AD FS. Para obtener más información, consulte [Habilitación de la auditoría para AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > Para acceder a la versión preliminar, se requiere el permiso de Administrador global o [Lector de seguridad](../../role-based-access-control/built-in-roles.md#security-reader).  
 >
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="what-is-in-the-report"></a>Contenido del informe
 Las direcciones IP del cliente de la actividad de inicio de sesión con error se agregan mediante los servidores proxy de aplicación web. Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Este ofrece la siguiente información: ![Captura de pantalla que muestra un informe de IP de riesgo con los encabezados de columna resaltados.](./media/how-to-connect-health-adfs/report4a.png)
