@@ -3,12 +3,12 @@ title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093424"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791346"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -58,9 +58,9 @@ Una vez finalizada la implementación, [confirme que se realizó correctamente](
 
 ## <a name="updating-managed-service-offers"></a>Actualización de las ofertas de servicio administrado
 
-Si ha incorporado el cliente a través de una oferta de servicio administrado publicado en Azure Marketplace y desea actualizar las autorizaciones, puede actualizar la delegación. Para hacerlo, [publique una nueva versión de la oferta](../../marketplace/partner-center-portal/update-existing-offer.md) con las [autorizaciones](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) que quiere usar actualizadas en el plan de ese cliente. A continuación, el cliente podrá actualizar a la versión más reciente en el Azure Portal.
+Si ha incorporado el cliente a través de una oferta de servicio administrado publicado en Azure Marketplace y desea actualizar las autorizaciones, puede actualizar la delegación. Para hacerlo, [publique una nueva versión de la oferta](../../marketplace/partner-center-portal/update-existing-offer.md) con las [autorizaciones](../../marketplace/plan-managed-service-offer.md) que quiere usar actualizadas en el plan de ese cliente. A continuación, el cliente podrá actualizar a la versión más reciente en el Azure Portal.
 
-Si desea cambiar el inquilino de administración, tendrá que [crear y publicar una nueva oferta de servicio administrado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para que el cliente la acepte.
+Si desea cambiar el inquilino de administración, tendrá que [crear y publicar una nueva oferta de servicio administrado](../../marketplace/plan-managed-service-offer.md) para que el cliente la acepte.
 
 > [!TIP]
 > Como se mencionó anteriormente, se recomienda no usar varias ofertas diferentes en el mismo cliente y el mismo inquilino de administración. Si publica una nueva oferta para el mismo cliente que utiliza el mismo inquilino de administración, asegúrese de que la oferta anterior se quite antes de que el cliente acepte la oferta más reciente.

@@ -3,12 +3,12 @@ title: Configuración de los valores de uso de los laboratorios de Azure Lab Ser
 description: Obtenga información sobre cómo configurar el número de alumnos del laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más.
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 3b05246445aea708312891ec631a35da3bc1eb8e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602638"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791970"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar usuarios a un laboratorio.
 
 Ahora puede sincronizar una lista de usuarios de laboratorio con un grupo de Azure Active Directory (Azure AD) existente para no tener que agregar ni eliminar usuarios manualmente. 
 
-Se puede crear un grupo de Azure AD en la instancia de Azure Active Directory de su organización para administrar el acceso a los recursos de la organización y a las aplicaciones basadas en la nube. Para más información, consulte el artículo sobre [grupos de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Si su organización utiliza Microsoft Office 365 o los servicios de Azure, ya tendrá administradores que administren su instancia de Azure Active Directory. 
+Se puede crear un grupo de Azure AD en la instancia de Azure Active Directory de su organización para administrar el acceso a los recursos de la organización y a las aplicaciones basadas en la nube. Para más información, consulte el artículo sobre [grupos de Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Si su organización utiliza Microsoft Office 365 o los servicios de Azure, ya tendrá administradores que administren su instancia de Azure Active Directory. 
 
 ### <a name="sync-users-with-azure-ad-group"></a>Sincronización de usuarios con el grupo de Azure AD
 

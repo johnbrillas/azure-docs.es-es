@@ -3,12 +3,12 @@ title: Publicación de una oferta de servicio administrado en Azure Marketplace
 description: Aprenda a publicar una oferta de servicio administrado que incorpore clientes a Azure Lighthouse.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: f6bd504185fab3fc698019a3eb8c530ba93f8abc
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791380"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicación de una oferta de servicio administrado en Azure Marketplace
 
@@ -18,7 +18,7 @@ En este artículo, aprenderá a publicar una oferta de servicio administrado pú
 
 Debe tener una [cuenta en el Centro de partners](../../marketplace/partner-center-portal/create-account.md) valida para crear y publicar ofertas. Si aún no tiene una cuenta, el [proceso de registro](https://aka.ms/joinmarketplace) le guiará por los pasos necesarios para crear una cuenta en el Centro de partners e inscribirse en el programa comercial de Marketplace.
 
-Según los [Requisitos de certificación de la oferta de servicio administrado](/legal/marketplace/certification-policies#7004-business-requirements), debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](/partner-center/learn-about-competencies) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado. También debe [escribir un destino de clientes potenciales que creará un registro en el sistema CRM](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) cada vez que un cliente implemente la oferta.
+Según los [Requisitos de certificación de la oferta de servicio administrado](/legal/marketplace/certification-policies#7004-business-requirements), debe tener un [nivel de competencia de plataforma en la nube Silver o Gold](/partner-center/learn-about-competencies) o ser un [MSP experto de Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar una oferta de servicio administrado. También debe [escribir un destino de clientes potenciales que creará un registro en el sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) cada vez que un cliente implemente la oferta.
 
 El identificador de Microsoft Partner Network (MPN) [se asociará automáticamente](../../cost-management-billing/manage/link-partner-id.md) con las ofertas que publique para realizar un seguimiento del impacto en las involucraciones de clientes.
 
@@ -38,7 +38,7 @@ La tabla siguiente puede ayudar a determinar si se deben incorporar clientes med
 
 ## <a name="create-your-offer"></a>Creación de la oferta
 
-Para instrucciones detalladas sobre cómo crear la oferta, incluida toda la información y los recursos que deberá proporcionar, consulte [Creación de una oferta de servicio administrado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
+Para instrucciones detalladas sobre cómo crear la oferta, incluida toda la información y los recursos que deberá proporcionar, consulte [Creación de una oferta de servicio administrado](../../marketplace/plan-managed-service-offer.md).
 
 Para obtener información sobre el proceso general de publicación, consulte [Guía de publicación de Azure Marketplace y AppSource](../../marketplace/overview.md). También debe revisar [las directivas de certificación de Marketplace comercial](/legal/marketplace/certification-policies), en especial la sección [Servicios administrados](/legal/marketplace/certification-policies#700-managed-services).
 
@@ -49,7 +49,7 @@ Una vez que un cliente agregue su oferta, podrá delegar uno o varios grupos de 
 
 ## <a name="publish-your-offer"></a>Publicación de la oferta
 
-Cuando haya completado todas las secciones, el siguiente paso es publicar la oferta en Azure Marketplace. Seleccione el botón **Publicar** para iniciar el proceso de publicación de la oferta. [Aquí](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish) puede encontrar más información sobre este proceso. 
+Cuando haya completado todas las secciones, el siguiente paso es publicar la oferta en Azure Marketplace. Seleccione el botón **Publicar** para iniciar el proceso de publicación de la oferta. [Aquí](../../marketplace/plan-managed-service-offer.md) puede encontrar más información sobre este proceso. 
 
 Puede [publicar una versión actualizada de la oferta](../..//marketplace/partner-center-portal/update-existing-offer.md) en cualquier momento. Por ejemplo, puede querer agregar una nueva definición de roles a una oferta publicada previamente. Al hacerlo, los clientes que ya hayan agregado la oferta verán un icono en la página [**Proveedores de servicios**](view-manage-service-providers.md) de Azure Portal que les informa que hay disponible una actualización. Cada cliente podrá [revisar los cambios](view-manage-service-providers.md#update-service-provider-offers) y decidir si desea actualizar a la nueva versión. 
 

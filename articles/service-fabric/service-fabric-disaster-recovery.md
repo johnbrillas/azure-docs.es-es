@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257505"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791162"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
 Una parte fundamental de la entrega de alta disponibilidad es garantizar que los servicios sobreviven a cualquier tipo de error. Esto es especialmente importante para los errores imprevistos y fuera de control. 
@@ -172,7 +172,7 @@ Las siguientes acciones podrían provocar pérdida de datos. Compruébelo antes 
 >
 
 - Use la API de `Repair-ServiceFabricPartition -PartitionId` o `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`. Esta API permite especificar el identificador de la partición que va a cambiar de pérdida de cuórum a posible pérdida de datos.
-- Si el clúster detecta errores frecuentes que hacen que los servicios entren en estado de pérdida de cuórum y la _pérdida de datos potencial es aceptable_, especificar un valor de [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) adecuado puede ayudarle con la recuperación automática del servicio. Service Fabric esperará el valor de `QuorumLossWaitDuration` proporcionado (el valor predeterminado es infinito) antes de realizar la recuperación. *No* se recomienda este método porque puede provocar pérdidas de datos inesperadas.
+- Si el clúster detecta errores frecuentes que hacen que los servicios entren en estado de pérdida de cuórum y la _pérdida de datos potencial es aceptable_, especificar un valor de [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice) adecuado puede ayudarle con la recuperación automática del servicio. Service Fabric esperará el valor de `QuorumLossWaitDuration` proporcionado (el valor predeterminado es infinito) antes de realizar la recuperación. *No* se recomienda este método porque puede provocar pérdidas de datos inesperadas.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilidad del clúster de Service Fabric
 Por lo general, el propio clúster de Service Fabric es un entorno altamente distribuido sin puntos de error único. Un error en cualquiera de los nodos no provoca problemas de disponibilidad o confiabilidad en el clúster, principalmente porque los servicios de sistema de Service Fabric siguen las directrices anteriores. Es decir, siempre se ejecutan con tres o más réplicas de forma predeterminada y los servicios de sistema sin estado se ejecutan en todos los nodos. 

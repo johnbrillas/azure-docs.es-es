@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724721"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871102"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
@@ -116,4 +116,4 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 
 Para obtener más información sobre el uso de Azure Machine Learning con una red virtual, consulte la [información general sobre la red virtual](how-to-network-security-overview.md).
 
-Para obtener más información sobre la integración de puntos de conexión privados en la configuración de DNS, vea [Configuración de DNS para puntos de conexión privados de Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).
+Para obtener más información sobre la integración de puntos de conexión privados en la configuración de DNS, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md).

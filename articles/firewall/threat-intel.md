@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83655062"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791466"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtrado basado en inteligencia sobre amenazas de Azure Firewall
 
@@ -27,7 +27,7 @@ Puede optar por registrar solo una alerta cuando se desencadena una regla o pued
 
 De forma predeterminada, el filtrado basado en inteligencia sobre amenazas está habilitado en el modo de alerta. No se puede desactivar esta característica o cambiar el modo hasta que la interfaz del portal esté disponible en su región.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Inteligencia sobre amenazas de Firewall":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interfaz del portal del filtrado basado en inteligencia sobre amenazas":::
 
 ## <a name="logs"></a>Registros
 
@@ -53,6 +53,6 @@ El siguiente extracto del registro muestra una regla desencadenada:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Ejemplos de Log Analytics de Azure Firewall](log-analytics-samples.md)
+- Consulte [Ejemplos de Log Analytics de Azure Firewall](./firewall-workbook.md)
 - Consulte el tutorial [Implementación y configuración de Azure Firewall](tutorial-firewall-deploy-portal.md)
 - Revise el [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

@@ -3,20 +3,20 @@ title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022996"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792055"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Adición o eliminación de tipos de servicio durante la actualización de una aplicación
 
-Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de una actualización, el nuevo tipo de servicio se agrega a la aplicación implementada. Esta actualización no afecta a ninguna de las instancias de servicio que ya formaban parte de la aplicación, pero debe crearse una instancia del tipo de servicio que se ha agregado para que el nuevo tipo de servicio esté activo (consulte [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Si se agrega un nuevo tipo de servicio a una aplicación publicada como parte de una actualización, el nuevo tipo de servicio se agrega a la aplicación implementada. Esta actualización no afecta a ninguna de las instancias de servicio que ya formaban parte de la aplicación, pero debe crearse una instancia del tipo de servicio que se ha agregado para que el nuevo tipo de servicio esté activo (consulte [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice)).
 
-De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+De manera similar, los tipos de servicio pueden quitarse de una aplicación como parte de una actualización. Sin embargo, todas las instancias de servicio del tipo de servicio que va a quitarse se deben quitar antes de continuar con la actualización (consulte [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitar interrupciones de la conexión durante el tiempo de inactividad planeado del servicio sin estado
 
@@ -114,7 +114,7 @@ La duración del retraso invalidado solo se aplica a la instancia de actualizaci
 
 En el modo *Monitored*, Service Fabric aplica directivas de mantenimiento para asegurarse de que la aplicación esté en un estado correcto a medida que avance la actualización. Si se infringen las directivas de mantenimiento, la actualización se suspende o se revierte automáticamente según la *FailureAction* especificada.
 
-En modo *UnmonitoredManual*, el administrador de la aplicación tiene un control total sobre el avance de la actualización. Este modo resulta útil al aplicar las directivas de evaluación de mantenimiento personalizadas o realizar actualizaciones no convencional al omitir completamente la supervisión de estado (por ejemplo, la aplicación ya está en pérdida de datos). Una actualización que se ejecuta en este modo se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Cuando se suspende una actualización y está lista para que el usuario la reanude, su estado de actualización mostrará *RollforwardPending* (consulte [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+En modo *UnmonitoredManual*, el administrador de la aplicación tiene un control total sobre el avance de la actualización. Este modo resulta útil al aplicar las directivas de evaluación de mantenimiento personalizadas o realizar actualizaciones no convencional al omitir completamente la supervisión de estado (por ejemplo, la aplicación ya está en pérdida de datos). Una actualización que se ejecuta en este modo se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade). Cuando se suspende una actualización y está lista para que el usuario la reanude, su estado de actualización mostrará *RollforwardPending* (consulte [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate)).
 
 Por último, el modo *UnmonitoredAuto* es útil para realizar iteraciones rápidas de actualización durante el desarrollo o las pruebas del servicio, ya que no se necesitan entradas del usuario y no se evalúa ninguna directiva de mantenimiento de la aplicación.
 
@@ -180,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Ahora, actualice la aplicación con el cmdlet **Start-ServiceFabricApplicationUpgrade**. En este ejemplo se muestra una actualización supervisada, pero también se puede usar una actualización no supervisada. Para ver una descripción completa de las marcas que acepta este cmdlet, consulte la [referencia del módulo de PowerShell de Azure Service Fabric](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+Ahora, actualice la aplicación con el cmdlet **Start-ServiceFabricApplicationUpgrade**. En este ejemplo se muestra una actualización supervisada, pero también se puede usar una actualización no supervisada. Para ver una descripción completa de las marcas que acepta este cmdlet, consulte la [referencia del módulo de PowerShell de Azure Service Fabric](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -205,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Reversión de actualizaciones de aplicaciones
 
-Si bien las actualizaciones se pueden poner al día en uno de tres modos (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), solo se pueden revertir en el modo *UnmonitoredAuto* o *UnmonitoredManual*. La reversión en modo *UnmonitoredAuto* funciona del mismo modo que la puesta al día, con la excepción de que el valor predeterminado de *UpgradeReplicaSetCheckTimeout* es diferente; consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md). La reversión en el modo *UnmonitoredManual* funciona del mismo modo que la puesta al día: la reversión se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar con la reversión.
+Si bien las actualizaciones se pueden poner al día en uno de tres modos (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), solo se pueden revertir en el modo *UnmonitoredAuto* o *UnmonitoredManual*. La reversión en modo *UnmonitoredAuto* funciona del mismo modo que la puesta al día, con la excepción de que el valor predeterminado de *UpgradeReplicaSetCheckTimeout* es diferente; consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md). La reversión en el modo *UnmonitoredManual* funciona del mismo modo que la puesta al día: la reversión se suspenderá después de completar cada UD y se debe reanudar de forma explícita mediante [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade) para continuar con la reversión.
 
-Las reversiones pueden activarse automáticamente cuando se infringen las directivas de mantenimiento de una actualización en modo *Monitored* con una *FailureAction* de *Rollback* (consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)), o explícitamente con [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Las reversiones pueden activarse automáticamente cuando se infringen las directivas de mantenimiento de una actualización en modo *Monitored* con una *FailureAction* de *Rollback* (consulte [Parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md)), o explícitamente con [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback).
 
-Durante la reversión, el valor de *UpgradeReplicaSetCheckTimeout* y el modo se pueden cambiar en cualquier momento con [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Durante la reversión, el valor de *UpgradeReplicaSetCheckTimeout* y el modo se pueden cambiar en cualquier momento con [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.

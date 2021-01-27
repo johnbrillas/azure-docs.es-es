@@ -3,12 +3,12 @@ title: Preparación de la implementación de clústeres independientes
 description: Documentación relacionada con la preparación del entorno y la creación de la configuración del clúster, que se debe tener en cuenta antes de implementar un clúster dirigido a administrar una carga de trabajo de producción.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509179"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790959"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
 
@@ -57,7 +57,7 @@ Estas son las especificaciones recomendadas para las máquinas de un clúster de
 * Conectividad a una o varias redes seguras para todas las máquinas
 * SO Windows Server instalado (versiones válidas: 2012 R2, 2016, 1709 o 1803). La versión 6.4.654.9590 de Service Fabric y posteriores también admiten el servidor 2019 y 1809.
 * [.NET Framework 4.5.1 o posterior](https://www.microsoft.com/download/details.aspx?id=40773) (instalación completa)
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * El [servicio RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) se debe estar ejecutando en todas las máquinas
 * **La unidad de instalación de Service Fabric debe estar en el sistema de archivos NTFS**
 * **Los servicios de Windows *Registros y alertas de rendimiento* y *Registro de eventos de Windows* deben [estar habilitados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** .

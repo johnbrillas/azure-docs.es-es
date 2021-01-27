@@ -3,19 +3,19 @@ title: De SQL Server a SQL Server en VM de Azure (guía de migración)
 description: Siga esta guía para migrar las bases de datos de SQL Server individuales a SQL Server en Azure Virtual Machines (VM).
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325931"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797887"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guía de migración: De SQL Server a SQL Server en VM de Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -217,7 +217,7 @@ Para obtener más información acerca de estos problemas y los pasos específico
    - [Calculadora del costo total de propiedad de Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Para obtener más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
+- Para más información sobre el marco y el ciclo de adopción de las migraciones en la nube, consulte:
    -  [Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
@@ -227,4 +227,4 @@ Para obtener más información acerca de estos problemas y los pasos específico
 
 
 - Para evaluar el nivel de acceso de la aplicación, consulte [Data Access Migration Toolkit (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Para obtener más información sobre cómo realizar pruebas A/B de capa de acceso a datos, consulte [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).
+- Para más información sobre cómo realizar pruebas A/B en la capa de acceso a datos, consulte [Información general del Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview).

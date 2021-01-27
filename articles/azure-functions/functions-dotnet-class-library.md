@@ -4,12 +4,12 @@ description: Cómo desarrollar funciones de Azure con C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936930"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806320"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -21,7 +21,7 @@ Como desarrollador de C#, puede que también le interese uno de los artículos s
 
 | Introducción | Conceptos| Ejemplos o aprendizaje guiado |
 | -- | -- | -- | 
-| <ul><li>[Uso de Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso de Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso de herramientas de línea de comandos](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones de &nbsp;rendimiento](functions-best-practices.md)</li><li>[Desarrollo de Visual Studio](functions-develop-vs.md)</li><li>[Inserción de dependencias](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Ejemplos de C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Uso de Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso de Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso de herramientas de línea de comandos](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Consideraciones&nbsp;sobre el rendimiento](functions-best-practices.md)</li><li>[Desarrollo de Visual Studio](functions-develop-vs.md)</li><li>[Inserción de dependencias](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Ejemplos de C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions es compatible con C# y con los lenguajes de programación de scripts de C#. Si busca orientación sobre cómo [usar C# en Azure Portal](functions-create-function-app-portal.md), vea la [referencia para desarrolladores de scripts de C#](functions-reference-csharp.md).
 

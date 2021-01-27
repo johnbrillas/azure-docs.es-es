@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445897"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791230"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -271,17 +271,17 @@ En esta sección se describe cómo depurar o diagnosticar problemas con actualiz
 > [!NOTE]
 > Para obtener muchas de las mejoras de autodiagnóstico que se mencionan a continuación, debe tener instalada la versión v1.1.4.0 de POA.
 
-NodeAgentNTService crea [tareas de reparación](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) para instalar actualizaciones en los nodos. Cada tarea la prepara el servicio Coordinator Service de acuerdo con la directiva de aprobación de tareas. Finalmente, las tareas preparadas están aprobadas por el Administrador de reparaciones, que no aprueba ninguna tarea si el clúster se encuentra en un estado incorrecto. 
+NodeAgentNTService crea [tareas de reparación](/dotnet/api/system.fabric.repair.repairtask) para instalar actualizaciones en los nodos. Cada tarea la prepara el servicio Coordinator Service de acuerdo con la directiva de aprobación de tareas. Finalmente, las tareas preparadas están aprobadas por el Administrador de reparaciones, que no aprueba ninguna tarea si el clúster se encuentra en un estado incorrecto. 
 
 Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un nodo:
 
 1. NodeAgentNTService, que se ejecuta en cada nodo, busca las actualizaciones de Windows disponibles a la hora programada. Si hay actualizaciones disponibles, las descarga en el nodo.
 
-1. Una vez que se descargan las actualizaciones, NodeAgentNTService crea una tarea de reparación correspondiente para el nodo con el nombre *POS___\<unique_id>* . Puede ver estas tareas de reparación con el cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o con SFX en la sección de detalles del nodo. Una vez que se crea la tarea de reparación, esta se mueve rápidamente a un [estado *reclamado*](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Una vez que se descargan las actualizaciones, NodeAgentNTService crea una tarea de reparación correspondiente para el nodo con el nombre *POS___\<unique_id>* . Puede ver estas tareas de reparación con el cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask) o con SFX en la sección de detalles del nodo. Una vez que se crea la tarea de reparación, esta se mueve rápidamente a un [estado *reclamado*](/dotnet/api/system.fabric.repair.repairtaskstate).
 
 1. El servicio del coordinador busca periódicamente las tareas de reparación que tengan un estado *reclamado* y las actualiza al estado *en preparación* en función de TaskApprovalPolicy. Si TaskApprovalPolicy se configura para ser NodeWise, una tarea de reparación correspondiente a un nodo se prepara solo si no hay otra tarea de reparación actualmente en el estado *En preparación*, *Aprobada*, *En ejecución*, o *En restauración*. 
 
-   De manera similar, en el caso de UpgradeWise TaskApprovalPolicy, hay tareas en los estados anteriores solo para los nodos que pertenecen al mismo dominio de actualización. Una vez que una tarea de reparación tiene el estado *En preparación*, el nodo correspondiente de Service Fabric se [deshabilita](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con la intención de *Reiniciar*.
+   De manera similar, en el caso de UpgradeWise TaskApprovalPolicy, hay tareas en los estados anteriores solo para los nodos que pertenecen al mismo dominio de actualización. Una vez que una tarea de reparación tiene el estado *En preparación*, el nodo correspondiente de Service Fabric se [deshabilita](/powershell/module/servicefabric/disable-servicefabricnode) con la intención de *Reiniciar*.
 
    Las versiones de POA 1.4.0 y posteriores publican eventos con la propiedad ClusterPatchingStatus en CoordinatorService para mostrar los nodos que se van a revisar. Las actualizaciones se instalan en _poanode_0, tal como se muestra en la siguiente imagen:
 
@@ -300,7 +300,7 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
    [![Captura de pantalla que muestra la ventana de la consola de estado de la operación de Windows Update con poanode_1 resaltado.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   También puede obtener los detalles mediante el uso de PowerShell. Para ello, conéctese al clúster y recupere el estado de la tarea de reparación mediante [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   También puede obtener los detalles mediante el uso de PowerShell. Para ello, conéctese al clúster y recupere el estado de la tarea de reparación mediante [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask). 
    
    En el siguiente ejemplo, la tarea "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" está en estado *DownloadComplete*. Esto significa que las actualizaciones se han descargado en el nodo *poanode_2* y que la instalación se intentará una vez que la tarea pase al estado de *En ejecución*.
 
@@ -334,7 +334,7 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
 Los registros de aplicación de orquestación de revisiones se recopilan como parte de los registros en tiempo de ejecución de Service Fabric.
 
-Puede capturar registros mediante la herramienta de diagnóstico o la canalización que prefiera. POA usa los siguientes identificadores de proveedor fijos para registrar eventos a través de [origen del evento](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1):
+Puede capturar registros mediante la herramienta de diagnóstico o la canalización que prefiera. POA usa los siguientes identificadores de proveedor fijos para registrar eventos a través de [origen del evento](/dotnet/api/system.diagnostics.tracing.eventsource):
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A. POA no instala actualizaciones cuando el clúster está en mal estado. Intent
 
 **P: ¿Debo definir TaskApprovalPolicy como "NodeWise" o "UpgradeDomainWise" para el clúster?**
 
-A. La configuración "UpgradeDomainWise" acelera la reparación general del clúster mediante la revisión en paralelo de todos los nodos que pertenecen a un dominio de actualización. Durante el proceso, los nodos que pertenecen a un dominio de actualización completo no están disponibles (en [estado *deshabilitado*](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A. La configuración "UpgradeDomainWise" acelera la reparación general del clúster mediante la revisión en paralelo de todos los nodos que pertenecen a un dominio de actualización. Durante el proceso, los nodos que pertenecen a un dominio de actualización completo no están disponibles (en [estado *deshabilitado*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)).
 
 En cambio, la configuración "NodeWise" solo revisa un nodo a la vez, lo que implicaría que la revisión del clúster general podría tardar más tiempo. Sin embargo, como máximo, solo habría un nodo no disponible (en estado *deshabilitado*) durante el proceso de aplicación de revisiones.
 
@@ -405,9 +405,9 @@ A. El tiempo necesario para aplicar una revisión a un clúster completo depende
     - Para "NodeWise": aproximadamente 20 horas.
     - Para "UpgradeDomainWise": aproximadamente 5 horas.
 
-- La carga del clúster. Cada operación de revisión requiere cambiar la ubicación de la carga de trabajo del cliente a otros nodos disponibles en el clúster. El nodo al que se aplicaría la revisión tendría el [estado *deshabilitado*](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante este tiempo. Si el clúster se ejecuta cerca de la carga máxima, el proceso de deshabilitación podría tardar más. Por lo tanto, el proceso general de aplicación de revisiones puede parecer lento en estas condiciones.
+- La carga del clúster. Cada operación de revisión requiere cambiar la ubicación de la carga de trabajo del cliente a otros nodos disponibles en el clúster. El nodo al que se aplicaría la revisión tendría el [estado *deshabilitado*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling) durante este tiempo. Si el clúster se ejecuta cerca de la carga máxima, el proceso de deshabilitación podría tardar más. Por lo tanto, el proceso general de aplicación de revisiones puede parecer lento en estas condiciones.
 
-- Errores de estado del clúster durante la aplicación de revisiones. Cualquier [degradación](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) en el [estado del clúster](./service-fabric-health-introduction.md) interrumpiría el proceso de revisión. Esta incidencia se agregaría al tiempo general necesario para aplicar revisiones a todo el clúster.
+- Errores de estado del clúster durante la aplicación de revisiones. Cualquier [degradación](/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error) en el [estado del clúster](./service-fabric-health-introduction.md) interrumpiría el proceso de revisión. Esta incidencia se agregaría al tiempo general necesario para aplicar revisiones a todo el clúster.
 
 **P: ¿Por qué veo algunas actualizaciones en los resultados de Windows Update obtenidos a través de la API de REST, pero no en el historial de Windows Update en la máquina?**
 

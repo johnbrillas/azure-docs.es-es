@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure App Configuration
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure App Configuration. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b496728f38ee92450bf66c22489f32a8720bdb44
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 903a5d012d4a0ba35914e5fae6aea0b7f4eda884
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043881"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804960"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Definiciones integradas de Azure Policy para Azure App Configuration
 

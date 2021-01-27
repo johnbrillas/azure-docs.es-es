@@ -4,12 +4,12 @@ description: Tipos de nodos, durabilidad, confiabilidad y otros aspectos que se 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576339"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790705"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -146,7 +146,7 @@ Esta es la recomendación sobre cómo elegir el nivel de confiabilidad. El núme
 | 7 u 8 | Oro |
 | 9 y superiores | Platinum |
 
-Al aumentar o disminuir el tamaño del clúster (la suma de las instancias de máquina virtual en todos los tipos de nodo), considere la posibilidad de actualizar la confiabilidad del clúster de un nivel a otro. Esto desencadena las actualizaciones de clúster necesarias para cambiar el recuento de conjunto de réplicas de los servicios del sistema. Espere a que finalice la actualización en curso antes de realizar otros cambios en el clúster, como agregar nodos.  Puede supervisar el progreso de la actualización en Service Fabric Explorer o puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+Al aumentar o disminuir el tamaño del clúster (la suma de las instancias de máquina virtual en todos los tipos de nodo), considere la posibilidad de actualizar la confiabilidad del clúster de un nivel a otro. Esto desencadena las actualizaciones de clúster necesarias para cambiar el recuento de conjunto de réplicas de los servicios del sistema. Espere a que finalice la actualización en curso antes de realizar otros cambios en el clúster, como agregar nodos.  Puede supervisar el progreso de la actualización en Service Fabric Explorer o puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 ### <a name="capacity-planning-for-reliability"></a>Planeamiento de capacidad de confiabilidad
 

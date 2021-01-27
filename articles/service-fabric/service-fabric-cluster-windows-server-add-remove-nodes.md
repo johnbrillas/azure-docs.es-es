@@ -3,12 +3,12 @@ title: Adición o eliminación de nodos de un clúster de Service Fabric indepen
 description: Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26945b4785a0591d997139f2427b0ae6b59fa742
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842927"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790603"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que haya [creado el clúster de Service Fabric independiente en máquinas de Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y tenga que agregar o quitar nodos en el clúster, como se ha explicado en este artículo.
@@ -47,9 +47,9 @@ Una vez que haya [creado el clúster de Service Fabric independiente en máquina
 
    ```
 
-   Cuando finalice la ejecución del script, puede comprobar si se ha agregado el nuevo nodo mediante la ejecución del cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
+   Cuando finalice la ejecución del script, puede comprobar si se ha agregado el nuevo nodo mediante la ejecución del cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode).
 
-7. Para garantizar la coherencia entre los distintos nodos del clúster, debe iniciar una actualización de la configuración. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obtener el archivo de configuración más reciente y agregar el nodo recién agregado a la sección "Nodes". También se recomienda tener siempre la configuración del clúster más reciente disponible en caso de que deba volver a implementar un clúster que tenga la misma configuración.
+7. Para garantizar la coherencia entre los distintos nodos del clúster, debe iniciar una actualización de la configuración. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) para obtener el archivo de configuración más reciente y agregar el nodo recién agregado a la sección "Nodes". También se recomienda tener siempre la configuración del clúster más reciente disponible en caso de que deba volver a implementar un clúster que tenga la misma configuración.
 
    ```
     {
@@ -61,17 +61,17 @@ Una vez que haya [creado el clúster de Service Fabric independiente en máquina
     }
    ```
 
-8. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para comenzar la actualización.
+8. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para comenzar la actualización.
 
    ```
    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
    ```
 
-   Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+   Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Agregar nodos a clústeres configurados con seguridad de Windows mediante gMSA
 En clústeres configurados con cuentas de servicio administradas de grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx)), se puede agregar un nuevo nodo mediante una actualización de configuración:
-1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en cualquiera de los nodos existentes para obtener el archivo de configuración más reciente y agregue los detalles del nodo que desea agregar en la sección "Nodes". Asegúrese de que el nuevo nodo forma parte de la misma cuenta administrada de grupo. Esta cuenta debe ser un administrador en todos los equipos.
+1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) en cualquiera de los nodos existentes para obtener el archivo de configuración más reciente y agregue los detalles del nodo que desea agregar en la sección "Nodes". Asegúrese de que el nuevo nodo forma parte de la misma cuenta administrada de grupo. Esta cuenta debe ser un administrador en todos los equipos.
 
     ```
         {
@@ -82,20 +82,20 @@ En clústeres configurados con cuentas de servicio administradas de grupo (gMSA)
             "upgradeDomain": "UD1"
         }
     ```
-2. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para comenzar la actualización.
+2. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para comenzar la actualización.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
     ```
-    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### <a name="add-node-types-to-your-cluster"></a>Agregar tipos de nodo al clúster
-Para agregar un nuevo tipo de nodo, modifique la configuración para incluir el nuevo tipo de nodo en la sección "NodeTypes" en "Properties" e inicie una actualización de configuración con [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Una vez completada la actualización, puede agregar nuevos nodos al clúster con este tipo de nodo.
+Para agregar un nuevo tipo de nodo, modifique la configuración para incluir el nuevo tipo de nodo en la sección "NodeTypes" en "Properties" e inicie una actualización de configuración con [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Una vez completada la actualización, puede agregar nuevos nodos al clúster con este tipo de nodo.
 
 ## <a name="remove-nodes-from-your-cluster"></a>Eliminación de nodos del clúster
 Es posible eliminar un nodo de un clúster con una actualización de la configuración de la siguiente manera:
 
-1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obtener el archivo de configuración más reciente y *elimine* el nodo de la sección "Nodes".
+1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration) para obtener el archivo de configuración más reciente y *elimine* el nodo de la sección "Nodes".
 Agregue el parámetro "NodesToBeRemoved" a la sección "Setup" dentro de la sección "FabricSettings". El "valor" debe ser una lista separada por comas de nombres de nodo de los nodos que deben eliminarse.
 
     ```
@@ -119,13 +119,13 @@ Agregue el parámetro "NodesToBeRemoved" a la sección "Setup" dentro de la secc
             }
         ]
     ```
-2. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) para comenzar la actualización.
+2. Ejecute [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para comenzar la actualización.
 
     ```
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+    Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 > [!NOTE]
 > La eliminación de nodos puede iniciar varias actualizaciones. Algunos nodos están marcados con la etiqueta `IsSeedNode=”true”` y se pueden identificar consultando el manifiesto del clúster mediante `Get-ServiceFabricClusterManifest`. La eliminación de estos nodos puede tardar más que la de otros, ya que se tendrán que mover los nodos de inicialización en estos escenarios. El clúster debe tener un mínimo de 3 nodos de tipo nodo primario.
@@ -133,7 +133,7 @@ Agregue el parámetro "NodesToBeRemoved" a la sección "Setup" dentro de la secc
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Eliminación de tipos de nodo del clúster
-Antes de eliminar un tipo de nodo, compruebe que no hay algún nodo que haga referencia a dicho tipo. Elimine estos nodos antes de quitar el tipo de nodo correspondiente. Una vez se han eliminado todos los nodos correspondientes, puede eliminar el valor de NodeType de la configuración del clúster y comenzar una actualización de la configuración mediante [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Antes de eliminar un tipo de nodo, compruebe que no hay algún nodo que haga referencia a dicho tipo. Elimine estos nodos antes de quitar el tipo de nodo correspondiente. Una vez se han eliminado todos los nodos correspondientes, puede eliminar el valor de NodeType de la configuración del clúster y comenzar una actualización de la configuración mediante [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Sustitución de los nodos principales del clúster

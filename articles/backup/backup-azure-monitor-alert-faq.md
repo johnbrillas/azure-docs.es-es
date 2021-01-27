@@ -4,12 +4,12 @@ description: En este artículo, encontrará respuestas a preguntas habituales so
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2585009b531512e54ffa889a05ec50038dd619
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181500"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805860"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Preguntas frecuentes sobre las alertas de supervisión de Azure Backup
 
@@ -70,5 +70,5 @@ Sí. En las siguientes situaciones no se envían notificaciones:
 
 Lea las otras preguntas más frecuentes:
 
-* [Preguntas comunes](backup-azure-vm-backup-faq.md) sobre las copias de seguridad de máquinas virtuales de Azure
+* [Preguntas comunes](backup-azure-vm-backup-faq.yml) sobre las copias de seguridad de máquinas virtuales de Azure
 * [Preguntas comunes](backup-azure-file-folder-backup-faq.md) sobre el agente de Azure Backup

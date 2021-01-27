@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9932c11332a616928d59c213d4f4806feb81cfe2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708703"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791652"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Azure Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas (o instancias) del servicio y el proceso de host de servicio.
@@ -172,7 +172,7 @@ Según el ejemplo anterior, es posible que se plantee que, si "MyCodePackageA" r
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Subprocesos de bifurcación de Reliable Services y Actors
 
-Service Fabric no admite Reliable Services y, por consiguiente, los subprocesos de bifurcación de Reliable Actors. Un ejemplo de por qué no se admite es que [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) no se puede usar para registrar un subproceso no admitido, y los tokens de cancelación solo se envían a procesos registrados; como consecuencia, se produce todo tipo de problemas, como errores de actualización, cuando los subprocesos no se cierran después de que el proceso principal ha recibido un token de cancelación.
+Service Fabric no admite Reliable Services y, por consiguiente, los subprocesos de bifurcación de Reliable Actors. Un ejemplo de por qué no se admite es que [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) no se puede usar para registrar un subproceso no admitido, y los tokens de cancelación solo se envían a procesos registrados; como consecuencia, se produce todo tipo de problemas, como errores de actualización, cuando los subprocesos no se cierran después de que el proceso principal ha recibido un token de cancelación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Empaquete una aplicación][a4] y prepárela para la implementación.

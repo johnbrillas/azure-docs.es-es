@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
-ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871441"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Cree un grupo de selección de ubicación de proximidad con el portal
 
-Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](co-location.md#proximity-placement-groups).
+Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](../co-location.md#proximity-placement-groups).
 
 Un grupo de selección de ubicación de proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Los grupos de selección de ubicación de proximidad son útiles para las cargas de trabajo en las que la latencia baja es un requisito.
 
@@ -77,4 +77,3 @@ Si la máquina virtual forma parte del conjunto de disponibilidad, debe agregar 
 ## <a name="next-steps"></a>Pasos siguientes
 
 También puede usar [Azure PowerShell](proximity-placement-groups.md) para crear grupos de selección de ubicación de proximidad.
-

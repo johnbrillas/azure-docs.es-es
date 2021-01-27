@@ -4,12 +4,12 @@ description: Introducción a los temporizadores y avisos de Service Fabric Relia
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77eb29c9146fe66d5d2b6073c33e30fbab649c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016553"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791801"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
@@ -131,7 +131,7 @@ Los recordatorios son un mecanismo para desencadenar devoluciones de llamada per
 > [!NOTE]
 > La confiabilidad de los recordatorios está ligada a las garantías de confiabilidad del estado proporcionadas por el proveedor de estado del actor. Esto significa que para los actores cuya persistencia de estado se establece en *Ninguna*, los recordatorios no se activarán después de una conmutación por error.
 
-Para registrar un recordatorio, un actor llama al método [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
+Para registrar un recordatorio, un actor llama al método [`RegisterReminderAsync`](/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync#remarks) que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
 
 ```csharp
 protected override async Task OnActivateAsync()

@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572534"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806639"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -60,7 +60,7 @@ Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, consulte [
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>¿Cómo puedo transferir datos del almacén de Recovery Services a un entorno local?
 
-No se admite la exportación de datos directamente desde el almacén de Recovery Services al entorno local mediante Data Box. Los datos se deben restaurar a una cuenta de almacenamiento y, a continuación, se pueden mover al entorno local a través de [Data Box](../databox/data-box-overview.md) o [Importación/Exportación](../storage/common/storage-import-export-service.md).
+No se admite la exportación de datos directamente desde el almacén de Recovery Services al entorno local mediante Data Box. Los datos se deben restaurar a una cuenta de almacenamiento y, a continuación, se pueden mover al entorno local a través de [Data Box](../databox/data-box-overview.md) o [Importación/Exportación](../import-export/storage-import-export-service.md).
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>¿Cuál es la diferencia entre un almacén de almacenamiento con redundancia geográfica (GRS) que tiene la capacidad de restauración entre regiones (CRR) habilitada y un almacén que no la tiene habilitada?
 
@@ -70,7 +70,7 @@ En el caso de un almacén [GRS](azure-backup-glossary.md#grs) sin la capacidad [
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>¿Dónde puedo encontrar preguntas comunes sobre el agente de Azure Backup para la copia de seguridad de máquinas virtuales de Azure?
 
-- Para el agente que se ejecuta en máquinas virtuales de Azure, lea estas [preguntas más frecuentes](backup-azure-vm-backup-faq.md).
+- Para el agente que se ejecuta en máquinas virtuales de Azure, lea estas [preguntas más frecuentes](backup-azure-vm-backup-faq.yml).
 - En el caso del agente utilizado para realizar copias de seguridad de las carpetas de archivos de Azure, lea estas [preguntas frecuentes](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Copia de seguridad general
@@ -236,5 +236,5 @@ La clave usada para cifrar los datos de copia de seguridad solo está presente e
 
 Lea las otras preguntas más frecuentes:
 
-- [Preguntas comunes](backup-azure-vm-backup-faq.md) sobre las copias de seguridad de máquinas virtuales de Azure
+- [Preguntas comunes](backup-azure-vm-backup-faq.yml) sobre las copias de seguridad de máquinas virtuales de Azure
 - [Preguntas comunes](backup-azure-file-folder-backup-faq.md) sobre el agente de Azure Backup

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd8e6dd712801de49971c1ef27cea664d73a4cb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 012a49762596adee39988614ed0c1020cd8bc104
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005918"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791111"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
 El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
@@ -118,7 +118,7 @@ Un proxy inverso de Service Fabric intenta volver a resolver una dirección de s
 
 Sin embargo, las instancias del servicio o las réplicas pueden compartir un proceso de host y un puerto cuando un servidor web basado en http.sys las hospeda; por ejemplo:
 
-* [System.Net.HttpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
+* [System.Net.HttpListener](/dotnet/api/system.net.httplistener)
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 

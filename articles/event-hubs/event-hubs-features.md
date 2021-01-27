@@ -3,12 +3,12 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195796"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791953"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -56,7 +56,7 @@ Los eventos publicados se quitan de un centro de eventos en función de una dire
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) se integra directamente con Azure Blob Storage y Azure Data Lake Storage y, gracias a esa integración, también permite el [flujo de eventos directamente a Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> Si quiere usar el patrón [Origen de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para la aplicación, debe alinear la estrategia de instantáneas con los límites de retención de Event Hubs. Su intención no debe ser la de recompilar las vistas materializadas de eventos sin procesar que se inician al principio. Probablemente lamentaría una estrategia así una vez que la aplicación esté en producción durante un tiempo y se use correctamente y el generador de proyecciones tenga que rebuscar entre años de eventos de cambios al intentar ponerse al día con los más recientes y continuos. 
+> Si quiere usar el patrón [Origen de eventos](/azure/architecture/patterns/event-sourcing) para la aplicación, debe alinear la estrategia de instantáneas con los límites de retención de Event Hubs. Su intención no debe ser la de recompilar las vistas materializadas de eventos sin procesar que se inician al principio. Probablemente lamentaría una estrategia así una vez que la aplicación esté en producción durante un tiempo y se use correctamente y el generador de proyecciones tenga que rebuscar entre años de eventos de cambios al intentar ponerse al día con los más recientes y continuos. 
 
 
 ### <a name="publisher-policy"></a>Directiva del publicador

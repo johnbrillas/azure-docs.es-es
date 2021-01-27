@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558799"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98792426"
 ---
 Puede optar por administrar el cifrado en el nivel de cada disco administrado, con sus propias claves. El cifrado del lado servidor de discos administrados con claves administradas por el cliente ofrece una experiencia integrada con Azure Key Vault. Puede importar [las claves RSA](../articles/key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault. 
 
@@ -22,8 +22,6 @@ Azure Managed Disks controla el cifrado y descifrado de forma totalmente trans
 #### <a name="full-control-of-your-keys"></a>Control total de las claves
 
 Tiene que conceder acceso a los discos administrados en su instancia de Key Vault para usar sus propias claves para cifrar y descifrar la clave DEK. Esto le permite controlar completamente los datos y las claves. Puede deshabilitar las claves o revocar el acceso a los discos administrados en cualquier momento. También puede auditar el uso de la clave de cifrado con la supervisión de Azure Key Vault para asegurarse de que solo los discos administrados u otros servicios de Azure de confianza tengan acceso a las claves.
-
-Al deshabilitar o eliminar la clave, se apagarán automáticamente todas las VM con discos que utilicen esa clave. Posteriormente, las VM no se podrán usar a menos que se vuelva a habilitar la clave o se les asigne una nueva.
 
 Para unidades SSD prémium, SSD estándar y HDD estándar: Al deshabilitar o eliminar la clave, se apagarán automáticamente todas las VM con discos que utilicen esa clave. Posteriormente, las VM no se podrán usar a menos que se vuelva a habilitar la clave o se les asigne una nueva.    
 

@@ -4,12 +4,12 @@ description: Aprenda a usar ASP.NET Core en aplicaciones de Azure Service Fabric
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576798"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791601"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Azure Service Fabric
 
@@ -190,7 +190,7 @@ Un puerto dinámico asignado por una configuración de `Endpoint` proporciona so
 ## <a name="kestrel-in-reliable-services"></a>Kestrel en Reliable Services
 Puede usar Kestrel en Reliable Services si importa el paquete NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Este paquete contiene `KestrelCommunicationListener`, una implementación de `ICommunicationListener`. `KestrelCommunicationListener` le permite crear un elemento WebHost de ASP.NET Core dentro de una instancia de Reliable Services con Kestrel como servidor web.
 
-Kestrel es un servidor web multiplataforma para ASP.NET Core. A diferencia de HTTP.sys, Kestrel no usa un administrador centralizado de puntos de conexión. También a diferencia de HTTP.sys, Kestrel no admite que varios procesos compartan puertos. Cada instancia de Kestrel debe usar un puerto único. Para más información sobre Kestrel, consulte los [detalles de implementación](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel es un servidor web multiplataforma para ASP.NET Core. A diferencia de HTTP.sys, Kestrel no usa un administrador centralizado de puntos de conexión. También a diferencia de HTTP.sys, Kestrel no admite que varios procesos compartan puertos. Cada instancia de Kestrel debe usar un puerto único. Para más información sobre Kestrel, consulte los [detalles de implementación](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Diagrama de Kestrel][4]
 

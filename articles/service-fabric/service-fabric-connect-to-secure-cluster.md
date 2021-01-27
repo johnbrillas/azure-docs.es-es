@@ -4,12 +4,12 @@ description: Se describe cómo autenticar el acceso de cliente a un clúster de 
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a669f7400eb2daf2d71f6caed41560020699c58
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008818"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791128"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 
@@ -232,7 +232,7 @@ catch (Exception e)
 
 El ejemplo siguiente se basa en Microsoft.IdentityModel.Clients.ActiveDirectory, versión: 2.19.208020213.
 
-Para más información sobre la obtención de tokens de AAD, vea [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
+Para más información sobre la obtención de tokens de AAD, vea [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

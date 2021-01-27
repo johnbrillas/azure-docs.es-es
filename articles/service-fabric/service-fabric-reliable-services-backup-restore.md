@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a60ebff06562c12415b2a106a9a11127feb94dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021993"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791618"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
@@ -150,7 +150,7 @@ Por ejemplo, si contiene la copia de seguridad completa, la primera y la tercera
 > 
 
 ## <a name="deleted-or-lost-service"></a>Eliminación o pérdida del servicio
-Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos.  Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema.  Una vez que el servicio está activo, la API `OnDataLossAsync` para recuperar los datos que se menciona más arriba debe invocarse en todas las particiones de este servicio. Una manera de conseguirlo es mediante el uso de [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) en cada partición.  
+Si se quita un servicio, en primer lugar debe volver a crearlo para poder restaurar los datos.  Es importante crear el servicio con la misma configuración, por ejemplo, con el mismo esquema de partición, para que los datos se restauren sin ningún problema.  Una vez que el servicio está activo, la API `OnDataLossAsync` para recuperar los datos que se menciona más arriba debe invocarse en todas las particiones de este servicio. Una manera de conseguirlo es mediante el uso de [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) en cada partición.  
 
 Desde este punto, la implementación es igual que en el escenario anterior. Cada partición debe restaurar la última copia de seguridad pertinente desde el almacén externo. Una advertencia es que es posible que el identificador de partición sea diferente, ya que el tiempo de ejecución crea los identificadores de partición de forma dinámica. Por lo tanto, el servicio necesita almacenar el nombre de servicio y la información de partición adecuada para identificar la copia de seguridad correcta más reciente desde la que restaurar para cada partición.
 
@@ -259,5 +259,5 @@ En primer lugar, `RestoreAsync` quita todos los estados existentes en la réplic
   - [Guía de inicio rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuración de Reliable Services](service-fabric-reliable-services-configuration.md)
-  - [Referencia para desarrolladores de colecciones confiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  - [Referencia para desarrolladores de colecciones confiables](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Restauración y copia de seguridad periódicas de Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)

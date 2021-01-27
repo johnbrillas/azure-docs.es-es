@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275243"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797735"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introducción a Azure Defender para servidores
 
@@ -20,7 +20,7 @@ Azure Defender para servidores agrega la detección de amenazas y defensas avanz
 
 Para Windows, Azure Defender se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Security Center presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
 
-Para Linux, Azure Defender recopila registros de auditoría de máquinas Linux mediante **auditd** , uno de los marcos de trabajo de Linux más comunes. auditd se encuentra en el kernel de línea principal. 
+Para Linux, Azure Defender recopila registros de auditoría de máquinas Linux mediante **auditd**, uno de los marcos de trabajo de Linux más comunes. auditd se encuentra en el kernel de línea principal. 
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>¿Cuáles son las ventajas de Azure Defender para servidores?
@@ -34,11 +34,11 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
     > [!IMPORTANT]
     > El sensor de **Microsoft Defender for Endpoint** se habilita automáticamente en los servidores Windows que usan Security Center.
 
-- **Análisis de la evaluación de vulnerabilidades en máquinas virtuales** : el detector de vulnerabilidades incluido con Azure Security Center cuenta con la tecnología de Qualys. 
+- **Análisis de la evaluación de vulnerabilidades en máquinas virtuales**: el detector de vulnerabilidades incluido con Azure Security Center cuenta con la tecnología de Qualys. 
 
     El detector de Qualys es una de las herramientas líderes para identificar en tiempo real las vulnerabilidades en Azure Virtual Machines. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. [Más información](deploy-vulnerability-assessment-vm.md).
 
-- **Acceso Just-In-Time (JIT) a máquinas virtuales** : los agentes de amenazas buscan activamente máquinas accesibles con puertos de administración abiertos, como RDP o SSH. Todas las máquinas virtuales son objetivos potenciales para un ataque. Cuando se consigue poner en peligro a una máquina virtual, se usa como punto de entrada para atacar más recursos dentro de su entorno.
+- **Acceso Just-In-Time (JIT) a máquinas virtuales**: los agentes de amenazas buscan activamente máquinas accesibles con puertos de administración abiertos, como RDP o SSH. Todas las máquinas virtuales son objetivos potenciales para un ataque. Cuando se consigue poner en peligro a una máquina virtual, se usa como punto de entrada para atacar más recursos dentro de su entorno.
 
     Una vez habilitado Azure Defender para servidores, puede usar el acceso Just-In-Time a máquinas virtuales ara bloquear el tráfico entrante a las máquinas virtuales, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. [Más información](just-in-time-explained.md).
 
@@ -54,7 +54,7 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
     La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas. [Más información](security-center-adaptive-network-hardening.md).
 
-- **Protección de host de Docker** : Azure Security Center identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas Linux que ejecutan contenedores de Docker. Security Center evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Security Center incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. [Más información](harden-docker-hosts.md).
+- **Protección de host de Docker**: Azure Security Center identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas Linux que ejecutan contenedores de Docker. Security Center evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Security Center incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. [Más información](harden-docker-hosts.md).
 
 - **Detección de ataques sin archivos (solo Windows)** : los ataques sin archivos inyectan cargas malintencionadas en la memoria para evitar la detección mediante técnicas de detección basadas en disco. Luego, la carga del atacante se conserva dentro de la memoria de los procesos en peligro y realiza una amplia variedad de actividades malintencionadas.
 
@@ -97,4 +97,4 @@ Para obtener material relacionado, consulte los siguientes artículos:
 - Tanto si Security Center genera una alerta, como si la recibe de un producto de seguridad diferente, puede exportarla. Para exportar las alertas a Azure Sentinel, a cualquier SIEM de terceros o a cualquier otra herramienta externa, siga las instrucciones de [Exportación de alertas a un SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Habilitación de Azure Defender](security-center-pricing.md)
+    > [Habilitación de Azure Defender](security-center-pricing.md#enable-azure-defender)

@@ -10,12 +10,13 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797634"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage (versión preliminar)
 
@@ -65,9 +66,36 @@ Las cadenas de conexión de los puntos de conexión específicos de la ruta publ
 
 La preferencia de enrutamiento de Azure Storage está disponible en las siguientes regiones:
 
-- Sur de Francia
-- Centro-Norte de EE. UU
+- Centro de EE. UU. 
+- EUAP del centro de EE. UU.
+- Este de EE. UU. 
+- Este de EE. UU. 2
+- Este de EE. UU. 2 
+- EUAP de Este de EE. UU. 2
+- Centro-sur de EE. UU.
 - Centro-Oeste de EE. UU.
+- Oeste de EE. UU. 
+- Oeste de EE. UU. 2 
+- Centro de Francia 
+- Sur de Francia 
+- Norte de Alemania 
+- Centro-oeste de Alemania 
+- Centro-Norte de EE. UU
+- Norte de Europa 
+- Este de Noruega 
+- Norte de Suiza
+- Oeste de Suiza
+- Sur de Reino Unido 
+- Oeste de Reino Unido 
+- Oeste de Europa 
+- Centro de Emiratos Árabes Unidos
+- Este de Asia 
+- Sudeste Asiático 
+- Japón Oriental 
+- Japón Occidental 
+- Oeste de la India
+- Este de Australia 
+- Sudeste de Australia 
 
 Los siguientes problemas conocidos afectan a la versión preliminar de las preferencias de enrutamiento para Azure Storage:
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un clúster de Service
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738952"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791078"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -52,7 +52,7 @@ Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
-En el recurso **Microsoft.ServiceFabric/clusters** , se ha implementado un clúster de Linux con las siguientes características:
+En el recurso **Microsoft.ServiceFabric/clusters**, se ha implementado un clúster de Linux con las siguientes características:
 
 * tres tipos de nodo
 * cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla), cada nodo está presente en cada uno de los otros tipos de nodo
@@ -75,7 +75,7 @@ En el recurso **Microsoft.Network/loadBalancers** se han configurado un equilibr
 
 ### <a name="virtual-network-and-subnet"></a>Red virtual y subred
 
-Los nombres de la red virtual y la subred se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred se declaran también en los parámetros de plantilla y se configuran en el recurso **Microsoft.Network/virtualNetworks** :
+Los nombres de la red virtual y la subred se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred se declaran también en los parámetros de plantilla y se configuran en el recurso **Microsoft.Network/virtualNetworks**:
 
 * espacio de direcciones de red virtual: 10.0.0.0/16
 * espacio de direcciones de subred de Service Fabric: 10.0.2.0/24
@@ -106,7 +106,7 @@ La plantilla de este artículo implementa un clúster que usa la huella digital 
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creación de un clúster mediante un certificado existente
 
-El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) y una plantilla para implementar un clúster nuevo protegido con un certificado existente. El comando también crea un nuevo almacén de claves de Azure y carga el certificado.
+El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster) y una plantilla para implementar un clúster nuevo protegido con un certificado existente. El comando también crea un nuevo almacén de claves de Azure y carga el certificado.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Creación de un clúster mediante un nuevo certificado autofirmado
 
-El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) y una plantilla para implementar un clúster nuevo en Azure. El comando también crea un almacén de claves en Azure, agrega un nuevo certificado autofirmado al almacén de claves y carga el certificado en el archivo de certificado de forma local.
+El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster) y una plantilla para implementar un clúster nuevo en Azure. El comando también crea un almacén de claves en Azure, agrega un nuevo certificado autofirmado al almacén de claves y carga el certificado en el archivo de certificado de forma local.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

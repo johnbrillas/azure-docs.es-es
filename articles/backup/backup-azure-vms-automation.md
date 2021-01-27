@@ -3,12 +3,12 @@ title: Copia de seguridad y recuperación de máquinas virtuales con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797067"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804788"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Una vez que haya definido la directiva de protección, todavía debe habilitar la directiva para un elemento. Use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para habilitar la protección. Para habilitar la protección son necesarios dos objetos: el elemento y la directiva. Después de que la directiva se haya asociado con el almacén, el flujo de trabajo de copia de seguridad se desencadena a la hora definida en la programación de la directiva.
 
 > [!IMPORTANT]
-> Al usar PowerShell para habilitar la copia de seguridad de varias VM a la vez, asegúrese de que una sola directiva no tenga más de 100 VM asociadas. Este es un [procedimiento recomendado](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Actualmente, el cliente de PowerShell no se bloquea explícitamente si hay más de 100 máquinas virtuales, pero está previsto que la comprobación se agregue en el futuro.
+> Al usar PowerShell para habilitar la copia de seguridad de varias VM a la vez, asegúrese de que una sola directiva no tenga más de 100 VM asociadas. Este es un [procedimiento recomendado](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy). Actualmente, el cliente de PowerShell no se bloquea explícitamente si hay más de 100 máquinas virtuales, pero está previsto que la comprobación se agregue en el futuro.
 
 En los ejemplos siguientes se habilita la protección para el elemento V2VM mediante la directiva NewPolicy. Los ejemplos varían en función de si la VM está cifrada y del tipo de cifrado.
 

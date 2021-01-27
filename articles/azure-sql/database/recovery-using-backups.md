@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797220"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795333"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,8 +53,8 @@ Para una única suscripción, existen limitaciones en el número de solicitudes 
 
 | **Opción de implementación** | **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
 | :--- | --: | --: |
-|**Base de datos única (por suscripción)**|10|60|
-|**Grupo elástico (por grupo)**|4|200|
+|**Base de datos única (por suscripción)**|30|100|
+|**Grupo elástico (por grupo)**|4|2000|
 
 
 No hay ningún método integrado para restaurar todo el servidor. Para obtener un ejemplo de cómo realizar esta tarea, consulte [Azure SQL Database: Recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).

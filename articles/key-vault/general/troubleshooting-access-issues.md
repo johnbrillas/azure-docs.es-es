@@ -7,19 +7,19 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901222"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791414"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>No puedo mostrar u obtener secretos, claves o certificados. Veo que se ha producido un error... Error.
-Si tiene problemas con la enumeración, la obtención y la creación del secreto o con el acceso a este, asegúrese de tener definida la directiva de acceso para realizar esa operación: [Autenticación en Key Vault con una directiva de control de acceso](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+Si tiene problemas con la enumeración, la obtención y la creación del secreto o con el acceso a este, asegúrese de tener definida la directiva de acceso para realizar esa operación: [Autenticación en Key Vault con una directiva de control de acceso](./assign-access-policy-cli.md)
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>¿De qué modo puedo identificar cómo y cuándo se accede a los almacenes de claves?
 

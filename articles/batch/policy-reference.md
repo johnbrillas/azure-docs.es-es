@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Batch
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Batch. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 095b561bb66c45acb093d956e7af6d286df77082
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3290e5ea74fc16427234e220961a2cf720a0c591
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045754"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808000"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Definiciones integradas de Azure Policy para Azure Batch
 

@@ -17,16 +17,14 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f72264e49a155068f866559db7edf79e68585c55
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8ab22e7960e233d6ae934fb52989aa73a494b33a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222282"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791517"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrado del tráfico de red con un grupo de seguridad de red mediante PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Puede filtrar el tráfico de red entrante y saliente de una subred de una red virtual con un grupo de seguridad de red. Los grupos de seguridad de red contienen reglas de seguridad que filtran el tráfico de red por dirección IP, puerto y protocolo. Las reglas de seguridad se aplican a los recursos implementados en una subred. En este artículo aprenderá a:
 

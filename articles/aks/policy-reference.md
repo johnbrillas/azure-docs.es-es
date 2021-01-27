@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para Azure Kubernetes Service
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Kubernetes Service. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c754e394b8f59be750d5cadf7dd358ad455b2ce5
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 48ca3012cb64654d7b7985dff2ed734e0295c32b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045449"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805536"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definiciones integradas de Azure Policy para Azure Kubernetes Service
 

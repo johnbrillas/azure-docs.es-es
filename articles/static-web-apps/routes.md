@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822327"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805947"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rutas en la versión preliminar de Azure Static Web Apps
 
@@ -210,7 +210,7 @@ Al proporcionar un valor para un encabezado, se agrega o se modifica el encabeza
 }
 ```
 
-En el ejemplo anterior, se agrega un nuevo encabezado `content-security-policy`, el objeto `cache-control` modifica el valor predeterminado del servidor y se quita el encabezado `x-dns-prefectch-control`.
+En el ejemplo anterior, se agrega un nuevo encabezado `content-security-policy`, el objeto `cache-control` modifica el valor predeterminado del servidor y se quita el encabezado `x-dns-prefetch-control`.
 
 Las siguientes consideraciones son importantes cuando se trabaja con encabezados:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a78bfc2b4f0c372c915647c0afa40263079af8e5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8b10e850fd3ae0282785164596f537652148a716
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746069"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791010"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Equilibrio de carga en varias configuraciones de IP mediante PowerShell
 
@@ -46,7 +46,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Para más información, consulte el [Paso 2: Creación de un grupo de recursos](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Para más información, consulte el [Paso 2: Creación de un grupo de recursos](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Cree un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) que contenga sus máquinas virtuales. En este caso, utilice el siguiente comando:
 
@@ -54,14 +54,14 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Siga las instrucciones de los pasos 3 a 5 del artículo [Creación de una máquina virtual Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar la creación de una máquina virtual con una sola NIC. Realice el paso 6.1 y use el siguiente código en lugar del paso 6.2:
+4. Siga las instrucciones de los pasos 3 a 5 del artículo [Creación de una máquina virtual Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar la creación de una máquina virtual con una sola NIC. Realice el paso 6.1 y use el siguiente código en lugar del paso 6.2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Después, complete los pasos 6.3 a 6.8 de [Creación de una máquina virtual Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Después, complete los pasos 6.3 a 6.8 de [Creación de una máquina virtual Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 5. Agregue una segunda configuración de IP a cada una de las máquinas virtuales. Siga las instrucciones del artículo [Asignación de varias direcciones IP a máquinas virtuales](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add). Use las opciones de configuración siguientes:
 

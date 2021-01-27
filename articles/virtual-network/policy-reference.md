@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Virtual Network
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Virtual Network. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c3675728460474c9a0ded2edb75177af28f440e1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f17f7aab05110a3126882731b2182a535e93bd77
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050007"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808076"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Definiciones de directivas integradas de Azure Policy para Azure Virtual Network
 

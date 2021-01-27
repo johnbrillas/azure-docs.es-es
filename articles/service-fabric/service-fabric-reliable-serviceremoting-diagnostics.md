@@ -5,15 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245932"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791768"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
-El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
+El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](/dotnet/api/system.diagnostics.performancecounter). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
 
 
 ## <a name="performance-counters"></a>Contadores de rendimiento
@@ -36,7 +36,7 @@ En la categoría `Service Fabric Service`, los nombres de instancias de contador
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) con el especificador de formato "D".
+*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) con el especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* es la representación de cadena del identificador de réplica o instancia de Service Fabric con el que está asociada la instancia de contador de rendimiento.
 
@@ -57,7 +57,7 @@ En la categoría `Service Fabric Service Method`, los nombres de instancias de c
 
 *ServiceRuntimeMethodId* es la representación de cadena de un entero de 32 bits que el entorno de tiempo de ejecución de los servicios de Fabric genera para su uso interno. Esto se incluye en el nombre de la instancia de contador de rendimiento para garantizar su unicidad y evitar conflictos con otros nombres de instancia de contador de rendimiento. Los usuarios no deberían intentar interpretar esta parte del nombre de instancia de contador de rendimiento.
 
-*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) con el especificador de formato "D".
+*ServiceFabricPartitionID* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante el método [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) con el especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* es la representación de cadena del identificador de réplica o instancia de Service Fabric con el que está asociada la instancia de contador de rendimiento.
 

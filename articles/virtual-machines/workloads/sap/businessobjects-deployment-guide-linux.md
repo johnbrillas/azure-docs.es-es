@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936488"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806166"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure
 
@@ -555,7 +555,7 @@ En la siguiente sección se describe cómo implementar una estrategia de copia d
 
 En Azure, la manera más sencilla de realizar copias de seguridad de los servidores de aplicaciones y de todos los discos conectados es mediante el servicio de [Azure Backup](../../../backup/backup-overview.md). Proporciona copias de seguridad independientes y aisladas para impedir la destrucción accidental de los datos en las máquinas virtuales. Las copias de seguridad se almacenan en un almacén de Recovery Services con administración integrada de puntos de recuperación. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 
-Como parte del proceso de copia de seguridad, se realiza una instantánea y los datos se transfieren al almacén de Recovery Services sin que ello afecte a las cargas de trabajo de producción. La instantánea proporciona diferentes niveles de coherencia, como se describe en el artículo [Coherencia de instantáneas](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). También puede optar por realizar una copia de seguridad de un subconjunto de los discos de datos de una máquina virtual mediante el uso de la funcionalidad de copia de seguridad y restauración de discos selectivos. Para obtener más información, consulte el documento [Copia de seguridad de máquinas virtuales de Azure](../../../backup/backup-azure-vms-introduction.md) y [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../../backup/backup-azure-vm-backup-faq.md).
+Como parte del proceso de copia de seguridad, se realiza una instantánea y los datos se transfieren al almacén de Recovery Services sin que ello afecte a las cargas de trabajo de producción. La instantánea proporciona diferentes niveles de coherencia, como se describe en el artículo [Coherencia de instantáneas](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). También puede optar por realizar una copia de seguridad de un subconjunto de los discos de datos de una máquina virtual mediante el uso de la funcionalidad de copia de seguridad y restauración de discos selectivos. Para obtener más información, consulte el documento [Copia de seguridad de máquinas virtuales de Azure](../../../backup/backup-azure-vms-introduction.md) y [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Copia de seguridad y restauración del servidor de repositorio de archivos
 

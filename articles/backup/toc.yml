@@ -79,7 +79,7 @@
         - name: Preguntas más frecuentes sobre el Centro de copia de seguridad
           href: backup-center-faq.yml
         - name: Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: Preguntas más frecuentes sobre el agente de MARS
           href: backup-azure-file-folder-backup-faq.md
         - name: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure

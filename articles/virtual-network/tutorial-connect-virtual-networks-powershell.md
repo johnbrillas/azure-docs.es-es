@@ -15,16 +15,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6ec552ea525abe6a84bb5e34e00ad317cae038bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93efaedbb0596382b0601a17098311e075618b7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077864"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791987"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conexión de redes virtuales con emparejamiento de redes virtuales usando PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este artículo aprenderá a:
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 023b33732b80198c4ed187328e8d18314f385f94
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836593"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803516"
 ---
 # <a name="manage-alert-events"></a>Administrar eventos de alerta
 
@@ -107,7 +107,5 @@ Cuando se silencia un evento, se omite cada vez que el origen envía un encabeza
 2. Mantenga el mouse sobre una alerta para ver si está silenciada.  
 
 ## <a name="see-also"></a>Consulte también
-
-[Generación de informes](how-to-generate-reports.md)
 
 [Control del tráfico que se supervisa](how-to-control-what-traffic-is-monitored.md)

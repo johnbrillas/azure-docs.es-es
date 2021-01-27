@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247666"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791280"
 ---
 # <a name="application-logging"></a>Registro de aplicaciones
 
@@ -22,7 +22,7 @@ Para ver ejemplos sobre cómo usar estas sugerencias, consulte [Adición del reg
 
 ## <a name="application-insights-sdk"></a>SDK de Application Insights
 
-Application Insights consigue una eficaz integración con Service Fabric directamente, sin necesidad de configuraciones adicionales. Los usuarios pueden agregar los paquetes de NuGet de Service Fabric de AI y recibir datos y registros creados y recopilados que pueden verse en Azure Portal. Además, se aconseja que los usuarios agreguen su propia telemetría para poder diagnosticar y depurar sus aplicaciones y rastrear cuáles son los servicios y las partes de su aplicación que más se usan. La clase [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) del SDK ofrece muchas formas de rastrear la telemetría en sus aplicaciones. Consulte un ejemplo de cómo instrumentar y agregar Application Insights a su aplicación en nuestro tutorial para [supervisar y diagnosticar una aplicación .NET](service-fabric-tutorial-monitoring-aspnet.md).
+Application Insights consigue una eficaz integración con Service Fabric directamente, sin necesidad de configuraciones adicionales. Los usuarios pueden agregar los paquetes de NuGet de Service Fabric de AI y recibir datos y registros creados y recopilados que pueden verse en Azure Portal. Además, se aconseja que los usuarios agreguen su propia telemetría para poder diagnosticar y depurar sus aplicaciones y rastrear cuáles son los servicios y las partes de su aplicación que más se usan. La clase [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) del SDK ofrece muchas formas de rastrear la telemetría en sus aplicaciones. Consulte un ejemplo de cómo instrumentar y agregar Application Insights a su aplicación en nuestro tutorial para [supervisar y diagnosticar una aplicación .NET](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="eventsource"></a>EventSource
 

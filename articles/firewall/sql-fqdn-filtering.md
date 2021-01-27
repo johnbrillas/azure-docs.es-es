@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348023"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791449"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuración de reglas de aplicación de Azure Firewall con nombres de dominio completos de SQL
 
@@ -96,7 +96,7 @@ Si usa puertos no predeterminados para el tráfico de SQL IaaS, puede configurar
 3. Agregue la regla de aplicación con el protocolo, el puerto y el FQDN de SQL adecuados y luego seleccione **Guardar**.
    ![regla de aplicación con FQDN de SQL](media/sql-fqdn-filtering/application-rule-sql.png)
 4. Acceda a SQL desde una máquina virtual de una red virtual que filtre el tráfico a través del firewall. 
-5. Valide que los [registros de Azure Firewall](log-analytics-samples.md) muestran que se permite el tráfico.
+5. Valide que los [registros de Azure Firewall](./firewall-workbook.md) muestran que se permite el tráfico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

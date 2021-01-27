@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: ce95106c56e919fa0fcc7d7553a3f0cc0dc77f98
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121301"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805364"
 ---
 # <a name="pricing-of-azure-security-center"></a>Precios de Azure Security Center
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberriesgos, que se expanden rápidamente.

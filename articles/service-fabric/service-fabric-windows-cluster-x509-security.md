@@ -3,12 +3,12 @@ title: Protección de un clúster en Windows mediante certificados
 description: Se describe cómo proteger la comunicación en el clúster independiente o local de Azure Service Fabric, así como entre los clientes y el clúster.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686130"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791044"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 En este artículo se describe cómo proteger la comunicación entre los diversos nodos de un clúster de Windows independiente. También se describe cómo autenticar a los clientes que se conectan a este clúster mediante certificados X.509. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, así como realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -355,7 +355,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Luego puede ejecutar otros comandos de PowerShell para trabajar con este clúster. Por ejemplo, puede ejecutar [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar una lista de los nodos en este clúster protegido.
+Luego puede ejecutar otros comandos de PowerShell para trabajar con este clúster. Por ejemplo, puede ejecutar [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) para mostrar una lista de los nodos en este clúster protegido.
 
 
 Para quitar el clúster, conéctese al nodo del clúster en el que descargó el paquete de Service Fabric, abra una línea de comandos y vaya a la carpeta del paquete. Ahora ejecute el comando siguiente:
