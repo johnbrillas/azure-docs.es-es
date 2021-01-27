@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740771"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879568"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualización de datos de Azure Time Series Insights en Power BI
 
@@ -112,10 +112,10 @@ Ahora que ha importado los datos en Power BI, es el momento de crear un informe
 Una vez que haya creado el informe, puede publicarlo en Reporting Services de Power BI y compartirlo con otros usuarios de su organización.
 
 ## <a name="advanced-editing"></a>Edición avanzada
-Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Consulte la [documentación de Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) para obtener más información sobre cómo realizar cambios mediante el **Editor de Power Query**. 
+Si ya ha cargado un conjunto de datos en Power BI pero desea modificar la consulta (por ejemplo, los parámetros de fecha y hora o del identificador del entorno), puede hacerlo a través de la funcionalidad Editor avanzado de Power BI. Consulte la [documentación de Power BI](/power-bi/desktop-query-overview) para obtener más información sobre cómo realizar cambios mediante el **Editor de Power Query**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Más información acerca de [Power BI Desktop](/power-bi/desktop-query-overview).
 
 * Aprenda a [consultar datos](concepts-query-overview.md) en Azure Time Series Insights Gen2.

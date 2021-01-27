@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1403c514f5a278fd406769f1d5271cc95a5c1df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5ed932488551918bb0bfeb7dc9ffcb2f59b6d152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195745"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878908"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
@@ -76,7 +76,7 @@ Las diferencias en las implementaciones de SAP en Azure son:
 
 Con la revisión 3 de las demarcaciones de HANA (grandes instancias). la latencia de red que se experimenta entre las máquinas virtuales y las unidades de HANA (instancias grandes) puede ser mayor que una latencia de red de recorrido de ida y vuelta entre máquinas virtuales. En función de la región de Azure, los valores medidos pueden superar la latencia de recorrido de ida y vuelta de 0,7 ms clasificada como por debajo del promedio en [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota de SAP 1100926: Preguntas más frecuentes sobre el rendimiento de red). Depende de la región de Azure y de la herramienta para medir la latencia de ida y vuelta de la red entre una máquina virtual de Azure y la unidad de instancias grandes de HANA; la latencia medida puede ser de hasta 2 milisegundos. Sin embargo, los clientes han implementado correctamente aplicaciones de SAP de producción basadas en SAP HANA en SAP HANA (instancias grandes). Asegúrese de probar exhaustivamente los procesos empresariales en HANA en Azure (instancias grandes). Una funcionalidad nueva, llamada ExpressRoute Fast Path, es capaz de reducir considerablemente la latencia de red entre HANA (Instancias grandes) y las máquinas virtuales de capa de aplicación de Azure (consulte a continuación). 
 
-Con la revisión 4 de las demarcaciones de HANA (instancias grandes), se ha comprobado que la latencia de red entre las máquinas virtuales de Azure que se implementan próximas a la demarcación cumple la clasificación media o la supera, tal como se documenta en [SAP Note #1100926 - FAQ: Network Performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota de SAP 1100926: Preguntas más frecuentes sobre el rendimiento de red) si se configura Azure ExpressRoute Fast Path (consulte a continuación). Para implementar máquinas virtuales de Azure en estrecha proximidad a las unidades de HANA (instancias grandes) de la revisión 4, debe aprovechar los [grupos de selección de ubicación de proximidad de Azure](../../linux/co-location.md). La forma en que se pueden usar los grupos de selección de ubicación de proximidad para ubicar el nivel de aplicación de SAP en el mismo centro de datos de Azure que las unidades de HANA (instancias grandes) hospedadas de la revisión 4 se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
+Con la revisión 4 de las demarcaciones de HANA (instancias grandes), se ha comprobado que la latencia de red entre las máquinas virtuales de Azure que se implementan próximas a la demarcación cumple la clasificación media o la supera, tal como se documenta en [SAP Note #1100926 - FAQ: Network Performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota de SAP 1100926: Preguntas más frecuentes sobre el rendimiento de red) si se configura Azure ExpressRoute Fast Path (consulte a continuación). Para implementar máquinas virtuales de Azure en estrecha proximidad a las unidades de HANA (instancias grandes) de la revisión 4, debe aprovechar los [grupos de selección de ubicación de proximidad de Azure](../../co-location.md). La forma en que se pueden usar los grupos de selección de ubicación de proximidad para ubicar el nivel de aplicación de SAP en el mismo centro de datos de Azure que las unidades de HANA (instancias grandes) hospedadas de la revisión 4 se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 
 Para proporcionar latencia de red determinista entre las máquinas virtuales y HANA (Instancias grandes), es fundamental la elección de la SKU de puerta de enlace de ExpressRoute. A diferencia de los patrones de tráfico entre el entorno local y las máquinas virtuales, el patrón de tráfico entre las máquinas virtuales y HANA (instancias grandes) puede generar pequeñas pero elevadas ráfagas de solicitudes y volúmenes de datos para transmitir. Para poder controlar correctamente esas ráfagas, se recomienda el uso de la SKU de puerta de enlace UltraPerformance. En el caso de la clase de SKU de HANA (Instancias grandes) de tipo II, es obligatorio el uso de la SKU de puerta de enlace UltraPerformance como puerta de enlace de ExpressRoute.
 

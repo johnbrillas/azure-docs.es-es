@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: mimckitt
-ms.openlocfilehash: 444c6a9c131916a2a07f41fd5c1ff38fc1e7bfb2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210331"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881442"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Para más información, consulte [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hospedaje multiinquilino para Windows 10).
@@ -39,7 +39,7 @@ rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
-Para más información sobre las imágenes disponibles, consulte [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage).
+Para más información sobre las imágenes disponibles, consulte [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](./cli-ps-findimage.md).
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Cualificación para los derechos de hospedaje multiinquilino 
 Para optar a los derechos de hospedaje multiinquilino y ejecutar imágenes en Azure, los usuarios deben tener una de las siguientes suscripciones: 

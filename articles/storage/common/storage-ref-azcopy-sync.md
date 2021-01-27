@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: de97640ab462ac8ea7342d235d0fad802c232179
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: dc3451a4b46a317dccda0e4292dcb1712b4171f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783375"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878314"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -38,7 +38,7 @@ El comando sync difiere del comando copy de varias maneras:
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
-- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y Blob Storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 - [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
@@ -143,7 +143,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
-**--help** : ayuda para la sincronización.
+**--help**: ayuda para la sincronización.
 
 **--include-attributes** string (solo Windows): incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: `A;S;R`
 
@@ -155,11 +155,11 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--preserve-smb-permissions** False de manera predeterminada. Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, `include-pattern`).
 
-**--put-md5** : crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
+**--put-md5**: crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
 **--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`). 
 
-**--s2s-preserve-access-tier** : conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
+**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 

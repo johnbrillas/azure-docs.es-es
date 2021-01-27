@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605032"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880481"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Uso de Acciones de GitHub con Azure Machine Learning
 
-Introducción a [Acciones de GitHub](https://docs.github.com/en/free-pro-team@latest/actions) para entrenar un modelo en Azure Machine Learning. 
+Introducción a [Acciones de GitHub](https://docs.github.com/en/actions) para entrenar un modelo en Azure Machine Learning. 
 
 > [!NOTE]
 > Las Acciones de GitHub para Azure Machine Learning se proporcionan tal cual y no son totalmente compatibles con Microsoft. Si encuentra problemas con una acción específica, abra un problema en el repositorio para la acción. Por ejemplo, si se produce un problema con la acción aml-deploy, informe del problema en el repositorio [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy).
@@ -228,4 +228,4 @@ Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los r
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md)
+> [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)

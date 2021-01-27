@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017243"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879180"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
 
@@ -92,7 +92,7 @@ Existen algunas limitaciones en la implementación: no es posible realizar una m
 Esta arquitectura se puede implementar si ha configurado la conectividad con la red local mediante: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [VPN sitio a sitio](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [VPN sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Si los requisitos de seguridad requieren el enrutamiento del tráfico de cliente a los servicios expuestos a través de puntos de conexión privados a través de un dispositivo de seguridad, implemente este escenario.
 

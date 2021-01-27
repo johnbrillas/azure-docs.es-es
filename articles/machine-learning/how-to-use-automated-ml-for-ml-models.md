@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796064"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879754"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -216,7 +216,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
     Una vez iniciada la implementación, aparece la pestaña **Resumen del modelo**. Consulte el progreso de la implementación en la sección **Estado de implementación**. 
 
-Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
+Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

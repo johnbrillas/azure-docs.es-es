@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 9eb07721f9d507d69de10b6de6c8c2a358dab020
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034095"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879400"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicación y seguimiento de canalizaciones de aprendizaje automático
 
@@ -32,7 +32,7 @@ Las canalizaciones de aprendizaje automático son flujos de trabajo reutilizable
 
 * [Configure su entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) con el SDK ya instalado.
 
-* Cree y ejecute una canalización de aprendizaje automático, como en el siguiente [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md). Para otras opciones, consulte [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+* Cree y ejecute una canalización de aprendizaje automático, como en el siguiente [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md). Para otras opciones, consulte [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 

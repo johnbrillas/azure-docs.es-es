@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881391"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introducción a Azure Defender para Storage
 
@@ -54,7 +54,7 @@ Las alertas de seguridad se desencadenan en los escenarios siguientes:
 Las alertas incluyen detalles acerca del incidente que las desencadenó, así como recomendaciones acerca de cómo investigar y corregir las amenazas. Las alertas se pueden exportar no solo a Azure Sentinel, sino también a cualquier otra SIEM de terceros o cualquier otra herramienta externa.
 
 > [!TIP]
-> Se recomienda [configurar Azure Defender para Storage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) en el nivel de suscripción, pero también se puede [configurar en cuentas de almacenamiento individuales](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
+> Se recomienda [configurar Azure Defender para Storage](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center) en el nivel de suscripción, pero también se puede [configurar en cuentas de almacenamiento individuales](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal).
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>¿Qué es el análisis de reputación de hash para malware?

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827519"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882491"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Control de instancias grandes de HANA en Azure mediante Azure Portal
 
@@ -94,7 +94,7 @@ Los datos adicionales del lado inferior derecho son la revisión del sello de HA
 - Revisión 4
 
 La revisión 4 es la arquitectura más reciente publicada de HANA (instancias grandes) con mejoras importantes en la latencia de red entre las máquinas virtuales de Azure y las unidades de HANA (instancias grandes) implementadas en los sellos o las filas de la revisión 4.
-Otra información muy importante se encuentra en la esquina inferior derecha de la información general con el nombre del grupo de ubicación de proximidad de Azure que se crea automáticamente para cada unidad de HANA (instancias grandes) implementada. Se debe hacer referencia a este grupo de selección de ubicación de proximidad al implementar las máquinas virtuales de Azure que hospedan el nivel de aplicación de SAP. Mediante el uso del [grupo de ubicación de proximidad de Azure](../../linux/co-location.md) asociado a la unidad de HANA (instancias grandes), se asegura de que las máquinas virtuales de Azure se implementan cerca de la unidad de HANA (instancias grandes). La forma en que se pueden usar los grupos de selección de ubicación de proximidad para ubicar el nivel de aplicación de SAP en el mismo centro de datos de Azure que las unidades de HANA (instancias grandes) hospedadas de la revisión 4 se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
+Otra información muy importante se encuentra en la esquina inferior derecha de la información general con el nombre del grupo de ubicación de proximidad de Azure que se crea automáticamente para cada unidad de HANA (instancias grandes) implementada. Se debe hacer referencia a este grupo de selección de ubicación de proximidad al implementar las máquinas virtuales de Azure que hospedan el nivel de aplicación de SAP. Mediante el uso del [grupo de ubicación de proximidad de Azure](../../co-location.md) asociado a la unidad de HANA (instancias grandes), se asegura de que las máquinas virtuales de Azure se implementan cerca de la unidad de HANA (instancias grandes). La forma en que se pueden usar los grupos de selección de ubicación de proximidad para ubicar el nivel de aplicación de SAP en el mismo centro de datos de Azure que las unidades de HANA (instancias grandes) hospedadas de la revisión 4 se describe en [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP](sap-proximity-placement-scenarios.md).
 
 Un campo adicional en la columna derecha del encabezado informa sobre el estado de energía de la unidad de HANA (instancias grandes).
 
