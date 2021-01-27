@@ -4,19 +4,19 @@ description: En este artículo se muestra cómo agregar una identidad administra
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 00e679b07a44b799b6ac6677201bb59eeddcd6cf
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96839731"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878433"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adición de una identidad administrada a un tipo de nodo de clúster administrado de Service Fabric (versión preliminar)
 
-Cada tipo de nodo de un clúster administrado de Service Fabric se encuentra respaldado por un conjunto de escalado de máquinas virtuales. Para permitir el uso de identidades administradas con un tipo de nodo de clúster administrado, se ha agregado una propiedad `vmManagedIdentity` a las definiciones de tipo de nodo que contienen una lista de identidades que se pueden usar, `userAssignedIdentities`. La funcionalidad refleja cómo se pueden usar las identidades administradas en los clústeres no administrados, como el uso de una identidad administrada con la [extensión del conjunto de escalado de máquinas virtuales de Azure Key Vault](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Cada tipo de nodo de un clúster administrado de Service Fabric se encuentra respaldado por un conjunto de escalado de máquinas virtuales. Para permitir el uso de identidades administradas con un tipo de nodo de clúster administrado, se ha agregado una propiedad `vmManagedIdentity` a las definiciones de tipo de nodo que contienen una lista de identidades que se pueden usar, `userAssignedIdentities`. La funcionalidad refleja cómo se pueden usar las identidades administradas en los clústeres no administrados, como el uso de una identidad administrada con la [extensión del conjunto de escalado de máquinas virtuales de Azure Key Vault](../virtual-machines/extensions/key-vault-windows.md).
 
 
-Para ver un ejemplo de una implementación de clústeres administrados de Service Fabric que usa la identidad administrada en un tipo de nodo, consulte [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Para ver una lista de las regiones admitidas, consulte las [preguntas más frecuentes sobre clústeres administrados](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+Para ver un ejemplo de una implementación de clústeres administrados de Service Fabric que usa la identidad administrada en un tipo de nodo, consulte [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Para ver una lista de las regiones admitidas, consulte las [preguntas más frecuentes sobre clústeres administrados](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Actualmente, solo se admiten identidades asignadas por el usuario para esta característica.
@@ -26,7 +26,7 @@ Para ver un ejemplo de una implementación de clústeres administrados de Servic
 Antes de empezar:
 
 * Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Si tiene previsto usar PowerShell, [instale](https://docs.microsoft.com/cli/azure/install-azure-cli) la CLI de Azure para ejecutar los comandos de referencia de la CLI.
+* Si tiene previsto usar PowerShell, [instale](/cli/azure/install-azure-cli) la CLI de Azure para ejecutar los comandos de referencia de la CLI.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 
 
@@ -131,4 +131,4 @@ No se puede agregar correctamente una asignación de roles con el siguiente erro
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Implementación de una aplicación en un clúster administrado de Service Fabric](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Implementación de una aplicación en un clúster administrado de Service Fabric](./tutorial-managed-cluster-deploy-app.md)

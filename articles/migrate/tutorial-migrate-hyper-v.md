@@ -9,12 +9,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 48fe0c737cf7005676a5c803107b4402c7039141
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752760"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878179"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -46,7 +46,7 @@ Antes de comenzar este tutorial, debe:
 2. [Revise](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) los requisitos de los hosts de Hyper-V para la migración y las direcciones URL de Azure a las que los hosts y clústeres de Hyper-V necesitan acceder para la migración de las máquinas virtuales.
 3. [Consulte](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) los requisitos de las máquinas virtuales de Hyper-V que desea migrar a Azure.
 4. Se recomienda [evaluar las máquinas virtuales Hyper-V](tutorial-assess-hyper-v.md) antes de migrarlas a Azure, pero no es obligatorio.
-5. Vaya al proyecto ya creado o [cree uno nuevo](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+5. Vaya al proyecto ya creado o [cree uno nuevo](./create-manage-projects.md)
 6. Compruebe los permisos de la cuenta de Azure: su cuenta de Azure necesita permisos para crear una máquina virtual y escribir en un disco administrado de Azure.
 
 ## <a name="download-and-install-the-provider"></a>Descarga e instalación del proveedor

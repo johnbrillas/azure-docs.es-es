@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c293945a52dd810975b36144f224278163166ba8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088604"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878450"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexión de RDP de máquinas virtuales de Azure en función de los identificadores de eventos 
 
@@ -164,7 +164,7 @@ Si no puede renovar el certificado, siga estos pasos para intentar eliminarlo:
 
 4. Seleccione la **cuenta de equipo** y haga clic en **Siguiente**.
 
-5. Seleccione **Otro equipo**y, a continuación, agregue la dirección IP de la máquina virtual que tiene problemas.
+5. Seleccione **Otro equipo** y, a continuación, agregue la dirección IP de la máquina virtual que tiene problemas.
    >[!Note]
    >Use la red interna para evitar usar una dirección IP virtual.
 
@@ -235,7 +235,7 @@ Este problema se debe a las directivas de seguridad. Cuando se deshabilitan las 
 
 RDP usa TLS 1.0 como protocolo predeterminado. Sin embargo, el protocolo puede cambiarse a TLS 1.1, que es el nuevo estándar.
 
-Para solucionar este problema, consulte [Troubleshoot authentication errors when you use RDP to connect to Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version) (Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure).
+Para solucionar este problema, consulte [Troubleshoot authentication errors when you use RDP to connect to Azure VM](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm#tls-version) (Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure).
 
 ## <a name="scenario-3"></a>Escenario 3
 

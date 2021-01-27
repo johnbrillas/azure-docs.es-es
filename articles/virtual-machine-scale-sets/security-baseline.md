@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201219"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877721"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Línea de base de seguridad de Azure para Virtual Machine Scale Sets
 
@@ -848,7 +848,7 @@ Actualmente, los controles de aplicaciones adaptables no están disponibles para
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Información sobre cómo descargar la plantilla de máquina virtual](../virtual-machines/windows/download-template.md)
+* [Información sobre cómo descargar la plantilla de máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -892,7 +892,7 @@ Actualmente, los controles de aplicaciones adaptables no están disponibles para
 
 En la mayoría de los escenarios, las plantillas de máquina virtual base de Microsoft combinadas con Desired State Configuration de Azure Automation pueden ayudar a cumplir y mantener los requisitos de seguridad.
 
-* [Información sobre cómo descargar la plantilla de máquina virtual](../virtual-machines/windows/download-template.md)
+* [Información sobre cómo descargar la plantilla de máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Información sobre la creación de plantillas ARM](../virtual-machines/windows/ps-template.md)
 
