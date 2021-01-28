@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: a53857061110d5a77ac3d166277e7076f4f7f9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541380"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762686"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entrenamiento de la versión activa de la aplicación de LUIS
 
@@ -40,9 +40,15 @@ La fecha y la hora del entrenamiento son GMT + 2.
 
 ## <a name="train-with-all-data"></a>Entrenamiento con todos los datos
 
-El entrenamiento usa un pequeño porcentaje de muestreo negativo. Si quiere utilizar todos los datos en lugar del muestreo negativo pequeño, use la [API](#version-settings-api-use-of-usealltrainingdata).
+El entrenamiento usa un pequeño porcentaje de muestreo negativo. En su lugar, puede usar todos los datos disponibles mediante el portal o la API. 
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Uso de UseAllTrainingData por parte de la API de configuración de versión
+### <a name="using-the-luis-portal"></a>Mediante el portal de LUIS
+
+Inicie sesión en el [portal de LUIS](https://www.luis.ai/) y haga clic en la aplicación. Seleccione **Administrar** en la parte superior de la pantalla y, a continuación, seleccione **Configuración** y habilite o deshabilite la opción **Use non-deterministic training** (Usar aprendizaje no determinista). Cuando está deshabilitada, el aprendizaje usará todos los datos disponibles.
+
+![Botón para habilitar o deshabilitar el aprendizaje no determinista](./media/non-determinstic-training.png)
+
+### <a name="using-the-version-settings-api"></a>Uso de la API de configuración de versión
 
 Use la [API de configuración de versión](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con el elemento `UseAllTrainingData` establecido en true para desactivar esta característica.
 

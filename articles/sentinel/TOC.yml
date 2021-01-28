@@ -225,7 +225,7 @@
           href: livestream.md
     - name: Eliminación de Azure Sentinel
       href: offboard.md
-- name: Referencia (nuevo)
+- name: Referencia
   items:
     - name: Roles RBAC de Azure
       items:
@@ -241,10 +241,20 @@
           href: hunting-with-rest-api.md
         - name: Administración de listas de reproducción con API REST
           href: watchlist-with-rest-api.md
+    - name: Referencia de datos de Azure Monitor
+      href: /azure/azure-monitor/reference/
     - name: Conector de Azure Sentinel en Logic Apps
       href: /connectors/azuresentinel/
     - name: Esquema de normalización de la red
       href: normalization-schema.md
+    - name: Referencia del esquema del origen de datos
+      href: data-source-schema-reference.md
+    - name: Lenguaje de consulta Kusto
+      items:
+        - name: Introducción a las consultas Kusto
+          href: /azure/data-explorer/kusto/query/
+        - name: Referencia rápida del lenguaje de consulta de Kusto
+          href: /azure/data-explorer/kql-quick-reference
     - name: Enriquecimientos con UEBA
       href: ueba-enrichments.md
 - name: Recursos

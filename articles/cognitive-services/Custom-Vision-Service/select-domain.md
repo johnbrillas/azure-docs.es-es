@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844945"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624847"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selección de un dominio para un proyecto de Custom Vision
 
@@ -26,6 +26,7 @@ Desde la pestaña de configuración del proyecto de Custom Vision, puede selecci
 |Domain|Propósito|
 |---|---|
 |__General__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado o si no está seguro de cuál elegir, seleccione el dominio General. Identificador: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__General [A1]__| Optimizado para una mejor precisión con un tiempo de inferencia comparable al del dominio General. Se recomienda para conjuntos de datos más grandes o escenarios de usuario más difíciles. Este dominio requiere más tiempo de entrenamiento. Identificador: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
 |__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos. Identificador: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Puntos de referencia__|Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión. Identificador: `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio. Identificador: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
@@ -36,6 +37,7 @@ Desde la pestaña de configuración del proyecto de Custom Vision, puede selecci
 |Domain|Propósito|
 |---|---|
 |__General__| Optimizado para una amplia variedad de tareas de detección de objetos. Si ninguno de los otros dominios es adecuado, o no está seguro de cuál elegir, seleccione el dominio General. Identificador: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__General [A1]__| Optimizado para una mejor precisión con un tiempo de inferencia comparable al del dominio General. Se recomienda para necesidades de ubicación de región más precisas, conjuntos de datos más grandes o escenarios de usuario más difíciles. Este dominio requiere más tiempo de entrenamiento, y los resultados no son deterministas: espere una diferencia de mAP del +-1 % con los mismos datos de entrenamiento proporcionados. Identificador: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logotipo__|Optimizado para buscar logotipos de marca en imágenes. Identificador: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Productos en las estanterías__|Optimizado para detectar y clasificar los productos que están en las estanterías. Identificador: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Dominios compactos__| Optimizados para las restricciones de detección de objetos en tiempo real en dispositivos perimetrales.|
@@ -48,7 +50,8 @@ El rendimiento varía en función del dominio seleccionado. En la tabla siguient
 
 |Tarea|Domain|ID|Tamaño del modelo|Tiempo de inferencia de CPU|Tiempo de inferencia de GPU|
 |---|---|---|---|---|---|
-|clasificación|General (compact) (General [compacto])|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|clasificación|General (compact) (General [compacto])|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10 ms|5 ms|
+|clasificación|General (compacto) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 MB|50 ms|5 ms|
 |Detección de objetos|General (compact) (General [compacto])|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
 |Detección de objetos|General (compacto) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 

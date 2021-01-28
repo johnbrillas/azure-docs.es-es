@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: Un
+    - name: A
       items:
         - name: abintegro
           href: abintegro-tutorial.md
@@ -977,6 +977,8 @@
           href: kisi-physical-security-tutorial.md
         - name: Kiteworks
           href: kiteworks-tutorial.md
+        - name: Klaxoon SAML
+          href: klaxoon-saml-tutorial.md
         - name: Klue
           href: klue-tutorial.md
         - name: KnowBe4 Security Awareness Training
