@@ -1,18 +1,15 @@
 ---
 title: 'Tutorial: Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight'
 description: En este artículo se describe cómo usar SendGrid con Apache Ambari para las notificaciones por correo electrónico.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946966"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configuración de notificaciones por correo electrónico de Apache Ambari en Azure HDInsight
 
@@ -38,11 +35,11 @@ En este tutorial, aprenderá a:
 
     ![Información general de SendGrid en Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. En el menú de la izquierda, vaya al nombre de la cuenta y, después, seleccione **Detalles de la cuenta** .
+1. En el menú de la izquierda, vaya al nombre de la cuenta y, después, seleccione **Detalles de la cuenta**.
 
     ![Navegación por el panel de SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. En la página **Detalles de la cuenta** , grabe el valor de **Nombre de usuario** .
+1. En la página **Detalles de la cuenta**, grabe el valor de **Nombre de usuario**.
 
     ![Detalles de la cuenta de SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,7 +47,7 @@ En este tutorial, aprenderá a:
 
 1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, donde `CLUSTERNAME` es el nombre del clúster.
 
-1. En la lista desplegable **Acciones** , seleccione **Administrar notificaciones** .
+1. En la lista desplegable **Acciones**, seleccione **Administrar notificaciones**.
 
 1. En la ventana **Manage Alert Notifications** (Administrar notificaciones de alerta), seleccione el icono **+** .
 
@@ -77,9 +74,9 @@ En este tutorial, aprenderá a:
 
     ![Captura de pantalla que muestra el cuadro de diálogo de creación de notificación de alerta.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Seleccione **Guardar** . Volverá a la ventana **Manage Alert Notifications** (Administrar notificaciones de alerta).
+    Seleccione **Guardar**. Volverá a la ventana **Manage Alert Notifications** (Administrar notificaciones de alerta).
 
-1. En la ventana **Manage Alert Notifications** (Administrar notificaciones de alerta), seleccione **Cerrar** .
+1. En la ventana **Manage Alert Notifications** (Administrar notificaciones de alerta), seleccione **Cerrar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
