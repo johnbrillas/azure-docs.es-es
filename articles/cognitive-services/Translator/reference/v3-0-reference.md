@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c93b8254e1fc80865d9889072b33cbf3fc94326d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024507"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880783"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -39,9 +39,9 @@ Microsoft Translator está disponible en varias ubicaciones de centros de datos.
 
 En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator se administran en el centro de datos que está más próximo a la ubicación donde se originó la solicitud. En caso de que se produzca un error en un centro de datos, la solicitud puede enrutarse fuera de la geografía de Azure.
 
-Para hacer que la solicitud se controle en una geografía de Azure específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión regional que desee:
+Para hacer que la solicitud se controle en una geografía de Azure específica, cambie el punto de conexión Global en la solicitud de API por el punto de conexión geográfico que desee:
 
-|Descripción|Geografía de Azure|URL base|
+|Descripción|Geografía de Azure|URL base (punto de conexión geográfico)|
 |:--|:--|:--|
 |Azure|Global (no regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|

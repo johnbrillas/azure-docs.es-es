@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369535"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733501"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Inicio rápido: Introducción a Translator
 
@@ -59,7 +59,7 @@ En este inicio rápido, aprenderá a usar el servicio Translator a través de RE
 # <a name="java"></a>[Java](#tab/java)
 
 * Cree un directorio de trabajo para el proyecto. Por ejemplo: `mkdir sample-project`.
-* Inicialice el proyecto con Gradle: `gradle init --type basic`. Cuando se le solicite que elija un **DSL** , seleccione **Kotlin**.
+* Inicialice el proyecto con Gradle: `gradle init --type basic`. Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
 * Actualice `build.gradle.kts`. Tenga en cuenta que necesitará actualizar `mainClassName` en función del ejemplo.
   ```java
   plugins {
@@ -968,7 +968,8 @@ Si va a realizar una traducción a un idioma que usa un alfabeto (o fonemas) dis
 
 Para obtener una transliteración desde el punto de conexión `translate`, use el parámetro `toScript`.
 
-> ![NOTA] Para ver una lista completa de las opciones de transliteración y los idiomas disponibles, consulte el artículo sobre los [idiomas admitidos](language-support.md).
+> [!NOTE]
+> Para obtener una lista completa de las opciones de transliteración y los idiomas disponibles, consulte el artículo sobre los [idiomas admitidos](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Si realiza una llamada correcta, debería ver la siguiente respuesta. Tenga en c
 
 Para que se realice una transliteración también puede usar el punto de conexión `transliterate`. Si se usa el punto de conexión de transliteración, es preciso especificar el idioma de origen (`language`), el guión o alfabeto de destino (`fromScript`), y el guión o alfabeto de la salida (`toScript`) como parámetros. En este ejemplo, se va a realizar la transliteración de สวัสดี. 
 
-> ![NOTA] Para ver una lista completa de las opciones de transliteración y los idiomas disponibles, consulte el artículo sobre los [idiomas admitidos](language-support.md).
+> [!NOTE]
+> Para obtener una lista completa de las opciones de transliteración y los idiomas disponibles, consulte el artículo sobre los [idiomas admitidos](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 

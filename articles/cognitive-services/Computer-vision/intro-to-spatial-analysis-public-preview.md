@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: f90e4e5e187977f0ee77a565ff9143902ea3a10d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968065"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736842"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Introducción al análisis espacial de Computer Vision
 
-El análisis espacial de Computer Vision es una nueva característica de Azure Cognitive Services Computer Vision, que ayuda a las organizaciones a maximizar el valor de sus espacios físicos mediante la comprensión de los movimientos y la presencia de personas dentro de un área determinada. Le permite ingerir vídeos de cámaras de CCTV o de vigilancia, ejecutar aptitudes de inteligencia artificial para extraer información de las secuencias de vídeo y generar eventos para que los usen otros sistemas. Con la entrada de una transmisión de cámara, una aptitud de inteligencia artificial puede hacer cosas como contar el número de personas que entran en un sitio o medir el cumplimiento de las directrices de distanciamiento social.
+El análisis espacial de Computer Vision es una nueva característica de Azure Cognitive Services Computer Vision, que ayuda a las organizaciones a maximizar el valor de sus espacios físicos mediante la comprensión de los movimientos y la presencia de personas dentro de un área determinada. Le permite ingerir vídeos de cámaras de CCTV o de vigilancia, ejecutar operaciones de inteligencia artificial para extraer información de las secuencias de vídeo y generar eventos para que los usen otros sistemas. Con la entrada de una transmisión de cámara, una operación de inteligencia artificial puede hacer cosas como contar el número de personas que entran en un sitio o medir el cumplimiento de las directrices de uso de máscaras faciales y distanciamiento físico.
 
 ## <a name="the-basics-of-spatial-analysis"></a>Aspectos básicos del análisis espacial
 
@@ -30,9 +30,10 @@ En la actualidad, las operaciones principales del análisis espacial se basan en
 | Término | Definición |
 |------|------------|
 | Detección de personas | Este componente responde a la pregunta "¿Dónde están las personas de esta imagen?" Se encarga de buscar personas en una imagen y pasa un cuadro de límite que indica la ubicación de cada persona al componente de seguimiento. |
-| Seguimiento de personas | Este componente conecta las detecciones de personas a lo largo de la reproducción, a medida que se mueven delante de una cámara. Para ello, usa una lógica temporal acerca de cómo suelen moverse las personas, e información básica sobre la apariencia general de la gente. En cambio, no puede realizar el seguimiento de las personas a través de varias cámaras o volver a identificar a alguien que haya desaparecido durante más de un minuto aproximadamente. El seguimiento de personas no usa marcadores biométricos como el reconocimiento facial o el seguimiento de la forma de andar. |
-| Región de interés | Se trata de una zona o línea definida en el vídeo de entrada como parte de la configuración. Cuando una persona interactúa con la región del vídeo, el sistema genera un evento. Por ejemplo, para la aptitud PersonCrossingLine, se define una línea en el vídeo. Cuando una persona cruza esa línea, se genera un evento. |
-| Evento | Un evento es la salida principal del análisis espacial. Cada aptitud emite un evento específico de forma periódica (por ejemplo, una vez por minuto) o cuando se genera un desencadenador específico. El evento incluye información sobre lo que pasó en el vídeo de entrada, pero no incluye imágenes ni vídeo. Por ejemplo, la aptitud PeopleCount puede emitir un evento que contenga un recuento actualizado cada vez que el número de personas cambia (es decir, el evento se desencadena) o una vez cada minuto (el evento se realiza periódicamente). |
+| Seguimiento de personas | Este componente conecta las detecciones de personas a lo largo de la reproducción, a medida que se mueven delante de una cámara. Para ello, usa una lógica temporal acerca de cómo suelen moverse las personas, e información básica sobre la apariencia general de la gente. No realiza un seguimiento de las personas a lo largo de varias cámaras. Si una persona sale del campo de visión de una cámara durante más de aproximadamente un minuto y luego vuelve a entrar en la visión de la cámara, el sistema la percibirá como una nueva persona. El seguimiento de personas no identifica de forma exclusiva a las personas entre las cámaras. No usa el reconocimiento facial ni el seguimiento de la forma de caminar. |
+| Detección de máscaras faciales | Este componente detecta la ubicación de la cara de una persona en el campo de visión de la cámara e identifica la presencia de una máscara facial. Para ello, la operación de inteligencia artificial examina las imágenes del vídeo: cuando se detecta una cara, el servicio proporciona un cuadro de límite alrededor de la cara. Con las funcionalidades de detección de objetos, identifica la presencia de máscaras faciales dentro del cuadro de límite. La detección de máscaras faciales no implica distinguir una cara de otra, predecir ni clasificar atributos faciales ni realizar el reconocimiento facial. |
+| Región de interés | Se trata de una zona o línea definida en el vídeo de entrada como parte de la configuración. Cuando una persona interactúa con la región del vídeo, el sistema genera un evento. Por ejemplo, para la operación PersonCrossingLine, se define una línea en el vídeo. Cuando una persona cruza esa línea, se genera un evento. |
+| Evento | Un evento es la salida principal del análisis espacial. Cada operación emite un evento específico de forma periódica (por ejemplo, una vez por minuto) o cuando se genera un desencadenador específico. El evento incluye información sobre lo que pasó en el vídeo de entrada, pero no incluye imágenes ni vídeo. Por ejemplo, la operación PeopleCount puede emitir un evento que contenga un recuento actualizado cada vez que el número de personas cambia (es decir, el evento se desencadena) o una vez cada minuto (el evento se realiza periódicamente). |
 
 ## <a name="example-use-cases-for-spatial-analysis"></a>Casos de uso de ejemplo para el análisis espacial
 
@@ -43,6 +44,8 @@ A continuación, se muestran ejemplos de casos de uso que debemos tener en cuent
 **Análisis de compradores**: una tienda de comestibles utiliza cámaras que apuntan a los escaparates de productos para medir el impacto que supone para el tráfico de la tienda cambiar la mercancía. Este sistema permite al administrador de la tienda identificar qué productos nuevos van a generar el mayor cambio en la involucración de los consumidores.
 
 **Administración de colas**: las cámaras que apuntan a las colas para pagar proporcionan alertas a los administradores cuando el tiempo de espera es demasiado largo, lo que les permite abrir más cajas. Los datos históricos sobre el abandono de la cola proporcionan información sobre el comportamiento del consumidor.
+
+**Cumplimiento de máscaras faciales**: las tiendas minoristas pueden usar cámaras que apuntan al frente de la tienda para comprobar si los clientes que entran disponen de máscaras faciales para mantener el cumplimiento de seguridad y analizar estadísticas agregadas para obtener conclusiones sobre las tendencias de uso de las máscaras. 
 
 **Análisis y ocupación de edificios**: un edificio de oficinas usa cámaras que se centran en las entradas a espacios clave para medir la cantidad de clientes y cómo se usa el área de trabajo. Esta información permite al administrador del edificio ajustar el servicio y el diseño para ofrecer un mejor servicio a sus ocupantes.
 
@@ -73,4 +76,4 @@ El acceso a la versión preliminar pública del análisis espacial está sujeto 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Características y limitaciones del análisis espacial](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Características y limitaciones del análisis espacial](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)

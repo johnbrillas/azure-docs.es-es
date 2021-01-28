@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882422"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789286"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -91,7 +91,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Pastún | `ps` |
 | Persa | `fa` |
 | Polaco | `pl` |
-| Portugués (Brasil) | `pt-br` |
+| Portugués (Brasil) | `pt` |
 | Portugués (Portugal) | `pt-pt` |
 | Punjabi | `pa` |
 | Otomí Querétaro | `otq` |
@@ -194,25 +194,42 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Idioma    | Código de lenguaje | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
+| Asamés | `as` | Bengalí `Beng` | <--> | Latino `Latn` |
 | Bengalí  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
+|Bielorruso| `be` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
+|Búlgaro| `bg` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Latino `Latn` |
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Chino simplificado `Hans` |
+|Griego| `el` | Griego `Grek`  | <--> | Latino `Latn` |
 | Gujarati | `gu`  | Guyaratí `Gujr` | <--> | Latino `Latn` |
 | Hebreo | `he` | Hebreo `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Japonés | `ja` | Japonés `Jpan` | <--> | Latino `Latn` |
 | Canarés | `kn` | Canarés `Knda` | <--> | Latino `Latn` |
+|Kazajo| `kk` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
+|Coreano| `ko` | Coreano `Kore`  | <--> | Latino `Latn` |
+|Kirguís| `ky` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
+|Macedonio| `mk` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
 | Maratí | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
+|Mongol| `mn` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
+|Persa| `fa` | Árabe `Arab`  | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
+|Ruso| `ru` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
+|Sindhi| `sd` | Árabe `Arab`  | <--> | Latino `Latn` |
+|Cingalés| `si` | Cingalés `Sinh`  | <--> | Latino `Latn` |
+|Tayiko| `tg` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+|Tatar| `tt` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
 | Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
 | Tailandés | `th` | Tailandés `Thai` | --> | Latino `Latn` |
+|Ucraniano| `uk` | Cirílico `Cyrl`  | <--> | Latino `Latn` |
+|Urdu| `ur` | Árabe `Arab`  | <--> | Latino `Latn` |
 
 ### <a name="dictionary"></a>Diccionario
 
@@ -326,7 +343,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
-| Portugués (Brasil) | `pt-br` |
+| Portugués (Brasil) | `pt` |
 | Punjabi|`pa`|
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |

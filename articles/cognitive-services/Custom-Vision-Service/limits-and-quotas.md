@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913488"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871407"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -42,6 +42,9 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |Alto y ancho máximos de la imagen, en píxeles|10 240|10 240|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
-|Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|300|300|
-|Núm. máximo de etiquetas por imagen de clasificación|100|100|
+|Número máximo de regiones por imagen (detección de objetos)|300|300|
+|Número máximo de etiquetas por imagen (clasificación)|100|100|
 
+> [!NOTE]
+> Se aceptarán imágenes de menos de 256 píxeles, pero se escalarán.
+> La relación de aspecto de la imagen no debe ser mayor que 25.

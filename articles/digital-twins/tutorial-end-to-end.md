@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049225"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684012"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -117,49 +117,9 @@ Se abrirá el Administrador de paquetes NuGet. Seleccione la pestaña *Actualiza
 
 ### <a name="publish-the-app"></a>Publicación de la aplicación
 
-De vuelta a la ventana de Visual Studio en la que el proyecto _**AdtE2ESample**_ está abierto, en el *Explorador de soluciones*, seleccione con el botón derecho el archivo del proyecto _**SampleFunctionsApp**_ y pulse **Publicar**.
+De vuelta en la ventana de Visual Studio en la que está abierto el proyecto _**AdtE2ESample**_ localice el proyecto _**SampleFunctionsApp**_ del panel del *Explorador de soluciones*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publicar proyecto":::
-
-En la página *Publicar* que aparece a continuación, deje el destino predeterminado **Azure** y presione *Siguiente*. 
-
-Para seleccionar un destino concreto, elija **Azure Function App (Windows)** y presione *Siguiente*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publicar una función de Azure en Visual Studio: destino concreto":::
-
-En la página *Functions instance* (Instancia de Functions), elija su suscripción. Se rellenará un cuadro con los *grupos de recursos* de la suscripción.
-
-Seleccione el grupo de recursos de la instancia y haga clic en *+* para crear una nueva función de Azure.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar una función de Azure en Visual Studio: instancia de Functions (antes de la aplicación de funciones)":::
-
-En la ventana *Function App (Windows) - Create new* [Aplicación de funciones (Windows): Crear nueva], rellene los siguientes campos:
-* **Name** (Nombre) es el nombre del plan de consumo que Azure va a usar para hospedar la aplicación de Azure Functions. También será el nombre de la aplicación de funciones que contiene la función real. Puede elegir su propio valor o dejar el que se sugiere, que es el predeterminado.
-* Asegúrese de que el valor del campo **Subscription** (Suscripción) coincida con la suscripción que desea usar. 
-* Asegúrese de que el valor del campo **Resource group** (Grupos de recursos) coincida con el grupo de recursos que desea utilizar.
-* En **Plan type** (Tipo de plan), deje *Consumption* (Consumo).
-* En el campo **Location** (Ubicación), elija la ubicación del grupo de recursos.
-* Cree un recurso de **Azure Storage** mediante el vínculo *New...* (Nuevo...). Establezca la ubicación que coincida con la del grupo de recursos, use los restantes valores predeterminados y pulse "Ok" (Aceptar).
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicar una función de Azure en Visual Studio: Function App (Windows) - Create new"::: [Aplicación de funciones (Windows): Crear nueva]
-
-Seleccione **Crear**.
-
-Debería volver a la página *Functions instance* (Instancia de Functions), donde la nueva aplicación de funciones ya se ve debajo del grupo de recursos. Pulse *Finish* (Finalizar).
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicar una función de Azure en Visual Studio: instancia de Functions (después de la aplicación de funciones)":::
-
-En el panel *Publish* (Publicar) que se abre en la ventana principal de Visual Studio, compruebe que toda la información parece correcta y seleccione **Publish** (Publicar).
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar una función de Azure en Visual Studio: publicar":::
-
-> [!NOTE]
-> Si ve un elemento emergente similar al siguiente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar una función de Azure en Visual Studio: publicar credenciales" border="false":::
-> Seleccione **Attempt to retrieve credentials from Azure** (Intentar recuperar credenciales de Azure) y **Save** (Guardar).
->
-> Si ve una advertencia en la que se indica que *actualice la versión de Functions en Azure* o que *la versión del entorno de ejecución de Functions no coincide con la versión que se ejecuta en Azure*:
->
-> siga las indicaciones para actualizar a la versión más reciente del entorno de ejecución de Azure Functions. Este problema puede producirse si usa una versión de Visual Studio anterior a la recomendada en la sección *Requisitos previos* al principio de este tutorial.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### <a name="assign-permissions-to-the-function-app"></a>Asignación de permisos a la aplicación de funciones
 
@@ -167,11 +127,13 @@ Para permitir que la aplicación de funciones acceda a Azure Digital Twins, el s
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de Azure Digital Twins.
+En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de Azure Digital Twins. Rellene los marcadores de posición con los detalles de los recursos (recuerde que la dirección URL de la instancia de Azure Digital Twins es su nombre de host precedido por *https://* ).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+La salida es la lista de valores de la función de Azure, que ahora debe contener una entrada denominada *ADT_SERVICE_URL*.
 
 Use el siguiente comando para crear la identidad administrada por el sistema. Anote el valor del campo *principalId* de la salida.
 

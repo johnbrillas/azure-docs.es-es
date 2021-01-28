@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126893"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704438"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
 
@@ -47,6 +47,8 @@ La normalización de texto es la transformación de palabras en un formato coher
 - Los caracteres que no son alfabéticos o los caracteres alfanuméricos combinados deben transcribirse tal como se pronuncian.
 - Las abreviaturas que se pronuncian como palabras no deben editarse (por ejemplo, "radar", "laser", "RAM" o "NATO").
 - Escriba las abreviaturas que se pronuncian como letras independientes con cada letra separada por un espacio.
+- Si usa audio, transcriba los números como palabras que coincidan con el audio (por ejemplo, "101" podría pronunciarse como "uno cero uno" o "ciento uno").
+- Evite repetir caracteres, palabras o grupos de palabras más de tres veces, como "sí sí sí sí". El servicio Voz podría quitar las líneas con estas repeticiones.
 
 Estos son algunos ejemplos de normalización que debe realizar en la transcripción:
 

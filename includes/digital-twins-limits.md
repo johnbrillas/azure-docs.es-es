@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027643"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689828"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -22,7 +22,7 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | Gemelos digitales | Número de gemelos de una instancia de Azure Digital Twins | 200 000 | Sí |
 | Gemelos digitales | Número de relaciones entrantes en un solo gemelo | 5\.000 | No |
 | Gemelos digitales | Número de relaciones de salida de un solo gemelo | 5\.000 | No |
-| Gemelos digitales | Tamaño máximo de un gemelo individual | 32 KB | No |
+| Gemelos digitales | Tamaño máximo (del cuerpo JSON en una solicitud PUT o PATCH) de un solo gemelo | 32 KB | No |
 | Gemelos digitales | Tamaño máximo de carga de solicitud | 32 KB | No | 
 | Enrutamiento | Número de puntos de conexión de una instancia de Azure Digital Twins | 6 | No |
 | Enrutamiento | Número de rutas de una instancia de Azure Digital Twins | 6 | Sí |

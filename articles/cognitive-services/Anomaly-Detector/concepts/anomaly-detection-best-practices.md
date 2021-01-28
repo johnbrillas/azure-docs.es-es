@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705156"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702733"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
 
@@ -25,7 +25,7 @@ Anomaly Detector API es un servicio de detección de anomalías sin estado. La p
 * Los parámetros de Anomaly Detector API que se usaron
 * El número de puntos de datos de la solicitud de API 
 
-Use este artículo para conocer los procedimientos recomendados para usar la API y obtenga los mejores resultados para sus datos. 
+Use este artículo para conocer los procedimientos recomendados para usar la API para obtener los mejores resultados para sus datos. 
 
 ## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Cuándo usar la detección de anomalías por lotes (completa) o del punto más reciente (última)
 
@@ -34,7 +34,7 @@ El punto de conexión de detección por lotes de Anomaly Detector API le permite
 * Serie temporal estacional, con anomalías ocasionales
 * Serie temporal de tendencia plana, con subidas y bajadas ocasionales 
 
-No se recomienda usar la detección de anomalías por lotes para la supervisión de datos en tiempo real ni usarla en datos de serie temporal que no presentan las características anteriores. 
+No se recomienda usar la detección de anomalías por lotes para la supervisión de datos en tiempo real, ni usarla en datos de serie temporal que no presentan las características anteriores. 
 
 * La detección por lotes crea y aplica un único modelo, la detección de cada punto se realiza en el contexto de la serie completa. Si las tendencias de los datos de serie temporal suben y bajan sin estacionalidad, el modelo puede omitir algunos puntos de cambio (subidas y bajadas en los datos). Igualmente, algunos puntos de cambio que son menos importantes que los más recientes del conjunto de datos no se considerarán como lo suficientemente importantes como para incorporarlos al modelo.
 
@@ -54,7 +54,7 @@ Este es el mismo conjunto de datos pero con la detección de anomalías por lote
 
 Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) se define como la velocidad a la que se muestrean los datos. 
 
-Los puntos de datos enviados a Anomaly Detector API deben tener una marca de tiempo válida en Hora universal coordinada (UTC) y un valor numérico. 
+Los puntos de datos enviados a la API de Anomaly Detector deben tener una marca de tiempo válida en hora universal coordinada (UTC) y un valor numérico. 
 
 ```json
 {
@@ -87,7 +87,7 @@ Que falten puntos de datos es algo común en los conjuntos de datos de serie tem
 
 ### <a name="aggregate-distributed-data"></a>Datos distribuidos agregados
 
-Anomaly Detector API funciona mejor en una serie temporal distribuida uniformemente. Si los datos se distribuyen aleatoriamente, debe agregarlos como una unidad de tiempo (por ejemplo, por minuto, hora, o día).
+Anomaly Detector API funciona mejor en una serie temporal distribuida uniformemente. Si los datos se distribuyen aleatoriamente, debe agregarlos como una unidad de tiempo, por ejemplo, por minuto, hora o día.
 
 ## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Detección de anomalías en datos con patrones estacionales
 
@@ -95,7 +95,7 @@ Si sabe que los datos de serie temporal tienen un patrón estacional (uno que se
 
 Especificar un valor de `period` al construir la solicitud JSON puede reducir la latencia en la detección de anomalías en hasta un 50 %. El valor de `period` es un entero que especifica aproximadamente cuántos puntos de datos toma la serie temporal para repetir un patrón. Por ejemplo, una serie temporal con un punto de datos al día tendría un valor de `period` de `7`, y una serie temporal con un punto por hora (con el mismo patrón semanal) tendría un valor de `period` de `7*24`. Si no está seguro de los patrones de sus datos, no tiene que especificar este parámetro.
 
-Para obtener los mejores resultados, proporcione 4 para el valor de `period` del punto de datos, más uno adicional. Por ejemplo, los datos por hora con un patrón semanal como se ha descrito anteriormente deben proporcionar 673 puntos de datos en el cuerpo de la solicitud (`7 * 24 * 4 + 1`).
+Para obtener los mejores resultados, proporcione cuatro veces el valor de `period` del punto de datos, más uno adicional. Por ejemplo, los datos por hora con un patrón semanal como se ha descrito anteriormente deben proporcionar 673 puntos de datos en el cuerpo de la solicitud (`7 * 24 * 4 + 1`).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Datos de muestreo para la supervisión en tiempo real
 

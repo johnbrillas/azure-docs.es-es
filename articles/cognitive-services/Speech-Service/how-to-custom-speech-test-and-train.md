@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: ed79d9fb3be192d300587eda5198d9b153109241
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209787"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702209"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -174,7 +174,7 @@ Utilice esta tabla para asegurarse de que el archivo de datos relacionado con la
 
 Además, querrá tener en cuenta las siguientes restricciones:
 
-* Evite repetir los caracteres más de cuatro veces. Por ejemplo: "aaaa" o "uuuu".
+* Evite repetir caracteres, palabras o grupos de palabras más de tres veces. Por ejemplo: "a", "sí sí sí sí" o "eso es todo eso es todo eso es todo eso es todo". El servicio Voz podría quitar líneas con demasiadas repeticiones.
 * No utilice caracteres especiales ni caracteres UTF-8 por encima de `U+00A1`.
 * Se rechazarán los identificadores URI.
 

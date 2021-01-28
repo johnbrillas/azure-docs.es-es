@@ -4,13 +4,13 @@ description: Este artículo se actualiza periódicamente con noticias sobre la A
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
-ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179136"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693602"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -21,6 +21,7 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 ### <a name="january-2021"></a>Enero de 2021
 
 * La API de predicción V3 ahora es compatible con [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction).
+* Los portales regionales (au.luis.ai y eu.luis.ai) se han consolidado en un único portal y dirección URL. Si usa alguno de estos portales, se obtendrá acceso automáticamente a luis.ai.
 
 ### <a name="december-2020"></a>Diciembre de 2020
 

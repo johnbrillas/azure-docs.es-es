@@ -3,18 +3,20 @@ title: 'Colaboración con otros usuarios: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Un propietario de la aplicación puede agregar colaboradores al recurso de creación. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación.
 services: cognitive-services
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/21/2021
+ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007978"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681101"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
@@ -66,9 +68,7 @@ LUIS usa el flujo de consentimiento de Azure Active Directory (Azure AD) estánd
 El administrador de inquilinos debe trabajar directamente con el usuario que requiera que se le conceda acceso para usar LUIS en Azure AD.
 
 * En primer lugar, el usuario inicia sesión en LUIS y ve el cuadro de diálogo emergente que necesita aprobación de administrador. El usuario se pone en contacto con el administrador de inquilinos antes de continuar.
-* En segundo lugar, el administrador de inquilinos inicia sesión en LUIS y ve un cuadro de diálogo emergente de flujo de consentimiento. Este es el cuadro de diálogo que debe usar el administrador para conceder permiso al usuario. Una vez que el administrador acepte el permiso, el usuario podrá continuar con LUIS. Si el administrador de inquilinos no inicia sesión en LUIS, el administrador puede obtener acceso a la opción de [consentimiento](https://account.activedirectory.windowsazure.com/r#/applications) de LUIS, que se muestra en la siguiente captura de pantalla. Tenga en cuenta que la lista tiene filtrados los elementos que incluyen el nombre `LUIS`.
-
-![Permiso de Azure Active Directory por sitio web de aplicación](./media/luis-how-to-collaborate/tenant-permissions.png)
+* En segundo lugar, el administrador de inquilinos inicia sesión en LUIS y ve un cuadro de diálogo emergente de flujo de consentimiento. Este es el cuadro de diálogo que debe usar el administrador para conceder permiso al usuario. Una vez que el administrador acepte el permiso, el usuario podrá continuar con LUIS. Si el administrador de inquilinos no inicia sesión en LUIS, el administrador puede acceder a [consentimiento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. En esta página puede filtrar la lista por elementos que incluyan el nombre `LUIS`.
 
 Si el administrador de inquilinos desea solo que determinados usuarios puedan usar LUIS, hay un par de soluciones posibles:
 * dar el "consentimiento del administrador" (dar el consentimiento a todos los usuarios de Azure AD), pero, luego, establecer "Asignación de usuarios necesaria" en "Sí", en Propiedades de la aplicación de empresa y, por último, asignar o agregar solo los usuarios deseados a la aplicación. Con este método, el administrador aún está proporcionando "consentimiento del administrador" a la aplicación; sin embargo, es posible controlar los usuarios que pueden acceder a ella.

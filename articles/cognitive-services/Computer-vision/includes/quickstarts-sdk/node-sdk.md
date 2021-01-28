@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 50d1222f5c33b327c92799ccf27ed0650ba0226c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 8fd7c820a25f098799f1c2fa69ba700a334e932d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560872"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698129"
 ---
 <a name="HOLTop"></a>
 
@@ -58,6 +58,12 @@ Instale los paquetes `ms-rest-azure` y `@azure/cognitiveservices-computervision`
 npm install @azure/cognitiveservices-computervision
 ```
 
+Instale también el módulo async:
+
+```console
+npm install async
+```
+
 el archivo `package.json` de la aplicación se actualizará con las dependencias.
 
 Cree un archivo, *index.js* y ábralo en un editor de texto. Agregue las siguientes instrucciones import.
@@ -72,7 +78,7 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
 > [!IMPORTANT]
-> Vaya a Azure Portal. Si el recurso de [nombre del producto] que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
+> Vaya a Azure Portal. Si el recurso de Computer Vision que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
 >
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 

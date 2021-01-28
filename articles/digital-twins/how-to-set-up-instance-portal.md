@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044380"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882459"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -71,13 +71,13 @@ Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe pr
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-En primer lugar, abra la página de la instancia de Azure Digital Twins en Azure Portal. En el menú de la instancia, seleccione *Control de acceso (IAM)* . Seleccione el botón *Agregar* en *Agregar una asignación de roles*.
+En primer lugar, abra la página de la instancia de Azure Digital Twins en Azure Portal. En el menú de la instancia, seleccione *Control de acceso (IAM)* . Seleccione el botón **+ Agregar** para agregar una nueva asignación de roles.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selección de la opción para agregar una asignación de roles en la página Control de acceso (IAM)":::.
 
 En la siguiente página *Add role assignment* (Agregar asignación de roles), rellene los valores (el usuario que los complete debe tener [permisos suficientes](#prerequisites-permission-requirements) en la suscripción de Azure):
 * **Rol**: seleccione *Propietario de datos de Azure Digital Twins* en el menú desplegable.
-* **Asignar acceso a**: seleccione *Usuario, grupo o entidad de servicio de Azure AD* en el menú desplegable.
+* **Asignar acceso a**: Use *Usuario, grupo o entidad de servicio*
 * **Select**: busque el nombre o la dirección de correo electrónico del usuario para realizar la asignación. Cuando seleccione el resultado, el usuario aparecerá en la sección *Miembros seleccionados*.
 
 :::row:::
