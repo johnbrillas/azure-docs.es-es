@@ -8,7 +8,7 @@
       href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure portal
+    - name: Azure Portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -31,7 +31,7 @@
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
@@ -68,7 +68,7 @@
             - name: Aspectos básicos
               href: data-lake-analytics-u-sql-get-started.md
             - name: Referencia de lenguaje
-              href: 'https://docs.microsoft.com/u-sql'
+              href: /u-sql
             - name: Catálogo
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operadores definidos por el usuario
