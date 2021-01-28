@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896708"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625005"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda y visualización de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -39,7 +39,7 @@ Puede obtener el código fuente completo para el ejemplo [aquí](https://github.
 
 En los pasos siguientes se muestra cómo crear y mostrar el Control de mapa en una página web.
 
-1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapTruckRoute.html** .
+1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapTruckRoute.html**.
 2. Copie y pegue el siguiente marcado HTML en el archivo.
 
     ```HTML
@@ -121,7 +121,7 @@ En los pasos siguientes se muestra cómo crear y mostrar el Control de mapa en u
 
 2. Guarde el archivo **MapTruckRoute.html** y actualice la página en el explorador. Si mira de cerca cualquier ciudad (por ejemplo, Los Ángeles), verá que las calles muestran los datos actuales de flujo de tráfico.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Representación de mapa básica del Control de mapa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Visualización del tráfico en un mapa":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ En este tutorial, se calcularán y se representarán dos rutas en el mapa. La pr
 
 3. Guarde el archivo **TruckRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle. La chincheta azul en forma de lágrima marca el punto inicial. La chincheta azul redonda marca el punto final.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Representación de mapa básica del Control de mapa":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Visualización del mapa con los puntos de inicio y fin":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ En este tutorial, se calcularán y se representarán dos rutas en el mapa. La pr
 En esta sección se muestra cómo usar el servicio Azure Maps Route para obtener direcciones de un punto a otro según el modo de transporte. Se utilizarán dos modos de transporte: camión y automóvil.
 
 >[!TIP]
->El servicio Route proporciona las API para planear rutas que sean *más rápidas* , *más cortas* , *ecológicas* o *emocionantes* en función de la distancia, las condiciones del tráfico y el modo de transporte utilizado. Este servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](/rest/api/maps/route/getroutedirections).
+>El servicio Route proporciona las API para planear rutas que sean *más rápidas*, *más cortas*, *ecológicas* o *emocionantes* en función de la distancia, las condiciones del tráfico y el modo de transporte utilizado. Este servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](/rest/api/maps/route/getroutedirections).
 
 1. En la función `GetMap`, dentro del controlador de eventos `ready` del control, agregue lo siguiente al código de JavaScript.
 
@@ -277,7 +277,7 @@ En esta sección se muestra cómo usar el servicio Azure Maps Route para obtener
 
 4. Guarde el archivo **TruckRoute.html** y actualice el explorador web. El mapa debería mostrar ahora las rutas de camión y de automóvil.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Representación de mapa básica del Control de mapa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rutas de vehículos privados y comerciales en un mapa con el servicio Route de Azure":::
 
     La ruta de camión se muestra mediante una línea gruesa azul. La ruta de automóvil se muestra mediante una línea fina de color púrpura. La ruta de automóvil transcurre por Lake Washington a través de la I-90 y pasa por túneles bajo zonas residenciales. Como los túneles están cerca de las zonas residenciales, se restringe el transporte de residuos peligrosos. La ruta de camión, que especifica el tipo de carga `USHazmatClass2`, se redirige a una autopista diferente.
 
@@ -285,7 +285,9 @@ Puede obtener el código fuente completo para el ejemplo [aquí](https://github.
 
 También puede [usar expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md).
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

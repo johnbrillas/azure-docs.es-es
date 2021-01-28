@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905747"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680338"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ En este tutorial, ayudará a un conductor cuyo vehículo eléctrico tiene poca b
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> * Creación y ejecución de un archivo de Jupyter Notebook en [Azure Notebooks](../notebooks/index.yml) en la nube.
+> * Creación y ejecución de un archivo de Jupyter Notebook en [Azure Notebooks](https://notebooks.azure.com) en la nube.
 > * Llamada a las API REST de Azure Maps en Python.
 > * Búsqueda de un intervalo accesible en función del modelo de consumo del vehículo eléctrico
 > * Búsqueda de estaciones de carga de vehículos eléctricos en el intervalo de alcance (o isócrono).
@@ -49,7 +49,7 @@ Para más información sobre la autenticación en Azure Maps, consulte [Administ
 
 Para seguir este tutorial, tendrá que crear un proyecto de Azure Notebooks y descargar y ejecutar el archivo de Jupyter Notebook. El archivo de Jupyter Notebook contiene código Python que implementa el escenario de este tutorial. Siga los pasos que se indican a continuación para crear un proyecto de Azure Notebooks y cargar el documento de Jupyter Notebook en él:
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. Para más información, consulte [Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. Para más información, consulte [Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario](https://notebooks.azure.com).
 1. En parte superior de la página del perfil público, seleccione **My Projects** (Mis proyectos).
 
     ![Botón My Projects (Mis proyectos)](./media/tutorial-ev-routing/myproject.png)
@@ -399,9 +399,13 @@ Para explorar las API de Azure Maps que se usan en este tutorial, consulte:
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)
 * [API REST de Azure Maps](./consumption-model.md)
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure Notebooks, consulte
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

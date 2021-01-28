@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: f9e462d66e438e42c40b16ba9b818ddd330e9e5a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 7afcf6c5814917b3356d86e7288fd2920a04cad7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612438"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695998"
 ---
 # <a name="tutorial-configure-templafy-openid-connect-for-automatic-user-provisioning"></a>Tutorial: Configuración de Templafy OpenID Connect para el aprovisionamiento automático de usuarios
 
@@ -133,7 +133,26 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 9. Examine los atributos de usuario que se sincronizan entre Azure AD y Templafy OpenID Connect en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Templafy OpenID Connect con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Templafy OpenID Connect](media/templafy-openid-connect-provisioning-tutorial/user-attribute.png)
+   |Atributo|Tipo|Compatible con el filtrado|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |DisplayName|String|
+   |title|String|
+   |preferredLanguage|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |externalId|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Templafy** (Sincronizar grupos de Azure Active Directory a Templafy).
 
@@ -141,7 +160,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 11. Examine los atributos de grupo que se sincronizan entre Azure AD y Templafy OpenID Connect en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer correspondencia con los grupos de Templafy OpenID Connect para operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de grupo de Templafy OpenID Connect](media/templafy-openid-connect-provisioning-tutorial/group-attribute.png)
+      |Atributo|Tipo|Compatible con el filtrado|
+      |---|---|---|
+      |DisplayName|String|&check;|
+      |members|Referencia|
+      |externalId|String|      
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

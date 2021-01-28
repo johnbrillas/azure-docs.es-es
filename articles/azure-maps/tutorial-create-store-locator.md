@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905781"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625104"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -935,6 +935,10 @@ En este tutorial, ha aprendido a crear un localizador básico de tiendas mediant
  * Almacenar los datos en una base de datos y buscar ubicaciones cercanas Para más información, consulte [Información general de los tipos de datos espaciales de SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) y [Consultar datos espaciales para el vecino más próximo](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Puede [ver el código fuente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [ver un ejemplo publicado](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) y obtener más información sobre la cobertura y funcionalidad de Azure Maps mediante el uso de [niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md). También puede [usar expresiones de estilo basadas en datos](data-driven-style-expressions-web-sdk.md) para aplicarlas a la lógica de negocios.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

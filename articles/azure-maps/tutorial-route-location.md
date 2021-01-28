@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896687"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624989"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Cómo mostrar direcciones de ruta mediante el servicio Route de Azure Maps y el Control de mapa
 
@@ -39,7 +39,7 @@ Puede obtener el código fuente completo para el ejemplo [aquí](https://github.
 
 En los pasos siguientes se muestra cómo crear y mostrar el Control de mapa en una página web.
 
-1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapRoute.html** .
+1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapRoute.html**.
 2. Copie y pegue el siguiente marcado HTML en el archivo.
 
     ```HTML
@@ -174,7 +174,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle. La chincheta azul en forma de lágrima marca el punto inicial. La chincheta azul redonda marca el punto final.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Representación de mapa básica del Control de mapa":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Visualización de los puntos de inicio y fin de las rutas en el mapa":::
 
 <a id="getroute"></a>
 
@@ -183,7 +183,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 En esta sección se muestra cómo usar Route Directions API de Azure Maps para obtener instrucciones de ruta y el tiempo estimado de llegada de un punto a otro.
 
 >[!TIP]
->El servicio Azure Maps Route ofrece API para planear rutas según el tipo, por ejemplo, *más rápidas* , *más cortas* , *ecológicas* o *emocionantes* de acuerdo con la distancia, las condiciones de tráfico y el modo de transporte usado. El servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](/rest/api/maps/route/getroutedirections).
+>El servicio Azure Maps Route ofrece API para planear rutas según el tipo, por ejemplo, *más rápidas*, *más cortas*, *ecológicas* o *emocionantes* de acuerdo con la distancia, las condiciones de tráfico y el modo de transporte usado. El servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](/rest/api/maps/route/getroutedirections).
 
 1. En la función `GetMap`, dentro del controlador de eventos `ready` del control, agregue lo siguiente al código de JavaScript.
 
@@ -216,9 +216,13 @@ En esta sección se muestra cómo usar Route Directions API de Azure Maps para o
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador web. El mapa ya debería mostrar la ruta desde el punto inicial hasta el final.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Representación de mapa básica del Control de mapa":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Control de mapa y servicio Route de Azure":::
 
 Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

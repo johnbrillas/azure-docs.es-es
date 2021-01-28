@@ -4,12 +4,12 @@ description: Aprenda a compilar, probar e implementar continuamente plantillas d
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588138"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701718"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de ARM con Azure Pipelines
 
@@ -39,12 +39,12 @@ Para completar este artículo, necesitará lo siguiente:
 
 * **Una cuenta de GitHub**, que usarás para crear un repositorio para las plantillas. Si no tiene ninguna, [puede crear una gratis](https://github.com). Para más información sobre el uso de los repositorios de GitHub, consulta [Build GitHub repositories](/azure/devops/pipelines/repos/github) (Compilar repositorios de GitHub).
 * **Instale Git**. En las instrucciones de este tutorial se usa *Git Bash* o *Git Shell*. Para instrucciones, consulta [Install Git](https://www.atlassian.com/git/tutorials/install-git) (Instalar Git).
-* **Una organización de Azure DevOps**. Si no tienes una, puedes crear una gratis. Consulte [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops) (Crear una organización o colección de proyectos).
+* **Una organización de Azure DevOps**. Si no tienes una, puedes crear una gratis. Consulte [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization) (Crear una organización o colección de proyectos).
 * (Opcional) **Visual Studio Code con la extensión de herramientas de Resource Manager**. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparación de un repositorio de GitHub
 
-GitHub sirve para almacenar el código fuente del proyecto, incluidas plantillas de Resource Manager. Para otros repositorios admitidos, consulta los [repositorios compatibles con Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+GitHub sirve para almacenar el código fuente del proyecto, incluidas plantillas de Resource Manager. Para otros repositorios admitidos, consulta los [repositorios compatibles con Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### <a name="create-a-github-repository"></a>Crear un repositorio de GitHub
 

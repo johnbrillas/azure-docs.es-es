@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896667"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624973"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Búsqueda de puntos cercanos de interés mediante Azure Maps
 
@@ -41,7 +41,7 @@ En este tutorial se muestra cómo configurar una cuenta con Azure Maps y luego u
 
 La API de Control de mapa es una práctica biblioteca cliente. Esta API permite integrar fácilmente Azure Maps en la aplicación web. Oculta la complejidad de las llamadas sin servicio de REST e impulsa la productividad con componentes que se pueden personalizar. En los pasos siguientes se muestra cómo crear una página HTML estática insertada con Map Control API.
 
-1. En el equipo local, cree un nuevo archivo y asígnele el nombre **MapSearch.html** .
+1. En el equipo local, cree un nuevo archivo y asígnele el nombre **MapSearch.html**.
 2. Agregue los siguientes componentes HTML al archivo:
 
    ```HTML
@@ -246,6 +246,10 @@ La asignación que hemos hecho hasta ahora solo examina los datos de latitud o l
     ![Control de mapa y Search Service de Azure](./media/tutorial-search-location/popup-map.png)
 
 Para ver el código completo de este tutorial, haga clic [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Para ver el ejemplo publicado, haga clic [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

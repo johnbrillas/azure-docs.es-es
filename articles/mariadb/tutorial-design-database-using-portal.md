@@ -3,16 +3,16 @@ title: 'Tutorial: Diseño de un servidor de Azure Database for MariaDB con Azure
 description: En este tutorial se explica cómo crear y administrar un servidor y una base de datos de Azure Database for MariaDB con Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542446"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664475"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal
 
@@ -54,8 +54,8 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
     Nombre de servidor | *nombre del servidor único* | Elija un nombre único que identifique el servidor de Azure Database for MariaDB. Por ejemplo, **mydemoserver**. El nombre de dominio *.mariadb.database.azure.com* se anexa al nombre de servidor especificado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
     Subscription | *su suscripción* | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group | **myresourcegroup** | Escriba un nuevo nombre de grupo de recursos o seleccione uno existente.
-    Seleccionar origen | **En blanco** | Seleccione **En blanco** para crear un servidor. (Si va a crear un servidor a partir de una copia de seguridad geográfica de un servidor de Azure Database for MariaDB existente, seleccione **Backup** ).
-    Inicio de sesión de administrador de servidor | **myadmin** | Una cuenta de inicio de sesión para usar al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ni **public**.
+    Seleccionar origen | **En blanco** | Seleccione **En blanco** para crear un servidor. (Si va a crear un servidor a partir de una copia de seguridad geográfica de un servidor de Azure Database for MariaDB existente, seleccione **Backup**).
+    Inicio de sesión de administrador de servidor | **myadmin** | Una cuenta de inicio de sesión para usar al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
     Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *la que elija*| Confirme la contraseña de la cuenta de administrador.
     Location | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
@@ -89,7 +89,7 @@ En Azure Portal, obtenga los valores de **Nombre de servidor** (completo) y **No
 
 1. En el menú izquierdo de [Azure Portal](https://portal.azure.com/), seleccione **Todos los recursos**. Escriba el nombre del servidor y busque el servidor de Azure Database for MariaDB. Seleccione el nombre del servidor para ver los detalles del servidor.
 
-2. En la página **Información general** , anote los valores de **Nombre del servidor** y **Nombre de inicio de sesión del administrador del servidor**. También puede seleccionar el botón **Copiar** junto a cada campo para copiar el valor en el Portapapeles.
+2. En la página **Información general**, anote los valores de **Nombre del servidor** y **Nombre de inicio de sesión del administrador del servidor**. También puede seleccionar el botón **Copiar** junto a cada campo para copiar el valor en el Portapapeles.
 
    ![Propiedades del servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
@@ -166,18 +166,18 @@ SELECT * FROM inventory;
 
 Imagine que ha eliminado por accidente una tabla de base de datos importante y no puede recuperar los datos fácilmente. Azure Database for MariaDB permite restaurar el servidor a un momento dado, ya que crea una copia de las bases de datos en un nuevo servidor. Puede usar este servidor nuevo para recuperar los datos eliminados. Los pasos siguientes restauran el servidor de ejemplo a un punto antes de que se agregara la tabla:
 
-1. En Azure Portal, localice Azure Database for MariaDB. En la página **Información general** , seleccione **Restaurar**.
+1. En Azure Portal, localice Azure Database for MariaDB. En la página **Información general**, seleccione **Restaurar**.
 
    ![Restaurar una base de datos](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
-2. En la página **Restaurar** , escriba o seleccione la siguiente información:
+2. En la página **Restaurar**, escriba o seleccione la siguiente información:
 
    ![Formulario de restauración](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Punto de restauración** : seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convertir la zona horaria local a UTC.
-   - **Restaurar en el servidor nuevo** : escriba un nuevo nombre de servidor donde se realizará la restauración.
-   - **Ubicación** : la región es la misma que la del servidor de origen y no se puede cambiar.
-   - **Plan de tarifa** : es el mismo que el del servidor de origen y no se puede cambiar.
+   - **Punto de restauración**: seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convertir la zona horaria local a UTC.
+   - **Restaurar en el servidor nuevo**: escriba un nuevo nombre de servidor donde se realizará la restauración.
+   - **Ubicación**: la región es la misma que la del servidor de origen y no se puede cambiar.
+   - **Plan de tarifa**: es el mismo que el del servidor de origen y no se puede cambiar.
    
 3. Haga clic en **Aceptar** para [restaurar el servidor a un momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Al restaurar un servidor, se crea una nueva copia de él en el momento dado que especifique. 
 

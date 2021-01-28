@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d475c76d338270cb9b8e34ea8563cdfd8fdf5122
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563065"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678278"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -161,15 +161,15 @@ IoT Hub permite una comunicación bidireccional confiable y segura entre una apl
 > [!NOTE]
 > La característica para publicar eventos de telemetría del dispositivo en Event Grid se encuentra actualmente en versión preliminar. Está característica está disponible en todas las regiones, salvo en las siguientes: Este de EE. UU., Oeste de EE. UU., Oeste de Europa, Azure Government, Azure China 21Vianet y Azure Alemania.
 
-Para crear un centro de IoT en el grupo de recursos *ContosoRental*, siga los pasos descritos en [Creación de un centro de IoT](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+Para crear un centro de IoT en el grupo de recursos *ContosoRental*, siga los pasos descritos en [Creación de un centro de IoT](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Registro de un dispositivo en su centro de IoT
 
-Los dispositivos no pueden conectarse al centro de IoT a menos que estén registrados en el registro de identidades del centro de IoT. En este caso, va a crear un único dispositivo denominado *InVehicleDevice*. Para crear y registrar el dispositivo en el centro de IoT, siga los pasos descritos en [Registro de un nuevo dispositivo en el centro de IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Asegúrese de copiar la cadena de conexión principal del dispositivo. Lo necesitará más adelante.
+Los dispositivos no pueden conectarse al centro de IoT a menos que estén registrados en el registro de identidades del centro de IoT. En este caso, va a crear un único dispositivo denominado *InVehicleDevice*. Para crear y registrar el dispositivo en el centro de IoT, siga los pasos descritos en [Registro de un nuevo dispositivo en el centro de IoT](../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub). Asegúrese de copiar la cadena de conexión principal del dispositivo. Lo necesitará más adelante.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Creación de una función y adición de una suscripción a Event Grid
 
-Azure Functions es un servicio de proceso sin servidor que permite ejecutar pequeños fragmentos de código ("funciones") sin necesidad de aprovisionar ni administrar explícitamente la infraestructura de proceso. Para más información, consulte [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+Azure Functions es un servicio de proceso sin servidor que permite ejecutar pequeños fragmentos de código ("funciones") sin necesidad de aprovisionar ni administrar explícitamente la infraestructura de proceso. Para más información, consulte [Azure Functions](../azure-functions/functions-overview.md).
 
 Una función la desencadena un determinado evento. En este caso, va a crear una función desencadenada por Event Grid. Para establecer la relación entre el desencadenador y la función, cree una suscripción a los eventos de telemetría del dispositivo del centro de IoT. Cuando se produce un evento de telemetría del dispositivo, se llama a la función como un punto de conexión y recibe los datos pertinentes para el dispositivo que se registró anteriormente en el centro de IoT.
 
@@ -223,7 +223,7 @@ Configure ahora la función de Azure.
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrado de eventos mediante el enrutamiento de mensajes de IoT Hub
 
-Cuando se agrega una suscripción a Event Grid para la función de Azure, se crea automáticamente una ruta de mensajería en el centro de IoT especificado. El enrutamiento de mensajes le permite enrutar distintos tipos de datos a varios puntos de conexión. Por ejemplo, puede enrutar los mensajes de telemetría del dispositivo, los eventos del ciclo de vida del dispositivo y los eventos de cambio de dispositivo gemelo. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+Cuando se agrega una suscripción a Event Grid para la función de Azure, se crea automáticamente una ruta de mensajería en el centro de IoT especificado. El enrutamiento de mensajes le permite enrutar distintos tipos de datos a varios puntos de conexión. Por ejemplo, puede enrutar los mensajes de telemetría del dispositivo, los eventos del ciclo de vida del dispositivo y los eventos de cambio de dispositivo gemelo. Para más información, consulte [Uso del enrutamiento de mensajes de IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Captura de pantalla del enrutamiento de mensajes en IoT Hub.":::
 
@@ -232,7 +232,7 @@ En el escenario de ejemplo, solo desea recibir mensajes cuando el vehículo de a
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Captura de pantalla del filtro de mensajes de enrutamiento.":::
 
 >[!TIP]
->Hay varias maneras de consultar mensajes del dispositivo a la nube de IoT. Para obtener más información sobre la sintaxis del enrutamiento de mensajes, consulte [Enrutamiento de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+>Hay varias maneras de consultar mensajes del dispositivo a la nube de IoT. Para obtener más información sobre la sintaxis del enrutamiento de mensajes, consulte [Enrutamiento de mensajes de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Envío de datos de telemetría a IoT Hub
 
@@ -283,6 +283,10 @@ Para obtener una lista completa de las API REST de Azure Maps, consulte:
 Para obtener una lista de los dispositivos que tienen la certificación de Azure para IoT, visite:
 
 * [Dispositivos certificados de Azure](https://catalog.azureiotsolutions.com/)
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+No hay recursos que requieran limpieza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

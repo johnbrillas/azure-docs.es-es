@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537759"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674324"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > [!NOTE]
 > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar el conector de Gmail solo con aplicaciones y servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ Este tema usa como punto de partida los recursos creados en [Creación de la primera función desde Azure Portal](functions-create-first-azure-function.md).
++ Este tema usa como punto de partida los recursos creados en [Creación de la primera función desde Azure Portal](./functions-get-started.md).
 Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de función.
 
 ## <a name="create-a-cognitive-services-resource"></a>Creación de un recurso de Cognitive Services
