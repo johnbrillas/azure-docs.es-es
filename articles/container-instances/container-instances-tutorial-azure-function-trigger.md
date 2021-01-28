@@ -4,12 +4,12 @@ description: Creación de una función de PowerShell sin servidor desencadenada 
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e7315796f2f7f89800b58f5fa607e69cd7ae3447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935410"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Uso de una función de Azure desencadenada por HTTP para crear un grupo de contenedores
 
@@ -105,7 +105,7 @@ Una vez que se haya creado la aplicación de función se mostrará una notificac
 
 ## <a name="run-the-function-in-azure"></a>Ejecución de la función en Azure
 
-Una vez que la implementación se complete correctamente, obtenga la dirección URL de la función. Por ejemplo, use el área **Azure: Functions** de Visual Studio Code para copiar la dirección URL de la función **HttpTrigger** u obtenga la dirección URL de la función en [Azure Portal](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+Una vez que la implementación se complete correctamente, obtenga la dirección URL de la función. Por ejemplo, use el área **Azure: Functions** de Visual Studio Code para copiar la dirección URL de la función **HttpTrigger** u obtenga la dirección URL de la función en [Azure Portal](../azure-functions/functions-get-started.md).
 
 La dirección URL de la función tiene el formato:
 

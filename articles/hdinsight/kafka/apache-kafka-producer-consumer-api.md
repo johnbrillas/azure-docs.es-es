@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Producer API y Consumer API de Apache Kafka en Azure HDInsight'
 description: Aprenda a usar Producer y Consumer API de Apache Kafka con Kafka en HDInsight. En este tutorial, aprenderá a usar estas API con Kafka en HDInsight desde una aplicación de Java.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629313"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945171"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
@@ -213,13 +210,13 @@ El consumo por clientes del mismo grupo se controla mediante las particiones del
 > [!IMPORTANT]  
 > No puede haber más instancias de consumidor en un grupo de consumidores que particiones. En este ejemplo, un grupo de consumidores puede contener hasta ocho, ya que es el número de particiones del tema. O bien, puede tener varios grupos de consumidores, los cuales no tengan más de ocho consumidores cada uno.
 
-Los registros almacenados en Kafka se almacenan en el orden en el que se reciben dentro de una partición. Para lograr la entrega ordenada de registros *dentro de una partición* , cree un grupo de consumidores donde el número de instancias de consumidor coincida con el número de particiones. Para lograr la entrega ordenada de registros *dentro del tema* , cree un grupo de consumidores con solo una instancia de consumidor.
+Los registros almacenados en Kafka se almacenan en el orden en el que se reciben dentro de una partición. Para lograr la entrega ordenada de registros *dentro de una partición*, cree un grupo de consumidores donde el número de instancias de consumidor coincida con el número de particiones. Para lograr la entrega ordenada de registros *dentro del tema*, cree un grupo de consumidores con solo una instancia de consumidor.
 
 ## <a name="common-issues-faced"></a>Problemas comunes a los que se enfrenta
 
 1. **No se puede crear el tema** Si el clúster está habilitado para Enterprise Security Pack, use los [archivos JAR pregenerados para el productor y el consumidor](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). El archivo JAR de ESP se puede crear a partir del código del subdirectorio [`DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Las propiedades del productor y el consumidor tienen una propiedad adicional `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` para los clústeres habilitados para ESP.
 
-2. **Error en los clústeres habilitados para ESP** : si se produce un error en las operaciones de producción y consumo, y se usa un clúster habilitado para ESP, compruebe que el usuario `kafka` existe en todas las directivas de Ranger. Si no está presente, agréguelo a todas las directivas de Ranger.
+2. **Error en los clústeres habilitados para ESP**: si se produce un error en las operaciones de producción y consumo, y se usa un clúster habilitado para ESP, compruebe que el usuario `kafka` existe en todas las directivas de Ranger. Si no está presente, agréguelo a todas las directivas de Ranger.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

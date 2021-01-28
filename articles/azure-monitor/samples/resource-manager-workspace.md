@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: c755ee0ee91156da9910a9d43c891c87f86cd430
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683476"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945046"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Ejemplos de plantillas de Resource Manager para áreas de trabajo de Log Analytics en Azure Monitor
 Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para crear y configurar área de trabajo de Log Analytics en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -610,7 +610,7 @@ En el ejemplo siguiente, se agrega una recopilación de [registros personalizado
 
 ### <a name="notes"></a>Notas
 
-- La configuración de delimitadores y extracciones puede resultar compleja. Para obtener ayuda, puede definir un registro personalizado mediante Azure Portal y, después, recuperar su configuración mediante [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) con **Tipo** establecido en **CustomLog**.
+- La configuración de delimitadores y extracciones puede resultar compleja. Para obtener ayuda, puede definir un registro personalizado mediante Azure Portal y, después, recuperar su configuración mediante [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) con **Tipo** establecido en **CustomLog**.
 
   
 ### <a name="template-file"></a>Archivo de plantilla

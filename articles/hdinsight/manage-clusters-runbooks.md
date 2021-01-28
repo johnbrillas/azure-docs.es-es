@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Uso de runbooks de Azure Automation para crear clústeres: Azure HDInsight'
 description: Aprenda a crear y eliminar clústeres de Azure HDInsight con scripts que se ejecutan en la nube mediante runbooks de Azure Automation.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75553125"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944038"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Creación de clústeres de Azure HDInsight con Azure Automation
 

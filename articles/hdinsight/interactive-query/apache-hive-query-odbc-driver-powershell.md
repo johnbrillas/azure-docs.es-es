@@ -2,19 +2,16 @@
 title: Consulta de Apache Hive con ODBC Driver y PowerShell en Azure HDInsight
 description: Utilice Microsoft Hive ODBC Driver y PowerShell para consultar los clústeres de Apache Hive en Azure HDInsight.
 keywords: hive,hive odbc,powershell
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078578"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941363"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta de Apache Hive con ODBC y PowerShell
 
@@ -110,7 +107,7 @@ function Get-ODBC-Data {
 }
 ```
 
-El siguiente fragmento de código utiliza la función anterior para ejecutar una consulta en el clúster de Interactive Query que creó al principio del tutorial. Reemplace `DATASOURCENAME` por el **nombre del origen de datos** que especificó en la pantalla de **configuración de DNS de Microsoft Hive ODBC Driver**. Cuando se le soliciten las credenciales, escriba el nombre de usuario y la contraseña que especificó en **Nombre de usuario de inicio de sesión del clúster**y **Contraseña de inicio de sesión del clúster** cuando creó el clúster.
+El siguiente fragmento de código utiliza la función anterior para ejecutar una consulta en el clúster de Interactive Query que creó al principio del tutorial. Reemplace `DATASOURCENAME` por el **nombre del origen de datos** que especificó en la pantalla de **configuración de DNS de Microsoft Hive ODBC Driver**. Cuando se le soliciten las credenciales, escriba el nombre de usuario y la contraseña que especificó en **Nombre de usuario de inicio de sesión del clúster** y **Contraseña de inicio de sesión del clúster** cuando creó el clúster.
 
 ```powershell
 
