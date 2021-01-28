@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e822e17f154b72854c5150e071301d7bbd53072e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987637"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890821"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Creación de un runbook de flujo de trabajo de PowerShell
 
@@ -113,13 +113,13 @@ El runbook que ha creado aún está en modo Borrador. Tiene que publicarlo para 
 
 7. Cuando el estado del runbook aparezca como Completado, haga clic en **Salida**. Se abre la página Salida, donde puede ver el mensaje `Hello World`.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra la sección de resumen de trabajo resaltada.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra el botón de resultados resaltado.":::
 
 8. Cierre la página Salida.
 
 9. Haga clic en **Todos los registros** para abrir el panel Transmisiones para el trabajo de Runbook. Solo debería ver `Hello World` en el flujo de salida. Tenga en cuenta que el panel Transmisiones puede mostrar otras transmisiones de un trabajo de runbook, como las transmisiones de error y detalladas, si el runbook escribe en ellas.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra la sección de resumen de trabajo resaltada.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra el botón de todos los registros resaltado.":::
 
 10. Cierre el panel Transmisiones y el panel Trabajo para volver a la página de MyFirstRunbook.
 
@@ -131,7 +131,7 @@ El runbook que ha creado aún está en modo Borrador. Tiene que publicarlo para 
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Paso 5: agregar autenticación para administrar recursos de Azure
 
-Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere que administre recursos de Azure. Sin embargo, no puede hacerlo a menos que se autentique con las credenciales de la suscripción. La autenticación usa el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0).
+Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere que administre recursos de Azure. Sin embargo, no puede hacerlo a menos que se autentique con las credenciales de la suscripción. La autenticación usa el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 >[!NOTE]
 >En el caso de los runbooks de PowerShell, `Add-AzAccount` y `Add-AzureRMAccount` son alias de `Connect-AzAccount`. Puede usar estos cmdlets o bien [actualizar los módulos](../automation-update-azure-modules.md) de la cuenta de Automation a las versiones más recientes. Es posible que deba actualizar los módulos incluso si acaba de crear una nueva cuenta de Automation.
@@ -165,7 +165,7 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
 
 Ahora que el runbook está autenticado en la suscripción a Azure, puede administrar los recursos. Agreguemos un comando para iniciar una máquina virtual. Puede seleccionar cualquier máquina virtual de su suscripción de Azure. Por ahora, codificará ese nombre en el runbook. Si va a administrar recursos en varias suscripciones, debe usar el parámetro `AzContext`Get-AzContext[ con el cmdlet ](/powershell/module/az.accounts/get-azcontext).
 
-1. Indique el nombre y el nombre del grupo de recursos de la máquina virtual que se va a iniciar; para ello, escriba una llamada al cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) tal como se muestra a continuación. 
+1. Indique el nombre y el nombre del grupo de recursos de la máquina virtual que se va a iniciar; para ello, escriba una llamada al cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) tal como se muestra a continuación. 
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -227,7 +227,7 @@ Actualmente, el runbook inicia la máquina virtual que ha codificado en el runbo
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](/powershell/scripting/overview).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
 * Para empezar a trabajar con runbooks gráficos, consulte [Creación de un runbook gráfico](automation-tutorial-runbook-graphical.md).
 * Para empezar a trabajar con Runbooks de PowerShell, consulte [Creación de un runbook de PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Para aprender más sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](../automation-runbook-types.md).

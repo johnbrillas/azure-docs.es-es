@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861058"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893412"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -90,23 +90,21 @@ Para configurar una unión a Azure AD híbrido mediante Azure AD Connect:
 
 1. Inicie Azure AD Connect y, a continuación, seleccione **Configurar**.
 
-   ![Bienvenido](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. En **Tareas adicionales**, seleccione **Configurar opciones de dispositivo** y, a continuación, seleccione **Siguiente**.
 
    ![Tareas adicionales](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. En **Información general**, seleccione **Siguiente**.
 
-   ![Información general](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. En **Conectar con Azure AD**, proporcione las credenciales de administrador global para el inquilino de Azure AD.  
-
-   ![Conectarse a Azure](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. En **Opciones de dispositivos**, seleccione **Configurar la unión a Azure AD híbrido** y, a continuación, seleccione **Siguiente**.
 
    ![Opciones de dispositivos](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. En **Sistemas operativos de los dispositivos**, seleccione los sistemas operativos que usan los dispositivos del entorno de Active Directory y, a continuación, seleccione **Siguiente**.
+
+   ![Sistema operativos del dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. En **Configuración del SCP**, para cada bosque en el que desee que Azure AD Connect configure el SCP, complete los pasos siguientes y, a continuación, seleccione **Siguiente**.
 
@@ -116,17 +114,9 @@ Para configurar una unión a Azure AD híbrido mediante Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. En **Sistemas operativos de los dispositivos**, seleccione los sistemas operativos que usan los dispositivos del entorno de Active Directory y, a continuación, seleccione **Siguiente**.
-
-   ![Sistema operativos del dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. En **Listo para configurar**, seleccione **Configurar**.
 
-   ![Listo para configurar](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. En **Configuración completada**, seleccione **Salir**.
-
-   ![Configuración completada](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Habilitación de dispositivos de Windows de nivel inferior
 

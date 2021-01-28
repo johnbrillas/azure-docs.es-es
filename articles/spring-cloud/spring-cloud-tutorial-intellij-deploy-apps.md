@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a808e37c0f0aae2816eb536dc43485c125354b81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426733"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916207"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Uso de IntelliJ para implementar aplicaciones de Azure Spring Cloud
 
@@ -23,8 +23,6 @@ El complemento IntelliJ para Azure Spring Cloud admite la implementación de apl
 Antes de ejecutar este ejemplo, puede probar la [guía de inicio rápido básica](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, versión 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instalación del complemento
@@ -64,7 +62,7 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
     ![Implementación en Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
 1. Acepte el nombre de la aplicación en el campo **Name** (Nombre). El **nombre** hace referencia a la configuración, no al nombre de la aplicación. Normalmente, los usuarios no tienen que cambiarlo.
-1. En **Artifact** (Artefacto), acepte el identificador del proyecto.
+1. En **Artifact**(Artefacto), acepte el identificador del proyecto.
 1. Seleccione **App:** (Aplicación:) y, luego, haga clic en **Create app...** (Crear aplicación...).
 
     ![Implementación en Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)

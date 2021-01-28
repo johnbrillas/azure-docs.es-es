@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7d6c992023eeb4b17fe3c83de20b49c73476a54d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4e5bbe179c43508033e0747bc2c03089f283b6e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912723"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873085"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Windows en Azure con certificados TLS/SSL almacenados en Key Vault
 
@@ -80,7 +80,7 @@ Add-AzKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
-Establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+Establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -177,4 +177,4 @@ En este tutorial, protegió un servidor web IIS con un certificado TLS/SSL almac
 Siga este vínculo para ver ejemplos de scripts de máquina virtual creados previamente.
 
 > [!div class="nextstepaction"]
-> [Ejemplos de scripts de máquina virtual Windows](./powershell-samples.md)
+> [Ejemplos de scripts de máquina virtual Windows](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)

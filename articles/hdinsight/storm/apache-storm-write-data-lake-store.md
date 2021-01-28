@@ -2,18 +2,15 @@
 title: 'Tutorial: Apache Storm en HDInsight a Storage (Azure o Data Lake)'
 description: 'Tutorial: Obtenga más información sobre cómo usar Apache Storm para escribir datos en almacenamiento compatible con HDFS para Azure HDInsight.'
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545453"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932559"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escritura en HDFS de Apache Hadoop desde Apache Storm en Azure HDInsight
 
@@ -160,7 +157,7 @@ Para obtener más información sobre cómo usar este script con su clúster, con
     hdfs.url: wasbs:///
     ```
 
-    Para guardar el archivo, use __Ctrl+X__ , después __Y__ y, finalmente, presione __Intro__ . Los valores de este archivo establecen la dirección URL de almacenamiento y el nombre del directorio en el que se escriben los datos.
+    Para guardar el archivo, use __Ctrl+X__, después __Y__ y, finalmente, presione __Intro__. Los valores de este archivo establecen la dirección URL de almacenamiento y el nombre del directorio en el que se escriben los datos.
 
 1. Use el comando siguiente para iniciar la topología:
 

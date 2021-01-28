@@ -6,12 +6,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746172"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880565"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutorial: Creación y administración de una puerta de enlace de VPN mediante Azure Portal
 
@@ -103,7 +103,7 @@ Si no va a seguir usando esta aplicación o si va al siguiente tutorial, siga es
 Una vez que tenga una puerta de enlace de VPN, puede configurar las conexiones. Los siguientes artículos le ayudarán a crear algunas de las configuraciones más comunes:
 
 > [!div class="nextstepaction"]
-> [Conexiones VPN de sitio a sitio](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Conexiones VPN de sitio a sitio](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
 > [Conexión VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

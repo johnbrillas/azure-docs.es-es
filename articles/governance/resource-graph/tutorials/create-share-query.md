@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Administración de consultas en Azure Portal'
 description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057933"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916685"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 
@@ -88,7 +88,7 @@ A diferencia de una consulta privada, una consulta compartida es un recurso de R
 
 1. Seleccione **Guardar** en la parte inferior del panel **Guardar consulta**. El título de la pestaña cambia de **Consulta 1** a **Count VMs by OS**. La primera vez que se usa el grupo de recursos **resource-graph-queries**, la operación de guardar tarda más tiempo del esperado ya que se crea el grupo de recursos.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guardar la nueva consulta con el botón Guardar" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Guardar la nueva consulta como una consulta compartida" border="false":::
 
    > [!NOTE] 
    > Puede desactivar la casilla **Publicar en el grupo de recursos resource-graph-queries** si quiere proporcionar el nombre de un grupo de recursos existente para guardar en él la consulta compartida. Si usa el grupo de recursos con nombre predeterminado para las consultas, las consultas compartidas serán más fáciles de detectar. También hace que el propósito de ese grupo de recursos sea más claro. Sin embargo, puede optar por seleccionar un grupo de recursos existente por motivos de seguridad en función de los permisos existentes.
@@ -97,7 +97,7 @@ A diferencia de una consulta privada, una consulta compartida es un recurso de R
 
 1. Seleccione **Abrir una consulta**. Compruebe que el tipo está establecido en **Consulta compartida** y la combinación de **Suscripción** y **Grupo de recursos** coincide con el lugar en el que guardó la consulta. El elemento guardado **Count VMs by OS** aparece ahora en la lista de **Nombre de consulta**. Seleccione el vínculo de título de la consulta guardada para cargarla en una nueva pestaña con el nombre de esa consulta. Ya que es una consulta compartida, se muestra un icono en la pestaña situada junto al título, que indica que es compartida.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Guardar la nueva consulta con el botón Guardar" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar la consulta compartida con el icono" border="false":::
 
    > [!NOTE] 
    > Cuando una consulta guardada está abierta y la pestaña muestra su nombre, el botón **Guardar** la actualiza con los cambios que se hayan realizado. Para crear una nueva consulta guardada, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: ffc056a97d3c0fd14bab186614015a9352a34077
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 74e09e61a6132858d716686bdb6687bb670f0d33
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015154"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879517"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -53,7 +53,7 @@ Siga el tutorial [Detección de fraudes en tiempo real](stream-analytics-real-ti
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache
 
-1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentación de Functions. En esta sección se explica cómo crear una aplicación de funciones y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) mediante el lenguaje CSharp.  
+1. Consulte la sección [Creación de una aplicación de función](../azure-functions/functions-get-started.md) de la documentación de Functions. En esta sección se explica cómo crear una aplicación de funciones y una [función desencadenada por HTTP en Azure Functions](../azure-functions/functions-get-started.md) mediante el lenguaje CSharp.  
 
 2. Vaya a la función **run.csx**. Actualícela con el código siguiente. Reemplace **"\<your Azure Cache for Redis connection string goes here\>"** por la cadena de conexión principal de Azure Cache for Redis que recuperó en la sección anterior. 
 
