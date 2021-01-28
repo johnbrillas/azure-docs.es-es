@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331998"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791784"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Supervisión de un clúster de Service Fabric en Azure
 
@@ -55,7 +55,7 @@ Para acceder la solución Service Fabric Analytics, vaya a [Azure Portal](https:
 
 Seleccione el recurso **ServiceFabric(mysfomsworkspace)** .
 
-En **Información general** , verá iconos en forma de gráfico para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en el grafo de **Service Fabric** para ir a la solución Service Fabric Analytics.
+En **Información general**, verá iconos en forma de gráfico para cada una de las soluciones habilitadas, entre ellos uno para Service Fabric. Haga clic en el grafo de **Service Fabric** para ir a la solución Service Fabric Analytics.
 
 ![Captura de pantalla que muestra el grafo de Service Fabric.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
@@ -74,7 +74,7 @@ En la siguiente imagen se muestra la página principal de la solución Service F
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visualización de eventos de Service Fabric, como acciones en nodos
 
-En la página de Service Fabric Analytics, haga clic en el gráfico de **Eventos de clúster** .  Aparecen los registros de todos los eventos del sistema que se han recopilado. Como referencia, proceden de **WADServiceFabricSystemEventsTable** en la cuenta de Azure Storage y, de manera similar, los eventos de Reliable Services y Reliable Actors que ve a continuación provienen de esas tablas respectivas.
+En la página de Service Fabric Analytics, haga clic en el gráfico de **Eventos de clúster**.  Aparecen los registros de todos los eventos del sistema que se han recopilado. Como referencia, proceden de **WADServiceFabricSystemEventsTable** en la cuenta de Azure Storage y, de manera similar, los eventos de Reliable Services y Reliable Actors que ve a continuación provienen de esas tablas respectivas.
     
 ![Canal operativo de consulta](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Visualización de eventos de aplicación de Service Fabric
 
-Puede ver los eventos de las aplicaciones de Reliable Services y Reliable Actors implementadas en el clúster.  En la página de Service Fabric Analytics, haga clic en gráfico de **Eventos de aplicaciones** .
+Puede ver los eventos de las aplicaciones de Reliable Services y Reliable Actors implementadas en el clúster.  En la página de Service Fabric Analytics, haga clic en gráfico de **Eventos de aplicaciones**.
 
 Ejecute la siguiente consulta para ver los eventos de las aplicaciones de Reliable Services:
 ```kusto
@@ -227,20 +227,20 @@ Para configurar eventos más detallados para Reliable Actors, debe cambiar `sche
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Visualización de contadores de rendimiento con los registros de Azure Monitor
 Para ver los contadores de rendimiento, vaya a [Azure Portal](https://portal.azure.com) y al grupo de recursos en el que creó la solución de Service Fabric Analytics. 
 
-Seleccione el recurso **ServiceFabric(mysfomsworkspace)** , luego **Área de trabajo de Log Analytics** y, finalmente, **Configuración avanzada** .
+Seleccione el recurso **ServiceFabric(mysfomsworkspace)** , luego **Área de trabajo de Log Analytics** y, finalmente, **Configuración avanzada**.
 
-Haga clic en **Datos** y luego en **Contadores de rendimiento de Windows** . Existe una lista de contenedores predeterminados que puede elegir para habilitar, y también puede establecer el intervalo para la recopilación. También puede agregar [contadores de rendimiento adicionales](service-fabric-diagnostics-event-generation-perf.md) para recopilar. En este [artículo](/windows/desktop/PerfCtrs/specifying-a-counter-path) puede comprobar el formato adecuado. Haga clic en **Guardar** y luego en **Aceptar** .
+Haga clic en **Datos** y luego en **Contadores de rendimiento de Windows**. Existe una lista de contenedores predeterminados que puede elegir para habilitar, y también puede establecer el intervalo para la recopilación. También puede agregar [contadores de rendimiento adicionales](service-fabric-diagnostics-event-generation-perf.md) para recopilar. En este [artículo](/windows/desktop/PerfCtrs/specifying-a-counter-path) puede comprobar el formato adecuado. Haga clic en **Guardar** y luego en **Aceptar**.
 
-Cierre la hoja de configuración avanzada y seleccione **Resumen del área de trabajo** en el encabezado **General** . Para cada una de las soluciones habilitadas hay un icono gráfico (también se incluye uno para Service Fabric). Haga clic en el grafo de **Service Fabric** para ir a la solución Service Fabric Analytics.
+Cierre la hoja de configuración avanzada y seleccione **Resumen del área de trabajo** en el encabezado **General**. Para cada una de las soluciones habilitadas hay un icono gráfico (también se incluye uno para Service Fabric). Haga clic en el grafo de **Service Fabric** para ir a la solución Service Fabric Analytics.
 
-Hay iconos gráficos para los eventos del canal operativo y de Reliable Services. La representación gráfica de los datos que fluyen para los contadores que seleccionó aparecerán bajo la **métricas de nodo** . 
+Hay iconos gráficos para los eventos del canal operativo y de Reliable Services. La representación gráfica de los datos que fluyen para los contadores que seleccionó aparecerán bajo la **métricas de nodo**. 
 
 Seleccione el gráfico de **Métrica de contenedor** para ver detalles adicionales. También puede consultar los datos del contador de rendimiento de forma similar a los eventos de clúster y filtrar en los nodos, el nombre del contador de rendimiento y los valores mediante el lenguaje de consulta Kusto.
 
 ## <a name="query-the-eventstore-service"></a>Consulta del servicio EventStore
 El servicio [EventStore](service-fabric-diagnostics-eventstore.md) proporciona una manera de comprender el estado del clúster o las cargas de trabajo en un momento dado. EventStore es un servicio de Service Fabric con estado que mantiene los eventos del clúster. Los eventos se exponen a través de [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST y las API. EventStore consulta el clúster directamente para obtener datos de diagnóstico de cualquier entidad del clúster. Para ver una lista completa de los eventos disponibles en EventStore, consulte [Eventos de Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 
-Las API de EventStore se pueden consultar mediante programación con la [biblioteca cliente de Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+Las API de EventStore se pueden consultar mediante programación con la [biblioteca cliente de Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Esta es una solicitud de ejemplo de todos los eventos de clúster entre 2018-04-03T18:00:00Z y 2018-04-04T18:00:00Z, mediante la función GetClusterEventListAsync.
 
@@ -299,10 +299,10 @@ Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-intro
 
 El clúster se rellena automáticamente con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder a ellas mediante la API, con los métodos de [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede), las evaluaciones de estado incorrecto y las estadísticas de mantenimiento de los elementos secundarios (cuando corresponde).
+Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder a ellas mediante la API, con los métodos de [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede), las evaluaciones de estado incorrecto y las estadísticas de mantenimiento de los elementos secundarios (cuando corresponde).
 
 ### <a name="get-cluster-health"></a>Obtención del mantenimiento de clúster
-El cmdlet [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) devuelve el mantenimiento de la entidad del clúster y contiene los estados de mantenimiento de las aplicaciones y los nodos (hijos del clúster).  En primer lugar, conéctese al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+El cmdlet [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) devuelve el mantenimiento de la entidad del clúster y contiene los estados de mantenimiento de las aplicaciones y los nodos (hijos del clúster).  En primer lugar, conéctese al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 El estado del clúster es 11 nodos, la aplicación del sistema y fabric:/WordCount configurado tal como se ha descrito.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Obtención del mantenimiento de nodo
-El cmdlet [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) devuelve el mantenimiento de una entidad del nodo y contiene los eventos de mantenimiento notificados en el nodo. Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). En el ejemplo siguiente se obtiene el mantenimiento de un nodo específico mediante directivas de mantenimiento predeterminadas:
+El cmdlet [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) devuelve el mantenimiento de una entidad del nodo y contiene los eventos de mantenimiento notificados en el nodo. Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). En el ejemplo siguiente se obtiene el mantenimiento de un nodo específico mediante directivas de mantenimiento predeterminadas:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

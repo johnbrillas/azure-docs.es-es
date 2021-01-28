@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: e5477b0ce45b1e888e472ebf7582607034c55800
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813469"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734552"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EasySSO for Confluence
 
@@ -197,7 +197,7 @@ Sin embargo, si no desea habilitar el aprovisionamiento automático de usuarios 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante Mis aplicaciones.
 
-Al hacer clic en el icono de EasySSO for Confluence en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de Confluence para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de EasySSO for Confluence en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de Confluence para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Flujo de trabajo iniciado por SP
 

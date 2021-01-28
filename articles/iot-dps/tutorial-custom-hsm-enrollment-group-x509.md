@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005314"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791936"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción
 
@@ -46,7 +46,7 @@ En este tutorial, va a completar los siguientes objetivos:
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
@@ -56,7 +56,7 @@ En esta sección, preparará un entorno de desarrollo para compilar el [SDK de A
 
 1. Descargue el [sistema de compilación CMake](https://cmake.org/download/).
 
-    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) y la carga de trabajo [ "Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
+    **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio ([Visual Studio](https://visualstudio.microsoft.com/vs/) y la carga de trabajo [ "Desarrollo para el escritorio con C++"](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
 
 2. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK de C de IoT de Azure.
 
@@ -87,7 +87,7 @@ En esta sección, preparará un entorno de desarrollo para compilar el [SDK de A
     $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
-    Si `cmake` no encuentra el compilador de C++, es posible que obtenga errores de compilación durante la ejecución del comando anterior. Si sucede, intente ejecutar este comando en el [símbolo del sistema de Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Si `cmake` no encuentra el compilador de C++, es posible que obtenga errores de compilación durante la ejecución del comando anterior. Si sucede, intente ejecutar este comando en el [símbolo del sistema de Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Una vez que la compilación se realiza correctamente, se generará una solución de Visual Studio en el directorio `cmake`. Las últimas líneas de la salida tienen un aspecto similar al siguiente resultado:
 
@@ -351,7 +351,7 @@ Para actualizar el código auxiliar del HSM personalizado para este tutorial:
 
 En dispositivos que no usan Windows, puede pasar la cadena de certificados desde el código como el almacén de certificados.
 
-En los dispositivos basados en Windows, debe agregar los certificados de firma (raíz e intermedio) a un [almacén de certificados](https://docs.microsoft.com/windows/win32/secauthn/certificate-stores) de Windows. De lo contrario, los certificados de firma no se transportarán a DPS por un canal seguro con Seguridad de la capa de transporte (TLS).
+En los dispositivos basados en Windows, debe agregar los certificados de firma (raíz e intermedio) a un [almacén de certificados](/windows/win32/secauthn/certificate-stores) de Windows. De lo contrario, los certificados de firma no se transportarán a DPS por un canal seguro con Seguridad de la capa de transporte (TLS).
 
 Para agregar los certificados de firma al almacén de certificados en dispositivos basados en Windows:
 

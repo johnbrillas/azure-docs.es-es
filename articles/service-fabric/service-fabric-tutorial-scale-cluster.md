@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a escalar y reducir horizontalmente un
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702181"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788034"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
@@ -809,7 +809,7 @@ Después de crear un clúster de Service Fabric, para escalarlo horizontalmente 
 > [!WARNING]
 > No es aconsejable usar Remove-AzServiceFabricNodeType para quitar un tipo de nodo de un clúster de producción de forma frecuente. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
 
-Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El tipo de nodo tiene que ser de [nivel de durabilidad][durability] Silver o Gold. El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
+Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El tipo de nodo tiene que ser de [nivel de durabilidad][durability] Silver o Gold. El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

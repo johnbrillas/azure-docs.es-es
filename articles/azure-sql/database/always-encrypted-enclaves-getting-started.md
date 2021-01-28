@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 94923b13181290a290f13339da5b05f6fdddff38
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: d9c2bec575f2c7a948f3eb6e65be6a735a3c03e8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252162"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733823"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutorial: Introducción a Always Encrypted con enclaves seguros en Azure SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "98252162"
 > [!NOTE]
 > Always Encrypted con enclaves seguros para Azure SQL Database está actualmente en **versión preliminar pública**.
 
-En este tutorial se explica cómo empezar a trabajar con [Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) en Azure SQL Database. En él encontrará:
+En este tutorial se explica cómo empezar a trabajar con [Always Encrypted con enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves) en Azure SQL Database. En él encontrará:
 
 > [!div class="checklist"]
 > - Cómo crear un entorno para probar y evaluar Always Encrypted con enclaves seguros.
@@ -33,11 +33,11 @@ En este tutorial se explica cómo empezar a trabajar con [Always Encrypted con e
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para realizar este tutorial, es necesario Azure PowerShell y [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+Para realizar este tutorial, es necesario Azure PowerShell y [SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ### <a name="powershell-requirements"></a>Requisitos de PowerShell
 
-Consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure) para obtener información sobre cómo instalar y ejecutar Azure PowerShell. 
+Consulte [Introducción a Azure PowerShell](/powershell/azure) para obtener información sobre cómo instalar y ejecutar Azure PowerShell. 
 
 Versión mínima de los módulos Az necesarios para admitir las operaciones de atestación:
 
@@ -66,7 +66,7 @@ Para seguir interactuando con la Galería de PowerShell, ejecute el siguiente co
 
 ### <a name="ssms-requirements"></a>Requisitos de SSMS
 
-Para obtener información acerca de cómo descargar SSMS, consulte [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+Para obtener información acerca de cómo descargar SSMS, consulte [Descarga de SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 La versión mínima requerida de SSMS es la 18.8.
 
@@ -75,7 +75,7 @@ La versión mínima requerida de SSMS es la 18.8.
 
  En este paso, creará un nuevo servidor lógico de Azure SQL Database y una nueva base de datos con la configuración de hardware de la serie DC. Always Encrypted con enclaves seguros en Azure SQL Database usa enclaves de Intel SGX, compatibles con la configuración de hardware de la serie DC. Para obtener más información, vea [Serie DC](service-tiers-vcore.md#dc-series).
 
-1. Abra una consola de PowerShell e inicie sesión en Azure. Si es necesario, [cambie a la suscripción](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps) que está utilizando para este tutorial.
+1. Abra una consola de PowerShell e inicie sesión en Azure. Si es necesario, [cambie a la suscripción](/powershell/azure/manage-subscriptions-azureps) que está utilizando para este tutorial.
 
   ```PowerShell
   Connect-AzAccount
@@ -356,10 +356,10 @@ Puede ejecutar consultas completas sobre columnas cifradas. Se realizará algún
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de completar este tutorial, puede ir a uno de los siguientes tutoriales:
-- [Tutorial: Desarrollo de una aplicación de .NET mediante Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
-- [Tutorial: Desarrollo de una aplicación de .NET Framework mediante Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
-- [Tutorial: Creación y uso de índices en columnas basadas en enclave mediante cifrado aleatorio](https://docs.microsoft.com/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
+- [Tutorial: Desarrollo de una aplicación de .NET mediante Always Encrypted con enclaves seguros](/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
+- [Tutorial: Desarrollo de una aplicación de .NET Framework mediante Always Encrypted con enclaves seguros](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
+- [Tutorial: Creación y uso de índices en columnas basadas en enclave mediante cifrado aleatorio](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
 ## <a name="see-also"></a>Consulte también
 
-- [Configuración y uso de Always Encrypted con enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)
+- [Configuración y uso de Always Encrypted con enclaves seguros](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

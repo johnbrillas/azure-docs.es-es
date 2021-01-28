@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948959"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737326"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configuración de Azure Functions para los proveedores personalizados de Azure
 
@@ -21,7 +21,7 @@ Un proveedor personalizado es un contrato entre Azure y un punto de conexión. C
 > [!NOTE]
 > En este tutorial, va a crear un punto de conexión de servicio sencillo que usa una aplicación de funciones de Azure. Sin embargo, un proveedor personalizado puede usar cualquier punto de conexión accesible públicamente. Entre las alternativas se incluyen Azure Logic Apps, Azure API Management y la característica Web Apps de Azure App Service.
 
-Para iniciar este tutorial, debe seguir el tutorial [Creación de su primera función en Azure Portal](../../azure-functions/functions-create-first-azure-function.md). El tutorial crea una función de webhook de .NET Core que puede modificarse en Azure Portal. También es la base del tutorial actual.
+Para iniciar este tutorial, debe seguir el tutorial [Creación de su primera función en Azure Portal](../../azure-functions/functions-get-started.md). El tutorial crea una función de webhook de .NET Core que puede modificarse en Azure Portal. También es la base del tutorial actual.
 
 ## <a name="install-azure-table-storage-bindings"></a>Instalación de enlaces de Azure Table Storage
 
