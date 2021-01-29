@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637928"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796896"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -151,7 +151,7 @@ SSIS IR se actualizará automáticamente de forma periódica. Durante la actuali
 
 Si se produce un error en el aprovisionamiento de SSIS IR, se eliminan todos los recursos que se crearon. Sin embargo, si hay un bloqueo de eliminación de recursos en el nivel de suscripción o grupo de recursos, los recursos de Virtual Network no se eliminan como estaba previsto. Para corregir este error, quite el bloqueo de eliminación y reinicie el IR.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 Cuando detenga SSIS IR, se eliminarán todos los recursos relacionados con Virtual Network. Sin embargo, se puede producir un error en la eliminación si hay un bloqueo de eliminación de recursos en el nivel de suscripción o grupo de recursos. Aquí, también, el cliente controla y establece el bloqueo de eliminación. Por lo tanto, debe quitar el bloqueo de eliminación y, luego, detener de nuevo el SSIS IR.
 
@@ -172,7 +172,7 @@ Este error puede producirse por diversos motivos al iniciar Azure-SSIS IR:
 | Mensaje de error | Solución|
 |:--- |:--- |
 | La dirección IP pública estática proporcionada ya está en uso. Proporcione dos sin usar para la instancia de Azure-SSIS Integration Runtime. | Debe seleccionar dos direcciones IP públicas estáticas sin usar o quitar las referencias actuales a la dirección IP pública especificada y, luego, reiniciar Azure-SSIS IR. |
-| La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar** . (3) Reinicie Azure-SSIS IR. |
+| La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar**. (3) Reinicie Azure-SSIS IR. |
 | La red virtual y las direcciones IP públicas estáticas proporcionadas para Azure-SSIS Integration Runtime deben estar en la misma ubicación. | De acuerdo con los requisitos de la red de Azure, la dirección IP pública estática y la red virtual deben estar en la misma ubicación y suscripción. Proporcione dos direcciones IP públicas estáticas válidas y reinicie Azure-SSIS IR. |
 | La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](../virtual-network/public-ip-addresses.md#sku) para obtener ayuda. |
 
