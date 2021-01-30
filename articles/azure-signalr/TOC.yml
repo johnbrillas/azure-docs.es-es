@@ -86,6 +86,8 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
+        - name: Controles de seguridad de Azure Policy
+          href: ./security-controls-policy.md
 - name: Guías paso a paso
   items:
     - name: Escala

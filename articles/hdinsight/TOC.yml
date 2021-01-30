@@ -278,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Plantilla de Resource Manager
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Elementos integrados de Azure Policy
+          href: ./policy-reference.md
     - name: Recursos
       items:
         - name: Lanzamientos

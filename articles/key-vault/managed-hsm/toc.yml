@@ -9,6 +9,8 @@
   items:
     - name: CLI
       href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
     - name: Plantilla del Administrador de recursos de Azure
       href: quick-create-template.md
 - name: Tutoriales

@@ -43,9 +43,11 @@
   items:
     - name: Conceptos básicos
       href: basic-concepts.md
+    - name: Procedimientos recomendados
+      href: best-practices.md
     - name: Seguridad
       items:
-        - name: Introducción a la seguridad
+        - name: Información general
           href: security-overview.md
         - name: Protección del acceso a un almacén de claves
           href: secure-your-key-vault.md

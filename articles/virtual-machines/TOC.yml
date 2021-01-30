@@ -1742,7 +1742,7 @@
         - name: Copia de seguridad de varias máquinas virtuales
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opciones de restauración
-          href: ../backup/backup-azure-arm-restore-vms.md
+          href: /azure/backup/backup-azure-arm-restore-vms
         - name: Matrices compatibles
           href: ../backup/backup-support-matrix-iaas.md
         - name: Precios
