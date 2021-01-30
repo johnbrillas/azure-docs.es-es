@@ -957,8 +957,6 @@
               href: ./linux/cloudinit-configure-swapfile.md
             - name: Ejecución del script de bash existente
               href: ./linux/cloudinit-bash-script.md
-            - name: Preparación de la máquina virtual existente para cloud-init
-              href: ./linux/cloudinit-prepare-custom-image.md
         - name: Creación de imágenes de Linux sin un agente de aprovisionamiento
           href: ./linux/no-agent.md
         - name: Deshabilitación del aprovisionamiento del agente Linux
@@ -1070,6 +1068,10 @@
               href: ./windows/image-builder.md
         - name: PowerShell
           href: ./windows/image-builder-powershell.md
+        - name: Seguridad
+          items:
+            - name: Controles de seguridad de Azure Policy
+              href: ./security-controls-policy-image-builder.md
         - name: Uso de una red virtual
           items:
             - name: CLI
@@ -1508,7 +1510,6 @@
               href: ../bastion/create-host-cli.md
             - name: Conexión SSH de Bastion
               href: ../bastion/bastion-connect-vm-ssh.md
-              items: null
             - name: Conexión RDP de Bastion
               href: ../bastion/bastion-connect-vm-rdp.md
         - name: Uso de controles de acceso
@@ -1741,7 +1742,7 @@
         - name: Copia de seguridad de varias máquinas virtuales
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opciones de restauración
-          href: /backup/backup-azure-arm-restore-vms.md
+          href: ../backup/backup-azure-arm-restore-vms.md
         - name: Matrices compatibles
           href: ../backup/backup-support-matrix-iaas.md
         - name: Precios

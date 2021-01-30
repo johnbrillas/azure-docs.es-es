@@ -113,6 +113,8 @@
           href: reference-data-guidelines.md
     - name: Formato de presentación
       href: reference-markdown-format.md
+    - name: Vínculos privados
+      href: reference-private-endpoint.md
     - name: Formato de pruebas de Batch
       href: reference-tsv-format-batch-testing.md
     - name: Cifrado

@@ -50,7 +50,7 @@
         - name: Planeamiento de las aplicaciones que no se encuentran en la galería
           href: non-gallery-apps.md
         - name: Planeamiento de una implementación de Aplicaciones
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Inicio de sesión único
       items:
         - name: Planeación de una implementación de inicio de sesión único

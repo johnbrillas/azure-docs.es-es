@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -48,7 +48,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -210,14 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Procesamiento de transacciones
               href: service-bus-transactions.md
-        - name: Seguimiento diagnóstico integral
-          href: service-bus-end-to-end-tracing.md
         - name: Compilación de una aplicación de Service Bus de niveles múltiples
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrar
       items:
         - name: Migración de ActiveMQ a Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Supervisión
+      items:
+        - name: Seguimiento diagnóstico integral
+          href: service-bus-end-to-end-tracing.md
+        - name: Registros de diagnóstico
+          href: service-bus-diagnostic-logs.md
+        - name: Métricas de Azure Monitor
+          href: service-bus-metrics-azure-monitor.md
     - name: Integrate
       items:
         - name: Integración con RabbitMQ
@@ -228,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Uso de Azure PowerShell para aprovisionar entidades
           href: service-bus-manage-with-ps.md
-        - name: Supervisión de Service Bus con Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Bibliotecas de administración de Service Bus
           href: service-bus-management-libraries.md
-        - name: Registros del recurso
-          href: service-bus-diagnostic-logs.md
         - name: Suspensión y reactivación de entidades de mensajería
           href: entity-suspend.md
         - name: Uso de Service Bus Explorer para realizar operaciones de datos en Service Bus
