@@ -172,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Línea de base de seguridad
           href: security-baseline.md
+        - name: Controles de seguridad de Azure Policy
+          href: ./security-controls-policy.md
     - name: Aprendizaje automático responsable
       items:
         - name: Introducción al aprendizaje automático responsable
@@ -609,6 +611,8 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Foro de usuarios
       href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Comparación entre nuestros productos de aprendizaje automático
