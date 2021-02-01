@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005912"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664688"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Error de detención de Windows: estado, Sin memoria
 
@@ -44,6 +44,9 @@ El disco del sistema operativo está lleno o demasiado fragmentado o el sistema 
 ## <a name="solution"></a>Solución
 
 ### <a name="process-overview"></a>Información general del proceso:
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 1. Creación de una VM de reparación y acceso a ella
 1. Liberación de espacio en el disco

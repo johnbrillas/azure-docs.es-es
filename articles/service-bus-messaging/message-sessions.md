@@ -2,13 +2,13 @@
 title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/20/2021
+ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511303"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680760"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -34,9 +34,9 @@ En el portal, establezca la marca con la casilla siguiente:
 ![Captura de pantalla del cuadro de diálogo Crear cola con la opción Habilitar sesiones seleccionada y resaltada en rojo.][2]
 
 > [!NOTE]
-> Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente ***ya no*** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
+> Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente **ya no** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
 
-Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un modelo imperativo que controla cuándo se reciben mensajes y sesiones, y un modelo basado en controlador, similar a *OnMessage*, que oculta la complejidad de la administración del bucle de recepción.
+Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un modelo imperativo que controla cuándo se reciben mensajes y sesiones, y un modelo basado en controlador, similar a _OnMessage*, que oculta la complejidad de la administración del bucle de recepción.
 
 ### <a name="session-features"></a>Características de las sesiones
 

@@ -126,20 +126,58 @@
           href: security-baseline.md
 - name: Guías paso a paso
   items:
-    - name: Creación de índices y construcciones
+    - name: Planificación
+      items:
+        - name: Elija un nivel
+          href: search-sku-tier.md
+        - name: Cálculo y administración de la capacidad
+          href: search-capacity-planning.md
+        - name: cálculo de los costos
+          href: search-sku-manage-costs.md
+        - name: Límites de servicio
+          href: search-limits-quotas-capacity.md
+        - name: Escalado para mejorar el rendimiento
+          href: search-performance-optimization.md
+        - name: Arquitectura multiinquilino
+          href: search-modeling-multitenant-saas-applications.md
+    - name: Desarrollo
+      items:
+        - name: Versiones de API
+          href: search-api-versions.md
+        - name: Características en vista previa
+          href: search-api-preview.md
+        - name: Desarrollo en .NET
+          items:
+            - name: Uso de Azure.Search.Documents
+              href: search-howto-dotnet-sdk.md
+            - name: Uso de Microsoft.Azure.Search
+              href: search-howto-dotnet-sdk-v10.md
+            - name: Inicio rápido heredado (Microsoft.Azure.Search)
+              href: search-get-started-dotnet-v10.md
+        - name: Actualización del SDK
+          items:
+            - name: "SDK de .NET\_11.0"
+              href: search-dotnet-sdk-migration-version-11.md
+            - name: .NET SDK 10.0
+              href: search-dotnet-sdk-migration-version-10.md
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
+            - name: .NET SDK 5.0
+              href: search-dotnet-sdk-migration-version-5.md
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: SDK de administración de .NET
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: Actualización de la API de REST
+          href: search-api-migration.md
+    - name: Índices
       items:
         - name: Creación de un índice
           href: search-what-is-an-index.md
         - name: Creación de un índice para varios idiomas
           href: search-language-support.md
-        - name: Analizadores
-          items:
-            - name: Adición de analizadores
-              href: search-analyzers.md
-            - name: Adición de un analizador de idioma
-              href: index-add-language-analyzers.md
-            - name: Adición de un analizador personalizado
-              href: index-add-custom-analyzers.md
         - name: Sinónimos
           items:
             - name: Adición de sinónimos
@@ -150,7 +188,15 @@
           href: search-howto-complex-data-types.md
         - name: Modelado de datos relacionales
           href: index-sql-relational-data.md
-    - name: Importación de cualquier dato
+    - name: Analizadores
+      items:
+        - name: Adición de analizadores
+          href: search-analyzers.md
+        - name: Adición de un analizador de idioma
+          href: index-add-language-analyzers.md
+        - name: Adición de un analizador personalizado
+          href: index-add-custom-analyzers.md
+    - name: data
       items:
         - name: Introducción a la importación de datos
           href: search-what-is-data-import.md
@@ -162,16 +208,14 @@
           href: search-howto-large-index.md
         - name: Manejo de actualizaciones simultáneas
           href: search-howto-concurrency.md
-    - name: Importación de datos de Azure (indexadores)
+    - name: Indexadores
       items:
-        - name: Uso de indexadores
-          items:
-            - name: Indexadores de supervisión
-              href: search-howto-monitor-indexers.md
-            - name: Programación de indexadores
-              href: search-howto-schedule-indexers.md
-            - name: Asignación de campos
-              href: search-indexer-field-mappings.md
+        - name: Creación de un indexador
+          href: search-howto-create-indexers.md
+        - name: Programación de un indexador
+          href: search-howto-schedule-indexers.md
+        - name: Definición de asignaciones de campos
+          href: search-indexer-field-mappings.md
         - name: Conexión con identidades administradas
           items:
             - name: Introducción Identidades administradas
@@ -214,7 +258,7 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Máquinas virtuales con Azure SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Uso de aptitudes (IA)
+    - name: Conjuntos de aptitudes
       items:
         - name: Adjuntar un recurso de Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
@@ -254,7 +298,7 @@
               href: knowledge-store-connect-power-bi.md
             - name: Ejemplos de proyección
               href: knowledge-store-projections-examples.md
-    - name: Consultar
+    - name: Consultas
       items:
         - name: Tipos de consulta y composición
           href: search-query-overview.md
@@ -282,7 +326,7 @@
               href: query-lucene-syntax.md
             - name: moreLikeThis (versión preliminar)
               href: search-more-like-this.md
-    - name: Filter
+    - name: Filtros
       items:
         - name: Introducción sobre los filtros
           href: search-filters.md
@@ -304,52 +348,6 @@
           href: index-add-scoring-profiles.md
         - name: Algoritmo de similitud
           href: index-ranking-similarity.md
-    - name: Plan
-      items:
-        - name: Elija un nivel
-          href: search-sku-tier.md
-        - name: Cálculo y administración de la capacidad
-          href: search-capacity-planning.md
-        - name: cálculo de los costos
-          href: search-sku-manage-costs.md
-        - name: Límites de servicio
-          href: search-limits-quotas-capacity.md
-        - name: Escalado para mejorar el rendimiento
-          href: search-performance-optimization.md
-        - name: Arquitectura multiinquilino
-          href: search-modeling-multitenant-saas-applications.md
-    - name: Desarrollar
-      items:
-        - name: Versiones de API
-          href: search-api-versions.md
-        - name: Lista de características en versión preliminar
-          href: search-api-preview.md
-        - name: Desarrollo en .NET
-          items:
-            - name: Uso de Azure.Search.Documents
-              href: search-howto-dotnet-sdk.md
-            - name: Uso de Microsoft.Azure.Search
-              href: search-howto-dotnet-sdk-v10.md
-            - name: Inicio rápido heredado (Microsoft.Azure.Search)
-              href: search-get-started-dotnet-v10.md
-        - name: Actualización del SDK
-          items:
-            - name: "SDK de .NET\_11.0"
-              href: search-dotnet-sdk-migration-version-11.md
-            - name: .NET SDK 10.0
-              href: search-dotnet-sdk-migration-version-10.md
-            - name: .NET SDK 9.0
-              href: search-dotnet-sdk-migration-version-9.md
-            - name: .NET SDK 5.0
-              href: search-dotnet-sdk-migration-version-5.md
-            - name: .NET SDK 3.0
-              href: search-dotnet-sdk-migration.md
-            - name: .NET SDK 1.1
-              href: search-dotnet-sdk-migration-version-1.md
-            - name: SDK de administración de .NET
-              href: search-dotnet-mgmt-sdk-migration.md
-        - name: Actualización de la API de REST
-          href: search-api-migration.md
     - name: Seguridad
       items:
         - name: Cifrado de datos
@@ -400,6 +398,8 @@
           href: search-monitor-logs-powerbi.md
         - name: Supervisión de una actividad de consulta
           href: search-monitor-queries.md
+        - name: Indexadores de supervisión
+          href: search-howto-monitor-indexers.md
         - name: Búsqueda de análisis de tráfico
           href: search-traffic-analytics.md
     - name: Solución de problemas

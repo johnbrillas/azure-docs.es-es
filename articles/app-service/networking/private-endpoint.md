@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183046"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763037"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
@@ -116,7 +116,7 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 
 Al usar Azure Functions en el plan Elástico Premium con un punto de conexión privado, para ejecutar la función en el portal web de Azure, debe tener acceso directo a la red o se producirá un error HTTP 403. En otras palabras, el explorador debe ser capaz de contactar con el punto de conexión privado para ejecutar la función desde el portal web de Azure. 
 
-Puede conectar hasta 100 puntos de conexión privados a una aplicación web en particular.
+Puede conectar hasta 100 puntos de conexión privados a una aplicación web en particular.
 
 Las ranuras no pueden utilizar un punto de conexión privado.
 

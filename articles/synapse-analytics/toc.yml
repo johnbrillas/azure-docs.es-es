@@ -96,6 +96,8 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: Seguridad
           items:
+            - name: Controles de seguridad de Azure Policy
+              href: ./security-controls-policy.md
             - name: Cifrado
               href: ./security/workspaces-encryption.md
             - name: Seguridad de redes
@@ -730,7 +732,7 @@
               href: ../data-factory/connector-azure-databricks-delta-lake.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Azure\_SQL\_Database"
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
@@ -1079,7 +1081,7 @@
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Machine Learning
   items:
-    - name: Información general
+    - name: Introducción
       items:
         - name: ¿Qué es el aprendizaje automático en Azure Synapse?
           href: machine-learning/what-is-machine-learning.md

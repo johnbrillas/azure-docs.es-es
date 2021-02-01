@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977004"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661245"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Error de detención Windows 0xC000021A: proceso del sistema de estado finalizado
 
@@ -47,6 +47,10 @@ Este error se produce cuando un proceso crítico, como WinLogon (winlogon.exe) o
 ## <a name="solution"></a>Solución
 
 ### <a name="collect-the-memory-dump-file"></a>Recopilación de un archivo de volcado de memoria
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
+
 
 Para resolver este problema, se debe analizar el volcado de memoria. Recopile el archivo de volcado de memoria para el bloqueo y póngase en contacto con el servicio de soporte técnico. Para recopilar el archivo de volcado de memoria, siga estos pasos:
 

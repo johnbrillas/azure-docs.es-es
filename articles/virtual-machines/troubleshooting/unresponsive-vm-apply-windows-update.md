@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200726"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632629"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>La máquina virtual no responde y aparece el error C01A001D al aplicar Windows Update
 
@@ -38,6 +38,9 @@ No se puede crear un archivo de volcado del proceso en el sistema de archivos. E
 ## <a name="resolution"></a>Solución
 
 ### <a name="process-overview"></a>Información general del proceso
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 1. [Creación de una máquina virtual de reparación y acceso a ella](#create-and-access-a-repair-vm).
 2. [Liberación de espacio en el disco duro](#free-up-space-on-the-hard-disk).

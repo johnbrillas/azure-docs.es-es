@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500929"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629647"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Bucle de reinicio de Windows en una máquina virtual de Azure
 En este artículo se describe el bucle de reinicio que puede experimentar en una máquina virtual (VM) Windows en Microsoft Azure.
@@ -49,6 +49,9 @@ Se realizaron algunos cambios en el sistema operativo. Normalmente, estos están
 Un daño en el sistema de archivos podría ser la causa. Sin embargo, es difícil diagnosticar e identificar el cambio que provoca el daño del sistema operativo.
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Para resolver este problema, [haga una copia de seguridad del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) y [conecte el disco del sistema operativo a una máquina virtual de rescate](./troubleshoot-recovery-disks-portal-windows.md) y, a continuación, siga las opciones de solución pertinentes, o pruebe las soluciones una por una.
 

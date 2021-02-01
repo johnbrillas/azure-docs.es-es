@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a52b26c5291f788ac81caeb2ca5416a2f58d36
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448867"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804910"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Uso de kubectl para ejecutar una aplicación con estado de Kubernetes con StorageClass en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -24,7 +24,7 @@ Este procedimiento está dirigido a los usuarios que han revisado [Almacenamient
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de implementar la aplicación con estado, asegúrese de que ha completado los siguientes requisitos previos en el dispositivo y en el cliente que vaya a usar para acceder al dispositivo:
+Antes de implementar la aplicación con estado, complete los siguientes requisitos previos en el dispositivo y en el cliente que vaya a usar para acceder al dispositivo:
 
 ### <a name="for-device"></a>Para el dispositivo
 
@@ -35,7 +35,7 @@ Antes de implementar la aplicación con estado, asegúrese de que ha completado 
 ### <a name="for-client-accessing-the-device"></a>Para el cliente que va a acceder al dispositivo
 
 - Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge Pro.
-    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - También puede utilizar cualquier otro cliente con un [sistema operativo compatible](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). En este artículo, el procedimiento que se describe emplea un cliente Windows. 
     
@@ -149,7 +149,7 @@ Todos los comandos `kubectl` que utiliza para crear y administrar implementacion
 
     `kubectl apply -f <URI path to the mysql-pv.yml file> -n <your-user-namespace>`
     
-    Este es un ejemplo de resultado de la implementación.
+    Este es un ejemplo de salida de la implementación.
 
     
     ```powershell
@@ -157,13 +157,13 @@ Todos los comandos `kubectl` que utiliza para crear y administrar implementacion
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Anote el nombre del PVC creado, aquí es `mysql-pv-claim-sc`. Lo usará en otro paso más adelante. 
+   Tome nota del nombre del PVC creado; en este ejemplo, `mysql-pv-claim-sc`. Lo usará en otro paso más adelante.
 
 4. Implemente el contenido del archivo `mysql-deployment.yml`.
 
     `kubectl apply -f <URI path to mysql-deployment.yml file> -n <your-user-namespace>`
 
-    Este es un ejemplo de resultado de la implementación.
+    Este es un ejemplo de salida de la implementación.
     
     ```powershell
     C:\Users\user>kubectl apply -f "C:\stateful-application\mysql-deployment.yml" -n userns1
@@ -307,7 +307,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Este es el resultado de ejemplo de cuando se elimina la implementación y el servicio.
+Esta es la salida de ejemplo cuando se elimina la implementación y el servicio.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -315,7 +315,7 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Este es el resultado de ejemplo de cuando se elimina el PVC.
+Esta es la salida de ejemplo cuando se elimina el PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim-sc -n userns1

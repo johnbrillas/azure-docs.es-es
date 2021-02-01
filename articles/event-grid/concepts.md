@@ -2,13 +2,13 @@
 title: Conceptos de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos. Define varios componentes clave de Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075116"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685710"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -18,10 +18,7 @@ En este artículo se describen los principales conceptos de Azure Event Grid.
 
 Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema. Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único. Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como el valor `lastTimeModified`. O bien, un evento de Event Hubs tiene la dirección URL del archivo de captura. 
 
-Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
-
-
-Para obtener las propiedades que se envían en un evento, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
+El tamaño máximo permitido para un evento es de 1 MB. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. Para obtener las propiedades que se envían en un evento, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 ## <a name="publishers"></a>Publicadores
 
@@ -41,7 +38,7 @@ Los **temas del sistema** son temas integrados que proporcionan los servicios de
 
 Los **temas personalizados** son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción. Para obtener más información, consulte [Temas personalizados](custom-topics.md). Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se crean. Para soluciones grandes, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Para soluciones pequeñas, puede que prefiera enviar todos los eventos a un solo tema. Los suscriptores de eventos se pueden filtrar por los tipos de evento que desean.
 
-Hay otro tipo de tema, el **tema de asociado**. La característica de [eventos de asociado](partner-events-overview.md) permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para ponerlos a disposición de los consumidores que pueden suscribirse a esos eventos. El proveedor de SaaS expone un tipo de tema, un **tema de asociado** , que los suscriptores usan para consumir eventos. También ofrece un modelo de publicación/suscripción claro ya que separa los intereses y la propiedad de los recursos que usan los publicadores y los suscriptores de eventos.
+Hay otro tipo de tema, el **tema de asociado**. La característica de [eventos de asociado](partner-events-overview.md) permite que un proveedor de SaaS de terceros publique eventos desde sus servicios para ponerlos a disposición de los consumidores que pueden suscribirse a esos eventos. El proveedor de SaaS expone un tipo de tema, un **tema de asociado**, que los suscriptores usan para consumir eventos. También ofrece un modelo de publicación/suscripción claro ya que separa los intereses y la propiedad de los recursos que usan los publicadores y los suscriptores de eventos.
 
 ## <a name="event-subscriptions"></a>Suscripciones a eventos
 
@@ -76,10 +73,7 @@ Si Event Grid no puede confirmar que un evento se ha recibido en el punto de con
 
 ## <a name="batching"></a>Lotes
 
-Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento no debe ser superior a 64 KB (Disponibilidad general) o 1 MB (Versión preliminar).
-
-> [!NOTE]
-> Los eventos con un tamaño de hasta 64 KB están cubiertos por el Acuerdo de Nivel de Servicio de disponibilidad general (GA). La compatibilidad de un evento con un tamaño de hasta 1 MB se encuentra actualmente en versión preliminar. Los eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB y el tamaño máximo de un evento es también de 1 MB. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

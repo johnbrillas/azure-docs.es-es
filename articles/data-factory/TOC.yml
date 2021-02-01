@@ -698,10 +698,12 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
           href: tumbling-window-trigger-dependency.md
-    - name: Linaje
+    - name: Data Catalog y gobernanza
       items:
         - name: Conexión de Data Factory a Azure Purview
           href: connect-data-factory-to-azure-purview.md
+        - name: Detección y exploración de datos en ADF mediante Purview
+          href: how-to-discover-explore-purview-data.md
     - name: Escenarios
       items:
         - name: Migración de datos para Data Lake y EDW
@@ -796,10 +798,6 @@
       href: /python/api/overview/azure/datafactory
 - name: Recursos
   items:
-    - name: Información general de la capacidad reservada del flujo de datos
-      href: data-flow-reserved-capacity-overview.md
-    - name: Información de cargos de la reserva del flujo de datos
-      href: data-flow-understand-reservation-charges.md
     - name: Notas del producto
       href: whitepapers.md
     - name: Preguntas más frecuentes

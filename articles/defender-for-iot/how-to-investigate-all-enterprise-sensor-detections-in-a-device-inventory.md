@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836588"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625471"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Análisis de las detecciones de todos los sensores de la empresa del inventario de dispositivos
 
@@ -67,7 +67,7 @@ Puede utilizar esta información para aprender. Por ejemplo:
 
 - Usuarios que iniciaron sesión en los dispositivos
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabla de datos en la pantalla del inventario de recursos.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabla de datos en la pantalla de inventario de dispositivos.":::
 
 Puede integrar los datos de cualquiera de estas dos maneras:
 
@@ -131,13 +131,13 @@ Usa los comandos de la API de Defender para IoT para recuperar e integrar esta i
 
 Puede filtrar el inventario de dispositivos para mostrar las columnas de interés. Por ejemplo, puede ver la información del dispositivo PLC.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Captura de pantalla del inventario de recursos.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Captura de pantalla del inventario de dispositivos.":::
 
 El filtro se borra al salir de la ventana.
 
 Para usar el mismo filtro varias veces, puede guardar el filtro o combinación de filtros que necesite. Puede abrir el panel izquierdo y ver los filtros que ha guardado:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Pantalla del inventario de recursos.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Pantalla de inventario de dispositivos.":::
 
 Para filtrar el inventario de dispositivos:
 
@@ -187,7 +187,7 @@ Las siguientes herramientas están disponibles para ver los dispositivos y la in
 
 - **Visualización de las propiedades del dispositivo**: por ejemplo, el sensor que supervisa el dispositivo y las propiedades básicas de este. Haga clic con el botón derecho en el dispositivo para ver las propiedades del dispositivo.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Captura de pantalla de la vista Asset Properties (Propiedades del recurso).":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Captura de pantalla de la vista de propiedades del dispositivo.":::
 
 - **Alertas asociadas con un dispositivo:** haga clic con el botón derecho en el dispositivo para ver las alertas relacionadas.
 

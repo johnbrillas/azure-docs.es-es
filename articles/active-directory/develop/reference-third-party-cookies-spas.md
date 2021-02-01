@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104587"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753968"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Control de ITP en Safari y otros exploradores donde se han bloqueado las cookies de terceros
 
@@ -26,7 +26,7 @@ Hoy en día, muchos exploradores bloquean las cookies de terceros: cookies en la
 
 ## <a name="what-is-intelligent-tracking-protection-itp"></a>¿Qué es Intelligent Tracking Protection (ITP)?
 
-Apple Safari cuenta con una característica de protección de la privacidad predeterminada denominada [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/) o *ITP* . ITP bloquea las cookies de "terceros", cookies en solicitudes que cruzan dominios.
+Apple Safari cuenta con una característica de protección de la privacidad predeterminada denominada [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/) o *ITP*. ITP bloquea las cookies de "terceros", cookies en solicitudes que cruzan dominios.
 
 Una forma común de seguimiento de usuarios es mediante la carga de un iframe en un sitio de un tercero en segundo plano y el uso de cookies para correlacionar al usuario a través de Internet. Desafortunadamente, este patrón también es la forma estándar de implementar el [flujo implícito](v2-oauth2-implicit-grant-flow.md) en las aplicaciones de página única (SPA). Cuando un explorador bloquea las cookies de terceros para impedir el seguimiento del usuario, también se interrumpen las SPA.
 
@@ -77,7 +77,7 @@ Un patrón común en las aplicaciones web es usar un iframe para insertar una ap
 
 La emisión de tokens de actualización al explorador se considera un problema de seguridad. Los ataques de scripts de sitios (XSS) o los paquetes JS en peligro pueden robar el token de actualización y usarlo de forma remota hasta que expire o se revoque. Con el fin de minimizar el riesgo de los tokens de actualización robados, se emitirán tokens para las SPA con una validez de 24 horas únicamente. Después de las 24 horas, la aplicación debe adquirir un nuevo código de autorización a través de una visita de marco de nivel superior a la página de inicio de sesión.
 
-Este patrón de token de actualización de vigencia limitada se eligió como equilibrio entre la seguridad y la experiencia de usuario degradada. Sin tokens de actualización ni cookies de terceros, el flujo de código de autorización (tal y como se recomienda en el [borrador de procedimientos recomendados actuales de seguridad de OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) se vuelve más oneroso cuando se requieren tokens nuevos o adicionales. Se necesita una redirección de página completa o un elemento emergente para cada token único, cada vez que un token expira (en general, cada una hora, para los tokens de la Plataforma de identidad de Microsoft).
+Este patrón de token de actualización de vigencia limitada se eligió como equilibrio entre la seguridad y la experiencia de usuario degradada. Sin tokens de actualización ni cookies de terceros, el flujo de código de autorización (tal y como se recomienda en el [borrador de procedimientos recomendados actuales de seguridad de OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) se vuelve más oneroso cuando se requieren tokens nuevos o adicionales. Se necesita una redirección de página completa o un elemento emergente para cada token único, cada vez que un token expira (en general, cada hora en el caso de los tokens de la Plataforma de identidad de Microsoft).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

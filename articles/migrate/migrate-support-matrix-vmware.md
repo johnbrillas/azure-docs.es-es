@@ -1,17 +1,17 @@
 ---
 title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567419"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763003"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -37,7 +37,7 @@ Si quiere migrar máquinas virtuales de VMware a Azure, revise la [matriz de com
 **VMware** | **Detalles**
 --- | ---
 **vCenter Server** | Las máquinas que quiera detectar y evaluar las debe administrar vCenter Server, versión 5.5, 6.0, 6.5, 6.7 o 7.0.<br/><br/> Actualmente no se admite la detección de máquinas virtuales de VMware proporcionando detalles del host ESXi en el dispositivo.
-**Permisos** | La evaluación del servidor necesita una cuenta de vCenter Server de solo lectura para la detección y la evaluación.<br/><br/> Si desea realizar la detección de aplicaciones o la visualización de dependencias, la cuenta necesita la habilitación de privilegios para  > **las operaciones de invitado** de **Virtual Machines**.
+**Permisos** | La evaluación del servidor necesita una cuenta de vCenter Server de solo lectura para la detección y la evaluación.<br/><br/> Si desea realizar la detección de aplicaciones o la visualización de dependencias, la cuenta necesita la habilitación de privilegios para **Máquinas virtuales**  >  **Operaciones de invitado**.
 
 ## <a name="vm-requirements"></a>Requisitos de máquina virtual
 **VMware** | **Detalles**

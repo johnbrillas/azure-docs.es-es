@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836533"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621935"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos 
 
@@ -22,7 +22,7 @@ En este artículo se describen las principales ventajas de Azure Defender para I
 
 Los sensores de Defender para IoT se conectan a un puerto SPAN o a un punto de acceso de terminal de red e inmediatamente comienza a recopilar el tráfico de ICS mediante supervisión pasiva (sin agente). La inspección profunda de paquetes (PPP) se usa para analizar minuciosamente el tráfico desde el equipo de red de control de serie y Ethernet. Defender para IoT no tiene ningún impacto en las redes OT, porque no se coloca en la ruta de acceso de datos y no examina de manera activa los dispositivos OT. 
 
-Para proporcionar instantáneas rápidas de información detallada sobre los recursos, el sensor de Defender para IoT complementa la supervisión pasiva con un componente activo opcional. Este componente usa comandos seguros y aprobados por el proveedor para consultar los detalles de los recursos de los dispositivos Windows y de controlador, con tanta o tan poca frecuencia como desee.
+Para proporcionar instantáneas rápidas de información detallada sobre los dispositivos, el sensor de Defender para IoT complementa la supervisión pasiva con un componente activo opcional. Este componente usa comandos seguros y aprobados por el proveedor para consultar los detalles de los dispositivos Windows y de controlador, con tanta o tan poca frecuencia como desee.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Conocimiento insertado de protocolos, dispositivos y aplicaciones de ICS
 
@@ -34,7 +34,7 @@ Los motores identifican problemas de seguridad mediante la supervisión continua
 
 - **Detección de infracciones del protocolo**: identifica el uso de estructuras de paquetes y valores de campo que infringen las especificaciones del protocolo ICS.
 
-- **Detección de infracciones de directivas**: identifica las infracciones de directivas, como el uso no autorizado de códigos de función, el acceso a objetos específicos o los cambios en la configuración de los recursos.
+- **Detección de infracciones de directivas**: identifica las infracciones de directivas, como el uso no autorizado de códigos de función, el acceso a objetos específicos o los cambios en la configuración de los dispositivos.
 
 - **Detección de malware industrial**: identifica comportamientos que indican la presencia de malware conocido, como Conficker, Black Energy, Havex, WannaCry y NotPetya.
 

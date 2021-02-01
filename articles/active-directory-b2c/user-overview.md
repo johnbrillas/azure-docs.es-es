@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928620"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661092"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las si
 
 - **Nombre** y **Nombre de usuario**: la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com*.
 - **Perfil**: la cuenta está configurada con un perfil de datos de usuario. Tiene la oportunidad de especificar un nombre, los apellidos, el puesto y el nombre de departamento. Puede editar el perfil después de crear la cuenta.
-- **Grupos**: use un grupo para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
+- **Grupos**: use grupos para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
 - **Rol de directorio**: debe especificar el nivel de acceso que tiene la cuenta de usuario a los recursos en el inquilino. Están disponibles los siguientes niveles de permiso:
 
     - **Usuario**: los usuarios pueden acceder a los recursos asignados, pero no pueden administrar la mayoría de los recursos de inquilino.
@@ -70,7 +70,7 @@ Puede usar la siguiente información para restablecer la contraseña de un usuar
 
 Puede invitar a usuarios externos al inquilino como usuario invitado. Un escenario típico para invitar a un usuario invitado al inquilino de Azure AD B2C es compartir las responsabilidades de administración. Para obtener un ejemplo del uso de una cuenta de invitado, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](../active-directory/external-identities/user-properties.md).
 
-Cuando se invita a un usuario invitado al inquilino, se proporciona la dirección de correo electrónico del destinatario y un mensaje que describe la invitación. El vínculo de invitación lleva al usuario a la página de consentimiento donde el botón **Empezar** está seleccionado y se acepta la revisión de permisos. Si no hay una bandeja de entrada asociada a la dirección de correo electrónico, el usuario puede navegar a la página de consentimiento, para ello debe ir a una página de Microsoft con las credenciales de invitación. A continuación, se obliga al usuario a canjear la invitación del mismo modo que cuando hace clic en el vínculo del correo electrónico. Por ejemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Cuando se invita a un usuario invitado al inquilino, se proporciona la dirección de correo electrónico del destinatario y un mensaje que describe la invitación. El vínculo de invitación lleva al usuario a la página de consentimiento. Si no hay una bandeja de entrada asociada a la dirección de correo electrónico, el usuario puede navegar a la página de consentimiento, para ello debe ir a una página de Microsoft con las credenciales de invitación. A continuación, se obliga al usuario a canjear la invitación del mismo modo que cuando hace clic en el vínculo del correo electrónico. Por ejemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 También puede usar [Microsoft Graph API](/graph/api/invitation-post?view=graph-rest-beta) para invitar a un usuario invitado.
 
@@ -78,7 +78,7 @@ También puede usar [Microsoft Graph API](/graph/api/invitation-post?view=graph-
 
 El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal. El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante un [flujo de usuario de inicio de sesión o de registro](user-flow-overview.md), con Microsoft Graph API o mediante Azure Portal.
 
-Puede especificar los datos que se recopilan cuando se crea una cuenta de usuario consumidor mediante el uso de atributos personalizados de usuario. Para obtener más información, vea [Definición de atributos personalizados en Azure Active Directory B2C](user-flow-custom-attributes.md).
+Puede especificar los datos que se recopilan cuando se crea una cuenta de usuario consumidor. Para más información, consulte [Adición de atributos de usuario y personalización de entradas de usuario](configure-user-input.md).
 
 Para más información sobre la administración de cuentas de consumidor, consulte [Administrar cuentas de usuario de Azure AD B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
 

@@ -1,35 +1,31 @@
 ---
 title: Preguntas más frecuentes sobre los problemas de disponibilidad de aplicaciones y servicios
-titleSuffix: Azure Cloud Services
 description: En este artículo se enumeran las preguntas frecuentes sobre la disponibilidad de aplicaciones y servicios en Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c1a5b63a33f951857bd4837380c1465af5b7583e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074726"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742903"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de disponibilidad de aplicaciones y servicios en Azure Cloud Services: Preguntas más frecuentes (P+F)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de disponibilidad de aplicaciones y servicios en Azure Cloud Services (clásico): Preguntas más frecuentes (P+F)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager del producto Azure Cloud Services. Con este cambio, se ha modificado el nombre de Azure Cloud Services en ejecución en el modelo de implementación basado en Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 En este artículo se incluyen preguntas frecuentes sobre la disponibilidad de aplicaciones y servicios en [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Mi rol se recicla. ¿Se ha implementado alguna actualización para el servicio en la nube?
-Aproximadamente una vez al mes, Microsoft publica una nueva versión de SO invitado para máquinas virtuales PaaS de Azure en Windows. El SO invitado es solo una de estas actualizaciones en la canalización. Otros muchos factores pueden influir en una publicación. Además, Azure se ejecuta en cientos de miles de máquinas. Por lo tanto, es imposible predecir la fecha y hora exactas de cuándo se reiniciarán los roles. Se actualizará la fuente RSS de actualización del SO invitado con la información más reciente disponible, pero se debe considerar el tiempo notificado como un valor aproximado. Somos conscientes de que esto es problemático para los clientes y estamos trabajando en un plan limitar o regular los reinicios de manera precisa.
+Aproximadamente una vez al mes, Microsoft publica una nueva versión de SO invitado para máquinas virtuales PaaS de Azure en Windows.El SO invitado es solo una de estas actualizaciones en la canalización. Otros muchos factores pueden influir en una publicación. Además, Azure se ejecuta en cientos de miles de máquinas. Por lo tanto, es imposible predecir la fecha y hora exactas de cuándo se reiniciarán los roles. Se actualizará la fuente RSS de actualización del SO invitado con la información más reciente disponible, pero se debe considerar el tiempo notificado como un valor aproximado. Somos conscientes de que esto es problemático para los clientes y estamos trabajando en un plan limitar o regular los reinicios de manera precisa.
 
 Para obtener información detallada sobre las actualizaciones recientes del SO invitado, consulte [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 

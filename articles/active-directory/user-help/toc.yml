@@ -1,4 +1,4 @@
-- name: Documentación de ayuda para el usuario
+- name: Documentación de la ayuda para el usuario
   href: index.yml
 - name: Ayuda para la verificación en dos pasos
   items:
@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: Copia de seguridad y recuperación de las cuentas
       href: user-help-auth-app-backup-recovery.md
+    - name: Importación de contraseñas en la aplicación Authenticator
+      href: user-help-authenticator-app-import-passwords.md
     - name: Preguntas más frecuentes
       href: user-help-auth-app-faq.md
 - name: Ayuda del portal Mi cuenta

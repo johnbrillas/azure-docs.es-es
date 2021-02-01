@@ -1,5 +1,6 @@
 ---
-title: 'Inicio y cierre de sesión en una aplicación de página única: Plataforma de identidad de Microsoft | Azure'
+title: Inicio y cierre de sesión de una aplicación de página única
+titleSuffix: Microsoft identity platform
 description: Aprenda a crear una aplicación de página única (inicio de sesión)
 services: active-directory
 author: navyasric
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2a73af0a0488043d31722b4dc46ca19530cf34ac
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 60ecb60d2fe90f190963255adff7a0bb1df15da4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443779"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756366"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicación de página única: Inicio y cierre de sesión
 

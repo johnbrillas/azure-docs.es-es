@@ -1,6 +1,7 @@
 ---
-title: 'Solución de problemas sobre la verificación del publicador: plataforma de identidad de Microsoft | Azure'
-description: Describe cómo solucionar los problemas de verificación del editor para la plataforma de identidad de Microsoft mediante una llamada a las instancias de Microsoft Graph API.
+title: Solución de problemas de verificación del editor | Azure
+titleSuffix: Microsoft identity platform
+description: Describe cómo solucionar los problemas de verificación del editor en la Plataforma de identidad de Microsoft mediante una llamada a las API de Microsoft Graph.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169178"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756195"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
 Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 

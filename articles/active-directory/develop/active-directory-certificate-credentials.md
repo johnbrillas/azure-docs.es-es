@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602213"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795625"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
-La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación en cualquier parte que podría usarse un secreto de cliente, por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
+La Plataforma de identidad de Microsoft permite que una aplicación use sus propias credenciales para la autenticación en cualquier parte en la que podría usarse un secreto de cliente; por ejemplo, en el flujo de [concesión de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) de OAuth 2.0 y el flujo [con derechos delegados](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) firmada con un certificado que la aplicación posea.
+Un formato de credencial que una aplicación puede utilizar para la autenticación es una aserción de [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="assertion-format"></a>Formato de aserción
 
@@ -89,7 +89,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registro del certificado con la plataforma de identidad de Microsoft
 
-Puede asociar las credenciales del certificado con la aplicación cliente en la plataforma de identidad de Microsoft a través de Azure Portal mediante cualquiera de los métodos siguientes:
+Puede asociar las credenciales del certificado con la aplicación cliente en la Plataforma de identidad de Microsoft a través de Azure Portal mediante cualquiera de los métodos siguientes:
 
 ### <a name="uploading-the-certificate-file"></a>Cargar el archivo de certificado
 

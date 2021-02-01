@@ -42,6 +42,8 @@
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Control de eventos de Azure Communication Services
       href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Eventos de Azure Cache for Redis
+      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutoriales
   items:
     - name: Envío de un correo electrónico cuando cambia la máquina virtual
@@ -138,6 +140,8 @@
               href: event-schema-azure-signalr.md
             - name: Suscripciones de Azure
               href: event-schema-subscriptions.md
+            - name: Azure Cache for Redis
+              href: event-schema-azure-cache.md
     - name: Eventos de asociado
       items:
         - name: Introducción a los eventos de asociado
@@ -188,6 +192,8 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
+        - name: Controles de seguridad de Azure Policy
+          href: ./security-controls-policy.md
         - name: Autenticación de la entrega de eventos en los controlador de eventos
           href: security-authentication.md
         - name: Autenticación de clientes de publicación
@@ -278,7 +284,7 @@
           href: set-alerts.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/az.eventgrid

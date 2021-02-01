@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065395"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760897"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -35,6 +35,8 @@ Por ejemplo, puede:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar las características de exportación de datos, debe tener una [aplicación V3](howto-get-app-info.md) y permisos de [exportación de datos](howto-manage-users-roles.md).
+
+Si tiene una aplicación V2, consulte [Migración de la aplicación de IoT Central V2 a V3](howto-migrate.md).
 
 ## <a name="set-up-export-destination"></a>Configuración del destino de exportación
 

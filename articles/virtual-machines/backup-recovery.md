@@ -1,19 +1,19 @@
 ---
-title: Introducción a las opciones de copia de seguridad para máquinas virtuales Linux
-description: Información general de opciones de copia de seguridad para máquinas virtuales Linux en Azure.
+title: Introducción a las opciones de copia de seguridad para máquinas virtuales
+description: Información general sobre las opciones de copia de seguridad para máquinas virtuales de Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a093de0a27c8379cb6eff9c2bc3867dfdc20db5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972363"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787814"
 ---
-# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opciones de copia de seguridad y restauración para máquinas virtuales Linux en Azure
+# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opciones de copia de seguridad y restauración de máquinas virtuales en Azure
 
 Para proteger sus datos realice copias de seguridad a intervalos regulares. Hay varias opciones de copia de seguridad disponibles para máquinas virtuales, según el caso de uso.
 
@@ -21,7 +21,7 @@ Para proteger sus datos realice copias de seguridad a intervalos regulares. Hay 
 
 Para realizar copias de seguridad de máquinas virtuales de Azure que ejecutan cargas de trabajo de producción, use Azure Backup. Azure Backup admite las copias de seguridad coherentes con la aplicación para máquinas virtuales Windows y Linux. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o solo determinados archivos. 
 
-Para obtener una introducción simple y práctica sobre Azure Backup para máquinas virtuales de Azure, consulte el tutorial "Copia de seguridad de máquinas virtuales de Azure" para [Linux](./linux/tutorial-backup-vms.md) o [Windows](./windows/tutorial-backup-vms.md).
+Para obtener una introducción sencilla y práctica sobre Azure Backup para máquinas virtuales de Azure, consulte el [inicio rápido de Azure Backup](../backup/quick-backup-vm-portal.md).
 
 Para más información sobre cómo funciona Azure Backup, consulte [Planeamiento de la infraestructura de copia de seguridad de máquinas virtuales en Azure](../backup/backup-azure-vms-introduction.md)
 
@@ -46,4 +46,4 @@ Para más información sobre la creación de instantáneas, consulte:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Puede probar Azure Backup siguiendo el tutorial "Copia de seguridad de máquinas virtuales Windows" para [Linux](./linux/tutorial-backup-vms.md) o [Windows](./windows/tutorial-backup-vms.md).
+Puede probar Azure Backup en el [inicio rápido de Azure Backup](../backup/quick-backup-vm-portal.md).

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353670"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791027"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -187,7 +187,7 @@ Los ejemplos anteriores muestran varios aspectos del lenguaje de consulta de Cos
 
 * Azure Cosmos DB solo admite elementos JSON estrictos. El sistema de tipos y las expresiones se restringen para tratar únicamente con tipos JSON. Para más información, consulte la [especificación de JSON](https://www.json.org/).  
 
-* Un contenedor de Cosmos es una colección sin esquemas de elementos JSON. Las relaciones tanto dentro de los elementos de un contenedor como entre ellos se capturan de manera implícita por independencia, no por las relaciones entre la clave principal y la clave externa. Esta característica es importante para las combinaciones dentro del elemento descritas más adelante en este artículo.
+* Un contenedor de Cosmos es una colección sin esquemas de elementos JSON. Las relaciones tanto dentro de los elementos de un contenedor como entre ellos se capturan de manera implícita por independencia, no por las relaciones entre la clave principal y la clave externa. Esta característica es importante para las combinaciones entre los elementos que se describen en [Combinaciones en Azure Cosmos DB](sql-query-join.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

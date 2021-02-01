@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 87966a9bd2f83916998a724fc6c1c26a91609665
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133402"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734671"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -66,23 +66,23 @@ Donde `--enable-private-cluster` es una marca obligatoria para un clúster priva
 > [!NOTE]
 > Si la dirección CIDR del puente de Docker (172.17.0.1/16) entra en conflicto con el CIDR de la subred, cambie la dirección del puente de Docker.
 
-### <a name="configure-private-dns-zone"></a>Configuración de zona de DNS privado
+## <a name="configure-private-dns-zone"></a>Configuración de zona de DNS privado
 
 Se pueden aprovechar los siguientes parámetros para configurar la zona DNS privada.
 
 1. "System" es el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
 2. El valor "None" significa que AKS no creará una zona DNS privada.  Esto requiere que Traiga su propio servidor DNS y configure la resolución DNS para el FQDN privado.  Si no configura la resolución DNS, el DNS solo se podrá resolver dentro de los nodos del agente y provocará problemas en el clúster después de la implementación.
-3. El "nombre de zona DNS privada personalizada" debe estar en el siguiente formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. La identidad asignada por el usuario o la entidad de servicio deben tener como mínimo el rol `private dns zone contributor` en la zona DNS privada personalizada.
+3. El "nombre de zona DNS privada personalizada" debe estar en el siguiente formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. Necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga al menos el rol `private dns zone contributor` en la zona DNS privada personalizada.
 
-## <a name="no-private-dns-zone-prerequisites"></a>No hay requisitos previos de zona de DNS privado
+### <a name="prerequisites"></a>Requisitos previos
 
-* La CLI de Azure, versión 0.4.71 o posterior
+* La versión preliminar 0.4.71 de AKS o posterior
 * La API, versión 2020-11-01 o posterior
 
-## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Creación de un clúster de AKS privado con zona de DNS privado
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Creación de un clúster de AKS privado con zona de DNS privado
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system|custom private dns zone]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opciones para conectarse al clúster privado
 
@@ -121,18 +121,18 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 3. En escenarios en los que la red virtual que contiene el clúster tenga una configuración de DNS personalizada (4), se produce un error en la implementación del clúster a menos que la zona DNS privada esté vinculada a la red virtual que contiene las resoluciones de DNS personalizadas (5). Este vínculo se puede crear manualmente después de crear la zona privada, durante el aprovisionamiento del clúster, o a través de la automatización si se detecta la creación de la zona usando mecanismos de implementación basados en eventos (por ejemplo, Azure Event Grid y Azure Functions).
 
 > [!NOTE]
-> Si usa [Traiga su propia tabla de rutas con kubenet](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) y Traiga su propio DNS con un clúster privado, se producirá un error en la creación del clúster. Tendrá que asociar [RouteTable](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) en el grupo de recursos del nodo a la subred después de que se haya producido un error en la creación del clúster, con el fin de que la creación se realice correctamente.
+> Si usa [Traiga su propia tabla de rutas con kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) y Traiga su propio DNS con un clúster privado, se producirá un error en la creación del clúster. Tendrá que asociar [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) en el grupo de recursos del nodo a la subred después de que se haya producido un error en la creación del clúster, con el fin de que la creación se realice correctamente.
 
 ## <a name="limitations"></a>Limitaciones 
 * Los intervalos autorizados de direcciones IP no se pueden aplicar al punto de conexión del servidor de API privada. Solo se aplican al servidor de API pública.
 * Las [limitaciones del servicio Azure Private Link][private-link-service] aplican a los clústeres privados.
-* No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true). 
+* No se admiten agentes hospedados por Microsoft en Azure DevOps con clústeres privados. Considere la posibilidad de usar [agentes autohospedados](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops). 
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * No se admite la conversión de clústeres de AKS existentes en clústeres privados.
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
 * Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
 * Una vez que los clientes hayan actualizado el registro A en sus propios servidores DNS, esos pods seguirán resolviendo el FQDN apiserver en la dirección IP anterior después de la migración hasta que se reinicien. Los clientes deben reiniciar los pods de hostNetwork y de DNSPolicy predeterminados después de la migración del plano de control.
-* En el caso de mantenimiento en el plano de control, es posible que cambie la [IP de AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic#:~:text=By%20default%2C%20AKS%20clusters%20have%20unrestricted%20outbound%20%28egress%29,be%20accessible%20to%20maintain%20healthy%20cluster%20maintenance%20tasks.). En este caso, tendrá que actualizar el registro A que apunta a la dirección IP privada del servidor de la API en el servidor DNS personalizado y reiniciar los pods o las implementaciones personalizados mediante hostNetwork.
+* En el caso de mantenimiento en el plano de control, es posible que cambie la [IP de AKS](./limit-egress-traffic.md). En este caso, tendrá que actualizar el registro A que apunta a la dirección IP privada del servidor de la API en el servidor DNS personalizado y reiniciar los pods o las implementaciones personalizados mediante hostNetwork.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681914"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632553"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>La máquina virtual no responde mientras espera al servicio del administrador de sesión local
 
@@ -34,6 +34,9 @@ Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver una c
 Podría haber varios motivos por los que una máquina virtual está detenida a la espera del administrador de sesión local. Si el problema persiste, debe recopilar un volcado de memoria para su análisis.
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 En algunos casos, simplemente esperar a que finalice el proceso resolverá el problema. Si la máquina virtual no responde y se bloquea en la pantalla de espera durante más de una hora, debe recopilar un volcado de memoria y, después, ponerse en contacto con el soporte técnico de Microsoft.
 

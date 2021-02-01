@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573146"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621319"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -94,35 +94,36 @@ Los exploradores siguientes son compatibles con las aplicaciones web de los sens
 
 Compruebe que la directiva de seguridad de la organización permite el acceso a lo siguiente:
 
-| **Propósito** | **Protocolo** | **Transporte** | **Dentro o fuera** | **Puerto** | **Categoría** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Acceso a la consola web** | HTTPS | TCP | Dentro o fuera | 443 | Consola de administración local para la plataforma de Defender para IoT |
-| **Acceso a la CLI** | SSH | TCP | Dentro o fuera | 22 | CLI |
-| **Conexión entre la plataforma de Defender para IoT y la consola de administración local** | SSL | TCP | Dentro o fuera | 443 | Consola del sensor y de administración local|
-| **Consola de administración local usada como NTP en el sensor** | NTP | UDP| IN a CM | 123 | Sincronización de hora | 
-| **Sensor conectado al servidor NTP externo (si procede)** | NTP | UDP | Dentro o fuera| 123 | Sincronización de hora |
-| **Conexión entre la plataforma de Defender para IoT, la plataforma de administración y el servidor de correo (si procede)** | SMTP | TCP | Administración fuera del sensor | 25 | Correo electrónico |
-| **Registros que se envían desde la consola de administración local al servidor de Syslog (si procede)** | syslog | UDP | Administración fuera del sensor| 514 | LEEF |
-| **Puerto del servidor DNS (si procede)** | DNS | N/D | Dentro o fuera| 53 | DNS |
-| **Conexión entre la plataforma de Defender para IoT y la consola de administración local a Active Directory (si procede)** | LDAPS | TCP | Dentro o fuera | 636 <br />389 | Active Directory |
-| **Recopiladores SNMP remotos (si procede)** | SNMP | UDP | Administración fuera del sensor| 161 | Supervisión |
-| **Supervisión de puntos de conexión de Windows (si procede)** | WMI | UDP | Administración fuera del sensor| 135 | Supervisión |
-| **Supervisión de puntos de conexión de Windows (si procede)** | WMI | TCP | Administración fuera del sensor| 1024 y posteriores | Supervisión |
-| **Tunelización (si procede)** | Protocolo de túnel | TCP | IN a CM | 9000<br />además del puerto 443<br />Del usuario final a la consola de administración local <br />Puerto 22 del sensor a la consola de administración local | Supervisión |
-| **Salida a Defender para IoT Hub** | HTTPS | TCP | Administración fuera del sensor| **URL**<br />*.azure-devices.net:443<br />o si no se admiten caracteres comodín<br />{el nombre del centro de IoT}.azure-devices.net:443 |
+| Protocolo | Transporte | Entrada o salida | Port | Utilizado | Propósito | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | ENTRADA/SALIDA | 443 | Consola web del sensor y la consola de administración local | Acceso a la consola web | Cliente | Consola del sensor y de administración local |
+| SSH | TCP | ENTRADA/SALIDA | 22 | CLI | Acceso a la CLI | Cliente | Consola del sensor y de administración local |
+| SSL | TCP | ENTRADA/SALIDA | 443 | Consola del sensor y de administración local | Conexión entre la plataforma de CyberX y la plataforma de administración central | sensor | Consola de administración local |
+| NTP | UDP | IN | 123 | Sincronización de hora | Consola de administración local usada como NTP al sensor | sensor | Consola de administración local |
+| NTP | UDP | ENTRADA/SALIDA | 123 | Sincronización de hora | Sensor conectado al servidor NTP externo si no hay instalada ninguna consola de administración local | sensor | NTP |
+| SMTP | TCP | OUT | 25 | Correo electrónico | Conexión entre la plataforma de CyberX, la plataforma de administración central y el servidor de correo | Sensor y consola de administración local | Servidor de correo electrónico |
+| syslog | UDP | OUT | 514 | LEEF | Registros que se envían desde la consola de administración local al servidor de Syslog | Consola de administración local y sensor | Servidor de Syslog |
+| DNS |  | ENTRADA/SALIDA | 53 | DNS | Puerto del servidor DNS | Consola de administración local y sensor | Servidor DNS |
+| LDAP | TCP | ENTRADA/SALIDA | 389 | Active Directory | Conexión entre la plataforma de CyberX y la plataforma de administración a Active Directory | Consola de administración local y sensor | Servidor LDAP |
+| LDAPS | TCP | ENTRADA/SALIDA | 636 | Active Directory | Conexión entre la plataforma de CyberX y la plataforma de administración a Active Directory | Consola de administración local y sensor | Servidor LDAPS |
+| SNMP | UDP | OUT | 161 | Supervisión | Recopiladores SNMP remotos | Consola de administración local y sensor | Servidor SNMP |
+| WMI | UDP | OUT | 135 | monitoring | Supervisión de puntos de conexión de Windows | Sensor | Elemento de red relevante |
+| Protocolo de túnel | TCP | IN | 9000 <br /><br />- Además del puerto 443 <br /><br />Del usuario final a la consola de administración local. <br /><br />- Puerto 22 del sensor a la consola de administración local  | monitoring | Protocolo de túnel | Sensor | Consola de administración local |
 
 ### <a name="planning-rack-installation"></a>Planificación de la instalación del bastidor
 
 Para planificar la instalación del bastidor, realice lo siguiente:
 
 1. Prepare un monitor y un teclado para la configuración de red del dispositivo.
-2. Asigne el espacio del bastidor para el dispositivo.
-3. Tenga disponible alimentación de CA para el dispositivo.
-4. Prepare el cable de LAN para conectar la administración al conmutador de red.
-5. Prepare los cables de LAN para conectar los puertos de SPAN (reflejo) del conmutador y los TAP de red al dispositivo de Defender para IoT. 
-6. Configure, conecte y valide los puertos SPAN en los conmutadores reflejados, tal y como se describe en la sesión de revisión de arquitectura.
-7. Conecte el puerto SPAN configurado a un equipo que ejecute Wireshark y compruebe que el puerto está configurado correctamente.
-8. Abra todos los puertos de firewall pertinentes.
+
+1. Asigne el espacio del bastidor para el dispositivo.
+
+1. Tenga disponible alimentación de CA para el dispositivo.
+1. Prepare el cable de LAN para conectar la administración al conmutador de red.
+1. Prepare los cables de LAN para conectar los puertos de SPAN (reflejo) del conmutador y los TAP de red al dispositivo de Defender para IoT. 
+1. Configure, conecte y valide los puertos SPAN en los conmutadores reflejados, tal y como se describe en la sesión de revisión de arquitectura.
+1. Conecte el puerto SPAN configurado a un equipo que ejecute Wireshark y compruebe que el puerto está configurado correctamente.
+1. Abra todos los puertos de firewall pertinentes.
 
 ## <a name="about-passive-network-monitoring"></a>Acerca de la supervisión de red pasiva
 
@@ -141,6 +142,7 @@ En las secciones siguientes se describen los niveles de Purdue.
 El nivel 0 consta de una amplia variedad de sensores, accionadores y dispositivos implicados en el proceso de fabricación básico. Estos dispositivos realizan las funciones básicas del sistema de control y automatización industrial, como las siguientes:
 
 - Conducción de un motor.
+
 - Medición de variables.
 - Establecimiento de una salida.
 - Realización de funciones clave, como pintar, soldar y plegar.
@@ -227,7 +229,7 @@ Estas son algunas recomendaciones para la implementación de varios sensores:
 |--|--|--|--|
 | Distancia máxima entre los conmutadores | 80 metros | Cable Ethernet preparado | Más de 1 |
 | Número de redes OT | Más de 1 | Sin conectividad física | Más de 1 |
-| Número de conmutadores | Puede usar la configuración de RSPAN | Hasta 8 conmutadores, con un SPAN local cercano al sensor a través de la distancia del cableado | Más de 1 |
+| Número de conmutadores | Puede usar la configuración de RSPAN | Hasta ocho conmutadores con puerto SPAN local conectado al sensor mediante cableado | Más de 1 |
 
 #### <a name="traffic-mirroring"></a>Creación de reflejo del tráfico  
 
@@ -353,7 +355,7 @@ Se instala un TAP de agregación activo o pasivo alineado en el cable de red. Du
 
 El punto de acceso de terminal (TAP) es un dispositivo de hardware que permite que el tráfico fluya desde el puerto A al puerto B, y desde el puerto B hasta el puerto A, sin interrupción. Crea una copia exacta de ambos lados del flujo de tráfico, de forma continua, sin poner en peligro la integridad de la red. Si se desea, algunos TAP pueden agregar tráfico de transmisión y recepción mediante la configuración del modificador. Si no se admite la agregación, cada TAP usa dos puertos de sensor para supervisar el tráfico de envío y recepción.
 
-Los TAO son útiles por diversos motivos. Están basados en hardware y no se pueden poner en peligro. Pasan todo el tráfico, incluso los mensajes dañados que a menudo anulan los conmutadores. No distinguen el procesador, por lo que el control de tiempo de los paquetes es exacto donde los conmutadores controlan la función de reflejo como una tarea de prioridad baja que puede afectar al control de tiempo de los paquetes reflejados. Para finalidades forenses, un TAP es el mejor dispositivo.
+Los TAP son útiles por diversos motivos. Están basados en hardware y no se pueden poner en peligro. Pasan todo el tráfico, incluso los mensajes dañados que a menudo anulan los conmutadores. No distinguen el procesador, por lo que el control de tiempo de los paquetes es exacto donde los conmutadores controlan la función de reflejo como una tarea de prioridad baja que puede afectar al control de tiempo de los paquetes reflejados. Para finalidades forenses, un TAP es el mejor dispositivo.
 
 Los agregadores de TAP también se pueden usar para la supervisión de puertos. Estos dispositivos están basados en el procesador y no son tan intrínsecamente seguros como los TAP de hardware. Es posible que no reflejen el control de tiempo exacto de los paquetes.
 
@@ -364,10 +366,10 @@ Los agregadores de TAP también se pueden usar para la supervisión de puertos. 
 Se ha probado la compatibilidad de estos modelos. Otros proveedores y modelos también podrían ser compatibles.
 
 | Imagen | Modelo |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de pantalla de Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de pantalla de IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Captura de pantalla de US Robotics USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de pantalla de Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de pantalla de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Captura de pantalla de US Robotics USR 4503."::: | US Robotics USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>Configuración especial del TAP
 
@@ -425,7 +427,7 @@ Información pertinente:
 
 - Si el dispositivo de Defender para IoT debe estar conectado a ese conmutador, ¿hay espacio de bastidor disponible físicamente en ese armario?
 
-#### <a name="additional-considerations"></a>Consideraciones adicionales
+#### <a name="other-considerations"></a>Otras consideraciones
 
 El propósito del dispositivo de Defender para IoT es supervisar el tráfico de las capas 1 y 2.
 
@@ -671,7 +673,7 @@ Proporcione los detalles de la dirección de la NIC del sensor que se conectará
 | Clave secreta | |
 | Cadena de comunidad SNMP v2 |
 
-### <a name="cm-ssl-certificate"></a>Certificado SSL de CM
+### <a name="on-premises-management-console-ssl-certificate"></a>Certificado SSL de la consola de administración local
 
 ¿Tiene previsto usar un certificado SSL? Sí o no
 

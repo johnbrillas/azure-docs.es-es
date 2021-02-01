@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171744"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682386"
 ---
 # <a name="event-grid-concepts"></a>Conceptos de Event Grid
 
@@ -48,7 +48,7 @@ Consulte la [documentación de la API REST](api.md) sobre cómo administrar las 
 
 ## <a name="event-handlers"></a>Controladores de eventos
 
-Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza acciones adicionales para procesar el evento. Event Grid admite varios tipos de controladores. Puede usar un servicio de Azure admitido o su propio webhook como controlador. Según el tipo de controlador, Event Grid sigue distintos procedimientos para garantizar la entrega del evento. Si el controlador de eventos de destino es un webhook HTTP, el evento se vuelve a intentar cuando el controlador devuelve un código de estado de `200 – OK`. Para el centro de Edge se considera que el evento se realizó correctamente si se entrega sin ninguna excepción.
+Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza acciones adicionales para procesar el evento. Event Grid admite varios tipos de controladores. Puede usar un servicio de Azure admitido o su propio webhook como controlador. Según el tipo de controlador, Event Grid sigue distintos procedimientos para garantizar la entrega del evento. Si el controlador de eventos de destino es un webhook HTTP, el evento se vuelve a intentar hasta que el controlador devuelve un código de estado de `200 – OK`. Para el centro de Edge se considera que el evento se realizó correctamente si se entrega sin ninguna excepción.
 
 ## <a name="security"></a>Seguridad
 

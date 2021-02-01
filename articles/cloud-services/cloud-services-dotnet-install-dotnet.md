@@ -1,24 +1,25 @@
 ---
-title: Instalación de .NET en roles de Azure Cloud Services | Microsoft Docs
+title: Instalación de .NET en roles de Azure Cloud Services (clásico) | Microsoft Docs
 description: En este artículo se describe cómo instalar manualmente .NET Framework en el rol de trabajo y el rol web del servicio en la nube
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932243"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742784"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Instalación de .NET en roles de Azure Cloud Services
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Instalación de .NET en roles de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager del producto Azure Cloud Services. Con este cambio, se ha modificado el nombre de Azure Cloud Services en ejecución en el modelo de implementación basado en Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 En este artículo se describe cómo instalar versiones de .NET Framework que no viene con el SO invitado de Azure. Puede usar .NET en el SO invitado para configurar el rol de trabajo y el rol web del servicio en la nube.
 
 Por ejemplo, puede instalar .NET Framework 4.6.2 en la familia 4 del SO invitado, que no viene con ninguna versión de .NET Framework 4.6. (La familia 5 del SO invitado sí viene con .NET Framework 4.6) Para la información más reciente sobre las versiones del SO invitado de Azure, consulte las [novedades de la versión del SO invitado de Azure](cloud-services-guestos-update-matrix.md). 

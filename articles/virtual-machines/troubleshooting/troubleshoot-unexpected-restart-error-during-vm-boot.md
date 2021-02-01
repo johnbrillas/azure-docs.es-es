@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512144"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632697"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Arranque del sistema operativo. El equipo se reinició de manera inesperada o se produjo un error inesperado.
 
@@ -52,6 +52,9 @@ Este problema aparece con mayor frecuencia si utiliza sysprep con una máquina v
 ## <a name="solution"></a>Solución
 
 ### <a name="do-not-use-unattendxml"></a>No usar Unattend.xml
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Para corregir este problema, siga las [instrucciones de Azure para preparar o capturar una imagen](../windows/upload-generalized-managed.md) y prepare una nueva imagen generalizada. Durante sysprep, **no utilice la marca `/unattend:<your file’s name>`** . sino solamente las marcas siguientes:
 

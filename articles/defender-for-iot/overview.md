@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 13f9e2271dd18121ba740c843e99fae86c76821d
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 5b4ab207462955be3876dc1a25fae491e48a9cd2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845413"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621717"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Bienvenido a Azure Defender para IoT
 
 Las redes de tecnología operativa (OT) potencian muchos de los aspectos más críticos de nuestra sociedad. Pero muchas de estas tecnologías no se han diseñado pensando en la seguridad y no se pueden proteger mediante controles de seguridad de TI tradicionales. Mientras tanto, el Internet de las cosas (IoT) posibilita una nueva ola de innovación con miles de millones de dispositivos conectados, lo que aumenta la superficie expuesta a ataques y el riesgo.  
 
-Azure Defender para IoT es una solución de seguridad unificada para identificar recursos, vulnerabilidades y amenazas de IoT/OT. Permite proteger todo el entorno de IoT/OT, independientemente de que necesite proteger dispositivos IoT/OT existentes o incorporar seguridad a nuevas innovaciones de IoT.  
+Azure Defender para IoT es una solución de seguridad unificada para identificar dispositivos, vulnerabilidades y amenazas de IoT/OT. Permite proteger todo el entorno de IoT/OT, independientemente de que necesite proteger dispositivos IoT/OT existentes o incorporar seguridad a nuevas innovaciones de IoT.  
 
 Azure Defender para IoT ofrece dos conjuntos de funcionalidades para ajustarse a las necesidades del entorno.
 
@@ -47,7 +47,7 @@ Las funcionalidades de supervisión sin agente de Azure Defender para IoT propor
 
 ### <a name="automatic-device-discovery"></a>Detección automática de dispositivos  
 
-Use la supervisión de red pasiva y sin agente para obtener un inventario completo de todos los recursos de IoT/OT, sus detalles y cómo se comunican, sin impacto alguno en la red de IoT/OT.  
+Use la supervisión de red pasiva y sin agente para obtener un inventario completo de todos los dispositivos de IoT/OT, sus detalles y cómo se comunican, sin impacto alguno en la red de IoT/OT.  
 
 ### <a name="proactive-visibility-into-risk-and-vulnerabilities"></a>Visibilidad proactiva de los riesgos y las vulnerabilidades
  

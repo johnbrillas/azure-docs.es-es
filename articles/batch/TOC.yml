@@ -143,6 +143,8 @@
           href: batch-sig-images.md
         - name: Creación de un grupo con un recurso de imagen administrada
           href: batch-custom-images.md
+        - name: Creación de un grupo en Availability Zones
+          href: create-pool-availability-zones.md
         - name: Creación de un grupo con el cifrado de disco habilitado
           href: disk-encryption.md
         - name: Creación de un grupo en una red virtual

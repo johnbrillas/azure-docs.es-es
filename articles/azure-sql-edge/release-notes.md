@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704357"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696386"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de la versión de Azure SQL Edge 
 
 En este artículo se describen las novedades y los cambios en cada nueva versión de Azure SQL Edge.
+
+## <a name="azure-sql-edge-102"></a>Azure SQL Edge 1.0.2
+
+Número de versión del motor de SQL: 15.0.2000.1554
+
+### <a name="fixes"></a>Correcciones
+
+- Transmisión de T-SQL  
+   - Corrección de la propiedad y los permisos de los objetos de transmisión
+   - Mejoras en el registro con la rotación de registros y la adición de prefijos a los registros
+   - Azure Stream Analytics: Mejoras en el registro, mejora del código de error y los mensajes de error en los adaptadores 
+
+- ONNX
+    - Correcciones de errores en el escenario de consulta paralela y de limpieza de modelo
+    - Entorno en tiempo de ejecución de ONNX actualizado a la versión 1.5.1
 
 ## <a name="azure-sql-edge-101"></a>Azure SQL Edge 1.0.1
 
@@ -93,7 +108,7 @@ Número de versión del motor de SQL: 15.0.2000.1549
 ## <a name="ctp-22"></a>CTP 2.2
 Número de versión del motor de SQL: 15.0.2000.1546
 ### <a name="whats-new"></a>Novedades
-- Compatibilidad con contenedores que no son raíz. 
+- Compatibilidad con contenedores que no son raíz 
 - Compatibilidad con la recopilación de datos de uso y diagnóstico. 
 - Actualizaciones de transmisión de T-SQL:
    - Compatibilidad con los caracteres Unicode para nombres de objetos de secuencia

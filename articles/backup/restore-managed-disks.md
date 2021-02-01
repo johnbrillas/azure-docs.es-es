@@ -3,12 +3,12 @@ title: Restauración de Azure Managed Disks
 description: Aprenda a restaurar Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556912"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737383"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restauración de Azure Managed Disks (en versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98556912"
 >
 >[Rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para suscribirse a la versión preliminar.
 
-En este artículo se explica cómo restaurar [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) desde un punto de restauración que haya creado Azure Backup.
+En este artículo se explica cómo restaurar [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) desde un punto de restauración que haya creado Azure Backup.
 
 Actualmente, no se admite la opción de Recuperación de la ubicación original (OLR) de la restauración mediante la sustitución del disco de origen desde el que se realizaron las copias de seguridad. Puede realizar la restauración desde un punto de recuperación para crear un nuevo disco en el mismo grupo de recursos que el disco de origen desde el que se realizaron las copias de seguridad o en cualquier otro grupo de recursos. Esto se conoce como Recuperación de la ubicación alternativa (ALR), y le será de ayuda para mantener el disco de origen y el disco restaurado (nuevo).
 
@@ -31,7 +31,7 @@ En este artículo, aprenderá a:
 
 El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para restaurar contenido a partir de una copia de seguridad, la identidad administrada del almacén de Backup debe tener un conjunto de permisos en el grupo de recursos en el que se vaya a restaurar el disco.
 
-El almacén de Backup usa una identidad administrada asignada por el sistema; cada recurso solo puede tener una identidad, y cada una de ellas está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+El almacén de Backup usa una identidad administrada asignada por el sistema; cada recurso solo puede tener una identidad, y cada una de ellas está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Los siguientes requisitos previos son necesarios para realizar una operación de restauración:
 
@@ -66,6 +66,8 @@ Los siguientes requisitos previos son necesarios para realizar una operación de
     >
     >Durante las copias de seguridad programadas o una operación de copia de seguridad a petición, Azure Backup almacena las instantáneas incrementales del disco en el grupo de recursos de instantáneas que se proporciona durante la configuración de la copia de seguridad del disco. Azure Backup usa estas instantáneas incrementales durante la operación de restauración. Si las instantáneas se eliminan o se mueven desde el grupo de recursos de instantáneas o si se revocan las asignaciones de roles del almacén de Backup en el grupo de recursos de instantáneas, se producirá un error en la operación de restauración.
 
+1. Si el disco que se va a restaurar está cifrado con [claves administradas por el cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o con el [cifrado doble que usa claves administradas por la plataforma y claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), asigne el permiso del rol **Lector** a la identidad administrada del almacén de Backup del recurso **Conjunto de cifrado de disco**.
+
 Una vez cumplidos los requisitos previos, siga estos pasos para realizar la operación de restauración.
 
 1. En [Azure Portal](https://portal.azure.com/), vaya al **Centro de copias de seguridad**. Seleccione **Instancias de copia de seguridad** en la sección **Administrar**. En la lista de instancias de copia de seguridad, seleccione la instancia de copia de seguridad del disco para la que quiera realizar la operación de restauración.
@@ -87,7 +89,7 @@ Una vez cumplidos los requisitos previos, siga estos pasos para realizar la oper
     ![Restauración de parámetros](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >Los discos de los que Azure Backup realiza una copia de seguridad mediante la solución Disk Backup también se pueden incluir en la solución de copia de seguridad de Azure VM con el almacén de Recovery Services. Si ha configurado la protección de Azure VM a la que está conectado este disco, también puede usar la operación de restauración de Azure VM. Puede restaurar la VM o los discos y archivos o carpetas desde el punto de recuperación de la instancia de copia de seguridad de Azure VM correspondiente. Para obtener más información, consulte [Copia de seguridad de Azure VM](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >Los discos de los que Azure Backup realiza una copia de seguridad mediante la solución Disk Backup también se pueden incluir en la solución de copia de seguridad de Azure VM con el almacén de Recovery Services. Si ha configurado la protección de Azure VM a la que está conectado este disco, también puede usar la operación de restauración de Azure VM. Puede restaurar la VM o los discos y archivos o carpetas desde el punto de recuperación de la instancia de copia de seguridad de Azure VM correspondiente. Para obtener más información, consulte [Copia de seguridad de Azure VM](./about-azure-vm-restore.md).
 
 1. Una vez que la validación sea correcta, seleccione **Restaurar** para iniciar la operación de restauración.
 
@@ -107,9 +109,9 @@ Se creará un nuevo disco a partir del punto de recuperación seleccionado en el
 
     ![Cambio de discos de sistema operativo](./media/restore-managed-disks/swap-os-disks.png)
 
-- En el caso de las máquinas virtuales Windows, si el disco restaurado es un disco de datos, siga las instrucciones para [desasociar el disco de datos original](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) de la máquina virtual. A continuación, [conecte el disco restaurado](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a la máquina virtual. Siga las instrucciones para [intercambiar el disco del sistema operativo](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) de la máquina virtual con el disco restaurado.
+- En el caso de las máquinas virtuales Windows, si el disco restaurado es un disco de datos, siga las instrucciones para [desasociar el disco de datos original](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) de la máquina virtual. A continuación, [conecte el disco restaurado](../virtual-machines/windows/attach-managed-disk-portal.md) a la máquina virtual. Siga las instrucciones para [intercambiar el disco del sistema operativo](../virtual-machines/windows/os-disk-swap.md) de la máquina virtual con el disco restaurado.
 
-- En el caso de las máquinas virtuales Linux, si el disco restaurado es un disco de datos, siga las instrucciones para [desasociar el disco de datos original](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) de la máquina virtual. A continuación, [conecte el disco restaurado](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) a la máquina virtual. Siga las instrucciones para [intercambiar el disco del sistema operativo](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) de la máquina virtual con el disco restaurado.
+- En el caso de las máquinas virtuales Linux, si el disco restaurado es un disco de datos, siga las instrucciones para [desasociar el disco de datos original](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) de la máquina virtual. A continuación, [conecte el disco restaurado](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) a la máquina virtual. Siga las instrucciones para [intercambiar el disco del sistema operativo](../virtual-machines/linux/os-disk-swap.md) de la máquina virtual con el disco restaurado.
 
 Se recomienda revocar la asignación del rol **Operador de restauración de discos** de la identidad administrada del almacén de Backup que se encuentra en el **Grupo de recursos de destino**, después de que finalice correctamente la operación de restauración.
 

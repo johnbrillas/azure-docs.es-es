@@ -1,6 +1,6 @@
 ---
 title: Conectar datos de eventos de seguridad de Windows a Azure Sentinel| Microsoft Docs
-description: Aprenda a usar el conector de eventos de seguridad para transmitir todos los eventos de seguridad de sus sistemas Windows al área de trabajo de Azure Sentinel. 
+description: Aprenda a usar el conector de eventos de seguridad para transmitir todos los eventos de seguridad de sus sistemas Windows al área de trabajo de Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883706"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632053"
 ---
 # <a name="connect-windows-security-events"></a>Conexión de eventos de seguridad de Windows 
 
@@ -54,7 +54,7 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos). En la lista de conectores, haga clic en **Eventos de seguridad** y, a continuación, en el botón **Open connector page** (Abrir página del conector) en la parte inferior derecha. A continuación, siga las instrucciones en pantalla debajo de la pestaña **Instrucciones**, tal como se describe en el resto de esta sección.
 
-1. Compruebe que tiene los permisos adecuados, tal como se describe en **Requisitos previos**.
+1. Compruebe que tiene los permisos adecuados, tal como se describe en la sección **Requisitos previos** de la página del conector.
 
 1. Descargue e instale el [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (también conocido como Microsoft Monitoring Agent o MMA) en los equipos desde los que quiere transmitir eventos de seguridad a Azure Sentinel.
 
@@ -73,7 +73,7 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
     >
     > Para que los sistemas Windows sin la conectividad a Internet necesaria puedan seguir transmitiendo eventos a Azure Sentinel, use el vínculo de la esquina inferior derecha para descargar e instalar la **puerta de enlace de OMS** en una máquina independiente, que actuará como proxy.  Tendrá que instalar el agente de Log Analytics en todos los sistemas Windows cuyos eventos quiera recopilar.
     >
-    > Para obtener más información sobre este escenario, consulte la [documentación de la **puerta de enlace de Log Analytics** ](../azure-monitor/platform/gateway.md).
+    > Para obtener más información sobre este escenario, consulte la [documentación de la **puerta de enlace de Log Analytics**](../azure-monitor/platform/gateway.md).
 
     Para obtener más información sobre las opciones de instalación adicionales y otros detalles, consulte la [documentación del **agente de Log Analytics**](../azure-monitor/platform/agent-windows.md).
 

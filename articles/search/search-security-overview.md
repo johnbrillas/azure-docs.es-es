@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563456"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695787"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Seguridad en Azure Cognitive Search: información general
 
-En este artículo se describen las principales características de seguridad de Azure Cognitive Search que pueden proteger el contenido y las operaciones.
+En este artículo se describen las características de seguridad de Azure Cognitive Search que protegen el contenido y las operaciones.
 
-+ En la capa de almacenamiento, el cifrado en reposo está integrado en todo el contenido administrado por el servicio guardado en el disco, incluidos los índices, los mapas de sinónimos y las definiciones de indizadores, orígenes de datos y conjuntos de aptitudes. Azure Cognitive Search también admite la incorporación de claves administradas por el cliente (CMK) para el cifrado complementario del contenido indizado. En el caso de los servicios creados después del 1 de agosto de 2020, el cifrado de CMK se extiende a los datos de los discos temporales, para el cifrado doble completo del contenido indizado.
++ En la capa de almacenamiento, el cifrado de datos está integrado en todo el contenido administrado por el servicio guardado en el disco, incluidos los índices, los mapas de sinónimos y las definiciones de indizadores, orígenes de datos y conjuntos de aptitudes. Opcionalmente, puede agregar claves administradas por el cliente (CMK) para el cifrado complementario del contenido indexado. En el caso de los servicios creados después del 1 de agosto de 2020, el cifrado de CMK se extiende a los datos de los discos temporales, para el cifrado doble completo del contenido indexado.
 
-+ La seguridad de entrada protege el punto de conexión del servicio de búsqueda en niveles crecientes de seguridad: desde las claves de API de la solicitud hasta las reglas de entrada del firewall o los puntos de conexión privados que protegen totalmente el servicio de la red pública de Internet.
++ La seguridad de entrada se refiere a la protección del punto de conexión del servicio de búsqueda en niveles crecientes de seguridad: desde las claves de API de la solicitud hasta las reglas de entrada del firewall o los puntos de conexión privados que protegen totalmente el servicio de la red pública de Internet.
 
-+ La seguridad de salida se aplica a los indexadores que extraen contenido de orígenes externos. En el caso de las solicitudes salientes, configure una identidad administrada para que busque en un servicio de confianza al acceder a los datos de Azure Storage, Azure SQL, Cosmos DB u otros orígenes de datos de Azure. Una identidad administrada es un sustituto de las credenciales o las claves de acceso en la conexión. La seguridad de salida no se trata en este artículo. Para obtener más información acerca de esta capacidad, vea [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md).
++ La seguridad de salida se aplica a los indizadores que extraen contenido de orígenes externos. En el caso de las solicitudes salientes, configure una identidad administrada para que busque en un servicio de confianza al acceder a los datos de Azure Storage, Azure SQL, Cosmos DB u otros orígenes de datos de Azure. Una identidad administrada es un sustituto de las credenciales o las claves de acceso en la conexión. La seguridad de salida no se trata en este artículo. Para obtener más información acerca de esta capacidad, vea [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md).
 
 Vea este vídeo de resumen para obtener información general sobre la arquitectura de seguridad y cada categoría de características.
 

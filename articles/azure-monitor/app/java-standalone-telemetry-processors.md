@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165797"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632587"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Procesadores de telemetría (versión preliminar): Azure Monitor Application Insights para Java
 
@@ -241,7 +241,7 @@ Se requieren los siguientes elementos para la acción `hash`.
 ### `extract`
 
 > [!NOTE]
-> Esta característica solo está disponible en la versión 3.0.1 y versiones posteriores.
+> Esta característica solo está disponible en la versión 3.0.2 y versiones posteriores.
 
 Usa una regla de expresión regular para extraer valores de la clave de entrada a las claves de destino especificadas en la regla. Si ya existe una de las claves de destino, se anulará. Se comporta de manera similar a la configuración `toAttributes` del [procesador de intervalo](#extract-attributes-from-span-name) con el atributo existente como origen.
 

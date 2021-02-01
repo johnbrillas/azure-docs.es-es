@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85f8b340635354d4bb0f28f2b3d79b617bd897f8
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562175"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754891"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 
@@ -40,7 +40,7 @@ Para crear una aplicación en modo de dispositivo compartido, los desarrolladore
 
 ## <a name="single-vs-multiple-account-applications"></a>Aplicaciones de una sola cuenta y de varias cuentas
 
-Las aplicaciones escritas mediante el SDK de la Biblioteca de autenticación de Microsoft (MSAL) pueden administrar una sola cuenta o varias cuentas. Para más información, consulte [el modo de una sola cuenta o el modo de varias cuentas](single-multi-account.md). Las características de la plataforma de identidad de Microsoft disponibles para la aplicación varían en función de si la aplicación se ejecuta en modo de una sola cuenta o en modo de varias cuentas.
+Las aplicaciones escritas mediante el SDK de la Biblioteca de autenticación de Microsoft (MSAL) pueden administrar una sola cuenta o varias cuentas. Para más información, consulte [el modo de una sola cuenta o el modo de varias cuentas](single-multi-account.md). Las características de la Plataforma de identidad de Microsoft disponibles para la aplicación varían en función de si la aplicación se ejecuta en modo de una sola cuenta o en modo de varias cuentas.
 
 **Las aplicaciones en modo de dispositivo compartido solo funcionan en el modo de una sola cuenta**.
 
