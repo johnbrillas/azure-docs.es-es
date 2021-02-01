@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484403"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693831"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -24,7 +24,7 @@ Con Azure Monitor para las soluciones de SAP, los clientes pueden recopilar dato
 
 Azure Monitor para soluciones de SAP se ofrece a través de Azure Marketplace. Proporciona una experiencia de instalación sencilla e intuitiva y solo se requieren unos clics para implementar el recurso de Azure Monitor para soluciones de SAP (conocido como **recurso de supervisión de SAP**).
 
-Los clientes pueden supervisar distintos componentes de un entorno de SAP, como Azure Virtual Machines, un clúster de alta disponibilidad, una base de datos de SAP HANA, etc., para lo que solo deben agregar el **proveedor** correspondiente al componente.
+Los clientes pueden supervisar distintos componentes de un entorno de SAP, como Azure Virtual Machines, un clúster de alta disponibilidad, una base de datos de SAP HANA, etc., con solo agregar el **proveedor** correspondiente al componente.
 
 Infraestructura admitida:
 
@@ -35,7 +35,7 @@ Bases de datos admitidas:
 - Base de datos de SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor para soluciones de SAP aprovecha la eficacia de las capacidades de [Azure Monitor](../../../azure-monitor/overview.md), como Log Analytics y [Workbooks](../../../azure-monitor/platform/workbooks-overview.md), para proporcionar funciones de supervisión adicionales. Los clientes pueden crear [visualizaciones personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) mediante la modificación de los libros predeterminados de Workbooks que proporciona Azure Monitor para soluciones de SAP, escribir [consultas personalizadas](../../../azure-monitor/log-query/log-analytics-tutorial.md) y crear [alertas personalizadas](../../../azure-monitor/learn/tutorial-response.md) mediante el uso del área de trabajo de Log Analytics de Azure, aprovechar el [período de retención flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) y conectar datos de supervisión con el sistema de vales.
+Azure Monitor para soluciones de SAP usa la eficacia de las capacidades existentes de [Azure Monitor](../../../azure-monitor/overview.md), como Log Analytics y [Workbooks](../../../azure-monitor/platform/workbooks-overview.md), para proporcionar más capacidades de supervisión. Los clientes pueden crear [visualizaciones personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) mediante la modificación de los libros predeterminados de Workbooks que proporciona Azure Monitor para soluciones de SAP, escribir [consultas personalizadas](../../../azure-monitor/log-query/log-analytics-tutorial.md) y crear [alertas personalizadas](../../../azure-monitor/learn/tutorial-response.md) mediante el uso del área de trabajo de Log Analytics de Azure, aprovechar el [período de retención flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) y conectar datos de supervisión con el sistema de vales.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>¿Qué datos recopila Azure Monitor para soluciones de SAP?
 
@@ -60,8 +60,17 @@ Telemetría de Microsoft SQL Server:
 - Solicitudes por lotes, compilaciones y duración prevista de la página a lo largo del tiempo
 - Las 10 instrucciones SQL más caras a lo largo del tiempo
 - Las 12 tablas más grandes del sistema SAP
-- Problemas detectados en los registros de errores de SQL Server
+- Problemas registrados en el registro de errores de SQL Server
 - Procesos de bloqueo y estadísticas de espera de SQL a lo largo del tiempo
+
+Telemetría del sistema operativo (Linux) 
+- Uso de CPU, número de bifurcaciones, procesos en ejecución y bloqueados. 
+- Uso de memoria y distribución entre en uso, en caché y en búfer. 
+- Uso de intercambio, paginación y tasa de intercambio. 
+- Uso de sistemas de archivos, número de bytes leídos y escritos por dispositivo de bloqueo. 
+- Latencia de lectura y escritura por dispositivo de bloqueo. 
+- Recuento de E/S en curso, bytes de lectura y escritura de memoria persistente. 
+- Paquetes de red entrantes y salientes, bytes de red entrantes y salientes. 
 
 ## <a name="data-sharing-with-microsoft"></a>Uso compartido de datos con Microsoft
 
@@ -96,9 +105,9 @@ Los componentes clave de la arquitectura son:
 
 A continuación se indican los principales aspectos de la arquitectura:
  - **Instancias múltiples**: los clientes pueden crear la supervisión para varias instancias de un tipo de componente determinado (por ejemplo, la base de datos de HANA, el clúster de alta disponibilidad, Microsoft SQL Server) en varios SID de SAP dentro de una red virtual con un único recurso de Azure Monitor para soluciones de SAP.
- - **Proveedores múltiples**: en el diagrama de arquitectura anterior se muestra el proveedor de SAP HANA a modo de ejemplo. De forma similar, los clientes pueden configurar proveedores adicionales para los componentes correspondientes (por ejemplo, la base de datos de HANA, el clúster de alta disponibilidad, Microsoft SQL Server) para recopilar datos de esos componentes.
+ - **Proveedores múltiples**: en el diagrama de arquitectura anterior se muestra el proveedor de SAP HANA a modo de ejemplo. Asimismo, los clientes pueden configurar más proveedores para los componentes correspondientes (por ejemplo, una base de datos de HANA, un clúster de alta disponibilidad, Microsoft SQL Server) a fin de recopilar datos de esos componentes.
  - **Código abierto**: el código fuente de Azure Monitor para soluciones de SAP está disponible en [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Los clientes pueden consultar el código del proveedor y obtener más información sobre el producto, realizar contribuciones o compartir sus comentarios.
- - **Marco de consulta extensible**: las consultas SQL para recopilar datos de telemetría se escriben en [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Se pueden agregar fácilmente consultas SQL adicionales para recopilar más datos de telemetría. Los clientes pueden solicitar la incorporación de datos de telemetría específicos a Azure Monitor para soluciones de SAP. Para ello, deben dejar sus comentarios a través del vínculo que aparece al final de este documento o ponerse en contacto con el equipo de cuentas.
+ - **Marco de consulta extensible**: las consultas SQL para recopilar datos de telemetría se escriben en [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). Se pueden agregar fácilmente más consultas SQL para recopilar más datos de telemetría. Los clientes pueden solicitar la incorporación de datos de telemetría específicos a Azure Monitor para soluciones de SAP. Para ello, deben dejar sus comentarios a través del vínculo que aparece al final de este documento o ponerse en contacto con el equipo de cuentas.
 
 ## <a name="pricing"></a>Precios
 Azure Monitor para soluciones de SAP es un producto gratuito (sin cuota de licencias). Los clientes son responsables de pagar el costo de los componentes subyacentes en el grupo de recursos administrados.

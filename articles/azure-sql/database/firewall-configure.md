@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602230"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632823"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Reglas de firewall de Azure SQL Database y Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -101,7 +101,9 @@ Cuando un equipo intenta conectarse al servidor desde Internet, el firewall comp
 
 ### <a name="connections-from-inside-azure"></a>Conexiones desde dentro de Azure
 
-Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Cuando una aplicación intenta conectarse desde Azure al servidor, el firewall comprueba que se permiten las conexiones de Azure. Esto se puede activar directamente desde la hoja de Azure Portal si se establece la opción Reglas de firewall, así como si se cambia la opción **Permitir que los servicios y recursos de Azure accedan a este servidor** a **Activada** en la configuración **Firewalls y redes virtuales**. Si no se permite la conexión, la solicitud no llega al servidor.
+Para permitir que las aplicaciones hospedadas en Azure se conecten al servidor SQL, deben habilitarse las conexiones de Azure. Para habilitar las conexiones de Azure, debe haber una regla de firewall con las direcciones IP inicial y final establecidas en 0.0.0.0.
+
+Si una aplicación de Azure intenta conectarse al servidor, el firewall comprueba que se permitan las conexiones de Azure; para ello, verifica la existencia de esta regla de firewall. Esto se puede activar directamente desde la hoja de Azure Portal si se establece **Permitir que los servicios y recursos de Azure accedan a este servidor** en **Activado** en la opción **Firewalls y redes virtuales**. Al establecer en Activado, se crea una regla de firewall de entrada para IP 0.0.0.0 - 0.0.0.0 denominada **AllowAllWindowsIP**. Use PowerShell o la CLI de Azure para crear una regla de firewall con las direcciones IP inicial y final establecidas en 0.0.0.0 si no está usando el portal. 
 
 > [!IMPORTANT]
 > Esta opción configura el firewall para permitir todas las conexiones desde Azure, incluidas las procedentes de las suscripciones de otros clientes. Si selecciona esta opción, asegúrese de que los permisos de usuario y el inicio de sesión solo dejan acceder a los usuarios autorizados.

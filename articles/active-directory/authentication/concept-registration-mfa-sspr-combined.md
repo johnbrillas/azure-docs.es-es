@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743911"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621800"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Introducción al registro de información de seguridad combinado para Azure Active Directory
 
@@ -30,18 +30,18 @@ En este artículo se describe qué es el registro de seguridad combinado. Para e
 > [!div class="nextstepaction"]
 > [Habilitar el registro de seguridad combinado](howto-registration-mfa-sspr-combined.md)
 
-![Página de mi perfil que muestra información de seguridad registrada de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Mi cuenta con información de seguridad registrada de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en el usuario para asegurarse de que entiende las funciones y el efecto de esta característica. Con el fin de preparar a los usuarios para la nueva experiencia y ayudar a garantizar un lanzamiento satisfactorio, puede basar el aprendizaje en la [documentación de usuario](../user-help/security-info-setup-signin.md).
 
 El registro de información de seguridad combinado de Azure AD no está actualmente disponible para las nubes nacionales, como Azure Alemania o Azure China 21Vianet. Está disponible para Azure US Government.
 
 > [!IMPORTANT]
-> Los usuarios que están habilitados para la versión preliminar original y la experiencia de registro combinado mejorada verán el nuevo comportamiento. Los usuarios que están habilitados para ambas experiencias verán solo la nueva experiencia de mi perfil. La nueva página *Mi perfil* se alinea con el aspecto del registro combinado y ofrece una experiencia perfecta para los usuarios. Los usuarios pueden ver mi perfil yendo a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+> Los usuarios que están habilitados para la versión preliminar original y la experiencia de registro combinado mejorada verán el nuevo comportamiento. Los usuarios que están habilitados para ambas experiencias solo ven la experiencia Mi cuenta. *Mi cuenta* se alinea con el aspecto del registro combinado y ofrece una experiencia perfecta a los usuarios. Los usuarios pueden ver Mi cuenta si van a [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
 >
 > Podría encontrar un mensaje de error al intentar acceder a la opción de información de seguridad, como "No podemos iniciar su sesión". Confirme que no tiene ningún objeto de configuración o de directiva de grupo que bloquee las cookies de terceros en el explorador web.
 
-Las páginas *Mi perfil* se localizan en función de la configuración de idioma del equipo que accede a la página. Microsoft almacena el idioma usado más recientemente en la memoria caché del explorador, por lo que los posteriores intentos de acceder a las páginas se representarán en el último idioma utilizado. Si se borra la memoria caché, las páginas se vuelven a representar.
+Las páginas *Mi cuenta* están traducidas en función de la configuración de idioma del equipo que accede a la página. Microsoft almacena el idioma usado más recientemente en la memoria caché del explorador, por lo que los posteriores intentos de acceder a las páginas se representarán en el último idioma utilizado. Si se borra la memoria caché, las páginas se vuelven a representar.
 
 Si quiere forzar un idioma específico, puede agregar `?lng=<language>` al final de la dirección URL, donde `<language>` es el código del idioma que quiere representar.
 
@@ -116,7 +116,7 @@ Si la directiva SSPR requiere que los usuarios revisen su información de seguri
 
 ### <a name="manage-mode"></a>Modo de administración
 
-Los usuarios pueden acceder al modo de administración si van a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o seleccionando **Información de seguridad** en mi perfil. Ahí, los usuarios pueden agregar métodos, eliminar o cambiar los métodos existentes, cambiar el método predeterminado, entre otras cosas.
+Los usuarios pueden acceder al modo de administración si van a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o seleccionan **Información de seguridad** en Mi cuenta. Ahí, los usuarios pueden agregar métodos, eliminar o cambiar los métodos existentes, cambiar el método predeterminado, entre otras cosas.
 
 ## <a name="key-usage-scenarios"></a>Escenarios de uso claves
 
@@ -126,17 +126,17 @@ Un administrador tiene registro forzado.
 
 Un usuario no ha configurado toda la información de seguridad requerida y entra en Azure Portal. Después de escribir el nombre de usuario y la contraseña, se le solicita al usuario que configure la información de seguridad. Luego, el usuario sigue los pasos que se muestran en el asistente para configurar la información de seguridad requerida. Si la configuración lo permite, el usuario puede configurar otros métodos aparte de los que se muestran de manera predeterminada. Después de completar el asistente, los usuarios revisan los métodos que han configurado y el método predeterminado para Multi-Factor Authentication. Para completar el proceso de instalación, el usuario confirma la información y continúa en Azure Portal.
 
-### <a name="set-up-security-info-from-my-profile"></a>Configuración de la información de seguridad desde mi perfil
+### <a name="set-up-security-info-from-my-account"></a>Configuración de información de seguridad desde Mi cuenta
 
 Un administrador no tiene registro forzado.
 
-Un usuario que todavía no ha configurado toda la información de seguridad requerida entra en [https://myprofile.microsoft.com](https://myprofile.microsoft.com). El usuario selecciona **Información de seguridad** en el panel izquierdo. Desde allí, el usuario decide agregar un método, selecciona uno de los que hay disponibles y sigue los pasos para configurarlo. Cuando termina, el usuario ve el método que estaba configurado en la página Información de seguridad.
+Un usuario que todavía no ha configurado toda la información de seguridad requerida entra en [https://myaccount.microsoft.com](https://myaccount.microsoft.com). El usuario selecciona **Información de seguridad** en el panel izquierdo. Desde allí, el usuario decide agregar un método, selecciona uno de los que hay disponibles y sigue los pasos para configurarlo. Cuando termina, el usuario ve el método que estaba configurado en la página Información de seguridad.
 
-### <a name="delete-security-info-from-my-profile"></a>Eliminación de información de seguridad desde mi perfil
+### <a name="delete-security-info-from-my-account"></a>Eliminación de información de seguridad desde Mi cuenta
 
 Un usuario que previamente ha configurado al menos un método navega a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). El usuario decide eliminar uno de los métodos previamente registrados. Cuando termina, el usuario ya no ve ese método en la página de Información de seguridad.
 
-### <a name="change-the-default-method-from-my-profile"></a>Cambio del método predeterminado desde mi perfil
+### <a name="change-the-default-method-from-my-account"></a>Cambio del método predeterminado desde Mi cuenta
 
 Un usuario que previamente ha configurado al menos un método que se puede usar para Multi-Factor Authentication navega a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). El usuario cambia el método predeterminado actual a un método predeterminado distinto. Cuando termina, el usuario ve ese método predeterminado nuevo en la página de Información de seguridad.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629806"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761010"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -335,7 +335,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 Compruebe que ha [configurado directivas de RBAC de Azure](../../virtual-machines/linux/login-using-aad.md) para la VM que concedan al usuario los roles de Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual:
 
 > [!NOTE]
-> Si tiene problemas con las asignaciones de roles de Azure, consulte [Solución de problemas de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> Si tiene problemas con las asignaciones de roles de Azure, consulte [Solución de problemas de Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Cliente no autorizado
 
@@ -350,7 +350,9 @@ Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escr
 > [!NOTE]
 > La compilación 20H1 de Windows 10 agregó compatibilidad con un equipo registrado en Azure AD para iniciar la conexión RDP a la máquina virtual. Al usar un equipo registrado en Azure AD (no unido a Azure AD ni unido a Azure AD híbrido) como el cliente RDP para iniciar conexiones a la máquina virtual, debe escribir las credenciales con el formato AzureAD\UPn (por ejemplo, AzureAD\john@contoso.com).
 
-Además, compruebe que la extensión AADLoginForWindows no se ha desinstalado una vez que completada la unión a Azure AD.
+Compruebe que la extensión AADLoginForWindows no se ha desinstalado una vez terminada la unión a Azure AD.
+
+Además, asegúrese de que la directiva de seguridad "Seguridad de red: permitir solicitudes de autenticación PKU2U a este equipo para usar identidades en Internet" está habilitada en el servidor *y* el cliente.
  
 #### <a name="mfa-sign-in-method-required"></a>Se requiere el método de inicio de sesión MFA
 
