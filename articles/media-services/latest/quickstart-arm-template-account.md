@@ -1,25 +1,11 @@
 ---
-title: Plantilla de Resource Manager de una cuenta de Media Services
-titleSuffix: Azure Media Services
-description: En este artículo se muestra cómo usar una plantilla de Resource Manager para crear una cuenta de Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185050"
+título: Plantilla de Resource Manager de una cuenta de Media Services: Descripción de Azure Media Services: En este artículo se muestra cómo usar una plantilla de Resource Manager para crear una cuenta de Media Services.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 11/24/2020 ms.author: inhenkel ms.custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>Inicio rápido: Plantilla de Resource Manager de una cuenta de Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -41,7 +27,7 @@ Los lectores que tienen experiencia con plantillas de Resource Manager pueden co
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Si nunca ha implementado una plantilla de Resource Manager antes, resulta útil leer sobre [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/) y repasar el [tutorial](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+Si nunca ha implementado una plantilla de Resource Manager antes, resulta útil leer sobre [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/index.yml) y repasar el [tutorial](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -118,8 +104,8 @@ The syntax for the JSON code fence is:
 
 En la plantilla se definen tres tipos de recursos de Azure:
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): crea una cuenta de Media Services.
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): crea una cuenta de almacenamiento.
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): crea una cuenta de Media Services.
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): crea una cuenta de almacenamiento.
 
 ## <a name="set-the-account"></a>Establecimiento de la cuenta
 
@@ -277,4 +263,4 @@ az group delete --name {name of the resource group}
 Para más información sobre el uso de una plantilla de Resource Manager siguiendo el proceso de creación de una plantilla con parámetros, variables, etc., pruebe:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

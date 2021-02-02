@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/19/2021
 ms.author: banders
-ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744432"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685548"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
@@ -23,35 +23,37 @@ Es posible que la suscripción de Azure se deshabilite porque expiró su crédit
 
 ## <a name="your-credit-is-expired"></a>El crédito caducó
 
-Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 dólares en créditos de Azure para 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para seguir usando los servicios de Azure, debe [actualizar la suscripción](upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere las cantidades y servicios gratuitos.
+Al registrarse para obtener una cuenta gratuita de Azure, obtiene una suscripción de evaluación gratuita, que le proporciona 200 dólares en créditos de Azure para 30 días y 12 meses de servicios gratuitos. Al terminar los 30 días, Azure deshabilita la suscripción. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere los servicios con crédito y gratuitos que se incluyen con esta. Para seguir usando los servicios de Azure, debe [actualizar la suscripción](upgrade-azure-subscription.md). Después de actualizar, la suscripción tendrá acceso a servicios gratuitos durante 12 meses. Solo se le cobrará el uso que supere los límites de cantidad del servicio gratuito.
 
 ## <a name="you-reached-your-spending-limit"></a>Alcanzó el límite de gasto
 
-Las suscripciones de Azure con crédito como la evaluación gratuita y Visual Studio Enterprise tienen límites de gasto. Esto significa que solo puede usar los servicios hasta el crédito incluido. Cuando el uso alcanza el límite de gasto, Azure deshabilita la suscripción para el resto de ese período de facturación. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere el crédito que se incluye con esta. Para quitar el límite de gasto, consulte [Eliminación del límite de gasto en el Centro de cuentas](spending-limit.md#remove).
+Las suscripciones de Azure con crédito como la evaluación gratuita y Visual Studio Enterprise tienen límites de gasto. Solo puede usar los servicios hasta el crédito incluido. Cuando el uso alcanza el límite de gasto, Azure deshabilita la suscripción para el resto de ese período de facturación. La suscripción se deshabilita para protegerle de cargos accidentales por el uso que supere el crédito que se incluye con esta. Para quitar el límite de gasto, consulte [Eliminación del límite de gasto en Azure Portal](spending-limit.md#remove).
 
 > [!NOTE]
 > Si tiene una suscripción de evaluación gratuita y quita el límite de gasto, la suscripción se convierte en una suscripción individual con tarifas de pago por uso al final de dicha evaluación. El crédito restante se conserva durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
 
 Para supervisar y administrar la actividad de facturación de Azure, consulte [Planificación para administrar costos de Azure](../understand/plan-manage-costs.md).
 
-
 ## <a name="your-bill-is-past-due"></a>Su factura está vencida
 
-Para resolver el saldo de la suscripción vencido, consulte [Resolución del saldo de la suscripción de Azure vencido tras recibir un correo electrónico de Azure](resolve-past-due-balance.md).
+Para resolver un saldo vencido, consulte uno de los siguientes artículos:
+
+- En el caso de las suscripciones del Programa de suscripción en línea de Microsoft, incluido el pago por uso, consulte [Resolución del saldo de la suscripción de Azure vencido tras recibir un correo electrónico de Azure](resolve-past-due-balance.md).
+- En el caso de las suscripciones de los Contratos de clientes de Microsoft, consulte [Cómo pagar la factura de Microsoft Azure](../understand/pay-bill.md).
 
 ## <a name="the-bill-exceeds-your-credit-card-limit"></a>La factura supera el límite de la tarjeta de crédito
 
-Para resolver este problema, [cambie a otra tarjeta de crédito](change-credit-card.md). O bien, si representa a una empresa, puede [cambiar a pago mediante factura](pay-by-invoice.md).
+Para resolver este problema,[cambie a otra tarjeta de crédito](change-credit-card.md). O bien, si representa a una empresa, puede [cambiar a pago mediante factura](pay-by-invoice.md).
 
 ## <a name="the-subscription-was-accidentally-canceled"></a>La suscripción se canceló accidentalmente
 
-Si es el administrador de cuenta y canceló por accidente una suscripción individual con tarifas de pago por uso, puede reactivarla en el Centro de cuentas.
+Si es el administrador de la cuenta y accidentalmente cancela una suscripción de pago por uso, puede reactivarla en Azure Portal.
 
-1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
-1. Seleccione la suscripción cancelada.
-1. Haga clic en **Reactivar**.
-
-    ![Captura de pantalla que muestra los vínculos de reactivación en el panel derecho](./media/subscription-disabled/reactivate-sub.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a Suscripciones y, después, seleccione la suscripción cancelada.
+1. Seleccione **Reactivar**.
+1. Confirme la reactivación mediante **Aceptar**.  
+    :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Captura de pantalla que muestra la opción Confirmar reactivación" :::
 
 Para otros tipos de suscripción, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que reactive su suscripción.
 

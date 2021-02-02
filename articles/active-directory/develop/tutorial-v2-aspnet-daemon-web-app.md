@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015953"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937826"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
@@ -49,7 +49,7 @@ Dado que la aplicación es una aplicación multiinquilino para clientes empresar
 
 ![En el diagrama se muestra la aplicación UserSync con tres elementos locales que se conectan a Azure, con la autenticación de punto inicial que adquiere un token de forma interactiva para conectarse a Azure AD, AccountController que obtiene el consentimiento de administrador para conectarse a Azure AD y SyncController que lee al usuario para conectarse a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente del punto de conexión de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
+Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="clone-or-download-this-repository"></a>Clonación o descarga de este repositorio
 
@@ -109,7 +109,7 @@ Si no desea usar la automatización, siga los pasos que se describen en las secc
 1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
 1. En **Administrar**, seleccione **Autenticación**.
-1. Establezca la **URL de cierre de sesión** en `https://localhost:44316/Account/EndSession`.
+1. Establezca la **dirección URL de cierre de sesión del canal frontal** en `https://localhost:44316/Account/EndSession`.
 1. En la sección **Concesión implícita**, seleccione **Tokens de acceso** y **Tokens de id.** . Para este ejemplo es necesario habilitar el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario y llamar a una API.
 1. Seleccione **Guardar**.
 1. En **Administrar**, seleccione **Certificados y secretos**.
@@ -227,7 +227,7 @@ Visual Studio publicará el proyecto y abrirá automáticamente un explorador e
 1. Vuelva a <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. En el panel izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
 1. Seleccione la aplicación **dotnet-web-daemon-v2**.
-1. En la página **Autenticación** de la aplicación, actualice los campos de **dirección URL de cierre de sesión** con la dirección del servicio. Por ejemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. En la página **Autenticación** de la aplicación, actualice los campos de **dirección URL de cierre de sesión del canal frontal** con la dirección del servicio. Por ejemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. En el menú **Personalización de marca**, actualice la **dirección URL de la página principal** con la dirección del servicio. Por ejemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Guarde la configuración.
 1. Agregue la misma dirección URL a la lista de valores del menú **Autenticación** > **URI de redirección**. Si tiene varias direcciones URL de redirección, asegúrese de que haya una nueva entrada que use el URI del servicio de aplicaciones para cada una.

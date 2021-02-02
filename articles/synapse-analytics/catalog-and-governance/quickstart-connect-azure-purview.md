@@ -8,17 +8,15 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f85a76a7ce01c11255f54c6b956088f9328dfc9f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918473"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880549"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Inicio rápido: Conexión de una cuenta de Azure Purview a un área de trabajo de Synapse. 
 
-> [!IMPORTANT]
-> La integración entre Azure Synapse Analytics y Azure Purview se encuentra actualmente en versión preliminar. Si está interesado en probar Azure Purview en Synapse, póngase en contacto con su representante de ventas de Microsoft.
 
 En este inicio rápido, registrará una cuenta de Azure Purview en un área de trabajo de Synapse. Esa conexión le permite detectar recursos de Azure Purview e interactuar con ellos mediante las funcionalidades de Synapse. 
 
@@ -34,11 +32,11 @@ Puede realizar las siguientes tareas en Synapse:
 
 ## <a name="signin-toa-synapse-workspace"></a>Inicie sesión en un área de trabajo de Synapse 
 
-Vaya a https://web.azuresynapse.net e inicie sesión en el área de trabajo. 
+Vaya a  [https://web.azuresynapse.net](https://web.azuresynapse.net) e inicie sesión en el área de trabajo. 
 
 ## <a name="permissions-for-connecting-an-azure-purview-account"></a>Permisos para conectar una cuenta de Azure Purview 
 
-- Para conectar una cuenta de Azure Purview a un área de trabajo de Synapse, necesita un rol **Colaborador** en dicha área otorgado por la Administración de identidad y acceso de Azure Portal y necesita acceso a esa cuenta de Azure Purview.
+- Para conectar una cuenta de Azure Purview a un área de trabajo de Synapse, necesita un rol **Colaborador** en dicha área otorgado por la Administración de identidad y acceso de Azure Portal y necesita acceso a esa cuenta de Azure Purview. Para obtener más información, consulte [permisos de Azure Purview](../../purview/catalog-permissions.md).
 
 ## <a name="connect-an-azure-purview-account"></a>Conexión de una cuenta de Azure Purview  
 

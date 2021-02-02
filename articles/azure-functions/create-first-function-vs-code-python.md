@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear una función de Python y, a 
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9e4ddc479b0adcb88e846b92e6603dfdf3c99baa
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967997"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880851"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Inicio rápido: Creación de una función en Azure con Python mediante Visual Studio Code
 
@@ -29,7 +29,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos:
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), versión 3.x.
 
-+ Azure Functions (x64) admite [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/) y [Python 3.6](https://www.python.org/downloads/release/python-368/).
++ [Versiones de Python compatibles con Azure Functions](supported-languages.md#languages-by-runtime-version)
 
 + [Visual Studio Code](https://code.visualstudio.com/) en una de las [plataformas admitidas](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 

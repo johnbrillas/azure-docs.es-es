@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 276c2ceaa9e0bef254c70f91541a3a3db7c02d47
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060408"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631943"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -26,6 +26,10 @@ Puede ver el siguiente vídeo con pasos detallados sobre cómo empezar a usar Li
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure que tenga una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), en caso de que aún no lo haya hecho.
+
+  > [!NOTE]
+  > Necesitará una suscripción de Azure con permisos para crear entidades de servicio (el **rol de propietario** permite esto). Si no tiene los permisos adecuados, póngase en contacto con el administrador de la cuenta para que se los conceda.  
+
 * [Visual Studio Code](https://code.visualstudio.com/) en la máquina de desarrollo. Asegúrese de tener la [extensión Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Asegúrese de que la red a la que está conectada su máquina de desarrollo permita usar el protocolo Advanced Message Queuing Protocol en el puerto 5671. Esta configuración permite a Azure IoT Tools comunicarse con Azure IoT Hub.
 
@@ -85,7 +89,7 @@ Ahora se implementan los módulos, pero no hay grafos multimedia activos.
 Siga estas instrucciones para conectarse a su centro de IoT mediante la extensión Azure IoT Tools.
 
 1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
-1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
+1. Haga clic con el botón derecho y seleccione la opción **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e2a71313294457e09e2bb152dea98c84b7730236
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178592"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754410"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Inicio rápido: Adición del inicio de sesión de la plataforma de identidad de Microsoft a una aplicación web de ASP.NET
 
@@ -169,7 +169,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | El identificador de la aplicación registrada en Azure Portal |
 > | `Authority`    | El punto de conexión STS para el usuario que se autenticará. Normalmente es `https://login.microsoftonline.com/{tenant}/v2.0` para la nube pública, donde {tenant} es el nombre del inquilino, el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
-> | `RedirectUri`  | Dirección URL a donde se envían a los usuarios después de la autenticación en el punto de conexión de la Plataforma de identidad de Microsoft |
+> | `RedirectUri`  | Dirección URL a la que se envían a los usuarios después de la autenticación en la plataforma de identidad de Microsoft |
 > | `PostLogoutRedirectUri`     | Dirección URL a donde se redirige a los usuarios después de cerrar sesión |
 > | `Scope`     | La lista de ámbitos que se solicitan, separados por espacios |
 > | `ResponseType`     | La solicitud para que la respuesta de la autenticación contenga un token de identificador |

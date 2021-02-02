@@ -1,15 +1,15 @@
 ---
 title: 'Organización de los recursos con grupos de administración: Servicios de gobernanza de Azure'
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030678"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736329"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -162,16 +162,16 @@ Para corregir este escenario hay varias opciones:
 - Quitar la asignación de roles de la suscripción antes de mover esta al nuevo grupo de administración primario.
 - Agregar la suscripción al ámbito asignable de la definición de roles.
 - Cambiar el ámbito asignable en la definición de roles. En el ejemplo anterior, se pueden actualizar los ámbitos asignables de Marketing a Grupo de administración raíz para que las dos ramas de la jerarquía puedan acceder a la definición.  
-- Crear un rol personalizado adicional que se definirá en la otra rama. Este nuevo rol requerirá que la asignación de roles se cambie también en la suscripción.  
+- Cree otro rol personalizado que se defina en la otra rama. Este nuevo rol requiere que la asignación de roles se cambie también en la suscripción.  
 
 ### <a name="limitations"></a>Limitaciones  
 
 Existen limitaciones al usar roles personalizados en grupos de administración. 
 
  - En los ámbitos asignables de un nuevo rol no se puede definir más de un grupo de administración. Esta limitación se ha establecido para reducir el número de situaciones en las que las definiciones de roles y las asignaciones de roles están desconectadas. Esta situación se produce cuando una suscripción o un grupo de administración con una asignación de roles se mueven a un elemento primario diferente que no tiene la definición de roles.  
- - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos.
-   Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
- - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. Aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista, se creará la definición de roles.
+ - Las acciones del plano de datos del proveedor de recursos no se pueden definir acciones en los roles personalizados del grupo de administración. Esta restricción se ha establecido porque hay un problema de latencia al actualizar los proveedores de recursos del plano de datos. Se está trabajando en dicho problema y estas acciones se deshabilitarán de la definición de roles para reducir los riesgos.
+ - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles. La definición de roles se crea aunque haya algún error de escritura o un identificador de grupo de administración incorrecto en la lista.
+ - No se admite la asignación de roles para un rol con _dataActions_. En su lugar, cree la asignación de roles en el ámbito de la suscripción.
 
 > [!IMPORTANT]
 > La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción.

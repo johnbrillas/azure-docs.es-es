@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: Xamarin'
+title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12 (Xamarin)'
 description: En este inicio rápido, aprenderá a usar la versión 12 de la biblioteca cliente de Azure Blob Storage con Xamarin para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un dispositivo móvil y a enumerar todos los blobs de un contenedor.
 author: codemillmatt
 ms.author: masoucou
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004745"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802365"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 con Xamarin
 
@@ -44,7 +44,7 @@ Vínculos de referencia:
 
 ## <a name="setting-up"></a>Instalación
     
-En esta sección se explica cómo preparar un proyecto para que funcione con la biblioteca cliente de Azure Blob Storage v12 con Xamarin.
+En esta sección se explica cómo preparar un proyecto para usarlo con la biblioteca cliente de Azure Blob Storage v12 con Xamarin.
     
 ### <a name="create-the-project"></a>Creación del proyecto
 
@@ -110,7 +110,7 @@ Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes ta
 
 ### <a name="create-class-level-variables"></a>Creación de variables de nivel de clase
 
-El código siguiente declara varias variables de nivel de clase. Necesitan comunicarse con Azure Blob Storage a lo largo del resto de este ejemplo.
+El código siguiente declara varias variables de nivel de clase. Necesitan comunicarse con Azure Blob Storage en todo este ejemplo.
 
 Estas variables se suman a la cadena de conexión de la cuenta de almacenamiento establecida en la sección [Configuración de una cadena de conexión de almacenamiento](#configure-your-storage-connection-string).
 
@@ -269,7 +269,7 @@ Después de comprobar los valores, confirme la solicitud de eliminación del con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, aprenderá a cargar, descargar y enumerar blobs mediante una biblioteca cliente de Azure Blob Storage v12 con Xamarin.
+En este inicio rápido, ha aprendido a cargar, descargar y enumerar blobs mediante una biblioteca cliente de Azure Blob Storage v12 con Xamarin.
 
 Para ver las aplicaciones de ejemplo de Blob Storage, siga estos pasos:
 

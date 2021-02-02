@@ -1,5 +1,5 @@
 ---
-title: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de Azure IoT Hub
+title: 'Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de Azure IoT Hub'
 description: En este inicio rápido, ejecutará una aplicación del servicio de Node.js que se comunica con un dispositivo IoT mediante un flujo de dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832014"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624395"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -79,7 +79,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Anote la cadena de conexión del servicio devuelta para usarla más adelante en este inicio rápido. Debe ser similar al ejemplo siguiente:
@@ -154,4 +154,4 @@ En este inicio rápido, ha configurado un centro de IoT, registrado un dispositi
 Use los siguientes vínculos para más información sobre los flujos de dispositivo:
 
 > [!div class="nextstepaction"]
-> [Introducción a los flujos de dispositivo](./iot-hub-device-streams-overview.md) 
+> [Introducción a los flujos de dispositivo](./iot-hub-device-streams-overview.md)

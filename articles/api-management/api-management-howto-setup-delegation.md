@@ -68,7 +68,7 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 5. Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario] con la API de REST de API Management. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo valor que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
 6. Cuando el usuario se autentique correctamente:
    
-   * [Solicite un token de acceso compartido] a través de la API de REST de API Management.
+   * [Request a shared access token] a través de la API de REST de API Management.
    * Anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
      
      > por ejemplo, `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
@@ -127,7 +127,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
 3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
-4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para las suscripciones].
+4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [calling the REST API for subscriptions].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a>Ejemplo de código
 

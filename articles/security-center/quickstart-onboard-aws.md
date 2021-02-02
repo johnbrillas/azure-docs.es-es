@@ -3,16 +3,16 @@ title: Conexión de las cuentas de AWS a Azure Security Center
 description: Supervisión de los recursos de AWS desde Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814319"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755151"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conexión de las cuentas de AWS a Azure Security Center
 
@@ -39,7 +39,7 @@ En la captura de pantalla siguiente puede ver que se muestran cuentas de AWS en 
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Versión preliminar<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Propietario** en la suscripción de Azure en cuestión<br>Un **colaborador** también puede conectar una cuenta de AWS si un propietario proporciona los detalles de la entidad de servicio.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -136,7 +136,7 @@ Para automatizar las tareas entre los recursos de AWS, se requiere el administra
 1. Configure las opciones en la pestaña **AWS authentication** (Autenticación de AWS):
     1. Escriba un **nombre para mostrar** para el conector.
     1. Confirme que la suscripción es correcta. Se trata de la suscripción que incluirá las recomendaciones del conector y de AWS Security Hub.
-    1. En función de la opción de autenticación elegida en el [Paso 2. Configuración de la autenticación para Security Center en AWS](#step-2-set-up-authentication-for-security-center-in-aws):
+    1. En función de la opción de autenticación elegida en [Paso 2. Configuración de la autenticación para Security Center en AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Seleccione **Assume Role** (Asumir rol) y pegue el ARN de [Creación de un rol IAM para Security Center](#create-an-iam-role-for-security-center).
             :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pegado del archivo ARN en el campo pertinente del Asistente para conexión de AWS en Azure Portal":::
 
@@ -190,7 +190,7 @@ Para ver todas las recomendaciones activas de los recursos por tipo de recurso, 
 Sistema operativo compatible con la incorporación automática a Azure Arc para máquinas AWS
 
 - Ubuntu 16.04: el agente SSM está preinstalado de forma predeterminada
-- Ubuntu 18.04: el agente SSM está preinstalado de forma predeterminada
+- Ubuntu 18.04: el agente SSM está preinstalado de forma predeterminada
 - Windows Server: el agente-SSM está preinstalado de forma predeterminada
 - CentOS Linux 7: se debe instalar SSM manualmente o incorporarse por separado
 - SUSE Linux Enterprise Server (SLES) 15 (x64): se debe instalar SSM manualmente o incorporarse por separado

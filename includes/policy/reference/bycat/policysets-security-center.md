@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8b404903ebf6a485efbdb77c325ab1f568232186
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 00fa46a83f1de8c5fed227202ab9c076ec35fd5b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046430"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806934"
 ---
 |Nombre |Descripción |Directivas |Versión |
 |---|---|---|---|
 |[\[Versión preliminar\]: Habilitar el conjunto de aplicaciones de protección de datos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_DataProtection.json) |Habilita la protección de datos de los servidores SQL Server. El Nivel Estándar de Azure Security Center asigna automáticamente esta iniciativa. |1 |1.0.0-preview |
-|[Habilitar la supervisión en Azure Security Center](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |Supervisa todas las recomendaciones de seguridad disponibles en Azure Security Center. Se trata de la directiva predeterminada de Azure Security Center. |177 |22.0.0 |
+|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |La iniciativa de Azure Security Benchmark representa las directivas y los controles que implementan las recomendaciones de seguridad definidas en la versión 2 de Azure Security Benchmark; consulte [https://aka.ms/azsecbm](https://aka.ms/azsecbm). También sirve como iniciativa de directivas predeterminada de Azure Security Center. Desde Azure Security Center se puede asignar esta iniciativa o administrar sus directivas y resultados de cumplimiento directamente. |176 |24.0.1 |

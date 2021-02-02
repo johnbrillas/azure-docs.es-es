@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: e5a9292097933ff35eb8b77445f07f10def6e5c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029624"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752570"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>¿Qué es la plataforma de identidad de Microsoft?
 
@@ -78,7 +78,7 @@ Aprenda cómo se aplican los conceptos básicos de autenticación y de Azure AD
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene una cuenta de Azure ya tiene acceso a un inquilino de Azure Active Directory, pero la mayoría de los desarrolladores de la plataforma de identidad de Microsoft necesitan su propio inquilino de Azure AD, un "inquilino de desarrollo", para usarlo durante el desarrollo de aplicaciones.
+Si tiene una cuenta de Azure ya tiene acceso a un inquilino de Azure Active Directory, pero la mayoría de los desarrolladores de la plataforma de identidad de Microsoft necesitan su propio inquilino de Azure AD, un "inquilino de desarrollo", para usarlo en el desarrollo de aplicaciones.
 
 Aprenda a crear su propio inquilino para usarlo cuando compile las aplicaciones:
 

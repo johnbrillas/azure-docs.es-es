@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936988"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761311"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -75,7 +75,7 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
   - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Emparejamiento de usuarios en los sistemas de origen y destino
-El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios Greenfield (donde los usuarios no existen en el sistema de destino) y Brownfield (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
+El servicio de aprovisionamiento de Azure AD se puede implementar tanto en escenarios "green field" (donde los usuarios no existen en el sistema de destino) como en escenarios y "brownfield" (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
 
 - **Los atributos coincidentes deben ser únicos:** los clientes a menudo usan atributos como userPrincipalName, mail u object ID como atributo coincidente.
 - **Se pueden usar varios atributos como atributos coincidentes:** puede definir varios atributos para que se evalúen al emparejar usuarios y el orden en el que se evalúan (definido como precedencia de coincidencias en la interfaz de usuario). Por ejemplo, si define tres atributos como atributos coincidentes y un usuario se empareja de forma única después de evaluar los dos primeros atributos, el servicio no evalúa el tercero. El servicio evalúa los atributos coincidentes en el orden especificado y deja de evaluar cuando se encuentra una coincidencia.  
@@ -115,7 +115,7 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 
 
 > [!NOTE]
-> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). 
+> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](#editing-the-list-of-supported-attributes). 
 
 Al editar la lista de atributos admitidos, se proporcionan las siguientes propiedades:
 
@@ -156,6 +156,7 @@ Los atributos personalizados no pueden ser atributos referenciales, atributos de
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",

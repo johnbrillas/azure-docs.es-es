@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949775"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785488"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configuración de Identity Protection y el acceso condicional en Azure AD B2C
 
@@ -94,9 +94,7 @@ Para agregar una directiva de acceso condicional basada en las detecciones de ri
 
 1. En **Seguridad**, seleccione **Acceso condicional (versión preliminar)** . Se abre la página **Directivas de acceso condicional**. 
 
-1. Seleccione **Nueva directiva** y siga la documentación del acceso condicional de Azure AD para crear una nueva directiva. A continuación se muestra un ejemplo:
-
-   - [Acceso condicional basado en el riesgo de inicio de sesión: habilitación con la directiva de acceso condicional](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Seleccione **Nueva directiva** y siga la documentación del acceso condicional de Azure AD para crear una nueva directiva. En el caso de las directivas basadas en riesgos, tendrá que configurar directivas independientes basadas en el [riesgo de usuario](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) o [riesgo de inicio de sesión](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy), en función del tipo de riesgo que desee utilizar como condición. No se recomienda usar ambos tipos de riesgo en una única directiva.
 
    > [!IMPORTANT]
    > Al seleccionar los usuarios a los que desea aplicar la directiva, no seleccione **Todos los usuarios**, ya que podría bloquear su propio inicio de sesión.

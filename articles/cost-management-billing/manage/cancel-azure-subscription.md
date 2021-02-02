@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503801"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735782"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelación de su suscripción de Azure
 
@@ -79,7 +79,7 @@ Si tiene una suscripción de evaluación gratuita, no es preciso que espere 30 d
 
 ## <a name="reactivate-a-subscription"></a>Reactivación de una suscripción
 
-Si cancela su suscripción de pago por uso accidentalmente, puede [volver a activarla en el Centro de cuentas](subscription-disabled.md).
+Si cancela su suscripción de pago por uso accidentalmente, puede [volver a activarla en Azure Portal](subscription-disabled.md).
 
 Si su suscripción no es de pago por uso, para reactivar la suscripción, póngase en contacto con el soporte técnico en los 90 días posteriores a la cancelación.
 
@@ -101,4 +101,4 @@ Consulte el artículo [Renovación y cancelación](/visualstudio/subscriptions/f
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si fuera necesario, las suscripciones de pago por uso se pueden reactivar en el [Centro de cuentas](subscription-disabled.md).
+- Si es necesario, las suscripciones de pago por uso se pueden reactivar en [Azure Portal](subscription-disabled.md).

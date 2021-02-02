@@ -1,26 +1,9 @@
 ---
-title: Cifrado de DRM de Azure Media Services y servicio de entrega de licencias
-titleSuffix: Azure Media Services
-description: Aprenda a usar el cifrado dinámico de DRM y el servicio de entrega de licencias para entregar flujos cifrados con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289382"
+título: Cifrado de DRM de Azure Media Services y servicio de entrega de licencias: Descripción de Azure Media Services: Aprenda a usar el cifrado dinámico de DRM y el servicio de entrega de licencias para entregar flujos cifrados con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 

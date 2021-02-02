@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de código de la Plataforma de identidad de Microsoft
-description: Se proporciona un índice de los ejemplos de código disponibles para la Plataforma de identidad de Microsoft (punto de conexión v2.0), organizados por escenario.
+description: Proporciona un índice de los ejemplos de código disponibles para la plataforma de identidad de Microsoft organizados por escenario.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064528"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756642"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
-Puede usar la plataforma de identidad de Microsoft para:
+Use la plataforma de identidad de Microsoft para:
 
 - Agregar autenticación y autorización a sus aplicaciones web y API web.
 - Requerir un token de acceso para tener acceso a una API web protegida.
 
-Este artículo describe brevemente y proporciona vínculos a ejemplos para el punto de conexión de la Plataforma de identidad de Microsoft. Estos ejemplos le muestran cómo se hace y también proporciona fragmentos de código que puede usar en sus aplicaciones. En la página de ejemplos de código, encontrará temas Léame detallados que le ayudarán con los requisitos, la instalación y la configuración. Los comentarios dentro del código lo ayudarán a comprender las secciones críticas.
+Este artículo describe brevemente vínculos a ejemplos y proporciona acceso a los mismos para la plataforma de identidad de Microsoft. Estos ejemplos le muestran cómo se hace y también proporciona fragmentos de código que puede usar en sus aplicaciones. En la página de ejemplos de código, encontrará temas Léame detallados que le ayudarán con los requisitos, la instalación y la configuración. Los comentarios dentro del código lo ayudarán a comprender las secciones críticas.
 
-Para entender el escenario básico de cada tipo de ejemplo, consulte el artículo sobre los [tipos de aplicaciones para el punto de conexión de la Plataforma de identidad de Microsoft](v2-app-types.md).
+Para entender el escenario básico de cada tipo de ejemplo, consulte el artículo sobre los [tipos de aplicaciones para la plataforma de identidad de Microsoft](v2-app-types.md).
 
 También puede contribuir a los ejemplos en GitHub. Para saber cómo, vea [Ejemplos y documentación de Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -121,7 +121,7 @@ En los siguientes ejemplos se muestra cómo configurar la aplicación para que a
 
 ## <a name="web-apis"></a>API web
 
-En los ejemplos siguientes se muestra cómo proteger una API web con el punto de conexión de la Plataforma de identidad de Microsoft y cómo llamar a una API de nivel inferior desde la API web.
+En los ejemplos siguientes se muestra cómo proteger una API web mediante la plataforma de identidad de Microsoft y cómo llamar a una API descendente desde la API web.
 
 | Plataforma | Muestra |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ En los ejemplos siguientes se muestra cómo proteger una API web con el punto de
 
 ## <a name="azure-functions-as-web-apis"></a>Azure Functions como API web
 
-En los ejemplos siguientes se muestra cómo proteger una función de Azure mediante el desencadenador HTTP y exponer una API web con el punto de conexión de la plataforma de identidad de Microsoft; también se muestra cómo llamar a una API de nivel inferior desde la API web.
+En los ejemplos siguientes se muestra cómo proteger una función de Azure mediante HttpTrigger y exponer una API web mediante la plataforma de identidad de Microsoft. También se muestra cómo llamar a una API descendente desde la API web.
 
 | Plataforma | Muestra |
 | -------- | ------------------- |

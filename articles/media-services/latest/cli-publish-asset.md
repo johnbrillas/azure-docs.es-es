@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: publicación de un recurso | Microsoft Docs'
+title: 'Ejemplo de script de la CLI de Azure: publicación de un recurso'
 description: En este artículo se muestra cómo utilizar el script de la CLI de Azure para publicar un recurso.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b3c358a84dd74595c476f029a1c8f28bc3c901f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c283c39f1ea90275c42de1481a9cb9006f2b2c5f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295876"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897095"
 ---
 # <a name="cli-example-publish-an-asset"></a>Ejemplo de CLI: publicación de un recurso
 

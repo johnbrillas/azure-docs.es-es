@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327780"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895261"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -54,7 +54,7 @@ Azure usa una modelo de informática en la nube basado en categorías de servici
 
 Un proveedor en la nube de IaaS ejecuta y administra todos los recursos de proceso físicos y el software necesario para habilitar la virtualización de equipos. Un cliente de este servicio implementa máquinas virtuales en centros de datos hospedados. Aunque las máquinas virtuales se encuentran en un centro de datos remoto, el consumidor de IaaS tiene control sobre la configuración y administración del sistema operativo dejando la infraestructura subyacente al proveedor de la nube.
 
-Azure ofrece varias soluciones de IaaS que incluyen máquinas virtuales, conjuntos de escalado de máquinas virtuales y la infraestructura de red relacionada. Las máquinas virtuales son una elección popular para la migración inicial de los servicios a Azure porque posibilitan un modelo de migración "levantar y mover". Puede configurar una máquina virtual similar a la infraestructura que ejecuta los servicios actualmente en su centro de datos y, a continuación, migrar el software a la nueva máquina virtual. Tendrá que realizar cambios de configuración, como las direcciones URL para otros servicios o almacenamiento, pero puede migrar muchas aplicaciones de esta manera.
+Azure ofrece varias soluciones de IaaS que incluyen máquinas virtuales, conjuntos de escalado de máquinas virtuales y la infraestructura de red relacionada. Las máquinas virtuales son una opción popular para la migración inicial de servicios a Azure porque posibilitan un modelo de migración "lift and shift". Puede configurar una máquina virtual similar a la infraestructura que ejecuta los servicios actualmente en su centro de datos y, a continuación, migrar el software a la nueva máquina virtual. Tendrá que realizar cambios de configuración, como las direcciones URL para otros servicios o almacenamiento, pero puede migrar muchas aplicaciones de esta manera.
 
 Los conjuntos de escalado de máquinas virtuales se crean sobre Azure Virtual Machines y proporcionan una manera fácil de implementar clústeres de máquinas virtuales idénticas. Los conjuntos de escalado de máquinas virtuales también admiten el escalado automático para que se pueden implementar automáticamente nuevas máquinas virtuales cuando sea necesario. Esto hace de los conjuntos de escalado de máquinas virtuales una plataforma ideal para hospedar clústeres de proceso de microservicios del más alto nivel como, por ejemplo, Azure Service Fabric y Azure Container Service.
 
@@ -66,7 +66,7 @@ Azure proporciona varias ofertas de proceso PaaS, incluida la característica We
 
 #### <a name="saas-software-as-a-service"></a>SaaS: software como servicio
 
-SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
+SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino (se usa una única versión de la aplicación para todos los clientes). Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
 
 Microsoft 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
 
@@ -138,7 +138,7 @@ Para obtener documentación detallada sobre los servicios de Azure, consulte la 
 
 Azure es una plataforma en la nube global que está disponible con carácter general en muchas regiones de todo el mundo. Al aprovisionar un servicio, una aplicación o una máquina virtual de Azure, deberá seleccionar una región. La región seleccionada representa un centro de datos específico en el que se ejecuta la aplicación. Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
-Una de las ventajas del uso de Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Resulta óptimo elegir la región más cercana a la mayoría de sus clientes, para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países y regiones.
+Una de las ventajas de usar Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Los óptimo es elegir la región más cercana a la mayoría de sus clientes, con el fin de reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países y regiones.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -174,7 +174,7 @@ Azure se basa en un conjunto de API de REST que dan soporte a la interfaz de usu
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante una experiencia accesible desde el explorador llamada Azure Cloud Shell. Esta interfaz interactiva proporciona una herramienta flexible para que los administradores de Windows y Linux usen la interfaz de línea de comandos que prefieran, Bash o PowerShell. Se puede acceder a Azure Cloud Shell a través del portal, como una interfaz web independiente en [shell.azure.com](https://shell.azure.com), o desde una serie de otros puntos de acceso. Para más información, vea [Introducción a Azure Cloud Shell](../../cloud-shell/overview.md).
+Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante una experiencia accesible desde el explorador llamada Azure Cloud Shell. Esta interfaz interactiva proporciona una herramienta flexible para que los administradores de Windows y Linux usen la interfaz de línea de comandos que prefieran, Bash o PowerShell. Se puede acceder a Azure Cloud Shell a través del portal, como una interfaz web independiente en [shell.azure.com](https://shell.azure.com) o desde otros puntos de acceso. Para más información, vea [Introducción a Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
 
@@ -184,17 +184,17 @@ Una suscripción es una agrupación lógica de servicios de Azure que está vinc
 
 Para poder trabajar con los servicios de Azure, necesita una suscripción. Existen varios tipos de suscripción disponibles.
 
-**Cuentas gratuita** : el vínculo para registrarse para una cuenta gratuita se encuentra en el [sitio web de Azure](https://azure.microsoft.com/). Esto proporciona un crédito a lo largo de 30 días para probar cualquier combinación de recursos de Azure. Si se supera la cantidad de crédito, la cuenta será suspendida. Al final del período de prueba, los servicios se retiran y dejará de funcionar. Puede actualizar a una suscripción de pago por uso en cualquier momento.
+**Cuentas gratuita**: el vínculo para registrarse para una cuenta gratuita se encuentra en el [sitio web de Azure](https://azure.microsoft.com/). Esto proporciona un crédito a lo largo de 30 días para probar cualquier combinación de recursos de Azure. Si se supera la cantidad de crédito, la cuenta será suspendida. Al final del período de prueba, los servicios se retiran y dejará de funcionar. Puede actualizar a una suscripción de pago por uso en cualquier momento.
 
-**Suscripciones de MSDN** : si tiene una suscripción de MSDN, obtendrá una cantidad específica de crédito de Azure cada mes. Por ejemplo, si tiene Microsoft Visual Studio Enterprise con una suscripción de MSDN, obtendrá \$150 al mes de crédito de Azure.
+**Suscripciones de MSDN**: si tiene una suscripción de MSDN, obtendrá una cantidad específica de crédito de Azure cada mes. Por ejemplo, si tiene Microsoft Visual Studio Enterprise con una suscripción de MSDN, obtendrá \$150 al mes de crédito de Azure.
 
-Si se supera la cantidad de crédito, los servicios se deshabilitan hasta que se inicie el mes siguiente. Puede desactivar el límite de gasto y agregar una tarjeta de crédito que se usará para los costos adicionales. Algunos de estos costos tienen descuento para las cuentas de MSDN. Por ejemplo, se paga el precio de Linux por las máquinas virtuales con Windows Server y no hay ningún cargo adicional para los servidores de Microsoft, como Microsoft SQL Server. Esto hace que las cuentas de MSDN sean ideales para escenarios de desarrollo y pruebas.
+Si se supera la cantidad de crédito, el servicio se deshabilita hasta que se inicie el mes siguiente. Puede desactivar el límite de gasto y agregar una tarjeta de crédito que se usará para los costos adicionales. Algunos de estos costos tienen descuento para las cuentas de MSDN. Por ejemplo, se paga el precio de Linux por las máquinas virtuales con Windows Server y no hay ningún cargo adicional para los servidores de Microsoft, como Microsoft SQL Server. Esto hace que las cuentas de MSDN sean ideales para escenarios de desarrollo y pruebas.
 
-**Cuentas de BizSpark** : el programa Microsoft BizSpark ofrece numerosas ventajas para startups. Una de esas ventajas es el acceso a todo el software de Microsoft para entornos de desarrollo y pruebas para hasta cinco de las cuentas de MSDN. Obtendrá 150 dólares en crédito de Azure por cada una de las cinco cuentas MSDN y pagará tarifas reducidas por algunos de los servicios de Azure, como las máquinas virtuales.
+**Cuentas de BizSpark**: el programa Microsoft BizSpark ofrece numerosas ventajas para startups. Una de esas ventajas es el acceso a todo el software de Microsoft para entornos de desarrollo y pruebas para hasta cinco de las cuentas de MSDN. Obtendrá 150 dólares en crédito de Azure por cada una de las cinco cuentas MSDN y pagará tarifas reducidas por algunos de los servicios de Azure, como las máquinas virtuales.
 
-**Pago por uso** : con esta suscripción, se asocia una tarjeta de crédito o débito a la cuenta y se paga por lo que se usa. Si se trata de una organización, también puede aprobarse la facturación.
+**Pago por uso**: con esta suscripción, se asocia una tarjeta de crédito o débito a la cuenta y se paga por lo que se usa. Si se trata de una organización, también puede aprobarse la facturación.
 
-**Contratos Enterprise** : con un contrato Enterprise, se compromete a utilizar un número determinado de servicios de Azure durante el año siguiente y deberá pagar esa cantidad por anticipado. El compromiso que realiza se consume durante el año. Si se supera la cantidad del compromiso, el uso por encima del límite se paga a período vencido. En función de la cantidad del compromiso, obtendrá un descuento en los servicios de Azure.
+**Contratos Enterprise**: con un contrato Enterprise, se compromete a utilizar un número determinado de servicios de Azure durante el año siguiente y deberá pagar esa cantidad por anticipado. El compromiso que realiza se consume durante el año. Si se supera la cantidad del compromiso, el uso por encima del límite se paga a período vencido. En función de la cantidad del compromiso, obtendrá un descuento en los servicios de Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concesión acceso administrativo a una suscripción de Azure
 
@@ -214,9 +214,7 @@ Además de ver la facturación en el portal, puede tener acceso a la informació
 
 - Puede utilizar la API de uso de Azure para recuperar los datos de uso. Puede ajustar la información de uso de facturación etiquetando los recursos de Azure relacionados. Por ejemplo, puede etiquetar cada uno de los recursos de un grupo de recursos con un nombre de departamento o un nombre de proyecto y, a continuación, realizar un seguimiento de los costos específicamente para dicha etiqueta.
 
-- Puede usar la API Rate Card de Azure para enumerar todos los recursos disponibles, junto con los metadatos y la información de precios de cada uno de esos recursos.
-
-Para más información, consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+- Puede usar la [introducción a la API de consumo de Azure](../../cost-management-billing/manage/consumption-api-overview.md) para enumerar todos los recursos disponibles, junto con los metadatos. Para obtener más información sobre los precios, consulte [Información general sobre precios minoristas de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Previsión del costo con la calculadora de precios
 
@@ -242,7 +240,7 @@ Administrador de recursos ofrece varias ventajas:
 
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos de la suscripción.
 
-- Puede clarificar la facturación de su organización viendo los costos de un grupo de recursos que compartan la misma etiqueta.
+- Para clarificar la facturación de su organización vea los costos de un grupo de recursos que compartan la misma etiqueta.
 
 ### <a name="tips-for-creating-resource-groups"></a>Sugerencias para crear grupos de recursos
 
@@ -266,25 +264,25 @@ Las plantillas de Resource Manager definen mediante declaración los recursos y 
 
 Una plantilla de Resource Manager está formada por cuatro secciones:
 
-- **Parámetros** : son las entradas a la implementación. Los valores de los parámetros pueden ser proporcionados por una persona o por un proceso automatizado. Un ejemplo de parámetro podría ser un nombre de usuario administrador y una contraseña para una máquina virtual de Windows. Los valores de los parámetros se utilizan a lo largo de la implementación cuando se especifican.
+- **Parámetros**: son las entradas a la implementación. Los valores de los parámetros pueden ser proporcionados por una persona o por un proceso automatizado. Un ejemplo de parámetro podría ser un nombre de usuario administrador y una contraseña para una máquina virtual de Windows. Los valores de los parámetros se utilizan en la implementación cuando se especifican.
 
-- **Variables** : se utilizan para contener valores que se usan en toda la implementación. A diferencia de los parámetros, los valores de las variables no se proporcionan en tiempo de implementación. En su lugar, se define en código o se genera dinámicamente.
+- **Variables**: se utilizan para contener valores que se usan en toda la implementación. A diferencia de los parámetros, los valores de las variables no se proporcionan en tiempo de implementación. En su lugar, está codificado de forma rígida o se genera dinámicamente.
 
 - **Recursos:** esta sección de la plantilla define los recursos que se van a implementar, como máquinas virtuales, cuentas de almacenamiento y redes virtuales.
 
-- **Salida** : una vez finalizada una implementación, Resource Manager puede devolver datos como, por ejemplo, cadenas de conexión generadas dinámicamente.
+- **Salida**: una vez finalizada una implementación, Resource Manager puede devolver datos como, por ejemplo, cadenas de conexión generadas dinámicamente.
 
 Los mecanismos siguientes están disponibles para la automatización de una implementación:
 
-- **Funciones** : puede usar varias funciones en las plantillas de Resource Manager. Estas incluyen operaciones como convertir una cadena a minúsculas, implementar varias instancias de un recurso definido o devolver dinámicamente el grupo de recursos de destino. Las funciones de Resource Manager ayudan a crear implementaciones dinámicas.
+- **Funciones**: puede usar varias funciones en las plantillas de Resource Manager. Estas incluyen operaciones como convertir una cadena a minúsculas, implementar varias instancias de un recurso definido o devolver dinámicamente el grupo de recursos de destino. Las funciones de Resource Manager ayudan a crear implementaciones dinámicas.
 
-- **Dependencias de recursos** : si va a implementar varios recursos, algunos recursos tendrán una dependencia de otros. Para facilitar la implementación, puede usar una declaración de dependencia para que se implementen los recursos dependientes antes que los demás.
+- **Dependencias de recursos**: si va a implementar varios recursos, algunos de ellos tendrán una dependencia de otros. Para facilitar la implementación, puede usar una declaración de dependencia para que se implementen los recursos dependientes antes que los demás.
 
-- **Vinculación de plantilla** : desde dentro de una plantilla de Resource Manager, puede vincular a otra plantilla. Esto permite la descomposición de la implementación en un conjunto de plantillas de propósito específico.
+- **Vinculación de plantilla**: desde dentro de una plantilla de Resource Manager, puede vincular a otra plantilla. Esto permite la descomposición de la implementación en un conjunto de plantillas de propósito específico.
 
 Puede crear plantillas de Resource Manager en cualquier editor de texto. Sin embargo, el SDK de Azure para Visual Studio incluye herramientas para ayudarle. Con Visual Studio, puede agregar recursos a la plantilla mediante un asistente y, a continuación, implementar y depurar la plantilla directamente desde Visual Studio. Para más información, consulte [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
-Por último, puede convertir grupos de recursos existentes en una plantilla reutilizable desde Azure Portal. Esto puede resultar útil si desea crear una plantilla de implementación de un grupo de recursos existente o si simplemente desea examinar el JSON subyacente. Para exportar un grupo de recursos, seleccione el botón **Script de automatización** desde la configuración del grupo de recursos.
+Por último, puede convertir grupos de recursos existentes en una plantilla reutilizable desde Azure Portal. Esto puede resultar útil si desea crear una plantilla de implementación de un grupo de recursos existente o si simplemente desea examinar el JSON subyacente. Para exportar un grupo de recursos, seleccione el botón **Script de automatización** en la configuración del grupo de recursos.
 
 ## <a name="security-of-azure-resources-azure-rbac"></a>Seguridad de los recursos de Azure (Azure RBAC)
 
@@ -294,17 +292,17 @@ Para conceder acceso, asigne un rol para el usuario o grupo de usuarios. Existen
 
 Estos son algunos ejemplos de [roles integrados en Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Propietario** : un usuario con este rol puede administrarlo todo, incluido el acceso.
+- **Propietario**: un usuario con este rol puede administrarlo todo, incluido el acceso.
 
-- **Lector** : un usuario con este rol puede leer recursos de todos los tipos (excepto los secretos) pero no puede realizar cambios.
+- **Lector**: los usuarios con este rol pueden leer recursos de todos los tipos (excepto los secretos) pero no pueden realizar cambios.
 
-- **Colaborador de la máquina virtual** : un usuario con este rol puede administrar máquinas virtuales, pero no puede administrar la red virtual a la que está conectado o la cuenta de almacenamiento donde reside el archivo de disco duro virtual.
+- **Colaborador de la máquina virtual**: los usuarios con este rol pueden administrar máquinas virtuales, pero no pueden administrar la red virtual a la que están conectados ni la cuenta de almacenamiento en que reside el archivo de disco duro virtual.
 
-- **Colaborador de base de datos SQL** : un usuario con este rol puede administrar bases de datos SQL, pero no sus directivas relacionadas con la seguridad.
+- **Colaborador de base de datos SQL**: un usuario con este rol puede administrar bases de datos SQL, pero no sus directivas relacionadas con la seguridad.
 
-- **Administrador de seguridad SQL** : un usuario con este rol puede administrar las directivas relacionadas con la seguridad de servidores SQL y bases de datos.
+- **Administrador de seguridad SQL**: un usuario con este rol puede administrar las directivas relacionadas con la seguridad de servidores SQL y bases de datos.
 
-- **Colaborador de la cuenta de almacenamiento** : un usuario con este rol puede administrar las cuentas de almacenamiento pero no puede administrar el acceso a las cuentas de almacenamiento.
+- **Colaborador de la cuenta de almacenamiento**: un usuario con este rol puede administrar las cuentas de almacenamiento pero no puede administrar el acceso a las cuentas de almacenamiento.
 
 Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -312,7 +310,7 @@ Para más información, consulte [Incorporación o eliminación de asignaciones 
 
 Azure Virtual Machines es uno de los servicios centrales de IaaS en Azure. Azure Virtual Machines permite la implementación de máquinas virtuales de Windows o Linux en un centro de datos de Microsoft Azure. Con Azure Virtual Machines, tiene control total sobre la configuración de la máquina virtual y es responsable de la instalación, configuración y mantenimiento de todo el software.
 
-Al implementar una máquina virtual de Azure, puede seleccionar una imagen desde Azure Marketplace o puede proporcionar su propia imagen personalizada. Esta imagen se usa para aplicar el sistema operativo y la configuración inicial. Durante la implementación, Resource Manager también controlará algunos valores de configuración, como la asignación del nombre del equipo, las credenciales administrativas y la configuración de red. Puede usar las extensiones de máquina virtual de Azure para automatizar aún más configuraciones como la instalación de software, configuración de antivirus y soluciones de supervisión.
+Al implementar una máquina virtual de Azure, puede seleccionar una imagen de Azure Marketplace o puede proporcionar su propia imagen personalizada. Esta imagen se usa para aplicar el sistema operativo y la configuración inicial. Durante la implementación, Resource Manager también controlará algunos valores de configuración, como la asignación del nombre del equipo, las credenciales administrativas y la configuración de red. Puede usar las extensiones de máquina virtual de Azure para automatizar aún más configuraciones como la instalación de software, configuración de antivirus y soluciones de supervisión.
 
 Puede crear máquinas virtuales de muchos tamaños diferentes. El tamaño de la máquina virtual determina la asignación de recursos, como la capacidad de procesamiento, memoria y almacenamiento. En algunos casos, características específicas como los adaptadores de red habilitados para RDMA y los discos SSD están disponibles solo con determinados tamaños de máquina virtual. Para obtener una lista completa de funcionalidades y tamaños de máquina virtual, consulte "Tamaños de máquinas virtuales en Azure" para [Windows](../../virtual-machines/sizes.md) y [Linux](../../virtual-machines/sizes.md).
 
@@ -338,7 +336,7 @@ Además de implementar individualmente los recursos de proceso de Azure, puede u
 
 #### <a name="command-line-interface-cli"></a>Interfaz de la línea de comandos (CLI)
 
-Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Cuando se usa el comando **vm quick-create** de la CLI de Azure, se implementan todos los recursos relacionados con la máquina virtual (incluidos almacenamiento y redes) y la propia máquina virtual. Para más información, consulte [Creación de una máquina virtual Linux en Azure mediante la CLI](../../virtual-machines/linux/quick-create-cli.md).
+Al igual que con el módulo de PowerShell, la interfaz de línea de comandos de Azure proporciona automatización de la implementación y puede usarse en sistemas Windows, OS X o Linux. Cuando se usa el comando **vm quick-create** de la CLI de Azure, se implementan todos los recursos relacionados con la máquina virtual (incluidos el almacenamiento y las redes) y la propia máquina virtual. Para más información, consulte [Creación de una máquina virtual Linux en Azure mediante la CLI](../../virtual-machines/linux/quick-create-cli.md).
 
 Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de Azure Resource Manager. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
@@ -356,11 +354,11 @@ Azure Storage es un servicio administrado por Microsoft que proporciona almacena
 
 Las cuentas de Azure Storage pueden configurarse con distintos niveles de redundancia:
 
-- **Almacenamiento con redundancia local** ofrece una alta disponibilidad al garantizar que se realizan tres copias de todos los datos de forma sincrónica antes de una operación de escritura se considere correcta. Estas copias se almacenan en una única instalación de una única región. Las réplicas residen en dominios de error y dominios de actualización independientes. Esto significa que los datos están disponibles incluso si un nodo de almacenamiento que contiene los datos falla o es puesto en modo sin conexión para ser actualizado.
+- **Almacenamiento con redundancia local** ofrece una alta disponibilidad al garantizar que se realizan tres copias de todos los datos de forma sincrónica antes de una operación de escritura se considere correcta. Estas copias se almacenan en una única instalación de una única región. Las réplicas residen en dominios de error y dominios de actualización independientes. Esto significa que los datos están disponibles aunque falle un nodo de almacenamiento que contenga los datos o se ponga en modo sin conexión para ser actualizado.
 
 - **Almacenamiento con redundancia geográfica** realiza tres copias sincrónicas de los datos en la región principal para lograr alta disponibilidad y, a continuación, hace tres réplicas de forma asincrónica en una región emparejada para recuperación ante desastres.
 
-- **Almacenamiento con redundancia geográfica con acceso de lectura** es un almacenamiento con redundancia geográfica más la funcionalidad de leer los datos desde la región secundaria. Esta funcionalidad resulta adecuada para una recuperación ante desastres parcial. Si hay un problema con la región principal, puede cambiar la aplicación y tener acceso de solo lectura a la región emparejada.
+- **Almacenamiento con redundancia geográfica con acceso de lectura** es un almacenamiento con redundancia geográfica más la funcionalidad de leer los datos desde la región secundaria. Esta funcionalidad resulta adecuada para una recuperación ante desastres parcial. Si hay un problema con la región principal, puede cambiar la aplicación para que tenga acceso de solo lectura a la región emparejada.
 
 ### <a name="use-cases"></a>Casos de uso
 
@@ -368,7 +366,7 @@ Cada tipo de almacenamiento tiene un caso de uso diferente.
 
 #### <a name="blob-storage"></a>Blob Storage
 
-La palabra *blob* es un acrónimo de *objeto binario grande* . Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de Azure Virtual Machines.
+La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de Azure Virtual Machines.
 
 Azure Storage admite tres tipos de blobs:
 
@@ -408,7 +406,7 @@ Hay varias opciones para implementar una cuenta de almacenamiento.
 
 #### <a name="portal"></a>Portal
 
-La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivo o contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
+La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivos o un contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 
 Además de implementar una cuenta de almacenamiento desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos tal como se define en la plantilla, incluida cualquier cuenta de almacenamiento. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
@@ -430,7 +428,7 @@ Hay acceso a Azure Storage de varias maneras, por ejemplo desde Azure Portal dur
 
 #### <a name="virtual-machine-disks"></a>Discos de máquinas virtuales
 
-Si va a implementar una máquina virtual, debe crear una cuenta de almacenamiento para almacenar el disco de sistema operativo de la máquina virtual y los discos de datos adicionales. Puede seleccionar una cuenta de almacenamiento existente o crear una nueva. Dado que el tamaño máximo de un blob es 1.024 GB, un único disco de máquina virtual tiene un tamaño máximo de 1023 GB. Para configurar un disco de datos más grande, puede asignar varios discos de datos a la máquina virtual y agruparlos como un único disco lógico. Para más información, consulte "Administración de discos de Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) y [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+Si va a implementar una máquina virtual, también debe crear una cuenta de almacenamiento que contenga el disco de sistema operativo de la máquina virtual y los discos de datos adicionales. Puede seleccionar una cuenta de almacenamiento existente o crear una nueva. Dado que el tamaño máximo de un blob es 1.024 GB, un único disco de máquina virtual tiene un tamaño máximo de 1023 GB. Para configurar un disco de datos más grande, puede asignar varios discos de datos a la máquina virtual y agruparlos como un único disco lógico. Para más información, consulte "Administración de discos de Azure" para [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) y [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### <a name="storage-tools"></a>Herramientas de Azure Storage
 
@@ -438,7 +436,7 @@ El acceso a las cuentas de Azure Storage es posible a través de varios explorad
 
 #### <a name="storage-api"></a>API de Storage
 
-Es posible acceder a los recursos de Azure Storage por medio de cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, Azure Storage ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican el uso de Azure Storage, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones o los reintentos automáticos. Para más información, consulte [Referencia de la API de REST del servicio Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Es posible acceder a los recursos de Azure Storage por medio de cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, Azure Storage ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican el uso de Azure Storage, ya que controlan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones o los reintentos automáticos. Para más información, consulte [Referencia de la API de REST del servicio Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 #### <a name="storage-access-keys"></a>Claves de acceso a Azure Storage
 
@@ -446,7 +444,7 @@ Cada cuenta de almacenamiento tiene dos claves de autenticación, una principal 
 
 #### <a name="shared-access-signatures"></a>Firmas de acceso compartido
 
-Si necesita un acceso controlado de los usuarios a los recursos de almacenamiento, puede crear una firma de acceso compartido. Una firma de acceso compartido es un token que se puede anexar a una dirección URL que permite el acceso delegado a un recurso de almacenamiento. Cualquier usuario que tenga el token puede obtener acceso al recurso correspondiente con los permisos que especifica durante el plazo válido correspondiente. Para más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../../storage/common/storage-sas-overview.md).
+Si necesita un acceso controlado de los usuarios a los recursos de almacenamiento, puede crear una firma de acceso compartido. Una firma de acceso compartido es un token que se puede anexar a una dirección URL que permite el acceso delegado a un recurso de almacenamiento. Todos los usuarios que tengan el token puede acceder al recurso al que apunta con los permisos que especifica durante su periodo de validez. Para más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -473,9 +471,9 @@ Hay varias opciones para implementar una red virtual.
 
 - Plantillas del Administrador de recursos de Azure
 
-> **Cuándo se debe usar** : siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
+> **Cuándo se debe usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
 >
-> **Introducción** : La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
+> **Introducción**: La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acceso y seguridad para redes virtuales
 

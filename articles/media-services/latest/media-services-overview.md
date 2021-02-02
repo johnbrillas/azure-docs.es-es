@@ -1,29 +1,11 @@
 ---
-title: Introducción a Azure Media Services v3
-titleSuffix: Azure Media Services
-description: Información general de alto nivel de Azure Media Services v3 con vínculos a inicios rápidos, tutoriales y ejemplos de código.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: azure media services, transmisión, difusión, en vivo, sin conexión
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308957"
+título: Introducción a Azure Media Services v3: Descripción de Azure Media Services: Información general de alto nivel de Azure Media Services v3 con vínculos a inicios rápidos, tutoriales y ejemplos de código.
+services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
+
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intención del cliente: los desarrolladores o proveedores de contenido queremos codificar, transmitir por secuencias (a petición o en vivo) y analizar el contenido multimedia para que los clientes puedan: ver el contenido en una amplia variedad de exploradores y dispositivos, y obtener información valiosa del contenido grabado.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Introducción a Azure Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

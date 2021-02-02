@@ -1,24 +1,24 @@
 ---
-title: Información sobre el uso de Azure Reservations para Contratos Enterprise
-description: Aprenda a interpretar los datos de uso para comprender cómo se aplican las reservas de Azure a las inscripciones Enterprise.
+title: Información sobre el uso de Azure Reservations para Contratos Enterprise y Contratos de cliente de Microsoft
+description: Aprenda a leer la información de uso para comprender cómo se aplica una reserva de Azure al uso del Contrato Enterprise y del Contrato de cliente de Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545611"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683724"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtención del uso y los costos de reservas de Contrato Enterprise
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtención de los costos y el uso de reservas del Contrato Enterprise y del Contrato de cliente de Microsoft
 
-Los datos de uso y costos de reservas están disponibles para los clientes con Contrato Enterprise en Azure Portal y API REST. Este artículo le ayudará a realizar las siguientes acciones:
+Los datos mejorados para el uso y los costos de reserva están disponibles para el uso del Contrato Enterprise (EA) y del Contrato de cliente de Microsoft (MCA) en Cost Management. Este artículo le ayudará a realizar las siguientes acciones:
 
 - Obtener los datos de compra de la reserva.
 - Saber qué suscripción, grupo de recursos o recurso usó la reserva
@@ -61,9 +61,7 @@ Otra información disponible en los datos de uso de Azure ha cambiado:
 
 Puede obtener los datos mediante la API o descargarlos desde Azure Portal.
 
-Para obtener los datos nuevos, llame a [Usage Details API](/rest/api/consumption/usagedetails/list). Para obtener más información acerca de la terminología, consulte los [términos de uso](../understand/understand-usage.md). El autor de la llamada debe ser un administrador de Enterprise del Contrato Enterprise mediante [EA Portal](https://ea.azure.com). Los administradores de Enterprise de solo lectura también pueden obtener los datos.
-
-Tenga en cuenta que estos datos no están disponibles en [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (API de informes para clientes de Enterprise: Usage Details).
+Para obtener los datos nuevos, llame a [Usage Details API](/rest/api/consumption/usagedetails/list). Para obtener más información acerca de la terminología, consulte los [términos de uso](../understand/understand-usage.md).
 
 Este es un ejemplo de llamada a Usage Details API:
 
@@ -150,7 +148,7 @@ Los costos de reserva están disponibles en el [análisis de costos](https://aka
 
 Agrupe por tipo de cargo para ver un desglose del uso, las compras y los reembolsos. También puede agrupar por reserva para un desglose de los costos de reserva y a petición. Recuerde que los únicos costos de reserva que verá en el caso del costo real serán las compras, pero, en el caso del costo amortizado, los costos se asignarán a los recursos individuales que usaron la ventaja. También verá un nuevo tipo de cargo **UnusedReservation** cuando se fije en el costo amortizado.
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

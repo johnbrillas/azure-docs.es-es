@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968505"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761720"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro  
 
@@ -37,7 +37,7 @@ Para implementar Azure Stack Edge Pro, consulte los siguientes tutoriales en el 
 
 | **#** | **En este paso** | **Use estos documentos** |
 | --- | --- | --- | 
-| 1. |**[Preparación de Azure Portal para Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Edge. |
+| 1. |**[Preparación de Azure Portal para Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Cree y configure el recurso de Azure Stack Edge antes de instalar un dispositivo físico de Azure Stack Box Edge. |
 | 2. |**[Instalación de Azure Stack Edge Pro](azure-stack-edge-deploy-install.md)**|Desempaquete, monte en el bastidor y realice el cableado del dispositivo físico de Azure Stack Edge Pro.  |
 | 3. |**[Conexión, configuración y activación de Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Conéctese a la interfaz de usuario web local, complete la configuración del dispositivo y active el dispositivo. El dispositivo está listo para configurar recursos compartidos de SMB o NFS.  |
 | 4. |**[Transferencia de datos con Azure Stack Edge Pro](azure-stack-edge-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
@@ -118,14 +118,14 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     |Configuración  |Value  |
     |---------|---------|
-    |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
+    |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre dos y 50 caracteres, que incluyen letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
     |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
 
     ![Detalles del proyecto e instancia](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Seleccione **Siguiente: Dirección de envío**.
 
-    - Si ya tiene un dispositivo, seleccione el cuadro combinado **I have a Azure Stack Edge Pro device** (Tengo un dispositivo de Azure Stack Edge Pro).
+    - Si ya tiene un dispositivo, seleccione el cuadro combinado **I have a Azure Stack Edge device** (Tengo un dispositivo de Azure Stack Edge).
     - Si este es el pedido del nuevo dispositivo, escriba el nombre de contacto, la empresa, la dirección para enviar el dispositivo y la información de contacto.
 
     ![Dirección de envío del nuevo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,13 +138,17 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 8. Seleccione **Crear**.
 
-Se tarda unos minutos en crear el recurso. Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
+   Se tarda unos minutos en crear el recurso. Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
 
-![Ir al recurso de Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Ir al recurso de Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
 
 ![Notificación de revisión del pedido de Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+
+> [!NOTE]
+> Si quiere crear varios pedidos al mismo tiempo o clonar un pedido existente, puede usar los [scripts de Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). Para más información, consulte el archivo LÉAME.
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
 

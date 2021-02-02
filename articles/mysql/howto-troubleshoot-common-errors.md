@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510969"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631374"
 ---
 # <a name="common-errors"></a>Errores comunes
 
 Azure Database for MySQL es un servicio totalmente administrado que usa la tecnología de la versión de comunidad de MySQL. La experiencia de MySQL en un entorno de servicio administrado puede diferir de ejecutarlo en su propio entorno. En este artículo, verá algunos de los errores habituales que pueden encontrar los usuarios la primera vez que migran al servicio Azure Database for MySQL, o que desarrollan en dicho servicio.
+
+## <a name="common-connection-errors"></a>Errores de conexión comunes
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+El error anterior se produce después de un inicio de sesión correcto, pero antes de que se ejecute cualquier comando cuando se establece la sesión. El mensaje anterior indica que ha establecido un valor incorrecto del parámetro de servidor init_connect que provoca un error en la inicialización de la sesión.
+
+Hay algunos parámetros de servidor, como require_secure_transport, que no se admiten en el nivel de sesión y, por consiguiente, intentar cambiar los valores de estos parámetros mediante init_connect puede generar el error 1184 al conectarse al servidor MySQL, como se muestra a continuación
+
+mysql> show databases; ERROR 2006 (HY000): MySQL server has gone away No connection. Trying to reconnect... Connection id:    64897 Current database: *** NONE **_ ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+
+_ *Resolución** : debe restablecer el valor init_connect en la pestaña Parámetros del servidor de Azure Portal y establecer solo los parámetros de servidor admitidos mediante el parámetro init_connect. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Errores debidos a la falta del privilegio SUPER y del rol DBA
 

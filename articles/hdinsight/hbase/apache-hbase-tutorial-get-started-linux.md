@@ -1,19 +1,16 @@
 ---
 title: 'Tutorial: Uso de Apache HBase en Azure HDInsight'
 description: Siga este tutorial de Apache HBase para empezar a usar Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/22/2021
+ms.openlocfilehash: 05e40dd38fc7111521b600908cda38084249e4de
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533502"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936050"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
 
@@ -42,7 +39,7 @@ El siguiente procedimiento utiliza una plantilla de Azure Resource Manager para 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. En el cuadro de diálogo **Implementación personalizada** , escriba los valores siguientes:
+2. En el cuadro de diálogo **Implementación personalizada**, escriba los valores siguientes:
 
     |Propiedad |Descripción |
     |---|---|
@@ -50,14 +47,14 @@ El siguiente procedimiento utiliza una plantilla de Azure Resource Manager para 
     |Resource group|cree un grupo de administración de recursos de Azure o use uno existente.|
     |Location|especifique la ubicación del grupo de recursos. |
     |ClusterName|escriba el nombre del clúster de HBase.|
-    |Nombre de inicio de sesión y contraseña del clúster|El nombre de inicio de sesión predeterminado es **admin** .|
-    |Nombre de usuario y contraseña de SSH|El nombre de usuario predeterminado es **sshuser** .|
+    |Nombre de inicio de sesión y contraseña del clúster|El nombre de inicio de sesión predeterminado es **admin**.|
+    |Nombre de usuario y contraseña de SSH|El nombre de usuario predeterminado es **sshuser**.|
 
     Otros parámetros son opcionales.  
 
     Cada clúster tiene una dependencia de cuenta de Azure Storage. Después de eliminar un clúster, los datos permanecen en la cuenta de almacenamiento. El nombre de cuenta de almacenamiento de clúster predeterminado es el nombre del clúster con "store" anexado. Está codificado de forma rígida en la sección de variables de plantilla.
 
-3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar** . Se tarda aproximadamente 20 minutos en crear un clúster.
+3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. Se tarda aproximadamente 20 minutos en crear un clúster.
 
 Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster selecciona las tablas de HBase que creó en el clúster original. Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
@@ -228,7 +225,7 @@ También se pueden consultar los datos de HBase desde Hive mediante HBase habili
 
 La API de REST se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
 
-1. Para habilitar las API REST de HBase en el clúster de HDInsight, agregue el siguiente script de inicio personalizado a la sección **Script Action** (Acción de script). Puede agregar el script de inicio al crear el clúster o después de que se haya creado el clúster. En **Tipo de nodo** , seleccione **Servidores de regiones** para asegurarse de que el script se ejecuta solo en los servidores de regiones de HBase.
+1. Para habilitar las API REST de HBase en el clúster de HDInsight, agregue el siguiente script de inicio personalizado a la sección **Script Action** (Acción de script). Puede agregar el script de inicio al crear el clúster o después de que se haya creado el clúster. En **Tipo de nodo**, seleccione **Servidores de regiones** para asegurarse de que el script se ejecuta solo en los servidores de regiones de HBase.
 
 
     ```bash
@@ -344,15 +341,21 @@ HBase en HDInsight se incluye con una interfaz de usuario web para la supervisi�
    - tareas
    - atributos de software
 
+## <a name="cluster-recreation"></a>Recreación del clúster
+
+Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster selecciona las tablas de HBase que creó en el clúster original. No obstante, para evitar incoherencias, se recomienda deshabilitar las tablas de HBase antes de eliminar el clúster. 
+
+Puede usar el comando de HBase `disable 'Contacts'`. 
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster. Puede usar el comando de HBase `disable 'Contacts'`. Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
+Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight** .
-1. Seleccione **Clústeres de HDInsight** en **Servicios** .
+1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
+1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial.
-1. Haga clic en **Eliminar** . Haga clic en **Sí** .
+1. Haga clic en **Eliminar**. Haga clic en **Sí**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

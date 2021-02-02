@@ -1,30 +1,30 @@
 ---
 title: Cambio de la oferta de suscripción de Azure
-description: Aprenda a cambiar su suscripción de Azure y a pasar a una oferta diferente mediante el Centro de cuentas de Azure.
+description: Aprenda a cambiar su suscripción de Azure y a pasar a una oferta diferente.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686826"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685470"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Cambio de la suscripción de Azure a una oferta distinta
 
-Un cliente con una [suscripción individual con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) puede cambiar la suscripción de Azure a otra oferta en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Por ejemplo, esta característica se puede utilizar para aprovechar los [créditos mensuales de que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Como cliente con una [suscripción de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) puede cambiar la suscripción de Azure a otra oferta de Azure Portal. Por ejemplo, esta característica se puede utilizar para aprovechar los [créditos mensuales de que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 **¿Solo desea actualizar desde la evaluación gratuita?** Consulte [Actualización de la suscripción](upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Lo que se admite:
 
-Puede cambiar de una suscripción individual con tarifas de pago por uso a:
+Puede cambiar de una suscripción de pago por uso a:
 
 - [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ Puede cambiar de una suscripción individual con tarifas de pago por uso a:
 
 > [!NOTE]
 > Para cambiar a otra oferta, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
->
 
 ## <a name="switch-subscription-offer"></a>Cambio de oferta de suscripción
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. Inicie sesión en [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
-1. Seleccione la suscripción individual con tarifas de pago por uso.
-1. Haga clic en **Cambiar a otra oferta**. La opción solo está disponible si se tiene una suscripción individual con tarifas de pago por uso y ha finalizado el primer período de facturación.
-
-   ![Observar el botón Cambiar oferta situado en el lado derecho de la página](./media/switch-azure-offer/switchbutton.png)
-1. **Seleccione la oferta que desee** en la lista de suscripciones a las que puede cambiar. Dicha lista varía en función de los grupos a los que la cuenta está asociada. Si no hay ninguna disponible, compruebe la [lista de ofertas disponibles a las que puede cambiar](#whats-supported) y asegúrese de que pertenece a los grupos apropiados.
-
-   ![Seleccionar una oferta a la que desee cambiar](./media/switch-azure-offer/selectoffer.png)
-1. Según la oferta a la que cambie, es posible que vea una nota sobre el impacto del cambio. Antes de continuar, recorra la lista detenidamente y siga las instrucciones.
-
-   ![Revisar las notas](./media/switch-azure-offer/thingstonote.png)
-1. Puede cambiar el nombre de la suscripción. De manera predeterminada, no se establece en el nombre de la oferta nueva. Haga clic en **Cambiar oferta** para completar el proceso.
-
-   ![Hacer clic en el botón verde](./media/switch-azure-offer/confirmpage.png)
-1. ¡Hecho! Ya se ha cambiado la suscripción a la nueva oferta.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Suscripciones** y, después, seleccione su suscripción de pago por uso.
+1. En la parte superior de la página, seleccione **Cambiar oferta**. La opción solo está disponible si tiene una suscripción de pago por uso y ya completó el primer período de facturación.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImagen que muestra los detalles de la suscripción con la opción Cambiar ofertaTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. Seleccione la oferta que desee en la lista de suscripciones a las que puede cambiar. Dicha lista varía en función de los grupos a los que la cuenta está asociada. Si no hay ninguna disponible, compruebe la [lista de ofertas disponibles a las que puede cambiar](#whats-supported) y asegúrese de que pertenece a los grupos apropiados. A continuación, seleccione **Siguiente**.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Seleccionar una oferta a la que desee cambiar" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    Según la oferta a la que cambie, es posible que vea una nota sobre el impacto del cambio. Antes de continuar, recorra la lista detenidamente y siga las instrucciones. Es posible que también tenga que comprobar el número de teléfono.
+1. Después de revisar las notas o comprobar el número de teléfono, seleccione **Cambiar oferta**.
+1. Ya se ha cambiado la suscripción a la nueva oferta.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 En las secciones siguientes se responden las preguntas más frecuentes.
 
 ### <a name="what-is-an-azure-offer"></a>¿Qué es una oferta de Azure?
 
-Una oferta de Azure es el *tipo* de la suscripción a Azure que tiene. Por ejemplo, [una suscripción con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/) y [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) son todas ofertas de Azure. Cada oferta tiene distintos [términos](https://azure.microsoft.com/support/legal/offer-details/) y algunos tienen ventajas especiales. La oferta de la suscripción se puede encontrar en la página de suscripción del Centro de cuentas. Haga clic en el nombre de la oferta para obtener más detalles.
+Una oferta de Azure es el *tipo* de la suscripción a Azure que tiene. Por ejemplo, [una suscripción con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/) y [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) son todas ofertas de Azure. Cada oferta tiene distintos [términos](https://azure.microsoft.com/support/legal/offer-details/) y algunos tienen ventajas especiales. La oferta de la suscripción se muestra en la página de detalles de la suscripción.
 
-   ![Haga clic en el vínculo de la oferta en el Centro de cuentas para obtener más detalles](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Página de detalles de la suscripción que muestra el tipo de oferta" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>¿Por qué no se ve el botón?
 
-Puede que no vea la opción **Cambiar a otra oferta** en los siguientes casos:
+Puede que no vea la opción **Cambiar oferta** en los siguientes casos:
 
 * No tiene una [suscripción con tarifas de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Actualmente, solo las suscripciones con tarifas de pago por uso se pueden convertir en otra oferta.
   * Si tiene una [evaluación gratuita](https://azure.microsoft.com/free/), aprenda a [actualizar a la modalidad de pago por uso](upgrade-azure-subscription.md).
@@ -85,7 +73,7 @@ Puede que no vea la opción **Cambiar a otra oferta** en los siguientes casos:
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>¿Cómo afecta el cambio de ofertas de Azure ofrece a mi servicio y facturación?
 
-Estos son los detalles de lo que ocurre cuando se cambian las ofertas de Azure en el Centro de cuentas.
+Estos son los detalles de lo que ocurre cuando se cambian las ofertas de Azure.
 
 #### <a name="no-service-downtime"></a>No hay ningún tiempo de inactividad del servicio
 
@@ -102,7 +90,7 @@ El mismo día que se realiza el cambio se genera una factura por todos los cargo
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>¿Puedo migrar desde una suscripción con tarifas de pago por uso a Proveedor de soluciones en la nube (CSP) o Contrato Enterprise (EA)?
 
 * Para migrar a CSP, consulte [Transferencia de suscripciones de Azure entre suscriptores y CSP](transfer-subscriptions-subscribers-csp.md).
-* Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA. Para más información, consulte [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Asociar una cuenta existente) en el portal EA.
+* Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>¿Puedo migrar datos y servicios a nueva una suscripción?
 

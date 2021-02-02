@@ -10,23 +10,21 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359142"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696496"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de NetSuite para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en NetSuite OneWorld y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en NetSuite.
 
-> [!NOTE]
-> Actualmente esta integración se autentica mediante la autenticación básica (nombre de usuario y contraseña). NetSuite ha implementado un requisito de autenticación multifactor que impide que los clientes usen esta integración a menos que dispongan de una exención para este requisito. Estamos trabajando con NetSuite para actualizar esta integración a un método de autenticación más reciente que permita que los clientes sin ninguna exención lo vuelvan a usar. Este documento se actualizará con una ETA una vez que haya una disponible.
+> [!WARNING]
+> Esta integración del aprovisionamiento dejará de funcionar en febrero de 2020 debido a un cambio en las API de NetSuite que usa Microsoft para aprovisionar a los usuarios en NetSuite. Como consecuencia, pronto se eliminará la funcionalidad de aprovisionamiento de la aplicación NetSuite de la galería de aplicaciones empresariales de Azure Active Directory. La funcionalidad de inicio de sesión único de la aplicación permanecerá intacta. Microsoft trabaja con NetSuite para crear una integración de aprovisionamiento modernizada, pero actualmente no hay fecha estimada del momento en que se completará.
 
-Acción recomendada: Espere hasta que se publique una actualización del comportamiento de autenticación para esta integración, o póngase en contacto con el soporte técnico de NetSuite para consultar una exención del requisito de autenticación multifactor.
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -70,11 +68,11 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de NetSuite, con el modo de aprovisionamiento establecido en automático y otros valores que se pueden establecer.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
-1. En la sección **Credenciales de administrador** , proporcione los siguientes valores de configuración:
+1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
-    a. En el cuadro de texto **Nombre de usuario administrador** , escriba un nombre de cuenta de NetSuite que tenga asignado el perfil **Administrador del sistema** en NetSuite.com.
+    a. En el cuadro de texto **Nombre de usuario administrador**, escriba un nombre de cuenta de NetSuite que tenga asignado el perfil **Administrador del sistema** en NetSuite.com.
    
-    b. En el cuadro de texto **Contraseña de administrador** , escriba la contraseña de esta cuenta.
+    b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
       
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación NetSuite.
 
@@ -84,7 +82,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. En la sección Asignaciones, seleccione **Sincronizar usuarios de Azure Active Directory con NetSuite.**
 
-1. En la sección **Asignaciones de atributos** , revise los atributos de usuario que se sincronizan entre Azure AD y NetSuite. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de NetSuite con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y NetSuite. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de NetSuite con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para NetSuite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración.
 

@@ -1,29 +1,28 @@
 ---
 title: Tabla de referencia para todas las recomendaciones de Azure Security Center
-description: En este artículo se enumeran las recomendaciones de seguridad de Azure Security Center que ayudan a proteger los recursos.
+description: En este artículo se enumeran recomendaciones de seguridad de Azure Security Center que ayudan a proteger los recursos.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 11d4830908b4e86da12cd5e40cc26b1c1b1aecbd
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133054"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797179"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
 En este artículo se enumeran las recomendaciones que puede ver en Azure Security Center. Las recomendaciones que se muestran en su entorno dependen de los recursos que se van a proteger y de la configuración personalizada.
 
-Las recomendaciones de Security Center se basan en procedimientos recomendados. Algunos están alineados con **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para los procedimientos recomendados de seguridad y cumplimiento basados en los marcos de cumplimiento comunes.
-[Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
+Las recomendaciones de Security Center se basan en [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark es el conjunto de directrices específico de Azure creado por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. Esta prueba comparativa, que cuenta con un amplísimo respaldo, se basa en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [Instituto Nacional de Normas y Tecnología (NIST)](https://www.nist.gov/), con un enfoque en seguridad centrada en la nube.
 
 Para obtener información acerca de cómo responder a estas recomendaciones, consulte [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md).
 
-La Puntuación de seguridad se basa en el número de recomendaciones de Security Center que se han completado. Para decidir qué recomendaciones se resuelven en primer lugar, examine la gravedad de cada una de ellas y su posible impacto en la Puntuación de seguridad.
+La puntuación de seguridad se basa en el número de recomendaciones de Security Center que se han completado. Para decidir qué recomendaciones se resuelven en primer lugar, examine la gravedad de cada una de ellas y su posible impacto en la puntuación de seguridad.
 
 > [!TIP]
 > Si la descripción de una recomendación indica "No hay ninguna directiva relacionada", suele deberse a que esta recomendación depende de una recomendación distinta y de _su_ directiva. Por ejemplo, la recomendación "Los errores de estado de Endpoint Protection deberían corregirse..." se basa en la recomendación que comprueba si una solución de Endpoint Protection está incluso _instalada_ ("La solución de Endpoint Protection debe estar instalada..."). La recomendación subyacente _tiene_ una directiva.

@@ -1,28 +1,27 @@
 ---
 title: Azure Traffic Manager | Microsoft Docs
-description: Este artículo ofrece una introducción sobre Azure Traffic Manager. Averigüe si es la elección correcta para equilibrar la carga de tráfico de usuario de la aplicación.
+description: Este artículo ofrece una introducción sobre Azure Traffic Manager. Averigüe si es la elección correcta para equilibrar la carga de tráfico del usuario en la aplicación.
 services: traffic-manager
 author: duongau
-manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
+ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: e2a4db1404709dadb2500df29f3f7acf8787c2b2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185738"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624916"
 ---
 # <a name="what-is-traffic-manager"></a>¿Qué es el Administrador de tráfico?
-Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que le permite distribuir el tráfico de forma óptima a servicios de regiones de Azure globales, al tiempo que proporciona una alta disponibilidad y capacidad de respuesta.
+Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS. Este servicio permite distribuir el tráfico a las aplicaciones orientadas al público en las regiones globales de Azure. Traffic Manager también proporciona puntos de conexión públicos con alta disponibilidad y rápida capacidad de respuesta.
 
-Traffic Manager usa DNS para dirigir las solicitudes del cliente al punto de conexión de servicio más adecuado en función de un método de enrutamiento del tráfico y el mantenimiento de los puntos de conexión. Un punto de conexión es cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Traffic Manager proporciona una serie de [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) y [opciones de supervisión del punto de conexión](traffic-manager-monitoring.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
+Traffic Manager usa DNS para dirigir las solicitudes del cliente al punto de conexión de servicio adecuado en función de un método de enrutamiento del tráfico. Traffic Manager también proporciona supervisión de estado de todos los puntos de conexión. El punto de conexión de puede ser cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Traffic Manager proporciona una serie de [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) y [opciones de supervisión del punto de conexión](traffic-manager-monitoring.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
 
 >[!NOTE]
 > Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si desea finalización con el protocolo de seguridad de la capa de transporte (TLS) ("descarga SSL") procesamiento de niveles de aplicación por solicitud HTTP/HTTPS, revise [Application Gateway](../application-gateway/overview.md). Si desea conseguir equilibrio de carga en la región, consulte [Load Balancer](../load-balancer/load-balancer-overview.md). Sus escenarios integrales pueden beneficiarse de la combinación de estas soluciones según sea necesario.
@@ -37,11 +36,11 @@ Traffic Manager ofrece alta disponibilidad para las aplicaciones más importante
     
 ## <a name="improve-application-performance"></a>Mejora del rendimiento de las aplicaciones
 
-Azure permite ejecutar servicios en la nube en los centros de datos ubicados en todo el mundo. Traffic Manager mejora la capacidad de respuesta de las aplicaciones al dirigir el tráfico al punto de conexión con la menor latencia de red para el cliente.
+Azure permite ejecutar servicios y sitios web en la nube en los centros de datos ubicados en todo el mundo. Traffic Manager puede mejorar la capacidad de respuesta del sitio web, ya que dirige el tráfico al punto de conexión con la menor latencia posible.
 
-## <a name="perform-service-maintenance-without-downtime"></a>Realizar el mantenimiento del servicio sin tiempo de inactividad
+## <a name="service-maintenance-without-downtime"></a>Mantenimiento del servicio sin inactividad
 
-Puede realizar operaciones de mantenimiento planeado en sus aplicaciones sin tiempo de inactividad. Traffic Manager puede dirigir el tráfico a puntos de conexión alternativos mientras el mantenimiento está en curso.
+Se puede realizar un mantenimiento planeado de las aplicaciones sin que se produzca inactividad. Traffic Manager puede dirigir el tráfico a puntos de conexión alternativos mientras el mantenimiento está en curso.
 
 ## <a name="combine-hybrid-applications"></a>Combinación de aplicaciones híbridas
 

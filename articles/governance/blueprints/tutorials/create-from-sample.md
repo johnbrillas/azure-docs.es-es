@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
 description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915563"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -144,7 +144,7 @@ La asignación del plano técnico crea los artefactos definidos en la definició
 
 1. Seleccione la asignación de denegación y, a continuación, seleccione la página **Permisos denegados** de la izquierda.
 
-   La asignación de denegación evita todas las operaciones con la configuración de **\*** y **acción**, pero permite el acceso de lectura excluyendo **\*/read** mediante **NotActions**.
+   La asignación de denegación evita todas las operaciones con la configuración **\* *_ y _* Action**, pero permite el acceso de lectura mediante la exclusión de **\*/read** mediante **NotActions**.
 
 1. En la ruta de navegación de Azure Portal, seleccione **PreProductionRG - Control de acceso (IAM)** . A continuación, seleccione la página **Información general** de la izquierda y, después, el botón **Eliminación de un grupo de recursos**. Escriba el nombre _PreProductionRG_ para confirmar la eliminación y seleccione **Eliminar** en la parte inferior del panel.
 

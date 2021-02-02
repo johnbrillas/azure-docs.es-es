@@ -1,19 +1,19 @@
 ---
 title: Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU por medio de la CLI de Azure y Python
-description: En este artículo se explica cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python.
+description: En este artículo se explica cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU mediante la CLI de Azure y Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762932"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808058"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU con la CLI de Azure y Python
 
@@ -70,9 +70,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 3. Ha creado e instalado todos los certificados en el dispositivo Azure Stack Edge Pro y en el almacén de confianza del cliente. Siga el procedimiento descrito en [Paso 2: Creación e instalación de certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Ha creado un certificado *.cer* codificado en Base 64 para el dispositivo Azure Stack Edge Pro. Esto ya se ha cargado como una cadena de firma en el dispositivo y se ha instalado en el almacén raíz de confianza del cliente. Este certificado también se necesita con el formato *pem* para que Python funcione en este cliente.
+4. Ha creado un certificado *.cer* codificado en Base 64 para el dispositivo Azure Stack Edge Pro. Este certificado ya se ha cargado como una cadena de firma en el dispositivo y se ha instalado en el almacén raíz de confianza del cliente. Este certificado también se necesita con el formato *pem* para que Python funcione en este cliente.
 
-    Convierta este certificado al formato pem con el comando `certutil`. Debe ejecutar este comando en el directorio que contiene el certificado.
+    Convierta este certificado al formato `pem`, para lo que debe usar el comando `certutil`. Debe ejecutar este comando en el directorio que contiene el certificado.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    También agregará este archivo pem al almacén de Python más adelante.
+    También agregará este archivo `pem` al almacén de Python más adelante.
 
-5. Ha asignado la dirección IP del dispositivo en la página **Red** de la interfaz de usuario web local del dispositivo. Debe agregar esta dirección IP a:
+5. Ha asignado la dirección IP del dispositivo en la página **Red** de la interfaz de usuario web local del dispositivo. Agregue esta dirección IP a:
 
     - El archivo de host del cliente o
     - La configuración del servidor DNS.
@@ -117,13 +117,13 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Comprobación del perfil e instalación de la CLI de Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Instale la CLI de Azure en el cliente. En este ejemplo, se ha instalado la CLI de Azure versión 2.0.80. Para comprobar la versión de la CLI de Azure, ejecute el comando `az --version`.
 
-    La siguiente es una salida de ejemplo del comando anterior:
+    Este es un ejemplo de la salida que genera el comando anterior:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,9 +147,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     PS C:\windows\system32>
     ```
 
-    Si no tiene la CLI de Azure, descárguela y siga los pasos descritos en [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Puede ejecutar la CLI de Azure mediante el símbolo del sistema de Windows o mediante Windows PowerShell.
+    Si no tiene la CLI de Azure, descárguela y siga los pasos descritos en [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows). Puede ejecutar la CLI de Azure mediante el símbolo del sistema de Windows o mediante Windows PowerShell.
 
-2. Tome nota de la ubicación de Python de la CLI. La necesitará para determinar la ubicación del almacén de certificados raíz de confianza para la CLI de Azure.
+2. Tome nota de la ubicación de Python de la CLI. Esta ubicación se necesita para determinar la ubicación del almacén de certificados raíz de confianza para la CLI de Azure.
 
 3. Para ejecutar el script de ejemplo que se usa en este artículo, necesitará las siguientes versiones de la biblioteca de Python:
 
@@ -171,7 +171,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
     La siguiente salida de ejemplo muestra la instalación de Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
     La siguiente salida de ejemplo muestra la instalación de pip de `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     
     El cmdlet devuelve la ubicación del certificado, como se muestra a continuación:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -266,7 +266,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Establezca las variables de entorno para el script para el punto de conexión de Azure Resource Manager, la ubicación donde se crean los recursos y la ruta de acceso donde se encuentra el VHD de origen. La ubicación de los recursos es fija en todos los dispositivos Azure Stack Edge Pro y se establece en `dbelocal`. También debe especificar los prefijos de dirección y la dirección IP privada. Todas las variables de entorno siguientes son valores que se basan en sus propios valores, con la excepción de `AZURE_RESOURCE_LOCATION`, que deben estar codificada como `"dbelocal"`.
+2. Establezca las variables de entorno para el script para el punto de conexión de Azure Resource Manager, la ubicación donde se crean los recursos y la ruta de acceso donde se encuentra el VHD de origen. La ubicación de los recursos es fija en todos los dispositivos Azure Stack Edge Pro y se establece en `dbelocal`. También debe especificar los prefijos de dirección y la dirección IP privada. Todas las variables de entorno siguientes son valores que se basan en sus propios valores, excepto `AZURE_RESOURCE_LOCATION`, que deben estar codificada como `"dbelocal"`.
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -321,9 +321,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
     ```
    Después de usar el comando de inicio de sesión, se le solicitará una contraseña. Proporcione la contraseña de Azure Resource Manager.
 
-   A continuación se muestra una salida de ejemplo de un inicio de sesión correcto después de proporcionar la contraseña:  
+   A continuación se muestra una salida de ejemplo de un inicio de sesión correcto después de escribir la contraseña:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

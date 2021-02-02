@@ -3,12 +3,12 @@ title: Azure Batch ejecuta trabajos paralelos de gran tamaño en la nube
 description: Información acerca del servicio Azure Batch para cargas de trabajo HPC y paralelas a gran escala
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106655"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743107"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -74,6 +74,9 @@ El siguiente diagrama muestra los pasos de un flujo de trabajo común de Batch, 
 Tenga en cuenta que el flujo de trabajo descrito anteriormente es simplemente una forma de usar Batch; hay muchas otras características y opciones. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso. O bien, usar [tareas de preparación y finalización de trabajos](batch-job-prep-release.md) para preparar los nodos para los trabajos y, a continuación, limpiarlos.
 
 Consulte [Flujo de trabajo y recursos del servicio Batch](batch-service-workflow-features.md) para información general sobre características como los grupos, los nodos, los trabajos y las tareas. Consulte también la versión más reciente de las [actualizaciones del servicio Batch](https://azure.microsoft.com/updates/?product=batch).
+
+## <a name="in-region-data-residency"></a>Residencia de datos en la región
+Azure Batch no mueve ni almacena los datos de los clientes fuera de la región en la que se implementa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

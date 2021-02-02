@@ -1,28 +1,12 @@
 ---
-title: Streaming en vivo con Media Services v3
-titleSuffix: Azure Media Services
-description: Obtenga información sobre como hacer streaming en vivo con Azure Media Services v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 06/13/2019
-ms.author: inhenkel
-ms.openlocfilehash: b2e456474a9d052d9515c8169ce233e9577a5c53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256572"
+título: Streaming en vivo con Media Services v3: Descripción de Azure Media Services: Obtenga información sobre como hacer streaming en vivo con Azure Media Services v3.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.custom: "mvc, devx-track-csharp" ms.date: 06/13/2019 ms.author: inhenkel
+
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Streaming en vivo con Media Services v3
+
+# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Streaming en vivo con Media Services
 
 > [!NOTE]
 > Aunque en este tutorial se usan los ejemplos de [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](/rest/api/media/liveevents), la [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
@@ -39,7 +23,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes elementos son necesarios para completar el tutorial:
 

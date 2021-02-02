@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de Azure Spring Cloud en una red virtual'
+title: Implementación de Azure Spring Cloud en una red virtual
 description: Implementación de Azure Spring Cloud en una red virtual (inserción de red virtual)
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587730"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880611"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Tutorial: Implementación de Azure Spring Cloud en una red virtual
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
 **Este artículo se aplica a:** ✔️ Java ✔️ C#
 
@@ -25,6 +25,9 @@ La implementación habilita:
 * El aislamiento de Internet en la red corporativa de las aplicaciones y el entorno de ejecución del servicio Azure Spring Cloud.
 * La interacción de Azure Spring Cloud con los sistemas de centros de datos locales o los servicios de Azure de otras redes virtuales.
 * El permiso para que los clientes controlen las comunicaciones de red entrantes y salientes para Azure Spring Cloud.
+
+> [!Note]
+> Puede seleccionar la red virtual de Azure solo cuando cree una nueva instancia de servicio de Azure Spring Cloud. No es posible cambiar para usar otra red virtual después de crear Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,7 +64,7 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
     |Configuración          |Value                                             |
     |-----------------|--------------------------------------------------|
-    |Subscription     |Seleccione su suscripción.                         |
+    |Suscripción     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |
     |Nombre             |Escriba **azure-spring-cloud-vnet**.                 |
     |Location         |Seleccione **Este de EE. UU**.                               |
@@ -77,6 +80,7 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 1. Seleccione **Revisar + crear**. Deje el resto tal como está y seleccione **Crear**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Concesión de permisos de servicio a la red virtual
+Azure Spring Cloud requiere permisos de **propietario** en la red virtual, con el fin de conceder permisos a una entidad de servicio dinámica y dedicada en la red virtual para realizar más tareas de implementación y mantenimiento.
 
 Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
@@ -160,9 +164,9 @@ Esos recursos de red están conectados a la red virtual creada en la imagen ante
    > [!Important]
    > El servicio Azure Spring Cloud administra completamente los grupos de recursos. *No* elimine ni modifique manualmente ningún recurso de ellos.
 
-## <a name="limitations"></a>Limitaciones
+## <a name="using-smaller-subnet-ranges"></a>Uso de intervalos de subred más pequeños
 
-Los intervalos de subred pequeños guardan las direcciones IP, pero limitan el número máximo de instancias de aplicación que la instancia de Azure Spring Cloud puede contener.
+En esta tabla se muestra el número máximo de instancias de aplicación que admite Azure Spring Cloud con intervalos de subred más pequeños.
 
 | CIDR de la subred de la aplicación | Número total de direcciones IP | Direcciones IP disponibles | Número máximo de instancias de aplicación                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |
