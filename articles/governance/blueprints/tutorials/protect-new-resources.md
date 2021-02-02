@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Protección de nuevos recursos con bloqueos'
 description: En este tutorial, usará las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048577"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915413"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
@@ -187,7 +187,7 @@ La asignación crea el grupo de recursos _TestingBPLocks_ y la cuenta de almacen
 
 1. Seleccione la asignación de denegación y, después, seleccione la página **Permisos denegados** de la izquierda.
 
-   La asignación de denegación evita todas las operaciones con la configuración de **\*** y **acción**, pero permite el acceso de lectura, para lo que excluye **\*/read** mediante **NotActions**.
+   La asignación de denegación evita todas las operaciones con la configuración de **\**y* acción**, pero permite el acceso de lectura, para lo que excluye **\*/read** mediante **NotActions**.
 
 1. En la ruta de navegación de Azure Portal, seleccione **TestingBPLocks - Control de acceso (IAM)** . A continuación, seleccione la página **Información general** de la izquierda y, después, el botón **Eliminación de un grupo de recursos**. Escriba el nombre **TestingBPLocks** para confirmar la eliminación y seleccione **Eliminar** en la parte inferior del panel.
 

@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 1c6fe6e10a91034d794437f31d495b85ef086848
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060187"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632949"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -23,7 +23,8 @@ En este tutorial, aprenderá lo siguiente:
 > * Supervisión de eventos.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > Necesitará una suscripción de Azure con permisos para crear entidades de servicio (el **rol de propietario** permite esto). Si no tiene los permisos adecuados, póngase en contacto con el administrador de la cuenta para que se los conceda. 
 ## <a name="suggested-pre-reading"></a>Sugerencias antes de la lectura
 
 Consulte estos artículos antes de empezar:
@@ -136,10 +137,10 @@ Hay algunas cosas a las que debe prestar atención en el archivo de la plantilla
 1. `IpcMode` en createOptions de los módulos lvaEdge y de análisis espacial debe ser igual y estar establecido en host.
 1. Para que el simulador RTSP funcione, asegúrese de que ha configurado los límites del volumen. Para más información, consulte [Configuración de montajes de volúmenes de Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Conéctese al recurso compartido de SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con la excavadora de ejemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) en el recurso compartido local.
+    1. [Conéctese al recurso compartido de SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) y copie el [archivo de vídeo con la excavadora de ejemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) en el recurso compartido local.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Verá que el módulo rtspsim tiene la siguiente configuración:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Hay algunas cosas a las que debe prestar atención en el archivo de la plantilla
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Generación e implementación del manifiesto de implementación
 
 El manifiesto de implementación define los módulos que se implementan en un dispositivo perimetral. También define los valores de configuración de los módulos.
@@ -201,7 +204,7 @@ Después, puede encontrar los módulos `lvaEdge`, `rtspsim`, `spatialAnalysis` y
 Para ver estos eventos, siga estos pasos:
 
 1. En Visual Studio Code, abra la pestaña **Extensiones** (o presione Ctrl + Mayús + X) y busque Azure IoT Hub.
-1. Haga clic con el botón derecho y seleccione la **Configuración de la extensión**.
+1. Haga clic con el botón derecho y seleccione la opción **Configuración de la extensión**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Configuración de la extensión":::

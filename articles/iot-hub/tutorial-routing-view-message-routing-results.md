@@ -1,6 +1,6 @@
 ---
-title: Visualización de los resultados de enrutamiento de mensajes de Azure IoT Hub (.NET) | Microsoft Docs
-description: Después de configurar todos los recursos que usan la parte 1 del tutorial, agregue la capacidad de enrutar mensajes a Azure Stream Analytics y ver los resultados en Power BI.
+title: 'Tutorial: Visualización de los resultados de enrutamiento de mensajes de Azure IoT Hub (.NET) | Microsoft Docs'
+description: 'Tutorial: Después de configurar todos los recursos que usan la parte 1 del tutorial, agregue la capacidad de enrutar mensajes a Azure Stream Analytics y ver los resultados en Power BI.'
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149204"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733995"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
 
@@ -48,7 +48,7 @@ La cola de Service Bus se debe usar para recibir los mensajes designados como cr
 
    **Ubicación**: use su ubicación. En este tutorial se usa **Oeste de EE. UU.**
 
-   **Log Analytics**: esta opción debe estar desactivada.
+   **Habilite Log Analytics**: esta opción debe estar desactivada.
 
    ![Pantalla de creación de la aplicación lógica](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -151,6 +151,8 @@ Para ver los datos en una visualización de Power BI, primero es preciso configu
    **Nombre del conjunto de datos**: nombre del conjunto de datos que se va a usar en Power BI. En este tutorial se usa **contosodataset** 
 
    **Nombre de la tabla**: nombre de la tabla que se va a usar en Power BI. En este tutorial se usa **contosotable**.
+
+  **Modo de autenticación**: Seleccione el modo que va a usar.
 
    En el resto de los campos, acepte los valores predeterminados.
 
@@ -280,7 +282,7 @@ Inicie sesión en su cuenta de [Power BI](https://powerbi.microsoft.com/). Vaya 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Uso de la CLI de Azure para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

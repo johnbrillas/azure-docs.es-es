@@ -1,5 +1,5 @@
 ---
-title: 'Streaming de archivos de vídeo con Azure Media Services: Node.js | Microsoft Docs'
+title: 'Streaming de archivos de vídeo con Azure Media Services: Node.js'
 description: Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711db5135345fd9b69da9aaea5bc4dbb929d27c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268679"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895142"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: Node.js
 

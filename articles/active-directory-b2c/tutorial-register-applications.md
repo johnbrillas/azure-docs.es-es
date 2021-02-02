@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953056"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918218"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación web en Azure Active Directory B2C
 
@@ -98,6 +98,14 @@ En el caso de una aplicación web, debe crear un secreto de aplicación. La apli
 1. Seleccione **Guardar** para ver la clave. Anote el valor de la **Clave de la aplicación**. Use este valor como secreto de aplicación en el código de la aplicación.
 
 * * *
+
+## <a name="enable-id-token-implicit-grant"></a>Habilitación de la concesión implícita de tokens de identificador
+
+La característica que define la concesión implícita determina que los tokens, como los tokens de identificador y de acceso, se devuelven directamente desde Azure AD B2C a la aplicación. En el caso de las aplicaciones web, como ASP.NET Core y [https://jwt.ms](https://jwt.ms), que solicitan un token de identificador directamente desde el punto de conexión de autorización, habilite el flujo de concesión implícita en el registro de la aplicación.
+
+1. En el menú izquierdo, en **Administrar**, seleccione **Autenticación**.
+1. En Concesión implícita, active las casillas **Tokens de acceso** y **Tokens de id.**
+1. Seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

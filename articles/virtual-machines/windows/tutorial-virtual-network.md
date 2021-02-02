@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912672"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730046"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Windows con Azure PowerShell
 
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true). Use estas credenciales para conectarse a la máquina virtual en pasos adicionales:
+Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). Use estas credenciales para conectarse a la máquina virtual en pasos adicionales:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -280,7 +280,4 @@ En este tutorial, ha creado y protegido redes de Azure cuando están relacionada
 > * Protegen el tráfico de red.
 > * Crear una máquina virtual de back-end
 
-Prosiga con el siguiente tutorial para aprender a supervisar la protección de datos en máquinas virtuales mediante Azure Backup.
-
-> [!div class="nextstepaction"]
-> [Copia de seguridad de máquinas virtuales Windows en Azure](./tutorial-backup-vms.md)
+Para más información acerca de cómo proteger los discos de máquina virtual, consulte [Copia de seguridad y recuperación ante desastres para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).

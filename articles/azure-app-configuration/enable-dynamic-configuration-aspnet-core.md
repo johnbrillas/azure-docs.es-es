@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7072720e2600221e7b8ad8d2337577b65b079afb
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930558"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660689"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -68,28 +68,27 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 1. Abra *Program.cs* y actualice el método `CreateWebHostBuilder` para agregar el método `config.AddAzureAppConfiguration()`.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+   #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-
-                config.AddAzureAppConfiguration(options =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .ConfigureRefresh(refresh =>
-                                {
-                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                });
-                });
-            })
-            .UseStartup<Startup>();
-    ```
-
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                               .ConfigureRefresh(refresh =>
+                                    {
+                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                    });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```   
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -111,6 +110,27 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
                 })
             .UseStartup<Startup>());
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                });
+                });
+            })
+            .UseStartup<Startup>();
+    ```
     ---
 
     El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. El parámetro `refreshAll` del método `Register` indica que se deben actualizar todos los valores de configuración si cambia la clave de Sentinel.
@@ -122,7 +142,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
     Para desencadenar realmente una operación de actualización, es necesario configurar un middleware de actualización para que la aplicación actualice los datos de configuración cuando se produzca cualquier cambio. Puede ver cómo hacerlo en un paso posterior.
 
-2. Agregue un archivo *Settings.cs* que defina e implemente una nueva clase `Settings`.
+2. Agregue el archivo *Settings.cs* al directorio Controllers que define e implementa una nueva clase `Settings`. Reemplace el espacio de nombres por el nombre del proyecto. 
 
     ```csharp
     namespace TestAppConfig
@@ -139,6 +159,26 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 3. Abra *Startup.cs* y use `IServiceCollection.Configure<T>` en el método `ConfigureServices` para enlazar los datos de configuración a la clase `Settings`.
 
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
+    }
+    ```
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
+    }
+    ```
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
@@ -148,16 +188,6 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
     ```
-
-    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddControllersWithViews();
-    }
-    ```
     ---
     > [!Tip]
     > Para obtener más información sobre el patrón de opciones al leer valores de configuración, consulte [Patrón de opciones en ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
@@ -165,23 +195,41 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 4. Actualice el método `Configure` para agregar un middleware `UseAzureAppConfiguration` que permita actualizar los valores de la configuración mientras que la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
 
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UseAzureAppConfiguration();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
-        services.Configure<CookiePolicyOptions>(options =>
-        {
-            options.CheckConsentNeeded = context => true;
-            options.MinimumSameSitePolicy = SameSiteMode.None;
-        });
+            // Add the following line:
+            app.UseAzureAppConfiguration();
 
-        app.UseMvc();
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
-
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -217,6 +265,22 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
             });
     }
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+
+        services.Configure<CookiePolicyOptions>(options =>
+        {
+            options.CheckConsentNeeded = context => true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
+
+        app.UseMvc();
+    }
+    ```
     ---
     
     El middleware utiliza la configuración de actualización especificada en el método `AddAzureAppConfiguration` de `Program.cs` para desencadenar una actualización para cada solicitud recibida por la aplicación web de ASP.NET Core. Para cada solicitud, se desencadena una operación de actualización y la biblioteca cliente comprueba si el valor en caché de los ajustes de configuración registrados ha expirado. Si ha expirado, se actualiza.
@@ -234,32 +298,9 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
 2. Actualice la clase `HomeController` para recibir `Settings` mediante la inserción de dependencias y asegúrese de usar sus valores.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+ #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        public HomeController(IOptionsSnapshot<Settings> settings)
-        {
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-    }
-    ```
-
-    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -283,8 +324,57 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
 
         // ...
     }
-    ```
-    ---
+```
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+```
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        public HomeController(IOptionsSnapshot<Settings> settings)
+        {
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+    }
+```
+---
 
 
 
@@ -340,7 +430,7 @@ Una clave de *Sentinel* es una clave especial que se usa para indicar cuándo ha
     | TestApp:Settings:Message | Datos de Azure App Configuration: ahora con actualizaciones directas |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Actualice la página del explorador para ver los nuevos valores de configuración. Puede que tenga que actualizar más de una vez para que se reflejen los cambios.
+1. Actualice la página del explorador para ver los nuevos valores de configuración. Es posible que necesite actualizar el explorador más de una vez para que se reflejen los cambios o que tenga que cambiar la frecuencia de actualización automática para que sea inferior a 5 minutos. 
 
     ![Inicio local de la aplicación de inicio rápido actualizada](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

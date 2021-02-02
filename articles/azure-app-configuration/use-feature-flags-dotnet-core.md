@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929198"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734989"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -37,7 +37,6 @@ En este tutorial, aprenderá a:
 ## <a name="set-up-feature-management"></a>Configuración de la administración de características
 
 Agregue una referencia a los paquetes NuGet `Microsoft.FeatureManagement.AspNetCore` y `Microsoft.FeatureManagement` para que utilicen el administrador de características de .NET Core.
-    
 El administrador de características de .NET Core `IFeatureManager` obtiene las marcas de características del sistema de configuración nativo del marco. Como resultado, puede definir marcas de características de la aplicación con cualquier origen de configuración que admita .NET Core, incluido el archivo local *appsettings.json* o las variables de entorno. `IFeatureManager` se basa en la inserción de dependencias de .NET Core. Puede registrar los servicios de administración de características mediante las convenciones estándar:
 
 ```csharp
@@ -106,16 +105,23 @@ La manera más fácil de conectar la aplicación de ASP.NET Core con App Configu
               .UseStartup<Startup>();
    ```
 
-2. Abra *Startup.cs* y actualice el método `Configure` para agregar el middleware integrado denominado `UseAzureAppConfiguration`. Este middleware permita actualizar los valores de marca de características según un intervalo periódico mientras la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
+2. Abra *Startup.cs* y actualice el método `Configure` y el `ConfigureServices` para agregar el middleware integrado denominado `UseAzureAppConfiguration`. Este middleware permita actualizar los valores de marca de características según un intervalo periódico mientras la aplicación web de ASP.NET Core sigue recibiendo solicitudes.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Los valores de las marcas de características se esperan que cambien con el tiempo. De forma predeterminada, los valores de la marca de característica se almacenan en caché durante un período de 30 segundos, por lo que una operación de actualización desencadenada cuando el middleware recibe una solicitud no actualizará el valor hasta que expire el valor almacenado en caché. El código siguiente muestra cómo cambiar la hora de expiración de caché o el intervalo de sondeo a 5 minutos en la llamada `options.UseFeatureFlags()`.
 
 ```csharp
@@ -189,6 +195,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias:
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;

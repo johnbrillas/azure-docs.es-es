@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7774a0ebb3b3b9a715e6b9da3ab808d75ac244c2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c413a1dedbdd39ea27ad4dea3559d79b2a57b1f5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099613"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684410"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Enumerar y obtener espacios de claves y tablas de Azure Cosmos DB: Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Este ejemplo requiere Azure PowerShell Az 5.4.0, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para ver qué versiones están instaladas.
+Si necesita instalarlo, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
+
+Ejecute [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sesión en Azure.
 
 ## <a name="sample-script"></a>Script de ejemplo
 

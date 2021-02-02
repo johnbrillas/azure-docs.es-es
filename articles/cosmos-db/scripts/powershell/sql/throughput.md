@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 49e969474ab58f48ca4df99a08d9db19bd99059d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73fdfa06fab42a5687e3aa354e3ba92937b92605
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100361"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684298"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operaciones de capacidad de proceso (RU/s) con PowerShell para una base de datos o un contenedor de Core (SQL) API de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Este ejemplo requiere Azure PowerShell Az 5.4.0, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para ver qué versiones están instaladas.
+Si necesita instalarlo, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
+
+Ejecute [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) para iniciar sesión en Azure.
 
 ## <a name="get-throughput"></a>Obtención de rendimiento
 

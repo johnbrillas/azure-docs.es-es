@@ -9,28 +9,24 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 7965edd5dc54155f03b9211d5c2b21d451018bd1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5561a4cdeef725eba7e48d7767aa0ee5d3c6d9cf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514459"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integración de Azure Active Directory con MobileIron
 
-En este tutorial, aprenderá a integrar MobileIron con Azure Active Directory (Azure AD).
-La integración de MobileIron con Azure AD proporciona las siguientes ventajas:
+ En este tutorial, aprenderá a integrar MobileIron con Azure Active Directory (Azure AD). Al integrar MobileIron con Azure AD, podrá hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a MobileIron.
-* Puede permitir que los usuarios inicien sesión automáticamente en MobileIron (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a MobileIron.
+* Permitir que los usuarios inicien sesión automáticamente en MobileIron con sus cuentas de Azure AD.
+* Administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con MobileIron, necesita los siguientes elementos:
 
@@ -43,149 +39,99 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * MobileIron admite SSO iniciado por **SP e IDP**
 
-## <a name="adding-mobileiron-from-the-gallery"></a>Adición de MobileIron desde la galería
+## <a name="add-mobileiron-from-the-gallery"></a>Incorporación de MobileIron desde la galería
 
 Para configurar la integración de MobileIron en Azure AD, es preciso agregar MobileIron desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar MobileIron desde la galería, siga estos pasos:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel izquierdo, seleccione **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **MobileIron** en el cuadro de búsqueda.
+1. Seleccione **MobileIron** en los resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-mobileiron"></a>Configuración y prueba del inicio de sesión único de Azure AD para MobileIron
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con MobileIron mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de MobileIron.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+Para configurar y probar el inicio de sesión único de Azure AD con MobileIron, siga estos pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+2. **[Configuración del inicio de sesión único de MobileIron](#configure-mobileiron-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de MobileIron](#create-mobileiron-test-user)** : para tener un homólogo de Britta Simon en MobileIron que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
-
-4. En el cuadro de búsqueda, escriba **MobileIron** , seleccione **MobileIron** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
-
-     ![MobileIron en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, configurará y probará el inicio de sesión único de Azur AD con MobileIron con un usuario de prueba llamado **Britta Simon** .
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de MobileIron.
-
-Para configurar y probar el inicio de sesión único de Azure AD con MobileIron, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de MobileIron](#configure-mobileiron-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de MobileIron](#create-mobileiron-test-user)** : para tener un homólogo de Britta Simon en MobileIron que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con MobileIron, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración aplicaciones de **MobileIron** , seleccione **Inicio de sesión único** .
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
+En esta sección va a habilitar el inicio de sesión único de Azure AD en Azure Portal.
+ 
+1. En Azure Portal, en la página de integración de la aplicación **Mobile Locker**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración de SAML básica** , realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP** :
+4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.MobileIron.com/<key>`
 
-    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://www.mobileiron.com/<key>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<host>.MobileIron.com/saml/SSO/alias/<key>`
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
-
-    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
-
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<host>.mobileiron.com/user/login.html`
+     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<host>.MobileIron.com/user/login.html`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Obtendrá los valores de clave y host desde el portal de administración de MobileIron, como se explica más adelante en el tutorial.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-### <a name="configure-mobileiron-single-sign-on"></a>Configuración del inicio de sesión único de MobileIron
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+
+En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal.
+
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Seleccione la casilla **Mostrar contraseña** y, a continuación, anote la contraseña.
+   1. Seleccione **Crear**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon acceda a MobileIron mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **MobileIron**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+
+## <a name="configure-mobileiron-sso"></a>Configuración del inicio de sesión único de MobileIron
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la empresa de MobileIron.
 
 2. Vaya a **Admin** > **Identity** (Administración e identidad) y seleccione la opción **AAD** en el campo **Info on Cloud IDP Setup** (Información de configuración del IDP en la nube).
 
-    ![Captura de pantalla que muestra la pestaña Admin del sitio MobileIron con la opción Identity (Identidad) seleccionada.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Captura de pantalla que muestra la pestaña Admin del sitio MobileIron con la opción Identity (Identidad) seleccionada.](./media/MobileIron-tutorial/tutorial_MobileIron_admin.png)
 
-3. Copie los valores de **Key** (Clave) y **Host** , y péguelos para completar las direcciones URL en la sección **Configuración de SAML básica** en Azure Portal.
+3. Copie los valores de **Key** (Clave) y **Host**, y péguelos para completar las direcciones URL en la sección **Configuración de SAML básica** en Azure Portal.
 
-    ![Captura de pantalla que muestra la opción Setting Up SAML (Configuración de SAML) con una clave y un valor de host.](./media/mobileiron-tutorial/key.png)
+    ![Captura de pantalla que muestra la opción Setting Up SAML (Configuración de SAML) con una clave y un valor de host.](./media/MobileIron-tutorial/key.png)
 
 4. En el campo **Export metadata file from AAD and import to MobileIron Cloud** (Exportar archivo de metadatos de AAD e importar en MobileIron Cloud) haga clic en **Choose File** (Elegir archivo) para cargar los metadatos descargados desde Azure Portal. Haga clic en **Done** (Listo) una vez cargado.
 
-    ![Botón de metadatos de administración de inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
+    ![Botón de metadatos de administración de inicio de sesión único](./media/MobileIron-tutorial/tutorial_MobileIron_adminmetadata.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
-  
-    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension** .  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a MobileIron.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **MobileIron** .
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, escriba y seleccione **MobileIron** .
-
-    ![Vínculo a MobileIron en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
-
-### <a name="create-mobileiron-test-user"></a>Creación de un usuario de prueba de MobileIron
+##  <a name="create-mobileiron-test-user"></a>Creación de un usuario de prueba de MobileIron
 
 Para permitir que los usuarios de Azure AD inicien sesión en MobileIron, es necesario que se aprovisionen en MobileIron.  
 En el caso de MobileIron, el aprovisionamiento es una tarea manual.
@@ -196,11 +142,11 @@ En el caso de MobileIron, el aprovisionamiento es una tarea manual.
 
 1. Vaya a **Users** (Usuarios) y haga clic en **Add** (Agregar)  > **Single User** (Usuario único).
 
-    ![Botón Configurar usuario de inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
+    ![Botón Configurar usuario de inicio de sesión único](./media/MobileIron-tutorial/tutorial_MobileIron_user.png)
 
 1. En la página de diálogo **“Single User”** (Usuario único), realice los siguientes pasos:
 
-    ![Botón Configurar agregar usuario de inicio de sesión único](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
+    ![Botón Configurar agregar usuario de inicio de sesión único](./media/MobileIron-tutorial/tutorial_MobileIron_useradd.png)
 
     a. En el cuadro de texto **E-mail Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, brittasimon@contoso.com.
 
@@ -208,18 +154,24 @@ En el caso de MobileIron, el aprovisionamiento es una tarea manual.
 
     c. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso Simon.
 
-    d. Haga clic en **Done** (Listo).
+    d. Haga clic en **Done**(Listo).
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+## <a name="sp-initiated"></a>Iniciado por SP:
 
-Al hacer clic en el icono de MobileIron en el panel de acceso, debería iniciar sesión automáticamente en la aplicación MobileIron para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de MobileIron, desde donde puede poner en marcha el flujo de inicio de sesión.  
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la URL de inicio de sesión de MobileIron y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+##  <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de MobileIron para la que configuró el inicio de sesión único.
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de MobileIron en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de MobileIron para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que se ha configurado MobileIron, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

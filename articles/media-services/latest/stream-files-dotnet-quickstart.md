@@ -1,5 +1,5 @@
 ---
-title: 'Streaming de archivos de vídeo con Azure Media Services: .NET | Microsoft Docs'
+title: 'Streaming de archivos de vídeo con Azure Media Services: .NET'
 description: Siga los pasos de este tutorial para usar .NET para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268696"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898195"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: .NET
 

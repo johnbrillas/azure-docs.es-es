@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169449"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747296"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Ejemplos de la CLI para Azure App Service
 
@@ -40,7 +40,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 | [Conexión de una aplicación a una cuenta de almacenamiento](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una aplicación de App Service y una cuenta de almacenamiento y, a continuación, agrega la cadena de conexión de almacenamiento a la configuración de la aplicación. |
 | [Conexión de una aplicación a Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y una instancia de Azure Cache for Redis, y después agrega los detalles de conexión de Redis a la configuración de la aplicación. |
 | [Conexión de una aplicación a Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y una instancia de Cosmos DB y, luego, agrega los detalles de conexión de Cosmos DB a la configuración de la aplicación. |
-|**Copia de seguridad y restauración de la aplicación**||
+|**Copia de seguridad y restauración de una aplicación**||
 | [Copia de seguridad de una aplicación](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y una copia de seguridad única para ella. |
 | [Creación de una copia de seguridad programada para una aplicación](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y una copia de seguridad programada para ella. |
 | [Restauración de una aplicación a partir de una copia de seguridad](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaura una aplicación de App Service a partir de una copia de seguridad. |

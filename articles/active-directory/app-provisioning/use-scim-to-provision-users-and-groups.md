@@ -12,18 +12,19 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246764"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892579"
 ---
-# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial: Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
 Como desarrollador de aplicaciones, puede usar la API de administración de usuarios del sistema para la administración de identidades entre dominios (SCIM) para habilitar el aprovisionamiento automático de usuarios y grupos entre la aplicación y Azure AD. En este artículo se describe cómo crear un punto de conexión de SCIM e integrarlo con el servicio de aprovisionamiento de Azure AD. La especificación SCIM proporciona un esquema de usuario común para el aprovisionamiento. Cuando se usa junto con estándares de federación como SAML u OpenID Connect, SCIM ofrece a los administradores una solución de un extremo a otro basada en estándares para la administración del acceso.
 
-SCIM es una definición estándar de dos puntos de conexión: /Users (Usuarios) y /Groups (Grupos). Utiliza verbos de REST comunes para crear, actualizar y eliminar objetos, y un esquema predefinido para atributos comunes como el nombre de grupo, nombre de usuario, nombre, apellidos y correo electrónico. Las aplicaciones que ofrecen una API REST de SCIM 2.0 pueden reducir o eliminar la molestia de trabajar con una API de administración de usuarios propia. Por ejemplo, cualquier cliente SCIM compatible sabe cómo crear una entrada HTTP POST de un objeto JSON para el punto de conexión /Users a fin de crear una nueva entrada de usuario. En lugar de necesitar una API ligeramente diferente para las mismas acciones básicas, las aplicaciones que cumplan con el estándar SCIM pueden aprovechar al instante los clientes, herramientas y código ya existentes. 
+SCIM es una definición estándar de dos puntos de conexión: `/Users` y `/Groups`. Utiliza verbos de REST comunes para crear, actualizar y eliminar objetos, y un esquema predefinido para atributos comunes como el nombre de grupo, nombre de usuario, nombre, apellidos y correo electrónico. Las aplicaciones que ofrecen una API REST de SCIM 2.0 pueden reducir o eliminar la molestia de trabajar con una API de administración de usuarios propia. Por ejemplo, cualquier cliente SCIM compatible sabe cómo crear una entrada HTTP POST de un objeto JSON para el punto de conexión `/Users` a fin de crear una nueva entrada de usuario. En lugar de necesitar una API ligeramente diferente para las mismas acciones básicas, las aplicaciones que cumplan con el estándar SCIM pueden aprovechar al instante los clientes, herramientas y código ya existentes. 
 
 ![Aprovisionamiento desde Azure AD a una aplicación con SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -56,7 +57,7 @@ Cada aplicación requiere atributos diferentes para crear un usuario o un grupo.
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.lastName|lastName|
-|workMail|Emails[type eq “work”].value|Correo|
+|workMail|emails[type eq "work"].value|Correo|
 |manager|manager|manager|
 |etiqueta|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (valor calculado no almacenado en el usuario)|
@@ -748,7 +749,9 @@ El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalo
 
 Ahora que ha diseñado el esquema y comprendido la implementación de SCIM de Azure AD, puede empezar a desarrollar el punto de conexión de SCIM. En lugar de comenzar desde cero y compilar la implementación totalmente por su cuenta, puede confiar en una serie de bibliotecas de SCIM de código abierto publicadas por la comunidad de SCIM.
 
-El [código de referencia](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede iniciar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](#user-operations).  
+Para obtener instrucciones sobre cómo crear un punto de conexión de SCIM, incluidos ejemplos, consulte [Desarrollo de un punto de conexión SCIM de ejemplo](use-scim-to-build-users-and-groups-endpoints.md).
+
+El [código de referencia de ejemplo](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede impulsar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](#user-operations).  
 
    > [!Note]
    > El código de referencia está pensado para ayudarle a empezar a crear el punto de conexión de SCIM y se proporciona "tal cual". Las contribuciones de la comunidad le ayudarán a crear y mantener el código.
@@ -1127,11 +1130,17 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com). Tenga en cuenta que puede obtener acceso a una evaluación gratuita de Azure Active Directory con licencias P2 si se suscribe al [programa para programadores](https://developer.microsoft.com/office/dev-program).
 2. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Se muestra una lista de las aplicaciones configuradas, incluidas aquellas que se han agregado desde la galería.
-3. Seleccione **+ Nueva aplicación** > **Todas** > **Aplicación situada fuera de la galería**.
-4. Escriba un nombre para la aplicación y seleccione **Agregar** para crear un objeto de aplicación. La nueva aplicación se agrega a la lista de aplicaciones empresariales y se abre en su pantalla de administración de la aplicación.
+3. Seleccione **+ Nueva aplicación** >  **+ Cree su propia aplicación**.
+4. Escriba un nombre para la aplicación, elija la opción "*Integrar cualquier otra aplicación que no se encuentre en la galería*" y seleccione **Agregar** para crear un objeto de aplicación. La nueva aplicación se agrega a la lista de aplicaciones empresariales y se abre en su pantalla de administración de la aplicación.
 
-   ![Captura de pantalla que muestra la galería de aplicaciones de Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Captura de pantalla que muestra la galería de aplicaciones de Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
    *Galería de aplicaciones de Azure AD*
+
+   > [!NOTE]
+   > Si usa la antigua experiencia de la galería de aplicaciones, siga la guía de la pantalla que aparece a continuación.
+   
+   ![Captura de pantalla que muestra la experiencia de la galería de aplicaciones antigua de Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+   *Experiencia de la galería de aplicaciones antigua de Azure AD*
 
 5. En la pantalla de administración de la aplicación, seleccione **Aprovisionamiento** en el panel izquierdo.
 6. En el menú **Modo de aprovisionamiento**, seleccione **Automático**.
@@ -1235,6 +1244,7 @@ Para ayudar a impulsar el reconocimiento y la demanda de nuestra integración co
 
 ## <a name="related-articles"></a>Artículos relacionados
 
+* [Desarrollo un punto de conexión SCIM de ejemplo](use-scim-to-build-users-and-groups-endpoints.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
 * [Escritura de expresiones para la asignación de atributos](functions-for-customizing-application-data.md)

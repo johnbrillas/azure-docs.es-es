@@ -8,41 +8,64 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2abda6e0e3ef3d638952c05c31a50d91d24e88
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68229238"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901194"
 ---
 Para crear una instancia de IoT Hub mediante Azure Portal:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
+1. En la página de inicio de Azure, seleccione **Crear un recurso** y, después, escriba *IoT Hub* en **Buscar en Marketplace**.
 
-    ![Seleccionar para instalar IoT Hub](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
+1. Seleccione **IoT Hub** en los resultados de la búsqueda y, después, haga clic en **Crear**.
 
-1. Para crear la instancia de IoT Hub del nivel gratis, utilice los valores de las tablas siguientes:
+1. En la pestaña **Datos básicos**, complete los campos como se indica a continuación:
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Suscripción | Seleccione la suscripción de Azure en el menú desplegable. |
-    | Resource group | Cree uno nuevo. Este tutorial utiliza el nombre **tutorials-iot-hub-rg**. |
-    | Region | En este tutorial se usa **Oeste de EE. UU.** Puede elegir la región más cercana. |
-    | Nombre | En la captura de pantalla siguiente se usa el nombre **tutorials-iot-hub**. Debe elegir un nombre exclusivo de su elección al crear el concentrador. |
+   - **Suscripción**: seleccione la suscripción que quiera usar para el centro.
 
-    ![Configuración del concentrador 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
+   - **Grupo de recursos**: seleccione un grupo de recursos o cree uno. Para crear uno, haga clic en **Crear** y escriba el nombre que quiera usar. Para usar un grupo de recursos existente, selecciónelo. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../articles/azure-resource-manager/management/manage-resource-groups-portal.md). Este tutorial utiliza el nombre **tutorials-iot-hub-rg**.
 
-    | Configuración | Value |
-    | ------- | ----- |
-    | Plan de tarifa y escalado | F1 Gratis. Solo puede tener un concentrador de nivel gratuito en una suscripción. |
-    | Unidades de IoT Hub | 1 |
+   - **Región**: seleccione la región a la que quiera asignar el centro. Seleccione la ubicación más cercana a la suya. Algunas características, como los [flujos de dispositivo de IoT Hub](../articles/iot-hub/iot-hub-device-streams-overview.md), solo están disponibles en regiones específicas. Para ver estas características limitadas, debe seleccionar una de las regiones admitidas. En este tutorial se usa la región **Oeste de EE. UU.**
 
-    ![Configuración del concentrador 2](media/iot-hub-tutorials-create-free-hub/hubdefinition-2.png)
+   - **Nombre de la instancia de IoT Hub**: escriba el nombre del centro. Este nombre debe ser único globalmente. En este tutorial se usa **tutorials-iot-hub**. Debe elegir un nombre exclusivo de su elección al crear el concentrador.
 
-1. Haga clic en **Crear**. La creación del concentrador puede tardar unos minutos.
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-    ![Configuración del concentrador 3](media/iot-hub-tutorials-create-free-hub/hubdefinition-3.png)
+   ![Creación de un centro mediante Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png)
+
+1. Seleccione **Siguiente: Redes** para continuar con la creación del centro.
+
+   Elija los puntos de conexión que se pueden conectar a su instancia de IoT Hub. Puede seleccionar la configuración predeterminada **Punto de conexión público (todas las redes)** o elegir **Punto de conexión público (intervalos de IP seleccionados)** o **Punto de conexión privado**. Para este tutorial, acepte los valores predeterminados.
+
+   ![Elija los puntos de conexión que se pueden conectar.](media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png)
+
+1. Seleccione **Siguiente: Administración** para continuar con la creación del centro.
+
+    ![Configuración del tamaño y la escala de un nuevo centro de IoT mediante Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-management.png)
+
+    Puede aceptar la configuración predeterminada aquí. Si lo desea, puede modificar cualquiera de los siguientes campos:
+
+    - **Plan de tarifa y escala**: nivel seleccionado. Seleccione el nivel Gratis. El nivel gratis está pensado para la prueba y evaluación. Permite la conexión de 500 dispositivos con el centro de IoT y hasta 8000 mensajes al día. Cada suscripción a Azure puede crear un centro de IoT en el nivel gratis.
+
+    - **Unidades de IoT Hub**: El número de mensajes que se permiten por unidad al día depende del plan de tarifa del centro. Por ejemplo, si quiere que el Centro de IoT admita la entrada de 700 000 mensajes, seleccione dos unidades del nivel S1.
+    Cada suscripción a Azure puede crear un centro de IoT en el nivel gratis. Para más información sobre las demás opciones del nivel, consulte la sección [Elección del nivel correcto de IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+
+    - **Defender para IoT** Actívelo para agregar un nivel adicional de protección ante amenazas en IoT y en los dispositivos. Esta opción no está disponible para los centros de conectividad del nivel gratuito. Para más información acerca de esta característica, consulte [Azure Security Center para IoT](/azure/asc-for-iot/).
+
+    - **Configuración avanzada** > **Particiones del dispositivo a la nube**: esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros solo necesitan cuatro particiones. Un centro de nivel Gratis está limitado a dos particiones.
+
+1.  Seleccione **Siguiente: Etiquetas** para pasar a la pantalla siguiente.
+
+    Las etiquetas son pares nombre-valor. Puede asignar la misma etiqueta a varios recursos y grupos de recursos para clasificar los recursos y consolidar la facturación. Para más información, consulte [Uso de etiquetas para organizar los recursos de Azure](../articles/azure-resource-manager/management/tag-resources.md).
+
+    ![Asignación de etiquetas para el centro mediante Azure Portal](media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png)
+
+1.  Seleccione **Siguiente: Revisar y crear** para revisar sus selecciones. Verá algo parecido a esta pantalla, pero con los valores que ha seleccionado al crear el centro.
+
+    ![Revisión de la información para crear el centro de IoT](media/iot-hub-tutorials-create-free-hub/hub-definition-create.png)
 
 1. Anote el nombre de la instancia de IoT Hub que eligió. Usará este valor más adelante en el tutorial.

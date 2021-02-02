@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 03f2ec7aef1faadcb72d6c7a5a058c7d06596539
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724007"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integración de Azure Active Directory con Citrix ShareFile
 
@@ -31,8 +31,8 @@ La integración de Citrix ShareFile con Azure AD le proporciona las siguientes v
 
 Para configurar la integración de Azure AD con Citrix ShareFile, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Citrix ShareFile
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de evaluación de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción habilitada para el inicio de sesión único en Citrix ShareFile.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -126,7 +126,7 @@ En esta sección, va a conceder a B.Simon acceso a Citrix ShareFile utilizando e
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configuración del inicio de sesión único de Citrix ShareFile
@@ -165,7 +165,9 @@ Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista d
     
     f. En el cuadro de texto **URL de cierre de sesión**, pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
 
-5. Haga clic en **Guardar** en el portal de administración de Citrix ShareFile.
+    g. En **Optional Settings** (Configuración opcional), elija para **SP-Initiated Auth Context** (Contexto de autenticación iniciado por SP) las opciones **User Name and Password** (Nombre de usuario y contraseña) y **Exact** (Exacto).
+
+5. Haga clic en **Guardar**.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Creación de un usuario de prueba de Citrix ShareFile
 
@@ -198,7 +200,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Citrix ShareFile e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Citrix ShareFile en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Citrix ShareFile. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Citrix ShareFile en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Citrix ShareFile. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

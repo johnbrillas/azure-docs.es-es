@@ -1,15 +1,15 @@
 ---
 title: Detalles del cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 description: Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4cc68cb3549f5b5dd3342fd3f60214c6e3ca5ae0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 85467c086225c4d9e7699debb9871dbd197ebfd2
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046216"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807069"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de CIS Microsoft Azure Foundations Benchmark
 
@@ -23,7 +23,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../overview.md).
-> Estas directivas pueden ayudarle a [evaluar el cumplimiento](../how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** en Azure Policy solo se refiere a las propias definiciones de directiva; esto no garantiza que se cumpla totalmente con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los dominios de cumplimiento, los controles y las definiciones de Azure Policy para este estándar de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
+> Estas directivas pueden ayudarle a [evaluar el cumplimiento](../how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** en Azure Policy solo se refiere a las propias definiciones de directiva; esto no garantiza que se cumpla totalmente con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los dominios de cumplimiento, los controles y las definiciones de Azure Policy para este estándar de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json).
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -64,13 +64,21 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ## <a name="security-center"></a>Security Center
 
+### <a name="ensure-that-standard-pricing-tier-is-selected"></a>Asegúrese de que el plan de tarifa estándar está seleccionado.
+
+**Identificador**: CIS Azure 2.1 **Propiedad**: Customer
+
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Es necesario seleccionar el plan de tarifa estándar de Security Center.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |El plan de tarifa estándar le permite detectar amenazas en redes y máquinas virtuales, lo que proporciona inteligencia sobre amenazas, detección de anomalías y análisis de comportamiento en Azure Security Center. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Asegúrese de que "Aprovisionamiento automático del agente de supervisión" esté establecido en "Activado".
 
 **Identificador**: CIS Azure 2.2 **Propiedad**: Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[El aprovisionamiento automático del agente de Log Analytics debe estar habilitado en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |A fin de supervisar las amenazas y vulnerabilidades de seguridad, Azure Security Center recopila datos de las máquinas virtuales de Azure. El agente de Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA), recopila los datos al leer distintas configuraciones relacionadas con la seguridad y los distintos registros de eventos de la máquina y copia los datos en el área de trabajo de Log Analytics para analizarlos. Se recomienda habilitar el aprovisionamiento automático para implementar automáticamente el agente en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
+|[El aprovisionamiento automático del agente de Log Analytics debe estar habilitado en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |A fin de supervisar las amenazas y vulnerabilidades de seguridad, Azure Security Center recopila datos de las máquinas virtuales de Azure. El agente de Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA), recopila los datos al leer distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copiar los datos en el área de trabajo de Log Analytics para analizarlos. Se recomienda habilitar el aprovisionamiento automático para implementar automáticamente el agente en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar las actualizaciones del sistema" no es "Deshabilitado".
 
@@ -127,7 +135,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Supervisa los puntos vulnerables detectados por la solución de evaluación de puntos vulnerables y las máquinas virtuales sin esta solución en Azure Security Center como recomendaciones. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
+|[Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita las máquinas virtuales para detectar si ejecutan una solución de evaluación de vulnerabilidades admitida. Un componente fundamental de cada programa de seguridad y riesgo cibernético es la identificación y el análisis de las vulnerabilidades. El plan de tarifa estándar de Azure Security Center incluye el análisis de vulnerabilidades de las máquinas virtuales sin costo adicional. Además, Security Center puede implementar automáticamente esta herramienta. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Asegúrese de que la configuración de la directiva predeterminada de ASC "Supervisar el acceso de red JIT" no sea "Deshabilitado".
 
@@ -169,14 +177,6 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 |---|---|---|---|
 |[Las suscripciones deben tener una dirección de correo electrónico de contacto para los problemas de seguridad](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Para asegurarse de que las personas pertinentes de la organización reciban una notificación cuando se produzca una vulneración de seguridad potencial en una de las suscripciones, establezca un contacto de seguridad para la recepción de notificaciones por correo electrónico de Security Center. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
 
-### <a name="ensure-that-security-contact-phone-number-is-set"></a>Asegúrese de que se ha establecido "Número de teléfono".
-
-**Identificador**: CIS Azure 2.17 **Propiedad**: Customer
-
-|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[Es necesario proporcionar un número de teléfono de contacto de seguridad para la suscripción.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Permite escribir un número de teléfono para recibir notificaciones cuando Azure Security Center detecta recursos comprometidos. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |
-
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Asegúrese de que "Enviar notificaciones sobre alertas de gravedad alta por correo electrónico" se ha establecido en "Activado".
 
 **Identificador**: CIS Azure 2.18 **Propiedad**: Customer
@@ -202,6 +202,14 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Se debe habilitar la transferencia segura a las cuentas de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Permite auditar el requisito de transferencia segura en la cuenta de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como los de tipo "Man in the middle", interceptación y secuestro de sesión |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Asegúrese de que "Nivel de acceso público" se haya establecido en Privado para los contenedores de blobs
+
+**Identificador**: CIS Azure 3.6 **Propiedad**: Customer
+
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Asegúrese de que la regla de acceso de red predeterminada para las cuentas de almacenamiento esté configurada para denegar.
 
@@ -276,8 +284,8 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Las instancias administradas de SQL deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F048248b0-55cd-46da-b1ff-39efd52db260) |La implementación del Cifrado de datos transparente (TDE) con una clave propia proporciona una mayor transparencia y control sobre el protector de TDE, ofrece mayor seguridad con un servicio externo respaldado con HSM y permite la separación de tareas. Esta recomendación se aplica a las organizaciones con un requisito de cumplimiento relacionado. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
-|[Los servidores SQL deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0d134df8-db83-46fb-ad72-fe0c9428c8dd) |La implementación del Cifrado de datos transparente (TDE) con una clave propia proporciona una mayor transparencia y control sobre el protector de TDE, ofrece mayor seguridad con un servicio externo respaldado con HSM y permite la separación de tareas. Esta recomendación se aplica a las organizaciones con un requisito de cumplimiento relacionado. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
+|[Las instancias administradas de SQL deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F048248b0-55cd-46da-b1ff-39efd52db260) |La implementación de Cifrado de datos transparente (TDE) con una clave propia proporciona una mayor transparencia y control sobre el protector de TDE, ofrece mayor seguridad con un servicio externo respaldado con HSM y permite la separación de tareas. Esta recomendación se aplica a las organizaciones con un requisito de cumplimiento relacionado. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
+|[Los servidores SQL deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0d134df8-db83-46fb-ad72-fe0c9428c8dd) |La implementación de Cifrado de datos transparente (TDE) con una clave propia proporciona una mayor transparencia y control sobre el protector de TDE, ofrece mayor seguridad con un servicio externo respaldado con HSM y permite la separación de tareas. Esta recomendación se aplica a las organizaciones con un requisito de cumplimiento relacionado. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureServerTDEisEncryptedWithYourOwnKey_Audit.json) |
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos MySQL.
 
@@ -360,6 +368,14 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Monitor debe recopilar los registros de actividad de todas las regiones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Esta directiva audita el perfil de registro de Azure Monitor que no exporta actividades de todas las regiones admitidas de Azure, incluida la global. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+
+### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Asegúrese de que el contenedor de almacenamiento donde se almacenan los registros de actividad no sea accesible públicamente
+
+**Identificador**: CIS Azure 5.1.5 **Propiedad**: Customer
+
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[No se debe permitir el acceso público a la cuenta de almacenamiento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |El acceso de lectura público anónimo a contenedores y blobs de Azure Storage es una manera cómoda de compartir datos, pero también puede plantear riesgos para la seguridad. Para evitar las infracciones de datos producidas por el acceso anónimo no deseado, Microsoft recomienda impedir el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. |audit, deny, disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Asegúrese de que la cuenta de almacenamiento que contiene el contenedor con los registros de actividad está cifrada con BYOK (use su propia clave).
 
@@ -526,6 +542,22 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 |[Supervisar la falta de Endpoint Protection en Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Azure Security Center supervisará los servidores sin un agente de Endpoint Protection instalado como recomendaciones. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ## <a name="other-security-considerations"></a>Otras consideraciones de seguridad
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Asegúrese de que la fecha de expiración se haya establecida en todas las claves
+
+**Identificador**: CIS Azure 8.1 **Propiedad**: Customer
+
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Las claves de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Las claves criptográficas deben tener una fecha de expiración definida y no ser permanentes. Las claves que no expiran proporcionan a los posibles atacantes más tiempo para hacerse con ellas. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en las claves criptográficas. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Asegúrese de que la fecha de expiración se haya establecido en todos los secretos
+
+**Identificador**: CIS Azure 8.2 **Propiedad**: Customer
+
+|Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Los secretos de Key Vault deben tener una fecha de expiración](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Los secretos deben tener una fecha de expiración definida y no ser permanentes. Los secretos que no expiran proporcionan a un posible atacante más tiempo para ponerlos en peligro. Por ello, se recomienda como práctica de seguridad establecer fechas de expiración en los secretos. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Asegúrese de que el almacén de claves se puede recuperar.
 

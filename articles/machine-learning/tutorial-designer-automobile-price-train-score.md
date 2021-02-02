@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796115"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879803"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
 
@@ -103,7 +103,7 @@ Se incluyen varios conjuntos de datos de ejemplo en el diseñador para que exper
 
 Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 
-1. Haga clic con el botón derecho en **Automobile price data (Raw)** (Datos de precio del automóvil [sin procesar]) y seleccione **Visualizar**.
+1. Haga clic con el botón derecho en **Automobile price data (Raw)** (Datos de precio del automóvil [sin procesar]) y seleccione **Visualizar** > **Salida del conjunto de datos**.
 
 1. Seleccione las diferentes columnas de la ventana de datos para ver información sobre cada una.
 
@@ -284,7 +284,7 @@ Ahora que ya ha configurado la canalización, puede enviar una ejecución de can
 
 Una vez finalizada la ejecución, puede ver los resultados de la ejecución de la canalización. En primer lugar, examine las predicciones generadas por el modelo de regresión.
 
-1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** para ver la salida.
+1. Haga clic con el botón derecho en el módulo **Score Model** (Puntuar modelo) y seleccione **Visualizar** > **Scored dataset** (Conjunto de datos puntuado) para ver la salida.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
@@ -294,7 +294,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entrenado en el conjunto de datos de prueba.
 
-1. Haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y seleccione **Visualizar** para ver el resultado.
+1. Haga clic con el botón derecho en el módulo **Evaluate Model** (Evaluar modelo) y seleccione **Visualizar** > **Resultados de la evaluación** para ver el resultado.
 
 Se muestran las siguientes estadísticas de su modelo:
 

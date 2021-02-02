@@ -1,14 +1,14 @@
 ---
 title: Ejemplos de consultas de inicio
 description: Use Azure Resource Graph para ejecutar consultas de inicio, como el recuento de recursos, el pedido de recursos o las consultas por una etiqueta específica.
-ms.date: 10/14/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 287de47fff8c76bf05aeacd9ddfca0c48e55f5a0
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f751481a1596e78a2e04a7cb65403b72924768cd
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882932"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663856"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Ejemplos de consultas de inicio de Resource Graph
 
@@ -27,6 +27,7 @@ Le guiaremos por las siguientes consultas de inicio:
 - [Número de recursos que tienen direcciones IP configuradas por suscripción](#count-resources-by-ip)
 - [Enumerar los recursos con un valor de etiqueta específico](#list-tag)
 - [Enumerar todas las cuentas de almacenamiento con un valor de etiqueta específico](#list-specific-tag)
+- [Enumerar todas las etiquetas y sus valores](#list-all-tag-values)
 - [Mostrar grupos de seguridad de red no asociados](#unassociated-nsgs)
 - [Obtención de un resumen de ahorro de costos de Azure Advisor](#advisor-savings)
 - [Recuento de máquinas en el ámbito de las directivas de configuración de invitado](#count-gcmachines)
@@ -460,6 +461,52 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 > [!NOTE]
 > Este ejemplo utiliza `==` para buscar coincidencias en lugar del condicional `=~`. `==` es una coincidencia que distingue mayúsculas de minúsculas.
+
+## <a name="list-all-tags-and-their-values"></a><a name="list-all-tag-values"></a>Enumerar todas las etiquetas y sus valores
+
+En esta consulta se enumeran las etiquetas de los grupos de administración, las suscripciones y los recursos, junto con sus valores.
+En primer lugar, la consulta se limita a los recursos con etiquetas `isnotempty()` y restringe los campos incluidos mediante el uso de las _etiquetas_ en `project`, `mvexpand` y `extend` para obtener los datos emparejados del contenedor de propiedades. A continuación, usa `union` para combinar los resultados de _ResourceContainers_ con los mismos resultados de _Resources_, lo que proporciona una amplia cobertura para captura de etiquetas. Por último, limita los resultados a datos emparejados de `distinct` y excluye las etiquetas ocultas por el sistema.
+
+```kusto
+ResourceContainers 
+| where isnotempty(tags)
+| project tags
+| mvexpand tags
+| extend tagKey = tostring(bag_keys(tags)[0])
+| extend tagValue = tostring(tags[tagKey])
+| union (
+    resources
+    | where isnotempty(tags)
+    | project tags
+    | mvexpand tags
+    | extend tagKey = tostring(bag_keys(tags)[0])
+    | extend tagValue = tostring(tags[tagKey])
+)
+| distinct tagKey, tagValue
+| where tagKey !startswith "hidden-"
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png":::Pruebe a ejecutar esta consulta en el Explorador de Azure Resource Graph:
+
+- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portal de Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portal de Azure China 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%20%0A%7C%20where%20isnotempty%28tags%29%0A%7C%20project%20tags%0A%7C%20mvexpand%20tags%0A%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%7C%20union%20%28%0A%20%20%20%20resources%0A%20%20%20%20%7C%20where%20isnotempty%28tags%29%0A%20%20%20%20%7C%20project%20tags%0A%20%20%20%20%7C%20mvexpand%20tags%0A%20%20%20%20%7C%20extend%20tagKey%20%3D%20tostring%28bag_keys%28tags%29%5B0%5D%29%0A%20%20%20%20%7C%20extend%20tagValue%20%3D%20tostring%28tags%5BtagKey%5D%29%0A%29%0A%7C%20distinct%20tagKey%2C%20tagValue%0A%7C%20where%20tagKey%20%21startswith%20%22hidden-%22" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
+---
 
 ## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs"></a>Visualización de los grupos de seguridad de red sin asociar
 

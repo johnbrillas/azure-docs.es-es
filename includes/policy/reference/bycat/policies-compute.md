@@ -2,21 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 359247af3c2ce9e4fd350da57f6367f1d1c6ecd0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fd77bd985d118ddad500c99dc8edbd6b54fc643f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047493"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807693"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SKU de tamaño de máquina virtual permitidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |Esta directiva permite especificar un conjunto de SKU de tamaño de máquina virtual que la organización puede implementar. |Denegar |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json) |
 |[Auditoría de máquinas virtuales sin la recuperación ante desastres configurada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Audita las máquinas virtuales que no tienen configurada la recuperación ante desastres. Para más información sobre la recuperación ante desastres, visite [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[Auditar las máquinas virtuales que no utilizan discos administrados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Esta directiva audita las máquinas virtuales que no utilizan discos administrados. |auditoría |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
+|[Implementación: configuración de la recuperación ante desastres en máquinas virtuales mediante la replicación](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Las máquinas virtuales sin configuraciones de recuperación ante desastres pueden verse afectadas por interrupciones. Si la máquina virtual aún no tiene configurada la recuperación ante desastres, esta se iniciará al habilitar la replicación mediante configuraciones predeterminadas para facilitar la continuidad empresarial. Para más información sobre la recuperación ante desastres, visite [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
 |[Implementar la extensión IaaSAntimalware predeterminada de Microsoft para Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Esta directiva implementa una extensión de Microsoft IaaSAntimalware con una configuración predeterminada cuando una VM no está configurada con la extensión de antimalware. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json) |
 |[Los registros de diagnóstico de Virtual Machine Scale Sets deben estar habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |Se recomienda habilitar los registros para que ese seguimiento de actividad se pueda volver a crear cuando se necesiten investigaciones en caso de incidente o riesgo. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 |[Microsoft Antimalware para Azure debe estar configurado para actualizar automáticamente las firmas de protección](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57). |Esta directiva audita cualquier máquina virtual de Windows que no esté configurada con la actualización automática de firmas de protección de Microsoft Antimalware. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |

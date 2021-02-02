@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979936"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756150"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única de Angular
 
@@ -271,7 +271,7 @@ Por ejemplo:
 
 #### <a name="get-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-En ocasiones, necesitará que el usuario interactúe con el punto de conexión de la Plataforma de identidad de Microsoft. Por ejemplo:
+En ocasiones, necesitará que el usuario interactúe con la Plataforma de identidad de Microsoft. Por ejemplo:
 
 * Es posible que los usuarios tengan que volver a escribir las credenciales porque su contraseña ha expirado.
 * La aplicación solicita acceso a ámbitos de recursos adicionales para los que se necesita el consentimiento del usuario.
@@ -279,7 +279,7 @@ En ocasiones, necesitará que el usuario interactúe con el punto de conexión d
 
 El patrón recomendado para la mayoría de las aplicaciones es llamar primero a `acquireTokenSilent`, después detectar la excepción y, por último, llamar a `acquireTokenPopup` (o a `acquireTokenRedirect`) para iniciar una solicitud interactiva.
 
-La llamada a `acquireTokenPopup` da como resultado una ventana emergente de inicio de sesión. O bien, `acquireTokenRedirect` redirige a los usuarios al punto de conexión de la Plataforma de identidad de Microsoft. En esa ventana, los usuarios tienen que confirmar sus credenciales, dar el consentimiento al recurso requerido o completar la autenticación en dos fases.
+La llamada a `acquireTokenPopup` da como resultado una ventana emergente de inicio de sesión. O bien, `acquireTokenRedirect` redirige a los usuarios a la Plataforma de identidad de Microsoft. En esa ventana, los usuarios tienen que confirmar sus credenciales, dar el consentimiento al recurso requerido o completar la autenticación en dos fases.
 
 ```javascript
   const requestObj = {

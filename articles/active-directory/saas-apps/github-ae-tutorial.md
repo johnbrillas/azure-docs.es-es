@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: ab30124918ac47ba6296f05388ad94b50febde5d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180904"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632789"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub AE
 
@@ -87,6 +87,20 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, la dirección URL de respuesta y el identificador reales. Póngase en contacto con el [equipo de soporte al cliente de GitHub AE](mailto:support@github.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+
+
+1. La aplicación GitHub AE espera las aserciones SAML en un formato específico. Para ello, es necesario agregar asignaciones de atributos personalizados a la configuración de atributos de token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+
+    ![imagen](common/default-attributes.png)
+
+1. Además de lo anterior, la aplicación GitHub AE espera obtener algunos atributos más, que se muestran en la respuesta SAML a continuación. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+    
+    | Nombre |  Atributo de origen|
+    | ----------- | --------- |
+    | administrator | true |
+
+    > [!NOTE]
+    > Para ver las instrucciones sobre cómo agregar una notificación, consulte el [vínculo](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 

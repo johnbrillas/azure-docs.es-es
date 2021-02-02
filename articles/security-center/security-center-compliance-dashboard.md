@@ -11,18 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/28/2021
 ms.author: memildin
-ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f8d92ff0835948637761d7d2a98ec95a1c6dfccd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533917"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944232"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 
-Azure Security Center resulta de gran ayuda para simplificar el proceso necesario para cumplir los requisitos de cumplimiento normativo, para lo que se usa el **panel de cumplimiento normativo.** . En el panel, Security Center proporciona información detallada acerca de su estado de cumplimiento de la norma, gracias a la valoración continua de su entorno de Azure. Security Center analiza los factores de riesgo en su entorno de nube híbrida según los procedimientos recomendados de seguridad. Estas valoraciones se asignan a los controles de cumplimiento desde un conjunto de estándares compatible. En el panel de cumplimiento normativo se ve el estado de todas estas valoraciones dentro de su entorno en el contexto de una norma o reglamento concretos. Al actuar sobre las recomendaciones y reducir los factores de riesgo en su entorno, su estado de cumplimiento normativo mejora.
+Azure Security Center resulta de gran ayuda para simplificar el proceso necesario para cumplir los requisitos de cumplimiento normativo, para lo que se usa el **panel de cumplimiento normativo.** . 
+
+Security Center lleva a cabo evaluaciones continuas del entorno de nube híbrida para analizar los factores de riesgo en función de controles y procedimientos recomendados incluidos en los estándares aplicables a sus suscripciones. El panel refleja el estado de cumplimiento con respecto a estos estándares. 
+
+Al habilitar Security Center en una suscripción de Azure, se le asigna automáticamente el estándar [Azure Security Benchmark](../security/benchmarks/introduction.md). Este punto de referencia ampliamente respetado está basado en los controles del [Centro de seguridad de Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) y del [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) y hace hincapié en la seguridad centrada en la nube.
+
+En el panel de cumplimiento normativo se ve el estado de todas estas valoraciones dentro de su entorno en el contexto de una norma o reglamento concretos. Al actuar sobre las recomendaciones y reducir los factores de riesgo en su entorno, su estado de cumplimiento normativo mejora.
 
 En este tutorial, aprenderá a:
 
@@ -41,17 +47,13 @@ Para recorrer las características descritas en este tutorial:
 
 ##  <a name="assess-your-regulatory-compliance"></a>Mejora del cumplimiento de reglamentaciones
 
-Security Center evalúa constantemente la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. Estas valoraciones se presentan como recomendaciones, que se centran en mejorar su higiene de seguridad. En el panel de cumplimiento normativo verá un conjunto de normas de cumplimiento con todos sus requisitos en el que los compatibles se asignan a las valoraciones de seguridad aplicables. Esto le permite ver su estado de cumplimiento de la norma, en función del estado de estas valoraciones.
+El panel de cumplimiento normativo muestra los estándares normativos seleccionados, con todos sus requisitos. Los requisitos compatibles se asignarán a las evaluaciones de seguridad correspondientes. El estado de estas evaluaciones refleja el estado de cumplimiento con respecto a los estándares.
 
-La vista del panel de cumplimiento de reglamentaciones puede ayudarle a centrar la atención en los espacios que hay en el cumplimiento de un estándar o reglamentación que es importante para usted. También le permite supervisar continuamente su puntuación de cumplimiento a lo largo del tiempo en entornos híbrido y de nube dinámicos.
+Use el panel de cumplimiento normativo para centrar la atención en las deficiencias relativas al cumplimiento de los estándares y las normativas que le conciernen. Esta vista focalizada también le permite supervisar continuamente su puntuación de cumplimiento a lo largo del tiempo para entornos híbrido y de nube dinámicos.
 
->[!NOTE]
-> De forma predeterminada, Security Center admite los siguientes estándares: Azure CIS, PCI DSS 3.2, ISO 27001 y SOC TSP. 
->
-> La característica de [paquetes de cumplimiento dinámicos (versión preliminar)](update-regulatory-compliance-packages.md) permite actualizar los estándares que se muestran en el panel de cumplimiento normativo a los nuevos paquetes *dinámicos*. También puede usar la misma característica en vista previa para agregar nuevos paquetes de cumplimiento y supervisar el cumplimiento de estándares adicionales. 
+1. En el menú de Security Center, seleccione **Cumplimiento normativo**.
 
-1. En el menú de Security Center, seleccione **Cumplimiento normativo**. <br>
-En la parte superior de la pantalla se ve un panel con información general acerca del estado de cumplimiento con el conjunto de reglamentaciones de cumplimiento admitidas. Puede ver la puntuación global de cumplimiento y el número de valoraciones aprobadas y suspendidas asociadas a cada estándar.
+    En la parte superior de la pantalla hay un panel con información general sobre su estado de cumplimiento con respecto a las normativas compatibles. Puede ver la puntuación global de cumplimiento y el número de valoraciones aprobadas y suspendidas asociadas a cada estándar.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Panel de cumplimiento normativo":::
 
@@ -59,7 +61,7 @@ En la parte superior de la pantalla se ve un panel con información general acer
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploración de los detalles de cumplimiento con una norma específica":::
 
-1. Para generar y descargar un informe en PDF que resuma su estado actual de cumplimiento de un estándar concreto, haga clic en **Download report** (Descargar informe).
+1. Para generar un informe PDF con un resumen de su estado de cumplimiento actual en relación con un estándar concreto, seleccione **Descargar informe**.
 
     El informe proporciona un resumen de alto nivel del estado de cumplimiento del estándar seleccionado, para lo que usa los datos de las evaluaciones de Security Center, y se organiza según los controles de dicho estándar concreto. El informe se puede compartir con las partes interesadas competentes y puede proporcionar evidencia a los auditores internos y externos.
 
@@ -71,7 +73,7 @@ Con toda la información del panel de cumplimiento normativo puede mejorar su si
 
 1.  Haga clic en cualquiera de las valoraciones suspensas que aparecen en el panel para ver los detalles de dicha recomendación. Cada recomendación incluye un conjunto de pasos de corrección que se deben seguir si se desea resolver el problema.
 
-1.  Puede seleccionar un recurso concreto para ver más detalles y resolver la recomendación del mismo. <br>Por ejemplo, en **Azure CIS 1.1.0 (New) standard** (Norma de Azure CIS 1.1.0 [Nueva]), puede seleccionar la recomendación **El cifrado de disco se debe aplicar en las máquinas virtuales**.
+1.  Puede seleccionar un recurso concreto para ver más detalles y resolver la recomendación del mismo. <br>Por ejemplo, para el estándar **Azure CIS 1.1.0**, puede seleccionar la recomendación **El cifrado de disco se debe aplicar en las máquinas virtuales**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Al seleccionar una recomendación de una norma se va directamente a la página de detalles de la recomendación.":::
 

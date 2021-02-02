@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: caf919f8a5b6ac9a979ade256918138e4c846b68
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049701"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807912"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Box
 
@@ -92,6 +92,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
+1. La aplicación Box espera las aserciones de SAML en un formato específico, por lo que es necesario agregar asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla le muestra un ejemplo de esto. El valor predeterminado de **Identificador de usuario único** es **user.userprincipalname**, pero Box espera que este valor se asigne a la dirección de correo electrónico del usuario. Para ello, puede usar el atributo **user.mail** de la lista o usar el valor de atributo correspondiente en función de la configuración de su organización.
+
+    ![imagen](common/default-attributes.png)
+
+
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
@@ -152,7 +157,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Box e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Box en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Box en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411208"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919078"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario mediante Azure Virtual WAN
 
@@ -24,6 +24,7 @@ En este tutorial, aprenderá a:
 > * Crear una instancia de Virtual WAN
 > * Creación de una configuración de P2S
 > * Crear un centro virtual
+> * Elegir grupos de direcciones de clientes
 > * Especificación de los servidores DNS
 > * Generar un paquete de configuración de cliente VPN
 > * Configuración de clientes VPN
@@ -49,6 +50,11 @@ Una configuración de punto a sitio (P2S) define los parámetros para conectar c
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Elegir grupos de direcciones de cliente de P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Especificación del servidor DNS
 
 Este valor se puede configurar al crear el centro, o bien se puede modificar posteriormente. Para modificarlo, busque el centro de virtual. En **VPN de usuario (punto a sitio)** , seleccione **Configurar** y escriba las direcciones IP del servidor de DNS en los cuadros de texto **Servidores DNS personalizados**. Puede especificar un máximo de cinco servidores DNS.
@@ -73,6 +79,8 @@ Una vez que haya terminado de configurar el cliente, puede conectarse.
 1. Vaya a la instancia de Virtual WAN.
 1. En la página **Información general**, cada punto del mapa representa un centro de conectividad.
 1. En la sección de **centros de conectividad y conexiones**, puede ver estado del centro de conectividad, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpieza de recursos
 
