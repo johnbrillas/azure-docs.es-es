@@ -1,20 +1,24 @@
 ---
-title: Escalar automáticamente un servicio en la nube en el portal | Microsoft Docs
+title: Escalado automático de un servicio en la nube (clásico) en el portal | Microsoft Docs
 description: Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165492"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743362"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Obtenga información sobre cómo configurar el escalado automático para un servicio en la nube (clásico) en el portal.
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 Las condiciones se pueden definir para un rol de trabajo de servicio en la nube que desencadene una operación de reducción horizontal y de escalabilidad horizontal. Las condiciones del rol pueden basarse en la CPU, el disco o la carga de red del rol. También puede establecer una condición basada en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
@@ -34,14 +38,14 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 
 * Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
-* El escalado automático solo se produce cuando todos los roles están en estado **Listo** .  
+* El escalado automático solo se produce cuando todos los roles están en estado **Listo**.  
 
 
 ## <a name="where-scale-is-located"></a>Ubicación de la escala
 Después de seleccionar el servicio en la nube, debe tener visible la hoja del servicio en la nube.
 
 1. En la hoja del servicio en la nube, seleccione el nombre del servicio en la nube en el icono de **Roles e instancias** .   
-   **IMPORTANTE** : No se olvide de hacer clic en el rol del servicio en la nube, no en la instancia de rol que está debajo de dicho rol.
+   **IMPORTANTE**: No se olvide de hacer clic en el rol del servicio en la nube, no en la instancia de rol que está debajo de dicho rol.
 
     ![Captura de pantalla del icono Roles e instancias con la opción Worker Role With S B Queue 1 enmarcada en rojo.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Seleccione el icono de **escala** .
@@ -49,17 +53,17 @@ Después de seleccionar el servicio en la nube, debe tener visible la hoja del s
     ![Captura de pantalla de la página Operaciones con el mosaico Venta enmarcado en rojo.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Escala automática
-Puede configurar la configuración de escala de un rol con estos dos modos: **Manual** o **Automático** . Con el modo Manual, como cabe de esperar, establece el número absoluto de instancias. Sin embargo, con Automático, se pueden establecer reglas que rijan cómo se debe realizar la operación de escala y en qué medida.
+Puede configurar la configuración de escala de un rol con estos dos modos: **Manual** o **Automático**. Con el modo Manual, como cabe de esperar, establece el número absoluto de instancias. Sin embargo, con Automático, se pueden establecer reglas que rijan cómo se debe realizar la operación de escala y en qué medida.
 
-Establezca la opción **Escalar por** para **programar las reglas de rendimiento y programación** .
+Establezca la opción **Escalar por** para **programar las reglas de rendimiento y programación**.
 
-![Captura de pantalla que muestra la opción de reglas de regla de rendimiento y programación.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Imagen de la configuración de escala de Cloud Services con el perfil y la regla](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Un perfil existente.
 2. Agregue una regla para el perfil principal.
 3. Agregue otro perfil.
 
-Seleccione **Agregar perfil** . El perfil determina qué modo va a utilizar para realizar la operación de escala: **siempre** , **periodicidad** y **fecha fija** .
+Seleccione **Agregar perfil**. El perfil determina qué modo va a utilizar para realizar la operación de escala: **siempre**, **periodicidad** y **fecha fija**.
 
 Después de haber configurado el perfil y ñas reglas, seleccione el icono de **Guardar** situado en la parte superior.
 
@@ -94,7 +98,7 @@ El desencadenador de reglas se basa en una métrica del servicio en la nube (uso
 Después de haber configurado la regla, seleccione el botón **Aceptar** situado en la parte inferior de la hoja de la regla.
 
 ## <a name="back-to-manual-scale"></a>Regreso al paso de escala manual
-Vaya a la [configuración de escala](#where-scale-is-located) y establezca el valor de la opción **Escalar por** en **un recuento de instancias que especifique manualmente** .
+Vaya a la [configuración de escala](#where-scale-is-located) y establezca el valor de la opción **Escalar por** en **un recuento de instancias que especifique manualmente**.
 
 ![Configuración de escala de servicios en la nube con el perfil y la regla](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 

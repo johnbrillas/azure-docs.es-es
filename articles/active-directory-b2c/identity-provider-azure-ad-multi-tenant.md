@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 764a60ada2484a58382cc1b9539686fa72ee1203
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858474"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674357"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97858474"
 
 ::: zone pivot="b2c-custom-policy"
 
-En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión multiinquilino de Azure Active Directory (Azure AD). Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor técnico para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](identity-provider-azure-ad-single-tenant.md).
+En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión multiinquilino de Azure Active Directory (Azure AD). Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor de identidades para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](identity-provider-azure-ad-single-tenant.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,8 @@ En este artículo se muestra cómo habilitar el inicio de sesión de los usuario
 
 ## <a name="register-an-application"></a>Registro de una aplicación
 
-Para habilitar el inicio de sesión para los usuarios de una organización específica de Azure AD, es preciso registrar una aplicación en el inquilino de Azure AD de la organización.
+Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure AD en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Azure Portal](https://portal.azure.com). Para más información, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
+
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD de la organización (por ejemplo, contoso.com). Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción.
@@ -87,9 +88,9 @@ Debe almacenar la clave de la aplicación que creó en el inquilino de Azure AD 
 1. En **Uso de claves**, seleccione `Signature`.
 1. Seleccione **Crear**.
 
-## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
+## <a name="configure-azure-ad-as-an-identity-provider"></a>Configuración de Azure AD como proveedor de identidades
 
-Si quiere que los usuarios inicien sesión con Azure AD, deberá definir Azure AD como proveedor de notificaciones con el que Azure AD B2C se comunique mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
+Para permitir que los usuarios inicien sesión con una cuenta de Azure AD, deberá definir Azure AD como proveedor de notificaciones con el que Azure AD B2C pueda comunicarse a través de un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Para definir Azure AD como proveedor de notificaciones, agregue el elemento **ClaimsProvider** al archivo de extensión de la directiva.
 
@@ -102,7 +103,7 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
       <Domain>commonaad</Domain>
       <DisplayName>Common AAD</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Common-AAD">
+        <TechnicalProfile Id="AADCommon-OpenIdConnect">
           <DisplayName>Multi-Tenant AAD</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
@@ -152,10 +153,7 @@ Para definir Azure AD como proveedor de notificaciones, agregue el elemento **Cl
 
 ### <a name="restrict-access"></a>Restricción del acceso
 
-> [!NOTE]
-> Al usar `https://login.microsoftonline.com/` como valor para **ValidTokenIssuerPrefixes**, se permite a todos los usuarios de Azure AD iniciar sesión en la aplicación.
-
-Tiene que actualizar la lista de emisores de tokens válidos y restringir el acceso a la lista específica de usuarios inquilinos de Azure AD que pueden iniciar sesión.
+Al usar `https://login.microsoftonline.com/` como valor para **ValidTokenIssuerPrefixes**, se permite a todos los usuarios de Azure AD iniciar sesión en la aplicación. Actualice la lista de emisores de tokens válidos y restrinja el acceso a la lista específica de usuarios inquilinos de Azure AD que pueden iniciar sesión.
 
 Para obtener los valores, examine los metadatos de descubrimiento de OpenID Connect de cada uno de los inquilinos específicos de Azure AD desde los que le gustaría que los usuarios iniciaran sesión. El formato de la dirección URL de metadatos es similar a `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, donde `your-tenant` es el nombre del inquilino de Azure AD. Por ejemplo:
 
@@ -166,67 +164,29 @@ Siga estos pasos para cada inquilino de Azure AD que se deba usar para iniciar 
 1. Abra el explorador y vaya a la dirección URL de metadatos de OpenID Connect para el inquilino. Busque el objeto **issuer** y anote su valor. Debe tener un aspecto similar a `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
 1. Copie y pegue el valor en la clave **ValidTokenIssuerPrefixes**. Separe varios emisores con una coma. Un ejemplo con dos emisores aparece en el ejemplo de código XML `ClaimsProvider` anterior.
 
-### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su directorio de Azure AD. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
-1. En la página **Directivas personalizadas** del inquilino de Azure AD B2C, seleccione **Cargar directiva**.
-2. Habilite **Sobrescribir la directiva, si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
-3. Seleccione **Cargar**.
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADCommonExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADCommonExchange" TechnicalProfileReferenceId="AADCommon-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-El proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro/inicio de sesión. Para que esté disponible, debe crear un duplicado de un recorrido del usuario de plantilla existente que modificaremos a continuación para que también tenga el proveedor de identidades de Azure AD.
+[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
-2. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
-3. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
-4. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
-5. Cambie el identificador del recorrido del usuario. Por ejemplo, `SignUpSignInContoso`.
-
-### <a name="display-the-button"></a>Visualización del botón
-
-El elemento **ClaimsProviderSelection** es análogo a un botón del proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** a Azure AD, se muestra un nuevo botón cuando un usuario llega a la página.
-
-1. Busque el elemento **OrchestrationStep** que incluya `Order="1"` en el recorrido del usuario que creó en *TrustFrameworkExtensions.xml*.
-1. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `AzureADExchange`:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
-
-Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con Azure AD para recibir un token. Para vincular un botón a una acción, vincule el perfil técnico del proveedor de notificaciones de Azure AD.
-
-1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
-2. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el elemento **Id** que el que usó en **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
-    ```
-
-    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `Common-AAD`.
-
-3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
-
-## <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
-
-Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado:
-
-1. Realice una copia del archivo *SignUpOrSignIn.xml* en el directorio de trabajo y cámbiele el nombre. Por ejemplo, cámbiele el nombre a *SignUpSignContoso.xml*.
-1. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Por ejemplo, `SignUpSignInContoso`.
-1. Actualice el valor de **PublicPolicyUri** con el URI para la directiva. Por ejemplo, `http://contoso.com/B2C_1A_signup_signin_contoso`.
-1. Actualice el valor del atributo **ReferenceId** en **DefaultUserJourney** para que coincida con el identificador del recorrido del usuario que creó anteriormente. Por ejemplo, *SignUpSignInContoso*.
-1. Guarde los cambios y cargue el archivo.
-1. En las **directivas personalizadas** cargadas, seleccione la directiva recién creada de la lista.
-1. En el menú desplegable **Seleccionar aplicación**, seleccione la aplicación de Azure AD B2C que creó anteriormente. Por ejemplo, *testapp1*.
-1. Copie el valor de **Ejecutar punto de conexión ahora** y ábralo en una ventana privada del explorador web, por ejemplo, en modo incógnito en Google Chrome o en una ventana de InPrivate en Microsoft Edge. De esta forma, podrá probar el recorrido completo del usuario sin usar ninguna credencial de Azure AD actualmente almacenada en caché.
-1. Seleccione el botón de inicio de sesión de Azure AD, por ejemplo *Empleado de Contoso* y, luego, escriba las credenciales de un usuario en uno de sus inquilinos de la organización de Azure AD. Se le pedirá que autorice la aplicación y que luego escriba la información de su perfil.
-
-Si el proceso de inicio de sesión se realiza correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
-
-Para probar la funcionalidad de inicio de sesión de varios inquilinos, realice los dos últimos pasos con las credenciales de un usuario que exista en otro inquilino de Azure AD.
+Para probar la funcionalidad de inicio de sesión de varios inquilinos, realice los dos últimos pasos con las credenciales de un usuario que exista en otro inquilino de Azure AD. Copie el valor de **Ejecutar punto de conexión ahora** y ábralo en una ventana privada del explorador web, por ejemplo, en modo incógnito en Google Chrome o en una ventana de InPrivate en Microsoft Edge. De esta forma, podrá probar el recorrido completo del usuario sin usar ninguna credencial de Azure AD actualmente almacenada en caché.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

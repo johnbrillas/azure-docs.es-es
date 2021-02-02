@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504396"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762248"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementación del inicio de sesión único de conexión directa
 
 El inicio de sesión único de conexión directa (SSO de conexión directa) de Azure Active Directory (Azure AD) permite iniciar sesión automáticamente a los usuarios en equipos de escritorio corporativos conectados a la red de la empresa. El inicio de sesión único de conexión directa proporciona a los usuarios un acceso sencillo a las aplicaciones en la nube sin necesidad de otros componentes locales.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 Para implementar SSO de conexión directa, siga estos pasos.
 
@@ -40,7 +37,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 * **Configuración del servidor de Azure AD Connect**: si usa la [autenticación de paso a través](how-to-connect-pta.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](how-to-connect-password-hash-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
    - Usa Azure AD Connect 1.1.644.0 o cualquier versión posterior. 
-   - Si el firewall o el proxy lo permiten, agregue las conexiones a la lista de permitidos para las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
+   - Si el firewall o el proxy lo permiten, agregue las conexiones a la lista de permitidos para las direcciones URL **\*.msappproxy.net** en el puerto 443. Si necesita una dirección URL específica en lugar de un carácter comodín para la configuración del proxy, puede configurar **tenantid.registration.msappproxy.net**, donde tenantid es el GUID del inquilino en el que está configurando la característica. Si las excepciones de proxy basadas en direcciones URL no son posibles en la organización, puede permitir el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan semanalmente. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](./reference-connect-version-history.md) para más información.

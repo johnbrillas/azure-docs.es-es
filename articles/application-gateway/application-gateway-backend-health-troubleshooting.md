@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934907"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746111"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -21,9 +21,6 @@ ms.locfileid: "97934907"
 --------
 
 De forma predeterminada, Application Gateway sondea los servidores back-end para comprobar su estado de mantenimiento y si están listos para atender solicitudes. Los usuarios pueden crear también sondeos personalizados para mencionar el nombre de host, la ruta de acceso que se va a sondear y los códigos de estado que se van a aceptar como correctos. En cada caso, si el servidor back-end no responde correctamente, Application Gateway lo marca como incorrecto y deja de reenviarle solicitudes. Una vez que el servidor comienza a responder correctamente, Application Gateway reanuda el reenvío de las solicitudes.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ### <a name="how-to-check-backend-health"></a>Comprobación del estado del servidor back-end
 
@@ -245,7 +242,7 @@ Para más información sobre cómo extraer y cargar certificados raíz de confia
 
 #### <a name="trusted-root-certificate-mismatch"></a>Error de coincidencia de certificado raíz de confianza
 
-**Mensaje**: The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend (El certificado raíz del certificado de servidor utilizado por el back-end no coincide con el certificado raíz de confianza que se ha agregado a Application Gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end).
+**Mensaje**: The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Asegúrese de agregar el certificado raíz correcto para incluir en la lista de elementos permitidos en el back-end.
 
 **Causa:** SSL de un extremo a otro con Application Gateway v2 requiere que se compruebe el certificado del servidor back-end para que el estado del servidor se considere correcto.
 Para que un certificado TLS o SSL sea de confianza, el certificado del servidor back-end debe haberlo emitido una entidad de certificación incluida en el almacén de confianza de Application Gateway. Si el certificado no lo ha emitido una entidad de certificación de confianza (por ejemplo, se usó un certificado autofirmado), los usuarios deben cargar el certificado del emisor en Application Gateway.

@@ -4,16 +4,16 @@ description: Aprenda a crear un clúster privado de Red Hat OpenShift en Azure e
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: georgewallace
-ms.author: gwallace
+author: sakthi-vetrivel
+ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928066"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740931"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 
@@ -23,7 +23,7 @@ En este artículo, preparará su entorno para crear clústeres privados de Red H
 > * Configurar los requisitos previos y crear la red virtual y las subredes necesarias.
 > * Implementar un clúster con un punto de conexión de servidor de API privado y un controlador de entrada privado.
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -192,7 +192,7 @@ az aro create \
 Después de ejecutar el comando `az aro create`, se tarda aproximadamente 35 minutos en crear un clúster.
 
 >[!IMPORTANT]
-> Si elige especificar un dominio personalizado, por ejemplo **foo.example.com** , la consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.foo.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Si elige especificar un dominio personalizado, por ejemplo **foo.example.com**, la consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.foo.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > De forma predeterminada, OpenShift usa certificados autofirmados para todas las rutas creadas en `*.apps.<random>.<location>.aroapp.io`.  Si elige Custom DNS (DNS personalizado), después de conectarse al clúster, tendrá que seguir la documentación de OpenShift para [configurar una entidad de certificación personalizada para el controlador de entrada ](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) y [una entidad de certificación personalizada para el servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -235,7 +235,7 @@ Inicie la dirección URL de la consola en un explorador e inicie sesión con las
 
 Cuando haya iniciado sesión en la consola web de OpenShift, haga clic en el signo **?** en la parte superior derecha y, luego, en **Command Line Tools** (Herramientas de línea de comandos). Descargue la versión adecuada para su máquina.
 
-![Pantalla de inicio de sesión de Red Hat OpenShift en Azure](media/aro4-download-cli.png)
+![Imagen que muestra la pantalla de inicio de sesión de Red Hat OpenShift en Azure](media/aro4-download-cli.png)
 
 También puede descargar la versión más reciente de la CLI adecuada en su máquina desde <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

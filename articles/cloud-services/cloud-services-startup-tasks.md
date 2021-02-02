@@ -1,20 +1,25 @@
 ---
-title: Ejecución de tareas de inicio en Azure Cloud Services | Microsoft Docs
+title: Ejecución de tareas de inicio en Azure Cloud Services (clásico) | Microsoft Docs
 description: Las tareas de inicio ayudan a preparar el entorno de servicio en la nube para su aplicación. Esto le enseñará cómo funcionan las tareas de inicio y cómo realizarlas
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 25190075bdd13bd4b75dd82c97ee06ee60f4c26c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020711"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743192"
 ---
-# <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Configuración y ejecución de tareas de inicio para un servicio en la nube
+# <a name="how-to-configure-and-run-startup-tasks-for-an-azure-cloud-service-classic"></a>Configuración y ejecución de tareas de inicio en un servicio en la nube de Azure (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo.
 
 > [!NOTE]
@@ -39,8 +44,8 @@ A continuación se enumera el procedimiento de inicio de rol en Azure:
 1. La instancia se marca como **Starting** y no recibe tráfico.
 2. Todas las tareas de inicio se ejecutan de acuerdo con su atributo **taskType** .
    
-   * Las tareas con el valor **simple** se ejecutan sincrónicamente, una a una.
-   * Las tareas con los valores **background** y **foreground** se inician de forma asincrónica, paralelas a la tarea de inicio.  
+   * Las tareas **sencillas** se ejecutan sincrónicamente, de una en una.
+   * Las tareas en **segundo plano** y en **primer plano** se inician de forma asincrónica, paralelas a la tarea de inicio.  
      
      > [!WARNING]
      > Puede que IIS no se haya configurado por completo durante la fase de la tarea de inicio en el proceso de inicio, por lo que los datos específicos de rol pueden no estar disponibles. Las tareas de inicio que requieren datos específicos de la role tienen que usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
@@ -93,7 +98,7 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
 **executionContext** - especifica el nivel de privilegio de la tarea de inicio. El nivel de privilegio puede tener los valores limited o elevated:
 
 * **limited**  
-  la tarea de inicio se ejecuta con los mismos privilegios que el rol. Cuando el atributo **executionContext** para el elemento [Tiempo de ejecución] también tiene el valor **limited**, se usan los privilegios de usuario.
+  la tarea de inicio se ejecuta con los mismos privilegios que el rol. Cuando el atributo **executionContext** para el elemento [Runtime] también tiene el valor **limited**, se usan los privilegios de usuario.
 * **elevated**  
   la tarea de inicio se ejecuta con privilegios de administrador. Esto permite a las tareas de inicio instalar programas, realizar cambios en la configuración de IIS, realizar cambios en el registro y otras tareas de nivel de administrador, sin aumentar el nivel de privilegio del propio rol.  
 
@@ -121,7 +126,7 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
 ## <a name="environment-variables"></a>Variables de entorno
 Las variables de entorno son una manera de pasar información a una tarea de inicio. Por ejemplo, puede colocar la ruta de acceso a un blob que contiene un programa para instalar, o los números de puerto que usará el rol o las configuraciones que controlan las funciones de la tarea de inicio.
 
-Hay dos tipos de variables de entorno para las tareas de inicio; variables de entorno estáticas y variables de entorno basadas en los miembros de la clase [RoleEnvironment] . Ambos tipos se encuentran en las sección [Entorno] del archivo [ServiceDefinition.csdef] y usan el elemento [Variable] y el atributo **name**.
+Hay dos tipos de variables de entorno para las tareas de inicio; variables de entorno estáticas y variables de entorno basadas en los miembros de la clase [RoleEnvironment] . Ambos tipos se encuentran en las sección [Environment] del archivo [ServiceDefinition.csdef] y usan el elemento [Variable] y el atributo **name**.
 
 Las variables de entorno estáticas usan el atributo **value** del elemento [Variable] . El ejemplo anterior crea la variable de entorno **MyVersionNumber** que tiene un valor estático de "**1.0.0.0**". Otro ejemplo sería crear una variable de entorno **StagingOrProduction** para la que pueda establecer manualmente los valores de "**staging**" o "**production**" para realizar acciones de inicio diferentes en función del valor de la variable de entorno **StagingOrProduction**.
 

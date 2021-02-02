@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95483920"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757126"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -94,18 +94,18 @@ Una función también puede simplificar una unión de uso frecuente. Por ejemplo
 
 Después, puede escribir una consulta en ambas áreas de trabajo empezando por `unionSecurityEvent | where ...`.
 
-#### <a name="scheduled-alerts"></a>Alertas programadas
+#### <a name="cross-workspace-analytics-rules"></a>Reglas de análisis entre áreas de trabajo<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+Las consultas entre áreas de trabajo ahora se pueden incluir en las reglas de análisis programadas, en función de las limitaciones siguientes:
 
-Las consultas entre áreas de trabajo ahora se pueden incluir en las alertas programadas en las reglas de análisis, en función de las limitaciones siguientes:
-
-- Se pueden incluir hasta 10 áreas de trabajo en una sola consulta.
+- Se pueden incluir hasta 15 áreas de trabajo en una sola consulta.
 - Azure Sentinel debe implementarse en todas las áreas de trabajo a las que se hace referencia en la consulta.
 
 > [!NOTE] 
 > La consulta de varias áreas de trabajo en la misma consulta puede afectar al rendimiento y, por lo tanto, solo se recomienda cuando la lógica requiere esta funcionalidad.
 
-### <a name="using-cross-workspace-workbooks"></a>Uso de libros entre áreas de trabajo
-
+#### <a name="cross-workspace-workbooks"></a>Uso de libros entre áreas de trabajo<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 Los [libros](./overview.md#workbooks) proporcionan paneles y aplicaciones a Azure Sentinel. Cuando se trabaja con varias áreas de trabajo, proporcionan supervisión y acciones en áreas de trabajo.
 
 Los libros pueden proporcionar consultas entre áreas de trabajo en uno de los tres métodos, cada uno de los cuales se adapta a distintos niveles de experiencia del usuario final:
@@ -117,7 +117,7 @@ Los libros pueden proporcionar consultas entre áreas de trabajo en uno de los t
 | Edición del libro de forma interactiva | Un usuario avanzado que modifica un libro existente puede editar las consultas que hay en él y seleccionar las áreas de trabajo de destino mediante el selector de área de trabajo en el editor. | Esta opción permite a un usuario avanzado modificar fácilmente los libros existentes para trabajar con varias áreas de trabajo. |
 |
 
-### <a name="cross-workspace-hunting"></a>Búsqueda entre áreas de trabajo
+#### <a name="cross-workspace-hunting"></a>Búsqueda entre áreas de trabajo
 
 Azure Sentinel proporciona ejemplos precargados de consultas diseñadas para que pueda empezar a trabajar y a familiarizarse con las tablas y el lenguaje de consulta. Estas consultas de búsqueda integradas están desarrolladas por investigadores de seguridad de Microsoft, y lo hacen de forma continua, agregando nuevas consultas y ajustando las consultas existentes para que sean un punto de entrada para buscar nuevas detecciones e identificar signos de intrusión que pueden haber pasado inadvertidos por las herramientas de seguridad.  
 

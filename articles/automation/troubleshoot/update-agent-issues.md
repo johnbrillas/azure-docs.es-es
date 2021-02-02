@@ -4,17 +4,17 @@ description: En este artículo se describe cómo solucionar y resolver problemas
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187139"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762124"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Solución de problemas del agente de actualización de Windows
 
@@ -27,10 +27,10 @@ Puede haber muchas razones por las que el equipo no se muestra como Listo (corre
 > [!NOTE]
 > Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de una máquina.
 
-En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline). 
+En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
 
 > [!NOTE]
-> El script del solucionador de problemas incluye ahora comprobaciones de Windows Server Update Services (WSUS) y de las claves de descarga automática e instalación. 
+> El script del solucionador de problemas incluye ahora comprobaciones de Windows Server Update Services (WSUS) y de las claves de descarga automática e instalación.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
@@ -110,7 +110,7 @@ La comprobación del acceso a la carpeta Crypto determina si la cuenta del siste
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solución de problemas sin conexión
 
-Puede usar el solucionador de problemas en una instancia sin conexión de Hybrid Runbook Worker si ejecuta el script de forma local. Obtenga el script siguiente de la Galería de PowerShell: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para ejecutar el script, debe tener WMF 4.0 o superior instalado. Para descargar la versión más reciente de PowerShell, consulte [Instalación de varias versiones de PowerShell](/powershell/scripting/install/installing-powershell).
+Puede usar el solucionador de problemas en una instancia sin conexión de Hybrid Runbook Worker si ejecuta el script de forma local. Obtenga el siguiente script de GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Para ejecutar el script, debe tener WMF 4.0 o superior instalado. Para descargar la versión más reciente de PowerShell, consulte [Instalación de varias versiones de PowerShell](/powershell/scripting/install/installing-powershell).
 
 El resultado de este script tendrá un aspecto similar al del siguiente ejemplo:
 

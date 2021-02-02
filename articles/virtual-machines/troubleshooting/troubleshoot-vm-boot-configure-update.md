@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079849"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633017"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>El inicio de la máquina virtual está detenido en "Preparando Windows. No apague el equipo"en Azure
 
@@ -39,6 +39,9 @@ No se inicia una máquina virtual Windows. Cuando use **Diagnósticos de arranqu
 Normalmente, este problema se produce cuando el servidor está realizando el último reinicio después de que la configuración ha cambiado. El cambio en la configuración se puede inicializar mediante actualizaciones de Windows o cambios en los roles o las características del servidor. En el caso de Windows Update, si el tamaño de las actualizaciones es grande, el sistema operativo necesitará más tiempo para reconfigurar los cambios.
 
 ## <a name="collect-an-os-memory-dump"></a>Recopilación de un volcado de memoria del sistema operativo
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Si el problema no se soluciona después de esperar a que se hayan procesado los cambios, deberá recopilar un archivo de volcado de memoria y ponerse en contacto con el soporte técnico. Para recopilar el archivo de volcado de memoria, siga estos pasos:
 

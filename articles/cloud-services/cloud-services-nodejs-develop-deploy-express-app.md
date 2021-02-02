@@ -1,24 +1,24 @@
 ---
-title: Compilación e implementación de una aplicación Node.js Express en Azure Cloud Services
-titleSuffix: Azure Cloud Services
+title: Compilación e implementación de una aplicación Node.js Express en Azure Cloud Services (clásico)
 description: Use este tutorial para crear una nueva aplicación mediante el módulo Express, que proporciona un marco MVC para la creación de aplicaciones web Node.js.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071870"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743345"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilación e implementación de una aplicación web Node.js mediante Express en un servicio de Azure Cloud Services
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Compilación e implementación de una aplicación web Node.js mediante Express en un servicio de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 Node.js incluye un conjunto mínimo de funcionalidad en el tiempo de ejecución del núcleo.
 Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express](https://github.com/expressjs/express), que proporciona un marco MVC para la creación de aplicaciones web Node.js.

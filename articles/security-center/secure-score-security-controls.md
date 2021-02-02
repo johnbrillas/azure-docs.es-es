@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916378"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752197"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Puntuación de seguridad de Azure Security Center
 
@@ -54,7 +54,7 @@ Encontrará la puntuación de seguridad general, así como la puntuación por su
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtención de la puntuación de seguridad desde el portal
 
-Security Center muestra la puntuación de forma destacada en el portal: es el primer icono principal de la página de información general de Security Center. Al seleccionar este icono, irá a la página dedicada de puntuación de seguridad, donde verá la puntuación dividida por suscripciones. Seleccione una suscripción única para ver la lista detallada de las recomendaciones prioritarias y del posible impacto que su corrección tendrá en la puntuación de la suscripción.
+Security Center muestra la puntuación de forma destacada en el portal: es el primer icono principal de la página de información general de Security Center. Al seleccionar este icono, irá a la página dedicada de puntuación de seguridad, donde verá la puntuación dividida por suscripciones. Seleccione una suscripción única para ver la lista detallada de las recomendaciones prioritarias y del posible impacto que su corrección tendrá en la puntuación de la suscripción. 
 
 En resumen, la puntuación de seguridad se muestra en las siguientes ubicaciones en las páginas del portal de Security Center.
 
@@ -62,9 +62,14 @@ En resumen, la puntuación de seguridad se muestra en las siguientes ubicaciones
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Puntuación de seguridad en el panel de Security Center":::
 
-- En la página dedicada **Puntuación de seguridad**:
+- En la página dedicada **Puntuación de seguridad**, puede ver la puntuación de seguridad de la suscripción y los grupos de administración:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Puntuación de seguridad en la página de puntuación de seguridad de Security Center":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Puntuación de seguridad de las suscripciones en la página de puntuación de seguridad de Security Center":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Puntuación de seguridad de los grupos de administración en la página de puntuación de seguridad de Security Center":::
+
+    > [!NOTE]
+    > Los grupos de administración para los que no tenga permisos suficientes mostrarán su puntuación como "Restringido". 
 
 - En la parte superior de la página **Recomendaciones**:
 
@@ -125,7 +130,7 @@ El panel contiene los dos informes siguientes para ayudarle a analizar el estado
 - **Resumen de los recursos**: proporciona datos resumidos sobre el estado de los recursos.
 - **Resumen de la puntuación de seguridad**: proporciona datos resumidos sobre el progreso de la puntuación. Use el gráfico "Secure score over time per subscription" para ver los cambios en la puntuación. Si observa un cambio drástico en la puntuación, consulte la tabla "detected changes that may affect your secure score" para buscar posibles cambios que puedan haber producido la variación. En esta tabla se presentan recursos eliminados, recursos recién implementados o recursos que su estado de seguridad cambió para una de las recomendaciones.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="El panel de PowerBI de puntuación de seguridad a lo largo del tiempo para realizar un seguimiento de la puntuación de seguridad a lo largo del tiempo e investigar los cambios":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Panel de Power BI de puntuación de seguridad opcional a lo largo del tiempo para realizar un seguimiento de la puntuación de seguridad a lo largo del tiempo e investigar los cambios":::
 
 
 

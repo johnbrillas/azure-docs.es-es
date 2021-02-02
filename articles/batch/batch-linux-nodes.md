@@ -2,14 +2,14 @@
 title: Ejecución de Linux en nodos de proceso de máquinas virtuales
 description: Aprenda a procesar cargas de trabajo de proceso paralelas en grupos de máquinas virtuales Linux en el servicio Azure Batch.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0a9c801a13af05f077b87f296992da7f50742e4b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533504"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683707"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -17,9 +17,7 @@ Puede usar el servicio Azure Batch para ejecutar cargas de trabajo de proceso pa
 
 ## <a name="virtual-machine-configuration"></a>Configuración de máquina virtual
 
-Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: configuración de Cloud Services y configuración de Virtual Machine. La mayoría de los grupos de nodos de proceso de Windows usan la [configuración de Cloud Services](nodes-and-pools.md#cloud-services-configuration), que especifica que el grupo se compone de nodos de Azure Cloud Services. Estos grupos solo proporcionan nodos de proceso de Windows.
-
-En cambio, la [configuración de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) especifica que el grupo se compone de máquinas virtuales de Azure, que se pueden crear a partir de imágenes de Linux o Windows. Al crear un grupo con la configuración de máquina virtual, debe especificar un [tamaño de nodo de proceso disponible](../virtual-machines/sizes.md), la referencia de la imagen de la máquina virtual y la SKU del agente de nodo de Batch (un programa que se ejecuta en cada nodo y que proporciona una interfaz entre el nodo y el servicio batch), además de la referencia de la imagen de la máquina virtual que se instalará en los nodos.
+Cuando crea un grupo de nodos de proceso en el servicio Batch, tiene dos opciones para seleccionar el sistema operativo y el tamaño de nodo: configuración de Cloud Services y configuración de Virtual Machine. Los grupos de [configuración de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) se componen de VM de Azure, que se pueden crear a partir de imágenes de Linux o Windows. Al crear un grupo con la configuración de máquina virtual, especifica un [tamaño de nodo de proceso disponible](../virtual-machines/sizes.md), la referencia de la imagen de la máquina virtual que se va a instalar en los nodos, y la SKU del agente de nodo de Batch (un programa que se ejecuta en cada nodo y que proporciona una interfaz entre el nodo y el servicio Batch).
 
 ### <a name="virtual-machine-image-reference"></a>Referencia de imagen de máquina virtual
 
@@ -35,7 +33,11 @@ Al crear una referencia de la imagen de la máquina virtual, debe especificar la
 | Versión |latest |
 
 > [!TIP]
-> Puede encontrar más información sobre estas propiedades y cómo especificar imágenes de Marketplace en [Búsqueda de imágenes de máquina virtual Linux en Azure Marketplace con la CLI de Azure](../virtual-machines/linux/cli-ps-findimage.md). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Batch.
+> Puede encontrar más información sobre estas propiedades y cómo especificar imágenes de Marketplace en [Búsqueda de imágenes de máquina virtual Linux en Azure Marketplace con la CLI de Azure](../virtual-machines/linux/cli-ps-findimage.md). Tenga en cuenta que algunas imágenes del marketplace actualmente no son compatibles con Batch.
+
+### <a name="list-of-virtual-machine-images"></a>Lista de imágenes de máquinas virtuales
+
+No todas las imágenes de Marketplace son compatibles con los agentes de nodo de Batch disponibles actualmente. Para mostrar todas las imágenes de máquina virtual de Marketplace admitidas en el servicio Batch y sus SKU de agente de nodo correspondientes, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (.NET de Batch) o la API correspondiente del SDK de otro lenguaje.
 
 ### <a name="node-agent-sku"></a>SKU del agente de nodo
 
@@ -44,10 +46,6 @@ El [agente de nodo del servicio Batch](https://github.com/Azure/Batch/blob/maste
 - batch.node.ubuntu 18.04
 - batch.node.centos 7
 - batch.node.windows amd64
-
-### <a name="list-of-virtual-machine-images"></a>Lista de imágenes de máquinas virtuales
-
-No todas las imágenes de Marketplace son compatibles con los agentes de nodo de Batch disponibles actualmente. Para mostrar todas las imágenes de máquina virtual de Marketplace admitidas en el servicio Batch y sus SKU de agente de nodo correspondientes, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (.NET de Batch) o la API correspondiente del SDK de otro lenguaje.
 
 ## <a name="create-a-linux-pool-batch-python"></a>Crear un grupo de Linux: Python de Batch
 

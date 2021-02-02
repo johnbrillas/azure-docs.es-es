@@ -4,18 +4,18 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901300"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674933"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
 Dado que el desarrollo de aplicaciones evoluciona hacia un enfoque basado en contenidos, cobra importancia la necesidad de organizar y administrar los recursos. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
 
-Este artículo presenta los componentes centrales de la infraestructura de Kubernetes, como el *​​plano de control* , *nodos* y *agrupaciones de nodos* . También se presentan los recursos de la carga de trabajo, como los *pods* , las *implementaciones* y los *conjuntos* , junto con información acerca de cómo agrupar los recursos en *espacios de nombres* .
+Este artículo presenta los componentes centrales de la infraestructura de Kubernetes, como el *​​plano de control*, *nodos* y *agrupaciones de nodos*. También se presentan los recursos de la carga de trabajo, como los *pods*, las *implementaciones* y los *conjuntos*, junto con información acerca de cómo agrupar los recursos en *espacios de nombres*.
 
 ## <a name="what-is-kubernetes"></a>¿Qué es Kubernetes?
 
@@ -42,10 +42,10 @@ Cuando crea un clúster AKS, se crea y configura automáticamente un plano de co
 
 El plano de control incluye los siguientes componentes principales de Kubernetes:
 
-- *kube-apiserver* : el servidor de la API es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes.
-- *etcd* : para mantener el estado del clúster de Kubernetes y la configuración, el componente *etcd* de alta disponibilidad es un valor clave en Kubernetes.
-- *kube-scheduler* : al crear o escalar aplicaciones, Scheduler determina qué nodos pueden ejecutar la carga de trabajo y los inicia.
-- *kube-controller-manager* : el administrador de controladores supervisa un número de controladores más pequeños que realizan acciones como la replicación de los pods y el control de las operaciones del nodo.
+- *kube-apiserver*: el servidor de la API es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes.
+- *etcd*: para mantener el estado del clúster de Kubernetes y la configuración, el componente *etcd* de alta disponibilidad es un valor clave en Kubernetes.
+- *kube-scheduler*: al crear o escalar aplicaciones, Scheduler determina qué nodos pueden ejecutar la carga de trabajo y los inicia.
+- *kube-controller-manager*: el administrador de controladores supervisa un número de controladores más pequeños que realizan acciones como la replicación de los pods y el control de las operaciones del nodo.
 
 AKS proporciona un plano de control de inquilino único con un servidor de API dedicado, Scheduler, etc. El usuario define el número de nodos, así como su tamaño, y la plataforma Azure configura la comunicación segura entre el plano de control y los nodos. La interacción con el plano de control se produce a través de las API de Kubernetes, como `kubectl` o el panel de Kubernetes.
 
@@ -78,7 +78,6 @@ Los recursos de nodo se usan en AKS para integrar la función de nodo en el clú
 Para buscar la ejecución de los recursos de un nodo que se pueden asignar:
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los siguientes recursos en cada nodo. A medida que aumentan los recursos de un nodo, la reserva de recursos también crece debido a la mayor cantidad de pods implementados por el usuario que necesitan administración.
@@ -86,22 +85,24 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 >[!NOTE]
 > El uso de complementos AKS como Container Insights (OMS) consumirá recursos de nodo adicionales.
 
-- **CPU** : la CPU reservada depende del tipo de nodo y la configuración del clúster, lo que puede provocar que pueda asignarse menos CPU debido a la ejecución de otras características adicionales.
+Hay reservados dos tipos de recursos:
 
-| Núcleos de CPU en el host | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
+- **CPU**: La CPU reservada depende del tipo de nodo y la configuración del clúster, lo que puede provocar que pueda asignarse menos CPU debido a la ejecución de otras características adicionales.
 
-- **Memoria** : La memoria utilizada por AKS incluye la suma de dos valores.
+   | Núcleos de CPU en el host | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
 
-1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi* , lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Esta acción se desencadena una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
+- **Memoria**: La memoria utilizada por AKS incluye la suma de dos valores.
 
-2. El segundo valor es una tasa de regresión de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
-    - 25 % de los primeros 4 GB de memoria
-    - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
-    - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
-    - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
-    - 2 % de cualquier memoria que esté por encima de 128 GB
+   1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi*, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Esta acción se desencadena una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
+
+   2. El segundo valor es una tasa de regresión de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
+      - 25 % de los primeros 4 GB de memoria
+      - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
+      - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
+      - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
+      - 2 % de cualquier memoria que esté por encima de 128 GB
 
 Las reglas anteriores para la asignación de memoria y CPU se usan para mantener el estado correcto de los nodos del agente, incluidos algunos pods del sistema de hospedaje que son críticos para el mantenimiento del clúster. Estas reglas de asignación también hacen que el nodo informe una menor memoria y CPU asignables que la que informaría si no formase parte de un clúster de Kubernetes. Las reservas de recursos anteriores no se pueden cambiar.
 
@@ -115,7 +116,7 @@ Para consultar los procedimientos recomendados asociados, consulte[Procedimiento
 
 ### <a name="node-pools"></a>Grupos de nodos
 
-Los nodos de la misma configuración se agrupan en *grupos de nodos* . Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado* . Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente.
+Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado*. Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente.
 
 > [!NOTE]
 > Para asegurarse de que el clúster funcione de forma confiable, debe ejecutar al menos 2 (dos) nodos del grupo de nodos predeterminado.
@@ -128,7 +129,7 @@ Para obtener más información sobre cómo usar varios grupos de nodos en AKS, c
 
 En un clúster de AKS que contenga varios grupos de nodos, es posible que tenga que indicar al programador de Kubernetes qué grupo de nodos utilizar para un recurso determinado. Por ejemplo, los controladores de entrada no deben ejecutarse en los nodos de Windows Server. Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
 
-El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"beta.kubernetes.io/os": linux* :
+El siguiente ejemplo básico programa una instancia de NGINX en un nodo Linux mediante el selector de nodos *"beta.kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
@@ -212,8 +213,8 @@ El controlador de implementación usa Scheduler de Kubernetes para ejecutar un d
 
 Hay dos recursos de Kubernetes que le permiten administrar estos tipos de aplicaciones:
 
-- *StatefulSets* : mantenga el estado de las aplicaciones más allá de un ciclo de vida de pod individual, como el almacenamiento.
-- *DaemonSets* : asegure una instancia en ejecución en cada nodo al principio del proceso de arranque de Kubernetes.
+- *StatefulSets*: mantenga el estado de las aplicaciones más allá de un ciclo de vida de pod individual, como el almacenamiento.
+- *DaemonSets*: asegure una instancia en ejecución en cada nodo al principio del proceso de arranque de Kubernetes.
 
 ### <a name="statefulsets"></a>StatefulSets
 
@@ -240,15 +241,15 @@ Para más información, consulte el [objeto DaemonSets de Kubernetes][kubernetes
 
 ## <a name="namespaces"></a>Espacios de nombres
 
-Los recursos de Kubernetes, como los pods y las implementaciones, se agrupan lógicamente en un *espacio de nombres* . Estas agrupaciones proporcionan una manera de dividir de forma lógica un clúster de AKS y de restringir el acceso para crear, ver o administrar los recursos. Puede crear espacios de nombres para separar grupos de negocios, por ejemplo. Los usuarios solo pueden interactuar con los recursos dentro de sus espacios de nombres asignados.
+Los recursos de Kubernetes, como los pods y las implementaciones, se agrupan lógicamente en un *espacio de nombres*. Estas agrupaciones proporcionan una manera de dividir de forma lógica un clúster de AKS y de restringir el acceso para crear, ver o administrar los recursos. Puede crear espacios de nombres para separar grupos de negocios, por ejemplo. Los usuarios solo pueden interactuar con los recursos dentro de sus espacios de nombres asignados.
 
 ![Espacios de nombres de Kubernetes para dividir de forma lógica los recursos y las aplicaciones](media/concepts-clusters-workloads/namespaces.png)
 
 Cuando se crea un clúster de AKS, están disponibles los siguientes espacios de nombres:
 
-- *default* : este espacio de nombres es donde los pods y las implementaciones se crean de forma predeterminada cuando no se proporciona ninguno. En entornos más pequeños, puede implementar aplicaciones directamente en el espacio de nombres predeterminado sin crear separaciones lógicas adicionales. Al interactuar con la API de Kubernetes, como con `kubectl get pods`, el espacio de nombres predeterminado se utiliza cuando no se especifica ninguno.
-- *kube-system* : este espacio de nombres es donde existen recursos principales, como las funciones de red como DNS y proxy o el panel de Kubernetes. Normalmente, el usuario no implementa sus propias aplicaciones en este espacio de nombres.
-- *kube-public* : este espacio de nombres no se utiliza normalmente, pero puede usarse para que los recursos sean visibles en todo el clúster y para que puedan verlos todos los usuarios.
+- *default*: este espacio de nombres es donde los pods y las implementaciones se crean de forma predeterminada cuando no se proporciona ninguno. En entornos más pequeños, puede implementar aplicaciones directamente en el espacio de nombres predeterminado sin crear separaciones lógicas adicionales. Al interactuar con la API de Kubernetes, como con `kubectl get pods`, el espacio de nombres predeterminado se utiliza cuando no se especifica ninguno.
+- *kube-system*: este espacio de nombres es donde existen recursos principales, como las funciones de red como DNS y proxy o el panel de Kubernetes. Normalmente, el usuario no implementa sus propias aplicaciones en este espacio de nombres.
+- *kube-public*: este espacio de nombres no se utiliza normalmente, pero puede usarse para que los recursos sean visibles en todo el clúster y para que puedan verlos todos los usuarios.
 
 Para más información, consulte los [espacios de nombres de Kubernetes][kubernetes-namespaces].
 

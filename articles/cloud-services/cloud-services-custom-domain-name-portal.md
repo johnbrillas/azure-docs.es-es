@@ -1,21 +1,25 @@
 ---
-title: Configuración de un nombre de dominio personalizado en Cloud Services | Microsoft Docs
+title: Configuración de un nombre de dominio personalizado en Cloud Services (clásico) | Microsoft Docs
 description: Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS.  Estos ejemplos usan el Portal de Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069932"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742376"
 ---
-# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
+# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como `http://contoso.cloudapp.net`. Azure también asigna una dirección IP virtual.
 
 Sin embargo, también puede exponer su aplicación en su propio nombre de dominio, como **contoso.com**. En este artículo se explica cómo reservar o configurar un nombre de dominio personalizado para los roles web de servicio en la nube.
@@ -44,7 +48,7 @@ Un registro CNAME asigna un dominio *específico*, como **contoso.com** o **www\
 > Algunos registradores de dominio solo permiten asignar subdominios cuando se usa un registro CNAME, como www\.contoso.com, y no nombres raíz, como contoso.com. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](https://en.wikipedia.org/wiki/CNAME_record) o el documento [Nombres de dominio IETF: implementación y especificación (en inglés)](https://tools.ietf.org/html/rfc1035).
 
 ### <a name="a-record"></a>Registro D
-El registro *D* asigna un dominio, como **contoso.com** o **www\.contoso.como**, *o un nombre de dominio con comodín*, como **\*.contoso.com**, a una dirección IP. En el caso de un servicio en la nube de Azure, la IP virtual del servicio. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que utilice un carácter comodín, como \* **.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www\.contoso.com**.
+El registro *D* asigna un dominio, como **contoso.com** o **www\.contoso.como**, *o un nombre de dominio con comodín*, como **\*.contoso.com**, a una dirección IP. En el caso de un servicio en la nube de Azure, la IP virtual del servicio. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que utilice un carácter comodín, como \**_.contoso.com_*, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www\.contoso.com**.
 
 > [!NOTE]
 > Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su servicio en la nube. La dirección IP que usa el Servicio en la nube se asigna la primera vez que se implementa en una ranura vacía (producción o ensayo). Si elimina la implementación para la ranura, Azure libera la dirección IP y a toda implementación posterior en la ranura se le podrá dar una dirección IP nueva.

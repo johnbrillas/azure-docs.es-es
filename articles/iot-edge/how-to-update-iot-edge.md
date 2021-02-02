@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/22/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 797b5f569f081065eb950f7c10bf6449002f733b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9a739736182713b35c3a5e9e25742aa39c5d1122
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436987"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633144"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge.
 
@@ -30,7 +30,7 @@ El demonio de seguridad de IoT Edge es un componente nativo que debe actualizars
 
 Compruebe la versión del demonio de seguridad que se ejecuta en el dispositivo mediante el comando `iotedge version`.
 
-### <a name="linux-devices"></a>Dispositivos Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 En los dispositivos Linux x64, use apt-get o el administrador de paquetes adecuado para actualizar el demonio de seguridad a la versión más reciente.
 
@@ -98,26 +98,18 @@ curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-st
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
 
-### <a name="windows-devices"></a>Dispositivos Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
-En los dispositivos Windows, use el script de PowerShell para actualizar el demonio de seguridad. El script extrae automáticamente la versión más reciente del demonio de seguridad.
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
-```
+Con IoT Edge para Linux en Windows, IoT Edge se ejecuta en una máquina virtual Linux hospedada en un dispositivo Windows. Esta máquina virtual está instalada previamente con IoT Edge, y se administra con Microsoft Update para mantener actualizados los componentes. Actualmente no hay actualizaciones disponibles.
 
-Al ejecutar el comando Update-IoTEdge se quita y actualiza el demonio de seguridad del dispositivo, junto con las dos imágenes de contenedor del entorno de ejecución. El archivo config.yaml se mantiene en el dispositivo, así como los datos del motor de contenedor Moby (si usa contenedores de Windows). Si conserva la información de configuración, no tendrá que volver a proporcionar la cadena de conexión o información de Device Provisioning Service para el dispositivo durante el proceso de actualización.
+::: moniker-end
 
-Si desea actualizar el demonio de seguridad a una versión específica, búsquela entre las [versiones de IoT Edge](https://github.com/Azure/azure-iotedge/releases). En esa versión, descargue el archivo **Microsoft-Azure-IoTEdge.cab**. A continuación, use el parámetro `-OfflineInstallationPath` para que apunte a la ubicación del archivo local. Por ejemplo:
+Con IoT Edge para Windows, IoT Edge se ejecuta directamente en el dispositivo Windows. Para obtener instrucciones para la actualización con los scripts de PowerShell, consulte [Instalación y administración de Azure IoT Edge para Windows](how-to-install-iot-edge-windows-on-windows.md).
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
-```
-
->[!NOTE]
->El parámetro `-OfflineInstallationPath` busca un archivo llamado **Microsoft-Azure-IoTEdge.cab** en el directorio proporcionado. A partir de la versión 1.0.9-rc4 de IoT Edge, dos archivos. cab están disponibles para su uso: uno para dispositivos AMD64 y otro para dispositivos ARM32. Descargue el archivo correcto para el dispositivo y, a continuación, cambie el nombre del archivo para quitar el sufijo de la arquitectura.
-
-Para obtener más información sobre las opciones de autenticación, use el comando `Get-Help Update-IoTEdge -full` o consulte [Script de PowerShell para IoT Edge en Windows](reference-windows-scripts.md).
+---
 
 ## <a name="update-the-runtime-containers"></a>Actualización de los contenedores del entorno de ejecución
 
@@ -172,35 +164,6 @@ Si usa etiquetas específicas en la implementación (por ejemplo, mcr.microsoft.
 
 1. Seleccione **Revisar y crear**, revise la implementación y, después, seleccione **Crear**.
 
-## <a name="update-offline-or-to-a-specific-version"></a>Actualización sin conexión o a una versión específica
-
-Si desea actualizar un dispositivo sin conexión o actualizar a una versión específica de IoT Edge en lugar de a la última versión, puede hacerlo con el parámetro `-OfflineInstallationPath`.
-
-Se usan dos componentes para actualizar un dispositivo IoT Edge:
-
-* Un script de PowerShell, que contiene las instrucciones de instalación.
-* Un archivo .cab de Microsoft Azure IoT Edge, que contiene el demonio de seguridad de IoT Edge (iotedged), el motor del contenedor Moby y la CLI de Moby.
-
-1. Para obtener los archivos de instalación de IoT Edge más recientes, junto con las versiones anteriores, vea las [versiones de Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
-
-2. Busque la versión que desea instalar y descargue los siguientes archivos de la sección **Recursos** de las notas de la versión en el dispositivo IoT:
-
-   * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab de las versiones 1.0.9 o posteriores, o bien Microsoft-Azure-IoTEdge.cab de las versiones 1.0.8 y anteriores.
-
-   Microsoft-Azure-IotEdge-arm32.cab también está disponible a partir de la versión 1.0.9 con fines de prueba exclusivamente. IoT Edge no es compatible actualmente con dispositivos ARM32 de Windows.
-
-   Es importante usar el script de PowerShell de la misma versión que el archivo .cab que se usa, porque la funcionalidad cambia para admitir las características de cada versión.
-
-3. Si el archivo .cab que descargó tiene un sufijo de arquitectura, cambie el nombre del archivo a **Microsoft-Azure-IoTEdge.cab**.
-
-4. Para actualizar con componentes sin conexión, [use el operador punto](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) en la copia local del script de PowerShell. A continuación, use el parámetro `-OfflineInstallationPath` como parte del comando `Update-IoTEdge` y proporcione la ruta de acceso absoluta al directorio de archivos. Por ejemplo,
-
-   ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Update-IoTEdge -OfflineInstallationPath <path>
-   ```
-
 ## <a name="update-to-a-release-candidate-version"></a>Actualización a una versión candidata para lanzamiento
 
 Azure IoT Edge lanza periódicamente nuevas versiones del servicio IoT Edge. Antes de cada versión estable, se publican una o varias versiones candidatas para lanzamiento (RC). Las versiones RC incluyen todas las características planeadas para la versión, pero aún se están sometiendo a pruebas y validación. Si quiere probar una nueva característica de manera anticipada, puede instalar una versión RC y dejar comentarios a través de GitHub.
@@ -213,7 +176,7 @@ Igual que las versiones preliminares, las versiones candidatas para lanzamiento 
 
 Use las secciones de este artículo para obtener información sobre cómo actualizar un dispositivo IoT Edge a una versión específica del demonio de seguridad o de los módulos del entorno de ejecución.
 
-Si va a instalar IoT Edge, en lugar de actualizar una instalación existente, use los pasos de la [instalación sin conexión o específica de la versión](how-to-install-iot-edge.md#offline-or-specific-version-installation).
+Si va a instalar IoT Edge, en lugar de actualizar una instalación existente, use los pasos de la [instalación sin conexión o específica de la versión](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

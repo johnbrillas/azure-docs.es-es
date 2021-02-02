@@ -1,5 +1,5 @@
 ---
-title: 'Flujo de concesión implícita de OAuth 2.0: plataforma de identidad de Microsoft | Azure'
+title: 'Flujo de concesión implícita de OAuth 2.0: Plataforma de identidad de Microsoft | Azure'
 description: Proteja las aplicaciones de página única con el flujo implícito de la plataforma de identidad de Microsoft.
 services: active-directory
 author: hpsin
@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511205"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752744"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y flujo de concesión implícita
 
@@ -41,7 +41,7 @@ En el diagrama siguiente se muestra el aspecto que tiene el flujo implícito de 
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
-Al principio, para iniciar la sesión del usuario en la aplicación, puede enviar una solicitud de autenticación [OpenID Connect](v2-protocols-oidc.md) y obtener un `id_token` del punto de conexión de la plataforma de identidad de Microsoft.
+Al principio, para iniciar la sesión del usuario en la aplicación, puede enviar una solicitud de autenticación [OpenID Connect](v2-protocols-oidc.md) y obtener un `id_token` de la Plataforma de identidad de Microsoft.
 
 > [!IMPORTANT]
 > Para solicitar con éxito un token de identificador y un token de acceso, el registro de aplicación en la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) tiene que tener habilitado el flujo de concesión implícita correspondiente, para ello, seleccione **Tokens de identificador** y **Tokens de acceso** en la sección **Concesión implícita**. Si no está habilitado, se devolverá un error `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client (El valor proporcionado para el parámetro de entrada “response_type” no se admite para este cliente). Expected value is 'code'** ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"").
@@ -73,13 +73,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | opcional |Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. El valor predeterminado es "query" para un token de acceso, pero "fragment" si la solicitud incluye un valor id_token. |
 | `state` | recomendado |Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | `nonce` | requerido |Valor generado por la aplicación que se incluye en la solicitud y que se incluirá en el parámetro id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. Solo es necesario cuando se solicita un valor id_token. |
-| `prompt` | opcional |Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son "login", "none", "select_account" y "consent". `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` es lo contrario, se asegurará de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión de la plataforma de identidad de Microsoft devolverá un error. `prompt=select_account` envía al usuario a un selector de cuenta donde aparecerán todas las cuentas que se recuerdan en la sesión. `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión, y solicitará a este que conceda permisos a la aplicación. |
+| `prompt` | opcional |Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son "login", "none", "select_account" y "consent". `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` es lo contrario, se asegurará de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, la Plataforma de identidad de Microsoft devolverá un error. `prompt=select_account` envía al usuario a un selector de cuenta donde aparecerán todas las cuentas que se recuerdan en la sesión. `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión, y solicitará a este que conceda permisos a la aplicación. |
 | `login_hint`  |opcional |Se puede usar para rellenar previamente el campo de nombre de usuario o dirección de correo electrónico de la página de inicio de sesión del usuario, si conoces el nombre de usuario con antelación. Las aplicaciones usarán a menudo este parámetro durante la reautenticación, después de haber extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`.|
 | `domain_hint` | opcional |Si se incluye, omitirá el proceso de detección basado en correo electrónico por el que pasa el usuario en la página de inicio de sesión, con lo que la experiencia de usuario será ligeramente más sencilla. Este parámetro se usa normalmente con las aplicaciones de línea de negocio que se utilizan en un solo inquilino, en las que proporcionarán un nombre de dominio para un inquilino determinado y reenviarán el usuario al proveedor de federación de ese inquilino.  Esta indicación evita que los invitados inicien sesión en la aplicación y limita el uso de credenciales en la nube, como FIDO.  |
 
-En este punto, se le pedirá al usuario que escriba sus credenciales y que complete la autenticación. El punto de conexión de la plataforma de identidad de Microsoft se asegurará también de que el usuario ha dado su consentimiento a los permisos indicados en el parámetro de la consulta `scope`. Si el usuario no ha dado su consentimiento a **ninguno** de esos permisos, se le solicitará para los permisos necesarios. Para obtener más información, vea [Permisos, consentimiento y aplicaciones de varios inquilinos](v2-permissions-and-consent.md).
+En este punto, se le pedirá al usuario que escriba sus credenciales y que complete la autenticación. La Plataforma de identidad de Microsoft se asegurará también de que el usuario ha dado su consentimiento a los permisos indicados en el parámetro de consulta `scope`. Si el usuario no ha dado su consentimiento a **ninguno** de esos permisos, se le solicitará para los permisos necesarios. Para obtener más información, vea [Permisos, consentimiento y aplicaciones de varios inquilinos](v2-permissions-and-consent.md).
 
-Una vez que el usuario se autentica y otorga su consentimiento, el punto de conexión de la plataforma de identidad de Microsoft devuelve una respuesta a la aplicación en el `redirect_uri` indicado mediante el método especificado en el parámetro `response_mode`.
+Una vez que el usuario se autentica y otorga su consentimiento, la Plataforma de identidad de Microsoft devuelve una respuesta a la aplicación en el `redirect_uri` indicado mediante el método especificado en el parámetro `response_mode`.
 
 #### <a name="successful-response"></a>Respuesta correcta
 
@@ -199,7 +199,7 @@ En los exploradores que no admiten cookies de terceros, se producirá un error q
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
-`end_session_endpoint` de OpenID Connect permite a la aplicación enviar una solicitud para el punto de conexión de la plataforma de identidad de Microsoft para finalizar una sesión de usuario y borrar las cookies establecidas por dicho punto de conexión de plataforma de identidad de Microsoft. Para que un usuario cierre por completo la sesión de una aplicación web, la aplicación debe finalizar su propia sesión con el usuario (normalmente borrando una caché de tokens o eliminando las cookies) y luego redirigir el explorador para:
+`end_session_endpoint` de OpenID Connect permite a la aplicación enviar una solicitud para la Plataforma de identidad de Microsoft para finalizar una sesión de usuario y borrar las cookies establecidas por la Plataforma de identidad de Microsoft. Para que un usuario cierre por completo la sesión de una aplicación web, la aplicación debe finalizar su propia sesión con el usuario (normalmente borrando una caché de tokens o eliminando las cookies) y luego redirigir el explorador para:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -208,7 +208,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | Parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | `tenant` |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
-| `post_logout_redirect_uri` | recomendado | La dirección URL a la que se debe redirigir al usuario después de completar el cierre de sesión. Este valor debe coincidir con uno de los URI de redirección registrados en la aplicación. Si no se incluye, el usuario verá un mensaje genérico del punto de conexión de la plataforma de identidad de Microsoft. |
+| `post_logout_redirect_uri` | recomendado | La dirección URL a la que se debe redirigir al usuario después de completar el cierre de sesión. Este valor debe coincidir con uno de los URI de redirección registrados en la aplicación. Si no se incluye, el usuario verá un mensaje genérico de la Plataforma de identidad de Microsoft. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

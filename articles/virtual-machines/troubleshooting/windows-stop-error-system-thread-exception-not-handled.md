@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681897"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661398"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Error de detención de Windows: excepción de subproceso del sistema no controlada 0x0000007E
 
@@ -35,16 +35,20 @@ La causa no se puede determinar hasta que se analiza un archivo de volcado de me
 
 ## <a name="solution"></a>Solución
 
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
+
+
 Para resolver este problema, primero tiene que recopilar el archivo de volcado de memoria del bloqueo y enviarlo al soporte técnico de Microsoft. Para recopilar el archivo de volcado, siga las instrucciones de las dos secciones siguientes.
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Conexión del disco del sistema operativo a una nueva VM de reparación
 
-1. Para preparar una máquina virtual de reparación, siga los pasos 1 a 3 de los [comandos de reparación de máquinas virtuales](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
+1. Para preparar una máquina virtual de reparación, siga los pasos 1 a 3 de los [comandos de reparación de máquinas virtuales](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
 1. Conéctese a la máquina virtual de reparación mediante la conexión a Escritorio remoto.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Busque el archivo de volcado de memoria y envíe una incidencia de soporte técnico
 
-1. En la máquina virtual de reparación, vaya a la carpeta Windows en el disco de sistema operativo conectado. Por ejemplo, si la letra de unidad asignada al disco del sistema operativo conectado tiene la etiqueta *F*, vaya a `F:\Windows`.
+1. En la máquina virtual de reparación, vaya a la carpeta Windows en el disco del sistema operativo conectado. Por ejemplo, si la letra de unidad asignada al disco del sistema operativo conectado tiene la etiqueta *F*, vaya a `F:\Windows`.
 1. Busque el archivo *memory.dmp* y, luego, [envíe una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y adjunte el archivo de volcado de memoria.
 1. Si tiene problemas para encontrar el archivo *memory.dmp*, siga la guía para [generar un archivo de volcado de memoria con llamadas de interrupción no enmascarable (NMI)](/windows/client-management/generate-kernel-or-complete-crash-dump).
 

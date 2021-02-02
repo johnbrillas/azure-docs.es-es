@@ -1,5 +1,5 @@
 ---
-title: 'Ingeniería de características en ciencia de datos: proceso de ciencia de datos en equipo'
+title: 'Ingeniería de características en aprendizaje automático: proceso de ciencia de datos en equipo'
 description: Obtenga información sobre la ingeniería de características y su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031868"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610444"
 ---
-# <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
+# <a name="feature-engineering-in-machine-learning"></a>Ingeniería de características en aprendizaje automático
 
 En este artículo, obtendrá información sobre la ingeniería de características y su rol en la mejora de los datos en el aprendizaje automático. Obtenga información de los ejemplos ilustrativos extraídos de los experimentos de [Azure Machine Learning Studio (clásico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 

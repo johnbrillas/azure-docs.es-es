@@ -4,12 +4,12 @@ description: Supervise el rendimiento y diagnostique problemas en servicios de N
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920576"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611022"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -334,6 +334,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### <a name="flush"></a>Vaciar
+
+De manera predeterminada, la telemetría se almacena en búfer durante 15 segundos antes de enviarla al servidor de ingesta. Si la aplicación tiene una duración corta (por ejemplo, una herramienta de la CLI), podría ser necesario vaciar manualmente la telemetría almacenada en búfer cuando finaliza la aplicación, `appInsights.defaultClient.flush()`.
+
+Si el SDK detecta que la aplicación se bloquea, llamará al vaciado automáticamente, `appInsights.defaultClient.flush({ isAppCrashing: true })`. Con la opción de vaciado `isAppCrashing`, se supone que la aplicación está en un estado anómalo, no adecuada para el envío de telemetría. En su lugar, el SDK guardará toda la telemetría almacenada en búfer en un [almacenamiento persistente](./data-retention-privacy.md#nodejs) y permitirá que la aplicación finalice. Cuando vuelva a iniciarse la aplicación, intentará enviar la telemetría que se haya guardado en el almacenamiento persistente.
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>Preprocesamiento de datos con procesadores de telemetría
 

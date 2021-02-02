@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 5c7491a0e0ba2a3bf604988c613e1fd8937f277d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567762"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752176"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>Conexión de la solución TippingPoint de Trend Micro con Azure Sentinel
 
 > [!IMPORTANT]
 > El conector de TippingPoint de Trend Micro está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
-En este artículo se explica cómo conectar la solución de sistema de protección contra amenazas de TippingPoint de Trend Micro con Azure Sentinel. El conector de datos de TippingPoint de Trend Micro le permite conectar fácilmente los datos de registros del sistema de administración de seguridad (SMS) de TippingPoint con Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. 
+En este artículo se explica cómo conectar la solución de sistema de protección contra amenazas de TippingPoint de Trend Micro con Azure Sentinel. El conector de datos de TippingPoint de Trend Micro le permite conectar fácilmente los datos de registros del sistema de administración de seguridad (SMS) de TippingPoint con Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación.
 
 > [!NOTE]
 > Los datos se almacenarán en la ubicación geográfica del área de trabajo en la que Azure Sentinel se ejecute.
@@ -40,7 +40,7 @@ En este artículo se explica cómo conectar la solución de sistema de protecci�
 
 ## <a name="send-trend-micro-tippingpoint-logs-to-azure-sentinel"></a>Envío de registros de TippingPoint de Trend Micro a Azure Sentinel
 
-Para exportar los registros a Azure Sentinel, configure la solución TPS de TippingPoint para enviar los mensajes de Syslog en formato CEF al servidor de reenvío de registros basado en Linux (que ejecuta rsyslog o syslog-ng). Este servidor tendrá instalado el agente de Log Analytics y este reenviará los registros a su área de trabajo de Azure Sentinel.
+Para exportar los registros a Azure Sentinel, configure la solución TPS de TippingPoint para enviar los mensajes de Syslog en formato CEF al servidor de reenvío de registros basado en Linux (que ejecuta rsyslog o syslog-ng). Este servidor tendrá instalado el agente de Log Analytics y este reenviará los registros a su área de trabajo de Azure Sentinel. El conector utiliza una función de analizador para convertir los datos que recibe en un esquema normalizado. 
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
 
@@ -64,11 +64,11 @@ Para exportar los registros a Azure Sentinel, configure la solución TPS de Tipp
 
 Una vez establecida una conexión correcta, los datos aparecen en **Registros**, debajo de la sección **Azure Sentinel** en la tabla *CommonSecurityLog*.
 
-Para consultar los datos de TippingPoint de TrendMicro en Log Analytics, copie lo siguiente en la ventana de consulta y aplique los filtros que considere necesarios:
+Para obtener datos de Trend Micro TippingPoint en Log Analytics, debe consultar la función de analizador en lugar de la tabla. Copie lo siguiente en la ventana de consulta y aplique los filtros que considere necesarios:
 
 ```kusto
-CommonSecurityLog 
-| where DeviceVendor == "TrendMicroTippingPoint"
+TrendMicroTippingPoint
+| sort by TimeGenerated
 ```
 
 Consulte la pestaña **Pasos siguientes** de la página de conectores para más ejemplos de consulta.
@@ -76,6 +76,7 @@ Consulte la pestaña **Pasos siguientes** de la página de conectores para más 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar TippingPoint de Trend Micro a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use libros](tutorial-monitor-your-data.md) para supervisar los datos.

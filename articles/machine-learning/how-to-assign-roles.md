@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
+ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033755"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624547"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
@@ -160,6 +160,10 @@ Debe tener permisos en todo el ámbito de la nueva definición de roles. Por eje
 
 > [!NOTE]
 > Las actualizaciones de roles pueden tardar entre 15 minutos y una hora en aplicarse a todas las asignaciones de roles de ese ámbito.
+
+## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Uso de plantillas de Azure Resource Manager para repetibilidad
+
+Si prevé que tendrá que volver a crear asignaciones de roles complejas, una plantilla Azure Resource Manager puede ser una gran ayuda. La plantilla [201-machine-learning-dependencies-role-assignment](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) muestra cómo se pueden especificar las asignaciones de roles en el código fuente para su reutilización. 
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 

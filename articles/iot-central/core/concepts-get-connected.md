@@ -1,9 +1,9 @@
 ---
 title: Conectividad de dispositivos en Azure IoT Central | Microsoft Docs
 description: En este artículo se presentan conceptos clave relacionados con la conectividad de dispositivos en Azure IoT Central
-author: dominicbetts
-ms.author: dobett
-ms.date: 10/22/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 90246459663980de25e301817f651e7719e8f380
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c633b488fab521947e4f34abb95ada2342dc2eb3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033194"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789777"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -234,13 +234,18 @@ La oferta de SDK de dispositivos de Azure es la manera más fácil de implementa
 Toda comunicación del dispositivo con la instancia de IoT Hub utiliza las siguientes opciones de conectividad:
 
 - [Mensajería del dispositivo a la nube](../../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Mensajería de la nube a un dispositivo](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
 - [Dispositivos gemelos](../../iot-hub/iot-hub-devguide-device-twins.md)
+
+> [!NOTE]
+> Azure ahora admite
 
 En la tabla siguiente se resume cómo las características de los dispositivos de Azure IoT Central se asignan a las características de IoT Hub:
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Telemetría | Mensajería de un dispositivo a la nube |
+| Comandos sin conexión | Mensajería de la nube a un dispositivo |
 | Propiedad | Propiedades notificadas de dispositivos gemelos |
 | Propiedad (grabable) | Propiedades deseadas y notificadas de dispositivos gemelos |
 | Get-Help | Métodos directos |

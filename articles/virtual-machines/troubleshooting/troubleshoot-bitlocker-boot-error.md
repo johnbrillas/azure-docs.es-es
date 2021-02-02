@@ -13,18 +13,16 @@ ms.workload: infrastructure
 ms.date: 11/20/2020
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: 00095eed3fe6d143d9ed7a0c748c4702028f4632
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 87bf311b5199ec187c24c28a42314d9dc6787998
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832067"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633034"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Errores de inicio de BitLocker en una máquina virtual de Azure
 
  En este artículo se describen los errores de BitLocker que puede experimentar cuando inicie una máquina virtual (VM) de Windows en Microsoft Azure.
-
- 
 
 ## <a name="symptom"></a>Síntoma
 
@@ -42,6 +40,9 @@ ms.locfileid: "97832067"
 Este problema puede producirse si la máquina virtual no puede encontrar el archivo de clave de recuperación de BitLocker (BEK) para descifrar el disco cifrado.
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Para resolver este problema, detenga y desasocie la máquina virtual y, a continuación, iníciela. Esta operación hace que la máquina virtual recupere el archivo BEK desde Azure Key Vault y lo coloque en el disco cifrado. 
 

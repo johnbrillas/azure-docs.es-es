@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da41815e177ece64c72ac27a7cb126e69fdc62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509042"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633195"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Error de arranque: This is not a bootable disk (Este disco no es de arranque)
 
@@ -41,10 +41,13 @@ Este mensaje de error significa que el proceso de arranque del sistema operativo
 
 ### <a name="process-overview"></a>Información general del proceso
 
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
+
 1. Cree una VM de reparación y acceda a ella.
 2. Establezca el estado de la partición en Activo.
 3. Corrija la partición del disco.
-4. **Recomendado**: Antes de volver a compilar la VM, habilite Serial Console y la recopilación del volcado de memoria.
+4. **Recomendado**: Antes de volver a compilar la VM, habilite Serial Console y la recopilación de volcado de memoria.
 5. Vuelva a compilar la VM original.
 
    > [!NOTE]

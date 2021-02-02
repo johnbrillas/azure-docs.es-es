@@ -1,22 +1,25 @@
 ---
-title: Esquema de definición de Azure Cloud Services (archivo .cscfg) | Microsoft Docs
+title: Esquema de definición de Azure Cloud Services (clásico) (archivo .cscfg) | Microsoft Docs
 description: Un archivo de configuración de servicio (.cscfg) especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado para un rol.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534752"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743481"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (archivo .cscfg)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (clásico) (archivo .cscfg)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 El archivo de configuración de servicio especifica el número de instancias de rol que se implementan para cada rol del servicio, los valores de los parámetros de configuración y las huellas digitales de los certificados asociados a un rol. Si el servicio forma parte de una red virtual, se debe proporcionar información de configuración de la red en el archivo de configuración de servicio, así como en el archivo de configuración de red virtual. La extensión predeterminada del archivo de configuración de servicio es. cscfg.
 
 El modelo de servicio se describe en [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico]).

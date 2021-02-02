@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ade92e445897e36139e74353fa703ddf50d3f9b3
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562733"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757413"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -81,6 +81,7 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 - Azure Backup no admite sistemas operativos de 32 bits.
 - Otras distribuciones del tipo "traiga su propio Linux" podrían funcionar, siempre que el [agente de máquina virtual de Azure para Linux](../virtual-machines/extensions/agent-linux.md) esté disponible en la máquina virtual y haya compatibilidad con Python.
 - Azure Backup no admite máquinas virtuales Linux con proxy configurado si no tienen la versión Python 2.7 instalada.
+- Azure Backup no admite la copia de seguridad de archivos NFS que se montan desde el almacenamiento o desde cualquier otro servidor NFS a máquinas Linux o Windows. Solo realiza copias de seguridad de los discos que están conectados localmente a la máquina virtual.
 
 ## <a name="backup-frequency-and-retention"></a>Frecuencia y retención de copias de seguridad
 
@@ -144,10 +145,11 @@ Copia de seguridad de máquinas virtuales implementadas desde una imagen persona
 Copia de seguridad de máquinas virtuales migradas a Azure| Compatible.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
 Copia de seguridad con coherencia con múltiples máquinas virtuales | Azure Backup no proporciona coherencia de datos y aplicaciones entre varias máquinas virtuales.
 Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)  | No compatible. <br/><br/> Si la restauración de la máquina virtual de Azure con la configuración de diagnóstico se desencadena mediante la opción [Crear nueva](backup-azure-arm-restore-vms.md#create-a-vm), se produce un error en la restauración.
-Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible, se producirá un error en la restauración.
+Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible debido a una interrupción, se producirá un error en la restauración.
 Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de seguridad y la restauración de [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Cuando estas máquinas virtuales se restauran a partir del punto de recuperación, se restauran como [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite para máquinas virtuales no administradas. <br><br> Se admite para máquinas virtuales administradas.
 [Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
+[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Compatible
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
 
@@ -165,6 +167,7 @@ Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtuales mediante el Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
 [Discos compartidos](../virtual-machines/disks-shared-enable.md) | No compatible.
 Discos SSD Ultra | No compatible. Para obtener más información, consulte estas [limitaciones](selective-disk-backup-restore.md#limitations).
+[Discos temporales](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Azure Backup no realiza copias de seguridad de los discos temporales.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

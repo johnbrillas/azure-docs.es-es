@@ -2,18 +2,18 @@
 title: 'Características de FHIR admitidas en Azure: Azure API for FHIR'
 description: En este artículo se explica qué características de la especificación de FHIR se implementan en Azure API for FHIR
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/07/2019
+ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452914"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747532"
 ---
 # <a name="features"></a>Características
 
@@ -86,7 +86,7 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | `_id`                   | Sí       | Sí       | Sí       |         |
 | `_lastUpdated`          | Sí       | Sí       | Sí       |         |
 | `_tag`                  | Sí       | Sí       | Sí       |         |
-| `_profile`              | Sí       | Sí       | Sí       |         |
+| `_profile`              | Parcial   | Parcial   | Parcial   | Solo se admite en STU3, no en R4 |
 | `_security`             | Sí       | Sí       | Sí       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
@@ -135,7 +135,7 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 ## <a name="service-limits"></a>Límites de servicio
 
-* [**Unidades de solicitud (RU)** ](../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
+* [**Unidades de solicitud (RU)**](../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 10 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
 
 * **Conexiones simultáneas** e **instancias**: de manera predeterminada, tiene cinco conexiones simultáneas en dos instancias del clúster (para un total de diez solicitudes simultáneas). Si cree que necesita un mayor número solicitudes simultáneas, abra una incidencia de soporte técnico con los detalles de lo que necesita.
 
@@ -147,12 +147,14 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 El rendimiento del sistema depende del número de RU, las conexiones simultáneas y el tipo de operaciones que se van a llevar a cabo (PUT, POST, etc.). A continuación se muestran algunos intervalos generales de lo que puede esperar en función del número de RU configurado. En general, el rendimiento se escala de manera lineal con un aumento en RU:
 
-| N.º de RU | Recursos/segundo |
-|----------|---------------|
-| 400      | 5-10          |
-| 1,000    | 100-150       |
-| 10 000   | 225-400       |
-| 100 000  | 2500-4000   |
+| N.º de RU | Recursos/segundo |    Almacenamiento máximo (GB)*    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1,000    | 100-150       |      100  |
+| 10 000   | 225-400       |      1,000  |
+| 100 000  | 2500-4000   |      10 000  |
+
+Nota: Para Cosmos DB, existe un requisito de un rendimiento mínimo de 10 RU/s por GB de almacenamiento. Para obtener más información, consulte [Cuotas de servicio de Cosmos DB](../cosmos-db/concepts-limits.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,20 +1,24 @@
 ---
-title: Actualización de un servicio en la nube | Microsoft Docs
+title: Actualización de un servicio en la nube (clásico) | Microsoft Docs
 description: Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075049"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741118"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Actualización de un servicio de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 La actualización de un servicio en la nube, incluidos sus roles y el sistema operativo invitado, es un proceso de tres pasos. En primer lugar, se deben cargar los archivos binarios y archivos de configuración para el nuevo servicio en la nube, o la versión del sistema operativo. A continuación, Azure reserva recursos informáticos y de red para el servicio en la nube según los requisitos de la nueva versión de dicho servicio. Por último, Azure lleva a cabo una actualización gradual para actualizar de forma incremental el inquilino a la nueva versión o sistema operativo invitado, conservando su disponibilidad. En este artículo se tratan los detalles de este último paso: la actualización gradual.
 
@@ -114,10 +118,10 @@ Para minimizar el tiempo de inactividad al actualizar un servicio de instancia �
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Reversión de una actualización
-Azure proporciona flexibilidad en la administración de servicios durante una actualización, permitiéndole iniciar operaciones adicionales en un servicio, una vez que el controlador de tejido de Azure acepta la solicitud de actualización inicial. Solo puede realizar una reversión cuando una actualización se encuentra en el estado de implementación **en curso** . Se considera que una actualización está en curso, siempre que haya por lo menos una instancia del servicio que aún no se ha actualizado a la nueva versión. Para ver si se permite una reversión, compruebe que el valor de la marca RollbackAllowed, devuelto por las operaciones [Obtener implementación](/previous-versions/azure/reference/ee460804(v=azure.100)) y [Obtener propiedades de servicio en la nube](/previous-versions/azure/reference/ee460806(v=azure.100)), está establecido en true.
+Azure proporciona flexibilidad en la administración de servicios durante una actualización, permitiéndole iniciar operaciones adicionales en un servicio, una vez que el controlador de tejido de Azure acepta la solicitud de actualización inicial. Solo se podrá realizar una reversión cuando una actualización (un cambio de configuración) se encuentre en estado **en curso** en la implementación. Se considera que una actualización está en curso, siempre que haya por lo menos una instancia del servicio que aún no se ha actualizado a la nueva versión. Para ver si se permite una reversión, compruebe que el valor de la marca RollbackAllowed, devuelto por las operaciones [Obtener implementación](/previous-versions/azure/reference/ee460804(v=azure.100)) y [Obtener propiedades de servicio en la nube](/previous-versions/azure/reference/ee460806(v=azure.100)), está establecido en true.
 
 > [!NOTE]
-> Solo tiene sentido realizar una reversión en una actualización **local** , porque las actualizaciones de intercambio de VIP implican reemplazar una instancia en ejecución completa del servicio con otra.
+> Solo tiene sentido realizar una reversión en una actualización **en contexto** porque las actualizaciones del intercambio de VIP implican reemplazar una instancia en ejecución completa del servicio por otra.
 >
 >
 
@@ -149,7 +153,7 @@ Durante la ejecución de la actualización se llama a [Actualizar implementació
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Iniciación de varias operaciones mutantes en una implementación en curso
-En algunos casos puede que desee iniciar varias operaciones simultáneas de mutación en una implementación en curso. Por ejemplo, puede realizar una actualización del servicio y, mientras la actualización se está distribuyendo a través de su servicio, quiere realizar algún cambio, por ejemplo, para revertir la actualización, aplicar otra actualización o incluso eliminar la implementación. Un caso en el que esto podría ser necesario es si una actualización de servicio contiene código con errores que hace que una instancia de rol actualizada se bloquee repetidamente. En este caso, el controlador de tejido de Azure no puede progresar en la aplicación de esa actualización, ya que el número de instancias en el dominio actualizado que están en buen estado es insuficiente. Este estado se conoce como una *implementación bloqueada*. Puede desbloquear la implementación revirtiendo la actualización o aplicando una nueva actualización encima de la que tiene los errores.
+En algunos casos puede que desee iniciar varias operaciones simultáneas de mutación en una implementación en curso. Por ejemplo, puede realizar una actualización del servicio y, mientras la actualización se está distribuyendo a través de su servicio, quiere realizar algún cambio, por ejemplo, para revertir la actualización, aplicar otra actualización o incluso eliminar la implementación. Un caso en el que esto podría ser necesario es si una actualización de servicio contiene código con errores que hace que una instancia de rol actualizada se bloquee repetidamente. En este caso, el controlador de tejido de Azure no puede progresar en la aplicación de esa actualización, ya que el número de instancias en el dominio actualizado que están en buen estado es insuficiente. Este estado se denomina *implementación bloqueada*. Puede desbloquear la implementación revirtiendo la actualización o aplicando una nueva actualización encima de la que tiene los errores.
 
 Una vez que el controlador de tejido de Azure ha recibido la solicitud inicial para actualizar el servicio, puede iniciar las operaciones de mutación subsiguientes. Es decir, no es necesario esperar a que la operación inicial se complete antes de iniciar una operación de mutación.
 

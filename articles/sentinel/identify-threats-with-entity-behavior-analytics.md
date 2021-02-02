@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900899"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784802"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificación de amenazas avanzadas con el Análisis de comportamiento de usuarios y entidades (UEBA) en Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en las siguientes zonas geográficas y regiones de Azure Sentinel:
->    - Zonas geográficas de Estados Unidos
->    - Región Oeste de Europa
->    - Zonas geográficas de Australia
->
-> - En todas las demás regiones y regiones geográficas, estas características permanecen en **VERSIÓN PRELIMINAR**. Consulte [**Términos de uso complementarios para las Versiones preliminares de Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+> - Las características de UEBA y de las páginas de entidad ahora están en **disponibilidad general** en **_todas_* las zonas geográficas y regiones de Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>¿Qué es el Análisis de comportamiento de usuarios y entidades (UEBA)?
 
@@ -50,7 +45,7 @@ A medida que Azure Sentinel recopila registros y alertas de todos sus orígenes 
 
 Basado en el paradigma de Gartner para las soluciones UEBA, Azure Sentinel proporciona un enfoque "outside-in", que se basa en tres marcos de referencia:
 
-- **Casos de uso:** al priorizar los escenarios y vectores de ataque pertinentes según la investigación de seguridad, alineada con el marco de tácticas, técnicas y subtécnicas de MITRE ATT&CK, que coloca varias entidades como víctimas, autores o puntos de pivote en la cadena de eliminación; Azure Sentinel se centra específicamente en los registros más valiosos que puede proporcionar cada origen de datos.
+- _ *Casos de uso:* *al priorizar los escenarios y vectores de ataque pertinentes según la investigación de seguridad, alineada con el marco de tácticas, técnicas y subtécnicas de MITRE ATT&CK, que coloca varias entidades como víctimas, autores o puntos de pivote en la cadena de eliminación; Azure Sentinel se centra específicamente en los registros más valiosos que puede proporcionar cada origen de datos.
 
 - **Orígenes de datos:** Si bien ante todo se admiten orígenes de datos de Azure, Azure Sentinel selecciona cuidadosamente los orígenes de datos de terceros para proporcionar datos que coincidan con nuestros escenarios de amenazas.
 

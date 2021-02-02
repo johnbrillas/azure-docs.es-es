@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 123b36ba854bec8b363d59bbed5e70f18da1e578
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c48aaf7bff166620730f0731b59ecea475b82ad3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653714"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674292"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97653714"
 
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft
 
-Para usar una cuenta Microsoft como [proveedor de identidades](openid-connect.md) en Azure Active Directory B2C (Azure AD B2C), debe crear una aplicación en el inquilino de Azure AD. El inquilino de Azure AD no es el mismo que el usuario de Azure AD B2C. Si todavía no tiene una cuenta Microsoft, puede obtenerla en [https://www.live.com/](https://www.live.com/).
+Para habilitar el inicio de sesión para los usuarios con una cuenta de Microsoft en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Azure Portal](https://portal.azure.com). Para más información, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md). Si todavía no tiene una cuenta Microsoft, puede obtenerla en [https://www.live.com/](https://www.live.com/).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
@@ -48,15 +48,15 @@ Para usar una cuenta Microsoft como [proveedor de identidades](openid-connect.md
    Para más información sobre las distintas opciones de tipo de cuenta, consulte [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
 1. En **URI de redirección (opcional)** , seleccione **Web** y escriba `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` en el cuadro de texto. Reemplace `<tenant-name>` por el nombre del inquilino de Azure AD B2C.
 1. Seleccione **Registrar**.
-1. Registre el **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Necesitará esta información al configurar el proveedor de identidades en la siguiente sección.
+1. Registre el **Id. de aplicación (cliente)** que se muestra en la página de información general de la aplicación. Necesitará el id. de cliente al configurar el proveedor de identidades en la siguiente sección.
 1. Seleccione **Certificates & secrets** (Certificados y secretos)
 1. Haga clic en **Nuevo secreto de cliente**.
 1. Escriba una **Descripción** del secreto, por ejemplo, *contraseña de la aplicación 1* y haga clic en **Agregar**.
-1. Anote la contraseña de la aplicación que se muestra en la columna **Value**. Necesitará esta información al configurar el proveedor de identidades en la siguiente sección.
+1. Anote la contraseña de la aplicación que se muestra en la columna **Value**. Necesitará el secreto de cliente al configurar el proveedor de identidades en la siguiente sección.
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configuración de una cuenta Microsoft como proveedor de identidades
+## <a name="configure-microsoft-as-an-identity-provider"></a>Configuración de Microsoft como proveedor de identidades
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
@@ -66,6 +66,16 @@ Para usar una cuenta Microsoft como [proveedor de identidades](openid-connect.md
 1. En **Id. de cliente**, escriba el identificador (cliente) de la aplicación de Azure AD que creó anteriormente.
 1. En **Secreto de cliente**, escriba el secreto de cliente que ha anotado.
 1. Seleccione **Guardar**.
+
+## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de Microsoft a un flujo de usuario 
+
+1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
+1. Haga clic en el flujo de usuario donde quiera agregar el proveedor de identidades de Microsoft.
+1. En **Proveedores de identidades sociales**, seleccione **Cuenta de Microsoft**.
+1. Seleccione **Guardar**.
+1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
+1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+1. Haga clic en **Ejecutar flujo de usuario**.
 
 ::: zone-end
 
@@ -99,9 +109,9 @@ Ahora que creó la aplicación en el inquilino de Azure AD, deberá almacenar e
 1. En **Uso de claves**, seleccione `Signature`.
 1. Haga clic en **Crear**.
 
-## <a name="add-a-claims-provider"></a>Incorporación de un proveedor de notificaciones
+## <a name="configure-microsoft-as-an-identity-provider"></a>Configuración de Microsoft como proveedor de identidades
 
-Para permitir que los usuarios inicien sesión con una cuenta de Microsoft, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
+Para permitir que los usuarios inicien sesión con una cuenta de Microsoft, deberá definir la cuenta como un proveedor de notificaciones con el que Azure AD B2C pueda comunicarse mediante un punto de conexión. El punto de conexión proporciona un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado.
 
 Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue el elemento **ClaimsProvider** en el archivo de extensión de la directiva.
 
@@ -114,7 +124,7 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue el e
       <Domain>live.com</Domain>
       <DisplayName>Microsoft Account</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="MSA-OIDC">
+        <TechnicalProfile Id="MSA-MicrosoftAccount-OpenIdConnect">
           <DisplayName>Microsoft Account</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
@@ -156,81 +166,26 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue el e
 
 Ya configuró la directiva para que Azure AD B2C sepa cómo comunicarse con su aplicación de cuenta de Microsoft en Azure AD.
 
-### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Antes de continuar, cargue la directiva modificada para confirmar que no tiene ningún problema hasta el momento.
 
-1. Vaya a su inquilino de Azure AD B2C en Azure Portal y seleccione **Identity Experience Framework**.
-1. En la página **Directivas personalizadas**, seleccione **Cargar directiva personalizada**.
-1. Habilite **Sobrescribir la directiva, si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
-1. Haga clic en **Cargar**.
-
-Si no se muestra ningún error en el portal, siga hasta la sección siguiente.
-
-## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
-
-En este momento ya tiene configurado el proveedor de identidades, pero todavía no está disponible en ninguna de las pantallas de registro ni de inicio de sesión. Para que esté disponible, debe crear un duplicado de un recorrido del usuario de plantilla existente y, después, modificarlo para que también tenga el proveedor de identidades de la cuenta de Microsoft.
-
-1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
-1. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
-1. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
-1. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
-1. Cambie el identificador del recorrido del usuario. Por ejemplo, `SignUpSignInMSA`.
-
-### <a name="display-the-button"></a>Visualización del botón
-
-El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta Microsoft, se muestra un botón nuevo cuando un usuario llega a la página.
-
-1. En el archivo *TrustFrameworkExtensions.xml*, busque el elemento **OrchestrationStep** que incluya `Order="1"` en el recorrido de usuario que creó.
-1. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `MicrosoftAccountExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MicrosoftAccount-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de Microsoft para recibir un token.
-
-1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
-1. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el identificador que usó para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
-    ```
-
-    Actualice el valor de **TechnicalProfileReferenceId** para que coincida con el valor de `Id` en el elemento **TechnicalProfile** del proveedor de notificaciones que agregó anteriormente. Por ejemplo, `MSA-OIDC`.
-
-1. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de Microsoft a un flujo de usuario 
-
-1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
-1. Haga clic en el flujo de usuario que quiera en el proveedor de identidades de Microsoft.
-1. En **Proveedores de identidades sociales**, seleccione **Cuenta de Microsoft**.
-1. Seleccione **Guardar**.
-1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
-1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Haga clic en **Ejecutar flujo de usuario**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
-
-Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado.
-
-1. Realice una copia del archivo *SignUpOrSignIn.xml* en el directorio de trabajo y cámbiele el nombre. Por ejemplo, cambie su nombre a *SignUpSignInMSA.xml*.
-1. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Por ejemplo, `SignUpSignInMSA`.
-1. Actualice el valor de **PublicPolicyUri** con el URI para la directiva. Por ejemplo: `http://contoso.com/B2C_1A_signup_signin_msa`
-1. Cambie el valor del atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del recorrido del usuario que creó anteriormente (SignUpSignInMSA).
-1. Guarde los cambios, cargue el archivo y seleccione la nueva directiva en la lista.
-1. Asegúrese de que la aplicación de Azure AD B2C que creó en la sección anterior (o completando los requisitos previos, por ejemplo *webapp1* o *testapp1*) esté seleccionada en el campo **Seleccionar aplicación** y haga clic en **Ejecutar ahora** para probarla.
-1. Seleccione el botón **Cuenta de Microsoft** e inicie sesión.
+[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
 ::: zone-end

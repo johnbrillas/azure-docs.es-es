@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019183"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681657"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ Azure Cosmos DB admite dos modos de indexación:
 > Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. Los nuevos contenedores no pueden seleccionar la indexación diferida. Puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md), que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
+
+## <a name="index-size"></a><a id="index-size"></a>Tamaño del índice
+
+En Azure Cosmos DB, el almacenamiento total consumido es la combinación del tamaño de los datos y del tamaño del índice. A continuación se muestran algunas características del tamaño del índice:
+
+* El tamaño del índice depende de la directiva de indexación. Si todas las propiedades están indexadas, el tamaño del índice puede ser mayor que el tamaño de los datos.
+* Cuando se eliminan datos, los índices se compactan de manera casi continua. Sin embargo, en el caso de pequeñas eliminaciones de datos, es posible que no se observe inmediatamente una disminución en el tamaño del índice.
+* El tamaño del índice puede aumentar en los casos siguientes:
+
+  * Duración de la división de particiones: el espacio del índice se libera una vez completada la división de particiones.
+  * Cuando una partición se está dividiendo, el espacio del índice aumentará temporalmente durante la división de las particiones. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusión y exclusión de rutas de acceso de propiedad
 

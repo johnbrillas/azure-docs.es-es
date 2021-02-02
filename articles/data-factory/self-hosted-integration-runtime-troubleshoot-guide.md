@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503597"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757685"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -67,31 +67,6 @@ Una nueva actividad puede generar un error OOM si la máquina de IR experimenta 
 #### <a name="resolution"></a>Solución
 
 Compruebe el uso de recursos y la ejecución de actividades simultáneas en el nodo del entorno de ejecución de integración. Ajuste el tiempo interno y del desencadenador de las ejecuciones de actividad para evitar demasiadas ejecuciones simultáneas en un único nodo del entorno de ejecución de integración.
-
-
-### <a name="ssltls-certificate-issue"></a>Problema de certificado SSL/TLS
-
-#### <a name="symptoms"></a>Síntomas
-
-Al intentar habilitar un certificado (avanzado) de Capa de sockets seguros (SSL)/Seguridad de la capa de transporte (TLS) al elegir el certificado (después de seleccionar **Self-hosted IR Configuration Manager** (Administrador de configuración de IR autohospedado) > **Acceso remoto desde la intranet**), obtendrá el siguiente error:
-
-"La configuración de acceso remoto no es válida. Error de comprobación de identidad para el mensaje saliente. La identidad DNS esperada del punto de conexión remoto era 'abc.microsoft.com' pero el punto de conexión remoto proporcionó la notificación DNS 'microsoft.com'. Si se trata de un punto de conexión remoto legítimo, puede solucionar el problema especificando de forma explícita la identidad DNS 'microsoft.com' como la propiedad Identity de EndpointAddress al crear el proxy del canal".
-
-En el ejemplo anterior, el certificado elegido tiene anexado "microsoft.com".
-
-#### <a name="cause"></a>Causa
-
-Se trata de un problema conocido en Windows Communication Foundation (WCF). La validación de SSL/TLS en WCF solo comprueba el último DNSName del campo **Nombre alternativo del firmante** (SAN). 
-
-#### <a name="resolution"></a>Solución
-
-El certificado comodín es compatible con IR autohospedado de Azure Data Factory v2. Este problema se produce normalmente porque el certificado SSL es incorrecto. El último DNSName en SAN debe ser válido. 
-
-Para comprobar y corregir el DNSName, haga lo siguiente: 
-
-1. Abra la consola de administración:
-1. En **Detalles del certificado**, vuelva a comprobar el valor en los cuadros **Firmante** y **Nombre alternativo del firmante**. Por ejemplo, "DNS Name = microsoft.com.com" no es un nombre válido.
-1. Póngase en contacto con la compañía emisora del certificado para que quite el DNSName incorrecto.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de límite de trabajos simultáneos
 
@@ -376,7 +351,7 @@ Vaya al registro de eventos de Integration Runtime para comprobar el error.
     
         ![Captura de pantalla del panel "Iniciar sesión" de la cuenta de servicio.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Compruebe si la cuenta de servicio de inicio de sesión tiene permisos **Iniciar sesión como servicio** para iniciar el servicio de Windows:
+    1. Compruebe si la cuenta de servicio de inicio de sesión tiene permiso **Iniciar sesión como servicio** para iniciar el servicio de Windows:
 
         ![Captura de pantalla del panel de propiedades de " Iniciar sesión como servicio".](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 

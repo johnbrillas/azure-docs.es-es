@@ -1,26 +1,25 @@
 ---
-title: Esquema LoadBalancerProbe de de definición de Azure Cloud Services | Microsoft Docs
+title: 'Azure Cloud Services (clásico): Esquema de definición de Azure Cloud Services | Microsoft Docs'
 description: El rol web de Azure está personalizado para la programación de aplicaciones web compatibles con ASP.NET, PHP, WCF y FastCGI. Obtenga información sobre los elementos de definición de servicio de un rol web.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011326"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743158"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Esquema WebRole de definición de Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Esquema WebRole de definición de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 El rol web de Azure es un rol que se personaliza para la programación de aplicaciones web compatibles con IIS 7, como ASP.NET, PHP, Windows Communication Foundation y FastCGI.
 
 La extensión predeterminada del archivo de definición de servicio es. csdef.
@@ -122,7 +121,7 @@ El archivo de definición de servicio incluye estos elementos, que se describen 
 
 [Certificate](#Certificate)
 
-[Imports](#Imports)
+[Importaciones](#Imports)
 
 [Importar](#Import)
 
@@ -138,13 +137,13 @@ El archivo de definición de servicio incluye estos elementos, que se describen 
 
 [Sites](#Sites)
 
-[Site](#Site)
+[Sitio](#Site)
 
 [VirtualApplication](#VirtualApplication)
 
 [VirtualApplication](#VirtualApplication)
 
-[Bindings](#Bindings)
+[Enlaces](#Bindings)
 
 [Binding](#Binding)
 
@@ -172,7 +171,7 @@ En la tabla siguiente se describen los atributos del elemento `WebRole`:
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings  
 El elemento `ConfigurationSettings` describe la colección de valores de configuración de un rol web. Este elemento es el elemento primario del elemento `Setting`.
 
-##  <a name="setting"></a><a name="Setting"></a> Setting  
+##  <a name="setting"></a>Configuración de <a name="Setting"></a>  
 El elemento `Setting` describe un par de nombre y valor que especifica un valor de configuración para una instancia de un rol.
 
 En la tabla siguiente se describen los atributos del elemento `Setting`:
@@ -280,9 +279,9 @@ En la tabla siguiente se describen los atributos del elemento `FixedPortRange`:
 | Atributo | Tipo | Descripción |  
 | --------- | ---- | ----------- |  
 |Min|int|Necesario. El puerto mínimo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
-|max|string|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
+|máx.|string|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|  
 
-##  <a name="certificates"></a><a name="Certificates"></a> Certificates  
+##  <a name="certificates"></a><a name="Certificates"></a> Certificados  
 El elemento `Certificates` describe la colección de certificados de un rol web. Este elemento es el elemento primario del elemento `Certificate`. Un rol puede tener cualquier número de certificados asociados. Para más información sobre cómo usar el elemento de certificados, vea cómo [modificar el archivo de definición de servicio con un certificado](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
 ##  <a name="certificate"></a><a name="Certificate"></a> Certificate  
@@ -445,12 +444,12 @@ En la tabla siguiente se describen los atributos del elemento `Task`:
 |executionContext|string|Especifica el contexto en el que se ejecuta el script.<br /><br /> -   `limited` [valor predeterminado]: se ejecuta con los mismos privilegios que el rol que hospeda el proceso.<br />-   `elevated`: se ejecuta con privilegios de administrador.|  
 |taskType|string|Especifica el comportamiento de ejecución del comando.<br /><br /> -   `simple` [valor predeterminado]: el sistema espera a que se cierre la tarea antes de iniciar otra.<br />-   `background`: el sistema no espera a que se cierre la tarea.<br />-   `foreground`: se parece a background, excepto que el rol no se reinicia hasta que todas las tareas de foreground se cierran.|  
 
-##  <a name="contents"></a><a name="Contents"></a> Contents  
+##  <a name="contents"></a><a name="Contents"></a> Contenido  
 El elemento `Contents` describe la colección de contenido de un rol web. Este elemento es el elemento primario del elemento `Content`.
 
 El elemento `Contents` solo está disponible cuando se usa la versión 1.5 o posterior de Azure SDK.
 
-##  <a name="content"></a><a name="Content"></a> Content  
+##  <a name="content"></a><a name="Content"></a> Contenido  
 El elemento `Content` define la ubicación de origen del contenido que se copiará en la máquina virtual de Azure y la ruta de acceso de destino en la que se copia.
 
 El elemento `Content` solo está disponible cuando se usa la versión 1.5 o posterior de Azure SDK.

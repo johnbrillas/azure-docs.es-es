@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598678"
+ms.locfileid: "98611039"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -236,7 +236,8 @@ En la tabla siguiente se enumeran los límites específicos a la compatibilidad 
 | Resource | Límite predeterminado |
 | --- | --- |
 | Tamaño máximo de la memoria de consulta de MongoDB (esta limitación es solo para la versión de servidor 3.2) | 40 MB |
-| Tiempo de ejecución máximo para las operaciones de MongoDB| 30 s |
+|Tiempo de ejecución máximo para las operaciones de MongoDB (para la versión de servidor 3.2)| 15 segundos|
+|Tiempo de ejecución máximo para las operaciones de MongoDB (para la versión de servidor 3.6)| 60 segundos|
 | Tiempo de espera de conexión inactiva para el cierre de la conexión del lado servidor* | 30 minutos |
 
 \* Se recomienda que las aplicaciones cliente establezcan el tiempo de espera de conexión inactiva en la configuración del controlador en 2-3 minutos, ya que el [tiempo de espera predeterminado de Azure LoadBalancer es de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md).  Este tiempo de espera garantiza que un equilibrador de carga intermedio entre la máquina cliente y Azure Cosmos DB no cierre las conexiones inactivas.

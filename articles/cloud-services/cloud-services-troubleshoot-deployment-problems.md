@@ -1,27 +1,25 @@
 ---
-title: Solución de problemas de implementación de servicios en la nube | Microsoft Docs
+title: Solución de problemas de implementación de Cloud Services (clásico) | Microsoft Docs
 description: Hay varios problemas comunes que pueden surgir al implementar servicios en la nube en Azure. Este artículo proporciona soluciones a algunos de ellos.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075083"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741084"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Solución de problemas de implementación de servicios en la nube
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Solución de problemas de implementación de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 Al implementar un paquete de aplicación del servicio en la nube en Azure, puede obtener información sobre la implementación en el panel **Propiedades** del Portal de Azure. Puede usar los detalles de este panel para ayudarle a solucionar problemas con el servicio en la nube y proporcionar esta información al soporte técnico de Azure al abrir una nueva solicitud de soporte técnico.
 
 Puede encontrar el panel **Propiedades** panel de la siguiente manera:
@@ -60,7 +58,7 @@ No se permite un intercambio de VIP si una actualización de implementación est
 Para averiguar si alguna actualización automática impide la realización de un intercambio de VIP:
 
 1. En el Portal de Azure, haga clic en la implementación del servicio en la nube.
-2. En el panel **Propiedades** de Azure Portal, examine el valor de **Estado**. Si es **Listo**, compruebe **Última operación** para ver si hubo recientemente alguna que pudo impedir el intercambio de VIP.
+2. En el panel **Propiedades** de Azure Portal, examine el valor de **Estado**. Si el valor es **Listo**, active **Última operación** para comprobar si se produjo recientemente una operación que pudiera evitar el intercambio de VIP.
 3. Repita los pasos 1 y 2 para la implementación de producción.
 4. Si una actualización automática está en curso, espere a que finalice antes de intentar realizar el intercambio de VIP.
 
@@ -72,7 +70,7 @@ Para más información acerca de cómo solucionar este problema, consulte la ent
 ## <a name="problem-my-application-stopped-working"></a>Problema: Mi aplicación dejó de funcionar
 1. En el Portal de Azure, haga clic en la instancia de rol.
 2. En el panel **Propiedades** del Portal de Azure, tenga en cuenta las condiciones siguientes para resolver el problema:
-   * Si la instancia de rol se detuvo recientemente (puede comprobar el valor de **Recuento de anulados**), la implementación puede estar actualizándose. Espere para ver si la instancia de rol reanuda el funcionamiento por sí misma.
+   * Si la instancia de rol se ha detenido recientemente (puede comprobar el valor de **Recuento de anulados**), es posible que la implementación se esté actualizando. Espere para ver si la instancia de rol reanuda el funcionamiento por sí misma.
    * Si la instancia de rol está en estado **Ocupado**, compruebe el código de aplicación para ver si se controla el evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) . Debe agregar o corregir el código que controla este evento.
    * Revise los datos de diagnóstico y los escenarios de solución de problemas en la entrada del blog [Azure PaaS Compute Diagnostics Data](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)(Datos de diagnóstico de proceso de PaaS de Azure).
 

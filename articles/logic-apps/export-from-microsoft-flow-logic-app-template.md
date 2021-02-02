@@ -3,17 +3,19 @@ title: Exportación de flujos desde Power Automate en Azure Logic Apps
 description: Migración de flujos desde Power Automate a Azure Logic Apps mediante su exportación como plantillas de Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014421"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633254"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
+
+> En el caso de los flujos creados después de octubre de 2020, ya no podrá exportar desde Power Automate e implementar en Azure Logic Apps.
 
 Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [Power Automate](https://flow.microsoft.com) a [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Puede exportar el flujo en forma de plantilla de Azure Resource Manager para una aplicación lógica, implementar esa plantilla en un grupo de recursos de Azure y, después, abrir la aplicación en el Diseñador de aplicación lógica.
 

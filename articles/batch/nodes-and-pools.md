@@ -3,12 +3,12 @@ title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934652"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741781"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
@@ -114,7 +114,7 @@ Para obtener información sobre los precios de los nodos de prioridad baja y ded
 
 ## <a name="node-size"></a>Tamaño del nodo
 
-Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/sizes-hpc.md) o [Habilitados para GPU](../virtual-machines/sizes-gpu.md). 
+Cuando se crea un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece varios tamaños de máquina virtual apropiados para las distintas cargas de trabajo, entre los que se incluyen los tamaños de máquina virtual especializados con [HPC](../virtual-machines/sizes-hpc.md) o [Habilitados para GPU](../virtual-machines/sizes-gpu.md). Tenga en cuenta que los tamaños de nodo solo se pueden elegir en el momento en que se crea un grupo. En otras palabras, una vez que se crea un grupo, no se puede cambiar su tamaño de nodo.
 
 Para más información, consulte [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Elección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch).
 

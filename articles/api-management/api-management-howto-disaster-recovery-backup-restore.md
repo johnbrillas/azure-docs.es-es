@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779590"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762413"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -221,8 +221,8 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 
 ## <a name="what-is-not-backed-up"></a>De lo que no se hace una copia de seguridad
 -   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
--   Certificados [TLS/SSL de dominio personalizado](configure-custom-domain.md)
--   [Certificado de entidad de certificación personalizado](api-management-howto-ca-certificates.md), que incluye certificados raíz o intermedios cargados por el cliente
+-   Certificados [TLS/SSL de dominio personalizado](configure-custom-domain.md).
+-   [Certificado de entidad de certificación personalizado](api-management-howto-ca-certificates.md), que incluye certificados raíz o intermedios cargados por el cliente.
 -   Configuración de integración de [red virtual](api-management-using-with-vnet.md).
 -   Configuración de [identidad administrada](api-management-howto-use-managed-service-identity.md).
 -   Configuración de [diagnóstico de Azure Monitor](api-management-howto-use-azure-monitor.md).

@@ -4,16 +4,16 @@ description: Obtenga información sobre qué sistemas operativos pueden ejecutar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/12/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b1bd437da50ae5989e46ac5c5f881b28b0e99703
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: b17f1f32a3e49e9161afe92d62b85a162affcd9f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539915"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630537"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
@@ -50,27 +50,46 @@ Azure IoT Edge se ejecuta en la mayoría de los sistemas operativos que pueden e
 
 La familia del sistema operativo host siempre debe coincidir con la familia del sistema operativo invitado que se utilice en el contenedor de un módulo. En otras palabras, solo se pueden usar contenedores de Linux en Linux y contenedores de Windows en Windows. En el caso de Windows, solo se pueden usar contenedores aislados de los procesos; no se admiten los contenedores aislados de Hyper-V.  
 
-<br>
-<center>
-
-![El sistema operativo host coincide con el sistema operativo invitado](./media/support/edge-on-device.png)
-</center>
+IoT Edge para Linux en Windows usa IoT Edge en una máquina virtual Linux que se ejecuta en un host Windows. De esta manera, puede ejecutar módulos de Linux en un dispositivo Windows.
 
 ### <a name="tier-1"></a>Nivel 1
 
-Los sistemas que se enumeran en la tabla siguiente son compatibles con Microsoft, tanto si están disponibles con carácter general como en versión preliminar pública, y se prueban con cada versión nueva. 
+Los sistemas que se enumeran en las tablas siguientes son compatibles con Microsoft, tanto si están disponibles con carácter general como en versión preliminar pública, y se prueban con cada versión nueva.
+
+Azure IoT Edge admite módulos creados como contenedores de Linux o Windows. Los contenedores de Linux pueden implementarse en dispositivos Linux o implementarse en dispositivos Windows mediante IoT Edge para Linux en Windows. Los contenedores de Windows solo se pueden implementar en dispositivos Windows.
+
+#### <a name="linux-containers"></a>Contenedores de Linux
+
+Los módulos creados como contenedores de Linux se pueden implementar en dispositivos Linux o Windows. En el caso de los dispositivos Linux, el entorno de ejecución de Azure IoT Edge se instala directamente en el dispositivo host. En el caso de los dispositivos Windows, una máquina virtual Linux pregenerada con el entorno de ejecución de Azure IoT Edge se ejecuta en el dispositivo host.
+
+IoT Edge para Linux en Windows se encuentra actualmente en versión preliminar pública, pero es el método recomendado para ejecutar IoT Edge en dispositivos Windows.
 
 | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versión preliminar pública  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versión preliminar pública |
-| [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), compilación 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows 10 IoT Core](/windows/iot-core/windows-iot-core), compilación 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server 2019](/windows-server/get-started-19/rel-notes-19), compilación 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server IoT 2019](/windows/iot-core/windows-server), compilación 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versión preliminar pública  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versión preliminar pública |
+| Windows 10 Pro | Versión preliminar pública |  |  |
+| Windows 10 Enterprise | Versión preliminar pública |  |  |
+| Windows 10 IoT Enterprise | Versión preliminar pública |  |  |
+| Windows Server 2019 | Versión preliminar pública |  |  |
 
-Los sistemas operativos de Windows anteriores son obligatorios en los dispositivos que ejecutan contenedores de Windows en Windows, que es la única configuración compatible para producción. Los paquetes de instalación de Azure IoT Edge para Windows permiten usar contenedores de Linux en Windows, aunque solo en los entornos de desarrollo y pruebas. 
+Todos los sistemas operativos Windows deben estar en la versión 1809 (compilación 17763) o posterior.
+
+#### <a name="windows-containers"></a>Contenedores de Windows
+
+Los módulos creados como contenedores de Windows solo se pueden implementar en dispositivos Windows.
+
+| Sistema operativo | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Windows 10 IoT Enterprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT Core<sup>1</sup><br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019<br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+
+<sup>1</sup> Windows 10 IoT Core no se admitirá después de la versión 1.0.10.
+
+Todos los sistemas operativos Windows deben estar en la versión 1809 (compilación 17763). La compilación específica de Windows es necesaria para IoT Edge en Windows porque la versión de los contenedores de Windows debe coincidir exactamente con la versión del dispositivo Windows del host. Actualmente, los contenedores de Windows solo usan la compilación 17763.
 
 ### <a name="tier-2"></a>Nivel 2
 

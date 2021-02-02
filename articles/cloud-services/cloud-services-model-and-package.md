@@ -1,21 +1,26 @@
 ---
-title: Qué es un modelo y un paquete de servicio en la nube en Azure | Microsoft Docs
+title: Qué es un modelo y un paquete de servicio en la nube (clásico) | Microsoft Docs
 description: Describe el modelo (.csdef, .cscfg) y el paquete (.cspkg) de servicio en la nube en Azure
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077191"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741543"
 ---
-# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
-Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)* , la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)* . Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
+# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube (clásico) y cómo se empaqueta?
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
+Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)*, la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)*. Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
 
 Una vez que se ejecuta el servicio en la nube en Azure, puede volver a configurarlo mediante el archivo **ServiceConfig.cscfg** , pero no puede alterar la definición.
 
@@ -86,28 +91,28 @@ El archivo **ServiceDefinition.csdef** especifica los valores que usa Azure para
 Puede hacer referencia al [esquema de definición de servicio](/previous-versions/azure/reference/ee758711(v=azure.100)) para entender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de algunos de los elementos:
 
 **Sites**  
-contiene las definiciones de sitios web o aplicaciones web que se hospedan en IIS7.
+ contiene las definiciones de sitios web o aplicaciones web que se hospedan en IIS7.
 
 **InputEndpoints**  
-contiene las definiciones de los extremos que se usan para ponerse en contacto con el servicio en la nube.
+ contiene las definiciones de los extremos que se usan para ponerse en contacto con el servicio en la nube.
 
 **InternalEndpoints**  
-contiene las definiciones de los extremos que se usan en las instancias de rol para comunicarse entre sí.
+ contiene las definiciones de los extremos que se usan en las instancias de rol para comunicarse entre sí.
 
 **ConfigurationSettings**  
-contiene las definiciones de configuración de las características de un rol concreto.
+ contiene las definiciones de configuración de las características de un rol concreto.
 
 **Certificados**  
-contiene las definiciones de los certificados que son necesarios para un rol. En el ejemplo de código anterior se muestra un certificado que se usa para la configuración de Azure Connect.
+ contiene las definiciones de los certificados que son necesarios para un rol. En el ejemplo de código anterior se muestra un certificado que se usa para la configuración de Azure Connect.
 
 **LocalResources**  
-contiene las definiciones de los recursos de almacenamiento local. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol.
+ contiene las definiciones de los recursos de almacenamiento local. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol.
 
-**Imports**  
-contiene las definiciones de los módulos importados. El ejemplo de código anterior muestra los módulos de Conexión a Escritorio remoto y Azure Connect.
+**Importaciones**  
+ contiene las definiciones de los módulos importados. El ejemplo de código anterior muestra los módulos de Conexión a Escritorio remoto y Azure Connect.
 
 **Startup**  
-contiene las tareas que se ejecutan cuando se inicia el rol. Las tareas se definen en un archivo ejecutable o .cmd.
+ contiene las tareas que se ejecutan cuando se inicia el rol. Las tareas se definen en un archivo ejecutable o .cmd.
 
 <a name="cscfg"></a>
 
@@ -136,14 +141,14 @@ El archivo de configuración de servicio no se empaqueta con la aplicación, sin
 
 Puede hacer referencia al [esquema de configuración de servicio](/previous-versions/azure/reference/ee758710(v=azure.100)) para comprender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de los elementos:
 
-**Instances**  
-configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de Azure Compute](https://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
+**Instancias**  
+ configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de Azure Compute](https://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
 
 **ConfigurationSettings**  
-configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
+ configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
 
 **Certificados**  
-configura los certificados usados por el servicio. En el ejemplo de código anterior se muestra cómo definir el certificado para el módulo RemoteAccess. El valor del atributo *thumbprint* debe establecerse en la huella digital del certificado que se va a usar.
+ configura los certificados usados por el servicio. En el ejemplo de código anterior se muestra cómo definir el certificado para el módulo RemoteAccess. El valor del atributo *thumbprint* debe establecerse en la huella digital del certificado que se va a usar.
 
 <p/>
 

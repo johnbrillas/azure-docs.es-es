@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601788"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630334"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -279,6 +279,150 @@ El proveedor de identidades puede proporcionar cierta autorización llave en man
 ### <a name="application-level"></a>Nivel de aplicación
 
 Si alguno de los otros niveles no proporciona la autorización que necesita, o si no se admite la plataforma o el proveedor de identidades, debe escribir código personalizado para autorizar a los usuarios en función de las [notificaciones de usuario](#access-user-claims).
+
+## <a name="updating-the-configuration-version-preview"></a>Actualización de la versión de configuración (versión preliminar)
+
+Hay dos versiones de la API de administración para la característica Autenticación / Autorización. La versión preliminar V2 es necesaria para la experiencia "Autenticación (versión preliminar)" en Azure Portal. Una aplicación que ya use la API V1 puede actualizarse a la versión V2 una vez realizados algunos cambios. En concreto, la configuración de secretos debe moverse a una configuración de la aplicación con espacios fijos. La configuración del proveedor de cuentas de Microsoft tampoco se admite actualmente en V2.
+
+> [!WARNING]
+> La migración a la versión preliminar V2 deshabilitará la administración de la característica Autenticación / Autorización de App Service de la aplicación a través de algunos clientes, como la experiencia existente en Azure Portal, la CLI de Azure y Azure PowerShell. Esto no se puede revertir. Durante la versión preliminar, no se recomienda ni se admite la migración de cargas de trabajo de producción. Solo debe seguir los pasos de esta sección para las aplicaciones de prueba.
+
+### <a name="moving-secrets-to-application-settings"></a>Movimiento de secretos a la configuración de la aplicación
+
+1. Obtenga la configuración existente mediante la API V1:
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   En la carga JSON resultante, anote el valor secreto que se usa para cada proveedor que ha configurado:
+
+   * AAD: `clientSecret`
+   * Google: `googleClientSecret`
+   * Facebook: `facebookAppSecret`
+   * Twitter: `twitterConsumerSecret`
+   * Cuenta de Microsoft: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > Los valores de secreto son credenciales de seguridad importantes y deben administrarse con cuidado. No comparta estos valores ni los conserve en una máquina local.
+
+1. Cree la configuración de la aplicación con espacios fijos para cada valor de secreto. Puede elegir el nombre de cada configuración de la aplicación. Su valor debe coincidir con lo que se obtuvo en el paso anterior o [hacer referencia a un secreto de Key Vault](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) que haya creado con ese valor.
+
+   Para crear la configuración, puede usar Azure Portal o ejecutar una variación del código siguiente para cada proveedor:
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > La configuración de la aplicación para esta configuración debe marcarse como con espacios fijos, lo que significa que no se moverán entre entornos durante una [operación de intercambio de espacios](./deploy-staging-slots.md). Esto se debe a que la configuración de autenticación en sí está asociada al entorno. 
+
+1. Cree un nuevo archivo JSON denominado `authsettings.json`. Tome el resultado que recibió previamente y quite de él cada valor de secreto. Escriba la salida restante en el archivo, asegurándose de que no se incluya ningún secreto. En algunos casos, la configuración puede tener matrices que contengan cadenas vacías. Asegúrese de que `microsoftAccountOAuthScopes` no lo haga y, si es así, cambie ese valor a `null`.
+
+1. Agregue una propiedad a `authsettings.json` que apunte al nombre de la configuración de la aplicación que creó anteriormente para cada proveedor:
+ 
+   * AAD: `clientSecretSettingName`
+   * Google: `googleClientSecretSettingName`
+   * Facebook: `facebookAppSecretSettingName`
+   * Twitter: `twitterConsumerSecretSettingName`
+   * Cuenta de Microsoft: `microsoftAccountClientSecretSettingName`
+
+   Un archivo de ejemplo después de esta operación podría tener un aspecto similar al siguiente, en este caso solo está configurado para AAD:
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Envíe este archivo como la nueva configuración de Autenticación / Autorización para la aplicación:
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Valide que la aplicación siga funcionando según lo esperado después de este gesto.
+
+1. Elimine el archivo usado en los pasos anteriores.
+
+Ha migrado la aplicación para almacenar los secretos del proveedor de identidades como configuración de la aplicación.
+
+### <a name="support-for-microsoft-account-registrations"></a>Compatibilidad con registros de cuenta de Microsoft
+
+La API V2 no es compatible actualmente con Cuenta de Microsoft como proveedor distinto. En su lugar, aprovecha la [Plataforma de identidad de Microsoft](../active-directory/develop/v2-overview.md) convergente para que los usuarios inicien sesión con cuentas personales de Microsoft. Al cambiar a la API V2, se usa la configuración V1 de Azure Active Directory para configurar el proveedor de la Plataforma de identidad de Microsoft.
+
+Si la configuración existente contiene un proveedor Cuentas de Microsoft y no contiene un proveedor Azure Active Directory, puede cambiar la configuración al proveedor Azure Active Directory y luego realizar la migración. Para ello, siga estos pasos:
+
+1. Vaya a [**Registros de aplicaciones**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) en Azure Portal y busque el registro asociado a su proveedor Cuentas de Microsoft. Puede estar bajo el encabezado "Aplicaciones de cuenta personal".
+1. Vaya a la página "Autenticación" para el registro. En "URI de redireccionamiento" debería ver una entrada que termina en `/.auth/login/microsoftaccount/callback`. Copie este URI.
+1. Agregue un nuevo URI que coincida con el que acaba de copiar, salvo que en su lugar termine en `/.auth/login/aad/callback`. Esto permitirá que el registro se use en la configuración de Autenticación / Autorización de App Service.
+1. Vaya a la configuración de Autenticación / Autorización de App Service para la aplicación.
+1. Recopile la configuración para el proveedor Cuenta de Microsoft.
+1. Configure el proveedor Azure Active Directory mediante el modo de administración "Avanzado", proporcionando los valores de identificador de cliente y secreto de cliente que recopiló en el paso anterior. Para la URL del emisor, use `<authentication-endpoint>/<tenant-id>/v2.0` y reemplace *\<authentication-endpoint>* por el [punto de conexión de autenticación del entorno de nube](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por ejemplo, "https://login.microsoftonline.com" para Azure global), y reemplace también *\<tenant-id>* por el **identificador de directorio (inquilino)** .
+1. Una vez que haya guardado la configuración, pruebe el flujo de inicio de sesión; para ello, vaya en al explorador hasta el punto de conexión `/.auth/login/aad` del sitio y complete el flujo de inicio de sesión.
+1. En este punto, ha copiado correctamente la configuración, pero la configuración del proveedor Cuenta de Microsoft existente permanece. Antes de quitarla, asegúrese de que todas las partes de la aplicación hagan referencia al proveedor Azure Active Directory a través de los vínculos de inicio de sesión, etc. Compruebe que todas las partes de la aplicación funcionen según lo previsto.
+1. Una vez que haya validado que todo funciona con el proveedor Azure Active Directory de AAD, puede quitar la configuración del proveedor Cuentas de Microsoft.
+
+Es posible que algunas aplicaciones ya tengan registros independientes para Azure Active Directory y Cuenta de Microsoft. Estas aplicaciones no se pueden migrar en este momento. 
+
+> [!WARNING]
+> Es posible converger los dos registros modificando los [tipos de cuenta admitidos](../active-directory/develop/supported-accounts-validation.md) para el registro de la aplicación de AAD. Sin embargo, esto forzaría una nueva solicitud de consentimiento para los usuarios de Cuenta de Microsoft, y las notificaciones de identidad de esos usuarios pueden ser diferentes en la estructura, en especial `sub` cambiará los valores dado que se usa un nuevo identificador de aplicación. No se recomienda este enfoque a menos que se entienda cabalmente. En su lugar, debe esperar a que se admitan los dos registros en la superficie de la API V2.
+
+### <a name="switching-to-v2"></a>Cambio a V2
+
+Una vez seguidos los pasos anteriores, vaya a la aplicación en Azure Portal. Seleccione la sección "Autenticación (versión preliminar)". 
+
+Como alternativa, puede realizar una solicitud PUT en el recurso de `config/authsettingsv2` en el recurso del sitio. El esquema de la carga es el mismo que el capturado en la sección [Configuración con un archivo](#config-file).
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a> Configuración con un archivo (versión preliminar)
 

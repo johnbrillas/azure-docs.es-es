@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569426"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762364"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -19,25 +19,25 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
 - Enero de 2021
-  - [Azure Disk Backup (en versión preliminar)](disk-backup-overview.md)
-  - [El cifrado en reposo mediante claves administradas por el cliente ahora está disponible con carácter general](encryption-at-rest-with-cmk.md)
+  - [Azure Disk Backup (en versión preliminar)](#azure-disk-backup-in-preview)
+  - [Cifrado en reposo mediante claves administradas por el cliente ahora (disponible con carácter general)](#encryption-at-rest-using-customer-managed-keys)
 - Noviembre de 2020
   - [Plantilla de Azure Resource Manager para la copia de seguridad de recursos compartido de archivos de Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
-  - [Copias de seguridad incrementales para bases de datos de SAP HANA en máquinas virtuales de Azure](#incremental-backups-for-sap-hana-databases)
+  - [Copias de seguridad incrementales para bases de datos de SAP HANA en máquinas virtuales de Azure (en versión preliminar)](#incremental-backups-for-sap-hana-databases-in-preview)
 - Septiembre de 2020
-  - [Centro de copia de seguridad](#backup-center)
-  - [Copia de seguridad de Azure Database for PostgreSQL](#backup-azure-database-for-postgresql)
+  - [Centro de copia de seguridad (en versión preliminar)](#backup-center-in-preview)
+  - [Copia de seguridad de Azure Database for PostgreSQL (en versión preliminar)](#backup-azure-database-for-postgresql-in-preview)
   - [Copia de seguridad y restauración selectivas de discos](#selective-disk-backup-and-restore)
-  - [Restauración entre regiones de bases de datos SQL Server y SAP HANA en máquinas virtuales de Azure](#cross-region-restore-for-sql-server-and-sap-hana)
-  - [Compatibilidad de la copia de seguridad de máquinas virtuales con hasta 32 discos](#support-for-backup-of-vms-with-up-to-32-disks)
+  - [Restauración entre regiones de bases de datos SQL Server y SAP HANA en máquinas virtuales de Azure ( en versión preliminar)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
+  - [Compatibilidad de la copia de seguridad de máquinas virtuales con hasta 32 discos (disponibilidad general)](#support-for-backup-of-vms-with-up-to-32-disks)
   - [Experiencia de configuración de copia de seguridad simplificada para SQL en las máquinas virtuales de Azure](#simpler-backup-configuration-for-sql-in-azure-vms)
-  - [Copia de seguridad de SAP HANA en máquinas virtuales de Azure de RHEL](#backup-sap-hana-in-rhel-azure-virtual-machines)
-  - [Almacenamiento con redundancia de zona para datos de copia de seguridad](#zone-redundant-storage-zrs-for-backup-data)
+  - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
+  - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
 ## <a name="azure-disk-backup-in-preview"></a>Azure Disk Backup (en versión preliminar)
 
-Azure Disk Backup ofrece una solución inmediata que le proporciona la oportunidad de administrar el ciclo de vida de las instantáneas para [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview); para ello, solo debe automatizar la creación periódica de instantáneas y guardarlas durante la duración configurada mediante la directiva de copia de seguridad. Puede administrar las instantáneas de disco sin costos de infraestructura, sin necesidad de realizar un scripting personalizado y sin sufrir ninguna sobrecarga de administración. Esta solución de copia de seguridad coherente con los bloqueos realiza en un momento dado una copia de seguridad de un disco administrado mediante [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots), y admite la realización de varias copias de seguridad al día. También es una solución sin agente que no afecta al rendimiento de las aplicaciones de producción. Igualmente, admite las copias de seguridad y la restauración de los discos de datos y del sistema operativo (incluidos los discos compartidos), tanto si están conectados actualmente a una máquina virtual de Azure en ejecución como si no.
+Azure Disk Backup ofrece una solución inmediata que le proporciona la oportunidad de administrar el ciclo de vida de las instantáneas para [Azure Managed Disks](../virtual-machines/managed-disks-overview.md); para ello, solo debe automatizar la creación periódica de instantáneas y guardarlas durante la duración configurada mediante la directiva de copia de seguridad. Puede administrar las instantáneas de disco sin costos de infraestructura, sin necesidad de realizar un scripting personalizado y sin sufrir ninguna sobrecarga de administración. Esta solución de copia de seguridad coherente con los bloqueos realiza en un momento dado una copia de seguridad de un disco administrado mediante [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md), y admite la realización de varias copias de seguridad al día. También es una solución sin agente que no afecta al rendimiento de las aplicaciones de producción. Igualmente, admite las copias de seguridad y la restauración de los discos de datos y del sistema operativo (incluidos los discos compartidos), tanto si están conectados actualmente a una máquina virtual de Azure en ejecución como si no.
 
 Para más información, consulte [Azure Disk Backup (en versión preliminar)](disk-backup-overview.md).
 
@@ -53,13 +53,13 @@ Azure Backup permite ahora configurar la copia de seguridad de recursos comparti
 
 Para más información, consulte [Plantillas de Azure Resource Manager para Azure Backup](backup-rm-template-samples.md).
 
-## <a name="incremental-backups-for-sap-hana-databases"></a>Copias de seguridad incrementales para bases de datos SAP HANA
+## <a name="incremental-backups-for-sap-hana-databases-in-preview"></a>Copias de seguridad incrementales para bases de datos SAP HANA (en versión preliminar)
 
 Azure Backup ahora admite las copias de seguridad incrementales para las bases de datos SAP HANA hospedadas en máquinas virtuales de Azure. Esto permite realizar copias de seguridad más rápidas y rentables de sus datos de SAP HANA.
 
 Para obtener más información, consulte las [distintas opciones disponibles durante la creación de una directiva de copia de seguridad](sap-hana-faq-backup-azure-vm.md#policy) y [cómo crear una directiva de copia de seguridad para las bases de datos SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
-## <a name="backup-center"></a>Centro de copia de seguridad
+## <a name="backup-center-in-preview"></a>Centro de copia de seguridad (en versión preliminar)
 
 Azure Backup ha habilitado una nueva funcionalidad de administración nativa para todo el estado de la copia de seguridad desde una consola central. El centro de copias de seguridad proporciona la capacidad de supervisar, operar, administrar y optimizar la protección de datos a escala de manera unificada con las experiencias de administración nativas de Azure.
 
@@ -67,7 +67,7 @@ Con el centro de copias de seguridad, obtiene una vista agregada del inventario 
 
 Para obtener más información, consulte [Información general sobre el centro de copias de seguridad](backup-center-overview.md).
 
-## <a name="backup-azure-database-for-postgresql"></a>Copia de seguridad de Azure Database for PostgreSQL
+## <a name="backup-azure-database-for-postgresql-in-preview"></a>Copia de seguridad de Azure Database for PostgreSQL (en versión preliminar)
 
 Azure Backup y los servicios de base de datos de Azure se han unido para crear una solución de copia de seguridad de clase empresarial para Azure PostgreSQL (actualmente en versión preliminar). Ahora puede satisfacer sus necesidades de protección de datos y cumplimiento con una directiva de copia de seguridad controlada por el cliente que permita la retención de copias de seguridad durante un máximo de 10 años. Con ella, tiene un control detallado para administrar las operaciones de creación y restauración de copias de seguridad en el nivel de base de datos individual. Del mismo modo, puede realizar restauraciones a través de las versiones de PostgreSQL o Blob Storage fácilmente.
 
@@ -79,7 +79,7 @@ Azure Backup admite la copia de seguridad de todos los discos (sistema operativo
 
 Para obtener más información, consulte [Copias de seguridad y restauración selectivas de discos para máquinas virtuales de Azure](selective-disk-backup-restore.md).
 
-## <a name="cross-region-restore-for-sql-server-and-sap-hana"></a>Restauración entre regiones para SQL Server y SAP HANA
+## <a name="cross-region-restore-for-sql-server-and-sap-hana-in-preview"></a>Restauración entre regiones para SQL Server y SAP HANA (en versión preliminar)
 
 Con la introducción de la restauración entre regiones, ahora puede iniciar las restauraciones en una región secundaria a fin de mitigar los problemas de tiempo de inactividad reales en una región primaria de su entorno. Esto hace que las restauraciones de la región secundaria las controle por completo el cliente. Azure Backup usa los datos de copia de seguridad replicados en la región secundaria para dichas restauraciones.
 
@@ -99,13 +99,13 @@ La configuración de las copias de seguridad para SQL Server en las máquinas vi
 
 Para obtener más información, consulte [Copia de seguridad de una instancia de SQL Server desde el panel de máquina virtual](backup-sql-server-vm-from-vm-pane.md).
 
-## <a name="backup-sap-hana-in-rhel-azure-virtual-machines"></a>Copia de seguridad de SAP HANA en máquinas virtuales de Azure de RHEL
+## <a name="backup-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)
 
 Azure Backup es la solución de copias de seguridad nativa de Azure y tiene la certificación BackInt de SAP. Azure Backup ha agregado compatibilidad con Red Hat Enterprise Linux (RHEL), uno de los sistemas operativos Linux más usados que ejecutan SAP HANA.
 
 Para obtener más información, consulte la matriz de [compatibilidad de escenarios para copia de seguridad de bases de datos SAP HANA](sap-hana-backup-support-matrix.md#scenario-support).
 
-## <a name="zone-redundant-storage-zrs-for-backup-data"></a>Almacenamiento con redundancia de zona para datos de copia de seguridad
+## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)
 
 Azure Storage proporciona un equilibrio fantástico entre alto rendimiento, alta disponibilidad y alta resistencia de datos con sus variadas opciones de redundancia. Azure Backup le permite ampliar también estas ventajas a los datos de copias de seguridad, con opciones para almacenar las copias de seguridad en almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). Ahora, hay opciones de durabilidad adicionales con la compatibilidad agregada para el almacenamiento con redundancia de zona (ZRS).
 

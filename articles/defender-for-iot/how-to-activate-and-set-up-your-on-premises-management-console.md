@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538586"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623761"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activación y configuración de la consola de administración local 
 
@@ -147,13 +147,13 @@ Para configurar la tunelización en el sensor:
 
 ## <a name="set-up-a-site"></a>Configurar un sitio
 
-El mapa de empresa predeterminado proporciona una vista general de los recursos en función de varios niveles de ubicaciones geográficas.
+El mapa de empresa predeterminado proporciona una vista general de los dispositivos en función de varios niveles de ubicaciones geográficas.
 
-La vista de los recursos podría ser necesaria si la estructura de la organización y los permisos de usuario son complejos. En estos casos, la configuración del sitio puede estar determinada por una estructura organizativa global, además de la estructura de la zona o del sitio estándar.
+La vista de los dispositivos podría ser necesaria si la estructura de la organización y los permisos de usuario son complejos. En estos casos, la configuración del sitio puede estar determinada por una estructura organizativa global, además de la estructura de la zona o del sitio estándar.
 
 Para admitir este entorno, debe crear una topología empresarial global basada en las unidades de negocio, las regiones, los sitios y las zonas de su organización. También debe definir los permisos de acceso de usuario en torno a estas entidades mediante el uso de grupos de acceso.
 
-Los grupos de acceso permiten un mejor control sobre el lugar en el que los usuarios administran y analizan los recursos en la plataforma Defender para IoT.
+Los grupos de acceso permiten un mejor control sobre el lugar en el que los usuarios administran y analizan los dispositivos en la plataforma Defender para IoT.
 
 ### <a name="how-it-works"></a>Funcionamiento
 
@@ -215,7 +215,7 @@ Para eliminar un sitio:
 
 ## <a name="create-enterprise-zones"></a>Crear zonas de empresa
 
-Las zonas son entidades lógicas que le permiten dividir los recursos de un sitio en grupos según varias características. Por ejemplo, puede crear grupos para líneas de producción, subestaciones, áreas de sitio o tipos de recursos. Puede definir zonas en función de las características que sean adecuadas para su organización.
+Las zonas son entidades lógicas que le permiten dividir los dispositivos de un sitio en grupos según varias características. Por ejemplo, puede crear grupos para líneas de producción, subestaciones, áreas de sitio o tipos de dispositivos. Puede definir zonas en función de las características que sean adecuadas para su organización.
 
 Las zonas se configuran como parte del proceso de configuración del sitio.
 
@@ -231,7 +231,7 @@ En la siguiente tabla se describen los parámetros en la ventana **Administraci�
 | Conectividad | El estado de conectividad del servidor. El estado puede ser **Conectado** o **Desconectado**. |
 | Última actualización | La fecha y hora de la última actualización. |
 | Progreso de actualización | La barra de progreso indica el estado del proceso de actualización, como se indica a continuación:<br />- Cargando el paquete<br />- Preparando la instalación<br />- Deteniendo procesos<br />- Realizando una copia de seguridad de los datos<br />- Tomando instantánea<br />- Actualizando la configuración<br />- Actualizando dependencias<br />- Actualizando bibliotecas<br />- Aplicando revisiones a las bases de datos<br />- Iniciando procesos<br />- Comprobando la integridad del sistema<br />- Validación correcta<br />- Correcto<br />- Error<br />- Se ha iniciado la actualización<br />- Iniciando la instalaciónogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Para obtener más información acerca de la actualización, consulte el [Soporte técnico de Microsoft](https://support.microsoft.com/) para obtener ayuda. |
-| Recursos | El número de recursos OT que supervisa el sensor. |
+| Dispositivos | El número de dispositivos OT que supervisa el sensor. |
 | Alertas | El número de alertas en el sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Permite asignar un sensor a las zonas. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Permite eliminar un sensor desconectado del sitio. |

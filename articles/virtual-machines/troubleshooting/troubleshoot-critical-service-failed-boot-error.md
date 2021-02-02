@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a937528e3bfd8bea16912d614133988763748bab
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129853"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632966"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows muestra el mensaje "Error crítico del servicio" en pantalla azul al arrancar una máquina virtual de Azure
 En este artículo se describe el error "Error crítico del servicio" que puede surgir al iniciar una máquina virtual Windows en Microsoft Azure. Proporciona pasos de solución de problemas para ayudar a resolver los problemas. 
@@ -38,6 +38,9 @@ Hay varias causas para los errores graves. Las causas más comunes son:
 - Una aplicación accede a un sector prohibido de la memoria
 
 ## <a name="solution"></a>Solución 
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Para resolver este problema, [póngase en contacto con el equipo de soporte técnico y envíe un archivo de volcado](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) que ayudará a diagnosticar el problema más rápidamente o intente la siguiente solución de autoayuda.
 
@@ -142,7 +145,7 @@ Para analizar los registros de volcado de memoria, siga estos pasos:
 9. [Desconecte el disco del sistema operativo y, a continuación, vuelva a conectarlo a la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md).
 10. Arranque la máquina virtual para ver si muestra el análisis de volcado de memoria. Busque el archivo que no se puede cargar. Debe reemplazar este archivo con un archivo de la máquina virtual en funcionamiento. 
 
-    El siguiente es un ejemplo de análisis de volcado de memoria. Puede ver que el **ERROR** se encuentra en filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    El siguiente es un ejemplo de análisis de volcado de memoria. Puede ver que el **error** se encuentra en filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

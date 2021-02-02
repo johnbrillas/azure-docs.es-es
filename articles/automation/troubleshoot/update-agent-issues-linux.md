@@ -4,17 +4,17 @@ description: En este artículo se describe cómo solucionar y resolver problemas
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680861"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762631"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Solución de problemas del agente de actualización de Linux
 
@@ -27,7 +27,7 @@ Puede haber muchas razones por las que el equipo no se muestra como Listo (corre
 > [!NOTE]
 > Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de una máquina.
 
-En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline). 
+En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
 
 > [!NOTE]
 > El script del solucionador de problemas no enruta actualmente el tráfico a través de un servidor proxy si se ha configurado uno.
@@ -90,7 +90,6 @@ Update Management descarga paquetes de Hybrid Runbook Worker desde el punto de c
 
 Esta comprobación garantiza que se está ejecutando Hybrid Runbook Worker en el equipo. Los procesos del ejemplo siguiente deben estar presentes si la instancia de Hybrid Runbook Worker se está ejecutando correctamente.
 
-
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -129,7 +128,7 @@ Esta comprobación verifica que la máquina tenga acceso a los puntos de conexi�
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solución de problemas sin conexión
 
-Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script de Python [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) puede encontrarse en el centro de scripts. En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
+Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script de Python, [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), se puede encontrar en GitHub. En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

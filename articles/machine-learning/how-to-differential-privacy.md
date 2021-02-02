@@ -1,7 +1,7 @@
 ---
-title: Conservación de la privacidad de los datos mediante los paquetes de SmartNoise (versión preliminar)
+title: Procedimiento de privacidad diferencial para SmartNoise (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo aplicar procedimientos recomendados de privacidad diferencial a los modelos de Azure Machine Learning mediante los paquetes de SmartNoise.
+description: Obtenga información sobre cómo aplicar procedimientos recomendados de privacidad diferencial a los modelos de Azure Machine Learning mediante las bibliotecas de código abierto de SmartNoise.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 12/21/2020
-ms.openlocfilehash: ebc14d6c9d0ebaa6e0258578f94771c9f286bdb4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 01/21/2020
+ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221942"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681411"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Uso de la privacidad diferencial en Azure Machine Learning (versión preliminar)
 
-Obtenga información sobre cómo aplicar procedimientos recomendados de privacidad diferencial a los modelos de Azure Machine Learning mediante los paquetes de Python de SmartNoise.
+Obtenga información sobre cómo aplicar procedimientos recomendados de privacidad diferencial a los modelos de Azure Machine Learning mediante las bibliotecas de código abierto Python de SmartNoise.
 
-La privacidad diferencial es la definición de referencia de la privacidad. Los sistemas que se adhieren a esta definición de privacidad proporcionan garantías sólidas contra una amplia gama de ataques de reidentificación y reconstrucción de datos, incluidos los ataques de los adversarios que poseen información complementaria. Obtenga información sobre cómo [funciona la privacidad diferencial](./concept-differential-privacy.md).
+La privacidad diferencial es la definición de referencia de la privacidad. Los sistemas que se adhieren a esta definición de privacidad proporcionan garantías sólidas contra una amplia gama de ataques de reidentificación y reconstrucción de datos, incluidos los ataques de los adversarios que poseen información complementaria. Obtenga información sobre [cómo funciona la privacidad diferencial](./concept-differential-privacy.md).
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -30,7 +30,7 @@ La privacidad diferencial es la definición de referencia de la privacidad. Los 
 - Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 - [Python 3](https://www.python.org/downloads/)
 
-## <a name="install-smartnoise-packages"></a>Instalación de paquetes de SmartNoise
+## <a name="install-smartnoise-python-libraries"></a>Instalación de las bibliotecas Python de SmartNoise
 
 ### <a name="standalone-installation"></a>Instalación independiente
 
@@ -51,7 +51,7 @@ import opendp.smartnoise.sql
 
 Si las importaciones se realizan correctamente, las bibliotecas se instalan y están listas para usar.
 
-### <a name="docker-image"></a>Imagen de Docker
+### <a name="docker-image-installation"></a>Instalación de una imagen de Docker
 
 También puede usar paquetes de SmartNoise con Docker.
 

@@ -1,21 +1,24 @@
 ---
-title: Supervisión de un servicio en la nube de Azure | Microsoft Docs
+title: Supervisión de un servicio en la nube de Azure (clásico) | Microsoft Docs
 description: Se describe qué conlleva la supervisión de un servicio en la nube de Azure y cuáles son algunas de las opciones.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847251"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743379"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>Introducción a la supervisión de servicios en la nube (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión `Microsoft.Azure.Diagnostics` aplicada a un rol, este último puede recopilar puntos de datos adicionales. En este artículo se ofrece una introducción a Azure Diagnostics para Cloud Services.
 
@@ -54,7 +57,7 @@ A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Di
 
 En primer lugar, si aún no tiene una cuenta de almacenamiento **clásica**, [cree una](../storage/common/storage-account-create.md). Asegúrese de que la cuenta de almacenamiento se crea con el **modelo de implementación clásica** especificado.
 
-Después, vaya al recurso **Cuenta de almacenamiento (clásico)** . Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
+Después, vaya al recurso **Cuenta de almacenamiento (clásico)**. Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
 
 Debe modificar dos archivos de configuración para habilitar el diagnóstico avanzado, **ServiceDefinition.csdef** y **ServiceConfiguration.cscfg**.
 

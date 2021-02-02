@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635712"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633161"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Solución de problemas de inicio del sistema operativo: capacidad de la instalación de Windows Update
 
@@ -38,6 +38,9 @@ En esta situación, el sistema operativo (SO) no puede completar una instalació
 ## <a name="solution"></a>Solución
 
 ### <a name="process-overview"></a>Información general del proceso:
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 1. Cree una VM de reparación y acceda a esta.
 1. Libere espacio en el disco.

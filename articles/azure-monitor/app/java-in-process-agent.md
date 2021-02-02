@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32d906bf96a0ad5cf798f68bf83f2d6af1064361
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231747"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745707"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights
 
@@ -34,11 +34,11 @@ El agente 3.0 admite Java 8 y versiones posteriores.
 >
 > Revise todas las [opciones de configuración](./java-standalone-config.md) con cuidado, ya que la estructura JSON ha cambiado por completo, además del nombre de archivo, que es en minúsculas.
 
-Descargue [applicationinsights-agent-3.0.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
+Descargue [applicationinsights-agent-3.0.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
 
 **2. Apunte JVM al agente.**
 
-Agregue `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` a los argumentos de JVM de la aplicación.
+Agregue `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` a los argumentos de JVM de la aplicación.
 
 Los argumentos típicos de JVM son `-Xmx512m` y `-XX:+UseG1GC`. Por lo tanto, si sabe dónde debe agregarlos, lo mismo se aplica para este.
 
@@ -54,7 +54,7 @@ Apunte el agente hacia el recurso de Application Insights, ya sea estableciendo 
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-O creando un archivo de configuración denominado `applicationinsights.json` y colocándolo en el mismo directorio que `applicationinsights-agent-3.0.1.jar`, con el siguiente contenido:
+O creando un archivo de configuración denominado `applicationinsights.json` y colocándolo en el mismo directorio que `applicationinsights-agent-3.0.2.jar`, con el siguiente contenido:
 
 ```json
 {
@@ -255,7 +255,7 @@ try {
 ### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Adición de dimensiones personalizadas de solicitud mediante el SDK 2.x
 
 > [!NOTE]
-> Esta característica solo está disponible en la versión 3.0.1 y versiones posteriores.
+> Esta característica solo está disponible en la versión 3.0.2 y versiones posteriores.
 
 Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
 
@@ -279,7 +279,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Establecimiento de user_Id de telemetría de solicitud con el SDK 2.x
 
 > [!NOTE]
-> Esta característica solo está disponible en la versión 3.0.1 y versiones posteriores.
+> Esta característica solo está disponible en la versión 3.0.2 y versiones posteriores.
 
 Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
 
@@ -303,7 +303,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Reemplazo del nombre de telemetría de solicitud con el SDK 2.x
 
 > [!NOTE]
-> Esta característica solo está disponible en la versión 3.0.1 y versiones posteriores.
+> Esta característica solo está disponible en la versión 3.0.2 y versiones posteriores.
 
 Agregue `applicationinsights-web-2.6.2.jar` a la aplicación (todas las versiones 2.x son compatibles con Application Insights Java 3.0, pero merece la pena usar la más reciente si es posible):
 
@@ -323,8 +323,3 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.setName("myname");
 ```
-
-> [!NOTE]
-> Todas las demás operaciones en un elemento `RequestTelemetry` recuperado de `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` además de las descritas anteriormente producirán un error rápidamente y una excepción que le informará de que es un comportamiento no definido en el agente 3.0.
->
-> Si necesita interoperabilidad para cualquier otro método en `RequestTelemetry`, abra una incidencia en https://github.com/microsoft/ApplicationInsights-Java/issues para informarnos al respecto.

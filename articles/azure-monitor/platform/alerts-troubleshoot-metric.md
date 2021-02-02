@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070741"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661804"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -24,8 +24,9 @@ Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan c
 Si cree que una alerta de métrica debe haberse desencadenado, pero no lo hizo y no se encuentra en Azure Portal, intente seguir los pasos siguientes:
 
 1. **Configuración**: revise la configuración de la regla de alerta de métricas para asegurarse de que se haya establecido correctamente:
-    - Compruebe que los valores **Tipo de agregación**, **Granularidad de agregación (período)** y **Valor de umbral** o **Confidencialidad** estén configurados según lo esperado.
-    - Para una regla de alerta que usa umbrales dinámicos, compruebe si se ha establecido la configuración avanzada, ya que la opción **Número de infracciones** puede filtrar las alertas y la opción **Omitir los datos antes del** puede afectar a cómo se calculan los umbrales.
+    - Compruebe que los valores **Tipo de agregación** y **Granularidad de agregación (período)** estén configurados según lo esperado. **Tipo de agregación** determina cómo se agregan los valores de métricas (más información [aquí](./metrics-aggregation-explained.md#aggregation-types)) y **Granularidad de agregación (período)** controla hasta qué punto la evaluación agrega los valores de métricas cada vez que se ejecuta la regla de alerta.
+    -  Compruebe que el **Valor de umbral** o la **Sensibilidad** estén configurados según lo esperado.
+    - Para una regla de alerta que usa umbrales dinámicos, compruebe si se ha establecido la configuración avanzada, ya que la opción **Número de infracciones** puede filtrar las alertas, y la opción **Omitir los datos antes del** puede afectar a cómo se calculan los umbrales.
 
        > [!NOTE] 
        > Los umbrales dinámicos tardan al menos 3 días en estar activos y requieren 30 muestras de métricas como mínimo.

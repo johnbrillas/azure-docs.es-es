@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703813"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630300"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -70,6 +70,9 @@ El [punto de conexión integrado compatible con el centro de eventos](iot-hub-de
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Imagen de dos puntos de conexión privados, cada uno con un vínculo privado a IoT Hub":::
 
+De manera opcional, el [filtro IP](iot-hub-ip-filtering.md) de IoT Hub puede controlar el acceso público al punto de conexión integrado. 
+
+Para bloquear completamente el acceso de la red pública a su centro de IoT, [desactive el acceso a la red pública](iot-hub-public-network-access.md) o use el filtro de IP para bloquear todas las direcciones IP y seleccione la opción para aplicar reglas al punto de conexión integrado.
 
 ### <a name="pricing-for-private-link"></a>Precios de Private Link
 

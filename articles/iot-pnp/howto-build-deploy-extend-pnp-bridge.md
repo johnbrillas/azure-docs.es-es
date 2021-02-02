@@ -1,27 +1,26 @@
 ---
-title: Compilación, implementación y extensión del puente IoT Plug and Play | Microsoft Docs
-description: Identifique los componentes del puente IoT Plug and Play. Aprenda a extender el puente y a ejecutarlo en dispositivos IoT, puertas de enlace y como módulo IoT Edge.
+title: Compilación e implementación del puente IoT Plug and Play | Microsoft Docs
+description: Identifique los componentes del puente IoT Plug and Play. Aprenda a ejecutarlo en dispositivos IoT, puertas de enlace y como módulo IoT Edge.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ece9f62e64eb64b1f34af46b42d57ec583f8f214
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675739"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784904"
 ---
-# <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>Compilación, implementación y extensión del puente IoT Plug and Play
+# <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Compilación e implementación de un puente IoT Plug and Play
 
-El puente IoT Plug and Play le permite conectar los dispositivos existentes conectados a una puerta de enlace a su centro de IoT. El puente se usa para asignar interfaces IoT Plug and Play a los dispositivos conectados. Una interfaz IoT Plug and Play define la telemetría que un dispositivo envía, las propiedades sincronizadas entre el dispositivo y la nube, y los comandos a los que responde el dispositivo. Puede instalar y configurar la aplicación de puente de código abierto en puertas de enlace de Windows o Linux.
+El [puente IoT Plug and Play](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) le permite conectar los dispositivos existentes conectados a una puerta de enlace a su centro de IoT. El puente se usa para asignar interfaces IoT Plug and Play a los dispositivos conectados. Una interfaz IoT Plug and Play define la telemetría que un dispositivo envía, las propiedades sincronizadas entre el dispositivo y la nube, y los comandos a los que responde el dispositivo. Puede instalar y configurar la aplicación de puente de código abierto en puertas de enlace de Windows o Linux. Además, el puente puede ejecutarse como un módulo de entorno de ejecución de Azure IoT Edge.
 
 En este artículo se explica detalladamente lo siguiente:
 
 - Configuración de un puente.
-- Extensión de un puente mediante la creación de adaptadores.
 - Procedimiento para compilar y ejecutar el puente en diversos entornos.
 
 Para ver un ejemplo sencillo en el que se muestra cómo usar el puente, vea [Procedimiento para conectar el ejemplo de puente IoT Plug and Play que se ejecuta en Linux o Windows a IoT Hub](howto-use-iot-pnp-bridge.md).
@@ -78,97 +77,6 @@ El [esquema del archivo de configuración](https://github.com/Azure/iot-plug-and
 
 Cuando el puente se ejecuta como módulo IoT Edge en un entorno de ejecución de Azure IoT Edge, el archivo de configuración se envía desde la nube como actualización de la propiedad `PnpBridgeConfig` deseada. El puente espera la actualización de esta propiedad para configurar los adaptadores y los componentes.
 
-## <a name="extend-the-bridge"></a>Extensión del puente
-
-Para extender las capacidades del puente, puede crear sus propios adaptadores de puente.
-
-El puente utiliza adaptadores para:
-
-- Establecer una conexión entre un dispositivo y la nube.
-- Habilitar el flujo de datos entre un dispositivo y la nube.
-- Habilitar la administración de dispositivos desde la nube.
-
-Cada adaptador de puente debe:
-
-- Crear una interface de gemelos digitales.
-- Use la interfaz para enlazar la funcionalidad del lado del dispositivo a capacidades basadas en la nube tales como telemetría, propiedades y comandos.
-- Establecer la comunicación de datos y control con el hardware o el firmware del dispositivo.
-
-Cada adaptador de puente interactúa con un tipo de dispositivo específico en función de cómo el adaptador se conecta al dispositivo e interactúa con él. Aunque la comunicación con un dispositivo utilice un protocolo de enlace, es posible que un adaptador de puente tenga varias formas de interpretar los datos del dispositivo. En este escenario, el adaptador de puente usa información del adaptador del archivo de configuración a fin de determinar la *configuración de la interfaz* que debe usar el adaptador para analizar los datos.
-
-Para interactuar con el dispositivo, un adaptador de puente utiliza un protocolo de comunicación compatible con el dispositivo y las API proporcionadas por el sistema operativo subyacente o por el proveedor del dispositivo.
-
-Para interactuar con la nube, un adaptador de puente usa las API proporcionadas por el SDK de C de dispositivo Azure IoT para enviar telemetría, crear interfaces de gemelo digital, enviar actualizaciones de propiedades y crear funciones de devolución de llamada para las actualizaciones de propiedades y los comandos.
-
-### <a name="create-a-bridge-adapter"></a>Creación de un adaptador de puente
-
-El puente espera un adaptador de puente para implementar las API definidas en la interfaz [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296):
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-En esta interfaz:
-
-- `PNPBRIDGE_ADAPTER_CREATE` crea el adaptador y configura los recursos de administración de la interfaz. También es posible que un adaptador se base en los parámetros de adaptador globales para la creación de un adaptador. Esta función se llama una vez para un único adaptador.
-- `PNPBRIDGE_COMPONENT_CREATE` crea las interfaces cliente de gemelo digital y enlaza las funciones de devolución de llamada. El adaptador inicia el canal de comunicación con el dispositivo. El adaptador puede configurar los recursos para habilitar el flujo de telemetría, pero no inicia los informes de telemetría hasta que se llama a `PNPBRIDGE_COMPONENT_START`. Esta función se llama una vez para cada componente de interfaz en el archivo de configuración.
-- `PNPBRIDGE_COMPONENT_START` se llama para permitir que el adaptador de puente empiece a reenviar la telemetría del dispositivo al cliente de gemelo digital. Esta función se llama una vez para cada componente de interfaz en el archivo de configuración.
-- `PNPBRIDGE_COMPONENT_STOP` detiene el flujo de telemetría.
-- `PNPBRIDGE_COMPONENT_DESTROY` destruye el cliente de gemelo digital y los recursos de interfaz asociados. Esta función se llama una vez para cada componente de interfaz en el archivo de configuración cuando se revoca el puente o cuando se produce un error irrecuperable.
-- `PNPBRIDGE_ADAPTER_DESTROY` limpia los recursos del adaptador de puente.
-
-### <a name="bridge-core-interaction-with-bridge-adapters"></a>Interacción del núcleo del puente con adaptadores de puente
-
-En la siguiente lista se describe lo que sucede cuando se inicia el puente:
-
-1. Cuando se inicia el puente, el administrador de adaptadores de puente examina cada componente de interfaz definido en el archivo de configuración y llama a `PNPBRIDGE_ADAPTER_CREATE` en el adaptador adecuado. El adaptador puede usar parámetros de configuración de adaptador globales para configurar los recursos a fin de admitir las diversas *configuraciones de interfaz*.
-1. Para cada dispositivo del archivo de configuración, el administrador de puente inicia la creación de la interfaz mediante una llamada a `PNPBRIDGE_COMPONENT_CREATE` en el adaptador de puente adecuado.
-1. El adaptador recibe cualquier valor de configuración de adaptador opcional para el componente de interfaz y usa esta información para configurar las conexiones con el dispositivo.
-1. El adaptador crea las interfaces cliente de gemelo digital y enlaza las funciones de devolución de llamada para las actualizaciones de propiedades y los comandos. El establecimiento de conexiones de dispositivo no debe bloquear la devolución de las devoluciones de llamada después de que la creación de la interfaz de gemelo digital se realice correctamente. La conexión del dispositivo activo es independiente del cliente de interfaz activa que crea el puente. Si se produce un error en una conexión, el adaptador supone que el dispositivo está inactivo. El adaptador de puente puede optar por reintentar establecer esta conexión.
-1. Después de que el administrador de adaptadores de puente cree todos los componentes de interfaz especificados en el archivo de configuración, registra todas las interfaces con Azure IoT Hub. El registro es una llamada asincrónica de bloqueo. Cuando se completa la llamada, se desencadena una devolución de llamada en el adaptador de puente que puede empezar a administrar las devoluciones de llamada de propiedades y comandos desde la nube.
-1. El administrador de adaptadores de puente llama entonces a `PNPBRIDGE_INTERFACE_START` en cada componente y el adaptador de puente comienza a notificar la telemetría al cliente de gemelo digital.
-
-### <a name="design-guidelines"></a>Guías de diseño
-
-Siga estas instrucciones cuando desarrolle un nuevo adaptador de puente:
-
-- Determine qué capacidades de los dispositivos se admiten y cuál es la definición de interfaz de los componentes que utilizan este adaptador.
-- Determine qué parámetros de interfaz y globales necesita su adaptador que se definan en el archivo de configuración.
-- Identifique la comunicación de dispositivo de bajo nivel necesaria para admitir las propiedades y los comandos de los componentes.
-- Determine cómo debe el adaptador analizar los datos sin procesar del dispositivo y convertirlos en los tipos de telemetría que especifica la definición de la interfaz IoT Plug and Play.
-- Implemente la interfaz del adaptador de puente descrita anteriormente.
-- Agregue el nuevo adaptador al manifiesto de aplicación del adaptador y compile el puente.
-
-### <a name="enable-a-new-bridge-adapter"></a>Habilitación de un nuevo adaptador de puente
-
-Los adaptadores se habilitan en el puente agregando una referencia en [adapter_manifest.c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> Las devoluciones de llamada del adaptador de puente se invocan secuencialmente. Un adaptador no debe bloquear una devolución de llamada porque impide que el núcleo del puente avance.
-
-### <a name="sample-camera-adapter"></a>Adaptador de cámara de ejemplo
-
-El [archivo Léame del adaptador de cámara](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) describe un adaptador de cámara de ejemplo que puede habilitar.
-
 ## <a name="build-and-run-the-bridge-on-an-iot-device-or-gateway"></a>Compilación y ejecución del puente en una puerta de enlace o un dispositivo IoT
 
 | Plataforma | Compatible |
@@ -188,7 +96,7 @@ Para completar esta sección, es preciso instalar el siguiente software en la m�
 
 Clone el repositorio del [puente IoT Plug and Play](https://github.com/Azure/iot-plug-and-play-bridge) en la máquina local:
 
-```cmd/sh
+```console
 git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 
 cd iot-plug-and-play-bridge
@@ -205,7 +113,7 @@ Se espera que el comando anterior tarde varios minutos en ejecutarse.
 
 Abra el **Símbolo del sistema para desarrolladores de VS 2019**, navegue hasta la carpeta que contiene el repositorio clonado y ejecute los siguientes comandos:
 
-```cmd
+```console
 cd pnpbridge\scripts\windows
 
 build.cmd
@@ -279,7 +187,7 @@ Revise el resto del archivo de configuración para ver qué componentes de inter
 
 Inicie el puente mediante su ejecución en el símbolo del sistema:
 
-```cmd
+```console
 cd iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console
 
 Debug\pnpbridge_bin.exe
@@ -304,7 +212,7 @@ Para completar esta sección, necesita una instancia de Azure IoT Hub gratuita o
 
 En los pasos de esta sección se supone que tiene el siguiente entorno de desarrollo en una máquina con Windows 10. Estas herramientas permiten crear e implementar un módulo IoT Edge en el dispositivo IoT Edge:
 
-- Subsistema de Windows para Linux (WSL) 2 que ejecute Ubuntu 18.04 LTS. Para obtener más información, consulte la [Guía de instalación del Subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Subsistema de Windows para Linux (WSL) 2 que ejecute Ubuntu 18.04 LTS. Para obtener más información, consulte la [Guía de instalación del Subsistema de Windows para Linux para Windows 10](/windows/wsl/install-win10).
 - Docker Desktop para Windows configurado para usar WSL 2. Para obtener más información, consulte el artículo sobre el [back-end de Docker Desktop WSL 2](https://docs.docker.com/docker-for-windows/wsl/).
 - [Visual Studio Code instalado en el entorno Windows](https://code.visualstudio.com/docs/setup/windows) con las tres extensiones siguientes instaladas:
 
@@ -330,13 +238,13 @@ Los comandos siguientes crean un dispositivo IoT Edge en ejecución en una máqu
 
 Para crear un registro de dispositivos IoT Edge en el centro de IoT, ejecute los siguientes comandos en el entorno de WSL 2. Use el comando `az login` para iniciar sesión en su suscripción de Azure:
 
-```bash
+```azurecli
 az iot hub device-identity create --device-id bridge-edge-device --edge-enabled true --hub-name {your IoT hub name}
 ```
 
 Para crear una máquina virtual de Azure que tenga el entorno de ejecución de Azure IoT Edge instalado, ejecute los siguientes comandos. Actualice los marcadores de posición con los valores adecuados:
 
-```bash
+```azurecli
 az group create --name bridge-edge-resources --location eastus
 az deployment group create \
 --resource-group bridge-edge-resources \
@@ -350,7 +258,7 @@ az deployment group create \
 
 Ahora tiene el entorno de ejecución de Azure IoT Edge en ejecución en una máquina virtual. Puede usar el siguiente comando para comprobar que los módulos **$edgeAgent** y **$edgeHub** se ejecutan en el dispositivo:
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -378,7 +286,6 @@ Inicie VS Code, abra la paleta de comandos, escriba *Remote WSL: Open folder in 
 Abra el archivo *pnpbridge\Dockerfile.amd64*. Edite las definiciones de variables de entorno de la siguiente manera:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"
@@ -405,7 +312,7 @@ Un dispositivo IoT Edge descarga sus imágenes de módulo desde un registro de c
 
 Cree una instancia de Azure Container Registry en el grupo de recursos **bridge-edge-resources**. A continuación, habilite el acceso de administrador a su registro de contenedor y obtenga las credenciales que el dispositivo IoT Edge necesita para descargar las imágenes de módulo:
 
-```bash
+```azurecli
 az acr create -g bridge-edge-resources --sku Basic -n {your container registry name}
 az acr update --admin-enabled true -n {your container registry name}
 az acr credential show -n {your container registry name}
@@ -517,7 +424,7 @@ En VS Code, haga clic con el botón derecho en el archivo *pnpbridge/config/depl
 
 Para ver el estado de los módulos del dispositivo, ejecute el comando siguiente:
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -527,7 +434,7 @@ La lista de módulos en ejecución incluye ahora el módulo **ModulePnpBridge** 
 
 Para quitar la máquina virtual y el registro de contenedor de la suscripción de Azure, ejecute el siguiente comando:
 
-```bash
+```azurecli
 az group delete -n bridge-edge-resources
 ```
 

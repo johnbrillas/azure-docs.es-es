@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837317"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624581"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API del sensor y la consola de administración de Defender para IoT
 
@@ -44,7 +44,7 @@ Para generar un token, haga lo siguiente:
 
 5. Seleccione **Finalizar**. Los tokens que cree aparecerán en el cuadro de diálogo **Tokens de acceso**.
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Captura de pantalla del cuadro de diálogo Tokens de acceso con tokens rellenados":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Captura de pantalla del cuadro de diálogo Tokens de dispositivo con tokens rellenados":::
 
    **Usado** indica la última vez que se recibió una llamada externa con este token.
 

@@ -11,14 +11,14 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da80af9fe598186fa25d59601c9fa4faccb4286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87447050"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681962"
 ---
-# <a name="import-and-export-azure-ad-connect-configuration-settings-public-preview"></a>Importar y exportar opciones de configuración de Azure AD Connect (versión preliminar pública)
+# <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importación y exportación de opciones de configuración de Azure AD Connect 
 
 Las implementaciones de Azure Active Directory (Azure AD) Connect varían de una instalación en modo Rápido del bosque único a implementaciones complejas que se sincronizan entre varios bosques mediante reglas de sincronización personalizadas. Debido al gran número de opciones y mecanismos de configuración, es esencial comprender qué opciones están en vigor para así poder implementar rápidamente un servidor con una configuración idéntica. Esta característica presenta la capacidad de catalogar la configuración de un servidor de sincronización determinado e importar la configuración en una nueva implementación. Se pueden comparar distintas instantáneas de configuración de sincronización para visualizar fácilmente las diferencias entre dos servidores, o del mismo servidor a lo largo del tiempo.
 
@@ -77,10 +77,10 @@ Migración de la configuración:
 
    ![Captura de pantalla que muestra los directorios de Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** * al nuevo servidor.
+1. Ejecute el script tal como se muestra a continuación y guarde todo el directorio de configuración del servidor de nivel inferior. Copie este directorio en el nuevo servidor de almacenamiento provisional. Debe copiar toda la carpeta **Exported-ServerConfiguration-** _ al nuevo servidor.
 
    ![Captura de pantalla que muestra el script en Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
+   ![Captura de pantalla que muestra la copia de la carpeta Exported-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Haga doble clic en el icono de **Azure AD Connect** en el escritorio para iniciarlo. Acepte los términos de licencia del software de Microsoft y seleccione **Personalizar** en la siguiente página.
 1. Seleccione la casilla **Importar configuración de sincronización**. Seleccione **Examinar** para examinar la carpeta Exported-ServerConfiguration-* que se ha copiado. Seleccione MigratedPolicy.json para importar la configuración migrada.
@@ -91,7 +91,7 @@ Migración de la configuración:
 
 Comparar el archivo de configuración importado originalmente con el archivo de configuración exportado del servidor recién implementado, es un paso esencial para comprender las diferencias entre la implementación prevista y la implementación resultante. Usar su aplicación favorita para la comparación de texto en paralelo permite obtener una visualización instantánea que resalta rápidamente cualquier cambio deseado o accidental.
 
-Si bien ahora se han eliminado muchos pasos de configuración que antes eran manuales, debe seguir el proceso de certificación de su organización para asegurarse de que no se requiere ninguna configuración adicional. Esta configuración puede producirse si usa la configuración avanzada, ya que no se captura actualmente en la versión preliminar pública de la administración de configuración.
+Si bien ahora se han eliminado muchos pasos de configuración que antes eran manuales, debe seguir el proceso de certificación de su organización para asegurarse de que no se requiere ninguna configuración adicional. Esta configuración puede producirse si usa la configuración avanzada, ya que no se captura actualmente en esta versión de la administración de configuración.
 
 Estas son las limitaciones conocidas:
 - **Reglas de sincronización**: la prioridad de una regla personalizada debe estar en el rango reservado de 0 a 99 para evitar conflictos con las reglas estándar de Microsoft. La colocación de una regla personalizada fuera del rango reservado puede dar lugar a que la regla personalizada se cambie a medida que se agreguen reglas estándar a la configuración. Se producirá un problema similar si la configuración contiene reglas estándar modificadas. Se recomienda no modificar una regla estándar; además, es probable que la ubicación de la regla sea incorrecta.

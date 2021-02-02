@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914253"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663679"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatización de la administración con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ En este artículo se proporciona información general de la extensión. Para ins
 
 ## <a name="overview"></a>Introducción
 
-La extensión del Agente de IaaS de SQL Server ofrece una serie de ventajas para SQL Server en las VM de Azure: 
+La extensión del agente de IaaS de SQL Server permite la integración en Azure Portal y, en función del modo de administración, desbloquea una serie de ventajas de las características para SQL Server en VM de Azure: 
 
 - **Ventajas de las características**: la extensión desbloquea varias ventajas de las características de automatización, como la administración del portal, la flexibilidad de las licencia, la copia de seguridad automatizada, la aplicación automatizada de revisiones, etc. Consulte [Ventajas de las características](#feature-benefits) más adelante en este artículo para obtener más información. 
 
@@ -74,12 +74,13 @@ En la siguiente tabla se detallan estas ventajas:
 
 | Característica | Descripción |
 | --- | --- |
-| **Administración de portal** | Desbloquea la [administración en el portal](manage-sql-vm-portal.md), lo que permite ver todas las VM con SQL Server en un solo lugar, así como habilitar y deshabilitar características específicas de SQL directamente desde el portal. 
-| **Copia de seguridad automatizada** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada o una instancia con nombre [instalada de forma correcta](frequently-asked-questions-faq.md#administration) de SQL Server en la máquina virtual. Para más información, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). |
-| **Aplicación de revisión automatizada** |Configura una ventana de mantenimiento durante la cual pueden tener lugar actualizaciones de seguridad importantes de Windows y SQL Server en la VM, de forma que pueda evitar las actualizaciones durante las horas punta de la carga de trabajo. Para más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)](automated-patching.md). |
-| **Integración de Azure Key Vault** |Permite instalar y configurar automáticamente Azure Key Vault en la máquina virtual SQL Server. Para más información, consulte [Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Licencias flexibles** | Ahorre en el costo mediante la [transición sin problemas](licensing-model-azure-hybrid-benefit-ahb-change.md) de la característica traiga su propia licencia (también conocida como Ventaja híbrida de Azure) al modelo de licencias de pago por uso y viceversa. | 
-| **Versión o edición flexibles** | Si decide cambiar la [versión ](change-sql-server-version.md) o la [edición](change-sql-server-edition.md) de SQL Server, puede actualizar los metadatos en Azure Portal sin tener que volver a implementar toda la VM con SQL Server.  | 
+| **Administración de portal** | Desbloquea la [administración en el portal](manage-sql-vm-portal.md), lo que permite ver todas las VM con SQL Server en un solo lugar, así como habilitar y deshabilitar características específicas de SQL directamente desde el portal. <br/> Modo de administración: Ligero y completo.|  
+| **Copia de seguridad automatizada** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada o una instancia con nombre [instalada de forma correcta](frequently-asked-questions-faq.md#administration) de SQL Server en la máquina virtual. Para más información, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Modo de administración: Completo|
+| **Aplicación de revisión automatizada** |Configura una ventana de mantenimiento durante la cual pueden tener lugar actualizaciones de seguridad importantes de Windows y SQL Server en la VM, de forma que pueda evitar las actualizaciones durante las horas punta de la carga de trabajo. Para más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)](automated-patching.md). <br/> Modo de administración: Completo|
+| **Integración de Azure Key Vault** |Permite instalar y configurar automáticamente Azure Key Vault en la máquina virtual SQL Server. Para más información, consulte [Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Modo de administración: Completo|
+| **Visualización del uso del disco en el portal** | Permite ver una representación gráfica del uso del disco por parte de los archivos de datos de SQL en Azure Portal.  <br/> Modo de administración: Completo | 
+| **Licencias flexibles** | Ahorre en el costo mediante la [transición sin problemas](licensing-model-azure-hybrid-benefit-ahb-change.md) de la característica traiga su propia licencia (también conocida como Ventaja híbrida de Azure) al modelo de licencias de pago por uso y viceversa. <br/> Modo de administración: Ligero y completo.| 
+| **Versión o edición flexibles** | Si decide cambiar la [versión ](change-sql-server-version.md) o la [edición](change-sql-server-edition.md) de SQL Server, puede actualizar los metadatos en Azure Portal sin tener que volver a implementar toda la VM con SQL Server.  <br/> Modo de administración: Ligero y completo.| 
 
 
 ## <a name="management-modes"></a>Modos de administración
@@ -115,7 +116,7 @@ Hay tres formas de registrarse con la extensión:
 
 ### <a name="named-instance-support"></a>Compatibilidad de las instancias con nombre
 
-La extensión del Agente de IaaS de SQL Server funciona con una instancia con nombre de SQL Server si esa es la única instancia de SQL Server disponible en la máquina virtual. La extensión no se instalará en máquinas virtuales que tengan varias instancias de SQL Server. 
+La extensión del Agente de IaaS de SQL Server funciona con una instancia con nombre de SQL Server si esa es la única instancia de SQL Server disponible en la máquina virtual. La extensión no se puede instalar en VM que tengan varias instancias de SQL Server con nombre si no hay ninguna instancia predeterminada en la VM. 
 
 Para usar una instancia con nombre de SQL Server, implemente una máquina virtual de Azure, instale una única instancia con nombre de SQL Server y, luego, regístrela con la [extensión del Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md).
 
@@ -228,7 +229,7 @@ No. Una máquina virtual debe tener al menos una instancia de SQL Server (Motor
 
 **¿Puedo registrar una máquina virtual con la extensión del Agente de IaaS de SQL si hay varias instancias de SQL Server?**
 
-Sí. La extensión del Agente de IaaS de SQL solo registrará una instancia de SQL Server (Motor de base de datos). En caso de varias instancias, registrará la instancia de SQL Server predeterminada. Si no hay ninguna instancia predeterminada, solo se admite el registro en modo ligero. Para actualizar del modo ligero al modo de administración completa, debe existir la instancia de SQL Server predeterminada o la máquina virtual debe tener solo una instancia de SQL Server con nombre.
+Sí, siempre que haya una instancia predeterminada en la VM. La extensión del Agente de IaaS de SQL solo registrará una instancia de SQL Server (Motor de base de datos). En caso de varias instancias, registrará la instancia de SQL Server predeterminada.
 
 **¿Se puede registrar una instancia de clúster de conmutación por error de SQL Server con la extensión del Agente de IaaS de SQL?**
 

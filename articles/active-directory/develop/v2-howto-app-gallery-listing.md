@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399373"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752861"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -175,7 +175,7 @@ La compatibilidad con el aprovisionamiento usuarios de [SCIM](https://aka.ms/sci
 Para obtener más información sobre los estándares y las ventajas de SCIM para los clientes, consulte una [introducción al aprovisionamiento con SCIM](https://aka.ms/scimoverview).
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Información sobre la implementación de SCIM de Azure AD
-Para obtener más información acerca de la implementación de SCIM de Azure AD, consulte cómo [crear un punto de conexión de SCIM y configurar el aprovisionamiento de usuarios con Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Para obtener más información acerca de la implementación de SCIM de Azure AD, consulte cómo [crear un punto de conexión de SCIM y configurar el aprovisionamiento de usuarios con Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implementación de SCIM
 Azure AD proporciona un [código de referencia](https://aka.ms/scimoverview) para ayudarle a crear un punto de conexión de SCIM. También hay muchas bibliotecas o referencias de terceros disponibles en GitHub.  
@@ -186,7 +186,7 @@ Necesitará un inquilino de Azure AD para probar la aplicación. Para configura
 
 Como alternativa, cada suscripción a Microsoft 365 incluye un inquilino de Azure AD. Para configurar un entorno de desarrollo de Microsoft 365 gratuito, vea [Unirse al programa de desarrolladores de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Una vez que tenga un inquilino, debe probar el inicio de sesión único y el [aprovisionamiento](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Una vez que tenga un inquilino, debe probar el inicio de sesión único y el [aprovisionamiento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **En aplicaciones de OIDC u Oath**, [registre la aplicación](quickstart-register-app.md) como una aplicación multiinquilino. ‎Seleccione la opción Cuentas en cualquier directorio organizativo y cuentas Microsoft personales en Tipos de cuenta admitidos.
 
@@ -274,7 +274,7 @@ Si quiere agregar la aplicación a la lista de la galería mediante SSO con cont
 
 ![Escala de tiempo para agregar la aplicación de SSO con contraseña a la lista de galería](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si va a implementar un punto de conexión de [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. Al proporcionar el esquema en la solicitud de incorporación, siga las instrucciones facilitadas [en esta página](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) para descargar el esquema. Usaremos el esquema que configuró al probar la aplicación que no pertenece a la galería para crear la aplicación de galería. 
+Si va a implementar un punto de conexión de [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 para el aprovisionamiento de usuarios, seleccione la opción como se muestra. Al proporcionar el esquema en la solicitud de incorporación, siga las instrucciones facilitadas [en esta página](../app-provisioning/export-import-provisioning-configuration.md) para descargar el esquema. Usaremos el esquema que configuró al probar la aplicación que no pertenece a la galería para crear la aplicación de galería. 
 
    ![Solicitud de aprovisionamiento de usuarios](./media/howto-app-gallery-listing/user-provisioning.png)
 

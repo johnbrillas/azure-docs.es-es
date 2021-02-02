@@ -1,22 +1,24 @@
 ---
-title: Esquema de rol de Azure Cloud Services | Microsoft Docs
+title: Esquema de rol de Azure Cloud Services (clásico) | Microsoft Docs
 description: El elemento Rol de un archivo de configuración de servicio especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 12
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79528428"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743447"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services
+# <a name="azure-cloud-services-classic-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 El elemento `Role` del archivo de configuración especifica el número de instancias de rol que se implementan para cada rol del servicio, los valores de los parámetros de configuración y las huellas digitales de los certificados asociados a un rol.
 

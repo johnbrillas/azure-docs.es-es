@@ -1,21 +1,25 @@
 ---
 title: Tareas de administración de servicios en la nube comunes | Microsoft Docs
 description: Vea cómo administrar Cloud Services en Azure Portal. Estos ejemplos usan el Portal de Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076715"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743396"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Administración de Cloud Services en Azure Portal
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Administración de Cloud Services (clásico) en Azure Portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 En el área de **Cloud Services** de Azure Portal, puede:
 
 * Actualizar una implementación o un rol de servicio.
@@ -77,7 +81,7 @@ Existen principalmente dos requisitos previos para que el intercambio de impleme
 
 - Si quiere usar una dirección IP estática para su ranura de producción, debe reservar también una para su ranura de ensayo. Si no lo hace así, se producirá un error en el intercambio.
 
-- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. El estado de las instancias se puede comprobar en la hoja **Información general** de Azure Portal. Como alternativa, puede usar el comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) de Windows PowerShell.
+- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. El estado de las instancias se puede comprobar en la hoja **Información general** de Azure Portal. Como alternativa, puede usar el comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) de Windows PowerShell.
 
 Tenga en cuenta que las actualizaciones del sistema operativo invitado y las operaciones de recuperación de servicios pueden hacer que los intercambios de implementación den error. Para más información, consulte [Solución de problemas de implementación de servicios en la nube](cloud-services-troubleshoot-deployment-problems.md).
 

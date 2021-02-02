@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837164"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624649"
 ---
 # <a name="define-global-access-control"></a>Definición del control de acceso global
 
@@ -20,7 +20,7 @@ En las organizaciones grandes, los permisos de usuario pueden ser complejos y es
 
 Para admitir la demanda de permisos de acceso de usuarios que son globales y más complejos, puede crear una topología empresarial global basada en unidades de negocio, regiones y sitios. A continuación, puede definir permisos de acceso de usuarios en torno a estas entidades.
 
-Trabajar con las herramientas de acceso para la topología empresarial ayuda a las organizaciones a implementar estrategias de confianza cero al controlar mejor dónde los usuarios administran y analizan los recursos en la plataforma de Azure Defender para IoT.
+Trabajar con las herramientas de acceso para la topología empresarial ayuda a las organizaciones a implementar estrategias de confianza cero al controlar mejor dónde los usuarios administran y analizan los dispositivos en la plataforma de Azure Defender para IoT.
 
 ## <a name="about-access-groups"></a>Acerca de los grupos de acceso
 

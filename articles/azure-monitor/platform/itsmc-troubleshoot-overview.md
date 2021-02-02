@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601899"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761987"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Solución de problemas del Conector de Administración de servicios de TI
 
@@ -43,24 +43,23 @@ Si usa Service Map, puede ver los elementos de la consola de servicio creados en
 
 ![Captura de pantalla en la que se muestra la pantalla de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>Solución de problemas de conexión de ITSM
-
-- Si una conexión no puede conectarse al sistema ITSM y recibe un mensaje **Error al guardar la conexión**, siga estos pasos:
-   - En el caso de conexiones de ServiceNow, Cherwell y Provance:  
-     - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
-     - Asegúrese de disponer de privilegios suficientes en el producto de ITSM correspondiente para realizar la conexión.  
-   - En el caso de conexiones de Service Manager:  
-     - Asegúrese de que la aplicación web se implementa correctamente y de que se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Si se generan alertas de Log Analytics, pero no se crean elementos de trabajo en el producto de ITSM, si no se crean elementos de configuración o no se vinculan a elementos de trabajo, o si necesita información adicional, vea estos recursos:
-   -  ITSMC: La solución muestra un [resumen de conexiones](itsmc-dashboard.md), elementos de trabajo, equipos, etc. Seleccione el icono que tiene la etiqueta **Estado del conector**. Al hacerlo, se le remitirá a **Búsqueda de registros** con la consulta pertinente. Consulte las entradas de registro con un elemento `LogType_S` de `ERROR` para obtener más información.
-   Puede ver los detalles de los mensajes de la tabla [aquí](itsmc-dashboard-errors.md).
-   - Página de **búsqueda de registros**: vea los errores y la información relacionada directamente mediante la consulta `*ServiceDeskLog_CL*`.
-
-## <a name="common-symptoms---how-it-should-be-resolved"></a>Síntomas comunes: ¿cómo se deben resolver?
+## <a name="common-symptoms---how-should-it-be-resolved"></a>Síntomas comunes: ¿cómo se deben resolver?
 
 En la siguiente lista se incluyen los síntomas comunes y cómo deben resolverse:
 
+* **Síntoma**: Si una conexión no puede conectarse al sistema ITSM y recibe un mensaje **Error al guardar la conexión**.
+
+    **Causa**: La causa puede deberse a una de estas opciones:
+    * Credenciales incorrectas
+     * Privilegios insuficientes
+     * La aplicación web se debe implementar correctamente.
+
+    **Solución:**
+    * En el caso de conexiones de ServiceNow, Cherwell y Provance:
+        * Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
+        * Para ServiceNow: Asegúrese de disponer de privilegios suficientes en el producto de ITSM correspondiente para realizar la conexión según se [especifica](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * En el caso de conexiones de Service Manager:  
+      * Asegúrese de que la aplicación web se implementa correctamente y de que se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Síntoma**: Se crean elementos de trabajo duplicados
 
     **Causa**: La causa puede deberse a una de estas dos opciones:

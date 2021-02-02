@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509110"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632840"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Error de parada de Windows: #0x000000EF; proceso crítico interrumpido
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver los problemas en los q
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que esta muestra el error *#0x000000EF*con un mensaje que indica que *se interrumpió un proceso crítico*.
+Si usa [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que esta muestra el error *#0x000000EF* con un mensaje que indica que *se interrumpió un proceso crítico*.
 
 !["Se produjo un problema con su equipo y se debe reiniciar. Solo vamos a recopilar alguna información de error y, a continuación, podrá reiniciar. (## % completado) Si quiere más información, puede buscar más tarde en línea este error: 0x000000EF"](media/troubleshoot-guide-critical-process-died/1.jpg)
 
@@ -38,6 +38,9 @@ Normalmente, se debe a un error en el proceso del sistema crítico durante el ar
 ## <a name="solution"></a>Solución
 
 ### <a name="process-overview"></a>Información general del proceso:
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 1. Cree una VM de reparación y acceda a ella.
 2. Corrija los daños en el sistema operativo.

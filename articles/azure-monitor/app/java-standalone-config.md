@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233668"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631328"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -39,14 +39,14 @@ Encontrará más detalles y opciones de configuración adicionales a continuaci�
 
 ## <a name="configuration-file-path"></a>Ruta del archivo de configuración
 
-De forma predeterminada, Application Insights Java 3.0 espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.0.1.jar`.
+De forma predeterminada, Application Insights Java 3.0 espera que el archivo de configuración se denomine `applicationinsights.json` y que se encuentre en el mismo directorio que `applicationinsights-agent-3.0.2.jar`.
 
 Puede especificar la ruta de acceso a su propio archivo de configuración mediante
 
 * la variable de entorno `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, o
 * la propiedad del sistema Java `applicationinsights.configuration.file`.
 
-Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.1.jar`.
+Si especifica una ruta de acceso relativa, se resolverá de forma relativa al directorio en el que se encuentra `applicationinsights-agent-3.0.2.jar`.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -170,7 +170,7 @@ Si desea agregar dimensiones personalizadas a toda la telemetría:
 `${...}` se puede usar para leer el valor de la variable de entorno especificada en el inicio.
 
 > [!NOTE]
-> A partir de la versión 3.0.1, si agrega una dimensión personalizada denominada `service.version`, el valor se almacenará en la columna `application_Version` de la tabla de registros de Application Insights en lugar de como una dimensión personalizada.
+> A partir de la versión 3.0.2, si agrega una dimensión personalizada denominada `service.version`, el valor se almacenará en la columna `application_Version` de la tabla de registros de Application Insights en lugar de como una dimensión personalizada.
 
 ## <a name="telemetry-processors-preview"></a>Procesadores de telemetría (versión preliminar)
 
@@ -241,7 +241,7 @@ Para deshabilitar la recopilación automática de métricas de Micrometer (inclu
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Supresión de la telemetría específica recopilada automáticamente
 
-A partir de la versión 3.0.1, se puede suprimir la telemetría específica recopilada automáticamente mediante estas opciones de configuración:
+A partir de la versión 3.0.2, se puede suprimir la telemetría específica recopilada automáticamente mediante estas opciones de configuración:
 
 ```json
 {
@@ -296,7 +296,9 @@ Si su aplicación está protegida por un firewall y no puede conectarse directam
 }
 ```
 
-[//]: # "Tenga en cuenta que no se anunciará la compatibilidad con OpenTelemetry hasta que se admita 0.10.0, que incorpora cambios importantes desde la 0.9.0."
+Application Insights Java 3.0 también respeta `-Dhttps.proxyHost` y `-Dhttps.proxyPort` globales si se establecen.
+
+[//]: # "Tenga en cuenta que la compatibilidad con OpenTelemetry está en versión preliminar privada hasta que la API de OpenTelemetry alcance 1.0"
 
 [//]: # "# # Compatibilidad con las versiones anteriores a la 1.0 de la API de OpenTelemetry."
 
@@ -338,11 +340,13 @@ De forma predeterminada, Application Insights Java 3.0 registra en el nivel `INF
 
 `level` puede ser uno de `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` o `TRACE`.
 
-`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.0.1.jar`.
+`path` incluye una ruta de acceso absoluta o relativa. Las rutas de acceso relativas se resuelven en el directorio donde se encuentra `applicationinsights-agent-3.0.2.jar`.
 
 `maxSizeMb` es el tamaño máximo del archivo de registro antes de que se revierta.
 
 `maxHistory` es el número de archivos de registro revertidos que se conservan (además del archivo de registro actual).
+
+A partir de la versión 3.0.2, también puede establecer el `level` de diagnóstico automático mediante la variable de entorno `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
 
 ## <a name="an-example"></a>Un ejemplo
 

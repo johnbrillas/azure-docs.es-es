@@ -11,39 +11,44 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372768"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756610"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
-Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos y controles de cumplimiento específicos.
+Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos de cumplimiento específicos.
 
 
-## <a name="overview-of-compliance-packages"></a>Información general sobre los paquetes de cumplimiento
+## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>¿Cómo se representan los estándares de cumplimiento normativo en Security Center?
 
-Los estándares del sector, los estándares normativos y las pruebas comparativas se representan en Security Center como *paquetes de cumplimiento*.  Cada paquete es una iniciativa definida en Azure Policy. Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un paquete de cumplimiento a la suscripción o al grupo de administración desde la página **Directiva de seguridad**. (Obtenga más información sobre Azure Policy y las iniciativas en [Uso de directivas de seguridad](tutorial-security-policy.md)).
+Los estándares del sector, los estándares normativos y las pruebas comparativas se representan en el panel de cumplimiento normativo de Security Center. Cada estándar es una iniciativa definida en Azure Policy.
 
-Cuando haya incorporado un estándar o una prueba comparativa, asignará la iniciativa al ámbito y el estándar aparecerá en el panel de cumplimiento normativo con todos los datos de cumplimiento asociados asignados como evaluaciones. También puede descargar informes de resumen para cualquiera de los estándares que se hayan incorporado.
+Para ver los datos de cumplimiento asignados como evaluaciones en el panel, agregue un estándar de cumplimiento a la suscripción o al grupo de administración desde la página **Directiva de seguridad**. Para obtener más información sobre Azure Policy y las iniciativas, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
 
-Microsoft también realiza un seguimiento de los estándares normativos y mejora automáticamente su cobertura en algunos de los paquetes a lo largo del tiempo. Cuando Microsoft publica contenido nuevo para la iniciativa (nuevas directivas que se asignan a más controles en el estándar), el contenido adicional aparece automáticamente en el panel.
+Cuando haya asignado un estándar o una prueba comparativa al ámbito seleccionado, el estándar aparece en el panel de cumplimiento normativo con todos los datos de cumplimiento asociados asignados como evaluaciones. También puede descargar informes de resumen para cualquiera de los estándares que se hayan asignado.
 
-> [!TIP]
-> Un estándar que mejora con el tiempo a medida que Microsoft publica nuevo contenido es **Azure CIS 1.1.0 (nuevo)** (más formalmente, [CIS Microsoft Azure Foundations Benchmark, versión 1.1.0](https://www.cisecurity.org/benchmark/azure/)). Tendrá que agregarlo al panel junto a "Azure CIS 1.1.0", la representación de Azure CIS que está configurada de forma predeterminada en cada entorno de Security Center. Ese paquete se basa en un conjunto estático de reglas. El paquete más reciente incluye más directivas y se actualizará automáticamente con el tiempo. Actualice al nuevo paquete dinámico tal como se describe a continuación.
+Microsoft realiza un seguimiento de los estándares normativos y mejora automáticamente su cobertura en algunos de los paquetes a lo largo del tiempo. Cuando Microsoft publica contenido nuevo para la iniciativa, aparece automáticamente en el panel a medida que se asignan directivas a los controles en el estándar.
 
 
-## <a name="available-packages"></a>Paquetes disponibles
+## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>¿Qué estándares de cumplimiento normativo están disponibles en Security Center?
 
-Puede agregar estándares como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official y UK NHS, Canada Federal PBMM y Azure CIS 1.1.0 (nuevo), una representación más completa de Azure CIS 1.1.0. 
+De manera predeterminada, cada suscripción tiene la **Azure Security Benchmark** asignado. Son las directrices específicas de Azure creadas por Microsoft para ofrecer los procedimientos recomendados de seguridad y cumplimiento basados en marcos de cumplimiento comunes. [Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Además, puede agregar **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para los procedimientos recomendados de seguridad y cumplimiento basados en los marcos de cumplimiento comunes. ([Mas información sobre Azure Security Benchmark](../security/benchmarks/introduction.md)).
+También puede agregar estándares como:
 
-Se admitirán estándares adicionales en el panel a medida que estén disponibles. 
+- NIST SP 800-53 R4
+- SWIFT CSP CSCF-v2020
+- UK Official y UK NHS
+- Canada Federal PBMM
+- Azure CIS 1.1.0
+
+Los estándares se agregan al panel a medida que están disponibles.
 
 
 ## <a name="add-a-regulatory-standard-to-your-dashboard"></a>Adición de un estándar de cumplimiento al panel
@@ -51,7 +56,7 @@ Se admitirán estándares adicionales en el panel a medida que estén disponible
 En los pasos siguientes se explica cómo agregar un paquete para supervisar el cumplimiento de uno de los estándares normativos admitidas.
 
 > [!NOTE]
-> Solo los usuarios que son propietario o colaborador de directivas tienen los permisos necesarios para agregar estándares de cumplimiento. 
+> Para agregar estándares al panel, la suscripción debe tener habilitado Azure Defender. Además, solo los usuarios que son propietario o colaborador de directivas tienen los permisos necesarios para agregar estándares de cumplimiento. 
 
 1. En la barra lateral de Security Center, seleccione **Cumplimiento normativo** para abrir el panel de cumplimiento normativo. Aquí puede ver los estándares de cumplimiento asignados actualmente a las suscripciones que están seleccionadas.   
 
@@ -64,22 +69,21 @@ En los pasos siguientes se explica cómo agregar un paquete para supervisar el c
 
 1. Para agregar los estándares pertinentes para su organización, haga clic en **Agregar más estándares**. 
 
-1. En la página **Adición de estándares de cumplimiento normativo**, puede buscar paquetes para cualquiera de los estándares disponibles. Algunos de los estándares disponibles son los siguientes:
+1. En la página **Adición de estándares de cumplimiento normativo**, puede buscar cualquiera de los estándares disponibles, incluidos:
 
-    - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO y UK NHS**
     - **Canada PBMM**
     
-    ![Agregar paquetes normativos al panel de cumplimiento normativo de Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Adición de estándares normativos al panel de cumplimiento normativo de Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Seleccione **Agregar** y escriba todos los detalles necesarios para la iniciativa específica, como el ámbito, los parámetros y la corrección.
 
 1. En la barra lateral de Security Center, vuelva a seleccionar **Cumplimiento normativo** para volver al panel de cumplimiento normativo.
-    * El nuevo estándar aparece ahora en la lista de estándares normativos y del sector. 
-    * Si ha agregado **Azure CIS 1.1.0 (nuevo)** , la vista *estática* original del cumplimiento de Azure CIS 1.1.0 también permanecerá junto a él. Es posible que se quite automáticamente en el futuro.
+
+    El nuevo estándar aparece ahora en la lista de estándares normativos y del sector. 
 
     > [!NOTE]
     > Asimismo, un estándar recién agregado en el panel de cumplimiento puede tardar unas horas en aparecer en el mismo.
@@ -113,9 +117,9 @@ Para quitar un estándar:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo **agregar paquetes de cumplimiento** para supervisar el cumplimiento de estándares adicionales. 
+En este artículo, ha aprendido cómo **agregar estándares de cumplimiento** para supervisar el cumplimiento de estándares normativos y del sector.
 
-Para obtener material relacionado, consulte los siguientes artículos: 
+Para obtener material relacionado, vea las páginas siguientes:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Panel de cumplimiento normativo de Security Center](security-center-compliance-dashboard.md)

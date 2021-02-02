@@ -1,14 +1,14 @@
 ---
 title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
-ms.date: 12/21/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724381"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662133"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -34,7 +34,74 @@ En el caso de los servidores o máquinas que ya no quiera administrar con servid
 
     * Mediante la [CLI de Azure](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) o [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). En el caso del parámetro `ResourceType`, use `Microsoft.HybridCompute/machines`.
 
-3. Desinstale el agente de la máquina o el servidor. Siga los pasos siguientes.
+3. [Desinstale el agente](#remove-the-agent) de la máquina o el servidor siguiendo los pasos a continuación.
+
+## <a name="renaming-a-machine"></a>Cambio de nombre de una máquina
+
+Al cambiar el nombre de la máquina Linux o Windows conectada a servidores habilitados para Azure Arc, el nuevo nombre no se reconoce automáticamente porque el nombre del recurso en Azure es inmutable. Como con otros recursos de Azure, tiene que eliminar el recurso y volver a crearlo para usar el nuevo nombre.
+
+En el caso de los servidores habilitados para Arc, antes de cambiar el nombre de la máquina, es necesario quitar las extensiones de VM antes de continuar.
+
+> [!NOTE]
+> Aunque las extensiones instaladas continúan ejecutándose y mantienen su funcionamiento normal una vez completado este procedimiento, no podrá administrarlas. Si intenta volver a implementar las extensiones en la máquina, es posible que experimente un comportamiento imprevisible.
+
+> [!WARNING]
+> Se recomienda evitar cambiar el nombre de equipo de la máquina y realizar este procedimiento únicamente si es absolutamente necesario.
+
+En los pasos siguientes se resume el procedimiento de cambio de nombre del equipo.
+
+1. Audite las extensiones de VM instaladas en la máquina y anote su configuración, con la [CLI de Azure](manage-vm-extensions-cli.md#list-extensions-installed) o con [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+
+2. Quite las extensiones de VM mediante PowerShell, la CLI de Azure o Azure Portal.
+
+    > [!NOTE]
+    > Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una directiva de configuración de invitado de Azure Policy, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) y después de que la máquina con el nombre cambiado esté registrada en los servidores habilitados para Arc.
+
+3. Desconecte la máquina de los servidores habilitados para Arc con PowerShell, la CLI de Azure o desde el portal.
+
+4. Cambie el nombre del equipo.
+
+5. Conecte la máquina con los servidores habilitados para Arc mediante la herramienta `Azcmagent` para registrar y crear un nuevo recurso en Azure.
+
+6. Implemente las extensiones de VM instaladas previamente en la máquina de destino.
+
+Siga los pasos a continuación para completar esta tarea.
+
+1. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-an-installed-extension) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+2. Siga uno de los métodos a continuación para desconectar la máquina de Azure Arc: Al desconectar la máquina de los servidores habilitados para Arc, no se quita el agente de Connected Machine, y no es necesario quitar el agente como parte de este proceso. Todas las extensiones de VM que se hayan implementado en la máquina seguirán funcionando durante este proceso.
+
+    # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+
+    1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
+    1. En el portal, vaya a **Servers - Azure Arc** (Servidores: Azure Arc) y seleccione la máquina híbrida de la lista.
+    1. Del servidor habilitado para Arc registrado y seleccionado, seleccione **Eliminar** en la barra superior para eliminar el recurso de Azure.
+
+    # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+    
+    ```azurecli
+    az resource delete \
+      --resource-group ExampleResourceGroup \
+      --name ExampleArcMachine \
+      --resource-type "Microsoft.HybridCompute/machines"
+    ```
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+    ```powershell
+    Remove-AzResource `
+     -ResourceGroupName ExampleResourceGroup `
+     -ResourceName ExampleArcMachine `
+     -ResourceType Microsoft.HybridCompute/machines
+    ```
+
+3. Cambie el nombre de equipo de la máquina.
+
+### <a name="after-renaming-operation"></a>Tras la operación de cambio de nombre
+
+Una vez que se ha cambiado el nombre de una máquina, se debe volver a registrar el agente Connected Machine en los servidores habilitados para Arc. Ejecute la herramienta `azcmagent` con el parámetro [Connect](#connect) para completar este paso.
+
+Vuelva a implementar las extensiones de VM que se implementaron originalmente en la máquina desde los servidores habilitados para Arc. Si ha implementado el agente de Azure Monitor para VM (conclusiones) o el agente de Log Analytics mediante una directiva de configuración de invitado de Azure Policy, los agentes se vuelven a implementar después del siguiente [ciclo de evaluación](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="upgrading-agent"></a>Actualizar el agente
 

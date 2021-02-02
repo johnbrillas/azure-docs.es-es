@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977088"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624691"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Control del tráfico que se supervisa
 
@@ -186,11 +186,11 @@ Para establecer un intervalo de direcciones DHCP:
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configuración de los servidores DNS para la resolución de búsquedas inversas
 
-Para mejorar el enriquecimiento de recursos, puede configurar varios servidores DNS para llevar a cabo búsquedas inversas. Puede resolver nombres de host o FQDN asociados a las direcciones IP detectadas en las subredes de red. Por ejemplo, si un sensor detecta una dirección IP, podría consultar varios servidores DNS para resolver el nombre de host.
+Para mejorar el enriquecimiento de dispositivos, puede configurar varios servidores DNS para llevar a cabo búsquedas inversas. Puede resolver nombres de host o FQDN asociados a las direcciones IP detectadas en las subredes de red. Por ejemplo, si un sensor detecta una dirección IP, podría consultar varios servidores DNS para resolver el nombre de host.
 
 Se admiten todos los formatos CIDR.
 
-El nombre de host aparece en el inventario de recursos y en el mapa de recursos, así como en los informes.
+El nombre de host aparece en el inventario de dispositivos, en el mapa de dispositivos y en los informes.
 
 Puede programar resoluciones de búsquedas inversas en intervalos horarios específicos, por ejemplo, cada 12 horas. También puede programar una hora específica.
 
@@ -212,7 +212,7 @@ Para definir servidores DNS:
 
 5. En el campo **DNS Server Port** (Puerto de servidor DNS), escriba el puerto DNS.
 
-6. Resuelva las direcciones IP de la red en los FQDN de los recursos. En el campo **Number of Labels** (Número de etiquetas), agregue el número de etiquetas de dominio que se mostrarán. Se muestran hasta 30 caracteres de izquierda a derecha.
+6. Resuelva las direcciones IP de la red en los FQDN de los dispositivos. En el campo **Number of Labels** (Número de etiquetas), agregue el número de etiquetas de dominio que se mostrarán. Se muestran hasta 30 caracteres de izquierda a derecha.
 
 7. En el campo **Subredes**, escriba las subredes que quiere que consulte el servidor DNS.
 
@@ -220,7 +220,7 @@ Para definir servidores DNS:
 
 ### <a name="test-the-dns-configuration"></a>Prueba de la configuración de DNS 
 
-Mediante el uso de un recurso de prueba, compruebe que la configuración definida funciona correctamente:
+Mediante un dispositivo de prueba, compruebe que la configuración definida funcione correctamente:
 
 1. Habilite el botón de alternancia **DNS Lookup** (Consultar DNS).
 

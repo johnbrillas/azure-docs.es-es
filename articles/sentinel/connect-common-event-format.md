@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517978"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747498"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -78,6 +78,12 @@ Asegúrese de que la máquina Linux que usa como reenviador de registros ejecuta
  
 Asegúrese de que la máquina cumpla también con los requisitos siguientes: 
 
+- Capacity
+  - La máquina debe tener un mínimo de **4 núcleos de CPU y 8 GB de RAM**.
+
+    > [!NOTE]
+    > - Una única máquina de reenviador de registros que use el demonio **rsyslog** tiene una capacidad admitida de **hasta 8500 eventos por segundo (EPS)** recopilados.
+
 - Permisos
   - Debe tener permisos elevados (sudo) en la máquina. 
 
@@ -94,5 +100,4 @@ En este documento ha aprendido cómo recopila Azure Sentinel los registros de CE
 
 Para obtener más información sobre qué hacer con los datos recopilados en Azure Sentinel, vea los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
-- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
-
+- Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

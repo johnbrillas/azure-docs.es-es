@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556929"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757481"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de compatibilidad de Azure Disk Backup (en versión preliminar)
 
@@ -18,11 +18,11 @@ ms.locfileid: "98556929"
 >
 >[Rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para suscribirse a la versión preliminar.
 
-Puede usar [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) para proteger los discos de Azure. En este artículo se resume la disponibilidad por regiones, los escenarios admitidos y las limitaciones.
+Puede usar [Azure Backup](./backup-overview.md) para proteger los discos de Azure. En este artículo se resume la disponibilidad por regiones, los escenarios admitidos y las limitaciones.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Centro-oeste de EE. UU. 
+Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU. 2, Centro de Corea del Sur, Sur de Corea del Sur, Japón Occidental, Norte de Emiratos Árabes Unidos. 
 
 Se anunciarán más regiones cuando estén disponibles.
 
@@ -36,9 +36,9 @@ Se anunciarán más regiones cuando estén disponibles.
 
 - Actualmente, no se admite la opción Recuperación de la ubicación original (OLR) de la restauración mediante la sustitución de los discos de origen desde los que se realizaron las copias de seguridad. Puede realizar la restauración desde un punto de recuperación para crear un nuevo disco en el mismo grupo de recursos que el disco de origen desde el que se realizaron las copias de seguridad o en cualquier otro grupo de recursos. Esto se conoce como recuperación de ubicación alternativa (ALR).
 
-- Azure Backup para Managed Disks usa instantáneas incrementales que se limitan a 200 instantáneas por disco. Para que pueda realizar copias de seguridad a petición además de las copias de seguridad programadas, la directiva de copia de seguridad limita el número total de copias de seguridad a 180. Obtenga más información sobre las [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de discos administrados.
+- Azure Backup para Managed Disks usa instantáneas incrementales que se limitan a 200 instantáneas por disco. Para que pueda realizar copias de seguridad a petición además de las copias de seguridad programadas, la directiva de copia de seguridad limita el número total de copias de seguridad a 180. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados.
 
-- Los [límites de servicio y suscripción de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits) se aplican al número total de instantáneas de disco por región y suscripción.
+- Los [límites de servicio y suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) se aplican al número total de instantáneas de disco por región y suscripción.
 
 - No se admiten las instantáneas en un momento dado de varios discos que estén conectados a una máquina virtual.
 
@@ -56,13 +56,15 @@ Se anunciarán más regiones cuando estén disponibles.
 
 - Actualmente, la experiencia de Azure Portal para configurar la copia de seguridad de discos está limitada a un máximo de 20 discos de la misma suscripción.
 
-- Al configurar la copia de seguridad, el disco seleccionado para realizar la copia de seguridad y el grupo de recursos de instantáneas en el que se almacenarán las instantáneas deben formar parte de la misma suscripción. No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Obtenga más información sobre las [instantáneas incrementales](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) del disco administrado. Para obtener más información sobre cómo elegir un grupo de recursos de instantáneas, vea [Configuración de la copia de seguridad](backup-managed-disks.md#configure-backup).
+- Actualmente (durante la versión preliminar), no se admite el uso de PowerShell y la CLI de Azure para configurar la copia de seguridad y la restauración de discos.
+
+- Al configurar la copia de seguridad, el disco seleccionado para realizar la copia de seguridad y el grupo de recursos de instantáneas en el que se almacenarán las instantáneas deben formar parte de la misma suscripción. No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) del disco administrado. Para obtener más información sobre cómo elegir un grupo de recursos de instantáneas, vea [Configuración de la copia de seguridad](backup-managed-disks.md#configure-backup).
 
 - Para que las operaciones de copia de seguridad y restauración se completen correctamente, la identidad administrada del almacén de Backup requiere las asignaciones de roles. Use solo las definiciones de roles que se proporcionan en la documentación. No se admite el uso de otros roles como propietario, colaborador, etc. Puede encontrar problemas de permisos si inicia la configuración de operaciones de copia de seguridad o restauración poco después de asignar roles. Esto se debe a que las asignaciones de roles tardan unos minutos en surtir efecto.
 
-- Managed Disks permite cambiar el nivel de rendimiento en la implementación o después sin cambiar el tamaño del disco. La solución Azure Disk Backup admite los cambios del nivel de rendimiento en el disco de origen del que se está haciendo la copia de seguridad. Durante la restauración, el nivel de rendimiento del disco restaurado será el mismo que el del disco de origen en el momento de la copia de seguridad. Siga la documentación [aquí](https://docs.microsoft.com/azure/virtual-machines/disks-performance-tiers-portal) para cambiar el nivel de rendimiento del disco después de la operación de restauración.
+- Managed Disks permite cambiar el nivel de rendimiento en la implementación o después sin cambiar el tamaño del disco. La solución Azure Disk Backup admite los cambios del nivel de rendimiento en el disco de origen del que se está haciendo la copia de seguridad. Durante la restauración, el nivel de rendimiento del disco restaurado será el mismo que el del disco de origen en el momento de la copia de seguridad. Siga la documentación [aquí](../virtual-machines/disks-performance-tiers-portal.md) para cambiar el nivel de rendimiento del disco después de la operación de restauración.
 
-- La compatibilidad de las instancias de [Private Link](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal) con discos administrados permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Azure Disk Backup admite la copia de seguridad de discos que tienen habilitados los puntos de conexión privados. Esto no incluye los datos de la copia de seguridad ni las instantáneas que sean accesibles a través del punto de conexión privado.
+- La compatibilidad de las instancias de [Private Link](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) con discos administrados permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Azure Disk Backup admite la copia de seguridad de discos que tienen habilitados los puntos de conexión privados. Esto no incluye los datos de la copia de seguridad ni las instantáneas que sean accesibles a través del punto de conexión privado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

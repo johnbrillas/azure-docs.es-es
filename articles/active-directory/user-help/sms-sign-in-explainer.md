@@ -1,5 +1,5 @@
 ---
-title: 'Experiencia del usuario de inicio de sesión mediante SMS con el número de teléfono (versión preliminar): Azure AD'
+title: 'Experiencia del usuario de inicio de sesión mediante SMS con el número de teléfono: Azure AD'
 description: Más información sobre la experiencia del usuario de inicio de sesión mediante SMS con números de teléfono nuevos o existentes
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536892"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661606"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>Uso del número de teléfono como nombre de usuario (versión preliminar)
+# <a name="use-your-phone-number-as-a-user-name"></a>Uso del número de teléfono como nombre de usuario
 
 El registro de un dispositivo permite que el teléfono acceda a los servicios de la organización, pero no que la organización acceda a su teléfono. Si es administrador, puede encontrar más información en [Configuración y habilitación de los usuarios para la autenticación basada en SMS](../authentication/howto-authentication-sms-signin.md).
 
@@ -36,7 +36,7 @@ Si recibe un nuevo teléfono o un nuevo número y lo registra en una organizaci�
 1. Verá un mensaje que indica "SMS verificado. El teléfono se ha registrado correctamente."
 
 > [!Important]
-> Debido a un problema conocido en la versión preliminar, por un breve período la incorporación de un número de teléfono no lo registrará para el inicio de sesión mediante SMS. Tendrá que iniciar sesión con el número agregado y, a continuación, seguir las indicaciones para registrar el número para el inicio de sesión mediante SMS.
+> Debido a un problema conocido, por un breve período la incorporación de un número de teléfono no lo registrará para el inicio de sesión mediante SMS. Tendrá que iniciar sesión con el número agregado y, a continuación, seguir las indicaciones para registrar el número para el inicio de sesión mediante SMS.
 
 ### <a name="when-the-phone-number-is-in-use"></a>Cuando el número de teléfono está en uso
 

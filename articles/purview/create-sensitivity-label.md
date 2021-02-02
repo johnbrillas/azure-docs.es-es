@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196595"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630283"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -32,10 +32,9 @@ En Purview, las clasificaciones son similares a las etiquetas de asunto y se usa
 
 Purview usa las mismas clasificaciones, también conocidas como tipos de información confidencial, que Microsoft 365.  Las etiquetas de confidencialidad de MIP se crean en el Centro de seguridad y cumplimiento (SCC) de Microsoft 365. Esto le permite extender las etiquetas de confidencialidad existentes a través de los recursos de Azure Purview.
 
-> [!NOTE]
-> Las clasificaciones se hacen coincidir directamente, como el número de la seguridad social, que tiene una clasificación de **Número del seguro social**. 
->
-> En cambio, las etiquetas de confidencialidad se aplican cuando una o varias clasificaciones y condiciones se encuentran juntas. En este contexto, las [condiciones](/microsoft-365/compliance/apply-sensitivity-label-automatically) hacen referencia a todos los parámetros que se pueden definir para los datos no estructurados, como la **proximidad a otra clasificación** y el **% de confianza**. 
+Las **clasificaciones** se asocian directamente, como el número de la seguridad social, que tiene una clasificación de **Número del seguro social**. 
+
+En cambio, las **etiquetas de confidencialidad** se aplican cuando una o varias clasificaciones y condiciones se encuentran juntas. En este contexto, las [condiciones](/microsoft-365/compliance/apply-sensitivity-label-automatically) hacen referencia a todos los parámetros que se pueden definir para los datos no estructurados, como la *proximidad a otra clasificación* y el *% de confianza*. 
 
 Las etiquetas de confidencialidad de Azure Purview se pueden usar para aplicar automáticamente etiquetas a archivos y columnas de bases de datos.
 
@@ -44,6 +43,7 @@ Para más información, consulte:
 - [Información sobre las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels) en la documentación de Microsoft 365
 - [¿Qué son las reglas de etiquetado automático?](#what-are-autolabeling-rules)
 - [Tipos de datos admitidos para las etiquetas de confidencialidad en Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Etiquetado de columnas de bases de datos SQL](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>¿Qué son las reglas de etiquetado automático?
 
@@ -54,7 +54,6 @@ Las reglas de etiquetado automático son condiciones que especifica el usuario, 
 Al crear las etiquetas, asegúrese de definir reglas de etiquetado automático para los [archivos](#define-autolabeling-rules-for-files) y las [columnas de bases de datos](#define-autolabeling-rules-for-database-columns) para aplicar las etiquetas automáticamente con cada examen de datos. 
 
 Después de examinar los datos en Purview, puede ver las etiquetas que se aplican automáticamente en el catálogo de Purview y los informes de conclusiones.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de datos admitidos para las etiquetas de confidencialidad en Azure Purview
 
 Las etiquetas de confidencialidad se admiten en Azure Purview para los siguientes tipos de datos:
@@ -62,8 +61,16 @@ Las etiquetas de confidencialidad se admiten en Azure Purview para los siguiente
 |Tipo de datos  |Orígenes  |
 |---------|---------|
 |Etiquetado automático de archivos     |      : Blob Storage de Azure  </br>- Azure Data Lake Storage Gen 1 y Gen 2  |
-|Etiquetado automático de columnas de bases de datos     |  - SQL Server </br>- Azure SQL Database </br>- Instancia administrada de Azure SQL Database   <br> - Azure Synapse  <br> : Azure Cosmos DB   |
+|Etiquetado automático de columnas de bases de datos     |  - SQL Server </br>- Azure SQL Database </br>- Instancia administrada de Azure SQL Database   <br> - Azure Synapse  <br> : Azure Cosmos DB <br><br>Para obtener más información, Consulte [Etiquetado de columnas de bases de datos SQL](#labeling-for-sql-database-columns) a continuación.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>Etiquetado de columnas de bases de datos SQL
+
+Además del etiquetado de Purview para las columnas de bases de datos, Microsoft también admite el etiquetado de columnas de bases de datos SQL mediante la clasificación de datos de SQL en [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Aunque Purview usa las [etiquetas de confidencialidad MIP](/microsoft-365/compliance/sensitivity-labels) globales, SSMS solo usa etiquetas definidas localmente.
+
+El etiquetado en Purview y el etiquetado en SSMS son procesos independientes que actualmente no interactúan entre sí. Por lo tanto, las etiquetas que se aplican en SSMS no se muestran en Purview, y viceversa. Se recomienda Azure Purview para etiquetar las bases de datos SQL, ya que usa etiquetas MIP globales que se pueden aplicar en varias plataformas.
+
+Para obtener más información, consulte la [documentación de Clasificación y detección de datos de SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Cómo crear etiquetas de confidencialidad en Microsoft 365
 
@@ -123,7 +130,7 @@ Una vez que extienda el etiquetado a los recursos de Azure Purview, puede selecc
 
     Para obtener más información sobre las opciones del asistente, consulte [Qué pueden hacer las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) en la documentación de Microsoft 365.
 
-1. Repita los pasos indicados anteriormente para crear etiquetas adicionales. 
+1. Repita los pasos indicados anteriormente para crear más etiquetas. 
 
     Para crear una subetiqueta, seleccione la etiqueta primaria > **...**  > **Más acciones** > **Agregar subetiqueta**.
 

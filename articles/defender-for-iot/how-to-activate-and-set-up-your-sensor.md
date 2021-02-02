@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538574"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623596"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activación y configuración del sensor
 
@@ -134,9 +134,9 @@ Después de iniciar sesión, se abre la consola de Azure Defender para IoT.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Configuración y aprendizaje iniciales (para administradores)
 
-Después del primer inicio de sesión, el sensor de Azure Defender para IoT comienza a supervisar la red automáticamente. Los recursos de red aparecerán en las secciones asignación de recursos e inventario de recursos. Azure Defender para IoT comenzará a detectar y enviará alertas sobre todos los incidentes operativos y de seguridad que se produzcan en la red. Después, podrá crear informes y consultas en función de la información detectada.
+Después del primer inicio de sesión, el sensor de Azure Defender para IoT comienza a supervisar la red automáticamente. Los dispositivos de red aparecerán en las secciones Mapa de dispositivos e Inventario de dispositivos. Azure Defender para IoT comenzará a detectar y enviará alertas sobre todos los incidentes operativos y de seguridad que se produzcan en la red. Después, podrá crear informes y consultas en función de la información detectada.
 
-Inicialmente, esta actividad se realiza en el modo de aprendizaje, que guía al sensor para aprender sobre la actividad habitual de la red. Por ejemplo, el sensor aprende sobre los recursos detectados en la red, los protocolos detectados en la red y las transferencias de archivos que se producen entre recursos específicos. Esta actividad se convierte en la actividad de base de referencia de la red.
+Inicialmente, esta actividad se realiza en el modo de aprendizaje, que guía al sensor para aprender sobre la actividad habitual de la red. Por ejemplo, el sensor aprende sobre los dispositivos detectados en la red, los protocolos detectados en la red y las transferencias de archivos que se producen entre dispositivos específicos. Esta actividad se convierte en la actividad de base de referencia de la red.
 
 ### <a name="review-and-update-basic-system-settings"></a>Revisión y actualización de la configuración básica del sistema
 

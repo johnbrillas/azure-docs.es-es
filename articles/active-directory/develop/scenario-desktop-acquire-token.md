@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232308"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785132"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -439,7 +439,7 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
 
 - Este flujo está habilitado para aplicaciones de escritorio de .NET, .NET Core y UWP.
 
-Para más información sobre el consentimiento, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](./v2-permissions-and-consent.md).
+Para más información sobre el consentimiento, consulte [Permisos y consentimiento de la Plataforma de identidad de Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Aprenda a usarlo
 
@@ -451,7 +451,7 @@ En MSAL.NET, debe usar:
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-Normalmente solo necesita un parámetro (`scopes`). Según la forma en que el administrador de Windows configure las directivas, es posible que no se permita que las aplicaciones de la máquina Windows busquen al usuario que ha iniciado sesión. En ese caso, use un segundo método, `.WithUsername()`, y pase el nombre de usuario del usuario que ha iniciado sesión con un formato UPN, por ejemplo, `joe@contoso.com`. En .NET Core, solo está disponible la sobrecarga que toma el nombre de usuario, ya que la plataforma .NET Core no puede pedir el nombre de usuario al sistema operativo.
+Normalmente solo necesita un parámetro (`scopes`). Según la forma en que el administrador de Windows configure las directivas, es posible que no se permita que las aplicaciones de la máquina Windows busquen al usuario que ha iniciado sesión. En ese caso, use un segundo método, `.WithUsername()`, y pase el nombre de usuario del usuario que ha iniciado sesión con un formato UPN, por ejemplo, `joe@contoso.com`.
 
 El ejemplo siguiente presenta el caso más reciente, con explicaciones de la clase de excepciones que se pueden obtener y sus mitigaciones.
 
@@ -1181,7 +1181,7 @@ La personalización de la serialización de la caché de tokens para compartir e
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serialización de la caché de tokens simple (solo MSAL)
 
-El siguiente ejemplo es una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. Aquí, la caché de tokens de usuario se encuentra en un archivo en la misma carpeta que la aplicación, o en una carpeta por usuario y por aplicación, en el caso de que la aplicación sea una [aplicación de escritorio empaquetada](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Para obtener el código completo, consulte el ejemplo siguiente: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+El siguiente ejemplo es una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. Aquí, la caché de tokens de usuario se encuentra en un archivo en la misma carpeta que la aplicación, o en una carpeta por usuario y por aplicación, en el caso de que la aplicación sea una [aplicación de escritorio empaquetada](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Para obtener el código completo, consulte el ejemplo siguiente: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Después de compilar la aplicación, se llama a ``TokenCacheHelper.EnableSerialization()`` y se pasa la aplicación `UserTokenCache` para habilitar la serialización.
 

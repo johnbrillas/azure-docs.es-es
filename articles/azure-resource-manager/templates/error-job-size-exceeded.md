@@ -2,17 +2,17 @@
 title: Error de tamaño de trabajo superado
 description: Describe cómo solucionar errores cuando el tamaño o la plantilla de trabajo son demasiado grandes.
 ms.topic: troubleshooting
-ms.date: 10/07/2020
-ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 01/19/2021
+ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822151"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610410"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Resolución de errores de tamaño de trabajo superado
 
-En este artículo se describe cómo resolver los errores **JobSizeExceededException** y **DeploymentSizeExceededException**.
+En este artículo se describe cómo resolver los errores **JobSizeExceededException** y **DeploymentJobSizeExceededException**.
 
 ## <a name="symptom"></a>Síntoma
 
@@ -20,9 +20,12 @@ Al implementar una plantilla, recibe un error que indica que la implementación 
 
 ## <a name="cause"></a>Causa
 
-Puede obtener este error si el tamaño de la plantilla es superior a 4 MB. El límite de 4 MB se aplica al estado final de la plantilla después de su ampliación para las definiciones de recursos que utilizan la [copia](copy-resources.md) para crear muchas instancias. El estado final también incluye los valores resueltos para variables y parámetros.
+Este error aparece cuando la implementación supera uno de los límites permitidos. Normalmente, este error aparece cuando la plantilla o el trabajo que ejecuta la implementación son demasiado grandes.
 
-El trabajo de implementación también incluye metadatos sobre la solicitud. En el caso de las plantillas grandes, los metadatos combinados con la plantilla pueden superar el tamaño permitido para un trabajo.
+El trabajo de implementación no puede superar 1 MB. El trabajo incluye metadatos sobre la solicitud. En el caso de las plantillas grandes, los metadatos combinados con la plantilla pueden superar el tamaño permitido para un trabajo.
+
+
+La plantilla no puede superar los 4 MB. El límite de 4 MB se aplica al estado final de la plantilla después de su ampliación para las definiciones de recursos que utilizan la [copia](copy-resources.md) para crear muchas instancias. El estado final también incluye los valores resueltos para variables y parámetros.
 
 Otros límites de la plantilla son:
 
@@ -44,4 +47,4 @@ Intente acortar la longitud de los nombres que utiliza para [parámetros](templa
 
 ## <a name="solution-3---use-serial-copy"></a>Solución 3: usar la copia en serie
 
-La segunda opción consiste en cambiar el bucle de copia de [procesamiento paralelo a en serie](copy-resources.md#serial-or-parallel). Use esta opción solo cuando sospeche que el error proviene de la implementación de un gran número de recursos a través de la copia. Este cambio puede aumentar significativamente el tiempo de implementación, ya que los recursos no se implementan en paralelo.
+Tenga en cuenta la posibilidad de cambiar el bucle de copia de [procesamiento paralelo a en serie](copy-resources.md#serial-or-parallel). Use esta opción solo cuando sospeche que el error proviene de la implementación de un gran número de recursos a través de la copia. Este cambio puede aumentar significativamente el tiempo de implementación, ya que los recursos no se implementan en paralelo.

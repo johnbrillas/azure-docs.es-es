@@ -11,19 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 695261ceae9d64be9395e6de082f97be04292078
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503496"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745992"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 
 La extensión Servidor de directivas de redes (NPS) amplía las características de Azure AD Multi-Factor Authentication basado en la nube a la infraestructura local. En este artículo se supone que ya tiene la extensión instalada y ahora desea saber cómo personalizarla conforme a sus necesidades.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista blanca*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="alternate-login-id"></a>Identificador de inicio de sesión alternativo
 
@@ -54,7 +51,7 @@ Para configurar una lista de direcciones IP permitidas, vaya a `HKLM\SOFTWARE\Mi
 > [!NOTE]
 > El instalador no crea esta clave del registro de manera predeterminada y aparece un error en el registro AuthZOptCh cuando se reinicia el servicio. Este error en el registro se puede pasar por alto, pero si se crea esta clave del registro y se deja vacía si no es necesaria, no se devuelve el mensaje de error.
 
-Cuando llega una solicitud procedente de una dirección IP que existe en `IP_WHITELIST`, se omite la verificación en dos pasos. La lista de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia similar a la siguiente: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
+Cuando llega una solicitud procedente de una dirección IP que existe en `IP_WHITELIST`, se omite la verificación en dos pasos. La lista de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra una advertencia: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

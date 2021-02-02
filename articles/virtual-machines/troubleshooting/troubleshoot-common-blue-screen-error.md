@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a95ddf882e5edba9daa8ff91c02d1df1f50bceb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088552"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632983"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows muestra un error de pantalla azul al iniciar una máquina virtual de Azure.
 En este artículo se describen los errores de pantalla azul que pueden surgir al iniciar una máquina virtual (VM) de Windows en Microsoft Azure. Se proporcionan los pasos para ayudarle a recopilar datos de una incidencia de soporte técnico. 
@@ -41,6 +41,9 @@ Se puede producir un error de detención por diversos motivos. Las causas más c
 - Una aplicación tiene acceso a un sector prohibido de la memoria
 
 ## <a name="collect-memory-dump-file"></a>Recopilación de un archivo de volcado de memoria
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la VM, puede intentar [restaurar la VM desde la copia de seguridad](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Para resolver este problema, primero debe recopilar el archivo de volcado del bloqueo y ponerse en contacto con el soporte técnico en relación al archivo de volcado de memoria. Para recopilar el archivo de volcado de memoria, siga estos pasos:
 

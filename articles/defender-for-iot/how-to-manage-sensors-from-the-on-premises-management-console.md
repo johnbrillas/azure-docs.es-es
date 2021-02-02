@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624598"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Administración de sensores desde la consola de administración
 
@@ -150,7 +150,7 @@ Los sensores están protegidos por cinco motores de Defender para IoT. Puede hab
 | Motor de infracción de directiva | Se produce una infracción de directiva con una desviación del comportamiento de base de referencia definido en la directiva aprendida o configurada. | Alerta "Unauthorized HTTP User Agent" (Agente de usuario HTTP no autorizado). Esta alerta indica que una aplicación que no se ha aprendido o aprobado por la directiva se usa como cliente HTTP en un dispositivo. Puede tratarse de una nueva aplicación o explorador web de ese dispositivo. |
 | Motor de malware | El motor de malware detecta actividades de red malintencionadas. | Alerta "Suspicion of Malicious Activity (Stuxnet)" [Sospecha de actividad malintencionada (Stuxnet)]. Esta alerta indica que el sensor detectó una actividad de red sospechosa que se sabe que está relacionada con el malware Stuxnet, que es una amenaza persistente avanzada dirigida a las redes de control industrial y de SCADA. |
 | Motor de anomalías | El motor de malware detecta una anomalía en el comportamiento de la red. | "Periodic Behavior in Communication Channel" (Comportamiento periódico en el canal de comunicación). Se trata de un componente que inspecciona las conexiones de red y busca el comportamiento cíclico o periódico de la transmisión de datos, que es común en redes industriales. |
-| Motor operativo | Este motor detecta incidentes operativos o entidades que no funcionan correctamente. | Alerta "Asset is Suspected to be Disconnected (Unresponsive)" [Se sospecha que el recurso está desconectado (no responde)]. Esta alerta se desencadena cuando un dispositivo no responde a las solicitudes durante un período predefinido. Podría indicar un apagado, desconexión o funcionamiento incorrecto del dispositivo.
+| Motor operativo | Este motor detecta incidentes operativos o entidades que no funcionan correctamente. | Alerta `Device is Suspected to be Disconnected (Unresponsive)`. Esta alerta se desencadena cuando un dispositivo no responde a las solicitudes durante un período predefinido. Podría indicar un apagado, desconexión o funcionamiento incorrecto del dispositivo.
 |
 
 Para habilitar o deshabilitar los motores para los sensores conectados:

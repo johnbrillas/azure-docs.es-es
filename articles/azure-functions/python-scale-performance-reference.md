@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo desarrollar aplicaciones de Azure 
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935876"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786113"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Mejora del rendimiento de las aplicaciones de Python en Azure Functions
 
@@ -22,10 +22,10 @@ De forma predeterminada, Azure Functions supervisa automáticamente la carga en 
 
 Las configuraciones predeterminadas son adecuadas para la mayoría de las aplicaciones de Azure Functions. Sin embargo, puede mejorar el rendimiento de las aplicaciones mediante configuraciones basadas en el perfil de la carga de trabajo. El primer paso es comprender el tipo de carga de trabajo que se está ejecutando.
 
-|| Carga de trabajo dependiente de E/S | Carga de trabajo dependiente de CPU |
-|--| -- | -- |
-|Características de la aplicación de funciones| <ul><li>La aplicación necesita controlar muchas invocaciones simultáneas.</li> <li> La aplicación procesa un gran número de eventos de E/S, como llamadas de red y lecturas o escrituras de disco.</li> </ul>| <ul><li>La aplicación realiza cálculos de ejecución prolongada, como el cambio de tamaño de las imágenes.</li> <li>La aplicación realiza la transformación de datos.</li> </ul> |
-|Ejemplos| <ul><li>API web</li><ul> | <ul><li>Procesamiento de datos</li><li> Inferencia de Machine Learning</li><ul>|
+| Tipo de carga de trabajo | Características de la aplicación de funciones       | Ejemplos                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **Relacionado con la E/S**     | • La aplicación necesita controlar muchas invocaciones simultáneas.<br>• La aplicación procesa un gran número de eventos de E/S, como llamadas de red y lecturas o escrituras de disco. | • API web                                          |
+| **Relacionado con la CPU**     | • La aplicación realiza cálculos de ejecución prolongada, como el cambio de tamaño de las imágenes.<br>• La aplicación realiza la transformación de datos.                                                | • Procesamiento de datos<br>• Inferencia de Machine Learning<br> |
 
  
 Como las cargas de trabajo de las funciones reales suelen ser una combinación dependiente de E/S y CPU, debe generar un perfil de la aplicación bajo cargas de producción realistas.

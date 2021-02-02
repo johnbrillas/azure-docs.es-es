@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608595"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745740"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -21,10 +21,6 @@ Este procedimiento se aplica a todos los modelos de dispositivos de la serie 800
 
 > [!NOTE]
 > No se puede usar este procedimiento para StorSimple Cloud Appliance. Para obtener más información, consulte cómo configurar los servidores host para su instancia de Cloud Appliance.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
-
 
 ## <a name="about-multipathing"></a>Acerca de múltiples rutas
 La característica de múltiples rutas permite configurar varias rutas de acceso de E/S entre un servidor host y un dispositivo de almacenamiento. Estas rutas de acceso de E/S son conexiones físicas de SAN que pueden incluir cables independientes, conmutadores, interfaces de red y controladores. La característica de múltiples rutas agrega las rutas de acceso de E/S para configurar un nuevo dispositivo asociado a todas las rutas de acceso agregadas.
@@ -54,7 +50,7 @@ El archivo multipath.conf tiene cinco secciones:
 
 - **Valores predeterminados en el nivel del sistema** *(defaults)* : los valores predeterminados de nivel de sistema se pueden invalidad.
 - **Dispositivos restringidos** *(blacklist)* : puede especificar la lista de dispositivos que no deben controlarse mediante el asignador de dispositivos.
-- **Excepciones a la lista negra** *(blacklist_exceptions)* : puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista negra.
+- **Excepciones a la lista negra** *(blacklist_exceptions)* : puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista de bloqueados.
 - **Configuración específica del controlador de almacenamiento** *(devices)* : puede especificar valores de configuración que se aplicarán a los dispositivos con información de proveedor y producto.
 - **Configuración específica de dispositivo** *(multipaths)* : estas sección se puede usar para ajustar la configuración de cada LUN.
 
@@ -215,12 +211,12 @@ Se pueden detectar y configurar automáticamente los dispositivos compatibles co
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Paso 2: Configuración de múltiples rutas para volúmenes de StorSimple
-De forma predeterminada, todos los dispositivos se encuentran en la lista negra del archivo multipath.conf y se omitirán. Deberá crear excepciones de la lista negra para permitir las múltiples rutas para volúmenes de dispositivos StorSimple.
+De manera predeterminada, todos los dispositivos se encuentran en la lista de bloqueados del archivo multipath.conf y se omitirán. Deberá crear excepciones de la lista de bloqueados para permitir las múltiples rutas para volúmenes de dispositivos StorSimple.
 
 1. Edite el archivo `/etc/mulitpath.conf` . Escriba:
    
     `vi /etc/multipath.conf`
-1. Busque la sección de blacklist_exceptions en el archivo multipath.conf. El dispositivo StorSimple debe mostrarse como una excepción de la lista negra de esta sección. Puede quitar el comentario de las líneas pertinentes en este archivo para modificarlo, tal como se muestra a continuación (use solo el modelo específico del dispositivo que esté usando):
+1. Busque la sección de blacklist_exceptions en el archivo multipath.conf. El dispositivo StorSimple debe mostrarse como una excepción de la lista de bloqueados de esta sección. Puede quitar el comentario de las líneas pertinentes en este archivo para modificarlo, tal como se muestra a continuación (use solo el modelo específico del dispositivo que esté usando):
    
     ```config
     blacklist_exceptions {

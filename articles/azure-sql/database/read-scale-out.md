@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790277"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663992"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -115,12 +115,12 @@ En raras ocasiones, si una transacción de aislamiento de instantánea accede a 
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de ejecución prolongada en réplicas de solo lectura
 
-Las consultas que se ejecutan en réplicas de solo lectura necesitan tener acceso a los metadatos para los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal. 
+Las consultas que se ejecutan en réplicas de solo lectura necesitan tener acceso a los metadatos para los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal.
 
-Si una consulta de ejecución prolongada en una réplica de solo lectura provoca este tipo de bloqueo, se terminará automáticamente y la sesión recibirá el error 1219: "Su sesión se ha desconectado debido a una operación DDL de elevada prioridad".
+Si una consulta de ejecución prolongada en una réplica de solo lectura produce este tipo de bloqueo, se terminará automáticamente. La sesión recibirá el error 1219, "Su sesión se ha desconectado debido a una operación DDL de elevada prioridad" o el error 3947, "Se ha anulado la transacción porque el proceso secundario no pudo ponerse al día. Vuelva a intentar la transacción".
 
 > [!NOTE]
-> Si recibe el error 3961 o 1219 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta.
+> Si recibe el error 3961, 1219 o 3947 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta.
 
 > [!TIP]
 > En los niveles de servicio Premium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, se pueden usar las columnas `redo_queue_size` y `redo_rate` de las DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) para supervisar el proceso de sincronización de datos, sirviendo como indicadores de latencia de datos en la réplica de solo lectura.

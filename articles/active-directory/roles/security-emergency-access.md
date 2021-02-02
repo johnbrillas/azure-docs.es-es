@@ -1,10 +1,10 @@
 ---
-title: 'Administración de cuentas de administrador de acceso de emergencia: Azure AD | Microsoft Docs'
+title: 'Administración de cuentas de administrador de acceso de emergencia: Azure AD'
 description: En este artículo se describe cómo usar las cuentas de acceso de emergencia para ayudar a evitar que se bloquee inadvertidamente su acceso a la organización de Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d6a1e4b3b44004ec6d03c293bbd10617b3d3af69
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834445"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740829"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -60,7 +60,7 @@ Durante una emergencia, no quiere que una directiva pueda bloquear el acceso par
 
 ## <a name="federation-guidance"></a>Guía de federación
 
-Una opción adicional para las organizaciones que usan AD Domain Services, ADFS o proveedores de identidades similares para federar con Azure AD, es configurar una cuenta de acceso de emergencia cuya notificación de MFA podría proporcionarla dicho proveedor de identidades.  Por ejemplo, la cuenta de acceso de emergencia podría estar respaldada por un par de certificado y clave como el almacenado en una tarjeta inteligente.  Cuando ese usuario se autentica en Active Directory, ADFS pueden proporcionar una notificación a Azure AD para indicar que el usuario ha cumplido con los requisitos de MFA.  Incluso con este enfoque, las organizaciones todavía deben tener cuentas de acceso de emergencia basadas en la nube en caso de que no se pueda establecer la federación. 
+Algunas organizaciones usan AD Domain Services y ADFS o un proveedor de identidades similar para federar a Azure AD. [No debe haber ninguna cuenta local con privilegios administrativos](../fundamentals/protect-m365-from-on-premises-attacks.md). La autenticación de procesamiento y abastecimiento de cuentas con privilegios administrativos fuera de Azure AD agrega riesgos innecesarios en caso de que se produzca una interrupción de esos sistemas o se comprometa su seguridad.
 
 ## <a name="store-account-credentials-safely"></a>Almacenamiento seguro de las credenciales de cuenta
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 1. [Envíe registros de inicio de sesión de Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) a Azure Monitor.
 

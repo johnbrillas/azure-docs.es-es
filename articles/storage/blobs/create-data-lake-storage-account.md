@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 712f1dc0679ee49791831e782fb68c39a757870a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269934"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624344"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado
 
@@ -40,6 +40,9 @@ En la siguiente imagen se muestra esta configuración en la página **Crear cuen
 > ![Opción Servicio de espacio de nombres jerárquico](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
 Si tiene una cuenta de almacenamiento existente que quiere usar con Data Lake Storage y la opción Espacio de nombres jerárquico está deshabilitada, debe migrar los datos a una nueva cuenta de almacenamiento que tenga habilitada esta opción.
+
+> [!NOTE]
+> **Protección de datos** y **Espacio de nombres jerárquico** no pueden estar habilitadas simultáneamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

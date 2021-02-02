@@ -1,26 +1,25 @@
 ---
-title: Esquema LoadBalancerProbe de de definición de Azure Cloud Services | Microsoft Docs
+title: 'Azure Cloud Services (clásico): Esquema de definición de Azure Cloud Services | Microsoft Docs'
 description: El rol de trabajo de Azure se usa para el desarrollo generalizado y puede realizar el procesamiento en segundo plano para un rol web. Obtenga información sobre el esquema de rol de trabajo de Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005170"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743141"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema WorkerRole de definición de Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Esquema WorkerRole de definición de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 El rol de trabajo de Azure es un rol que resulta útil para el desarrollo generalizado; además, puede realizar procesamiento en segundo plano para un rol web.
 
 La extensión predeterminada del archivo de definición de servicio es. csdef.
@@ -116,7 +115,7 @@ El archivo de definición de servicio incluye estos elementos, que se describen 
 
 [Certificate](#Certificate)
 
-[Imports](#Imports)
+[Importaciones](#Imports)
 
 [Importar](#Import)
 
@@ -158,7 +157,7 @@ En la tabla siguiente se describen los atributos del elemento `WorkerRole`:
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings
 El elemento `ConfigurationSettings` describe la colección de valores de configuración de un rol de trabajo. Este elemento es el elemento primario del elemento `Setting`.
 
-##  <a name="setting"></a><a name="Setting"></a> Setting
+##  <a name="setting"></a>Configuración de <a name="Setting"></a>
 El elemento `Setting` describe un par de nombre y valor que especifica un valor de configuración para una instancia de un rol.
 
 En la tabla siguiente se describen los atributos del elemento `Setting`:
@@ -266,9 +265,9 @@ En la tabla siguiente se describen los atributos del elemento `FixedPortRange`:
 | Atributo | Tipo | Descripción |
 | --------- | ---- | ----------- |
 |Min|int|Necesario. El puerto mínimo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|
-|max|string|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|
+|máx.|string|Necesario. El puerto máximo del intervalo. Los valores posibles oscilan entre 1 y 65535, ambos inclusive (versión 1.7 o posterior de Azure SDK).|
 
-##  <a name="certificates"></a><a name="Certificates"></a> Certificates
+##  <a name="certificates"></a><a name="Certificates"></a> Certificados
 El elemento `Certificates` describe la colección de certificados de un rol de trabajo. Este elemento es el elemento primario del elemento `Certificate`. Un rol puede tener cualquier número de certificados asociados. Para más información sobre cómo usar el elemento de certificados, vea cómo [modificar el archivo de definición de servicio con un certificado](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
 ##  <a name="certificate"></a><a name="Certificate"></a> Certificate
@@ -362,7 +361,7 @@ En la tabla siguiente se describen los atributos del elemento `ProgramEntryPoint
 
 | Atributo | Tipo | Descripción |
 | --------- | ---- | ----------- |
-|commandLine|string|Necesario. La ruta de acceso, el nombre de archivo y los argumentos de línea de comandos del programa que se va a ejecutar. La ruta de acceso es relativa a la carpeta **%ROLEROOT%\Approot** (no especifique **%ROLEROOT%\Approot** en commandLine, se da por supuesto). **%ROLEROOT%** es una variable de entorno que mantiene Azure y representa la ubicación de la carpeta raíz del rol. La carpeta **%ROLEROOT%\Approot** representa la carpeta de la aplicación del rol.<br /><br /> Si el programa finaliza, el rol se recicla, así que establezca el programa normalmente para que se siga ejecutando, en lugar de ser un programa que se inicie y ejecute una tarea finita.|
+|commandLine|string|Necesario. La ruta de acceso, el nombre de archivo y los argumentos de línea de comandos del programa que se va a ejecutar. La ruta de acceso es relativa a la carpeta **%ROLEROOT%\Approot** (no especifique **%ROLEROOT%\Approot** en commandLine, porque ya se da por supuesto). **%ROLEROOT%** es una variable de entorno que mantiene Azure y representa la ubicación de la carpeta raíz del rol. La carpeta **%ROLEROOT%\Approot** representa la carpeta de aplicaciones para el rol.<br /><br /> Si el programa finaliza, el rol se recicla, así que establezca el programa normalmente para que se siga ejecutando, en lugar de ser un programa que se inicie y ejecute una tarea finita.|
 |setReadyOnProcessStart|boolean|Necesario. Especifica si la instancia de rol espera a que el programa de línea de comandos indique que se inicie. En este momento, este valor debe establecerse en `true`. El valor `false` está reservado para un uso futuro.|
 
 ##  <a name="startup"></a><a name="Startup"></a> Startup
@@ -387,12 +386,12 @@ En la tabla siguiente se describen los atributos del elemento `Task`:
 |executionContext|string|Especifica el contexto en el que se ejecuta el script.<br /><br /> -   `limited` [valor predeterminado]: se ejecuta con los mismos privilegios que el rol que hospeda el proceso.<br />-   `elevated`: se ejecuta con privilegios de administrador.|
 |taskType|string|Especifica el comportamiento de ejecución del comando.<br /><br /> -   `simple` [valor predeterminado]: el sistema espera a que se cierre la tarea antes de iniciar otra.<br />-   `background`: el sistema no espera a que se cierre la tarea.<br />-   `foreground`: se parece a background, excepto que el rol no se reinicia hasta que todas las tareas de foreground se cierran.|
 
-##  <a name="contents"></a><a name="Contents"></a> Contents
+##  <a name="contents"></a><a name="Contents"></a> Contenido
 El elemento `Contents` describe la colección de contenido de un rol de trabajo. Este elemento es el elemento primario del elemento `Content`.
 
 El elemento `Contents` solo está disponible cuando se usa la versión 1.5 o posterior de Azure SDK.
 
-##  <a name="content"></a><a name="Content"></a> Content
+##  <a name="content"></a><a name="Content"></a> Contenido
 El elemento `Content` define la ubicación de origen del contenido que se copiará en la máquina virtual de Azure y la ruta de acceso de destino en la que se copia.
 
 El elemento `Content` solo está disponible cuando se usa la versión 1.5 o posterior de Azure SDK.

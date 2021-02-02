@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562682"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98609951"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -512,27 +512,25 @@ Use la llamada de REST siguiente para eliminar un clúster:
 
 - Puede vincular un área de trabajo al clúster y desvincularla después. El número de operaciones de vinculación de área de trabajo en un área de trabajo determinada en un período de 30 días se limita a 2.
 
-- La vinculación de área de trabajo al clúster SOLO se debe llevar a cabo después de comprobar que se completó el aprovisionamiento del clúster de Log Analytics. Los datos que se envíen al área de trabajo antes de que se complete el aprovisionamiento se eliminarán y no se podrán recuperar.
-
 - Actualmente no se admite el traslado de un clúster a otro grupo de recursos o a otra suscripción.
-
-- Se producirá un error en la vinculación del área de trabajo al clúster si está vinculada a otro clúster.
 
 - La caja de seguridad no está disponible actualmente en China. 
 
-- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante una solicitud GET en el clúster. Observe el valor de la propiedad `"isDoubleEncryptionEnabled"`, que es `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble. Agregue la propiedad `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud de REST.
+- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
+  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 - Si se produce un error de conflicto al crear un clúster, es posible que haya eliminado el clúster en los últimos 14 días y que esté en un estado de eliminación temporal. El nombre del clúster permanece reservado durante el período de eliminación temporal y no se puede crear un nuevo clúster con ese nombre. El nombre se libera después del período de eliminación temporal cuando el clúster se elimina de forma permanente.
 
-- Si actualiza su clúster mientras una operación está en curso, se producirá un error en dicha operación.
+- Si actualiza el clúster mientras este está en el estado de aprovisionamiento o actualización, se producirá un error en la actualización.
 
 - Algunas operaciones son largas y pueden tardar un tiempo en completarse. Estas operaciones son las de creación de clúster, actualización de la clave de clúster y eliminación de clúster. Puede comprobar el estado de la operación de dos maneras:
   - Cuando utilice REST, copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
   - Envíe una solicitud GET al clúster o al área de trabajo y observe la respuesta. Por ejemplo, un área de trabajo desvinculada no tendrá el elemento *clusterResourceId* en la sección *features*.
+
+- Se producirá un error en la vinculación del área de trabajo al clúster si está vinculada a otro clúster.
 
 - Mensajes de error
   

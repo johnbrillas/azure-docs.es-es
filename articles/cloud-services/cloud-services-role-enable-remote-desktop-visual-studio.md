@@ -1,25 +1,24 @@
 ---
-title: Uso de Visual Studio para habilitar el escritorio remoto para un rol (Azure Cloud Services)
+title: Uso de Visual Studio para habilitar Escritorio remoto para un rol (Azure Cloud Services clásico)
 description: Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294384"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743243"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services (clásico) mediante Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -40,7 +39,7 @@ Cuando se utiliza Visual Studio 2017 versión 15.4 y anteriores, puede usar la o
 
 2. Si es necesario, inicie sesión en su suscripción de Azure y seleccione **Siguiente**.
 
-3. En la página **Configuración**, seleccione **Habilitar Escritorio remoto para todos los roles** y el vínculo **Configuración...**  para abrir el cuadro de diálogo **Configuración de Escritorio remoto**.
+3. En la página **Configuración**, seleccione **Habilitar Escritorio remoto para todos los roles** y el vínculo **Configuración...** para abrir el cuadro de diálogo **Configuración de Escritorio remoto**.
 
 4. En la parte inferior del cuadro de diálogo, seleccione **Más opciones**. Este comando muestra una lista desplegable en la que puede crear o seleccionar un certificado para que pueda cifrar la información de credenciales al conectarse a través de escritorio remoto.
 
@@ -95,7 +94,7 @@ Para utilizar la extensión RDP desde Azure DevOps Services, incluya los siguien
 
 1. Después de los pasos de compilación, agregue el paso **Implementación de servicio en la nube de Azure** y defina sus propiedades.
 
-1. Después del paso de implementación, agregue un paso de **Azure Powershell** y establezca la propiedad **nombre para mostrar** en "Implementación de Azure: Habilitar extensión RDP"(u otro nombre adecuado) y seleccione la suscripción a Azure apropiada.
+1. Después del paso de implementación, agregue un paso de **Azure Powershell**, establezca la propiedad **Nombre para mostrar** en "Implementación de Azure: habilitar extensión RDP" (u otro nombre adecuado) y seleccione la suscripción adecuada de Azure.
 
 1. Establezca **Tipo de script** en "Alineado" y pegue el código siguiente en el campo **Script en línea**. (También puede crear un archivo `.ps1` en el proyecto con este script, establecer **Tipo de script** en "Ruta de acceso de archivo de script" y establecer **Ruta de acceso del script** para que apunte al archivo).
 

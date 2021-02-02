@@ -1,20 +1,25 @@
 ---
 title: Resource Health para Cloud Services (clásico)
 description: En este artículo se habla sobre la compatibilidad de la comprobación de Resource Health (RHC) con Microsoft Azure Cloud Services (clásico)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072720"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743515"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Compatibilidad de la comprobación de Resource Health (RHC) con Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 En este artículo se habla sobre la compatibilidad de la comprobación de Resource Health (RHC) con [Microsoft Azure Cloud Services (clásico)](https://azure.microsoft.com/services/cloud-services)
 
 [Azure Resource Health](../service-health/resource-health-overview.md) para Cloud Services ayuda a diagnosticar y a obtener soporte técnico para problemas de servicio que afectan a la implementación, los roles y las instancias de rol del servicio en la nube. Notifica el estado actual y pasado de los servicios en la nube en cuanto a implementación, roles e instancias de rol.

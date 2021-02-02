@@ -1,25 +1,25 @@
 ---
-title: Implementación de la privacidad diferencial con el paquete de SmartNoise (versión preliminar)
+title: Privacidad diferencial en el aprendizaje automático (versión preliminar)
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre qué es la privacidad diferencial y cómo el paquete de SmartNoise puede ayudarle a implementar sistemas privados diferenciales que conserven la privacidad de los datos.
+description: Obtenga información sobre qué es la privacidad diferencial y cómo puede implementar sistemas privados diferenciales que conserven la privacidad de los datos.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/21/2020
+ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: 22ba505a2e13b2f88f212f2fe1b85d07f79f77e5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39f4b1a7b9eb1ad7a87097240dd772e4f2dadf17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218967"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683553"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Conservación de la privacidad de los datos con la privacidad diferencial y el paquete de SmartNoise (versión preliminar)
+# <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Qué es la privacidad diferencial en el aprendizaje automático (versión preliminar)
 
-Obtenga información sobre qué es la privacidad diferencial y cómo el paquete de SmartNoise puede ayudarle a implementar sistemas privados diferenciales.
+Obtenga información sobre la privacidad diferencial en el aprendizaje automático y cómo funciona.
 
 A medida que aumenta la cantidad de datos que una organización recopila y usa para los análisis, también aumentan las preocupaciones relacionadas con la privacidad y la seguridad. Los análisis requieren datos. Normalmente, cuanto mayor número de datos se usan para entrenar los modelos, más precisos son. Cuando se usa información personal para estos análisis, es especialmente importante que los datos permanezcan privados en todo el uso.
 
@@ -28,9 +28,9 @@ A medida que aumenta la cantidad de datos que una organización recopila y usa p
 La privacidad diferencial es un conjunto de sistemas y prácticas que ayudan a mantener los datos de los usuarios seguros y privados.
 
 > [!div class="mx-imgBorder"]
-> ![Proceso de privacidad diferencial](./media/concept-differential-privacy/differential-privacy-process.jpg)
+> ![Proceso de privacidad diferencial en el aprendizaje automático](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
-En los escenarios tradicionales, los datos sin procesar se almacenan en archivos y bases de datos. Cuando los usuarios analizan datos, suelen usar los datos sin procesar. Esto supone un problema, ya que se podría infringir la privacidad de los usuarios. La privacidad diferencial intenta solucionar este problema agregando "ruido" o aleatoriedad a los datos para que los usuarios no puedan identificar puntos de datos individuales. Como mínimo, este tipo de sistema proporciona denegabilidad plausible.
+En los escenarios tradicionales, los datos sin procesar se almacenan en archivos y bases de datos. Cuando los usuarios analizan datos, suelen usar los datos sin procesar. Esto supone un problema, ya que se podría infringir la privacidad de los usuarios. La privacidad diferencial intenta solucionar este problema agregando "ruido" o aleatoriedad a los datos para que los usuarios no puedan identificar puntos de datos individuales. Como mínimo, este tipo de sistema proporciona denegabilidad plausible. Por lo tanto, la privacidad de las personas se preserva con un impacto limitado en la precisión de los datos.
 
 En los sistemas privados diferenciales, los datos se comparten a través de solicitudes denominadas **consultas**. Cuando un usuario envía una consulta de datos, las operaciones conocidas como **mecanismos de privacidad** agregan ruido a los datos solicitados. Los mecanismos de privacidad devuelven una *aproximación de los datos*, en lugar de los datos sin procesar. Este resultado de conservación de la privacidad aparece en un **informe**. Los informes constan de dos partes: los datos reales calculados y una descripción de cómo se crearon los datos.
 
@@ -42,22 +42,22 @@ Los valores de épsilon no son negativos. Los valores inferiores a 1 proporciona
 
 Otro valor directamente correlacionado con el épsilon es **delta**. Delta mide la probabilidad de que un informe no sea totalmente privado. Cuanto mayor sea delta, mayor será épsilon. Dado que estos valores están correlacionados, épsilon se usa con más frecuencia.
 
-## <a name="privacy-budget"></a>Presupuesto de privacidad
+## <a name="limit-queries-with-a-privacy-budget"></a>Limitación de consultas con un presupuesto de privacidad
 
-Para garantizar la privacidad en sistemas en los que se permiten varias consultas, la privacidad diferencial define un límite de frecuencia. Este límite se conoce como **presupuesto de privacidad**. A los presupuestos de privacidad se les asigna una cantidad de épsilon, normalmente entre 1 y 3, para limitar el riesgo de reidentificación. A medida que se generan informes, los presupuestos de privacidad realizan un seguimiento del valor de épsilon de informes individuales, así como del agregado para todos los informes. Una vez que se ha gastado o agotado un presupuesto de privacidad, los usuarios ya no pueden tener acceso a los datos.  
+Para garantizar la privacidad en sistemas en los que se permiten varias consultas, la privacidad diferencial define un límite de frecuencia. Este límite se conoce como **presupuesto de privacidad**. Los presupuestos de privacidad impiden que los datos se vuelvan a crear a través de varias consultas. A los presupuestos de privacidad se les asigna una cantidad de épsilon, normalmente entre 1 y 3, para limitar el riesgo de reidentificación. A medida que se generan informes, los presupuestos de privacidad realizan un seguimiento del valor de épsilon de informes individuales, así como del agregado para todos los informes. Una vez que se ha gastado o agotado un presupuesto de privacidad, los usuarios ya no pueden tener acceso a los datos. 
 
 ## <a name="reliability-of-data"></a>Confiabilidad de los datos
 
-Aunque la conservación de la privacidad debe ser el objetivo, existe una contrapartida en cuanto a la facilidad de uso y la confiabilidad de los datos. En el análisis de datos, la precisión se puede considerar como una medida de incertidumbre introducida por los errores de muestreo. Esta incertidumbre tiende a estar dentro de ciertos límites. La **precisión** desde una perspectiva de privacidad diferencial, en cambio, mide la confiabilidad de los datos, que se ve afectada por la incertidumbre introducida por los mecanismos de privacidad. En resumen, un nivel más alto de ruido o privacidad se traduce en datos con un épsilon, una precisión y una confiabilidad menores. Aunque los datos son más privados, ya que no son confiables, es menos probable que se usen.
+Aunque la conservación de la privacidad debe ser el objetivo, existe una contrapartida en cuanto a la facilidad de uso y la confiabilidad de los datos. En el análisis de datos, la precisión se puede considerar como una medida de incertidumbre introducida por los errores de muestreo. Esta incertidumbre tiende a estar dentro de ciertos límites. La **precisión** desde una perspectiva de privacidad diferencial, en cambio, mide la confiabilidad de los datos, que se ve afectada por la incertidumbre introducida por los mecanismos de privacidad. En resumen, un nivel más alto de ruido o privacidad se traduce en datos con un épsilon, una precisión y una confiabilidad menores. 
 
-## <a name="implementing-differentially-private-systems"></a>Implementación de sistemas privados de forma diferencial
+## <a name="open-source-differential-privacy-libraries"></a>Bibliotecas de privacidad diferencial de código abierto
 
-La implementación de sistemas privados de forma diferencial es difícil. SmartNoise es un proyecto de código abierto que contiene distintos componentes para la creación de sistemas privados globales de forma diferencial. SmartNoise se compone de los siguientes componentes de nivel superior:
+SmartNoise es un proyecto de código abierto que contiene distintos componentes para la creación de sistemas privados globales de forma diferencial. SmartNoise se compone de los siguientes componentes de nivel superior:
 
-- Core
-- SDK
+- Biblioteca SmartNoise Core
+- Biblioteca SmartNoise SDK
 
-### <a name="core"></a>Core
+### <a name="smartnoise-core"></a>SmartNoise Core
 
 La biblioteca principal incluye los siguientes mecanismos de privacidad para la implementación de un sistema privado de forma diferencial:
 
@@ -68,7 +68,7 @@ La biblioteca principal incluye los siguientes mecanismos de privacidad para la 
 |Tiempo de ejecución     | Medio en el que se va a ejecutar el análisis. El runtime de referencia se escribe en Rust, pero los runtime se pueden escribir con cualquier marco de cálculo, como SQL y Spark, dependiendo de las necesidades de los datos.        |
 |Enlaces     | Enlaces de lenguaje y bibliotecas auxiliares para compilar análisis. Actualmente, SmartNoise proporciona enlaces de Python. |
 
-### <a name="sdk"></a>SDK
+### <a name="smartnoise-sdk"></a>SmartNoise SDK
 
 La biblioteca del sistema proporciona las siguientes herramientas y servicios para trabajar con datos tabulares y relacionales:
 
@@ -80,6 +80,6 @@ La biblioteca del sistema proporciona las siguientes herramientas y servicios pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Mantenga la privacidad de los datos](how-to-differential-privacy.md) en Azure Machine Learning.
+[Uso compilar un sistema privado diferencial](how-to-differential-privacy.md) en Azure Machine Learning.
 
-Para más información sobre los componentes de SmartNoise, consulte los repositorios de GitHub para obtener el [paquete base de SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core), el [SDK de SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk) y los [ejemplos de SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).
+Para obtener más información sobre los componentes de SmartNoise, consulte los repositorios de GitHub para obtener [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk) y [ejemplos de SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).
