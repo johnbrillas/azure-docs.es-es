@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219749"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796972"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Control de código fuente en Azure Synapse Studio
 
-De forma predeterminada, Azure Synapse Studio crea directamente en el servicio Synapse. Sin embargo, esta experiencia tiene las siguientes limitaciones:
+De forma predeterminada, Azure Synapse Studio crea directamente en el servicio Synapse. Si necesita colaboración al usar Git para el control de código fuente, Synapse Studio permite asociar el área de trabajo a un repositorio de Git, Azure DevOps o GitHub. 
 
-- Synapse Studio no incluye un almacenamiento temporal para almacenar los cambios. La única manera de guardar y compartir los cambios es mediante **Publicar** y todos los cambios se publican directamente en el servicio Synapse.
-
-- Synapse Studio no está optimizado para la colaboración ni el control de versiones.
-
-Para proporcionar la funcionalidad de control de código fuente, Synapse Studio permite asociar el área de trabajo a un repositorio de Git, Azure DevOps o GitHub. En este artículo se describe cómo configurar un área de trabajo de Synapse y trabajar con él con el repositorio de Git habilitado. Además, destacamos algunos procedimientos recomendados y una guía de solución de problemas.
+En este artículo se describe cómo configurar un área de trabajo de Synapse y trabajar con él con el repositorio de Git habilitado. Además, destacamos algunos procedimientos recomendados y una guía de solución de problemas.
 
 > [!NOTE]
 > La integración de Git de Azure Synapse Studio no está disponible en la nube de Azure Government.

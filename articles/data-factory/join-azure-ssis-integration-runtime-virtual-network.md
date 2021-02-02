@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8928f9d52fd8e721ac770dda8f0cbf0162a0f61
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982730"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797908"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 
@@ -73,7 +73,10 @@ Si los paquetes SSIS acceden a los recursos de Azure compatibles con los [puntos
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>Acceso a los orígenes de datos protegidos por la regla de firewall de IP
 
-Si los paquetes SSIS acceden a almacenes de datos o recursos que solo permiten direcciones IP públicas estáticas específicas y desea proteger el acceso a esos recursos desde Azure-SSIS IR, puede traer sus propias [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md) de Azure-SSIS IR y conectar este a una red virtual, y después agregar una regla de firewall de IP a los recursos pertinentes para permitir el acceso desde esas direcciones IP.
+Si los paquetes SSIS acceden a almacenes de datos o recursos que solo permiten direcciones IP públicas estáticas específicas y desea proteger el acceso a esos recursos desde Azure-SSIS IR, puede asociar [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md) a Azure-SSIS IR y conectar este a una red virtual, y después agregar una regla de firewall de IP a los recursos pertinentes para permitir el acceso desde esas direcciones IP. Hay dos formas alternativas de hacerlo: 
+
+- Al crear Azure-SSIS IR, puede traer sus propias direcciones IP públicas y especificarlas a través de la [interfaz de usuario o el SDK de Data Factory](#join-the-azure-ssis-ir-to-a-virtual-network). Solo la conectividad de Internet de salida de Azure-SSIS IR usará las direcciones IP públicas proporcionadas y otros dispositivos de la subred no las usarán.
+- También puede configurar [Virtual Network NAT](../virtual-network/nat-overview.md) para la subred a la que se unirá Azure-SSIS IR y todas la conectividad de salida en esta subred usará las direcciones IP públicas especificadas.
 
 En todos los casos, la red virtual solo puede implementarse mediante el modelo de implementación de Azure Resource Manager.
 

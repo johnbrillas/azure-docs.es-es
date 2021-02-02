@@ -3,12 +3,12 @@ title: Configuración de la supervisión de VP con Azure Monitor para contenedor
 description: En este artículo se describe cómo puede configurar la supervisión de clústeres de Kubernetes con volúmenes persistentes mediante Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186854"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704480"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configuración de la supervisión de VP con Azure Monitor para contenedores
 

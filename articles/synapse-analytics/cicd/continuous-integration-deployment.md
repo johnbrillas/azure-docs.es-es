@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223693"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797307"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -134,3 +134,13 @@ Si usa la integración de Git con el área de trabajo de Synapse y tiene una can
 -   **Prepare los grupos antes de la migración de los artefactos**. Si tiene un script de SQL o un cuaderno asociados a grupos del área de trabajo de desarrollo, se espera el mismo nombre de los grupos en distintos entornos. 
 -   **Infraestructura como código (IaC)** . Administración de la infraestructura (redes, máquinas virtuales, equilibradores de carga y topología de conexión) en un modelo descriptivo, donde se usa el mismo control de versiones que utiliza el equipo de DevOps para el código fuente. 
 -   **Otros**. Consulte [Procedimientos recomendados para artefactos de ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
+
+## <a name="troubleshooting-artifacts-deployment"></a>Solución de problemas en la implementación de artefactos 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Uso de la tarea de implementación del área de trabajo de Synapse
+
+En Synapse, ningún tipo de artefacto es un recurso ARM, que es diferente de ADF. No se puede usar la tarea de implementación de plantilla de ARM para implementar artefactos de Synapse.
+ 
+### <a name="unexpected-token-error-in-release"></a>Error de token inesperado en la versión
+
+Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no puede analizar el archivo con el error de token inesperado. Se recomienda invalidar los parámetros o KeyVault para obtener los parámetros. También puede hacer doble escape como solución alternativa.

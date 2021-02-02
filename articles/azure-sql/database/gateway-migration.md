@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165865"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808004"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Se enviará un aviso a los clientes por correo electrónico y en Azure Portal co
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+## <a name="february-2021"></a>Febrero de 2021
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+
+- Centro de EE. UU.: 13.89.169.20
+
+Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 28 de febrero de 2021.
+
 ## <a name="january-2021"></a>Enero de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 

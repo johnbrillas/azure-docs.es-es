@@ -7,21 +7,20 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296253"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797445"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuración completa de Azure Media Player #
 
 Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtener la reproducción básica de contenido multimedia directamente desde la cuenta de Azure Media Services. También se proporcionan [ejemplos](https://github.com/Azure-Samples/azure-media-player-samples) en el directorio de ejemplos de la versión.
 
-
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Paso 1: Incluir los archivos JavaScript y CSS en el encabezado de la página ##
 
-Con Azure Media Player, puede acceder a los scripts desde la versión hospedada de la red CDN. A menudo se recomienda actualmente poner JavaScript antes de la etiqueta BODY final `<body>` en lugar de antes de `<head>`, pero Azure Media Player incluye una modificación de HTML5, que debe estar en el encabezado de las versiones más antiguas de IE para que respete la etiqueta de vídeo como un elemento válido.
+Con Azure Media Player, puede acceder a los scripts desde la versión hospedada de la red CDN. Actualmente, a menudo se recomienda poner JavaScript antes de la etiqueta body final `<body>` en lugar de antes de `<head>`, pero Azure Media Player incluye un elemento “HTML5 Shiv”, que debe estar en el encabezado de las versiones más antiguas de IE para que respete la etiqueta de vídeo como un elemento válido.
 
 > [!NOTE]
 > Si ya usa una modificación de HTML5 como [Modernizr](https://modernizr.com/) puede incluir el JavaScript de Azure Media Player en cualquier lugar. Sin embargo, asegúrese de que la versión de Modernizr incluye shiv para vídeo.

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 01/22/2021
+ms.openlocfilehash: 48450218975f2c6ee14e12af8d722942e8db1347
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695855"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -76,6 +76,9 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 - [Autenticación de SQL](#sql-authentication)
 - Autenticación de token de la aplicación de Azure AD: [Entidad de servicio](#service-principal-authentication)
 - Autenticación de token de la aplicación de Azure AD: [Identidades administradas para recursos de Azure](#managed-identity)
+
+>[!TIP]
+>Al crear un servicio vinculado para el grupo de SQL **sin servidor** de Azure Synapse desde la interfaz de usuario, elija "escribir manualmente" en lugar de buscar manualmente la suscripción.
 
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
@@ -391,7 +394,7 @@ Para copiar datos en Azure Synapse Analytics, establezca el tipo de receptor de 
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/><br/>El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | No.<br/>Se aplica cuando se usa inserción masiva.        |
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Synapse Analytics en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
 | tableOption | Especifica si [se crea automáticamente la tabla de receptores](copy-activity-overview.md#auto-create-sink-tables) según el esquema de origen, si no existe. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory recopila métricas, como las DWU de Azure Synapse Analytics, para la optimización del rendimiento de copia y la obtención de recomendaciones, lo que proporciona acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
+| disableMetricsCollection | Data Factory recopila métricas, como las DWU de Azure Synapse Analytics, para la optimización del rendimiento de copia y la obtención de recomendaciones, que proporcionan acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Ejemplo de receptor Azure Synapse Analytics
 
@@ -780,6 +783,7 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 
 - Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
 - Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- Si un grupo de SQL **sin servidor** de Azure Synapse como origen, no se admite la habilitación del almacenamiento provisional.
 
 **Consultar** Si selecciona Consulta en el campo de entrada, escriba una consulta SQL para el origen. Esta configuración invalidará cualquier tabla que haya elegido en el conjunto de datos. Las cláusulas **Ordenar por** no se admiten aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en el flujo de datos. El uso de consultas también es una excelente manera de reducir las filas para pruebas o búsquedas.
 

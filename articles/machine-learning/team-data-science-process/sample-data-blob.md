@@ -1,5 +1,5 @@
 ---
-title: 'Datos de ejemplo de Azure Blob Storage: proceso de ciencia de datos en equipos'
+title: 'Datos de ejemplo de Azure Blob Storage: Proceso de ciencia de datos en equipos'
 description: Para muestrear datos de ejemplo en Azure Blob Storage, deben descargarse mediante programación y luego realizar un muestreo de los mismos con procedimientos escritos en Python.
 services: machine-learning
 author: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321910"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788848"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en Azure Blob Storage
 
-En este artículo se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure; para ello, se descargan mediante programación y luego se realiza un muestreo de los mismos con procedimientos escritos en Python.
+En este artículo se tratan los datos de muestreo almacenados en Azure Blob Storage; para ello, se descargan mediante programación y luego se realiza un muestreo de los mismos con procedimientos escritos en Python.
 
 **¿Por qué realizar un muestreo de los datos?**
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. El muestreo facilita el reconocimiento y la exploración de los datos, así como el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
@@ -28,7 +28,7 @@ Si el conjunto de datos que pretende analizar es grande, es recomendable reducir
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Descarga y muestreado de datos
-1. Descargue los datos del almacenamiento de blobs de Azure con Blob Service con el código de Python de ejemplo siguiente: 
+1. Descargue los datos de Azure Blob Storage con Blob Service con el código de Python de ejemplo siguiente: 
 
     ```python
     from azure.storage.blob import BlobService

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2a514af99baa2d828df1aee35a0e6339d39e617
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605046"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788560"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
@@ -83,9 +83,42 @@ public static void Run(string myQueueItem,
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+La siguiente función de Java usa la anotación `@ServiceBusQueueTrigger` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para describir la configuración de un desencadenador de cola de Service Bus. La función toma el mensaje colocado en la cola y lo agrega a los registros.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+Las funciones de Java también pueden desencadenarse cuando se agrega un mensaje a un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicTrigger` para describir la configuración del desencadenador.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función lee [metadatos de mensaje](#message-metadata) y registra un mensaje de cola de Service Bus. 
+En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función lee [metadatos de mensaje](#message-metadata) y registra un mensaje de cola de Service Bus.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -114,6 +147,35 @@ module.exports = function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de PowerShell](functions-reference-powershell.md) que usa el enlace. 
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "mySbMsg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "mytopic",
+      "subscriptionName": "mysubscription",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Esta es la función que se ejecuta cuando se envía un mensaje de Service Bus.
+
+```powershell
+param([string] $mySbMsg, $TriggerMetadata)
+
+Write-Host "PowerShell ServiceBus queue trigger function processed message: $mySbMsg"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -166,39 +228,6 @@ def main(msg: func.ServiceBusMessage):
     })
 
     logging.info(result)
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-La siguiente función de Java usa la anotación `@ServiceBusQueueTrigger` de la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime) para describir la configuración de un desencadenador de cola de Service Bus. La función toma el mensaje colocado en la cola y lo agrega a los registros.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-Las funciones de Java también pueden desencadenarse cuando se agrega un mensaje a un tema de Service Bus. En el ejemplo siguiente se usa la anotación `@ServiceBusTopicTrigger` para describir la configuración del desencadenador.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
 ```
 
 ---
@@ -268,14 +297,6 @@ La cuenta de Service Bus que se debe usar se determina en el orden siguiente:
 
 El script de C# no admite atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript no admite atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Python no admite atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 La anotación `ServiceBusQueueTrigger` permite crear una función que se ejecuta cuando se crea un mensaje de la cola de Service Bus. Las opciones de configuración disponibles incluyen el nombre de la cola y el nombre de la cadena de conexión.
@@ -283,6 +304,18 @@ La anotación `ServiceBusQueueTrigger` permite crear una función que se ejecuta
 La anotación `ServiceBusTopicTrigger` permite designar un tema y una suscripción para establecer qué datos desencadenan la función.
 
 Consulte el [ejemplo](#example) de desencadenador para más detalles.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell no admite atributos.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python no admite atributos.
 
 ---
 
@@ -313,8 +346,8 @@ Los siguientes tipos de parámetro están disponibles para el mensaje de cola o 
 * `string`: si el mensaje es texto.
 * `byte[]`: útil para datos binarios.
 * Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
-* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet): se usa para recibir y confirmar mensajes del contenedor de mensajes (necesario cuando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) está establecido en `false`).
+* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true).
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true): se usa para recibir y confirmar mensajes del contenedor de mensajes (necesario cuando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) está establecido en `false`).
 
 Estos tipos de parámetro son para la versión 1.x de Azure Functions; para la versión 2.x y versiones posteriores, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
 
@@ -325,23 +358,27 @@ Los siguientes tipos de parámetro están disponibles para el mensaje de cola o 
 * `string`: si el mensaje es texto.
 * `byte[]`: útil para datos binarios.
 * Un tipo personalizado: si el mensaje contiene el archivo JSON, Azure Functions intenta deserializar los datos JSON.
-* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true).
 
 Estos parámetros son para la versión de Azure Functions 1.x; para 2.x y versiones posteriores, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) en lugar de `BrokeredMessage`.
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Puede acceder al mensaje de cola o tema mediante el uso de `context.bindings.<name from function.json>`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
-
-# <a name="python"></a>[Python](#tab/python)
-
-El mensaje de cola está disponible para la función mediante un parámetro de tipo `func.ServiceBusMessage`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
 
 # <a name="java"></a>[Java](#tab/java)
 
 El mensaje de Service Bus entrante está disponible mediante un parámetro `ServiceBusQueueMessage` o `ServiceBusTopicMessage`.
 
 [Consulte el ejemplo para más información](#example).
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Puede acceder al mensaje de cola o tema mediante el uso de `context.bindings.<name from function.json>`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+La instancia de Service Bus está disponible mediante el parámetro configurado en la propiedad *function.json* de la propiedad del nombre de archivo.
+
+# <a name="python"></a>[Python](#tab/python)
+
+El mensaje de cola está disponible para la función mediante un parámetro de tipo `func.ServiceBusMessage`. El mensaje de Service Bus se pasa a la función como una cadena o como un objeto JSON.
 
 ---
 
@@ -351,13 +388,13 @@ El control de mensajes dudosos no se puede controlar ni configurar en Azure Func
 
 ## <a name="peeklock-behavior"></a>Comportamiento de PeekLock
 
-El entorno de ejecución de Functions recibe un mensaje en [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente siempre que la función esté en ejecución. 
+El entorno de ejecución de Functions recibe un mensaje en [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente siempre que la función esté en ejecución.
 
-El `maxAutoRenewDuration` se puede configurar en *host.json*, que se asigna a [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). El valor predeterminado de esta opción es de 5 minutos según la documentación de Service Bus, aunque que puede aumentar el límite de tiempo de Functions desde el valor predeterminado de 5 minutos a 10 minutos. Sin embargo puede que no quiera hacer eso con las funciones de Service Bus, ya que podría superar el límite de renovación de este.
+El `maxAutoRenewDuration` se puede configurar en *host.json*, que se asigna a [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet&preserve-view=true). El valor predeterminado de esta opción es de 5 minutos según la documentación de Service Bus, aunque que puede aumentar el límite de tiempo de Functions desde el valor predeterminado de 5 minutos a 10 minutos. Sin embargo puede que no quiera hacer eso con las funciones de Service Bus, ya que podría superar el límite de renovación de este.
 
 ## <a name="message-metadata"></a>Metadatos del mensaje
 
-El desencadenador de Service Bus proporciona varias [propiedades de metadatos](./functions-bindings-expressions-patterns.md#trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas propiedades forman parte de la clase [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet).
+El desencadenador de Service Bus proporciona varias [propiedades de metadatos](./functions-bindings-expressions-patterns.md#trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas propiedades forman parte de la clase [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet&preserve-view=true).
 
 |Propiedad|Tipo|Descripción|
 |--------|----|-----------|

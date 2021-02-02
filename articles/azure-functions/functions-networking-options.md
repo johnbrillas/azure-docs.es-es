@@ -1,16 +1,16 @@
 ---
 title: Opciones de redes de Azure Functions
 description: Introducción a todas las opciones de redes disponibles en Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936878"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806980"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -85,12 +85,9 @@ Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una ser
 
 Para más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restricción de la cuenta de almacenamiento a una red virtual (versión preliminar)
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual 
 
-Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una.  Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado.  Esta característica de vista previa solo funciona actualmente con planes Premium de Windows en la región Oeste de Europa.  Para configurar una función con una cuenta de almacenamiento restringida a una red privada:
-
-> [!NOTE]
-> La restricción de la cuenta de almacenamiento solo funciona actualmente para las funciones Premium con Windows en la región Oeste de Europa.
+Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una.  Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado.  Esta característica solo funciona actualmente con planes Premium de Windows.  Para configurar una función con una cuenta de almacenamiento restringida a una red privada:
 
 1. Cree una función con una cuenta de almacenamiento que no tenga habilitados los puntos de conexión de servicio.
 1. Configure la función para conectarse a la red virtual.

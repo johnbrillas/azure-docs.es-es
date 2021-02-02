@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937117"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881930"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -229,15 +229,17 @@ El valor de esta clave se proporciona en el formato `<DESTINATION>:<VERBOSITY>`,
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Solo para los planes de consumo y Premium. Cadena de conexión para la cuenta de almacenamiento donde se almacenan el código de aplicación de función y la configuración. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
+Cadena de conexión para la cuenta de almacenamiento donde se almacenan el código de la aplicación de funciones y la configuración en planes de escalado controlados por eventos que se ejecutan en Windows. Para más información, consulte [Creación de una aplicación de funciones](functions-infrastructure-as-code.md#windows).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
 
+Solo se usa cuando se implementa en un plan de consumo o Premium que se ejecuta en Windows. No se admiten para Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-Solo para planes Premium. Un valor de `1` permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. Para obtener más información, consulte [Restricción de la cuenta de almacenamiento a una red virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Solo para planes Premium. Un valor de `1` permite escalar la aplicación de funciones cuando tiene una cuenta de almacenamiento restringida a una red virtual. Debe habilitar esta opción al restringir la cuenta de almacenamiento a una red virtual. Para obtener más información, consulte [Restricción de la cuenta de almacenamiento a una red virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -245,11 +247,15 @@ Solo para planes Premium. Un valor de `1` permite escalar la aplicación de func
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Solo para los planes de consumo y Premium. Ruta de acceso del archivo para el código de la aplicación de función y la configuración. Se usa con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. El valor predeterminado es una cadena única que comienza con el nombre de aplicación de función. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#create-a-function-app).
+La ruta de acceso del archivo al código y la configuración de la aplicación de funciones de un plan de escalado controlado por eventos en Windows. Se usa con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. El valor predeterminado es una cadena única que comienza con el nombre de aplicación de función. Consulte [Creación de una aplicación de función](functions-infrastructure-as-code.md#windows).
 
 |Clave|Valor de ejemplo|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Solo la usan las aplicaciones de funciones en un plan de consumo o Premium que se ejecuta en Windows. No se admiten para Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Al usar una instancia de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
 

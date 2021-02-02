@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357915"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879837"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Hay tres modelos de licencia para una VM de Azure que hospeda SQL Server: pago 
 
 La Ventaja híbrida de Azure permite el uso de licencias de SQL Server con Software Assurance ("Licencia calificada") en Azure Virtual Machines. Con la Ventaja híbrida de Azure, los clientes no pagan por el uso de una licencia de SQL Server en una máquina virtual. Sin embargo, deben pagar por el costo del proceso en la nube subyacente (es decir, la tasa base), el almacenamiento y las copias de seguridad. También deben pagar por la E/S asociada a su uso de los servicios (según corresponda).
 
-Según los términos de los productos de Microsoft: "Los clientes deben indicar que usan Azure SQL Database (Instancia administrada, Grupo elástico y Base de datos única), Azure Data Factory, SQL Server Integration Services o Máquinas virtuales de SQL Server en la Ventaja híbrida de Azure para SQL Server al configurar cargas de trabajo en Azure".
+Según los [términos de los productos](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS) de Microsoft: "Los clientes deben indicar que usan Azure SQL Database (Instancia administrada, Grupo elástico y Base de datos única), Azure Data Factory, SQL Server Integration Services o Máquinas virtuales de SQL Server en la Ventaja híbrida de Azure para SQL Server al configurar cargas de trabajo en Azure".
 
 Para indicar el uso de la Ventaja híbrida de Azure para SQL Server en una VM de Azure y cumplir los requisitos, dispone de tres opciones:
 

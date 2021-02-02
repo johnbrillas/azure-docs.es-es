@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802901"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -402,7 +402,7 @@ Para más información, consulte [Tamaños de máquina virtual](../../virtual-ma
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de cifrado de disco
 
-Hay una limitación de 50 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
+Hay una limitación de 1000 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 

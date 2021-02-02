@@ -1,5 +1,5 @@
 ---
-title: 'Exploración de datos en Azure Blob Storage con Pandas: Proceso de ciencia de datos en equipo'
+title: 'Exploración de datos en Azure Blob Storage con Pandas: proceso de ciencia de datos en equipo'
 description: Cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python Pandas.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3d80ff9f5f96bbc642aed6598c86cb682d606695
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 855998b887f1d446ee8d196ff4628e066cb5d675
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410681"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805669"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en el almacenamiento de blobs de Azure con Pandas
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Exploración de datos en Azure Blob Storage con Pandas
 
 En este artículo se explica cómo explorar los datos almacenados en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](https://pandas.pydata.org/).
 
@@ -28,7 +28,7 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overv
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
-* Almacenó los datos en una cuenta de almacenamiento de blobs de Azure. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../../storage/common/storage-choose-data-transfer-solution.md)
+* Almacenó los datos en una cuenta de Azure Blob Storage. Si necesita instrucciones, consulte [mover con Azure Storage como origen y destino](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carga de los datos en DataFraim de Pandas
 Para explorar y manipular un conjunto de datos, primero se debe descargar desde el origen de blob en un archivo local que, a continuación, se pueda cargar en un elemento DataFrame de Pandas. Estos son los pasos a seguir para realizar este procedimiento:

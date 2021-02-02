@@ -1,18 +1,18 @@
 ---
 title: Métricas personalizadas en Azure Monitor (versión preliminar)
 description: Obtenga información sobre las métricas personalizadas en Azure Monitor y cómo se modelan.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce081896292ec92c41dabc735df828ed167d86e7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639909"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788509"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -105,7 +105,6 @@ Por ejemplo, si hubo cuatro transacciones de inicio de sesión a la aplicación 
 |Transacción 1|Transacción 2|Transacción 3|Transacción 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
-|
 
 La publicación de métricas resultante en Azure Monitor sería la siguiente:
 * Mín.: 4
@@ -134,7 +133,8 @@ En el ejemplo siguiente, creará una métrica personalizada llamada **Memoria de
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -174,7 +174,7 @@ No es necesario definir previamente una métrica personalizada en Azure Monitor 
 Una vez que las métricas personalizadas se envían a Azure Monitor, puede examinarlas con Azure Portal y consultarlas mediante las API REST de Azure Monitor. También puede crear alertas con ellas para avisarle cuando se cumplen ciertas condiciones.
 
 > [!NOTE]
-> Debe ser un rol de lector o colaborador para ver las métricas personalizadas.
+> Debe ser un rol de lector o colaborador para ver las métricas personalizadas. Consulte [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Exploración de las métricas personalizadas a través de Azure Portal
 1.    Vaya a [Azure Portal](https://portal.azure.com).
@@ -184,34 +184,19 @@ Una vez que las métricas personalizadas se envían a Azure Monitor, puede exami
 5.    Seleccione el espacio de nombres de métrica para la métrica personalizada.
 6.    Seleccione la métrica personalizada.
 
+> [!NOTE]
+> Consulte [Introducción al Explorador de métricas de Azure](./metrics-getting-started.md) para más información sobre la visualización de las métricas en Azure Portal.
+
 ## <a name="supported-regions"></a>Regiones admitidas
-Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. En la tabla siguiente se enumera el conjunto de regiones de Azure admitidas para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:
+Durante la versión preliminar pública, la capacidad de publicar métricas personalizadas solo está disponible en un subconjunto de las regiones de Azure. Esta restricción implica que las métricas solo pueden publicarse para recursos de una de las regiones admitidas. Para más información sobre las regiones de Azure, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/). El código de región de Azure que se usa en los puntos de conexión siguientes es simplemente el nombre de la región con el espacio en blanco quitado. En la tabla siguiente se muestra el conjunto de regiones admitidas de Azure para las métricas personalizadas. También se muestran los puntos de conexión correspondientes para cuyos recursos en esas regiones se deben publicar métricas:
 
 |Región de Azure |Prefijo del punto de conexión regional|
 |---|---|
-| **EE. UU. y Canadá** | |
-|Centro-Oeste de EE. UU. | https:\//westcentralus.monitoring.azure.com |
-|Oeste de EE. UU. 2       | https:\//westus2.monitoring.azure.com |
-|Centro-Norte de EE. UU | https:\//northcentralus.monitoring.azure.com
-|Centro-sur de EE. UU.| https:\//southcentralus.monitoring.azure.com |
-|Centro de EE. UU.      | https:\//centralus.monitoring.azure.com |
-|Centro de Canadá | https:\//canadacentral.monitoring.azure.com |
-|Este de EE. UU.| https:\//eastus.monitoring.azure.com |
-|Este de EE. UU. 2 | https:\//eastus2.monitoring.azure.com |
-| **Europa** | |
-|Norte de Europa    | https:\//northeurope.monitoring.azure.com |
-|Oeste de Europa     | https:\//westeurope.monitoring.azure.com |
-|Sur de Reino Unido | https:\//uksouth.monitoring.azure.com
-|Centro de Francia | https:\//francecentral.monitoring.azure.com |
-| **África** | |
-|Norte de Sudáfrica | https:\//southafricanorth.monitoring.azure.com |
-| **Asia** | |
-|Centro de la India | https:\//centralindia.monitoring.azure.com |
-|Este de Australia | https:\//australiaeast.monitoring.azure.com |
-|Japón Oriental | https:\//japaneast.monitoring.azure.com |
-|Sudeste de Asia  | https:\//southeastasia.monitoring.azure.com |
-|Este de Asia | https:\//eastasia.monitoring.azure.com |
-|Centro de Corea del Sur   | https:\//koreacentral.monitoring.azure.com |
+| Todas las regiones de la nube pública | https://<azure_region_code>.monitoring.azure.com |
+| **Azure Government** | |
+| US Gov: Arizona | https:\//usgovarizona.monitoring.azure.us |
+| **China** | |
+| Este de China 2 | https:\//chinaeast2.monitoring.azure.cn |
 
 ## <a name="latency-and-storage-retention"></a>Latencia y retención del almacenamiento
 

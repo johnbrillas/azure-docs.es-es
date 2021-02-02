@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567785"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757566"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creación y administración de proyectos de Azure Migrate
 
-En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md). Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate.
+En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md). Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate. Vea las [preguntas más frecuentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar el proceso de creación.
 
 El proyecto de Azure Migrate se usa para almacenar los metadatos de detección, valoración y migración recopilados del entorno que se va a evaluar o migrar. En un proyecto puede realizar un seguimiento de los recursos detectados, crear evaluaciones y organizar migraciones a Azure.  
 

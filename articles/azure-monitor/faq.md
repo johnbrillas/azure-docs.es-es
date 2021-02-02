@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919963"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878942"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -345,7 +345,9 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 **Todos** los octetos de la dirección web del cliente siempre se establecen en 0 después de que se buscan los atributos de ubicación geográfica.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mi clave de instrumentación es visible en el origen de mi página web. 
+De forma predeterminada, el [SDK de JavaScript de Application Insights](app/javascript.md) no incluye datos personales en su función de autocompletar. Sin embargo, es posible que el SDK recoja algunos datos personales que se usan en la aplicación (por ejemplo, los nombres completos en `window.title` o los id. de cuenta en los parámetros de consulta de dirección URL de XHR). Para el enmascaramiento personalizado de datos personales, agregue un [inicializador de telemetría](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mi clave de instrumentación es visible en el origen de mi página web.
 
 * Esta es una práctica común en las soluciones de supervisión.
 * No se puede usar para robar sus datos.
@@ -378,6 +380,12 @@ Utilice un único recurso para todos los componentes o funciones en un sistema d
 * Si no hay ningún script de cliente, puede [establecer cookies en el servidor](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Si un usuario real usa su sitio en exploradores diferentes o usa la exploración InPrivate o de incógnito, o distintas máquinas, entonces se contabilizará más de una vez.
 * Para identificar un usuario que ha iniciado sesión en todas las máquinas y exploradores, agregue una llamada a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>¿Cómo genera Application Insights la información del dispositivo (explorador, sistema operativo, idioma, modelo)?
+
+El explorador pasa la cadena de agente de usuario en el encabezado HTTP de la solicitud y el servicio de ingesta de Application Insights usa el [analizador de agente de usuario](https://github.com/ua-parser/uap-core) para generar los campos que se ven en las tablas de datos y experiencias. Como resultado, los usuarios de Application Insights no pueden cambiar estos campos.
+
+En ocasiones, estos datos pueden faltar o ser inexactos si el usuario o la empresa deshabilita el envío de un agente de usuario en la configuración del explorador. Además, es posible que las [regex del analizador de agente de usuario](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) no incluyan toda la información del dispositivo o que Application Insights no haya adoptado las actualizaciones más recientes.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> ¿He habilitado todo en Application Insights?
 | Qué debería ver | Cómo conseguirlo | Razones para quererlo |

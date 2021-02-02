@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240433"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881068"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Private Link en Azure Database for PostgreSQL: servidor único
 
-Private Link le permite crear puntos de conexión privados para Azure Database for PostgreSQL y, por tanto, incorpora servicios de Azure en la red privada virtual (VNet). El punto de conexión privado expone una dirección IP privada que puede usar para conectarse a su servidor de bases de datos como cualquier otro recurso de la red virtual.
+Private Link le permite crear puntos de conexión privados para Azure Database for PostgreSQL, servidor único, a fin de incorporarlo a la red virtual (VNet). El punto de conexión privado expone una dirección IP privada dentro de una subred que puede usar para conectarse a su servidor de bases de datos como cualquier otro recurso de la red virtual.
 
 Para una lista de los servicios PaaS que admiten la funcionalidad Private Link, consulte la página de [documentación](../private-link/index.yml) de Private Link. Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../virtual-network/virtual-networks-overview.md) y una subred específicas.
 
@@ -113,9 +113,9 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Denegación del acceso público para Azure Database for PostgreSQL: servidor único
 
-Si quiere depender completamente de puntos de conexión privados para acceder a su instancia de Azure Database for PostgreSQL: servidor único, puede deshabilitar la configuración de todos los puntos de conexión públicos ( [reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
+Si quiere depender completamente de puntos de conexión privados para acceder a su instancia de Azure Database for PostgreSQL: servidor único, puede deshabilitar la configuración de todos los puntos de conexión públicos ([reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
 
-Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for PostgreSQL mediante puntos de conexión privados. Si esta opción está establecida en *NO* , los clientes pueden conectarse a su instancia de Azure Database for PostgreSQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
+Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for PostgreSQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for PostgreSQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
 
 > [!Note]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.

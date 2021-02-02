@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016240"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791500"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
 En este artículo se describe cómo expandir discos administrados para una máquina virtual (VM) Linux con la CLI de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, y también puede expandir un disco de datos existente. Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una VM Linux en Azure. 
 
 > [!WARNING]
-> Asegúrese siempre de que el sistema de archivos está en buen estado, que el tipo de tabla de partición de disco admite el nuevo tamaño y no olvide hacer una copia de seguridad de los datos antes de realizar operaciones de cambio de tamaño de disco. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md). 
+> Asegúrese siempre de que el sistema de archivos está en buen estado, que el tipo de tabla de partición de disco admite el nuevo tamaño y no olvide hacer una copia de seguridad de los datos antes de realizar operaciones de cambio de tamaño de disco. Para más información, consulte el [inicio rápido de Azure Backup](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expansión de un disco administrado de Azure
 Asegúrese de que tiene instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).

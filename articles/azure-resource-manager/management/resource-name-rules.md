@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.date: 01/26/2021
+ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132756"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806877"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -633,7 +633,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | managedInstances | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
+> | managedInstances | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. <br><br> No puede contener caracteres especiales, como `@`. |
 > | servers | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | servers/administrators | server |  | Debe ser `ActiveDirectory`. |
 > | servers/databases | server | 1-128 | No puede usar:<br>`<>*%&:\/?`<br><br>No puede terminar con un punto ni un espacio. |

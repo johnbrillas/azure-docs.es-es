@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 16e60b5015107c5f99e63f15bb21c5a375f05340
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123259"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791145"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL: servidor único
 
@@ -51,7 +51,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
 
 > [!NOTE]
-> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Sur de Brasil, Centro de EE. UU., Oeste de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste de Asia, Asia Pacífico, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá y Centro de Canadá.
+> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de China 2, Norte de China 2, Este de Asia, Este de EE. UU., Este de EE. UU. 1, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Sudeste de Asia, Norte de Suiza, Oeste de Suiza, US Gov East, US Gov SouthCentral, US Gov SouthWest, Sur de Reino Unido, Oeste del Reino Unido, Oeste de Europa, Centro-oeste de EE. UU., Oeste de EE. UU. y Oeste de EE. UU. 2.
 >
 > El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
 >
@@ -102,7 +102,7 @@ El escalado del almacenamiento y el cambio del período de retención de copia d
 
 ## <a name="pricing"></a>Precios
 
-Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/PostgreSQL/) del servicio. Para ver el costo de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) se muestra el costo mensual en la pestaña **Plan de tarifa** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos** , expanda la categoría **Bases de datos** y elija **Azure Database for PostgreSQL** para personalizar las opciones.
+Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/PostgreSQL/) del servicio. Para ver el costo de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) se muestra el costo mensual en la pestaña **Plan de tarifa** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos**, expanda la categoría **Bases de datos** y elija **Azure Database for PostgreSQL** para personalizar las opciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

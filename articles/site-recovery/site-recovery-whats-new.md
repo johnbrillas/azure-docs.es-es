@@ -2,13 +2,13 @@
 title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.date: 01/26/2021
+ms.openlocfilehash: 51d54ca4d46af3b9e0746f36114fadc47edd5b1f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310364"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805052"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,13 +22,27 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Paquete acumulativo 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Paquete acumulativo 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Paquete acumulativo 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Paquete acumulativo 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Paquete acumulativo 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[Paquete acumulativo 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
+
+## <a name="updates-january-2021"></a>Actualizaciones (enero de 2021)
+
+### <a name="update-rollup-53"></a>Paquete acumulativo de actualizaciones 53
+
+El [paquete acumulativo de actualizaciones 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo). 
+**Recuperación ante desastres en VM de Azure** | Ahora se admite la replicación de etiquetas. Cualquier etiqueta agregada a las máquinas virtuales de Azure, los discos y las NIC de la región de origen se replican en las máquinas de la región de destino.<br/><br/> Ahora las máquinas virtuales de Azure que ejecutan Debian 10 se admiten para la replicación.
+**Recuperación ante desastres de un servidor físico o de una máquina virtual de VMware en Azure** | La actualización incluye mejoras del registro para la replicación de máquinas virtuales de VMware en Azure y una mensajería de errores mejorada.<br/><br/> Ahora las máquinas virtuales de VMware y las máquinas físicas que ejecutan Debian 10 se admiten para la replicación.
 
 
 ## <a name="updates-november-2020"></a>Actualizaciones (noviembre de 2020)

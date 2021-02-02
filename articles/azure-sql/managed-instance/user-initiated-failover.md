@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 12/16/2020
-ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825927"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806086"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
 
@@ -125,7 +125,7 @@ Se puede realizar un seguimiento del estado de la operación mediante la revisi�
 
 ## <a name="monitor-the-failover"></a>Supervisión de la conmutación por error
 
-Para supervisar el progreso de la conmutación por error manual iniciada por el usuario, ejecute la siguiente consulta T-SQL en su cliente favorito (como SSMS) en SQL Managed Instance. Leerá la vista del sistema sys.dm_hadr_fabric_replica_states y las réplicas de informe disponibles en la instancia. Actualice la misma consulta después de iniciar la conmutación por error manual.
+Para supervisar el progreso de la conmutación por error iniciada por el usuario para la instancia de BC, ejecute la siguiente consulta T-SQL en su cliente favorito (como SSMS) en SQL Managed Instance. Leerá la vista del sistema sys.dm_hadr_fabric_replica_states y las réplicas de informe disponibles en la instancia. Actualice la misma consulta después de iniciar la conmutación por error manual.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Antes de iniciar la conmutación por error, el resultado indicará la réplica principal actual en el nivel de servicio BC que contiene una principal y tres secundarias en el grupo de disponibilidad AlwaysOn. Tras la ejecución de una conmutación por error, para volver a ejecutar esta consulta necesitará indicar un cambio del nodo principal.
 
-No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que se muestra para BC. Esto se debe a que el nivel de servicio GP se basa en un solo nodo. La salida de la consulta T-SQL para el nivel de servicio GP mostrará un solo nodo antes y después de la conmutación por error. La pérdida de conectividad del cliente durante la conmutación por error, que normalmente dura menos de un minuto, será la indicación de la ejecución de la conmutación por error.
+No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que se muestra para BC. Esto se debe a que el nivel de servicio GP se basa en un solo nodo. Puede usar una consulta T-SQL alternativa que muestre la hora en que se inició el proceso SQL en el nodo de la instancia de nivel de servicio de GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+La breve pérdida de conectividad del cliente durante la conmutación por error, que normalmente dura menos de un minuto, será la indicación de la ejecución de la conmutación por error independientemente del nivel de servicio.
 
 > [!NOTE]
 > La finalización del proceso de conmutación por error (no de la breve falta de disponibilidad real) puede tardar varios minutos en el caso de cargas de trabajo de **alta intensidad**. Esto se debe a que el motor de la instancia se encarga de todas las transacciones actuales en la principal y se pone al día en el nodo secundario, antes de poder realizar la conmutación por error.
@@ -143,6 +149,7 @@ No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que
 > - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **15 minutos**.
 > - En el caso de las instancias de BC, debe existir cuórum de réplicas para que se acepte la solicitud de conmutación por error.
 > - En el caso de las instancias de BC, no es posible especificar en qué réplica secundaria legible se iniciará la conmutación por error.
+> - No se permitirá la conmutación por error hasta que los sistemas de copia de seguridad automatizada completen la primera copia de seguridad completa para una nueva base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

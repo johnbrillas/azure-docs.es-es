@@ -4,12 +4,12 @@ description: Impida que los usuarios actualicen o eliminen recursos de Azure apl
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602216"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802440"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados
 
@@ -38,7 +38,7 @@ Aplicar bloqueos puede provocar resultados inesperados, ya que algunas operacion
 
 * Un bloqueo que no se puede eliminar en un **grupo de recursos** impide que Azure Resource Manager [elimine de forma automática las implementaciones](../templates/deployment-history-deletions.md) en el historial. Si alcanza 800 implementaciones en el historial, se producirá un error en las implementaciones.
 
-* Un bloqueo de no se puede eliminar en el **grupo de recursos** creado por el **Servicio Azure Backup** genera un error en las copias de seguridad. El servicio admite un máximo de 18 puntos de restauración. Cuando está bloqueado, el servicio de copia de seguridad no puede limpiar los puntos de restauración. Para más información, consulte [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Un bloqueo de no se puede eliminar en el **grupo de recursos** creado por el **Servicio Azure Backup** genera un error en las copias de seguridad. El servicio admite un máximo de 18 puntos de restauración. Cuando está bloqueado, el servicio de copia de seguridad no puede limpiar los puntos de restauración. Para más información, consulte [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Un bloqueo de solo lectura en una **suscripción** impide que **Azure Advisor** funcione correctamente. Advisor no puede almacenar los resultados de sus consultas.
 
@@ -254,10 +254,17 @@ Para obtener todos los bloqueos para un grupo de recursos, use:
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Para eliminar un bloqueo, use:
+Para eliminar un bloqueo de un recurso, use:
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Para eliminar un bloqueo de un grupo de recursos, use:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
@@ -295,10 +302,17 @@ Para obtener todos los bloqueos para un grupo de recursos, use:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Para eliminar un bloqueo, use:
+Para eliminar un bloqueo de un recurso, use:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+Para eliminar un bloqueo de un grupo de recursos, use:
+
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 

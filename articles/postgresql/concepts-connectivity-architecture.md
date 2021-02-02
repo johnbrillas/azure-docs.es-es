@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657199"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877686"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -28,7 +28,7 @@ Cuando el cliente se conecta a la base de datos, la cadena de conexión al servi
 
 El servicio de puerta de enlace se hospeda en un grupo de nodos de proceso sin estado que se encuentran detrás de una dirección IP, con la que el cliente se comunicaría primero al intentar conectarse a un servidor de Azure Database for PostgreSQL. 
 
-Como parte del mantenimiento continuo del servicio, actualizaremos periódicamente el hardware de proceso que hospeda las puertas de enlace para garantizar que se proporcione la experiencia más segura y eficaz. Cuando se actualice el hardware de la puerta de enlace, primero se creará un nuevo anillo de los nodos de proceso. Este nuevo anillo atiende el tráfico de todos los servidores de Azure Database for PostgreSQL recién creados, y tendrá una dirección IP diferente de los anillos de puertas de enlace más antiguos de la misma región a los efectos de diferenciar el tráfico. Según los planes, una vez que el nuevo anillo esté en pleno funcionamiento, se retirará el hardware de puertas de enlace anterior que atiende a los servidores existentes. Antes de retirar el hardware de una puerta de enlace, los clientes que ejecuten sus servidores y se conecten a los anillos de puertas de enlace más antiguos recibirán una notificación por correo electrónico y en Azure Portal, tres meses antes de la retirada. La retirada de las puertas de enlace puede afectar a la conectividad a los servidores si: 
+Como parte del mantenimiento continuo del servicio, actualizaremos periódicamente el hardware de proceso que hospeda las puertas de enlace para garantizar que se proporcione la experiencia de conectividad más segura y eficaz. Cuando se actualice el hardware de la puerta de enlace, primero se creará un nuevo anillo de los nodos de proceso. Este nuevo anillo atiende el tráfico de todos los servidores de Azure Database for PostgreSQL recién creados, y tendrá una dirección IP diferente de los anillos de puertas de enlace más antiguos de la misma región a los efectos de diferenciar el tráfico. El hardware de puertas de enlace anterior continúa atendiendo a los servidores existentes, pero su retirada está planeada para el futuro. Antes de retirar el hardware de una puerta de enlace, los clientes que ejecuten sus servidores y se conecten a los anillos de puertas de enlace más antiguos recibirán una notificación por correo electrónico y en Azure Portal, tres meses antes de la retirada. La retirada de las puertas de enlace puede afectar a la conectividad a los servidores si: 
 
 * Codifica de forma rígida las direcciones IP de las puertas de enlace en la cadena de conexión de la aplicación. **No se recomienda**. Debe usar el nombre de dominio completo (FQDN) del servidor con el formato <servername>.postgres.database.azure.com en la cadena de conexión de la aplicación. 
 * No actualiza las direcciones IP de las puertas de enlace más recientes en el firewall del lado cliente para permitir que el tráfico de salida pueda comunicarse con nuestros nuevos anillos de puertas de enlace.

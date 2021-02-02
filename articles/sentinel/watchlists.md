@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651369"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797349"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Uso de listas de seguimiento de Azure Sentinel
+
+> [!IMPORTANT]
+> Esta característica de listas de reproducción está actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Las listas de seguimiento de Azure Sentinel permiten la recopilación de datos de orígenes de datos externos para la correlación con los eventos en el entorno de Azure Sentinel. Una vez que crea las listas de seguimiento, puede usarlas búsquedas, reglas de detección, búsqueda de amenazas y cuaderno de estrategias de respuesta. Las listas de seguimiento se almacenan en el área de trabajo de Azure Sentinel como pares de nombre-valor, y se almacenan en caché para obtener un rendimiento óptimo de las consultas y una baja latencia.
 
@@ -73,11 +76,43 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="consultas con campos de la lista de seguimiento" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. Puede consultar los datos de cualquier tabla comparándolos con los datos de una lista de reproducción tratando a esta última como una tabla de combinaciones y búsquedas.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="consultas en comparación con listas de reproducción como búsqueda":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>Uso de listas de seguimiento en reglas de análisis
 
 Para usar listas de seguimiento en reglas de análisis, desde el Azure Portal, vaya a **Azure Sentinel** > **Configuración** > **Análisis** y cree una regla con la función `_GetWatchlist('<watchlist>')` en la consulta.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="uso de listas de seguimiento en reglas de análisis" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. En este ejemplo, cree una lista de reproducción denominada "ipwatchlist" con los valores siguientes:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="lista de cuatro elementos de la lista de reproducción":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="crear lista de reproducción con cuatro elementos":::
+
+1. A continuación, cree la regla de análisis.  En este ejemplo, solo se incluyen eventos de direcciones IP en la lista de reproducción:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="uso de listas de seguimiento en reglas de análisis":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Visualización de la lista de alias de listas de seguimiento
 

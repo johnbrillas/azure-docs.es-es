@@ -3,12 +3,12 @@ title: Direcciones IP en Azure Functions
 description: Aprenda a buscar las direcciones IP entrantes y salientes de aplicaciones de función y descubra qué es lo que hace que cambien.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936726"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726738"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -27,8 +27,7 @@ Cada aplicación de función tiene una única dirección IP de entrada. Para enc
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la aplicación de función.
-3. Seleccione **Características de la plataforma**.
-4. Seleccione **Propiedades** y la dirección IP de entrada aparece en **Dirección IP virtual**.
+3. En **Configuración**, seleccione **Propiedades**. La dirección IP de entrada aparece en **Dirección IP virtual**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
 

@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530869"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789067"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning
 
@@ -58,7 +58,7 @@ Microsoft proporciona herramientas y ejemplos que pueden ayudarle a crear un cer
 > [!IMPORTANT]
 > Además de realizar la prueba de posesión, los scripts de PowerShell y Bash citados anteriormente también permiten crear certificados raíz, certificados intermedios y certificados de hoja que pueden usarse para autenticar y aprovisionar dispositivos. Estos certificados se deben utilizar solamente para desarrollo. Nunca deben utilizarse en un entorno de producción. 
 
-Los scripts de PowerShell y Bash proporcionados en la documentación y los SDK se basan en [OpenSSL](https://www.openssl.org/). También puede usar OpenSSL u otras herramientas de terceros para ayudarle a realizar la prueba de posesión. Para más información sobre herramientas proporcionadas con los SDKs, consulte [Uso de las herramientas proporcionadas en los SDK](how-to-use-sdk-tools.md). 
+Los scripts de PowerShell y Bash proporcionados en la documentación y los SDK se basan en [OpenSSL](https://www.openssl.org/). También puede usar OpenSSL u otras herramientas de terceros para ayudarle a realizar la prueba de posesión. Para obtener un ejemplo del uso de las herramientas que se proporcionan con los SDK, consulte [Creación de una cadena de certificados X.509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Carga del certificado de verificación firmado

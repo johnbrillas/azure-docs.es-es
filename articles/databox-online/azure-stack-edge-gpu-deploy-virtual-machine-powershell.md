@@ -1,23 +1,23 @@
 ---
 title: Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure PowerShell
-description: En este artículo se explica cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge Pro con GPU por medio de Azure PowerShell.
+description: En este artículo se describe cómo crear y administrar máquinas virtuales (VM) en un dispositivo Azure Stack Edge Pro con GPU mediante Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 32685207f8d6e81d03c90d01b186337ce79f843a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763721"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802988"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure PowerShell
 
-En este artículo se describe cómo crear y administrar una máquina virtual en un dispositivo Azure Stack Edge Pro mediante Azure PowerShell. Este artículo se aplica a los dispositivos Azure Stack Edge Pro con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
+En este artículo se describe cómo crear y administrar una máquina virtual en un dispositivo Azure Stack Edge Pro mediante Azure PowerShell. Este artículo se aplica a los dispositivos de Azure Stack Edge con GPU, Azure Stack Edge Pro R y Azure Stack Edge Mini R.
 
 ## <a name="vm-deployment-workflow"></a>Flujo de trabajo de implementación de una máquina virtual
 
@@ -32,7 +32,7 @@ En el diagrama siguiente se muestra el flujo de trabajo de implementación.
 
 ## <a name="query-for-built-in-subscription-on-the-device"></a>Consulta de la suscripción integrada en el dispositivo
 
-Por Azure Resource Manager, solo se admite una única suscripción fija visible para el usuario. Esta suscripción es única por dispositivo, y este identificador de suscripción o nombre de suscripción no se pueden cambiar.
+Por Azure Resource Manager, solo se admite una única suscripción fija visible para el usuario. Esta suscripción es única por dispositivo, y el id. de suscripción o nombre de suscripción no se pueden cambiar.
 
 Esta suscripción contiene todos los recursos necesarios para la creación de VM. 
 
@@ -118,7 +118,7 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento en el grupo de recursos creado en el paso anterior. Se trata de una **cuenta de almacenamiento local** que se usará para cargar la imagen de disco virtual de la máquina virtual.
+Cree una cuenta de almacenamiento en el grupo de recursos creado en el paso anterior. Esta cuenta es una **cuenta de almacenamiento local** que se usará para cargar la imagen de disco virtual de la VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -177,7 +177,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-blob-uri-to-hosts-file"></a>Adición del URI del blob al archivo de hosts
 
-Ya ha agregado el URI del blob en el archivo de hosts para el cliente que está usando para conectarse al almacenamiento de blobs en la sección [Modificación del archivo de host para la resolución de nombres de punto de conexión](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Esta era la entrada para el URI del blob:
+Ya ha agregado el URI del blob en el archivo de hosts para el cliente que usa para conectarse al almacenamiento de blobs en la sección [Modificación del archivo de host para la resolución de nombres de punto de conexión](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Esta entrada se usó para agregar el URI del blob:
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-A continuación se muestra una salida de ejemplo. Para obtener más información sobre este cmdlet, vaya a [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+A continuación se muestra una salida de ejemplo. Para obtener más información sobre este cmdlet, vaya a [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-A continuación se muestra una salida de ejemplo. Para obtener más información sobre este cmdlet, vaya a [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+A continuación se muestra una salida de ejemplo. Para obtener más información sobre este cmdlet, vaya a [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -319,8 +319,8 @@ Debe crear una red virtual y asociar una interfaz de red virtual antes de crear 
 > [!IMPORTANT]
 > Al crear una red virtual y una interfaz de red virtual, se aplican las siguientes reglas:
 > - Solo se puede crear una red virtual (incluso entre grupos de recursos) y debe coincidir exactamente con la red lógica en cuanto al espacio de direcciones.
-> -   Solo se permitirá una subred en la red virtual. La subred debe tener exactamente el mismo espacio de direcciones que la red virtual.
-> -   Solo se permitirá el método de asignación estática durante la creación de VNIC, y el usuario debe proporcionar una dirección IP privada.
+> - Solo se permitirá una subred en la red virtual. La subred debe tener exactamente el mismo espacio de direcciones que la red virtual.
+> - Solo se permitirá el método de asignación estática durante la creación de VNIC, y el usuario debe proporcionar una dirección IP privada.
 
  
 **Consulta de la red virtual creada automáticamente**
@@ -498,7 +498,7 @@ Ejecute el siguiente cmdlet para activar una máquina virtual que se ejecute en 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Para obtener más información sobre este cmdlet, vaya a [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Para obtener más información sobre este cmdlet, vaya a [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Suspensión o apagado de la VM
 
@@ -510,7 +510,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Para obtener más información sobre este cmdlet, vaya a [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Para obtener más información sobre este cmdlet, vaya a [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Agregar un disco de datos
 
@@ -530,10 +530,10 @@ Ejecute el siguiente cmdlet para quitar una máquina virtual del dispositivo:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Para obtener más información sobre este cmdlet, vaya a [Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Para obtener más información sobre este cmdlet, vaya a [Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

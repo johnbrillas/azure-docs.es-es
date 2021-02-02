@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763443"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805199"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU mediante plantillas
 
@@ -47,7 +47,7 @@ El resumen general del flujo de trabajo de implementación mediante plantillas e
         1. Cree un grupo de recursos en la ubicación del dispositivo que contendrá todos los recursos de la máquina virtual.
         1. Cree una cuenta de almacenamiento para cargar el disco duro virtual (VHD) que se usa para crear la imagen de la máquina virtual.
         1. Agregue el identificador URI de la cuenta de almacenamiento local al archivo DNS o hosts del cliente que tiene acceso al dispositivo.
-        1. Instale el certificado de almacenamiento de blobs en el dispositivo y también en el cliente local que accede al dispositivo. Opcionalmente, instale el certificado de almacenamiento de blobs en el Explorador de Storage.
+        1. Instale el certificado de almacenamiento de blobs en el dispositivo y en el cliente local que accede al dispositivo. Opcionalmente, instale el certificado de almacenamiento de blobs en el Explorador de Storage.
         1. Cree y cargue un disco duro virtual en la cuenta de almacenamiento creada anteriormente.
 
 2. **Crear una máquina virtual a partir de plantillas**
@@ -71,7 +71,7 @@ Configure estos requisitos previos en el cliente que se usará para acceder al d
 
 ## <a name="vm-prerequisites"></a>Requisitos previos de la máquina virtual
 
-Configure estos requisitos previos para crear los recursos que se necesitarán al crear la máquina virtual. 
+Configure estos requisitos previos para crear los recursos que se necesitarán para crear la máquina virtual. 
 
     
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento en el grupo de recursos creado en el paso anterior. Se trata de una **cuenta de almacenamiento local** que se usará para cargar la imagen de disco virtual de la máquina virtual.
+Cree una cuenta de almacenamiento en el grupo de recursos creado en el paso anterior. Esta cuenta es una **cuenta de almacenamiento local** que se usará para cargar la imagen de disco virtual de la VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -237,7 +237,7 @@ El archivo `CreateImage.parameters.json` toma los parámetros siguientes:
     }
 ```
 
-Edite el archivo `CreateImage.parameters.json` para que se incluya la siguiente información para el dispositivo Azure Stack Edge Pro:
+Edite el archivo `CreateImage.parameters.json` para que incluya los siguientes valores para el dispositivo Azure Stack Edge Pro:
 
 1. Proporcione el tipo de sistema operativo correspondiente al disco duro virtual que va a cargar. El tipo de sistema operativo puede ser Windows o Linux.
 
@@ -250,16 +250,17 @@ Edite el archivo `CreateImage.parameters.json` para que se incluya la siguiente 
 
 2. Cambie el identificador URI de la imagen al URI de la imagen que cargó en el paso anterior:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Si usa *http* con el Explorador de Storage, cámbielo a un identificador URI *http*.
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Si usa *http* con el Explorador de Storage, cámbielo a un identificador URI *http*.
 
 3. Proporcione un nombre de imagen único. Esta imagen se usa para crear la máquina virtual en los pasos posteriores. 
 
-    Este es el ejemplo de JSON que se usa en este artículo.
+   Este es el ejemplo de JSON que se usa en este artículo.
 
     ```json
     {
@@ -278,6 +279,7 @@ Edite el archivo `CreateImage.parameters.json` para que se incluya la siguiente 
       }
     }
     ```
+
 5. Guarde el archivo de parámetros.
 
 
@@ -588,4 +590,4 @@ Siga estos pasos para conectarse a una máquina virtual Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

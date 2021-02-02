@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9713a2ad10d1edc9a79d475ed58a99b3b24b6483
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021153"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696047"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES
 
@@ -33,7 +33,7 @@ Este tema muestra cómo personalizar los valores preestablecidos de Media Encode
 Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
 
 > [!NOTE] 
-> Muchas de las características avanzadas de Media Services v2 de Media Encoder Standard no están disponibles en v3: Para más información, consulte las [carencias de características](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Muchas de las características avanzadas de Media Services v2 de Media Encoder Standard no están disponibles en v3: Para obtener más información, consulte la [guía de migración](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="support-for-relative-sizes"></a>Compatibilidad con tamaños relativos
 

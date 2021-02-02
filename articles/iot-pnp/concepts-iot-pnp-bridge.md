@@ -3,17 +3,17 @@ title: Puente IoT Plug and Play | Microsoft Docs
 description: Comprenda el puente Iot Plug and Play y cómo usarlo para conectar dispositivos existentes conectados a una puerta de enlace Windows o Linux como dispositivos IoT Plug and Play.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 34af380d057ad47811e394da1e7a29198e102920
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672787"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746499"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Puente de IoT Plug and Play
 
@@ -36,7 +36,7 @@ El puente IoT Plug and Play admite los siguientes tipos de periféricos de forma
 |El [adaptador SerialPnP](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) conecta los dispositivos que se comunican a través de una conexión serie.               |Sí|Sí|
 |Los [periféricos USB de Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) usan una lista de clases de interfaz de dispositivo compatibles con el adaptador para conectar los dispositivos que tienen un identificador de hardware específico.  |Sí|No aplicable|
 
-Para obtener información sobre cómo ampliar el puente IoT Plug and Play para admitir protocolos de dispositivo adicionales, consulte [Compilación, implementación y ampliación del puente IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md).
+Para obtener información sobre cómo ampliar el puente IoT Plug and Play para admitir protocolos de dispositivo adicionales, consulte [Extensión del puente IoT Plug and Play](howto-author-pnp-bridge-adapter.md). Para más información sobre cómo crear e implementar el puente IoT Plug and Play, consulte [Creación e implementación de un puente IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md).
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>Arquitectura de puente IoT Plug and Play
 
@@ -148,6 +148,7 @@ También puede descargar y ver el código fuente del puente [IoT Plug and Play e
 
 Ahora que tiene una visión general de la arquitectura de un puente IoT Plug and Play, los pasos siguientes sirven para obtener más información acerca de:
 
-- [Procedimiento para usar el puente IoT Plug and Play](./howto-use-iot-pnp-bridge.md)
-- [Compilación, implementación y ampliación del puente IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md)
+- [Procedimiento para conectar una muestra de puente de IoT Plug and Play que se ejecuta en Linux o Windows a IoT Hub](./howto-use-iot-pnp-bridge.md)
+- [Compilación e implementación de un puente de IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md)
+- [Extensión de un puente de IoT Plug and Play](howto-build-deploy-extend-pnp-bridge.md)
 - [Puente IoT Plug and Play en GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812546"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752652"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
@@ -29,7 +29,7 @@ La Plataforma de identidad de Microsoft admite la [concesión de credenciales de
 
 > [!IMPORTANT]
 >
-> * El punto de conexión de la Plataforma de identidad de Microsoft solo admite ROPC para inquilinos de Azure AD, no cuentas personales. Esto significa que debe usar un punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) o el punto de conexión `organizations`.
+> * La Plataforma de identidad de Microsoft solo admite ROPC para inquilinos de Azure AD, no cuentas personales. Esto significa que debe usar un punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) o el punto de conexión `organizations`.
 > * Las cuentas personales que se invitan a un inquilino de Azure AD no pueden usar ROPC.
 > * Las cuentas sin contraseña no pueden iniciar sesión a través de ROPC. En este escenario, se recomienda usar en su lugar un flujo distinto para la aplicación.
 > * Si los usuarios deben usar la [autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md) para iniciar sesión en la aplicación, se les bloqueará.

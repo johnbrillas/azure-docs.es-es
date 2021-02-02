@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562130"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725678"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?
 
@@ -70,7 +70,7 @@ En la tabla siguiente se describe cuándo se puede usar un método de autenticac
 | Clave de seguridad FIDO2 (versión preliminar)   | Sí                    | MFA                       |
 | Tokens de hardware OATH (versión preliminar) | No                     | MFA                       |
 | Tokens de software OATH           | No                     | MFA                       |
-| SMS                            | Sí (versión preliminar)          | MFA y SSPR              |
+| SMS                            | Sí                    | MFA y SSPR              |
 | Llamada de voz                     | No                     | MFA y SSPR              |
 | Contraseña                       | Sí                    |                           |
 
@@ -83,7 +83,7 @@ Para obtener más información sobre cómo funciona cada método de autenticaci�
 * [Clave de seguridad FIDO2 (versión preliminar)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokens de hardware OATH (versión preliminar)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Tokens de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* [Inicio de sesión (versión preliminar)](howto-authentication-sms-signin.md) y [verificación](concept-authentication-phone-options.md#mobile-phone-verification) por SMS
+* [Inicio de sesión](howto-authentication-sms-signin.md) y [verificación](concept-authentication-phone-options.md#mobile-phone-verification) por SMS
 * [Verificación por llamada de voz](concept-authentication-phone-options.md)
 * Contraseña
 

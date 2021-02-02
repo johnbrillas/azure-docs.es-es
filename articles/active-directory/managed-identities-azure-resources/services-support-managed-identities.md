@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861891"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880800"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -159,8 +159,6 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
@@ -168,13 +166,12 @@ Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad
 | Asignado por el sistema | Versión preliminar | Versión preliminar | No disponible | Versión preliminar |
 | Asignado por el usuario | No disponible | No disponible  | No disponible  | No disponible |
 
+### <a name="azure-firewall-policy"></a>Directiva de Azure Firewall
 
-
-
-
-
-
-
+Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Asignado por el sistema | No disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Versión preliminar | No disponible  | No disponible  | No disponible |
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -326,9 +323,9 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Asignado por el sistema | No disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | [Disponible en regiones admitidas](../../virtual-machines/windows/image-builder-overview.md#regions) | No disponible | No disponible | No disponible |
+| Asignado por el usuario | [Disponible en regiones admitidas](../../virtual-machines/image-builder-overview.md#regions) | No disponible | No disponible | No disponible |
 
-Para más información sobre cómo configurar la identidad administrada para Azure VM Image Builder (en las regiones donde esté disponible), consulte la [introducción a Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Para más información sobre cómo configurar la identidad administrada para Azure VM Image Builder (en las regiones donde esté disponible), consulte la [introducción a Image Builder](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Servicio Azure SignalR
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |

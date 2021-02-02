@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968881"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702226"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -185,6 +185,9 @@ Puede definir dicha asignación en la interfaz de usuario de creación de Data F
 2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones**. Nota: Solo se admite una matriz única para esta operación.
 
 3. Asigne los campos necesarios al receptor. Data Factory determina automáticamente las rutas de acceso JSON correspondientes para el lado jerárquico.
+
+> [!NOTE]
+> El registro se omite para los registros en los que la matriz marcada como referencia de la colección está vacía y la casilla está activada.
 
 ![Asignación de datos jerárquicos a tabulares mediante la interfaz de usuario](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126859"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876400"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -43,7 +43,8 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 | Estado de la versión:                  | Disponible con carácter general                                                                                                                                                                                                                                                                                      |
 | Precios:                        | Requiere [Azure Defender para servidores](security-center-pricing.md).                                                                                                                                                                                                                                             |
 | Plataformas compatibles:            | Máquinas de Azure que ejecutan Windows.<br>Máquinas de Azure Arc que ejecutan Windows.|
-| Versiones compatibles de Windows:  |  • Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1.<br> • La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC.<br> • No se admiten Windows Server 2019, Windows 10 1703 (y versiones más recientes) ni Linux.|
+| Versiones compatibles de Windows:  |  • Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1.<br> • La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC.|
+| Sistemas operativos no admitidos:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
 | Roles y permisos necesarios: | Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>Para ver las alertas de MDATP en Security Center: **Lector de seguridad**, **Lector**, **Colaborador del grupo de recursos**, **Propietario del grupo de recursos**, **Administrador de seguridad**, **Propietario de la suscripción** o **Colaborador de la suscripción**|
 | Nubes:                         | ![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos<br>![No](./media/icons/no-icon.png) Clientes de GCC que ejecutan cargas de trabajo en nubes de Azure globales                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -61,7 +62,7 @@ Microsoft Defender para punto de conexión proporciona lo siguiente:
 
 Mediante la integración de Defender para punto de conexión con Security Center, también puede beneficiarse de las siguientes funcionalidades adicionales:
 
-- **Incorporación automatizada**. Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa Security Center. La excepción son aquellos servidores que ejecutan Windows Server 2019, que deben incorporarse a través de un script local, un objeto de directiva de grupo (GPO) o [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (antes SCCM).
+- **Incorporación automatizada**. Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa Security Center. La excepción son aquellos servidores que ejecutan Windows Server 2019, que deben incorporarse a través de un script local, un objeto de directiva de grupo (GPO) o [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (antes SCCM).
 
 - **Panel único**. la consola de Security Center muestra las alertas de Microsoft Defender para punto de conexión. Para obtener más detalles, use las páginas del portal de Microsoft Defender para punto de conexión, donde verá información adicional, como el árbol de procesos de alerta y el gráfico de incidentes. También puede ver una escala de tiempo de la máquina detallada que muestra cada comportamiento durante un período histórico de hasta seis meses.
 
@@ -105,7 +106,7 @@ Una vez configurada la ubicación, no se puede cambiar. Si tiene su propia licen
 Para generar una alerta de prueba benigna de Microsoft Defender para punto de conexión:
 
 1. Cree una carpeta "C:\test-MDATP-test".
-1. Use Escritorio remoto para acceder a una máquina virtual de Windows Server 2012 R2 o a una máquina virtual de Windows Server 2016.
+1. Use el Escritorio remoto para acceder a su máquina.
 1. Abra una ventana de línea de comandos.
 1. En el símbolo del sistema, copie el siguiente comando y ejecútelo. La ventana del símbolo del sistema se cerrará automáticamente.
 
@@ -118,6 +119,8 @@ Para generar una alerta de prueba benigna de Microsoft Defender para punto de co
 1. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  > **Suspicious Powershell CommandLine (Línea de comandos de PowerShell sospechosa)** .
 1. En la ventana de la investigación, seleccione el vínculo para ir al portal de Microsoft Defender para punto de conexión.
 
+    > [!TIP]
+    > La alerta se desencadena con gravedad **Información**.
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Preguntas más frecuentes sobre la instancia de Microsoft Defender para punto de conexión integrada en Security Center
 

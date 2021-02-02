@@ -1,20 +1,20 @@
 ---
-title: Supervisión de los eventos programados para las máquinas virtuales Windows en Azure
+title: Supervisión de los eventos programados para las máquinas virtuales en Azure
 description: Aprenda a supervisar los eventos programados en las máquinas virtuales de Azure.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483307"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702277"
 ---
-# <a name="monitoring-scheduled-events"></a>Supervisión de Scheduled Events
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Supervisión de los eventos programados para las máquinas virtuales de Azure
 
 Las actualizaciones se aplican a diferentes partes de Azure cada día, para que los servicios que se ejecutan en ellas sean seguros y estén actualizados. Además de las actualizaciones planeadas, también se pueden producir eventos no planeados. Por ejemplo, si se detecta algún error o degradación del hardware, es posible que los servicios de Azure necesiten realizar un mantenimiento no planeado. Con la migración en vivo, la conservación de actualizaciones en la memoria y al mantener de forma general un control estricto acerca del impacto de las actualizaciones, en la mayoría de los casos estos eventos son casi transparentes para los clientes y no tienen ningún impacto o, como máximo, causan unos segundos de inmovilización en la máquina virtual. Sin embargo, para algunas aplicaciones, incluso unos pocos segundos de inmovilización en las máquinas virtuales podría tener un impacto. Es importante conocer por adelantado el próximo mantenimiento de Azure para garantizar la mejor experiencia para esas aplicaciones. El [servicio Scheduled Events](scheduled-events.md) proporciona una interfaz de programación para recibir notificaciones sobre el próximo mantenimiento y le permite administrar correctamente el mantenimiento. 
 
@@ -39,7 +39,7 @@ También necesitará [crear un área de trabajo de Log Analytics](../../azure-mo
 
 ## <a name="set-up-the-environment"></a>Configuración del entorno
 
-Ahora debería tener dos máquinas virtuales iniciales en un conjunto de disponibilidad. Ahora debemos crear una tercera máquina virtual, denominada myCollectorVM, en el mismo conjunto de disponibilidad. 
+Ahora debería tener dos máquinas virtuales iniciales en un conjunto de disponibilidad. Ahora debemos crear una tercera máquina virtual, denominada `myCollectorVM`, en el mismo conjunto de disponibilidad. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consult
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Seleccione **Guardar** y, a continuación, escriba *logQuery* para el nombre, deje **Consulta** como tipo, escriba *VMLogs* como **Categoría** y después seleccione **Guardar**. 
+1. Seleccione **Guardar** y, a continuación, escriba `ogQuery` para el nombre, deje **Consulta** como tipo, escriba `VMLogs` como **Categoría** y después seleccione **Guardar**. 
 
     ![Guardar la consulta](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consult
 1. En **Valor del umbral**, escriba *0* y seleccione **Listo**.
 1. En **Acciones**, seleccione **Crear grupo de acciones**. Se abrirá la página **Agregar grupo de acciones**.
 1. En **Nombre del grupo de acciones**, escriba *myActionGroup*.
-1. En **Nombre corto**, escriba **myActionGroup**.
+1. En **Nombre corto**, escriba *myActionGroup*.
 1. En **Grupo de recursos**, seleccione **myResourceGroupAvailability**.
 1. En Acciones, en **NOMBRE DE ACCIÓN** escriba **Correo electrónico** y, a continuación, seleccione **Email/SMS/Push/Voice** (Correo electrónico/SMS/Push/Voz). Se abre la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Push/Voz).
 1. Seleccione **Correo electrónico**, escriba su dirección de correo electrónico y después haga clic en **Aceptar**.

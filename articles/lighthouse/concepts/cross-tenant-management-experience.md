@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 01/07/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131770"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881408"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -97,7 +97,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - Ver las alertas de las suscripciones delegadas, con la capacidad de ver y actualizar alertas en todas las suscripciones
 - Ver los detalles del registro de actividad para las suscripciones delegadas
-- Log analytics: consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
+- [Log Analytics](../../azure-monitor/platform/service-providers.md): consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
@@ -173,6 +173,7 @@ Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 - Las asignaciones de roles deben usar [roles integrados de Azure](../../role-based-access-control/built-in-roles.md). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario o los roles integrados con el permiso [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
 - Aunque puede incorporar suscripciones que usan Azure Databricks, los usuarios del inquilino de administración no pueden iniciar áreas de trabajo de Azure Databricks en una suscripción delegada en este momento.
 - Aunque puede incorporar suscripciones y grupos de recursos que tengan bloqueos de recursos, dichos bloqueos no impedirán que los usuarios realicen acciones en el inquilino de administración. Las [asignaciones de denegación](../../role-based-access-control/deny-assignments.md) que protegen los recursos administrados por el sistema, como los que crean Azure Managed Applications o Azure Blueprints (asignaciones de denegación asignadas por el sistema), impiden que los usuarios del inquilino de administración actúen en esos recursos; sin embargo, actualmente, los usuarios del inquilino del cliente no pueden crear sus propias asignaciones de denegación (asignaciones de denegación asignadas por el usuario).
+- No se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

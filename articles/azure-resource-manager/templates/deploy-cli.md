@@ -2,13 +2,13 @@
 title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/26/2021
+ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251087"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881306"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -103,6 +103,18 @@ az deployment group create \
 ```
 
 En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si quiere administrar el acceso a la plantilla, considere la posibilidad de usar [especificaciones de plantilla](#deploy-template-spec).
+
+Para implementar plantillas vinculadas remotas con una ruta de acceso relativa que estén almacenadas en una cuenta de almacenamiento, use `query-string` para especificar el token de SAS:
+
+```azurepowershell
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+Para obtener más información, vea [Uso de rutas de acceso relativas para plantillas vinculadas](./linked-templates.md#linked-template).
 
 ## <a name="deployment-name"></a>Nombre de implementación
 

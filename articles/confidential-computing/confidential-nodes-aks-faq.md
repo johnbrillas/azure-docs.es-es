@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993861"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874491"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre los nodos de computación confidencial en Azure Kubernetes Service (AKS)
 
@@ -24,6 +24,10 @@ No se proporciona ningún SLA durante la versión preliminar del producto, tal c
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>¿Qué es la atestación y cómo se puede realizar la atestación de aplicaciones que se ejecutan en enclaves? 
 
 La atestación es el proceso por el que se demuestra y se confirma que se ha creado correctamente una instancia de un fragmento de software en la plataforma de hardware específica. Este proceso también asegura que su evidencia es comprobable, para proporcionar garantías de que se está ejecutando en una plataforma segura y no se ha alterado. [Lea más](attestation.md) sobre cómo se realiza la atestación en las aplicaciones de enclave.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>¿Puedo habilitar las redes aceleradas con los clústeres de AKS de computación confidencial de Azure? 
+
+No. Las redes aceleradas no se admiten en los nodos de computación confidencial en AKS. Asegúrese de que las redes aceleradas estén deshabilitadas en la implementación. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>¿Puedo traer las aplicaciones en contenedores que tengo y ejecutarlas en AKS con la computación confidencial de Azure (ACC)? 
 

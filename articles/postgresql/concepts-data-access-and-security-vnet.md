@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: d45ab771f90c0174f24d5f0d39921f93f72be850
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b875936e13edfe0eff12f253836b093796951308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451060"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876333"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor
 
@@ -32,9 +32,9 @@ También puede considerar la posibilidad de usar [Private Link](concepts-data-ac
 
 **Red virtual:** puede tener redes virtuales asociadas a la suscripción de Azure.
 
-**Subred:** una red virtual contiene **subredes**. Cualquier máquina virtual (VM) de Azure que tenga se asignará a las subredes. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
+**Subred:** una red virtual contiene **subredes**. Todas las máquinas virtuales de Azure dentro de la red virtual se asignan a una subred. Una subred puede contener varias máquinas virtuales u otros nodos de proceso. Los nodos de proceso que se encuentran fuera de la red virtual no pueden tener acceso a su red virtual a menos que configure la seguridad para que permita el acceso.
 
-**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for PostgreSQL y MySQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servidores de Azure SQL Database, Azure Database for PostgreSQL y Azure Database for MySQL de la subred. 
+**Punto de conexión de servicio de red virtual:** un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] es una subred cuyos valores de propiedad incluyen uno o más nombres formales de tipo de servicio de Azure. En este artículo nos interesa el nombre de tipo de **Microsoft.Sql**, que hace referencia al servicio de Azure denominado SQL Database. Esta etiqueta de servicio también se aplica a los servicios Azure Database for PostgreSQL y MySQL. Es importante tener en cuenta que, al aplicar la etiqueta de servicio de **Microsoft.Sql** a un punto de conexión de servicio de red virtual, se configurará el tráfico de punto de conexión de servicio de todos los servicios de bases de datos de Azure: servidores de SQL Database, Azure Synapse Analytics, Azure Database for PostgreSQL y Azure Database for MySQL en la subred. 
 
 **Regla de red virtual:** una regla de red virtual para el servidor de Azure Database for PostgreSQL es una subred que se muestra en la lista de control de acceso (ACL) del servidor de Azure Database for PostgreSQL. Para estar en la ACL de su servidor de Azure Database for PostgreSQL, la subred debe contener el nombre de tipo **Microsoft.Sql**.
 
@@ -46,11 +46,11 @@ Una regla de red virtual indica a su servidor de Azure Database for PostgreSQL q
 
 Hasta que no tome medidas, las máquinas virtuales de sus subredes no pueden comunicarse con el servidor de Azure Database for PostgreSQL. Una acción que permite establecer la comunicación es la creación de una regla de red virtual. El motivo de la elección del enfoque de la regla de red virtual requiere un análisis de comparación y contraste relacionado con las opciones de seguridad competentes que ofrece el firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Permitir el acceso a servicios de Azure
+### <a name="allow-access-to-azure-services"></a>Permitir el acceso a servicios de Azure
 
 El panel de Seguridad de conexión tiene el botón **Activado/Desactivado** con la etiqueta **Permitir el acceso a servicios de Azure**. La configuración **Activado** permite las comunicaciones desde todas las direcciones IP de Azure y todas las subredes de Azure. Es posible que estas IP o subredes de Azure no le pertenezcan. La configuración **Activado** es probablemente más abierta de lo que le gustaría que fuera su instancia de Azure Database for PostgreSQL Database. La característica de la regla de red virtual ofrece un control mucho más granular.
 
-### <a name="b-ip-rules"></a>B. Reglas IP
+### <a name="ip-rules"></a>Reglas IP
 
 El firewall de Azure Database for PostgreSQL le permite especificar los intervalos de direcciones IP desde los que se aceptan las comunicaciones en Azure Database for PostgreSQL Database. Este enfoque es preciso para las direcciones IP estables que están fuera de la red privada de Azure. Sin embargo, muchos nodos de dentro de la red privada de Azure se configuran con direcciones IP *dinámicas*. Es posible que las direcciones IP dinámicas cambien, por ejemplo, cuando se reinicia la máquina virtual. Sería una locura especificar una dirección IP dinámica en una regla de firewall, en un entorno de producción.
 
@@ -86,7 +86,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 
 Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
-Si quiere, puede optar por usar el [control de acceso basado en rol de Azure (RBAC de Azure)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
+Si lo desea, puede optar por usar el [control de acceso basado en rol de Azure (Azure RBAC)][rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de funcionalidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
 > [!NOTE]
 > En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:

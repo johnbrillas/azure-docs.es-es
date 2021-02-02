@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121420"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805993"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -26,7 +26,6 @@ Azure Standard Load Balancer proporciona las siguientes funcionalidades de diagn
 * **Métricas y alertas multidimensionales**: Proporciona funcionalidades de diagnóstico multidimensionales para configuraciones de Standard Load Balancer mediante [Azure Monitor](../azure-monitor/overview.md). Puede supervisar, administrar y solucionar problemas con los recursos del equilibrador de carga estándar.
 
 * **Estado de los recursos**: el estado de Resource Health de su instancia de Load Balancer está disponible en la página Resource Health de Monitor. Esta comprobación automática le informa de la disponibilidad actual del recurso de Load Balancer.
-
 En este artículo se proporciona una introducción a estas funcionalidades y maneras de usarlas con Load Balancer Estándar. 
 
 ## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Métricas multidimensionales
@@ -73,7 +72,7 @@ Para ver las métricas de los recursos de Load Balancer Estándar:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperación de las métricas multidimensionales mediante programación con API
 
-Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas se pueden escribir en una cuenta de almacenamiento solo a través de la opción "Todas las métricas". 
+Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas se pueden escribir en una cuenta de almacenamiento agregando una [configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para la categoría "Todas las métricas". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configuración de alertas para métricas multidimensionales ###
 
@@ -85,9 +84,6 @@ Para configurar alertas:
     1.  Configuración de la condición de alerta
     1.  (Opcional) Adición de un grupo de acciones para la reparación automatizada
     1.  Asigne la gravedad de la alerta, el nombre y la descripción que habilitan una reacción intuitiva.
-
-  >[!NOTE]
-  >La ventana de configuración de la condición de alerta mostrará la serie temporal para el historial de señales. Hay una opción para filtrar esta serie temporal por dimensiones, como la dirección IP de back-end. Esto filtrará el gráfico de la serie temporal, pero **no** la propia alerta. No puede configurar alertas para direcciones IP de back-end específicas.
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Escenarios comunes de diagnóstico y vistas recomendadas
 
@@ -186,7 +182,7 @@ Para ver el uso y asignación de puertos SNAT:
   <summary>Expanda</summary>
 La métrica de paquetes SYN describe el volumen de los paquetes TCP SYN, que han llegado o que se enviaron (para [flujos salientes](./load-balancer-outbound-connections.md)), asociado con un front-end determinado. Esta métrica se puede utilizar para entender los intentos de conexión TCP al servicio.
 
-Use **Total** como agregación para la mayoría de los escenarios.
+Use **Sum** como agregación para la mayoría de los escenarios.
 
 ![Conexión SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -199,10 +195,10 @@ Use **Total** como agregación para la mayoría de los escenarios.
   <summary>Expanda</summary>
 La métrica de contadores de bytes/paquetes describe el volumen de bytes y paquetes enviados o recibidos por el servicio por front-end.
 
-Use **Total** como agregación para la mayoría de los escenarios.
+Use **Sum** como agregación para la mayoría de los escenarios.
 
 Para obtener las estadísticas de recuento de bytes o paquetes:
-1. Seleccione el tipo de métrica **Recuento de bytes** o **Recuento de paquetes** con **Promedio** como agregación. 
+1. Seleccione el tipo de métrica **Recuento de bytes** o **Recuento de paquetes** con **Sum** como agregación. 
 2. Realice cualquiera de las siguientes acciones:
    * Aplique un filtro en una IP de front-end específica, un puerto front-end, una IP de back-end o un puerto de back-end.
    * Obtenga estadísticas generales para los recursos del equilibrador de carga sin filtrado.
@@ -267,6 +263,7 @@ La descripción genérica del estado de mantenimiento de los recursos está disp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Obtenga más información sobre cómo usar [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para ver estas métricas preconfiguradas para su instancia de Load Balancer.
 - Más información acerca de [Load Balancer Estándar](./load-balancer-overview.md).
 - Más información sobre la [conectividad saliente de Load Balancer](./load-balancer-outbound-connections.md).
 - Más información acerca de [Azure Monitor](../azure-monitor/overview.md).

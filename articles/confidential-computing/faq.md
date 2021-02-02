@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564113"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872339"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Preguntas frecuentes de computación confidencial de Azure
 
@@ -44,6 +44,14 @@ En función de la burbuja de información que se encuentra junto a la máquina v
 **Las máquinas virtuales de DCsv2 no aparecen cuando intento buscarlas en el selector de tamaño del portal**.
 
 Asegúrese de haber seleccionado una [región disponible](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Asegúrese también de seleccionar "Borrar todos los filtros" en el selector de tamaño. 
+
+**¿Puedo habilitar las redes aceleradas con la computación confidencial de Azure?**
+
+ No. Las redes aceleradas no se admiten en máquinas virtuales de las series DC o DCsv2. Las redes aceleradas no se pueden habilitar para ninguna implementación de máquina virtual de computación confidencial o implementación de clúster de Azure Kubernetes Service que se ejecute en computación confidencial.
+
+**¿Puedo usar Azure Dedicated Host con estas máquinas?**
+
+Sí. Azure Dedicated Host admite máquinas virtuales de la serie DCsv2. Azure Dedicated Host proporciona un servidor físico de un solo inquilino en el que puede ejecutar las máquinas virtuales. Los usuarios suelen usar Azure Dedicated Host para abordar los requisitos de cumplimiento en torno a la seguridad física, la integridad de los datos y la supervisión. 
 
 **Recibo un error de implementación de plantilla de Azure Resource Manager: "No se pudo completar la operación porque se superó la cuota de Núcleos de familia DCsv2 estándar aprobada"**
 

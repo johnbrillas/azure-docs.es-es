@@ -1,14 +1,14 @@
 ---
 title: Habilitación de la extensión de VM en Azure Portal
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida desde Azure Portal.
-ms.date: 11/06/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359092"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728963"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Habilitación de las extensiones de máquina virtual de Azure desde Azure Portal
 
@@ -39,6 +39,18 @@ Las extensiones de máquina virtual se pueden aplicar a la máquina administrada
 
 >[!NOTE]
 >Aunque puede procesar por lotes varias extensiones, estas se instalan en serie. Una vez completada la instalación de la primera extensión, se intenta la instalación de la siguiente.
+
+## <a name="list-extensions-installed"></a>Enumeración de extensiones instaladas
+
+Puede obtener una lista de las extensiones de máquina virtual en el servidor habilitado para Arc desde Azure Portal. Para ello, siga los pasos a continuación.
+
+1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
+
+2. En el portal, vaya a **Servers - Azure Arc** (Servidores: Azure Arc) y seleccione la máquina híbrida de la lista.
+
+3. Elija **Extensiones** y se devolverá la lista de extensiones instaladas.
+
+    ![Lista de extensiones de máquina virtual implementadas en la máquina seleccionada](./media/manage-vm-extensions/list-vm-extensions.png)
 
 ## <a name="uninstall-extension"></a>Desinstalación de una extensión
 

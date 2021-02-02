@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608789"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745941"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creación del controlador de datos de Azure Arc
 
@@ -54,7 +54,7 @@ Independientemente de la opción que elija, durante el proceso de creación tend
 - **Nombre de usuario del controlador de datos**: nombre de usuario del usuario administrador del controlador de datos.
 - **Contraseña del controlador de datos**: contraseña del usuario administrador del controlador de datos.
 - **Nombre del espacio de nombres de Kubernetes**: nombre del espacio de nombres de Kubernetes en el que desea crear el controlador de datos.
-- **Modo de conectividad**: [modo de conectividad](./connectivity.md) del clúster. Actualmente solo se admite "indirecto".
+- **Modo de conectividad**: el modo de conectividad determina el grado de conectividad desde el entorno de los Servicios de datos habilitados para Azure Arc a Azure. La versión preliminar solo admite actualmente los modos de conexión directa e indirecta.  Para más información, consulte[Modo de conectividad](./connectivity.md). 
 - **Identificador de suscripción de Azure**: GUID de la suscripción de Azure en el que desea que se cree el recurso del controlador de datos en Azure.
 - **Nombre del grupo de recursos de Azure**: nombre del grupo de recursos en el que desea que se cree el recurso del controlador de datos en Azure.
 - **Ubicación de Azure**: ubicación de Azure en la que se almacenarán los metadatos del recurso del controlador de datos en Azure. Para obtener una lista de las regiones disponibles, consulte [Infraestructura global de Azure/Productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).

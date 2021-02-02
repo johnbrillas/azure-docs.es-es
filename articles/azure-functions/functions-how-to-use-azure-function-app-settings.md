@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598485"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875456"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -37,6 +37,8 @@ La configuración de la aplicación se puede administrar no solo tanto desde [Az
 Esta configuración se almacena cifrada. Para más información, consulte [Seguridad de la configuración de la aplicación](security-concepts.md#application-settings).
 
 # <a name="portal"></a>[Portal](#tab/portal)
+
+Para buscar la configuración de la aplicación, consulte [Introducción a Azure Portal](#get-started-in-the-azure-portal). 
 
 La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que la aplicación de funciones usa. Debe seleccionar **Mostrar valores** para ver los valores en el portal. Para agregar una configuración en el portal, seleccione **Nueva configuración de la aplicación** y agregue el nuevo par clave-valor.
 

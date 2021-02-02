@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307442"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704547"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Seguimiento de experimentos e implementación de modelos en Azure Machine Learning
 
@@ -30,7 +30,7 @@ En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un
 
 ## <a name="create-a-new-notebook"></a>Creación un nuevo cuaderno
 
-Los SDK de Azure Machine Learning y MLFlow están preinstalados en Data Science VM y se puede acceder a ellos desde el entorno de Conda * *azureml_py36_\** _. En Jupyterlab, haga clic en el selector y seleccione el siguiente kernel:
+Los SDK de Azure Machine Learning y MLFlow están preinstalados en Data Science VM y se puede acceder a ellos desde el entorno de Conda **azureml_py36_\** _. En JupyterLab, haga clic en el selector y seleccione el siguiente kernel:
 
 ![selección de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -135,7 +135,7 @@ En el menú de la izquierda de [AzureML Studio](https://ml.azure.com), haga clic
 
 ![Crear procesos de inferencia](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-En el panel __Nuevo clúster de inferencia__ , rellene los detalles siguientes:
+En el panel __Nuevo clúster de inferencia__, rellene los detalles siguientes:
 
 _ Nombre del proceso
 * Kubernetes Service: seleccione Crear.

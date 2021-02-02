@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b263d3e62ae97914fc8e06580486bddd0cb9b3b7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968456"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703876"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -166,7 +166,7 @@ Arquitectura del sistema operativo invitado | 64 bits
 Tamaño del disco del sistema operativo | Hasta 2048 GB 
 Número de discos del sistema operativo | 1 
 Número de discos de datos | 64 o menos 
-Tamaño del disco de datos | Hasta 8095 GB
+Tamaño del disco de datos | Hasta 32 TB
 Adaptadores de red | Se admiten varios adaptadores.
 VHD compartido | No compatible. 
 Disco FC | No compatible. 

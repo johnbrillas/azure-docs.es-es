@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 4ebc363f29ed8956d10e91f41be1d257cbcc492f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562648"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703893"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
@@ -81,7 +81,7 @@ Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en l
 Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible.
 Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.
-Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible.
+Tamaño del disco de datos | Hasta 32 TB | Se produce un error en la comprobación si no es compatible.
 Adaptadores de red | Se admiten varios adaptadores. |
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.

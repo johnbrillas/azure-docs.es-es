@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 01/26/2021
 ms.author: jingwang
-ms.openlocfilehash: 342d0aabe2222393f33aa4ce93646da9f29cf1fb
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3f8c74f36c1c441e00b808954ce7f7710d3fbd52
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926468"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879972"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copia de datos de Xero con Azure Data Factory
 
@@ -35,11 +35,8 @@ Puede copiar datos de Xero en cualquier almacén de datos receptor admitido. Con
 
 En concreto, este conector Xero admite lo siguiente:
 
-- [Aplicación privada](https://developer.xero.com/documentation/getting-started/getting-started-guide), pero no aplicación pública de Xero.
+- Autenticación de OAuth 2.0 y OAuth 1.0. En OAuth 1.0, el conector admite la [aplicación privada](https://developer.xero.com/documentation/getting-started/getting-started-guide) Xero pero no una aplicación pública.
 - Todas las tablas de Xero (puntos de conexión de API), excepto "Reports" (Informes).
-- Autenticación de OAuth 1.0 y OAuth 2.0.
-
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -58,10 +55,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Xero:
 | **_En `connectionProperties`:_* _ | | |
 | host | El punto de conexión del servidor de Xero (`api.xero.com`).  | Sí |
 | authenticationType | Los valores permitidos son `OAuth_2.0` y `OAuth_1.0`. | Sí |
-| consumerKey | Clave de consumidor asociada a la aplicación de Xero. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| privateKey | La clave privada del archivo .pem que se generó para la aplicación privada de Xero; consulte [Create a public/private key pair](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key) (Creación de un par de claves pública y privada). Asegúrese de *generar el archivo privatekey.pem con numbits de 512* * con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| consumerKey | Para OAuth 2.0, especifique el *identificador de cliente** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave de consumidor asociada a la aplicación Xero.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| privateKey | Para OAuth 2.0, especifique el **secreto de cliente*** para la aplicación Xero.<br>Para OAuth 1.0, especifique la clave privada del archivo .pem que se generó para la aplicación privada Xero; consulte [Creación de un par de claves pública y privada](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Asegúrese de **generar el archivo privatekey.pem con numbits de 512** con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/><br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | tenantId | Identificador de inquilino asociado a la aplicación Xero. Aplicable para la autenticación de OAuth 2.0.<br>Aprenda a obtener el identificador de inquilino en la sección [Comprobación de los inquilinos a los que tiene autorizado el acceso](https://developer.xero.com/documentation/oauth2/auth-flow). | Sí para la autenticación de OAuth 2.0 |
-| refreshToken | Aplicable para la autenticación de OAuth 2.0.<br/>El token de actualización de OAuth 2.0 está asociado a la aplicación Xero y se usa para actualizar el token de acceso, que expira después de 30 minutos. Obtenga información sobre cómo funciona el flujo de autorización de Xero y cómo obtener el token de actualización en [este artículo](https://developer.xero.com/documentation/oauth2/auth-flow). Para obtener un token de actualización, debe solicitar el [ámbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitación conocida** : tenga en cuenta que Xero restablece el token de actualización después de que se use para la actualización del token de acceso. En el caso de cargas de trabajo operativas, antes de que se ejecute la actividad de copia, debe establecer un token de actualización válido para que lo use ADF.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí para la autenticación de OAuth 2.0 |
+| refreshToken | Aplicable para la autenticación de OAuth 2.0.<br/>El token de actualización de OAuth 2.0 está asociado a la aplicación Xero y se usa para actualizar el token de acceso, que expira después de 30 minutos. Obtenga información sobre cómo funciona el flujo de autorización de Xero y cómo obtener el token de actualización en [este artículo](https://developer.xero.com/documentation/oauth2/auth-flow). Para obtener un token de actualización, debe solicitar el [ámbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limitación conocida**: tenga en cuenta que Xero restablece el token de actualización después de que se use para la actualización del token de acceso. En el caso de cargas de trabajo operativas, antes de que se ejecute la actividad de copia, debe establecer un token de actualización válido para que lo use ADF.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí para la autenticación de OAuth 2.0 |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -79,11 +76,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Xero:
                 "authenticationType":"OAuth_2.0", 
                 "consumerKey": {
                     "type": "SecureString",
-                    "value": "<consumer key>"
+                    "value": "<client ID>"
                 },
                 "privateKey": {
                     "type": "SecureString",
-                    "value": "<private key>"
+                    "value": "<client secret>"
                 },
                 "tenantId": "<tenant ID>", 
                 "refreshToken": {
@@ -176,7 +173,7 @@ Para copiar datos de Xero, establezca el tipo de origen de la actividad de copia
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **XeroSource** | Sí |
 | Query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Contacts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[

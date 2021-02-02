@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763692"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806678"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Creación de imágenes personalizadas de máquina virtual para el dispositivo Azure Stack Edge Pro
 
@@ -23,7 +23,7 @@ Para implementar máquinas virtuales en el dispositivo Azure Stack Edge Pro, deb
 
 ## <a name="vm-image-workflow"></a>Flujo de trabajo de la imagen de máquina virtual
 
-El flujo de trabajo requiere la creación de una máquina virtual en Azure, la personalización de la máquina virtual, la generalización y la descarga del VHD correspondiente a esa máquina virtual. Este VHD generalizado se carga en Azure Stack Edge Pro, se crea el disco administrado a partir de ese VHD, se crea la imagen a partir del disco administrado y, por último, las máquinas virtuales se crean a partir de esa imagen.   
+El flujo de trabajo requiere la creación de una máquina virtual en Azure, la personalización de la máquina virtual, la generalización y la descarga del VHD correspondiente a esa máquina virtual. Este disco duro virtual generalizado se carga en Azure Stack Edge Pro. Se crea un disco administrado a partir de ese disco administrado. Se crea una imagen a partir del disco administrado. Y, por último, las máquinas virtuales se crean a partir de esa imagen.
 
 Para más información, vaya a [Implementación de una máquina virtual en el dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -76,7 +76,7 @@ Use este VHD para crear e implementar una máquina virtual en el dispositivo Azu
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server es el sistema operativo Linux más conocido para los entornos de nube.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux es una de las distribuciones de Linux más populares.     |credativ|
 
-Para obtener una lista completa de imágenes de Azure Marketplace que podrían funcionar (aún no sometidas a prueba), vaya a [Elementos de Azure Marketplace disponibles para Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Para obtener una lista completa de imágenes de Azure Marketplace que podrían funcionar (aún no sometidas a prueba), vaya a [Elementos de Azure Marketplace disponibles para Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

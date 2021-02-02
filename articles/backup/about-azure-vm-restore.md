@@ -3,12 +3,12 @@ title: Acerca del proceso de restauración de máquinas virtuales de Azure
 description: Obtenga información sobre cómo el servicio Azure Backup restaura máquinas virtuales de Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171759"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806824"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca de la restauración de máquinas virtuales de Azure
 
@@ -34,7 +34,7 @@ En este artículo se describe cómo el [servicio Azure Backup](./backup-overview
   - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
   - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](../availability-zones/az-overview.md#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
 
-- **Restauración entre regiones (CRR)** : Restauración entre regiones (CRR), una de las [opciones de restauración](./backup-azure-arm-restore-vms.md#restore-options), le permite restaurar máquinas virtuales de Azure en una región secundaria, que es una [región emparejada de Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+- **Restauración entre regiones (CRR)** : Como una de las [opciones de restauración](./backup-azure-arm-restore-vms.md#restore-options), la restauración entre regiones (CRR) le permite restaurar máquinas virtuales de Azure en una región secundaria, que es una [región emparejada de Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions). Puede restaurar los datos en la región secundaria en cualquier momento, durante interrupciones parciales o completas, o cualquier otro tiempo que elija. 
 
 ## <a name="restore-scenarios"></a>Escenarios de restauración
 
@@ -50,6 +50,6 @@ En este artículo se describe cómo el [servicio Azure Backup](./backup-overview
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas frecuentes sobre la restauración de la máquina virtual](./backup-azure-vm-backup-faq.md#restore)
+- [Preguntas frecuentes sobre la restauración de la máquina virtual](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Métodos de restauración admitidos](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Solución de problemas de restauración](./backup-azure-vms-troubleshoot.md#restore)

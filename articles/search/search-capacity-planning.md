@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249736"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702792"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimación y administración de la capacidad de un servicio de Azure Cognitive Search
 
 Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md) y de adquirir un plan de tarifa específico, dedique unos minutos a comprender cómo funciona la capacidad y cómo se pueden ajustar las réplicas y las particiones para acomodar la fluctuación de cargas de trabajo.
 
-La capacidad es una función del [nivel de servicio](search-sku-tier.md). Los niveles se diferencian por el almacenamiento máximo, el almacenamiento por partición y los límites máximos en el número de objetos que puede crear. El nivel Básico está diseñado para aplicaciones que tienen unos requisitos de almacenamiento modestos (solo una partición), pero con la capacidad de ejecutarse en una configuración de alta disponibilidad (3 réplicas). Otros niveles están diseñados para cargas de trabajo o patrones específicos, como la arquitectura multiinquilino. Internamente, los servicios creados en esos niveles se benefician del hardware que ayuda a esos escenarios.
+La capacidad es una función del [nivel de servicio](search-sku-tier.md) que establece el almacenamiento máximo por servicio, por partición y los límites máximos en el número de objetos que se pueden crear. El nivel Básico está diseñado para aplicaciones que tienen unos requisitos de almacenamiento modestos (solo una partición), pero con la capacidad de ejecutarse en una configuración de alta disponibilidad (3 réplicas). Otros niveles están diseñados para cargas de trabajo o patrones específicos, como la arquitectura multiinquilino. Internamente, los servicios creados en esos niveles se benefician del hardware que ayuda a esos escenarios.
 
 La arquitectura de escalabilidad de Azure Cognitive Search se basa en combinaciones flexibles de réplicas y particiones para que pueda variar la capacidad en función de si necesita una mayor potencia de indexación o consulta. Una vez creado un servicio, puede aumentar o reducir el número de réplicas o particiones de forma independiente. Los costos aumentarán con cada recurso físico adicional, pero una vez finalizadas las cargas de trabajo de gran tamaño, puede reducir la escala para reducir la factura. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas.
 

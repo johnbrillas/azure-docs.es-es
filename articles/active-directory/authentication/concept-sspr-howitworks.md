@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779369"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703282"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -137,7 +137,7 @@ Si se utiliza una aplicación móvil (por ejemplo, Microsoft Authenticator) como
 Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se registren en el autoservicio de restablecimiento de contraseña desde [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Pueden registrar su aplicación móvil en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o en la página de registro de información de seguridad combinada en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> La aplicación autenticadora no se puede seleccionar como único método de autenticación cuando se requiere un único método. Tampoco es posible seleccionar la aplicación autenticadora y un único método adicional cuando se requieren dos métodos.
+> La aplicación Authenticator no se puede seleccionar como único método de autenticación cuando se requiere solo un método. Tampoco es posible seleccionar la aplicación autenticadora y un único método adicional cuando se requieren dos métodos.
 >
 > Al configurar directivas de SSPR que incluyan la aplicación autenticadora como método, es necesario seleccionar al menos un método adicional cuando se requiere un método, y al menos dos métodos adicionales cuando se requieren dos métodos.
 >

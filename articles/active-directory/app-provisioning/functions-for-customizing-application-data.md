@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 462f60bbae9fd7b61993a2ccccd40fa5ca4ccc28
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e87211789280c3439d71d8fa63da09416eaaf18e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012974"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805135"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -483,7 +483,7 @@ devuelve “Joh”.
  - Esta es una función de nivel superior, no se puede anidar.
  - Esta función no se puede aplicar a los atributos que tienen una precedencia de coincidencia.   
  - Esta función solo está destinada a usarse para creaciones de entradas. Al usarla con un atributo, establezca la propiedad **Apply Mapping** (Aplicar asignación) en **Solo durante la creación del objeto**.
- - Esta función solo se admite actualmente para "WorkDay para el aprovisionamiento de usuarios de Active Directory". No se puede usar con otras aplicaciones de aprovisionamiento. 
+ - Actualmente, esta función solo se admite en el aprovisionamiento de usuarios de Workday en Active Directory y en el de SuccessFactors en Active Directory. No se puede usar con otras aplicaciones de aprovisionamiento. 
 
 
 **Parámetros:** 

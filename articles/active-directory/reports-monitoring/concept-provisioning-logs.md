@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600749"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726308"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -37,14 +37,18 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
     - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
     - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
-Este tema ofrece una visión general del informe de aprovisionamiento.
+Este tema ofrece una visión general de los registros de aprovisionamiento. Pueden responderle preguntas como las siguientes: 
+
+* ¿Qué grupos se han creado correctamente en ServiceNow?
+* ¿Qué usuarios se han quitado correctamente de Adobe?
+* ¿Qué usuarios de Workday se crearon correctamente en Active Directory? 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 * Los propietarios de la aplicación pueden ver los registros de las aplicaciones que poseen.
 * Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
-* Usuarios en un rol personalizado con el [permiso provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
+* Usuarios en un rol personalizado con el [permiso provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Administradores globales
 
 
@@ -52,14 +56,16 @@ Este tema ofrece una visión general del informe de aprovisionamiento.
 
 El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de aprovisionamiento al completo. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. 
 
-## <a name="provisioning-logs"></a>Registros de aprovisionamiento
 
-Los registros de aprovisionamiento proporcionan respuestas a las siguientes preguntas:
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Maneras de interactuar con los registros de aprovisionamiento 
+Los clientes pueden interactuar mediante cuatro métodos con los registros de aprovisionamiento:
 
-* ¿Qué grupos se han creado correctamente en ServiceNow?
-* ¿Qué usuarios se han quitado correctamente de Adobe?
-* ¿Qué usuarios no se han creado correctamente en DropBox?
+1. Acceder a los registros desde Azure Portal como se describe a continuación.
+1. Transmitir los registros de aprovisionamiento a [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), lo que permite una amplia retención de datos y la creación de paneles personalizados, alertas y consultas.
+1. Consultar la [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
+1. Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Acceso a los registros desde Azure Portal
 Se puede tener acceso a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** de la hoja **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
 
 ![Registros de aprovisionamiento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registros de aprovisionamiento")
@@ -205,10 +211,57 @@ La pestaña **Solución de problemas y recomendaciones** proporciona el código 
 
 En la pestaña **Propiedades modificadas** se muestran el valor anterior y el nuevo. En los casos en los que no hay ningún valor anterior, la columna con este valor está en blanco. 
 
-
 ### <a name="summary"></a>Resumen
 
 En la pestaña **Resumen** se proporciona información general sobre lo que sucedió y los identificadores del objeto en el sistema de origen y de destino. 
+
+## <a name="download-logs-as-csv-or-json"></a>Descarga de registros como archivo CSV o JSON
+
+Puede descargar los registros de aprovisionamiento para usarlos más adelante. Para ello, vaya a los registros de Azure Portal y haga clic en descargar. El archivo se filtrará en función de los criterios de filtro seleccionados. Se recomienda que los filtros sean lo más específicos posible para reducir el tiempo necesario para descargar, así como el tamaño de la descarga. La descarga de CSV se divide en tres archivos:
+
+* ProvisioningLogs: descarga todos los registros, excepto los pasos de aprovisionamiento y las propiedades modificadas.
+* ProvisioningLogs_ProvisioningSteps: contiene los pasos de aprovisionamiento y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
+* ProvisioningLogs_ModifiedProperties: contiene los atributos que se cambiaron y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
+
+#### <a name="opening-the-json-file"></a>Apertura del archivo JSON
+Para abrir el archivo JSON, use un editor de texto como [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code facilita la lectura gracias al resaltado de sintaxis. El archivo JSON también se puede abrir con exploradores en un formato no editable; por ejemplo, con [Microsoft Edge.](https://aka.ms/msedge) 
+
+#### <a name="prettifying-the-json-file"></a>Mejora del formato del archivo JSON
+El archivo JSON se descarga en formato reducido para reducir el tamaño de la descarga. Esto, a su vez, puede dificultar la lectura de la carga útil. Consulte dos opciones para mejorar el formato del archivo:
+
+1. Uso de Visual Studio Code para dar formato al JSON
+
+Siga las instrucciones definidas [aquí](https://code.visualstudio.com/docs/languages/json#_formatting) para dar formato al archivo JSON mediante Visual Studio Code.
+
+2. Uso de PowerShell para dar formato al JSON
+
+Este script generará el archivo JSON en formato mejorado con tabulaciones y espacios. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>Análisis del archivo JSON
+
+Estos son algunos comandos de ejemplo para trabajar con el archivo JSON mediante PowerShell. Puede usar cualquier lenguaje de programación con el que esté familiarizado.  
+
+En primer lugar, ejecute lo siguiente para [leer el archivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1):
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+Ahora puede analizar los datos en función de su escenario. Estos son algunos ejemplos: 
+
+1. Generar todos los jobID en el archivo JsonFile
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. Generar todos los changeId para los eventos en los que la acción fue "create"
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
@@ -234,14 +287,14 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que puede 
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD se pudo autenticar con la aplicación de destino, pero no tenía autorización para realizar la actualización. Revise las instrucciones proporcionadas por la aplicación de destino, así como el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente.|
 |UnprocessableEntity|La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación de destino no sea correcta o que haya un problema de servicio con la aplicación de destino que impide que esto funcione.|
 |WebExceptionProtocolError |Error de protocolo HTTP al conectarse a la aplicación de destino. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Compruebe que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use MS Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Tenga en cuenta que al reiniciar el aprovisionamiento se desencadenará un ciclo inicial, que puede tardar en completarse. También se elimina la memoria caché que usa el servicio de aprovisionamiento para operar, lo que significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y se podrían quitar ciertos eventos de aprovisionamiento.|
-|NotImplemented | La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación no sea correcta o que haya un problema de servicio con la aplicación de destino que impide que esto funcione. Revise las instrucciones proporcionadas por la aplicación de destino, así como el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente. |
+|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Compruebe que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use MS Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Reiniciar el aprovisionamiento desencadenará un ciclo inicial, que puede tardar en completarse. También se elimina la memoria caché que usa el servicio de aprovisionamiento para operar, lo que significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y se podrían quitar ciertos eventos de aprovisionamiento.|
+|NotImplemented | La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación no sea correcta o que haya un problema de servicio con la aplicación de destino que impide que esto funcione. Revise las instrucciones proporcionadas por la aplicación de destino y el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente. |
 |MandatoryFieldsMissing, MissingValues |No se pudo crear el usuario porque faltan los valores necesarios. Corrija los valores de atributo que faltan en el registro de origen o revise la configuración de atributo coincidente para asegurarse de que no se omiten los campos obligatorios. [Más información](../app-provisioning/customize-application-attributes.md) sobre cómo configurar atributos coincidentes.|
 |SchemaAttributeNotFound |No se pudo realizar la operación porque se especificó un atributo que no existe en la aplicación de destino. Consulte la [documentación](../app-provisioning/customize-application-attributes.md) sobre la personalización de atributos y asegúrese de que la configuración es correcta.|
 |InternalError |Se produjo un error de servicio interno en el servicio de aprovisionamiento de Azure AD. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
 |InvalidDomain |No se pudo realizar la operación debido a un valor de atributo que contiene un nombre de dominio no válido. Actualice el nombre de dominio en el usuario o agréguelo a la lista de valores permitidos en la aplicación de destino. |
 |Tiempo de espera |No se pudo completar la operación porque la aplicación de destino tardó demasiado tiempo en responder. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|LicenseLimitExceeded|No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir licencias adicionales para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.|
+|LicenseLimitExceeded|No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir más licencias para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.|
 |DuplicateTargetEntries  |No se pudo completar la operación porque se encontró más de un usuario en la aplicación de destino con los atributos coincidentes configurados. Quite el usuario duplicado de la aplicación de destino o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Cuando se evalúa a cada usuario, se intenta importar al usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, no se pueden evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, ya que aún no se ha evaluado su ámbito.|
