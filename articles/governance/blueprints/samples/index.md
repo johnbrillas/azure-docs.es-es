@@ -1,14 +1,14 @@
 ---
 title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7865a3ea5be374f36de70e62c7bc215fc88d04a5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915699"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225148"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -28,7 +28,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 | [Nivel de impacto alto de FedRAMP](./fedramp-h/index.md) | Proporciona un conjunto de directivas que ayudar a cumplir los requisitos del nivel de impacto alto de FedRAMP. |
 | [HIPAA/HITRUST 9.2](./hipaa-hitrust-9-2.md) | Proporciona un conjunto de directivas para ayudar a cumplir con HIPAA/HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Proporciona límites de protección que permiten cumplir la norma IRS 1075.|
-| [ISO 27001](./iso27001/index.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma ISO 27001. |
+| [ISO 27001](./iso-27001-2013.md) | Proporciona barreras de seguridad para garantizar el cumplimiento con la norma ISO 27001. |
 | [ISO 27001: servicios compartidos](./iso27001-shared/index.md) | Proporciona un conjunto de patrones de infraestructura compatibles y una directiva de protección que ayuda a la obtención de la certificación ISO 27001. |
 | [Cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001](./iso27001-ase-sql-workload/index.md) | Proporciona más infraestructura para el ejemplo de plano técnico de la [norma ISO 27001 sobre servicios compartidos](./iso27001-shared/index.md). |
 | [Elementos multimedia](./media/index.md) | Proporciona un conjunto de directivas que ayudan a cumplir los requisitos del nivel de impacto alto de Media MPAA. |

@@ -611,6 +611,8 @@
           items:
             - name: Supervisión y ajuste
               href: concepts-hyperscale-monitoring.md
+            - name: Registros de auditoría
+              href: concepts-hyperscale-audit.md
         - name: Opciones de configuración
           href: concepts-hyperscale-configuration-options.md
         - name: Pago por adelantado de capacidad reservada
