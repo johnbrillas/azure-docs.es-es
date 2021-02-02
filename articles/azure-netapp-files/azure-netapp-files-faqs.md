@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881425"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -258,6 +258,16 @@ No. En la actualidad, Azure Data Box no es compatible con Azure NetApp Files.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>¿Se admite la migración con el servicio Azure Import/Export?
 
 No. En la actualidad, el servicio Azure Import/Export no es compatible con Azure NetApp Files.
+
+## <a name="product-faqs"></a>Preguntas más frecuentes sobre productos
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>¿Puedo usar volúmenes NFS o SMB de Azure NetApp Files con Azure VMware Solution (AVS)?
+
+Puede montar volúmenes NFS de Azure NetApp Files en máquinas virtuales Windows o Linux de AVS. Puede asignar recursos compartidos de SMB de Azure NetApp Files en máquinas virtuales Windows de AVS. Para obtener más información, consulte [Azure NetApp Files con Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>¿Qué regiones se admiten para usar volúmenes NFS o SMB de Azure NetApp Files con Azure VMware Solution (AVS)?
+
+El uso de volúmenes NFS o SMB de Azure NetApp Files con AVS se admite en las siguientes regiones: Este de EE. UU., Oeste de EE. UU., Oeste de Europa y Este de Australia.
 
 ## <a name="next-steps"></a>Pasos siguientes  
 

@@ -1,5 +1,6 @@
 ---
-title: 'Escritura de una aplicación web que permita iniciar o cerrar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
+title: Escritura de una aplicación web que permita iniciar o cerrar sesión a los usuarios | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación web que permita iniciar o cerrar sesión a los usuarios
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443558"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753005"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -213,7 +214,7 @@ Una vez que el usuario ha iniciado sesión en la aplicación, probablemente quie
 Cerrar sesión desde una aplicación web implica más que tan solo quitar la información sobre la cuenta con sesión iniciada del estado de la aplicación web.
 La aplicación web también debe redirigir al usuario al punto de conexión `logout` de la Plataforma de identidad de Microsoft para cerrar la sesión.
 
-Cuando la aplicación web redirige al usuario a punto de conexión `logout`, este punto de conexión borra la sesión del usuario del explorador. Si la aplicación no llegó al punto de conexión `logout`, el usuario se volverá a autenticar en la aplicación sin volver a escribir sus credenciales. La razón es que tendrá una sesión de inicio de sesión único válida con el punto de conexión de la Plataforma de identidad de Microsoft.
+Cuando la aplicación web redirige al usuario a punto de conexión `logout`, este punto de conexión borra la sesión del usuario del explorador. Si la aplicación no llegó al punto de conexión `logout`, el usuario se volverá a autenticar en la aplicación sin volver a escribir sus credenciales. La razón es que tendrá una sesión de inicio de sesión único válida con la Plataforma de identidad de Microsoft.
 
 Para más información, consulte la sección [Envío de una solicitud de cierre de sesión](v2-protocols-oidc.md#send-a-sign-out-request) en la documentación de la [Plataforma de identidad de Microsoft y protocolo OpenID Connect](v2-protocols-oidc.md).
 

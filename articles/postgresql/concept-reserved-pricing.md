@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600094"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735479"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso servidor único de Azure Database for PostgreSQL con capacidad reservada
 
@@ -35,7 +35,7 @@ Para información sobre cómo se les cobra a los clientes de empresa y a los de 
 
 El tamaño de la reserva se debe basar en la cantidad total de proceso que van a usar los servidores existentes o que se van a implementar pronto en una región específica y con el mismo nivel de rendimiento y generación de hardware.</br>
 
-Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos PostgreSQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos un año. En este caso debe comprar una reserva de un año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de un año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
+Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos PostgreSQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un servidor de bases de datos Gen5 de uso general y 8 núcleos virtuales adicional, y un servidor de bases de datos optimizado para memoria Gen5 de 32 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos un año. En este caso debe comprar una reserva de un año de una instancia de Gen5 con 40 núcleos virtuales (32 + 8) para una base de datos única de uso general y otra reserva de un año de una instancia de Gen5 con 64 núcleos virtuales (2 x 16 + 32) para una base de datos única optimizada para memoria
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for PostgreSQL
@@ -67,7 +67,8 @@ Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Par
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
-La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir verticalmente dentro de un nivel de rendimiento y una región, sin perder los beneficios de la capacidad reservada. 
+La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir verticalmente dentro de un nivel de rendimiento y una región, sin perder los beneficios de la capacidad reservada. Si escala a núcleos virtuales superiores a su capacidad reservada, se le facturará el exceso de núcleos virtuales con precios de pago por uso.
+
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

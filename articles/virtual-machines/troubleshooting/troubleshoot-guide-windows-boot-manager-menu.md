@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526547"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632570"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>La VM Windows no puede arrancar debido a Administración de arranque de Windows
 
@@ -40,6 +40,9 @@ En la Ilustración 1
 El error se debe a una marca de BCD *displaybootmenu* en Administración de arranque de Windows. Cuando la marca está habilitada, Administración de arranque de Windows solicita al usuario, durante el proceso de arranque, que seleccione el cargador que desea ejecutar, lo que produce un retraso en el arranque. En Azure, esta característica puede aumentar el tiempo necesario para arrancar una VM.
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Información general del proceso:
 
@@ -75,7 +78,7 @@ Si tiene acceso a Serial Console, hay dos formas de lograr tiempos de arranque m
       > [!NOTE]
       > Si no puede usar Serial Console para configurar un menor tiempo de arranque en los pasos anteriores, en su lugar puede continuar con los pasos siguientes. Ahora solucionará el problema en el modo sin conexión.
 
-### <a name="create-and-access-a-repair-vm"></a>Creación y acceso a una VM de reparación
+### <a name="create-and-access-a-repair-vm"></a>Creación de una VM de reparación y acceso a ella
 
 1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
@@ -107,7 +110,7 @@ Si tiene acceso a Serial Console, hay dos formas de lograr tiempos de arranque m
 
    Reemplace los símbolos mayor que o menor que, así como el texto que contienen, por ejemplo, "< texto aquí >".
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Se recomienda: Antes de volver a compilar la VM, habilite Serial Console y la recopilación de volcado de memoria.
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Se recomienda: Antes de volver a compilar la VM, habilite Serial Console y la recopilación del volcado de memoria.
 
 Para habilitar la recopilación de volcado de memoria y Serial Console, ejecute el siguiente script:
 
@@ -120,11 +123,11 @@ Para habilitar la recopilación de volcado de memoria y Serial Console, ejecute 
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-   Reemplace los símbolos mayor que o menor que, así como el texto que contienen, por ejemplo, "< texto aquí >".
+   Reemplace los símbolos mayor que o menor que, así como el texto que contienen; por ejemplo, "<este texto>".
 
 3. Verifique que el espacio disponible en el disco del sistema operativo sea igual al tamaño de memoria (RAM) de la VM.
 
-   Si no hay suficiente espacio en el disco del sistema operativo, debe cambiar la ubicación donde se creará el archivo de volcado de memoria y remitirlo a los discos de datos conectados a la VM que tengan espacio libre suficiente. Para cambiar la ubicación, reemplace "% SystemRoot%" por la letra de unidad (por ejemplo, "F:") del disco de datos en los comandos siguientes.
+   Si no hay suficiente espacio en el disco del sistema operativo, debe cambiar la ubicación donde se creará el archivo de volcado de memoria y remitirlo a los discos de datos conectados a la VM que tengan espacio libre suficiente. Para cambiar la ubicación, reemplace "%SystemRoot%" por la letra de unidad (por ejemplo, "F:") del disco de datos en los comandos siguientes.
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configuración sugerida para habilitar el volcado del sistema operativo
 

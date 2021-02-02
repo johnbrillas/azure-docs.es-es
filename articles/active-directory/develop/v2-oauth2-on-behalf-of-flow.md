@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208855"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756090"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -201,7 +201,7 @@ Según la arquitectura o el uso de la aplicación, puede plantearse estrategias 
 
 ### <a name="default-and-combined-consent"></a>Consentimiento /.default y combinado
 
-La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En el punto de conexión de la Plataforma de identidad de Microsoft, esto se hace con el ámbito[`/.default`](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos de **ambos** al cliente y a la API de nivel intermedio, y también solicitará los permisos que requiera la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará.
+La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En la Plataforma de identidad de Microsoft, esto se hace con el ámbito[ámbito `/.default`](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos de **ambos** al cliente y a la API de nivel intermedio, y también solicitará los permisos que requiera la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará.
 
 ### <a name="pre-authorized-applications"></a>Aplicaciones preautorizadas
 

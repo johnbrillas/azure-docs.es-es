@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f286542c91ba473d13595d8e8299b1bbd8c93856
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977959"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632612"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La máquina virtual no responde durante la aplicación de la directiva de configuración de directivas de auditorías
 
@@ -45,6 +45,9 @@ Esta es la directiva problemática: *Configuración del equipo\Directivas\Planti
 ## <a name="solution"></a>Solución
 
 ### <a name="process-overview"></a>Información general del proceso
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla desde ella](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 1. Cree una VM de reparación y acceda a ella.
 1. Deshabilite la directiva.

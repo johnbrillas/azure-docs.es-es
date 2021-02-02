@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063746"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754987"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guía de migración de ADAL a MSAL para Java
 
@@ -29,7 +29,7 @@ Tanto la Biblioteca de autenticación de Microsoft para Java (MSAL4J) como la Bi
 
 MSAL ofrece las siguientes ventajas:
 
-- Dado que usa el punto de conexión de la Plataforma de identidad de Microsoft más reciente, puede autenticar un conjunto más amplio de identidades de Microsoft, como identidades de Azure AD, cuentas de Microsoft y cuentas sociales y locales mediante Azure AD Negocio a consumidor (B2C).
+- Dado que usa la Plataforma de identidad de Microsoft más reciente, puede autenticar un conjunto más amplio de identidades de Microsoft, como identidades de Azure AD, cuentas de Microsoft y cuentas sociales y locales mediante Azure AD Negocio a consumidor (B2C).
 - Los usuarios obtendrán la mejor experiencia de inicio de sesión único.
 - La aplicación puede habilitar el consentimiento incremental y es más fácil admitir el acceso condicional.
 
@@ -43,7 +43,7 @@ Si ya ha trabajado con el punto de conexión de Azure AD para desarrolladores (
 
 ADAL4J adquiere tokens para los recursos, en tanto que MSAL para Java adquiere tokens para los ámbitos. Muchas clases de MSAL para Java requieren un parámetro de ámbito. Este parámetro es una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Consulte [Ámbitos de Microsoft Graph](/graph/permissions-reference) para ver ámbitos de ejemplo.
 
-Puede agregar el sufijo del ámbito `/.default` al recurso para ayudar a migrar las aplicaciones del punto de conexión v1.0 (ADAL) al punto de conexión de la plataforma de identidad de Microsoft (MSAL). Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+Puede Agregar el sufijo de ámbito `/.default` al recurso para ayudar a migrar las aplicaciones de ADAL a MSAL. Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 Para más información sobre los diferentes tipos de ámbitos, consulte los artículos [Permisos y consentimiento en la plataforma de identidad de Microsoft](./v2-permissions-and-consent.md) y [Ámbitos para una API web que acepta tokens de la versión 1.0](./msal-v1-app-scopes.md).
 

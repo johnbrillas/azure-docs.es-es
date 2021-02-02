@@ -1,25 +1,25 @@
 ---
-title: Implementación de una aplicación del libro de visitas PHP en el Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
-description: Se describe cómo se implementa una aplicación sin estado de libro de visitas PHP con Redis mediante GitOps en un clúster de Kubernetes habilitado para Arc de un dispositivo Azure Stack Edge Pro.
+title: Implementación de una aplicación `PHP Guestbook` en el Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Se describe cómo se implementa una aplicación sin estado de `Guestbook` PHP con Redis mediante GitOps en un clúster de Kubernetes habilitado para Arc de un dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882966"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804881"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de libro de visitas PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de `Guestbook` PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
 
 En este artículo se muestra cómo compilar e implementar una aplicación web sencilla de varios niveles con Kubernetes y Azure Arc. Este ejemplo consta de los siguientes componentes:
 
-- Un maestro de Redis de instancia única para almacenar las entradas del libro de visitas
+- Un maestro de Redis de instancia única para almacenar las entradas de `guestbook`
 - Varias instancias de Redis replicadas para atender las lecturas
 - Varias instancias de front-end web
 
@@ -49,18 +49,18 @@ Antes de implementar la aplicación sin estado, asegúrese de que ha completado 
 
 1. Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge Pro.
   
-    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
     
     - También puede utilizar cualquier otro cliente con un [sistema operativo compatible](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). En este artículo, el procedimiento que se describe emplea un cliente Windows. 
     
 1. Ha completado el procedimiento descrito en [Acceso al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Ha:
     
-    - Instalado `kubectl` en el cliente  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - instalado `kubectl` en el cliente. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - Asegúrese de que la versión del cliente de `kubectl` es como máximo una versión superior o inferior a la versión maestra de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro. 
       - Use `kubectl version` para comprobar la versión de kubectl que se ejecuta en el cliente. Anote la versión completa.
       - En la interfaz de usuario local del dispositivo Azure Stack Edge Pro, vaya a **Información general** y anote el número de software de Kubernetes. 
-      - Compruebe la compatibilidad entre estas dos versiones con la asignación proporcionada en la versión de Kubernetes admitida <!--insert link-->.
+      - Compruebe la compatibilidad entre estas dos versiones con la asignación proporcionada en la versión de Kubernetes admitida. <!--insert link-->
 
 1. Tiene una [configuración de GitOps que puede usar para ejecutar una implementación de Azure Arc](https://github.com/kagoyal/dbehaikudemo). En este ejemplo se usan los siguientes archivos `yaml` para la implementación en un dispositivo Azure Stack Edge Pro.
 
@@ -92,12 +92,12 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
     |---------|---------|
     |Nombre de la configuración     | Nombre del recurso de configuración.        |
     |Nombre de la instancia del operador     |Nombre de instancia del operador que identifica una configuración concreta. Name es una cadena con un máximo de 253 caracteres; se admiten solo minúsculas, caracteres alfanuméricos, guiones y puntos.         |
-    |Espacio de nombres del operador     | Se establece en **demotestguestbook**, ya que coincide con el espacio de nombres especificado en el archivo `yaml` de implementación. <br> El campo define el espacio de nombres en el que está instalado el operador. Name es una cadena con un máximo de 253 caracteres; se admiten solo minúsculas, caracteres alfanuméricos, guiones y puntos.         |
+    |Espacio de nombres del operador     | Se establece en **demotestguestbook** para coincidir con el espacio de nombres especificado en la implementación `yaml`. <br> El campo define el espacio de nombres en el que está instalado el operador. Name es una cadena con un máximo de 253 caracteres; se admiten solo minúsculas, caracteres alfanuméricos, guiones y puntos.         |
     |Dirección URL del repositorio     |<br>Ruta de acceso al repositorio de Git en formato `http://github.com/username/repo` o `git://github.com/username/repo` en el que se encuentra la configuración de GitOps.         |
-    |Ámbito del operador     | Seleccione **Espacio de nombres**. <br>Esto define el ámbito en el que se instala el operador. Seleccione este espacio de nombres. El operador se instalará en el espacio de nombres especificado en los archivos yaml de implementación.       |
-    |Tipo de operador     | Deje el valor predeterminado. <br>Esto especifica el tipo de operador, que se establece como flujo de forma predeterminada.        |
-    |Parámetros del operador     | Déjelo en blanco. <br>Este campo contiene los parámetros que se van a pasar al operador de flujo.        |
-    |Helm     | Establézcalo en **Deshabilitado**. <br>Habilite esta opción si va a realizar implementaciones basadas en gráficos.        |
+    |Ámbito del operador     | Seleccione **Espacio de nombres**. <br>Este parámetro define el ámbito en el que se instala el operador. Seleccione Espacio de nombres para instalar el operador en el espacio de nombres especificado en los archivos yaml de implementación.       |
+    |Tipo de operador     | Deje el valor predeterminado. <br>Este parámetro especifica el tipo de operador, que se establece como flujo de forma predeterminada.        |
+    |Parámetros del operador     | Déjelo en blanco. <br>Este parámetro contiene los parámetros que se van a pasar al operador de flujo.        |
+    |Helm     | Establezca este parámetro en **Deshabilitado**. <br>Habilite esta opción si va a realizar implementaciones basadas en gráficos.        |
 
 
     ![Adición de configuración](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -136,7 +136,7 @@ La implementación mediante la configuración de GitOps crea un espacio de nombr
     [10.128.44.240]: PS>
     ```  
 
-1. En este ejemplo, el servicio de front-end se ha implementado como type:LoadBalancer. Tendrá que buscar la dirección IP de este servicio para ver el libro de visitas. Ejecute el siguiente comando:
+1. En este ejemplo, el servicio de front-end se ha implementado como type:LoadBalancer. Tendrá que buscar la dirección IP de este servicio para ver `guestbook`. Ejecute el siguiente comando:
 
     `kubectl get service -n <your-namespace>`
     
@@ -149,13 +149,13 @@ La implementación mediante la configuración de GitOps crea un espacio de nombr
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. El servicio de front-end de `type:LoadBalancer` tiene una dirección IP externa. Esta dirección IP procede del intervalo de direcciones IP que especificó para los servicios externos al configurar las opciones de red de proceso en el dispositivo. Use esta dirección IP para ver el libro de visitas en la dirección URL `https://<external-IP-address>`.
+1. El servicio de front-end de `type:LoadBalancer` tiene una dirección IP externa. Esta dirección IP procede del intervalo de direcciones IP que especificó para los servicios externos al configurar las opciones de red de proceso en el dispositivo. Use esta dirección IP para ver `guestbook` en la dirección URL: `https://<external-IP-address>`.
 
     ![Visualización del libro de visitas](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## <a name="delete-deployment"></a>Eliminación de la implementación
 
-Para eliminar la implementación, puede eliminar la configuración de Azure Portal. Así se eliminan los objetos creados, incluidos los servicios y las implementaciones.
+Para eliminar la implementación, puede eliminar la configuración de Azure Portal. Al eliminar la configuración se eliminarán los objetos que se crearon, incluidas las implementaciones y los servicios.
 
 1. En Azure Portal, vaya al recurso de Azure Arc > Configuraciones. 
 1. Ubique la configuración que desea eliminar. Seleccione ... para invocar el menú contextual y, después, **Eliminar**.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969609"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629579"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Error de administración de arranque de Windows : estado 0xC0000428, hash de imagen no válido
 
@@ -65,6 +65,9 @@ No se puede ampliar la fecha de expiración de una imagen de versión preliminar
 - En Azure, todas las imágenes de Windows que son versiones preliminares incluirán una nota en su descripción indicando que no están destinadas para producción y que están disponibles para usarse solo durante un período de prueba específico o como "versión preliminar".
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Si se trata de una imagen de versión preliminar, no hay ninguna manera de ampliar la fecha de expiración de la imagen usada, por lo que deberá [implementar una nueva máquina virtual](../windows/quick-create-portal.md) mediante una imagen que no sea de versión preliminar. Los siguientes pasos le ayudarán a identificar si ha usado una imagen de versión preliminar, así como a proporcionar recursos para ayudarle a transferir datos de esta máquina virtual a una nueva. Si la ha identificado correctamente como una imagen de versión preliminar, no se podrá recuperar, ya que habrá expirado.
 

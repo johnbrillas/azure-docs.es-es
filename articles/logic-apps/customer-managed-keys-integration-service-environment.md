@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741055"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629681"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
 Azure Logic Apps se basa en Azure Storage para almacenar y [cifrar automáticamente los datos en reposo](../storage/common/storage-service-encryption.md). Este cifrado protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. De forma predeterminada, Azure Storage usa claves que administra Microsoft para cifrar sus datos. Para más información sobre cómo funciona el cifrado de Azure Storage, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md) y [Cifrado de datos de Azure en reposo](../security/fundamentals/encryption-atrest.md).
 
-Al crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/general/overview.md). Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
+Al crear un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante [Azure Key Vault](../key-vault/general/overview.md). Esta funcionalidad se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente". Con esta funcionalidad, Azure Storage habilita automáticamente para su clave el [cifrado doble o el *cifrado de infraestructura* mediante claves administradas por la plataforma](../security/fundamentals/double-encryption.md). Para más información, consulte [Cifrado doble de datos con el cifrado de infraestructura](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).
 
 En este tema se muestra cómo configurar y especificar su propia clave de cifrado que se usará al crear el ISE mediante la API REST de Logic Apps. Para ver los pasos generales para crear un ISE mediante la API REST de Logic Apps, consulte [Creación de un entorno del servicio de integración (ISE) mediante la API REST de Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296121"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734654"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -107,7 +107,7 @@ Para nuevas versiones **secundarias** de Kubernetes
 1. AKS publica un anuncio previo con la fecha planificada de la nueva publicación de una versión y el respectivo desuso de una versión antigua en las [notas de la versión de AKS](https://aka.ms/aks/releasenotes) al menos 30 días antes de la eliminación.
 2. AKS publica una [notificación de estado del servicio](../service-health/service-health-overview.md) disponible para todos los usuarios con acceso al portal y AKS, y envía un correo electrónico a los administradores de suscripciones con las fechas de eliminación de versión planeadas.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Los usuarios tienen **30 días** a partir de la eliminación de una versión para actualizar a una versión secundaria compatible para seguir recibiendo soporte técnico.
 
@@ -138,13 +138,14 @@ Para ver el historial de versiones anteriores, vea [Kubernetes](https://en.wikip
 
 |  Versión de K8s | Versión anterior  | Versión preliminar de AKS  | Disponibilidad general de AKS  | Final de la vida útil |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19 de septiembre de 2019  | Enero de 2019   | Marzo de 2020  | Enero de 2021* | 
+| 1.16  | 19 de septiembre de 2019  | Enero de 2019   | Marzo de 2020  | Enero de 2021| 
 | 1.17  | 9 de diciembre de 2019  | Enero de 2019   | Julio de 2020  | 1.20 disponibilidad general | 
 | 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Septiembre de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
 | 1.20  | 8 de diciembre de 2020  | Enero de 2021   | Marzo de 2021  | 1.23 Disponibilidad general |
+| 1.21  | Apr-08-21* | Mayo de 2021   | Junio de 2021  | 1.24 disponibilidad general |
 
-\* Debido a la temporada de vacaciones, AKS ampliará la duración de la versión 1.16 de noviembre de 2020 hasta el enero de 2021. [Más información](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+\* La versión anterior 1.21 de Kubernetes está sujeta a cambio, puesto que el calendario anterior todavía debe finalizarse.
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
@@ -184,7 +185,7 @@ Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versio
 
 Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
 
-Solo se pueden omitir varias versiones cuando se actualiza una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, cuando se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

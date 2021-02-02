@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 20e9ed7e83ff3359651acebc11a939a998f2889d
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 50b858d0bf05aa46ea20a6cf9e088376be2996e3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607922"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693433"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -233,6 +233,54 @@ Cuando se ejecuta este código, se imprime lo siguiente en la consola:
 Observe que hay un `spanId` presente para el mensaje de registro que se encuentra dentro del intervalo. Es el mismo `spanId` que pertenece al intervalo denominado `hello`.
 
 Puede exportar los datos de registro mediante `AzureLogHandler`. Para obtener más información, consulte [este artículo](./opencensus-python.md#logs).
+
+También podemos pasar información de seguimiento de un componente a otro para una correlación adecuada. Por ejemplo, considere un escenario en el que hay dos componentes `module1` y `module2`. Module1 llama a las funciones de Module2 y para obtener registros de `module1` y `module2` en un solo seguimiento, podemos usar el siguiente enfoque:
+
+```python
+# module1.py
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+from module2 import function_1
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+   logger.warning('In the span')
+   function_1(tracer)
+logger.warning('After the span')
+
+
+# module2.py
+
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+def function_1(parent_tracer=None):
+    if parent_tracer is not None:
+        tracer = Tracer(
+                    span_context=parent_tracer.span_context,
+                    sampler=AlwaysOnSampler(),
+                )
+    else:
+        tracer = Tracer(sampler=AlwaysOnSampler())
+
+    with tracer.span("function_1"):
+        logger.info("In function_1")
+```
 
 ## <a name="telemetry-correlation-in-net"></a>Correlación de telemetría en .NET
 

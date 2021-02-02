@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107862"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755046"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guía de migración de ADAL a MSAL para Python
 
@@ -38,13 +38,13 @@ Es compatible con:
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-Consulte [¿Qué es diferente del punto de conexión de la Plataforma de identidad de Microsoft (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md) para más detalles.
+Consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) para más detalles.
 
 ### <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
 ADAL para Python adquiere tokens para los recursos, pero MSAL para Python adquiere tokens para los ámbitos. La superficie de API en MSAL para Python ya no tiene el parámetro de recurso. Tendría que proporcionar ámbitos como una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Para ver algunos ejemplo de ámbitos, consulte [Ámbitos de Microsoft Graph](/graph/permissions-reference).
 
-Puede agregar el sufijo del ámbito `/.default` al recurso para ayudar a migrar las aplicaciones del punto de conexión v1.0 (ADAL) al punto de conexión de la plataforma de identidad de Microsoft (MSAL). Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+Puede agregar el sufijo del ámbito `/.default` al recurso para ayudar a migrar las aplicaciones del punto de conexión v1.0 (ADAL) a la Plataforma de identidad de Microsoft (MSAL). Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 Para más información sobre los diferentes tipos de ámbitos, consulte los artículos [Permisos y consentimiento en la plataforma de identidad de Microsoft](./v2-permissions-and-consent.md) y [Ámbitos para una API web que acepta tokens de la versión 1.0](./msal-v1-app-scopes.md).
 
@@ -92,7 +92,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.

@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246798"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756058"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
-Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. La implementación del modelo de autorización se ha actualizado en el punto de conexión de la Plataforma de identidad de Microsoft. Cambia el modo en que una aplicación debe interactuar con la Plataforma de identidad de Microsoft. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
+Las aplicaciones que se integran con la Plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. La implementación del modelo de autorización se ha actualizado en la Plataforma de identidad de Microsoft. Cambia el modo en que una aplicación debe interactuar con la Plataforma de identidad de Microsoft. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
 
 ## <a name="scopes-and-permissions"></a>Permisos y ámbitos
 
@@ -53,7 +53,7 @@ Una aplicación suele solicitar estos permisos, para lo que especifica los ámbi
 
 ## <a name="permission-types"></a>Tipos de permisos
 
-La plataforma de identidad de Microsoft admite dos tipos de permisos: *permisos delegados* y *permisos de aplicación*.
+La Plataforma de identidad de Microsoft admite dos tipos de permisos: *permisos delegados* y *permisos de aplicación*.
 
 * **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere. A la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. 
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 El parámetro `scope` es una lista separada por espacios que incluye los permisos delegados que la aplicación solicita. Cada permiso se indica anexando el valor del permiso al identificador del recurso (URI del identificador de aplicación). En la solicitud de ejemplo, la aplicación necesita permiso para leer el calendario del usuario y enviar correo electrónico en nombre del usuario.
 
-Después de que el usuario escriba sus credenciales, el punto de conexión de la Plataforma de identidad de Microsoft buscará un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento a ninguno de los permisos solicitados en el pasado, y si el administrador no dio su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario que conceda los permisos solicitados.
+Después de que el usuario escriba sus credenciales, la Plataforma de identidad de Microsoft buscará un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento a ninguno de los permisos solicitados en el pasado, y si el administrador no dio su consentimiento a estos permisos en nombre de toda la organización, la Plataforma de identidad de Microsoft solicita al usuario que conceda los permisos solicitados.
 
 En este momento, los permisos `offline_access` ("Mantener el acceso a los datos a los que se le ha dado acceso") y `user.read` ("Iniciar sesión y leer su perfil") se incluyen automáticamente en el consentimiento inicial para una aplicación.  Estos permisos suelen ser necesarios para que la aplicación funcione correctamente. El permiso `offline_access` concede a la aplicación acceso a los tokens de actualización que son críticos para aplicaciones nativas y aplicaciones web. El permiso `user.read` concede acceso a la notificación `sub`. Permite al cliente o a la aplicación identificar correctamente al usuario con el tiempo y acceder a información de usuario rudimentaria.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Este ejemplo de código genera una página de consentimiento para todos los permisos registrados si las descripciones anteriores de consentimiento y `/.default` se aplican al escenario. A continuación, el código devuelve un `id_token`, en lugar de un token de acceso.  
 
-Este comportamiento se ajusta a algunos clientes heredados que se mueven de la Biblioteca de autenticación de Azure AD (ADAL) a la biblioteca de autenticación de Microsoft (MSAL). Los nuevos clientes que tienen como destino el punto de conexión de la Plataforma de identidad de Microsoft *no deben* utilizar esta configuración.
+Este comportamiento se ajusta a algunos clientes heredados que se mueven de la Biblioteca de autenticación de Azure AD (ADAL) a la biblioteca de autenticación de Microsoft (MSAL). Los nuevos clientes que tienen como destino la Plataforma de identidad de Microsoft *no deben* utilizar esta configuración.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flujo de concesión de credenciales de cliente y ./default  
 

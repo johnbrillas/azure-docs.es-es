@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120213"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736312"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -71,8 +71,16 @@ Cuando se quita un grupo de SQL dedicado, se crea una instantánea final que se 
 
 Se crea una copia de seguridad de replicación geográfica una vez al día en un [centro de datos emparejado](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita el grupo de SQL dedicado. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no tenga acceso a los puntos de restauración de su región primaria.
 
+Si no necesita copias de seguridad geográficas para su grupo de SQL dedicado, puede deshabilitarlas y ahorrar costos de almacenamiento de recuperación ante desastres. Para ello, consulte [Guía de procedimientos: Deshabilitación de copias de seguridad geográficas para un grupo de SQL dedicado (anteriormente SQL DW)](disable-geo-backup.md). Tenga en cuenta que si deshabilita las copias de seguridad geográficas, no podrá recuperar el grupo de SQL dedicado en la región de Azure emparejada si el centro de datos principal de Azure no está disponible. 
+
 > [!NOTE]
 > Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
+
+## <a name="data-residency"></a>Residencia de datos 
+
+Si el centro de datos emparejado se encuentra fuera de sus límites geográficos, puede asegurarse de que los datos permanecen dentro de sus límites geográficos deshabilitando el almacenamiento con redundancia geográfica. Esto puede hacerse al aprovisionar el grupo de SQL dedicado (anteriormente SQL DW) a través de la opción de almacenamiento con redundancia geográfica cuando se crea o restaura un grupo de SQL dedicado (anteriormente SQL DW). 
+
+Para confirmar que el centro de datos emparejado se encuentra en un país diferente, consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="backup-and-restore-costs"></a>Costos de copia de seguridad y restauración
 
@@ -88,7 +96,7 @@ Para más información sobre los precios de Azure Synapse, consulte [Precios de 
 
 Cada instantánea crea un punto de restauración que representa la hora de inicio de la instantánea. Para restaurar un almacenamiento de datos, elija un punto de restauración y emita un comando de restauración.  
 
-Puede mantener el almacenamiento de datos restaurado y el actual, o eliminar uno de ellos. Si quiere reemplazar el almacenamiento de datos actual por el restaurado, puede cambiarle el nombre mediante [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) con la opción MODIFY NAME.
+Puede mantener el almacenamiento de datos restaurado y el actual, o eliminar uno de ellos. Si quiere reemplazar el almacenamiento de datos actual por el restaurado, puede cambiarle el nombre mediante [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) con la opción MODIFY NAME.
 
 Para restaurar un almacenamiento de datos, consulte [Restauración de un grupo de SQL dedicado](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 

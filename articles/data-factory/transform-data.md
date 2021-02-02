@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637690"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632332"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 
@@ -47,9 +47,9 @@ Data Factory admite las siguientes actividades de transformación de datos que s
 
 La asignación de flujos de datos es una transformación de datos diseñada visualmente en Azure Data Factory. Los flujos de datos permiten a los ingenieros de datos desarrollar una lógica de transformación de datos gráfica sin necesidad de escribir código. Los flujos de datos resultantes se ejecutan como actividades en las canalizaciones de Azure Data Factory que usan clústeres de Spark de escalabilidad horizontal. Las actividades de flujo de datos pueden ponerse en marcha mediante las funcionalidades de programación, control, flujo y supervisión existentes en Data Factory. Para más información, consulte [Asignación de flujos de datos](concepts-data-flow-overview.md).
 
-### <a name="wrangling-data-flows"></a>Flujos de datos de limpieza y transformación
+### <a name="data-wrangling"></a>Limpieza y transformación de datos
 
-Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](/power-query/) y ponen las funciones de Power Query M a disposición para la limpieza y transformación de datos en la escala de nube a través de la ejecución de Spark. Para más información, consulte [Flujos de datos de limpieza y transformación](wrangling-data-flow-overview.md).
+Power Query en Azure Data Factory permite la limpieza y transformación de datos a escala de nube, lo que permite preparar los datos sin código a escala de nube de forma iterativa. La limpieza y transformación de datos se integra con [Power Query Online](/power-query/) y permite que estén disponibles las funciones de Power Query M para la limpieza y transformación de datos a escala de nube a través de la ejecución de Spark. Para más información, consulte [Limpieza y transformación de datos en ADF](wrangling-overview.md).
 
 ## <a name="external-transformations"></a>Transformaciones externas
 
@@ -70,7 +70,7 @@ La actividad de streaming de HDInsight en una canalización de Data Factory ejec
 ### <a name="hdinsight-spark-activity"></a>Actividad de HDInsight Spark
 La actividad de Spark de HDInsight en una canalización de Data Factory ejecuta consultas de Spark en su propio clúster de HDInsight. Consulte [Invoke Spark programs from Azure Data Factory](transform-data-using-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada. 
 
-### <a name="azure-machine-learning-studio-classic-activities"></a>Actividades de Azure Machine Learning Studio (clásico)
+### <a name="azure-machine-learning-studio-classic-activities"></a>Actividades de Estudio de Azure Machine Learning (clásico)
 Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de Azure Machine Learning Studio (clásico) publicado para realizar análisis predictivos. Mediante la [actividad de ejecución de lotes](transform-data-using-machine-learning.md) en una canalización de Azure Data Factory, puede invocar un servicio web de Studio (clásico) para realizar predicciones sobre los datos del lote.
 
 Con el tiempo, los modelos predictivos de los experimentos de puntuación de Studio (clásico) se tienen que volver a entrenar con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la [actividad de recursos de actualización](update-machine-learning-models.md) para actualizar el servicio web con el modelo recién entrenado.  
@@ -78,7 +78,7 @@ Con el tiempo, los modelos predictivos de los experimentos de puntuación de Stu
 Consulte [Uso de actividades de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md) para más información sobre estas actividades de Studio (clásico). 
 
 ### <a name="stored-procedure-activity"></a>Actividad de procedimiento almacenado
-Puede usar la actividad de procedimiento almacenado de SQL Server en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure Synapse Analytics (antes SQL Data Warehouse) y SQL Server Database en una empresa o una máquina virtual de Azure. Vea el artículo [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para más información.  
+Puede usar la actividad de procedimiento almacenado de SQL Server en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure Synapse Analytics y base de datos de SQL Server en una empresa o una máquina virtual de Azure. Vea el artículo [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para más información.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Actividad de U-SQL de Data Lake Analytics
 La actividad de U-SQL de Data Lake Analytics ejecuta un script de U-SQL en un clúster de Azure Data Lake Analytics. Vea el artículo [Actividad de U-SQL de Data Analytics](transform-data-using-data-lake-analytics.md) para más información. 
@@ -103,8 +103,8 @@ Puede crear una actividad personalizada para ejecutar scripts de R en su clúste
 ### <a name="compute-environments"></a>Entornos de proceso
 Deberá crear un servicio vinculado para el entorno de proceso y después usar el servicio vinculado al definir una actividad de transformación. La Factoría de datos admite dos tipos de entornos de proceso. 
 
-- **A petición** : en este caso, el entorno informático es completamente administrado por Data Factory. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
-- **Traiga el suyo propio** : en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
+- **A petición**: en este caso, el entorno informático es completamente administrado por Data Factory. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
+- **Traiga el suyo propio**: en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
 
 Vea el artículo [Servicios vinculados de procesos](compute-linked-services.md) para obtener información sobre los servicios vinculados de proceso compatibles con Data Factory. 
 

@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979994"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761366"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
 
@@ -147,8 +147,20 @@ Para las aplicaciones demonio, no es necesario especificar un URI de redirecció
 Esta opción especifica el secreto de cliente para la aplicación cliente confidencial. Este secreto (contraseña de la aplicación) lo proporcionan el portal de registro de aplicaciones o Azure AD durante el registro de la aplicación con PowerShell AzureAD, AzureRM o CLI de Azure.
 
 ## <a name="logging"></a>Registro
+Para ayudar en los escenarios de solución de problemas de depuración y de errores de autenticación, la Biblioteca de autenticación de Microsoft proporciona compatibilidad con el registro integrado. El registro en cada biblioteca se trata en los siguientes artículos:
 
-Las demás opciones de configuración permiten realizar registros y solucionar problemas. Consulte el artículo [Registro](msal-logging.md) para obtener información sobre cómo usarlas.
+:::row:::
+    :::column:::
+        - [Registro en MSAL.NET](msal-logging-dotnet.md)
+        - [Inicio de sesión en MSAL para Android](msal-logging-android.md)
+        - [Registro en MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Inicio de sesión en MSAL para iOS/macOS](msal-logging-ios.md)
+        - [Registro en MSAL para Java](msal-logging-java.md)
+        - [Inicio de sesión en MSAL para Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

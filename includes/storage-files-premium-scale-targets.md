@@ -4,20 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 86bf4911026e46c997469b956f9e7c75c4f17164
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680901"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698001"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Límites del nivel de recurso compartido de archivos prémium adicionales
 
 |Área  |Destino  |
 |---------|---------|
 |Aumento o disminución del tamaño mínimo    |1 GiB      |
-|IOPS base    |1 IOPS por GiB hasta 100 000|
-|Ampliación de IOPS    |3 x IOPS por GiB hasta 100 000|
+|IOPS base    |400 + 1 IOPS por GiB hasta 100 000|
+|Ampliación de IOPS    |Máx. (4000, 3 x IOPS por GiB), hasta 100 000|
 |Velocidad de salida         |60 MiB/s + 0,06 * GiB aprovisionado        |
 |Velocidad de entrada| 40 MiB/s + 0,04 * GiB aprovisionado |
 

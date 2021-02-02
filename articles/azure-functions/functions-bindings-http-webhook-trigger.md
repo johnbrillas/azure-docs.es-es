@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6466647056535635b67cd53012d051f11e9b484c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323318"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695652"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -43,11 +43,15 @@ public static async Task<IActionResult> Run(
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    
+    string requestBody = String.Empty;
+    using (StreamReader streamReader =  new  StreamReader(req.Body))
+    {
+        requestBody = await streamReader.ReadToEndAsync();
+    }
     dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
-
+    
     return name != null
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
@@ -100,11 +104,15 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    
+    string requestBody = String.Empty;
+    using (StreamReader streamReader =  new  StreamReader(req.Body))
+    {
+        requestBody = await streamReader.ReadToEndAsync();
+    }
     dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
-
+    
     return name != null
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
@@ -741,6 +749,10 @@ La configuración siguiente muestra cómo se pasa el parámetro `{id}` al elemen
 }
 ```
 
+Al usar parámetros de ruta, se crea automáticamente una plantilla `invoke_URL_template` para la función. Los clientes pueden usar la plantilla de dirección URL para comprender los parámetros que deben pasar en la dirección URL al llamar a la función mediante su dirección URL. Vaya a una de las funciones desencadenadas por HTTP en [Azure Portal](https://portal.azure.com) y seleccione **Obtener la dirección URL de la función**.
+
+Puede tener acceso mediante programación a la plantilla `invoke_URL_template` con las API de Azure Resource Manager para [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) (Funciones de lista) o [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction) (Get (función)).
+
 ## <a name="working-with-client-identities"></a>Uso de identidades de cliente
 
 Si la aplicación de función está usando la [autenticación/autorización de App Service](../app-service/overview-authentication-authorization.md), puede ver información sobre los clientes autenticados desde el código. Esta información está disponible como [encabezados de solicitud insertados por la plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims).
@@ -838,11 +850,17 @@ El usuario autenticado está disponible a través de [encabezados HTTP](../app-s
 
 ## <a name="obtaining-keys"></a>Obtención de claves
 
-Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear nuevas o asignarles nuevos valores, vaya a una de las funciones desencadenadas por HTTP de [Azure Portal](https://portal.azure.com) y seleccione **Administrar**.
+Las claves se almacenan como parte de la aplicación de función en Azure y se cifran en reposo. Para ver las claves, crear nuevas o asignarles nuevos valores, vaya a una de las funciones desencadenadas por HTTP de [Azure Portal](https://portal.azure.com) y seleccione **Claves de función**.
 
-![Administre las claves de función en el portal.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+También puede administrar claves de host. Vaya a la aplicación de funciones de [Azure Portal](https://portal.azure.com) y seleccione **Claves de la aplicación**.
 
-Puede obtener claves de función mediante programación con las [API de administración de claves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Puede obtener claves de función y de host mediante programación con las API de Azure Resource Manager. Hay API para [List Function Keys](/rest/api/appservice/webapps/listfunctionkeys) (Enumerar claves de función) y [List Host Keys](/rest/api/appservice/webapps/listhostkeys) (Enumerar claves de host) y, al usar ranuras de implementación, las API equivalentes son [List Function Keys Slot](/rest/api/appservice/webapps/listfunctionkeysslot) (Enumerar ranura de claves de función) y [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot) (Enumerar ranura de claves de host).
+
+También puede crear nuevas claves de función y de host mediante programación con las API [Create Or Update Function Secret](/rest/api/appservice/webapps/createorupdatefunctionsecret) (Crear o actualizar secreto de función) , [Create Or Update Function Secret Slot](/rest/api/appservice/webapps/createorupdatefunctionsecretslot) (Crear o actualizar ranura de secreto de función), [Create Or Update Host Secret](/rest/api/appservice/webapps/createorupdatehostsecret) (Crear o actualizar secreto de host) y [Create Or Update Host Secret Slot](/rest/api/appservice/webapps/createorupdatehostsecretslot) (Crear o actualizar ranura de secreto de host).
+
+Las claves de función y de host se pueden eliminar mediante programación con las API [Delete Function Secret](/rest/api/appservice/webapps/deletefunctionsecret) (Eliminar secreto de función), [Delete Function Secret Slot](/rest/api/appservice/webapps/deletefunctionsecretslot) (Eliminar ranura de secreto de función), [Delete Host Secret](/rest/api/appservice/webapps/deletehostsecret) (Eliminar secreto de host) y [Delete Host Secret Slot](/rest/api/appservice/webapps/deletehostsecretslot) (Eliminar ranura de secreto de host).
+
+También puede usar las [API de administración de claves heredadas para obtener claves de función](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), pero, en su lugar, se recomienda usar las API de Azure Resource Manager.
 
 ## <a name="api-key-authorization"></a>Autorización de la clave de API
 

@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484284"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746754"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -63,10 +63,22 @@ Estos son algunos principios de la selección de la configuración de almacenami
 - Decida el tipo de almacenamiento según [Tipos de Azure Storage para la carga de trabajo de SAP](./planning-guide-storage.md) y [Seleccionar un tipo de disco](../../disks-types.md).
 - El rendimiento global de E/S de la VM y los límites de IOPS al elegir una VM o determinar su tamaño. El rendimiento general del almacenamiento de VM está documentado en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md).
 - A la hora de decidirse por la configuración del almacenamiento, intente permanecer por debajo del rendimiento general de la VM con la configuración del volumen **/hana/data**. En cuanto a los puntos de retorno, SAP HANA puede presentar cierta agresividad al emitir E/S. Es fácil alcanzar los límites de rendimiento del volumen **/hana/data** al escribir un punto de retorno. Si los discos que compilan el volumen **/hana/data** tienen un rendimiento superior al que permite la VM, puede que se produzcan situaciones en que el rendimiento usado por la escritura del punto de retorno interfiera con las demandas de rendimiento de las escrituras de registros de fase de puesta al día. Esta situación puede afectar al rendimiento de la aplicación.
-- Si usa Azure Premium Storage, la configuración menos costosa es usar administradores de volúmenes lógicos para crear conjuntos de franjas con el fin de compilar los volúmenes **/hana/data** y **/hana/log**.
+
 
 > [!IMPORTANT]
 > Las sugerencias para las configuraciones de almacenamiento se han diseñado como indicaciones con las que empezar. Al ejecutar la carga de trabajo y analizar los patrones de uso del almacenamiento, es posible que se dé cuenta de que no está usando todo el ancho de banda de almacenamiento o IOPS proporcionado. En ese caso, puede considerar la posibilidad de reducir el tamaño del almacenamiento. También puede que, por el contrario, la carga de trabajo necesite más rendimiento de almacenamiento del sugerido con estas configuraciones. Como resultado, es posible que tenga que implementar más capacidad, IOPS o rendimiento. En el campo de la tensión entre la capacidad de almacenamiento necesaria, la latencia de almacenamiento necesaria, el rendimiento de almacenamiento y las IOPS necesarias y la configuración menos costosa, Azure ofrece suficientes tipos de almacenamiento diferentes con distintas funcionalidades y precios de venta para determinar el compromiso adecuado para usted y su carga de trabajo de HANA y adaptarse a este.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Conjuntos de franjas frente a creación de particiones de volumen de datos de SAP HANA
+Con Azure Premium Storage, puede conseguir la mejor relación precio/rendimiento al seccionar el volumen **/hana/data** o **/hana/log** en varios discos de Azure, en lugar de implementar volúmenes de disco mayores que proporcionan más información sobre IOPS o el rendimiento necesario. Hasta ahora esto se lograba con los administradores de volúmenes LVM y MDADM que forman parte de Linux. El método de seccionamiento de discos tiene décadas de antigüedad y es perfectamente conocido. Por muy beneficiosos que sean esos volúmenes seccionados para conseguir las IOPS o las capacidades de rendimiento que pueda necesitar, este método agrega complejidades en torno a la administración de dichos volúmenes, especialmente en los casos en los que es necesario ampliar la capacidad de los volúmenes. Al menos para **/hana/data**, SAP presentó un método alternativo que logra el mismo objetivo que el seccionamiento en varios discos de Azure. Desde SAP HANA 2.0 SPS03, el servidor de indexación de HANA puede seccionar su actividad de E/S entre varios archivos de datos de HANA que se encuentran en diferentes discos de Azure. La ventaja es que no tiene que encargarse de crear y administrar un volumen seccionado en varios discos de Azure. La funcionalidad SAP HANA de la creación de particiones de volúmenes de datos se describe en detalle en:
+
+- [Guía para administradores de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA: creación de particiones de volúmenes de datos](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Nota de SAP n.º 2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Nota de SAP n.º 2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Al leer los detalles, es evidente que aprovechar esta funcionalidad elimina las complejidades de los conjuntos de franjas basados en el administrador de volúmenes. También puede observar que la creación de particiones de volúmenes de datos de HANA no solo funciona para el almacenamiento en bloques de Azure, como Azure Premium Storage. También puede usar esta funcionalidad para seccionar en los recursos compartidos de NFS en caso de que estos recursos compartidos tengan limitaciones de IOPS o rendimiento.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Modo de programador de E/S de Linux
 Linux tiene varios modos diferentes de programación de E/S. Una recomendación común de los proveedores de Linux y SAP consiste en reconfigurar el modo de programador de E/S para los volúmenes de disco del modo **mq-deadline** o **kyber** en el modo **noop** (no multicola) o **none** (multicola). Los detalles se incluyen en la [nota de SAP n.º 1984787](https://launchpad.support.sap.com/#/notes/1984787). 

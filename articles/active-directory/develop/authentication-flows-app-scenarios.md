@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762941"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755782"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
-El punto de conexión de la plataforma de identidad de Microsoft (v 2.0) admite la autenticación para diferentes tipos de arquitecturas de aplicación modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0 y OpenID Connect](active-directory-v2-protocols.md). Con las [bibliotecas de autenticación de la plataforma de identidad de Microsoft](reference-v2-libraries.md), las aplicaciones autentican las identidades y adquieren tokens para acceder a API protegidas.
+La Plataforma de identidad de Microsoft admite la autenticación para diferentes tipos de arquitecturas de aplicación modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0 y OpenID Connect](active-directory-v2-protocols.md). Con las [bibliotecas de autenticación de la plataforma de identidad de Microsoft](reference-v2-libraries.md), las aplicaciones autentican las identidades y adquieren tokens para acceder a API protegidas.
 
 En este artículo se describen los flujos de autenticación y los escenarios de aplicaciones en los que se usan.
 
@@ -79,7 +79,7 @@ Para más información, consulte [Tipos de cuenta admitidos](v2-supported-accoun
 
 ## <a name="application-scenarios"></a>Escenarios de aplicación
 
-El punto de conexión de la plataforma de identidad de Microsoft admite la autenticación en estas arquitecturas de aplicaciones:
+La Plataforma de identidad de Microsoft admite la autenticación en estas arquitecturas de aplicaciones:
 
 - Aplicaciones de una sola página
 - Aplicaciones web
@@ -95,7 +95,7 @@ Las aplicaciones usan los distintos flujos de autenticación para iniciar la ses
 
 Muchas aplicaciones web modernas se compilan como aplicaciones de página única del lado cliente. Estas aplicaciones usan JavaScript o un marco de trabajo como Angular, Vue y React. Estas aplicaciones se ejecutan en un explorador web.
 
-Las aplicaciones de página única difieren de las aplicaciones web tradicionales del lado servidor en las características de autenticación. Con la plataforma de identidad de Microsoft las aplicaciones de página única pueden iniciar la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web. La plataforma de identidad de Microsoft ofrece dos tipos de concesión para las aplicaciones JavaScript: 
+Las aplicaciones de página única difieren de las aplicaciones web tradicionales del lado servidor en las características de autenticación. Con la plataforma de identidad de Microsoft las aplicaciones de página única pueden iniciar la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web. La Plataforma de identidad de Microsoft ofrece dos tipos de concesión para las aplicaciones JavaScript: 
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -160,7 +160,7 @@ Para más información, consulte [Aplicación móvil que llama a las API web](sc
 
 ### <a name="protected-web-api"></a>API web protegida
 
-Puede usar el punto de conexión de la Plataforma de identidad de Microsoft para proteger servicios web como la API web RESTful de la aplicación. Se llama a una API web protegida mediante un token de acceso. El token ayuda a proteger los datos de la API y a autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso al encabezado de autorización de una solicitud HTTP.
+Puede usar la Plataforma de identidad de Microsoft para proteger servicios web como la API web RESTful de la aplicación. Se llama a una API web protegida mediante un token de acceso. El token ayuda a proteger los datos de la API y a autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso al encabezado de autorización de una solicitud HTTP.
 
 Si quiere proteger su API web de ASP.NET o ASP.NET Core, debe validar el token de acceso. Para la validación se usa el middleware JWT de ASP.NET. Esta validación se realiza con la biblioteca de [extensiones IdentityModel para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), no con MSAL.NET.
 

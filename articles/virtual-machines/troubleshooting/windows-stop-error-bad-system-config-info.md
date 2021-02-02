@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977038"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661313"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Error de detención de Windows: 0x00000074 la información de configuración del sistema no es correcta
 
@@ -34,7 +34,7 @@ Si usa [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de
 *Si se llama al departamento de soporte técnico, aporte esta información:* 
 *Código de detención: BAD_SYSTEM_CONFIG_INFO*
 
-  ![El código de detención de Windows 0x00000074, que también aparece como "BAD_SYSTEM_CONFIG_INFO". Windows informa al usuario de que el equipo ha tenido problemas y debe reiniciarse.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![El código de detención de Windows 0x00000074, que también aparece como "BAD_SYSTEM_CONFIG_INFO". Windows informa al usuario de que el equipo ha tenido problemas y debe reiniciarse.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Causa
 
@@ -48,13 +48,16 @@ El código de detención **BAD_SYSTEM_CONFIG_INFO** se produce si el subárbol d
 
 ### <a name="process-overview"></a>Información general del proceso:
 
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
+
 1. Cree una VM de reparación y acceda a ella.
 1. Compruebe si hay daños en el subárbol.
 1. Habilite Serial console y la recopilación del volcado de memoria.
 1. Vuelva a compilar la VM.
 
-> [!NOTE]
-> Cuando se detecta este error, el sistema operativo invitado no está operativo. Este problema solo se puede solucionar en el modo sin conexión.
+   > [!NOTE]
+   > Cuando se detecta este error, el sistema operativo invitado no está operativo. Este problema solo se puede solucionar en el modo sin conexión.
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una máquina virtual de reparación y acceso a ella
 
@@ -63,8 +66,8 @@ El código de detención **BAD_SYSTEM_CONFIG_INFO** se produce si el subárbol d
 1. Use Conexión a Escritorio remoto para conectarse a la máquina virtual de reparación.
 1. Copie la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` y guárdela en la partición de disco correcta o en otra ubicación segura. Realice una copia de seguridad de esta carpeta como precaución, ya que modificará los archivos de registro críticos. 
 
-> [!NOTE]
-> Realice una copia de la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` como copia de seguridad en caso de que necesite revertir los cambios que realice en el registro.
+   > [!NOTE]
+   > Realice una copia de la carpeta `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` como copia de seguridad en caso de que necesite revertir los cambios que realice en el registro.
 
 ### <a name="check-for-hive-corruption"></a>Comprobación para ver si hay daños en el subárbol
 
@@ -77,7 +80,7 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
    1. Si no se puede abrir el subárbol, o si está vacío, el subárbol está dañado. Si el subárbol está dañado, [abra una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![Se produce un error que indica que Editor del Registro no puede cargar el subárbol.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Se produce un error que indica que Editor del Registro no puede cargar el subárbol.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Si el subárbol se abre normalmente, el subárbol no se cerró correctamente. Continúe con el paso 5.
 
@@ -92,7 +95,7 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
    **Habilitación de Serial console**:
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -105,13 +108,13 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
    **Cargue el subárbol del Registro desde el disco del sistema operativo roto:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Habilitar en ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -119,7 +122,7 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
    **Habilitar en ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -127,7 +130,7 @@ Las instrucciones siguientes le ayudarán a determinar si la causa se debe a da�
 
    **Descargar disco del sistema operativo roto:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

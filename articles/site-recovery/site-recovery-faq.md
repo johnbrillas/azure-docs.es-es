@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109562"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746482"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -344,6 +344,14 @@ Sí, puede usar la recuperación en una ubicación alternativa para realizar la 
 
 * [Para máquinas virtuales de VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Para máquinas virtuales de Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>¿Cuál es la diferencia entre Migración completa, Commit y Deshabilitar la replicación?
+
+Una vez que se ha conmutado por error una máquina desde la ubicación de origen a la ubicación de destino, podrá elegit entre tres opciones. Las tres sirven para distintos propósitos:
+
+1.  **Completar la migración** significa que ya no volverá a la ubicación de origen. Esto es porque migró a la región de destino y ya ha terminado. Al hacer clic en Completar la migración, se desencadena Commit y, luego, Deshabilitar la replicación, internamente. 
+2.  **Commit** significa que no es el final del proceso de replicación. Se conservará el elemento de replicación junto con toda la configuración, y podrá hacer clic en **Volver a proteger** en un momento posterior para volver a habilitar la replicación de las máquinas en la región de origen. 
+3.  **Deshabilitar la replicación** deshabilitará la replicación y quitará toda la configuración relacionada. No afectará a la máquina que ya existe en la región de destino.
 
 ## <a name="automation"></a>Automation
 

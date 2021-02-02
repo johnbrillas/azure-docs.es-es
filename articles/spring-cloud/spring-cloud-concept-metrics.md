@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060646"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755481"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -97,8 +97,9 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
 >|----|----|----|------------|
->| system.cpu.usage | system.cpu.usage | Percent | Uso de CPU reciente de todo el sistema. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que todas las CPU estuvieron inactivas durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU se estaban ejecutando activamente el 100 % del tiempo durante el último período observado.|
->| process.cpu.usage | App CPU Usage Percentage (Porcentaje de uso de CPU de la aplicación) | Percent | Uso reciente de la CPU para el proceso de Máquina virtual Java. Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
+>| system.cpu.usage | system.cpu.usage | Percent | Uso de CPU reciente para todo el sistema (obsoleto y no se recomienda su uso). Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que todas las CPU estuvieron inactivas durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU se estaban ejecutando activamente el 100 % del tiempo durante el último período observado.|
+>| process.cpu.usage | App CPU Usage Percentage (Porcentaje de uso de CPU de la aplicación) | Percent | Uso de CPU reciente para el proceso de Máquina virtual Java (obsoleto y no se recomienda su uso). Este es un valor Double en el intervalo [0,0, 1,0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
+>| AppCpuUsage | Uso de CPU de la aplicación (versión preliminar) | Percent | Uso de CPU reciente del proceso de JVM en la CPU asignada a esta aplicación, valor de tipo double entre [0.0, 1.0]. Un valor de 0,0 indica que ninguna de las CPU estaba ejecutando subprocesos del proceso de Máquina virtual Java durante el período de tiempo reciente observado, mientras que un valor de 1,0 indica que todas las CPU estaban ejecutando activamente subprocesos de la Máquina virtual Java el 100 % del tiempo durante el último período observado. Los subprocesos de la Máquina virtual Java incluyen los subprocesos de la aplicación, así como los subprocesos internos de Máquina virtual Java.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa la cantidad de memoria que se garantiza que va a estar disponible para que la use la Máquina virtual Java. Es posible que la Máquina virtual Java libere memoria para el sistema y que la memoria confirmada sea menor que la inicial. La memoria asignada siempre será mayor o igual que la utilizada. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Representa la cantidad de memoria que se usa actualmente en bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Representa la cantidad máxima de memoria que se puede usar para la administración de memoria. La cantidad de memoria usada y asignada siempre será menor o igual al valor máximo, si se definió el máximo. Se puede producir un error de asignación de memoria si intenta aumentar la memoria usada de modo que la memoria usada sea mayor que la memoria asignada, incluso si la memoria usada es menor o igual que el valor máximo (por ejemplo, cuando el sistema tiene poca memoria virtual). |

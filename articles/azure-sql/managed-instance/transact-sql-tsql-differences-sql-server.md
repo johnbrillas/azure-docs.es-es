@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796302"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737394"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -168,7 +168,7 @@ Una Instancia administrada de SQL no puede acceder a archivos, por lo que no se 
     - Exportar una base de datos desde una Instancia administrada de SQL e importarla a SQL Database en el mismo dominio de Azure AD. 
     - Exportar una base de datos desde SQL Database e importarla a una Instancia administrada de SQL en el mismo dominio de Azure AD.
     - Exportar una base de datos desde una Instancia administrada de SQL e importarla a SQL Server (versión 2012 o posterior).
-      - En esta configuración, todos los usuarios de Azure AD se crean como entidades de seguridad de base de datos de SQL Server (usuarios) sin inicios de sesión. El tipo de usuario se muestra como `SQL` y es visible como `SQL_USER` en sys.database_principals). Sus permisos y roles se conservan en los metadatos de la base de datos de SQL Server y se pueden usar para la suplantación. Sin embargo, no se pueden usar para obtener acceso e iniciar sesión en SQL Server con sus credenciales.
+      - En esta configuración, todos los usuarios de Azure AD se crean como entidades de seguridad de base de datos de SQL Server (usuarios) sin inicios de sesión. El tipo de usuarios se muestra como `SQL` y es visible como `SQL_USER` en sys.database_principals). Sus permisos y roles se conservan en los metadatos de la base de datos de SQL Server y se pueden usar para la suplantación. Sin embargo, no se pueden usar para obtener acceso e iniciar sesión en SQL Server con sus credenciales.
 
 - Solo el inicio de sesión de la entidad de seguridad a nivel de servidor (el que crea el proceso de aprovisionamiento de la Instancia administrada de SQL), los miembros de los roles de servidor, como `securityadmin` o `sysadmin`, u otros inicios de sesión con permiso ALTER ANY LOGIN en el nivel de servidor pueden crear entidades de seguridad (inicios de sesión) de servidor de Azure AD en la base de datos maestra para la Instancia administrada de SQL.
 - Si el inicio de sesión es una entidad de seguridad de SQL, solo los inicios de sesión que forman parte del rol `sysadmin` pueden utilizar el comando create para crear inicios de sesión para una cuenta de Azure AD.
@@ -276,6 +276,8 @@ Las opciones siguientes no se pueden modificar:
 - `RESTRICTED_USER`
 - `SINGLE_USER`
 - `WITNESS`
+
+Es posible que algunas instrucciones `ALTER DATABASE` (por ejemplo, [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) no se puedan realizar de forma transitoria, por ejemplo, durante la copia de seguridad automatizada o justo después de crear una base de datos. En este caso, la instrucción `ALTER DATABASE` debe volver a intentarse. Para obtener más información sobre los mensajes de error relacionados, consulte la sección [Comentarios](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -398,12 +400,12 @@ No se admite la [búsqueda semántica](/sql/relational-databases/search/semantic
 Los servidores vinculados en la Instancia administrada de SQL admiten un número limitado de destinos:
 
 - Los destinos admitidos son SQL Managed Instance, SQL Database, grupos de Azure Synapse SQL [sin servidor](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) y dedicados e instancias de SQL Server. 
-- Los servidores vinculados no admiten transacciones de escritura distribuidas (MS DTC).
+- Las transacciones de escritura distribuidas solo son posibles entre instancias administradas. Vea [Transacciones distribuidas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) para obtener más información. Sin embargo, no se admite MS DTC.
 - Destinos no admitidos: archivos, Analysis Services y otros RDBMS. Intente usar la importación de CSV nativa desde Azure Blob Storage mediante `BULK INSERT` o `OPENROWSET` como alternativa para la importación de archivos, o cargue los archivos mediante un [grupo de SQL sin servidor en Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operaciones: 
 
-- No se admiten las transacciones de escritura entre instancias.
+- Las transacciones de escritura [entre instancias](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) solo se admiten para las instancias administradas.
 - Se admite `sp_dropserver` para quitar un servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La función `OPENROWSET` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La función `OPENDATASOURCE` se puede usar para ejecutar consultas solo en instancias de SQL Server. Se pueden administrar de forma local o en máquinas virtuales. Solo se admiten los valores `SQLNCLI`, `SQLNCLI11` y `SQLOLEDB` como proveedor. Un ejemplo es `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -506,15 +508,14 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="subnet"></a>Subnet
 -  No se puede colocar ningún otro recurso (por ejemplo, máquinas virtuales) en la subred en la que ha implementado la Instancia administrada de SQL. Implemente estos recursos con una subred diferente.
-- La subred debe tener un número de [direcciones IP](connectivity-architecture-overview.md#network-requirements) disponibles suficiente. El mínimo es 16, aunque se recomienda tener al menos 32 direcciones IP en la subred.
-- [No se pueden asociar los puntos de conexión de servicio con la subred de la Instancia administrada de SQL](connectivity-architecture-overview.md#network-requirements). Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
+- La subred debe tener un número de [direcciones IP](connectivity-architecture-overview.md#network-requirements) disponibles suficiente. El mínimo es tener al menos 32 direcciones IP en la subred.
 - El número de núcleos virtuales y tipos de instancias que se pueden implementar en una región tiene algunas [restricciones y límites](resource-limits.md#regional-resource-limitations).
-- Hay algunas [reglas de seguridad que se deben aplicar en la subred](connectivity-architecture-overview.md#network-requirements).
+- Hay una [configuración de red](connectivity-architecture-overview.md#network-requirements) que se debe aplicar en la subred.
 
 ### <a name="vnet"></a>VNET
 - La red virtual se puede implementar mediante el modelo con Resource Manager. No se admite el modelo clásico.
 - Después de crear una Instancia administrada de SQL, no se admite el traslado de dicha Instancia administrada de SQL o la red virtual a otro grupo de recursos o suscripción.
-- Algunos servicios, como App Service Environment, Logic Apps y la Instancia administrada de SQL (que se usan para la replicación geográfica, la replicación transaccional o a través de servidores vinculados), no pueden acceder a la Instancia administrada de SQL de diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
+- En el caso de las instancias administradas de SQL hospedadas en clústeres virtuales que se crean antes del 22/9/2020, el [emparejamiento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) no se admite. Se puede conectar a estos recursos a través de ExpressRoute o de red virtual a red virtual a través de puertas de enlace de red virtuales.
 
 ### <a name="failover-groups"></a>Grupos de conmutación por error
 Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Por lo tanto, los escenarios que dependen de objetos de las bases de datos del sistema serán imposibles en la instancia secundaria, a menos que los objetos se creen manualmente en la secundaria.

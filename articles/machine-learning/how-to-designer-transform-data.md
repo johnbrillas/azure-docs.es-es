@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554022"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880210"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformación de datos en el diseñador de Azure Machine Learning
 
@@ -52,11 +52,7 @@ Siga estos pasos para importar el conjunto de datos de ejemplo.
 
 1. Arrastre y coloque el conjunto de datos **Clasificación binaria de ingresos en el censo de adultos** en el lienzo.
 
-1. Seleccione el módulo del conjunto de datos **Ingresos en el censo de adultos**.
-
-1. En el panel de detalles que aparece a la derecha del lienzo, seleccione **Outputs** (Resultados).
-
-1. Seleccione el icono de visualización. ![icono de visualización](media/how-to-designer-transform-data/visualize-icon.png).
+1. Haga clic con el botón derecho en el módulo de **ingresos en el censo de adultos** y seleccione **Visualizar** > **Salida del conjunto de datos**.
 
 1. Use la ventana de vista previa de los datos para explorar el conjunto de datos. Tenga en cuenta especialmente los valores de la columna "native-country".
 

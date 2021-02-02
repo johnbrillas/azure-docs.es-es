@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19451fb09919238a04ac953c9c38fc70b4744d16
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955304"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735006"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creación de un controlador de datos de Azure Arc mediante [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -59,7 +59,7 @@ kubectl config current-context
 
 ### <a name="connectivity-modes"></a>Modos de conectividad
 
-Como se describe en [Modos de conectividad y requisitos](https://docs.microsoft.com/azure/azure-arc/data/connectivity), el controlador de datos de Azure Arc se puede implementar con el modo de conectividad `direct` o `indirect`. Con el modo de conectividad `direct`, los datos de uso se envían automática y continuamente a Azure. En este artículo, los ejemplos especifican el modo de conectividad `direct` de la siguiente manera:
+Como se describe en [Modos de conectividad y requisitos](./connectivity.md), el controlador de datos de Azure Arc se puede implementar con el modo de conectividad `direct` o `indirect`. Con el modo de conectividad `direct`, los datos de uso se envían automática y continuamente a Azure. En este artículo, los ejemplos especifican el modo de conectividad `direct` de la siguiente manera:
 
    ```console
    --connectivity-mode direct
@@ -266,34 +266,11 @@ Una vez ejecutado el comando, continúe en [Supervisión del estado de creación
 
 ### <a name="create-on-azure-red-hat-openshift-aro"></a>Creación en Red Hat OpenShift en Azure (ARO)
 
-#### <a name="apply-the-scc"></a>Aplicación de la SCC
+Red Hat OpenShift en Azure requiere una restricción del contexto de seguridad.
 
-Antes de crear el controlador de datos en Red Hat OpenShift en Azure, deberá aplicar restricciones de contexto de seguridad (SCC) específicas. En el caso de la versión preliminar, se relajan las restricciones de seguridad. Las versiones futuras proporcionarán SCC actualizadas.
+#### <a name="apply-the-security-context"></a>Aplicación del contexto de seguridad
 
-1. Descargue la restricción de contexto de seguridad (SCC) personalizada. Use uno de los siguientes: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` El siguiente comando descarga arc-data-scc.yaml:
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. Cree la SCC.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. Aplique la SCC a la cuenta de servicio.
-
-   > [!NOTE]
-   > Use el mismo espacio de nombres aquí y en el comando `azdata arc dc create` siguiente. Un ejemplo es `arc`.
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
-
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="create-custom-deployment-profile"></a>Creación de un perfil de implementación personalizado
 
@@ -324,33 +301,11 @@ Una vez ejecutado el comando, continúe en [Supervisión del estado de creación
 > [!NOTE]
 > Si usa Red Hat OpenShift Container Platform en Azure, se recomienda usar la versión más reciente disponible.
 
-#### <a name="apply-the-scc"></a>Aplicación de la SCC
+Antes de crear el controlador de datos en Red Hat OCP, deberá aplicar restricciones de contexto de seguridad específicas. 
 
-Antes de crear el controlador de datos en Red Hat OCP, deberá aplicar restricciones de contexto de seguridad (SCC) específicas. En el caso de la versión preliminar, se relajan las restricciones de seguridad. Las versiones futuras proporcionarán SCC actualizadas.
+#### <a name="apply-the-security-context-constraint"></a>Aplicación de la restricción de contexto de seguridad
 
-1. Descargue la restricción de contexto de seguridad (SCC) personalizada. Use uno de los siguientes: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` El siguiente comando descarga arc-data-scc.yaml:
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. Cree la SCC.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. Aplique la SCC a la cuenta de servicio.
-
-   > [!NOTE]
-   > Use el mismo espacio de nombres aquí y en el comando `azdata arc dc create` siguiente. Un ejemplo es `arc`.
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="determine-storage-class"></a>Determinación de la clase de almacenamiento
 

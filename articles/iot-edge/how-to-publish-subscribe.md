@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922591"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621902"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicación y suscripción con Azure IoT Edge
 
@@ -251,7 +251,7 @@ Cree dos dispositivos IoT en IoT Hub y obtenga sus contraseñas. Use la CLI de A
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autorización de los clientes publicador y suscriptor
 
-Para autorizar al publicador y suscriptor, edite el gemelo del centro de IoT Edge a través de la CLI de Azure, Visual Studio o Visual Studio Code para incluir la siguiente directiva de autorización:
+Para autorizar al editor y suscriptor, edite el gemelo del centro de IoT Edge mediante la creación de una implementación con la CLI de Azure, Visual Studio o Visual Studio Code para incluir la siguiente directiva de autorización:
 
 ```json
 {

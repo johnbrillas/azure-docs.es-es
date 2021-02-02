@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922692"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757654"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organización de grupos de administración, suscripciones y visibilidad de todo el inquilino
 
@@ -107,6 +107,36 @@ Para asignarse a uno mismo permisos de nivel de inquilino:
 
 1. Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Center para comprobar que tiene visibilidad en todas las suscripciones del inquilino de Azure AD. 
 
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicitud de permisos para todo el inquilino cuando el suyo sea insuficiente
+
+Si inicia sesión en Security Center y ve un banner que le indica que la vista está limitada, puede hacer clic para enviar una solicitud al administrador global de su organización. En la solicitud, puede incluir el rol que le gustaría que se le asignara y el administrador global tomará una decisión sobre qué rol otorgar. 
+
+La decisión del administrador global es aceptar o rechazar estas solicitudes. 
+
+> [!IMPORTANT]
+> Solamente puede enviar una solicitud cada siete días.
+
+Para solicitar permisos elevados al administrador global:
+
+1. En Azure Portal, abra Azure Security Center.
+
+1. Si ve el banner "Está viendo información limitada"., Selecciónelo.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner que informa a un usuario de que puede solicitar permisos para todo el inquilino.":::
+
+1. En el formulario de solicitud detallado, seleccione el rol deseado y la justificación del motivo por el que necesita estos permisos.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalles para solicitar permisos para todo el inquilino al administrador global de Azure":::
+
+1. Seleccione **Solicitar acceso**.
+
+    Se envía un correo electrónico al administrador global. El correo electrónico contiene un vínculo a Security Center donde pueden aprobar o rechazar la solicitud.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Correo electrónico al administrador global para los nuevos permisos":::
+
+    Una vez que el administrador global selecciona **Revisar la solicitud** y completa el proceso, la decisión se envía por correo electrónico al usuario que realiza la solicitud. 
+
 ## <a name="assign-azure-roles-to-other-users"></a>Asignación de roles de Azure a otros usuarios
 
 ### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Asignación de roles de Azure a los usuarios mediante Azure Portal: 
@@ -149,6 +179,7 @@ Para asignarse a uno mismo permisos de nivel de inquilino:
     ```
 
 ## <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados 
+
 Después de asignar los roles de Azure a los usuarios, el administrador de inquilino debería eliminarse a sí mismo del rol de administrador de acceso de usuarios.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).

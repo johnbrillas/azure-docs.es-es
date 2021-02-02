@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683185"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680610"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado (versión preliminar)
 Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
@@ -253,6 +253,8 @@ Para empezar, deberá agregar los nuevos recursos a la plantilla de Resource Man
 
 Una vez haya terminado la implementación de los recursos, puede empezar a deshabilitar los nodos en el tipo de nodo que quiera quitar del clúster original.
 
+>[!NOTE]
+> Al usar el escalado automático con tipos de nodos sin estado con durabilidad Bronze, después de la operación de reducción vertical, el estado del nodo no se limpia automáticamente. Para limpiar el estado del nodo de los nodos inactivos durante la escalabilidad automática, se recomienda usar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

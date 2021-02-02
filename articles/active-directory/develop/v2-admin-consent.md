@@ -1,6 +1,6 @@
 ---
 title: Protocolos de consentimiento del administrador de la Plataforma de identidad de Microsoft
-description: Descripción de la autorización en el punto de conexión de la Plataforma de identidad de Microsoft, incluidos los ámbitos, los permisos y el consentimiento.
+description: Descripción de la autorización en la Plataforma de identidad de Microsoft, incluidos los ámbitos, los permisos y el consentimiento.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 13cff9f3a6037a16d7c3b9cf233d26c6e9518bc1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703326"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756097"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimiento del administrador en la Plataforma de identidad de Microsoft
 
@@ -27,7 +27,7 @@ Algunos permisos requieren el consentimiento de un administrador antes de poder 
 
 Normalmente, cuando se compila una aplicación que usa el punto de conexión de consentimiento del administrador, la aplicación necesita una página o una vista en la que el administrador pueda aprobar los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
-Al iniciar la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el administrador antes de pedirle que apruebe los permisos necesarios. Aunque no es estrictamente necesario, puede ayudarle a crear una experiencia más intuitiva para los usuarios de la organización. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la Plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
+Al iniciar la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el administrador antes de pedirle que apruebe los permisos necesarios. Aunque no es estrictamente necesario, puede ayudarle a crear una experiencia más intuitiva para los usuarios de la organización. Para iniciar la sesión del usuario, siga los [tutoriales del protocolo de la Plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
 

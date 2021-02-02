@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063848"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755939"
 ---
-# <a name="integrating-with-microsoft-identity-platform"></a>Integración con la Plataforma de identidad de Microsoft
+# <a name="integrating-with-the-microsoft-identity-platform"></a>Integración con la Plataforma de identidad de Microsoft
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -31,7 +31,7 @@ En este artículo obtendrá información sobre las ventajas de integrar la aplic
 
 Hay varias maneras de integrar la aplicación con la Plataforma de identidad de Microsoft. Aprovechar muchos o algunos de estos escenarios es apropiado para su aplicación.
 
-### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Compatibilidad con la Plataforma de identidad de Microsoft como forma de iniciar sesión en la aplicación
+### <a name="support-the-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Compatibilidad con la Plataforma de identidad de Microsoft como forma de iniciar sesión en la aplicación
 
 **Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Al usar la Plataforma de identidad de Microsoft para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. La Plataforma de identidad de Microsoft se utiliza en el inicio de sesión de algunas de las aplicaciones en la nube más populares del mundo, incluido Microsoft 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en la Plataforma de identidad de Microsoft. Obtenga información sobre cómo [agregar compatibilidad con el inicio de sesión de la Plataforma de identidad de Microsoft](./authentication-vs-authorization.md).
 
@@ -45,7 +45,7 @@ Hay varias maneras de integrar la aplicación con la Plataforma de identidad de 
 
 **Use la Plataforma de identidad de Microsoft para controlar quién tiene acceso a la aplicación.**  Los administradores y propietarios de aplicaciones en Azure AD pueden asignar acceso a las aplicaciones para usuarios y grupos específicos. Con Microsoft Graph API, puede leer esta lista y usarla para controlar el aprovisionamiento y la cancelación de aprovisionamiento de recursos y accesos dentro de la aplicación.
 
-**Use la Plataforma de identidad de Microsoft para el control de acceso basado en roles.**  Los administradores y propietarios de aplicaciones pueden asignar usuarios y grupos a los roles que se definen al registrar la aplicación en la Plataforma de identidad de Microsoft. La información del rol se envía a la aplicación en los tokens de inicio de sesión y también se puede leer a través de Microsoft Graph API. Más información sobre el [Uso de la Plataforma de identidad de Microsoft para la autorización](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Use la Plataforma de identidad de Microsoft para el control de acceso basado en roles.**  Los administradores y propietarios de aplicaciones pueden asignar usuarios y grupos a los roles que se definen al registrar la aplicación en la Plataforma de identidad de Microsoft. La información del rol se envía a la aplicación en los tokens de inicio de sesión y también se puede leer a través de Microsoft Graph API. Más información sobre el [uso de la Plataforma de identidad de Microsoft para la autorización](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Obtenga acceso al perfil del usuario, el calendario, el correo electrónico, los contactos, los archivos, etc.
 

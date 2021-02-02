@@ -1,22 +1,25 @@
 ---
-title: Comunicación para roles en Cloud Services | Microsoft Docs
+title: Comunicación para roles en Cloud Services (clásico) | Microsoft Docs
 description: Las instancias de rol de Cloud Services pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386347"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743039"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar la comunicación para instancias de rol en Azure
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Habilitar la comunicación para instancias de rol en Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
 
 ## <a name="input-endpoint"></a>Extremo de entrada
@@ -106,7 +109,7 @@ La propiedad **Instances** devuelve una colección de objetos **RoleInstance**. 
 > 
 > 
 
-Para determinar el número de puerto de un extremo interno en una instancia de rol, puede usar la propiedad [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) para devolver un objeto Dictionary que contenga los nombres de extremo y sus direcciones IP y puertos correspondientes. La propiedad [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) devuelve la dirección IP y el puerto de un extremo específico. La propiedad **PublicIPEndpoint** devuelve el puerto de un extremo con equilibrio de carga. La parte de la dirección IP de la propiedad **PublicIPEndpoint** no se usa.
+Para determinar el número de puerto de un extremo interno en una instancia de rol, puede usar la propiedad de [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) para que se devuelva un objeto Dictionary que contenga nombres de extremo, así como las direcciones IP y los puertos correspondientes. La propiedad [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) devuelve la dirección IP y el puerto del extremo que se haya especificado. La propiedad `PublicIPEndpoint` devuelve el puerto de un punto de conexión con equilibrio de carga. No se utiliza la parte de la dirección IP de la propiedad `PublicIPEndpoint`.
 
 Aquí tiene un ejemplo que itera las instancias de rol.
 
@@ -124,7 +127,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Aquí tiene el ejemplo de un rol de trabajo que obtiene el extremo expuesto a través de la definición de servicio, y que inicia la escucha de conexiones.
 
 > [!WARNING]
-> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de Azure Compute, los elementos de configuración de servicio que crean extremos de puerto directo (elementos**InstanceInputEndpoint** ) se ignoran.
+> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de Azure Compute, los elementos de configuración de servicio que crean extremos de puerto directo (elementos **InstanceInputEndpoint** ) se ignoran.
 > 
 > 
 

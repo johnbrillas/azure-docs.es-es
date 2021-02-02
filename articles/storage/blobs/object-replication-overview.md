@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178983"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762884"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -88,7 +88,9 @@ Al crear una regla de replicación, de forma predeterminada solo se copian los b
 
 También puede especificar uno o varios filtros como parte de una regla de replicación para filtrar los blobs en bloques por prefijo. Cuando se especifica un prefijo, solo los blobs que coinciden con ese prefijo en el contenedor de origen se copiarán en el contenedor de destino.
 
-Los contenedores de origen y de destino deben existir antes de poder especificarlos en una regla. Después de crear la directiva de replicación, el contenedor de destino pasa a ser de solo lectura. Cualquier intento de escribir en el contenedor de destino producirá un error con el código de error 409 (Conflicto). Sin embargo, puede llamar a la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla al nivel de archivo. Para más información sobre el nivel de archivo, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md#archive-access-tier).
+Los contenedores de origen y de destino deben existir antes de poder especificarlos en una regla. Después de crear la directiva de replicación, no se permiten las operaciones de escritura en el contenedor de destino. Cualquier intento de escribir en el contenedor de destino producirá un error con el código de error 409 (Conflicto). Para escribir en un contenedor de destino para el que esté configurada una regla de replicación, debe eliminar la regla que está configurada para ese contenedor o quitar la directiva de replicación. Las operaciones de lectura y eliminación en el contenedor de destino se permiten cuando la directiva de replicación está activa.
+
+Puede llamar a la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla al nivel de archivo. Para más información sobre el nivel de archivo, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="replication-status"></a>Estado de replicación
 

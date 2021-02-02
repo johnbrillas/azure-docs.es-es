@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695785"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695677"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuales
 
@@ -43,16 +43,16 @@ Antes de intentar habilitar Azure Automanage en las máquinas virtuales, debe te
 
 - Máquinas virtuales solo de Windows Server
 - Las máquinas virtuales deben estar en ejecución
-- Las máquinas virtuales deben estar en una región admitida.
+- Las máquinas virtuales deben estar en una región admitida (consulte el párrafo siguiente)
 - El usuario debe tener los permisos correctos (consulte el párrafo siguiente).
 - Automanage no admite suscripciones de espacio aislado en este momento
 
-Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage en las máquinas virtuales con una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos en la suscripción: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**. 
+También es importante advertir que Automanage solo es compatible con máquinas virtuales Windows ubicadas en las siguientes regiones: Oeste de Europa, Este de EE. UU., Oeste de EE. UU. 2, Centro de Canadá, Centro-oeste de EE. UU., Este de Japón.
+
+Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage en las máquinas virtuales con una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos en la suscripción: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
 
 > [!NOTE]
 > Si quiere usar Automanage en una máquina virtual que está conectada a un área de trabajo en una suscripción diferente, debe tener los permisos descritos anteriormente en cada suscripción.
-
-También es importante advertir que Automanage solo es compatible con máquinas virtuales Windows ubicadas en las siguientes regiones: Oeste de Europa, Este de EE. UU., Oeste de EE. UU. 2, Centro de Canadá, Centro-oeste de EE. UU., Este de Japón.
 
 ## <a name="participating-services"></a>Servicios participantes
 
@@ -102,12 +102,20 @@ Se puede ajustar la configuración de un perfil de configuración predeterminado
 
 ## <a name="automanage-account"></a>Cuenta de Automanage
 
-La cuenta de Automanage es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Por lo general, no es necesario seleccionar la opción de cuenta de Automanage, pero si hubiera un escenario de delegación en el que quisiera dividir la administración automatizada (quizás entre dos administradores del sistema), esta opción le permite definir una identidad de Azure para cada uno de esos administradores.
+La cuenta de Automanage es el contexto de seguridad o la identidad bajo los que tienen lugar las operaciones automatizadas. Por lo general, no es necesario seleccionar la opción de cuenta de Automanage, pero si hubiera un escenario de delegación en el que quisiera dividir la administración automatizada de sus recursos (quizás entre dos administradores del sistema), esta opción le permite definir una identidad de Azure para cada uno de esos administradores.
 
 En la experiencia de Azure Portal, al habilitar Automanage en las máquinas virtuales, hay una lista desplegable de opciones avanzadas en la hoja **Enable Azure VM best practice** (Habilitar procedimiento recomendado de máquina virtual de Azure) que le permite asignar o crear manualmente la cuenta de Automanage.
 
+A la cuenta de Automanage se le concederán los roles **Colaborador** y **Colaborador de directivas de recursos** a las suscripciones que contienen las máquinas que se incorporan a Automanage. Puede usar la misma cuenta de Automanage en máquinas en varias suscripciones, lo que permitirá conceder a dicha cuenta de Automanage los permisos **Colaborador** y **Colaborador de directivas de recursos** en todas las suscripciones.
+
+Si la máquina virtual está conectada a un área de trabajo de Log Analytics en otra suscripción, se le concederán a la cuenta de Automanage **Colaborador** y **Colaborador de directivas de recursos** también en esa otra suscripción.
+
+Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos en la suscripción: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
+
+Si habilita Automanage con una cuenta de Automanage existente, debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales.
+
 > [!NOTE]
-> Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage en las máquinas virtuales con una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos en la suscripción: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
+> Al deshabilitar los procedimientos recomendados de Automanage, se conservarán los permisos de la cuenta de Automanage en las suscripciones asociadas. Para quitar manualmente los permisos, vaya a la página IAM de la suscripción o elimine la cuenta de Automanage. No se puede eliminar la cuenta de Automanage si sigue administrando las máquinas.
 
 
 ## <a name="status-of-vms"></a>Estado de las máquinas virtuales
@@ -122,6 +130,7 @@ La columna **Status** (Estado) puede mostrar los siguientes estados:
 - *In-progress* (En curso). la máquina virtual se acaba de habilitar y se está configurando.
 - *Configured* (Configurada): la máquina virtual está configurada y no se detecta ninguna desviación.
 - *Failed*(Error): la máquina virtual presenta desviaciones y no somos capaces de corregirlas.
+- *Pendiente*: la máquina virtual no se está ejecutando actualmente y Automanage intentará incorporar o corregir la máquina virtual en su próxima ejecución
 
 Si en **Status** (Estado), aparece *Failed* (Error), puede solucionar el problema de la implementación mediante el grupo de recursos en el que se encuentra la máquina virtual. Vaya a **Resource groups** (Grupos de recursos), seleccione el grupo de recursos, haga clic en **Deployments** (Implementaciones) y vea ahí el estado *Failed* (Error) con los detalles del error.
 
@@ -145,7 +154,6 @@ Lea detenidamente los mensajes del elemento emergente resultante antes de acepta
 
 
 En primer lugar, no se desactivará la máquina virtual de ninguno de los servicios que hayamos incorporado y configurado. Los cargos que generen esos servicios se seguirán facturando. Si es necesario, debe desactivarlos. Cualquier acción de Automanage se detendrá inmediatamente. Por ejemplo, ya no se supervisarán las desviaciones de la máquina virtual.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

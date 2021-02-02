@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539574"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621221"
 ---
 # <a name="manage-individual-sensors"></a>Administración de sensores individuales
 
@@ -315,7 +315,7 @@ Para convertir certificados y claves en diferentes formatos para que sean compat
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Conexión de un sensor a la consola de administración
 
-En esta sección se describe cómo garantizar la conexión entre el sensor y la consola de administración local. Tiene que establecerla si trabaja en una red aislada y quiere enviar información de alertas y recursos a la consola de administración desde el sensor. Esta conexión también permite que la consola de administración inserte la configuración del sistema en el sensor y realice otras tareas de administración en el sensor.
+En esta sección se describe cómo garantizar la conexión entre el sensor y la consola de administración local. Esto es necesario si trabaja en una red aislada y quiere enviar información de alertas y dispositivos a la consola de administración desde el sensor. Esta conexión también permite que la consola de administración inserte la configuración del sistema en el sensor y realice otras tareas de administración en el sensor.
 
 Para conectarse:
 

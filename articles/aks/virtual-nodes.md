@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351847"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684781"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales
 
@@ -48,6 +48,7 @@ La funcionalidad de nodos virtuales es muy dependiente del conjunto de caracter�
 * Nodos virtuales con clústeres privados.
 * Uso de intervalos IP autorizados de servidor de API para AKS.
 * El montaje de volúmenes con recursos compartidos de Azure Files es compatible con las [cuentas de uso general V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Siga las instrucciones para montar [un volumen con un recurso compartido de Azure Files](azure-files-volume.md).
+* El uso de IPv6 no se admite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

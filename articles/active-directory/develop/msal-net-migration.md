@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063610"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754824"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
 Tanto la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET) como la Biblioteca de autenticación de Azure AD para .NET (ADAL.NET) se usan para autenticar entidades de Azure AD y solicitar tokens a Azure AD. Hasta ahora, la mayoría de los desarrolladores ha usado la plataforma Azure AD para desarrolladores (v1.0) para autenticar identidades de Azure AD (cuentas profesionales y educativas) mediante la solicitud de tokens conAzure AD Authentication Library (ADAL). Con MSAL:
 
-- puede autenticar un conjunto más amplio de identidades de Microsoft (identidades de Azure AD y cuentas Microsoft, así como cuentas de redes sociales y locales mediante Azure AD B2C) puesto que se usa el punto de conexión de la plataforma de identidad de Microsoft.
+- puede autenticar un conjunto más amplio de identidades de Microsoft (identidades de Azure AD y cuentas Microsoft, así como cuentas de redes sociales y locales mediante Azure AD B2C) puesto que se usa la Plataforma de identidad de Microsoft,
 - los usuarios obtendrán la mejor experiencia de inicio de sesión único.
 - la aplicación puede permitir el consentimiento incremental y es más fácil admitir el acceso condicional
 - se beneficia de la innovación.
@@ -35,9 +35,9 @@ En este artículo se describen las diferencias entre la biblioteca de autenticac
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Diferencias entre las aplicaciones de ADAL y MSAL
 
-En la mayoría de los casos deseará usar MSAL.NET y el punto de conexión de la plataforma de identidad de Microsoft, que es la última generación de bibliotecas de autenticación de Microsoft. Mediante MSAL.NET adquiere tokens para los usuarios que inician sesión en su aplicación con Azure AD (cuentas profesionales y educativas), cuentas (personales) Microsoft (MSA) o Azure AD B2C.
+En la mayoría de los casos deseará usar MSAL.NET y la Plataforma de identidad de Microsoft, que es la última generación de bibliotecas de autenticación de Microsoft. Mediante MSAL.NET adquiere tokens para los usuarios que inician sesión en su aplicación con Azure AD (cuentas profesionales y educativas), cuentas (personales) Microsoft (MSA) o Azure AD B2C.
 
-Si ya conoce el punto de conexión de Azure AD para desarrolladores (v1.0) (y ADAL.NET), puede que desee leer [Diferencias del punto de conexión de la plataforma de identidad de Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md).
+Si ya conoce el punto de conexión de Azure AD para desarrolladores (v1.0) (y ADAL.NET), puede que desee leer [¿Qué tiene de diferente la plataforma de identidad de Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Sin embargo, aun así deberá usar ADAL.NET si la aplicación necesita iniciar sesión en los usuarios con versiones anteriores de [Servicios de federación de Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Para más información, consulte al [soporte técnico de Azure](https://aka.ms/msal-net-adfs-support).
 
@@ -266,4 +266,4 @@ Este método también se puede usar para diversos escenarios de integración en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar más información acerca de los ámbitos en [Ámbitos, permisos y consentimiento en el punto de conexión de la plataforma de identidad de Microsoft](v2-permissions-and-consent.md)
+Puede encontrar más información acerca de los ámbitos en [Ámbitos, permisos y consentimiento en la Plataforma de identidad de Microsoft](v2-permissions-and-consent.md).

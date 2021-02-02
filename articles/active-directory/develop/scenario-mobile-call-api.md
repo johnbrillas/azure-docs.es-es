@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064273"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756473"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Llamada a una API web desde una aplicación móvil
 
@@ -119,7 +119,7 @@ task.resume()
 
 Si tiene que llamar varias veces a la misma API, o si debe llamar a varias API, tenga en cuenta los temas siguientes al compilar la aplicación:
 
-- **Consentimiento incremental**: La plataforma de identidad de Microsoft permite que las aplicaciones obtengan el consentimiento del usuario cuando se necesitan los permisos, en lugar de todos al principio. Cada vez que la aplicación está lista para llamar a una API, debe solicitar solo los ámbitos que necesita.
+- **Consentimiento incremental**: La Plataforma de identidad de Microsoft permite que las aplicaciones obtengan el consentimiento del usuario cuando se necesitan los permisos, en lugar de todos al principio. Cada vez que la aplicación está lista para llamar a una API, debe solicitar solo los ámbitos que necesita.
 
 - **Acceso condicional**: Cuando realiza varias solicitudes a una API, en determinados escenarios, podría tener requisitos adicionales de acceso condicional. Los requisitos pueden aumentar de este modo si la primera solicitud no tiene ninguna directiva de acceso condicional y la aplicación intenta acceder en modo silencioso a una nueva API que requiere acceso condicional. Para controlar este problema, asegúrese de que detecta los errores de solicitudes silenciosas y prepárese para realizar una solicitud interactiva.  Para obtener más información, consulte [Guía de acceso condicional](../azuread-dev/conditional-access-dev-guide.md).
 

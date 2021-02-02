@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247053"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762988"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -61,7 +61,10 @@ Se admiten estos escenarios en el lanzamiento preconfigurado: La característica
 - Usuarios que se aprovisionan en Azure AD mediante Azure AD Connect. No se aplica a los usuarios solo de nube.
 
 - El tráfico de inicio de sesión del usuario en los exploradores y clientes de *autenticación moderna*. Las aplicaciones o los servicios en la nube que usan la autenticación heredada revertirán a los flujos de autenticación federada. Un ejemplo podría ser Exchange Online con la autenticación moderna desactivada o Outlook 2010, que no admite autenticación moderna.
+
 - El tamaño de grupo está limitado actualmente a 50 000 usuarios.  Si tiene grupos de más de 50 000 usuarios, se recomienda dividir este grupo en varios grupos para la implementación por fases.
+
+- Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD sin línea de visión con el servidor de federación para Windows 10 versión 1903 y posteriores, cuando el UPN del usuario se puede enrutar y el sufijo de dominio se comprueba en Azure AD.
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
@@ -87,6 +90,10 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
 
 - Mientras los usuarios están en fase de lanzamiento preconfigurado, cuando EnforceCloudPasswordPolicyForPasswordSyncedUsers está habilitado, la directiva de expiración de contraseñas se establece en 90 días sin la opción de personalizarla. 
+
+- Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD para versiones de Windows 10 anteriores a la 1903. Este escenario revertirá al punto de conexión de WS-Trust del servidor de federación, incluso si el usuario que inicia sesión está en el ámbito del lanzamiento preconfigurado.
+
+- Adquisición de token de actualización principal de Unión híbrida a Windows 10 o Unión a Azure AD para todas las versiones, cuando el UPN local del usuario no se puede enrutar. Este escenario revertirá al punto de conexión de WS-Trust durante el modo de implementación por fases, pero dejará de funcionar cuando se complete la migración por fases y el inicio de sesión de usuario ya no dependa del servidor de federación.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado

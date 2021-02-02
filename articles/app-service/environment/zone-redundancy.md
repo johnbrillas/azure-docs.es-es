@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605080"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624732"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
 
@@ -30,14 +30,12 @@ A menos que se sigan los pasos descritos en este artículo, las instancias de AS
 Las instancias de ASE de ILB de zona se pueden crear en cualquiera de estas regiones:
 
 - Este de Australia
-- Sur de Brasil
 - Centro de Canadá
 - Centro de EE. UU.
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Este de EE. UU. 2 (EUAP)
 - Centro de Francia 
-- Centro-oeste de Alemania
 - Japón Oriental
 - Norte de Europa
 - Oeste de Europa
@@ -51,9 +49,9 @@ Las aplicaciones implementadas en una instancia de ASE de ILB de zona se seguir�
 
 Las instancias de ASE de ILB de zona se deben crear con plantillas de Resource Manager. Una vez que se crea una instancia de ASE de ILB de zona a través de una plantilla de Resource Manager, es posible verla e interactuar con ella a través de Azure Portal y la CLI.  Solo se necesita una plantilla de Resource Manager para la creación inicial de una instancia de ASE de ILB de zona.
 
-El único cambio necesario en una plantilla de Resource Manager para especificar una instancia de ASE de ILB de zona es la nueva propiedad ***zones***. La propiedad ***zones*** se debe establecer en un valor de "1", "2" o "3", según la zona de disponibilidad lógica a la que debe estar anclada la instancia de ASE de ILB.
+El único cambio necesario en una plantilla de Resource Manager para especificar una instancia de ASE de ILB de zona es la nueva propiedad **zones**. La propiedad _*_zones_*_ se debe establecer en un valor de "1", "2" o "3", según la zona de disponibilidad lógica a la que deba estar anclada la instancia de ASE de ILB.
 
-El fragmento de la plantilla de Resource Manager de ejemplo que aparece a continuación muestra la nueva propiedad ***zones*** que especifica que la instancia de ASE de ILB se debe anclar a la zona 2.
+El fragmento de la plantilla de Resource Manager de ejemplo que aparece a continuación muestra la nueva propiedad _*_zones_*_ que especifica que la instancia de ASE de ILB se debe anclar a la zona 2.
 
 ```
    "resources": [
@@ -91,6 +89,6 @@ Los clientes garantizan la residencia de datos de una sola región si siguen los
 
 Para validar que hay una instancia de App Service Environment configurada correctamente para almacenar datos en una sola región, los clientes pueden seguir estos pasos: 
 
-1. Con el [Explorador de recursos](https://resources.azure.com), vaya al recurso de Azure Resource Manager correspondiente a la instancia de App Service Environment.  Las instancias de ASE aparecen en *providers/Microsoft.Web/hostingEnvironments*.
+1. Con el [Explorador de recursos](https://resources.azure.com), vaya al recurso de Azure Resource Manager correspondiente a la instancia de App Service Environment.  Las instancias de ASE aparecen en providers/Microsoft.Web/hostingEnvironments.
 2. Si hay una propiedad *zones* en la vista de la sintaxis JSON de ARM y contiene una matriz JZON de un solo valor con un valor de "1", "2" o "3", la instancia de ASE está implementada en la zona y los datos de cliente permanecen en la misma región.
 2. Si no existe una propiedad *zones* o la propiedad no tiene un valor de zona válido según lo especificado anteriormente, la instancia de ASE no está implementada en la zona y los datos de cliente no se almacenan de manera exclusiva en la misma región.

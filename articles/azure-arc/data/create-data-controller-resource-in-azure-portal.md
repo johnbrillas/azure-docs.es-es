@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 297efa83fb1563e3a360f652a6ac1bc2b1679998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932386"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737310"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Creación de un controlador de datos de Azure Arc en Azure Portal
 
@@ -40,19 +40,23 @@ Siga los pasos que se indican a continuación para crear un controlador de datos
 6. Haga clic en el botón **Data controller details** (Detalles del controlador de datos).
 7. Elija una suscripción, un grupo de recursos y una ubicación de Azure igual que haría con cualquier otro recurso que se crea en Azure Portal. En este caso, la ubicación de Azure que seleccione será donde se almacenarán los metadatos sobre el recurso.  El recurso se creará en la infraestructura que elija. No es necesario que esté en la infraestructura de Azure.
 8. Escriba un nombre para el controlador de datos.
-9. Actualmente, en la versión preliminar solo se admite el modo Conectado indirectamente.
-10. Seleccione un perfil de configuración de implementación.
-11. Haga clic en el botón **Open in Azure Data Studio** (Abrir en Azure Data Studio).
-12. En la siguiente pantalla, verá un resumen de las selecciones y un cuaderno que se ha generado.  Puede hacer clic en el botón **Download provisioning notebook** (Descargar cuaderno de aprovisionamiento) para descargar el cuaderno.
-13. Abra el cuaderno en Azure Data Studio y haga clic en el botón **Run All** (Ejecutar todo) situado en la parte superior.
-14. Siga las indicaciones y las instrucciones del cuaderno para completar la creación del controlador de datos.
+9. Seleccione el modo de conectividad para el controlador de datos. Obtenga más información sobre [Modos de conectividad y requisitos](./connectivity.md). 
+
+   > [!NOTE] 
+   > Si selecciona el modo de conectividad **directa**, asegúrese de que las credenciales de la entidad de servicio se establecen a través de las variables de entorno tal como se describe en [Creación de una entidad de servicio](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Seleccione un perfil de configuración de implementación.
+1. Haga clic en el botón **Open in Azure Data Studio** (Abrir en Azure Data Studio).
+1. En la siguiente pantalla, verá un resumen de las selecciones y un cuaderno que se ha generado.  Puede hacer clic en el botón **Download provisioning notebook** (Descargar cuaderno de aprovisionamiento) para descargar el cuaderno.
+1. Abra el cuaderno en Azure Data Studio y haga clic en el botón **Run All** (Ejecutar todo) situado en la parte superior.
+1. Siga las indicaciones y las instrucciones del cuaderno para completar la creación del controlador de datos.
 
 ## <a name="monitoring-the-creation-status"></a>Supervisión del estado de creación
 
 La creación del controlador tardará unos minutos en completarse. Puede supervisar el progreso en otra ventana de terminal con los siguientes comandos:
 
 > [!NOTE]
->  En los siguientes comandos de ejemplo se da por hecho que ha creado un controlador de datos y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado otro un nombre de controlador de datos o de espacio de nombres, puede reemplazar "arc" por ese nombre.
+>  En los siguientes comandos de ejemplo se supone que ha creado un controlador de datos y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado otro nombre de controlador de datos o de espacio de nombres, puede reemplazar "arc" por su nombre.
 
 ```console
 kubectl get datacontroller/arc --namespace arc

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 34692f5e563e4931a27ea59db84d9c88f27817da
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618916"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660905"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configuración de la sincronización con ámbito entre Azure AD y Azure Active Directory Domain Services mediante Azure Portal
 
@@ -43,15 +43,14 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 De forma predeterminada, todos los usuarios y grupos de un directorio de Azure AD se sincronizan con un dominio administrado. Si solo unos cuantos usuarios necesitan acceso al dominio administrado, puede sincronizar únicamente esas cuentas de usuario. Esta sincronización son ámbito se basa en grupos. Al configurar la sincronización con ámbito basada en grupos, solo las cuentas de usuario que pertenecen a los grupos que especifique se sincronizan con el dominio administrado. Los grupos anidados no se sincronizan, solo los grupos específicos que seleccione.
 
-Puede cambiar el ámbito de sincronización al crear el dominio administrado o una vez implementado. También puede cambiar el ámbito de sincronización en un dominio administrado existente sin necesidad de volver a crearlo.
+Puede cambiar el ámbito de sincronización antes o después de crear el dominio administrado. Una entidad de servicio define el ámbito de sincronización con el identificador de la aplicación 2565bd9d-da50-47d4-8b85-4c97f669dc36. Para evitar la pérdida de ámbito, no elimine ni cambie la entidad de servicio. Si se elimina accidentalmente, no se puede recuperar el ámbito de sincronización. 
+
+Tenga en cuenta las siguientes advertencias si cambia el ámbito de sincronización:
+
+- Se produce una sincronización completa.
+- Los objetos que ya no son necesarios en el dominio administrado se eliminan. Se crean objetos en el dominio administrado.
 
 Para más información sobre el proceso de sincronización , consulte [Funcionamiento de la sincronización en Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> Al cambiar el ámbito de sincronización el dominio administrado vuelve a sincronizar todos los datos. Se aplican las siguientes consideraciones:
->
->  * Al cambiar el ámbito de sincronización de un dominio administrado, se produce una resincronización completa.
->  * Los objetos que ya no son necesarios en el dominio administrado se eliminan. Se crean objetos en el dominio administrado.
 
 ## <a name="enable-scoped-synchronization"></a>Habilitación de la sincronización con ámbito
 

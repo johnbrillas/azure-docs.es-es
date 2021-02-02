@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532251"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787695"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,15 +26,11 @@ Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse Analytic
 
 El enmascaramiento de datos dinámicos ayuda a impedir el acceso no autorizado a datos confidenciales permitiendo a los usuarios designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de protección de datos que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
 
-Por ejemplo, un representante de servicio de un centro de llamadas podría identificar a los autores de las llamadas a partir de varios dígitos del número de su tarjeta de crédito, pero esa es una información que no debería exponerse por completo al representante del servicio. Se puede definir una regla de enmascaramiento que enmascare todo excepto los cuatro últimos dígitos de un número de tarjeta de crédito en el conjunto de resultados de cualquier consulta. Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos personales, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
+Por ejemplo, un representante de servicio de un centro de llamadas podría identificar a los autores de las llamadas a partir de varios dígitos de su dirección de correo electrónico, pero esa es una información que no debería exponerse por completo al representante del servicio. Se puede definir una regla de enmascaramiento que oculte toda la dirección de correo electrónico en el conjunto de resultados de cualquier consulta. Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos personales, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos del enmascaramiento dinámico de datos
 
 Para configurar una directiva de enmascaramiento de datos dinámicos en Azure Portal, se selecciona la hoja **Enmascaramiento de datos dinámicos** en **Seguridad** en el panel de configuración de SQL Database. Esta característica no se puede establecer para la instancia administrada de SQL mediante el portal (use PowerShell o la API REST). Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
-
-### <a name="dynamic-data-masking-permissions"></a>Permisos de enmascaramiento de datos dinámicos
-
-El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o los roles de [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Directiva de enmascaramiento de datos dinámicos
 
@@ -83,3 +79,11 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 - [Crear o actualizar](/rest/api/sql/datamaskingrules/createorupdate): crea o actualiza una regla de enmascaramiento de datos para la base de datos.
 - [Lista por base de datos](/rest/api/sql/datamaskingrules/listbydatabase): obtiene una lista de reglas de enmascaramiento de datos para la base de datos.
+
+## <a name="permissions"></a>Permisos
+
+El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o el rol [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) del control de acceso basado en rol (RBAC).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Enmascaramiento de datos dinámicos](/sql/relational-databases/security/dynamic-data-masking)

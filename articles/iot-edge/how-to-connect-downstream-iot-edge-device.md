@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187840"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629410"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conexión de un dispositivo IoT Edge de nivel inferior a una puerta de enlace Azure IoT Edge (versión preliminar)
 
@@ -118,7 +118,7 @@ Para habilitar la detección de puertas de enlace, cada dispositivo de puerta de
 
 Para habilitar las conexiones seguras, cada dispositivo IoT Edge en un escenario de puerta de enlace debe configurarse con un único certificado de CA de dispositivo y una copia del certificado de CA raíz compartido por todos los dispositivos de la jerarquía de puertas de enlace.
 
-Ya tiene que haber instalado IoT Edge en el dispositivo. Si no es así, siga los pasos de [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md) y, a continuación, aprovisione el dispositivo con [autenticación de claves simétricas](how-to-manual-provision-symmetric-key.md) o [autenticación de certificados X.509](how-to-manual-provision-x509.md).
+Ya tiene que haber instalado IoT Edge en el dispositivo. Si no es así, siga los pasos que se describen en [Registro de un dispositivo IoT Edge en IoT Hub](how-to-register-device.md) y, luego, los de [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md).
 
 En los pasos de esta sección se hace referencia al **certificado de CA raíz** y al **certificado de CA de dispositivo y clave privada** que se han descrito anteriormente en este artículo. Si ha creado esos certificados en otro dispositivo, haga que estén disponibles en este dispositivo. Puede transferir los archivos físicamente, como con una unidad USB, con un servicio, como [Azure Key Vault](../key-vault/general/overview.md), o con una función, como [Secure file copy](https://www.ssh.com/ssh/scp/).
 

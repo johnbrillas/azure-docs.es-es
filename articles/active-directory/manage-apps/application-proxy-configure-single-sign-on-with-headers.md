@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503183"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660709"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Inicio de sesión único basado en encabezados para aplicaciones locales con App Proxy de Azure AD (versión preliminar)
 
@@ -88,6 +88,10 @@ Una vez realizados todos los pasos, la aplicación debería estar ejecutándose 
 1. Abra una nueva ventana normal o privada del explorador para asegurarse de que los encabezados previamente almacenados en caché se hayan borrado. A continuación, vaya a  **Dirección URL externa**  desde la configuración de Application Proxy.
 2. Inicie sesión con la cuenta de prueba que asignó a la aplicación. Si puede cargar la aplicación e iniciar sesión en ella mediante SSO, ha terminado. 
 
+## <a name="considerations"></a>Consideraciones
+
+- Application Proxy se usa para proporcionar acceso remoto a las aplicaciones en el entorno local o en la nube privada. No se recomienda Application Proxy para controlar el tráfico que se origina internamente desde la red corporativa.
+- El acceso a las aplicaciones de autenticación basada en encabezados se debe restringir solo al tráfico del conector u otra solución de autenticación basada en encabezados permitida. Esto se suele hacer mediante la restricción del acceso de red a la aplicación mediante una restricción de IP o firewall en el servidor de aplicaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

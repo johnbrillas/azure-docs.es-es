@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243144"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632680"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos y consideraciones del uso de la replicación entre regiones 
 
@@ -31,6 +31,7 @@ Tenga en cuenta los siguientes requisitos y consideraciones [sobre el uso de la 
 * La replicación de Azure NetApp Files solo está disponible en determinados pares de regiones fijas. Vea [Pares de regiones admitidas](cross-region-replication-introduction.md#supported-region-pairs). 
 * Los volúmenes SMB se admiten junto con los volúmenes NFS. La replicación de volúmenes SMB requiere una conexión de Active Directory en las cuentas de NetApp de origen y de destino. La conexión de AD de destino debe tener acceso a los servidores DNS o controladores de dominio de ADDS que sean accesibles desde la subred delegada en la región de destino. Para obtener más información, consulte [Requisitos para las conexiones de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * La cuenta de destino debe estar en una región distinta de la región del volumen de origen. También puede seleccionar una cuenta de NetApp existente en otra región.  
+* El volumen de destino de replicación es de solo lectura hasta que [conmute por error a la región de destino](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) para permitir la lectura y escritura del volumen de destino. 
 * La replicación de Azure NetApp Files no admite actualmente varias suscripciones; todas las replicaciones deben realizarse en una sola suscripción.
 * Puede configurar un máximo de cinco volúmenes para la replicación dentro de una sola suscripción por región. Puede abrir una incidencia de soporte técnico para solicitar un aumento de la cuota predeterminada de cinco volúmenes de destino de replicación (por suscripción en una región). 
 * Pueden pasar hasta cinco minutos hasta que la interfaz refleje una instantánea recién agregada en el volumen de origen.  

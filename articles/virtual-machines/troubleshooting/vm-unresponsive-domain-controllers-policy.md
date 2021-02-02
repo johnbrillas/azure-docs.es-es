@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963132"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632281"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La máquina virtual no responde cuando se aplica una directiva de controladores de dominio predeterminada
 
@@ -37,6 +37,9 @@ Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la ca
 Este problema puede deberse a los cambios que se realizaron recientemente en la directiva predeterminada de controladores de dominio. De lo contrario, deberá realizar un análisis de volcado de memoria para determinar la causa principal.
 
 ## <a name="solution"></a>Solución
+
+> [!TIP]
+> Si tiene una copia de seguridad reciente de la máquina virtual, puede intentar [restaurarla](../../backup/backup-azure-arm-restore-vms.md) para corregir el problema de arranque.
 
 Si ha realizado cambios recientemente en la directiva predeterminada de controladores de dominio, quizá quiera deshacerlos para solucionar el problema. Si no está seguro de qué está causando el problema, recopile un volcado de memoria y envíe una incidencia de soporte técnico.
 

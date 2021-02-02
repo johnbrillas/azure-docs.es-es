@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734120"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787627"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -101,14 +101,17 @@ Puede seleccionar la base de datos, que ahora tiene un nuevo nombre y configurar
 Una base de datos que [se agrega a una instancia protegida automáticamente](backup-sql-server-database-azure-vms.md#enable-auto-protection) puede no aparecer inmediatamente entre los elementos protegidos. Esto se debe a que la detección normalmente se ejecuta cada ocho horas. Sin embargo, puede detectar y proteger nuevas bases de datos de inmediato si ejecuta manualmente una detección seleccionando **Volver a detectar bases de datos**, tal como se muestra en la siguiente imagen:
 
   ![Detectar manualmente una base de datos recién agregada](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## <a name="can-i-protect-databases-on-virtual-machines-that-have-azure-disk-encryption-ade-enabled"></a>¿Se pueden proteger las bases de datos de máquinas virtuales que tienen el servicio Azure Disk Encryption (ADE) habilitado?
+Sí, se pueden proteger las bases de datos de máquinas virtuales que tienen el servicio Azure Disk Encryption (ADE) habilitado.
+
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>¿Se pueden proteger bases de datos con TDE (Cifrado de datos transparente) activado y permanecerán estas bases de datos cifradas durante todo el proceso de copia de seguridad?
 
 Sí, Azure Backup admite la copia de seguridad de bases de datos o servidores SQL Server con TDE habilitado. Backup admite [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) con claves administradas por Azure o con claves administradas por el cliente (BYOK).  Backup no realiza ningún cifrado de SQL como parte del proceso de copia de seguridad, por lo que la base de datos permanecerá cifrada cuando se realice una copia de seguridad.
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>¿Realiza Azure Backup una operación de suma de comprobación en el flujo de datos?
 
-Sí, lo hacemos. Sin embargo, esto no se debe confundir con la [suma de comprobación de SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Sí, lo hacemos. Sin embargo, esto no se debe confundir con la [suma de comprobación de SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 La copia de seguridad de la carga de trabajo de Azure calcula la suma de comprobación en el flujo de datos y la almacena explícitamente durante la operación de copia de seguridad. Después, se toma como referencia y se compara de forma cruzada con la suma de comprobación del flujo de datos durante la operación de restauración para garantizar la coherencia de los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes

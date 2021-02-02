@@ -1,7 +1,7 @@
 ---
 title: Flujo de inicio de sesión de aplicaciones con la Plataforma de identidad de Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre el flujo de inicio de sesión de las aplicaciones web, de escritorio y móviles en la Plataforma de identidad de Microsoft (v2.0).
+description: Obtenga información sobre el flujo de inicio de sesión de las aplicaciones web, de escritorio y móviles en la Plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83772206"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755701"
 ---
-# <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Flujo de inicio de sesión de aplicaciones con la Plataforma de identidad de Microsoft
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Flujo de inicio de sesión de aplicaciones con la Plataforma de identidad de Microsoft
 
 En este tema se describe el flujo de inicio de sesión básico de aplicaciones web, de escritorio y móviles con la Plataforma de identidad de Microsoft. Consulte [Flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md) para más información sobre los escenarios de inicio de sesión que admite la Plataforma de identidad de Microsoft.
 
@@ -34,8 +34,8 @@ Cuando un usuario navega en el explorador a una aplicación web, ocurre lo sigui
 
 Cuando el usuario se ha autenticado correctamente:
 
-* La plataforma de identidad de Microsoft envía un token a la aplicación web.
-* Se guarda una cookie, asociada al dominio de Azure AD, que contiene la identidad del usuario en el archivo jar de la cookie del explorador. La próxima vez que una aplicación use el explorador para ir al punto de conexión de autorización de la plataforma de identidad de Microsoft, el explorador presentará la cookie para que el usuario no tenga que volver a iniciar sesión. También es la mecanismo con el que se realiza el SSO. Azure AD genera la cookie y solo él puede entenderla.
+* La Plataforma de identidad de Microsoft envía un token a la aplicación web.
+* Se guarda una cookie, asociada al dominio de Azure AD, que contiene la identidad del usuario en el archivo jar de la cookie del explorador. La próxima vez que una aplicación use el explorador para ir al punto de conexión de autorización de la Plataforma de identidad de Microsoft, el explorador presentará la cookie para que el usuario no tenga que volver a iniciar sesión. También es la mecanismo con el que se realiza el SSO. Azure AD genera la cookie y solo él puede entenderla.
 * A continuación, la aplicación web valida el token. Si la validación se realiza correctamente, la aplicación web muestra la página protegida y guarda una cookie de sesión en el archivo jar de la cookie del explorador. Cuando el usuario accede a otra página, la aplicación web sabe que el usuario está autenticado por la cookie de sesión.
 
 En el siguiente diagrama de secuencias, se resume esta interacción:
@@ -48,12 +48,12 @@ Los desarrolladores de aplicaciones web pueden especificar si todas o solo algun
 
 Este atributo hace que ASP.NET compruebe la presencia de una cookie de sesión que contiene la identidad del usuario. Si esta cookie no está, ASP.NET redirige la autenticación al proveedor de identidades especificado. Si el proveedor de identidades es Azure AD, la aplicación web redirige la autenticación a `https://login.microsoftonline.com`, que muestra un cuadro de diálogo de inicio de sesión.
 
-### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Procedimiento que realiza una aplicación web para delegar el inicio de sesión en la plataforma de identidad de Microsoft y obtener un token
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>Procedimiento que realiza una aplicación web para delegar el inicio de sesión en la Plataforma de identidad de Microsoft y obtener un token
 
 La autenticación del usuario se realiza mediante el explorador. El protocolo OpenID usa mensajes con el protocolo HTTP estándar.
 
 * La aplicación web envía una solicitud HTTP 302 (redireccionamiento) al explorador para que utilice la plataforma de identidad de Microsoft.
-* Cuando se autentica el usuario, la plataforma de identidad de Microsoft envía el token a la aplicación web utilizando un redireccionamiento mediante el explorador.
+* Cuando se autentica el usuario, la Plataforma de identidad de Microsoft envía el token a la aplicación web utilizando un redireccionamiento mediante el explorador.
 * La aplicación web proporciona el redireccionamiento en forma de un URI de redirección. Este URI de redirección se registra con el objeto de aplicación de Azure AD. Puede haber varios URI de redireccionamiento, ya que la aplicación puede estar implementada en varias direcciones URL. Por lo tanto, la aplicación web también tendrá que especificar el URI de redirección que va a utilizar.
 * Azure AD verifica que el URI de redirección enviado por la aplicación web es uno de los URI de redirección registrados para la aplicación.
 

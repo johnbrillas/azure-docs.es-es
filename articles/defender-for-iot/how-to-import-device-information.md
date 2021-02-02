@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0a443ba7b41615fc62882bd8de6bf077c6b5a137
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836852"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625421"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importación de la información del dispositivo al sensor
 
@@ -67,7 +67,7 @@ En esta sección se describe cómo importar la dirección IP del dispositivo, el
 
 Para importar la dirección IP, el sistema operativo y el nivel de revisión, haga lo siguiente:
 
-1. Descargue el archivo [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del [Centro de ayuda](https://cyberx-labs.zendesk.com/hc/en-us) y escriba la información de la siguiente manera:
+1. Descargue el archivo [devices_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del [Centro de ayuda](https://cyberx-labs.zendesk.com/hc/en-us) y escriba la información de la siguiente manera:
 
    - **Dirección IP**: escriba la dirección IP del dispositivo.
 
@@ -85,7 +85,7 @@ Para importar la dirección IP, el sistema operativo y el nivel de revisión, ha
 
 Para importar el estado de autorización, haga lo siguiente:
 
-1. Descargue y guarde el archivo [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del centro de ayuda de Defender para IoT. Compruebe que ha guardado el archivo en formato CSV.
+1. Descargue el archivo [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del centro de ayuda de Defender para IoT y guárdelo. Compruebe que ha guardado el archivo en formato CSV.
 
 2. Escriba la información de la siguiente manera:
 
@@ -154,7 +154,7 @@ En esta sección se describe cómo importar la dirección IP del dispositivo, el
 
 Para importar la dirección IP, el sistema operativo y el nivel de revisión, haga lo siguiente:
 
-1. Descargue el archivo [assets_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del [Centro de ayuda](https://cyberx-labs.zendesk.com/hc/en-us) y escriba la información de la siguiente manera:
+1. Descargue el archivo [devices_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del [Centro de ayuda](https://cyberx-labs.zendesk.com/hc/en-us) y escriba la información de la siguiente manera:
 
    - **Dirección IP**: la dirección IP del dispositivo.
 
@@ -172,7 +172,7 @@ Para importar la dirección IP, el sistema operativo y el nivel de revisión, ha
 
 Para importar el estado de autorización, haga lo siguiente:
 
-1. Descargue y guarde el archivo [authorized_assets.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del centro de ayuda de Defender para IoT. Compruebe que ha guardado el archivo en formato CSV.
+1. Descargue el archivo [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) del centro de ayuda de Defender para IoT y guárdelo. Compruebe que ha guardado el archivo en formato CSV.
 
 2. Escriba la información de la siguiente manera:
 

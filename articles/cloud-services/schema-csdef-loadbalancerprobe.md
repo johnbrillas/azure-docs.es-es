@@ -1,22 +1,25 @@
 ---
-title: Esquema LoadBalancerProbe de definición de Azure Cloud Services | Microsoft Docs
+title: Azure Cloud Services (clásico) - Esquema LoadBalancerProbe de definición de Azure Cloud Services | Microsoft Docs
 description: El cliente define LoadBalancerProbe como un sondeo de estado de los puntos de conexión en las instancias de rol. Los roles web o de trabajo se combinan en un archivo de definición de servicio.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537353"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739799"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.
 
 La extensión predeterminada del archivo de definición de servicio es. csdef.
@@ -59,7 +62,7 @@ En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necesario. El nombre del sondeo del equilibrador de carga. El nombre debe ser único.|
 | `protocol`          | `string` | Necesario. Especifica el protocolo del punto de conexión. Los valores posibles son `http` o `tcp`. Si se especifica `tcp`, se es necesario recibir una confirmación para que el sondeo se realice correctamente. Si se especifica `http`, se necesita una respuesta 200 OK del URI especificado para que el sondeo se realice correctamente.|
-| `path`              | `string` | El URI que se usa para solicitar el estado de mantenimiento de la máquina virtual. Se requiere `path` si `protocol` está establecido en `http`. De lo contrario, no se permite.<br /><br /> No hay ningún valor predeterminado.|
+| `path`              | `string` | El URI que se usa para solicitar el estado de mantenimiento de la máquina virtual. Se requiere `path` si `protocol` está establecido en `http`. De lo contrario, no se permite.<br /><br /> No existe ningún valor predeterminado.|
 | `port`              | `integer` | Opcional. El puerto para comunicar el sondeo. Este valor es opcional para cualquier punto de conexión, ya que el mismo puerto se usará para el sondeo. También puede configurar un puerto diferente para los sondeos. Los valores posibles oscilan entre 1 y 65535, ambos inclusive.<br /><br /> El valor predeterminado lo establece el punto de conexión.|
 | `intervalInSeconds` | `integer` | Opcional. El intervalo, en segundos, de la frecuencia de sondeo del punto de conexión para conocer el estado de mantenimiento. Normalmente, el intervalo es algo inferior a la mitad del período de tiempo de expiración asignado (en segundos), lo que permite dos sondeos completos antes de sacar la instancia de la rotación.<br /><br /> El valor predeterminado es 15 y el valor mínimo es 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. El período de tiempo de expiración, en segundos, aplicado al sondeo cuando no hay respuesta provocará que se impida que el posterior tráfico se entregue en el punto de conexión. Este valor permite sacar de la rotación los puntos de conexión de manera más rápida o lenta que los tiempos habituales usados en Azure (que son los predeterminados).<br /><br /> El valor predeterminado es 31 y el valor mínimo es 11.|

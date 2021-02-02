@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: b165cd4abd55026e10aa43eb20faa85b887de194
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065050"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755567"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 
@@ -27,7 +27,7 @@ En este documento se proporciona el contexto y las descripciones de las distinta
 
 ## <a name="my-applications-or-converged-applications"></a>Mis aplicaciones o aplicaciones convergentes
 
-En esta lista se incluyen todas las aplicaciones que se registran para su uso con el punto de conexión de la Plataforma de identidad de Microsoft (v2.0). Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para más información sobre el punto de conexión de la plataforma de identidad, consulte la [introducción a v2.0](./v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
+En esta lista se incluyen todas las aplicaciones que se registran para su uso con la Plataforma de identidad de Microsoft. Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para más información sobre la Plataforma de identidad de Microsoft, consulte la [introducción a v2.0](./v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Aplicaciones que solo usan Azure AD
 

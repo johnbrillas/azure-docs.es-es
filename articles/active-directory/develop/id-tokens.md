@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653256"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755906"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -89,7 +89,7 @@ En esta lista se muestran las notificaciones de JWT que se encuentran en la mayo
 |`groups:src1`|Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Para más información, consulte [Notificación de grupos por encima del límite](#groups-overage-claim).|
 
 > [!NOTE]
-> Los id_token v1.0 y v2.0 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD, las nuevas aplicaciones deben usar el punto de conexión v2.0 "Plataforma de identidad de Microsoft".
+> Los id_token v1.0 y v2.0 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD, las nuevas aplicaciones deben usar la "Plataforma de identidad de Microsoft".
 >
 > - v1.0: Puntos de conexión de Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Puntos de conexión de la plataforma de identidad de Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

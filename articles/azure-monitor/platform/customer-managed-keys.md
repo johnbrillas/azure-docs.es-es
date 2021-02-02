@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562750"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757549"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -125,11 +125,33 @@ Esta configuración puede actualizarse en Key Vault a través de la CLI y PowerS
 
 ## <a name="create-cluster"></a>Crear clúster
 
-> [!NOTE]
-> Los clústeres admiten dos [tipos de identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): asignada por el sistema y asignada por el usuario, y el uso de cada una depende del escenario. La identidad administrada asignada por el sistema es más sencilla y se genera automáticamente con la creación del clúster cuando la identidad `type` está establecida como "*SystemAssigned*". Esta identidad se puede usar más adelante para conceder al clúster acceso al almacén de claves. Si desea crear un clúster mientras la clave administrada por el cliente se define en el momento de la creación del clúster, debe tener una clave definida y una identidad asignada por el usuario concedida de antemano en el almacén de claves y, a continuación, crear el clúster con estos valores: la identidad `type` establecida como "*UserAssigned*", `UserAssignedIdentities` con el identificador de recurso de la identidad y `keyVaultProperties` con los detalles de la clave.
+Los clústeres admiten dos [tipos de identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): Asignado por el sistema y asignado por el usuario, mientras que una sola identidad se puede definir en un clúster en función del escenario. 
+- La identidad administrada asignada por el sistema es más sencilla y se genera automáticamente con la creación del clúster cuando la identidad `type` se establece en "*SystemAssigned*". Esta identidad se puede usar más adelante para conceder acceso de almacenamiento a su instancia de Key Vault para las operaciones de encapsulado y desencapsulado. 
+  
+  Configuración de identidad en el clúster para la identidad administrada asignada por el sistema
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- Si desea configurar una clave administrada por el cliente en la creación del clúster, debe tener una clave y una identidad asignada por el usuario concedida de antemano en su instancia de Key Vault y, a continuación, crear el clúster con estos valores: la identidad `type` establecida como "*UserAssigned*", `UserAssignedIdentities` con el *identificador de recurso* de la identidad.
+
+  Configuración de identidad en el clúster para la identidad administrada asignada por el usuario
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> Actualmente no se puede definir una clave administrada por el cliente con una identidad administrada asignada por el usuario si el almacén de claves se encuentra en Private Link (vNet) y, en este caso, se puede usar la identidad administrada asignada por el sistema.
+> No se puede usar una identidad administrada asignada por el usuario si su instancia de Key Vault está en un vínculo privado (vNet). En este escenario puede usar la identidad administrada asignada por el sistema.
 
 Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -243,15 +265,13 @@ Siga el procedimiento que se muestra en el [artículo Clústeres dedicados](../l
 
 ## <a name="key-revocation"></a>Revocación de claves
 
-Para revocar el acceso a los datos, puede deshabilitar la clave o eliminar la directiva de acceso del clúster en Key Vault. 
-
 > [!IMPORTANT]
-> - Si el clúster se establece con la identidad administrada asignada por el usuario, el establecimiento de `UserAssignedIdentities` con `None` suspende el clúster e impide el acceso a los datos, pero no se puede revertir la revocación ni activar el clúster sin abrir la solicitud de soporte técnico. Esta limitación no se aplica a la identidad administrada asignada por el sistema.
-> - La acción de revocación de clave recomendada es deshabilitar la clave en el almacén de claves.
+> - La manera recomendada para revocar el acceso a los datos es deshabilitar la clave o eliminar la directiva de acceso de su instancia de Key Vault.
+> - Al establecer `identity` `type` del clúster en "None", también se revoca el acceso a los datos, pero no se recomienda este enfoque, ya que no se puede revertir la revocación al redefinir `identity` en el clúster sin abrir la solicitud de soporte técnico.
 
-El almacenamiento de clúster siempre respetará los cambios en los permisos de las claves en el plazo de una hora (normalmente antes), y Storage dejará de estar disponible. Los datos nuevos que se ingieren en áreas de trabajo vinculadas al clúster se quitan y no se podrán recuperar, los datos dejan de estar accesibles y las consultas a estas áreas de trabajo generan un error. Los datos ingeridos anteriormente permanecerán en el almacenamiento siempre que se no se eliminen el clúster ni las áreas de trabajo. Los datos inaccesibles se rigen por la directiva de retención de datos y se purgarán cuando se alcance la retención. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Esto se elimina en la operación de revocación de claves y también se convierte en inaccesible.
+El almacenamiento de clúster siempre respetará los cambios en los permisos de las claves en el plazo de una hora (normalmente antes), y Storage dejará de estar disponible. Los datos nuevos que se ingieren en áreas de trabajo vinculadas al clúster se quitan y no se podrán recuperar, los datos dejan de estar accesibles y las consultas a estas áreas de trabajo generan un error. Los datos ingeridos anteriormente permanecerán en el almacenamiento siempre que se no se eliminen el clúster ni las áreas de trabajo. Los datos inaccesibles se rigen por la directiva de retención de datos y se purgarán cuando se alcance la retención. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Esto se elimina en la operación de revocación de claves y se convierte en inaccesible.
 
-El almacenamiento del clúster sondeará periódicamente su instancia de Key Vault para intentar desencapsular la clave de cifrado y, una vez haya obtenido el acceso, procederá con la ingesta de datos y la reanudación de la consulta en un plazo de 30 minutos.
+El almacenamiento del clúster comprueba periódicamente su instancia de Key Vault para intentar desencapsular la clave de cifrado y, una vez haya obtenido el acceso, procederá con la ingesta de datos y la reanudación de la consulta en un plazo de 30 minutos.
 
 ## <a name="key-rotation"></a>Rotación de claves
 
@@ -259,7 +279,7 @@ La rotación de la clave administrada por el cliente necesita una actualización
 
 Se puede acceder a todos los datos después de la operación de rotación de claves, incluidos los datos ingeridos antes y después de la rotación, ya que todos los datos permanecen cifrados mediante la clave de cifrado de cuenta (AEK), mientras que la AEK ahora se cifra con la nueva versión de la clave de cifrado de claves (KEK).
 
-## <a name="customer-managed-key-for-queries"></a>Clave administrada por el cliente en las consultas
+## <a name="customer-managed-key-for-saved-queries"></a>Clave administrada por el cliente para consultas guardadas
 
 El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida en el marco de la directiva de la clave administrada por el cliente y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
 
@@ -386,15 +406,11 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 
-- La clave administrada por el cliente se admite en clústeres de Log Analytics dedicados y es adecuada para los clientes que envían 1 TB al día o más.
-
 - El número máximo de clústeres por región y suscripción es 2.
 
-- El número máximo de áreas de trabajo vinculadas al clúster es 1000.
+- El número máximo de áreas de trabajo que se pueden vincular a un clúster es 1000.
 
 - Puede vincular un área de trabajo al clúster y desvincularla después. El número de operaciones de vinculación de área de trabajo en un área de trabajo determinada en un período de 30 días se limita a 2.
-
-- La vinculación de área de trabajo al clúster SOLO se debe llevar a cabo después de comprobar que se completó el aprovisionamiento del clúster de Log Analytics. Los datos que se envíen al área de trabajo antes de que se complete el aprovisionamiento se eliminarán y no se podrán recuperar.
 
 - El cifrado de la clave administrada por el cliente se aplica a los datos recién ingeridos después del tiempo de configuración. Los datos que se ingieren antes de la configuración, permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente los datos ingeridos antes y después de la configuración de la clave administrada por el cliente.
 
@@ -404,19 +420,17 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 
 - Actualmente no se admite el traslado de un clúster a otro grupo de recursos o a otra suscripción.
 
-- La instancia de Azure Key Vault, el clúster y las áreas de trabajo vinculadas deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
-
-- Se producirá un error en la vinculación del área de trabajo al clúster si está vinculada a otro clúster.
+- Su instancia de Azure Key Vault, el clúster y las áreas de trabajo deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
 
 - La caja de seguridad no está disponible actualmente en China. 
 
-- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante una solicitud GET en el clúster. Observe el valor de la propiedad `"isDoubleEncryptionEnabled"`, que es `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble. Agregue la propiedad `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud de REST.
+- El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
+  - Si crea un clúster y recibe un error que dice que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
   - Si el clúster se establece con la identidad administrada asignada por el usuario, el establecimiento de `UserAssignedIdentities` con `None` suspende el clúster e impide el acceso a los datos, pero no se puede revertir la revocación ni activar el clúster sin abrir la solicitud de soporte técnico. Esta limitación no se aplica a la identidad administrada asignada por el sistema.
 
-  - Actualmente no se puede definir una clave administrada por el cliente con una identidad administrada asignada por el usuario si el almacén de claves se encuentra en Private Link (vNet) y, en este caso, se puede usar la identidad administrada asignada por el sistema.
+  - No se puede usar una clave administrada por el cliente con una identidad administrada asignada por el usuario si su instancia de Key Vault está en un vínculo privado (vNet). En este escenario puede usar la identidad administrada asignada por el sistema.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -429,13 +443,15 @@ La clave administrada por el cliente se proporciona en un clúster dedicado, y s
 
   - Frecuencia de acceso a Key Vault: la frecuencia con la que Azure Monitor Storage accede a Key Vault para las operaciones de encapsulado y desencapsulado es de entre 6 y 60 segundos.
 
-- Si crea un clúster y especifica el valor de KeyVaultProperties inmediatamente, puede producirse un error en la operación, ya que la directiva de acceso no se puede definir hasta que se asigne la identidad del sistema al clúster.
-
-- Si actualiza un clúster existente con KeyVaultProperties y la directiva de acceso de clave "Get" no se encuentra en Key Vault, se producirá un error en la operación.
+- Si actualiza el clúster mientras este está en el estado de aprovisionamiento o actualización, se producirá un error en la actualización.
 
 - Si se produce un error de conflicto al crear un clúster, es posible que haya eliminado el clúster en los últimos 14 días y que esté en un período de eliminación temporal. El nombre del clúster permanece reservado durante el período de eliminación temporal y no se puede crear un nuevo clúster con ese nombre. El nombre se libera después del período de eliminación temporal cuando el clúster se elimina de forma permanente.
 
-- Si actualiza su clúster mientras una operación está en curso, se producirá un error en dicha operación.
+- Se producirá un error en la vinculación del área de trabajo al clúster si está vinculada a otro clúster.
+
+- Si crea un clúster y especifica el valor de KeyVaultProperties inmediatamente, puede producirse un error en la operación, ya que la directiva de acceso no se puede definir hasta que se asigne la identidad del sistema al clúster.
+
+- Si actualiza un clúster existente con KeyVaultProperties y la directiva de acceso de clave "Get" no se encuentra en Key Vault, se producirá un error en la operación.
 
 - Si no puede implementar el clúster, compruebe que la instancia de Azure Key Vault, el clúster y las áreas de trabajo de Log Analytics vinculadas se encuentran en la misma región. Puede estar en distintas suscripciones.
 

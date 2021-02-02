@@ -1,5 +1,6 @@
 ---
-title: 'Tipos de cuentas admitidos: plataforma de identidad de Microsoft | Azure'
+title: Tipos de cuenta admitidos | Azure
+titleSuffix: Microsoft identity platform
 description: Documentación conceptual sobre audiencias y tipos de cuenta admitidos en aplicaciones
 services: active-directory
 author: jmprieur
@@ -12,16 +13,16 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f0895cfc14b0237db8f2f762602fee949354e6cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d6c184e2983a072dec4b3021a1b58a61cd206dba
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347462"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755982"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
-En este artículo se explica qué tipos de cuentas (a veces denominados *audiencias*) se admiten en aplicaciones de la plataforma de identidad de Microsoft.
+En este artículo se explica qué tipos de cuentas (a veces denominados *audiencias*) se admiten en aplicaciones de la Plataforma de identidad de Microsoft.
 
 <!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 

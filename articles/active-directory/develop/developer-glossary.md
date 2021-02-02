@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706003"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755655"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
@@ -34,7 +34,7 @@ A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo ap
 * La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
 * [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
 
-Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
+Para más información, consulte la [referencia de tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
 ## <a name="application-id-client-id"></a>Identificador de aplicación (id. del cliente)
 
@@ -89,13 +89,13 @@ Una credencial que representa la [autorización](#authorization) del [propietari
 
 Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], el servidor responsable de emitir los tokens de acceso al [cliente](#client-application) después de autenticar correctamente al [propietario del recurso](#resource-owner) y obtener su autorización. Un [aplicación cliente](#client-application) interactúa con el servidor de autorización en tiempo de ejecución por medio de sus puntos de conexión de [autorización](#authorization-endpoint) y [token](#token-endpoint), con arreglo a las [concesiones de autorización](#authorization-grant) definidas en OAuth2.
 
-En el caso de la integración de aplicaciones de la plataforma de identidad de Microsoft, esta última implementa el rol de servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo las [API de Microsoft Graph][Microsoft-Graph].
+En el caso de la integración de aplicaciones de la Plataforma de identidad de Microsoft, esta última implementa el rol de servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo las [API de Microsoft Graph][Microsoft-Graph].
 
 ## <a name="claim"></a>notificación
 
 Un [token de seguridad](#security-token) contiene notificaciones, que proporcionan aserciones acerca de una entidad (como una [aplicación cliente](#client-application) o un [propietario del recurso](#resource-owner)) a otra entidad (como el [servidor de recursos](#resource-server)). Las notificaciones son pares de nombre/valor que retransmiten datos sobre el asunto del token (por ejemplo, la entidad de seguridad que autenticó el [servidor de autorización](#authorization-server)). Las notificaciones presentes en cualquier token dependen de varias variables, como el tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación, entre otras.
 
-Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
+Para más información, consulte la [referencia de tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
 ## <a name="client-application"></a>aplicación cliente
 
@@ -113,11 +113,11 @@ Consulte el [marco de consentimiento](consent-framework.md) para más informaci�
 
 Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-Token] proporcionado por un [punto de conexión de autorización](#authorization-endpoint) del [servidor de autorización](#authorization-server), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
 
-Para más información, consulte la referencia [Tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
+Para más información, consulte la [referencia de tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidad de Microsoft
 
-La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores crear aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a Microsoft Graph, otras API de Microsoft o API que los desarrolladores hayan creado. Es una plataforma completa que consiste en un servicio de autenticación, bibliotecas, registro y configuración de aplicaciones, documentación completa para desarrolladores, ejemplos de código y otros contenidos para desarrolladores. La plataforma de identidad de Microsoft admite los protocolos estándar del sector como OAuth 2.0 y OpenID Connect.
+La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores crear aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a Microsoft Graph, otras API de Microsoft o API que los desarrolladores hayan creado. Es una plataforma completa que consiste en un servicio de autenticación, bibliotecas, registro y configuración de aplicaciones, documentación completa para desarrolladores, ejemplos de código y otros contenidos para desarrolladores. La plataforma de identidad de Microsoft admite los protocolos estándar del sector como OAuth 2.0 y OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>aplicación multiinquilino
 
@@ -222,7 +222,7 @@ Un tipo de [aplicación cliente](#client-application) que ejecuta todo el códig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La [Guía del desarrollador de la plataforma de identidad de Microsoft][AAD-Dev-Guide] es la página de aterrizaje que se usar para todos los temas relacionados con el desarrollo de la plataforma de identidad de Microsoft, que incluyen una introducción a la [integración de aplicaciones][AAD-How-To-Integrate], así como los conceptos básicos de la [autenticación de la plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+La [Guía del desarrollador de la plataforma de identidad de Microsoft][AAD-Dev-Guide] es la página de aterrizaje que se usar para todos los temas relacionados con el desarrollo de la Plataforma de identidad de Microsoft, que incluyen una introducción a la [integración de aplicaciones][AAD-How-To-Integrate], así como los conceptos básicos de la [autenticación de la plataforma de identidad de Microsoft y escenarios de autenticación admitidos][AAD-Auth-Scenarios]. También puede encontrar ejemplos de código y tutoriales sobre cómo empezar a trabajar en [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use la siguiente sección de comentarios para proporcionar comentarios y ayudarnos a mejorar y a dar forma a nuestro contenido. Puede incluir solicitudes de nuevas definiciones o de actualización de las existentes.
 
@@ -235,7 +235,7 @@ Use la siguiente sección de comentarios para proporcionar comentarios y ayudarn
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

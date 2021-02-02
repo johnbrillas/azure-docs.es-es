@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad en Azure Disk Bac
 description: Obtenga información sobre cómo solucionar errores de copia de seguridad en Azure Disk Backup
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557099"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737734"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Solución de errores de copia de seguridad en Azure Disk Backup (en versión preliminar)
 
@@ -115,7 +115,7 @@ Acción recomendada: Conceda a la identidad administrada del almacén de Backup 
 
 Mensaje de error: No se pudo realizar la operación porque se ha alcanzado el límite máximo de la cuota de disco en la suscripción.
 
-Acción recomendada: Consulte la [documentación referente a los límites del servicio y la suscripción de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) o póngase en contacto con el Soporte técnico de Microsoft para obtener más instrucciones.
+Acción recomendada: Consulte la [documentación referente a los límites del servicio y la suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) o póngase en contacto con el Soporte técnico de Microsoft para obtener más instrucciones.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Código de error: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
@@ -153,11 +153,29 @@ Mensaje de error: Los metadatos de la instantánea de disco de este punto de res
 
 Acción recomendada: Considere la posibilidad de usar otro punto de recuperación para realizar la restauración. Para obtener más información, consulte la [documentación de restauración](restore-managed-disks.md).
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>Código de error: BackupAgentPluginHostValidateProtectionError
+
+Mensaje de error: La característica de copia de seguridad de disco todavía no está disponible en la región del almacén de Azure Back en el que se está intentando configurar la protección.
+
+Acción recomendada: El almacén de Azure Back debe estar en una región compatible con la versión preliminar. Para ver la disponibilidad de las regiones, consulte la [matriz de compatibilidad](disk-backup-support-matrix.md).
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Código de error: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Mensaje de error: El disco en el que está intentando configurar la copia de seguridad ya está protegido. El disco ya está asociado a una instancia de copia de seguridad en un almacén de Azure Back.
+
+Acción recomendada: Este disco ya está asociado a una instancia de copia de seguridad en un almacén de Azure Back. Si desea volver a proteger este disco, elimine la instancia de copia de seguridad del almacén de Azure Back en el que está protegido actualmente y vuelva a proteger el disco en cualquier otro almacén.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>Código de error: UserErrorDppDatasourceAlreadyProtected
+
+Mensaje de error: El disco en el que está intentando configurar la copia de seguridad ya está protegido. El disco ya está asociado a una instancia de copia de seguridad en un almacén de Azure Back.
+
+Acción recomendada: Este disco ya está asociado a una instancia de copia de seguridad en un almacén de Azure Back. Si desea volver a proteger este disco, elimine la instancia de copia de seguridad del almacén de Azure Back en el que está protegido actualmente y vuelva a proteger el disco en cualquier otro almacén.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>Código de error: UserErrorMaxConcurrentOperationLimitReached
 
-Mensaje de error: No se puede iniciar la operación porque se ha alcanzado el número máximo de operaciones simultáneas permitidas para este tipo de operación.
+Mensaje de error: No se puede iniciar la operación porque se ha alcanzado el número máximo de copias de seguridad simultáneas permitidas.
 
-Acción recomendada: Espere hasta que se completen las operaciones anteriores.
+Acción recomendada: Espere hasta que se complete la copia de seguridad en ejecución anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

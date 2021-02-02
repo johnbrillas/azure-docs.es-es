@@ -1,5 +1,6 @@
 ---
-title: 'Configuración de una API web que permite iniciar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
+title: Configuración de una aplicación web que permita iniciar sesión a los usuarios | Azure
+titleSuffix: Microsoft identity platform
 description: Obtener información sobre cómo crear una aplicación web que inicie la sesión de los usuarios (configuración del código)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443660"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753278"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Código de inicialización
 
-El código de inicialización será diferente según la plataforma. En el caso de ASP.NET Core y ASP.NET, el inicio de sesión de los usuarios se delega en el middleware OpenID Connect. La plantilla de ASP.NET y ASP.NET Core genera aplicaciones web para el punto de conexión de Azure Active Directory v1.0 (Azure AD). Se necesita algo de configuración para adaptarlos al punto de conexión de la Plataforma de identidad de Microsoft (v2.0). En el caso de Java, se controla mediante Spring con la ayuda de la aplicación.
+El código de inicialización será diferente según la plataforma. En el caso de ASP.NET Core y ASP.NET, el inicio de sesión de los usuarios se delega en el middleware OpenID Connect. La plantilla de ASP.NET y ASP.NET Core genera aplicaciones web para el punto de conexión de Azure Active Directory v1.0 (Azure AD). Se necesita algo de configuración para adaptarlos a la Plataforma de identidad de Microsoft. En el caso de Java, se controla mediante Spring con la ayuda de la aplicación.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ En el código anterior:
 - El método de extensión `AddMicrosoftIdentityWebAppAuthentication` se define en **Microsoft.Identity.Web**. Este:
   - Agrega el servicio de autenticación.
   - Configura las opciones para leer el archivo de configuración (aquí desde la sección "AzureAD").
-  - Configura las opciones de OpenID Connect para que la autoridad sea el punto de conexión de la plataforma de identidad de Microsoft.
+  - Configura las opciones de OpenID Connect para que la autoridad sea la Plataforma de identidad de Microsoft.
   - Valida el emisor del token.
   - Garantiza que las notificaciones correspondientes al nombre se asignan a partir de la notificación `preferred_username` del token de identificador.
 
@@ -291,7 +292,7 @@ El código relacionado con la autenticación en la aplicación web ASP.NET y las
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,

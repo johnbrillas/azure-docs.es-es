@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178949"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660274"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C
 
@@ -39,12 +39,12 @@ Con el registro y el inicio de sesión por teléfono, el usuario puede suscribir
 >
 > *&lt;insert: un vínculo a la declaración de privacidad&gt;*<br/>*&lt;insert: un vínculo a los términos de servicio&gt;*
 
-Para agregar su propia información de consentimiento, personalice el ejemplo siguiente e inclúyalo en el elemento LocalizedResources de ContentDefinition que usa la página autoafirmada con el control de pantalla (el archivo *Phone-Email-Base.xml* del [paquete de inicio de registro e inicio de sesión][starter-pack-phone]):
+Para agregar su propia información de consentimiento, personalice el siguiente ejemplo. Inclúyalo en el elemento `LocalizedResources` de ContentDefinition que usa la página autofirmada con el control de pantalla (el archivo *Phone_Email_Base.xml* del [paquete de inicio de registro por teléfono e inicio de sesión][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -64,7 +64,7 @@ Se envía un código de verificación de un solo uso al número de teléfono del
 
 ![El usuario verifica el código durante el registro por teléfono](media/phone-authentication/phone-signup-verify-code.png)
 
- El usuario escribe cualquier otra información solicitada en la página de registro, por ejemplo, **Nombre para mostrar**, **Nombre dado** y **Apellido** (el país y el número de teléfono permanecen rellenados). Si el usuario quiere usar un número de teléfono diferente, puede elegir **Cambiar número** para reiniciar el registro. Cuando termine, el usuario selecciona **Continuar**.
+El usuario escribe cualquier otra información solicitada en la página de registro. Por ejemplo, **Nombre para mostrar**, **Nombre dado** y **Apellido** (el país y el número de teléfono permanecen rellenos). Si el usuario quiere usar un número de teléfono diferente, puede elegir **Cambiar número** para reiniciar el registro. Cuando termine, el usuario selecciona **Continuar**.
 
 ![El usuario proporciona información adicional](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -100,8 +100,6 @@ Antes de configurar OTP, necesita tener los siguientes recursos:
 
 Empiece por actualizar los archivos de directivas personalizadas de registro e inicio de sesión en el teléfono para que funcionen con el inquilino de Azure AD B2C.
 
-En los siguientes pasos se da por supuesto que ha completado los [requisitos previos](#prerequisites) y ya ha clonado el repositorio del [paquete de inicio de directivas personalizadas][starter-pack] en la máquina local.
-
 1. Busque los [archivos de directivas personalizadas de registro e inicio de sesión en el teléfono][starter-pack-phone] en el clon local del repositorio del paquete de inicio o descárguelos directamente. Los archivos XML de directivas están ubicados en el siguiente directorio:
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
@@ -136,9 +134,9 @@ A medida que carga cada archivo, Azure agrega el prefijo `B2C_1A_`.
 
 ## <a name="get-user-account-by-phone-number"></a>Obtención de una cuenta de usuario por número de teléfono
 
-Los usuarios que se registran con un número de teléfono pero que no proporcionan una dirección de correo electrónico de recuperación usan dicho número de teléfono como nombre de inicio de sesión para registrarse en el directorio de Azure AD B2C. Si luego el usuario quiere cambiar su número de teléfono, el departamento de soporte técnico o el equipo de soporte técnico deben encontrar primero su cuenta y, luego, actualizar su número de teléfono.
+Los usuarios que se registran con un número de teléfono sin una dirección de correo electrónico de recuperación usan dicho número de teléfono como nombre de inicio de sesión para registrarse en el directorio de Azure AD B2C. Para cambiar el número de teléfono, el departamento de soporte técnico o el equipo de soporte técnico deben encontrar primero su cuenta y, luego, actualizar su número de teléfono.
 
-Puede buscar un usuario por su número de teléfono (nombre de inicio de sesión) mediante [Microsoft Graph](manage-user-accounts-graph-api.md):
+Puede buscar un usuario por su número de teléfono (nombre de inicio de sesión) mediante [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')

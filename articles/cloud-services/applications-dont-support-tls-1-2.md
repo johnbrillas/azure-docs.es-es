@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075678"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742580"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar problemas de aplicaciones que no admiten TLS 1.2
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
+
 En este artículo se describe cómo habilitar los protocolos de TLS más antiguos (TLS 1.0 y 1.1), además de cómo aplicar los conjuntos de cifrado heredados para admitir los protocolos adicionales en los roles de trabajo y web del servicio en la nube de Windows Server 2019. 
 
 Somos conscientes de que, aunque estamos llevando a cabo pasos para dejar de usar TLS 1.0 y TLS 1.1, es posible que nuestros clientes tengan que admitir los protocolos y los conjuntos de cifrado más antiguos hasta que puedan planear su desuso.  Si bien no se recomienda volver a habilitar estos valores heredados, ofrecemos esto como orientación para ayudar a los clientes. Animamos a los clientes a evaluar el riesgo de regresión antes de implementar los cambios descritos en este artículo. 
@@ -298,7 +302,7 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Paso 3: Agregar la tarea de inicio a la definición de servicio del rol (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Paso 3: Agregar la tarea de inicio a la definición de servicio del rol (csdef) 
 
 Agregue el siguiente fragmento de código al archivo de definición de servicio existente. 
 

@@ -2,13 +2,13 @@
 title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla de Azure Resource Manager (plantilla de ARM) para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760629"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880449"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -112,6 +112,10 @@ El ámbito se establece mediante la propiedad `expressionEvaluationOptions`. De 
   ...
 ```
 
+> [!NOTE]
+>
+> Cuando el ámbito está establecido en `outer`, no puede usar la función `reference` en la sección de salidas de una plantilla anidada para un recurso que haya implementado en la plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, use el ámbito `inner` o convierta la plantilla anidada en una plantilla vinculada.
+
 En la plantilla siguiente se muestra cómo se resuelven las expresiones de plantilla según el ámbito. Contiene una variable denominada `exampleVar` que se define en la plantilla principal y en la plantilla anidada. Devuelve el valor de la variable.
 
 ```json
@@ -162,7 +166,7 @@ En la plantilla siguiente se muestra cómo se resuelven las expresiones de plant
 
 El valor de `exampleVar` cambia según el valor de la `scope` propiedad en `expressionEvaluationOptions`. La siguiente tabla muestra los resultados para cada ámbito.
 
-| Ámbito `expressionEvaluationOptions` | Output |
+| Ámbito de evaluación | Output |
 | ----- | ------ |
 | interna | desde la plantilla anidada |
 | outer (o predeterminado) | desde la plantilla principal |
@@ -277,9 +281,128 @@ En el ejemplo siguiente se implementa un servidor SQL Server y se recupera el se
 }
 ```
 
-> [!NOTE]
->
-> Cuando el ámbito está establecido en `outer`, no puede usar la función `reference` en la sección de salidas de una plantilla anidada para un recurso que haya implementado en la plantilla anidada. Para devolver los valores de un recurso implementado en una plantilla anidada, use el ámbito `inner` o convierta la plantilla anidada en una plantilla vinculada.
+Tenga cuidado al usar valores de parámetros seguros en una plantilla anidada. Si establece el ámbito en externo, los valores seguros se almacenan como texto sin formato en el historial de implementación. Un usuario que vea la plantilla en el historial de implementación podría ver los valores seguros. En su lugar, use el ámbito interno o agregue a la plantilla primaria los recursos que necesitan valores seguros.
+
+En el siguiente fragmento se muestra qué valores son seguros y cuáles no son seguros.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+    }
+  },
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "mainTemplate",
+      "properties": {
+        ...
+        "osProfile": {
+          "computerName": "mainTemplate",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
+        }
+      }
+    },
+    {
+      "name": "outer",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "outer"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "outer",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "outer",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "adminPasswordOrKey": {
+              "value": "[parameters('adminPasswordOrKey')]"
+          },
+          "adminUsername": {
+              "value": "[parameters('adminUsername')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Username for the Virtual Machine."
+              }
+            },
+            "adminPasswordOrKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "inner",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "inner",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="linked-template"></a>Plantilla vinculada
 
@@ -372,6 +495,91 @@ Para pasar los valores de parámetro alineados, use la propiedad `parameters`.
 ```
 
 No se pueden usar los parámetros alineados ni un vínculo a un archivo de parámetros. La implementación produce un error cuando ambos (`parametersLink` y `parameters`) se especifican.
+
+### <a name="use-relative-path-for-linked-templates"></a>Uso de rutas de acceso relativas para plantillas vinculadas
+
+La propiedad `relativePath` de `Microsoft.Resources/deployments` facilita la creación de plantillas vinculadas. Esta propiedad se puede usar para implementar una plantilla vinculada remota en una ubicación relativa al elemento primario. Esta característica requiere que todos los archivos de plantilla se almacenen provisionalmente y estén disponibles en un URI remoto, como GitHub o una cuenta de Azure Storage. Cuando se llama a la plantilla principal mediante un URI de Azure PowerShell o la CLI de Azure, el URI de implementación secundario es una combinación de los elementos primario y relativePath.
+
+> [!NOTE]
+> Al crear un valor templateSpec, las plantillas a las que hace referencia la propiedad `relativePath` se empaquetan en el recurso templateSpec mediante Azure PowerShell o la CLI de Azure. No es necesario almacenar provisionalmente los archivos. Para obtener más información, consulte [Creación de una especificación de plantilla con plantillas vinculadas](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Supongamos una estructura de carpetas como la siguiente:
+
+![resource manager plantilla vinculada ruta de acceso relativa](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+En la plantilla siguiente se muestra cómo *mainTemplate.json* implementa el elemento *nestedChild.json* que se muestra en la imagen anterior.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+En la implementación siguiente, el URI de la plantilla vinculada en la plantilla anterior es **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Para implementar plantillas vinculadas con una ruta de acceso relativa almacenada en una cuenta de Azure Storage, use el parámetro `QueryString`/`query-string` para especificar el token de SAS que se va a usar con el parámetro TemplateUri. Este parámetro solo es compatible con la versión 2.18 o posterior de la CLI de Azure y la versión 5.4 o posterior de Azure PowerShell.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Asegúrese de que no hay un signo "?" inicial en QueryString. La implementación agrega uno al ensamblar el URI para las implementaciones.
 
 ## <a name="template-specs"></a>Especificaciones de plantilla
 

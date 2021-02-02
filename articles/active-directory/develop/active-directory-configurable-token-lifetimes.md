@@ -13,14 +13,14 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232410"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755310"
 ---
-# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
+# <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
 Puede especificar la vigencia de un token de acceso, identificador o SAML emitido por la Plataforma de identidad de Microsoft. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. No obstante, actualmente no se admite la configuración de la vigencia de los tokens para las [entidades de servicio de identidad administrada](../managed-identities-azure-resources/overview.md).
 
@@ -50,7 +50,7 @@ Los clientes utilizan tokens de acceso para acceder a un recurso protegido. Solo
 
 ### <a name="saml-tokens"></a>Tokens de SAML
 
-Muchas aplicaciones SAAS basadas en web usan tokens SAML, que se obtienen mediante el punto de conexión del protocolo SAML2 de Azure Active Directory. También las usan las aplicaciones mediante WS-Federation. La duración predeterminada del token es de 1 hora. Desde la perspectiva de una aplicación, el período de validez del token se especifica mediante el valor NotOnOrAfter del elemento `<conditions …>` en el token. Una vez finalizado el período de validez del token, el cliente debe iniciar una nueva solicitud de autenticación, que a menudo se satisfará sin iniciar sesión de forma interactiva como resultado del token de sesión de inicio de sesión único (SSO).
+Muchas aplicaciones SaaS basadas en web usan tokens SAML, que se obtienen mediante el punto de conexión del protocolo SAML2 de Azure Active Directory. También las usan las aplicaciones mediante WS-Federation. La duración predeterminada del token es de 1 hora. Desde la perspectiva de una aplicación, el período de validez del token se especifica mediante el valor NotOnOrAfter del elemento `<conditions …>` en el token. Una vez finalizado el período de validez del token, el cliente debe iniciar una nueva solicitud de autenticación, que a menudo se satisfará sin iniciar sesión de forma interactiva como resultado del token de sesión de inicio de sesión único (SSO).
 
 El valor de NotOnOrAfter se puede cambiar mediante el parámetro `AccessTokenLifetime` en un `TokenLifetimePolicy`. Se establecerá en la duración configurada en la directiva, si la hay, más un factor de sesgo de reloj de cinco minutos.
 
@@ -82,9 +82,11 @@ Las directivas de vigencia del token se pueden establecer para los tokens de act
 > [!IMPORTANT]
 > A partir de mayo de 2020, los nuevos inquilinos no pueden configurar la vigencia de los tokens de actualización ni de sesión.  Los inquilinos con configuración existente pueden modificar las directivas de tokens de actualización y de sesión hasta el 30 de enero de 2021.   Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después de la retirada, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.
 >
-> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > Si no quiere usar el acceso condicional después de la fecha de retirada, los tokens de actualización y de sesión se establecerán en la [configuración predeterminada](#configurable-token-lifetime-properties-after-the-retirement) en esa fecha y ya no podrá cambiar su vigencia.
+>
+> La duración del token existente no se cambiará. Una vez expirado, se emitirá un nuevo token basado en el valor predeterminado.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Información sobre la retirada":::
 
@@ -104,7 +106,7 @@ Los clientes públicos no pueden almacenar de forma segura una contraseña (secr
 La propiedad Max Age es el período de tiempo que se puede usar un token único. 
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sesión de inicio de sesión único
-Cuando un usuario se autentica con la Plataforma de identidad de Microsoft, se establece una sesión mediante inicio de sesión único (SSO) con la Plataforma de identidad de Microsoft y el explorador del usuario. El token de SSO, en forma de cookie, representa esta sesión. El token de sesión SSO no está enlazado a una aplicación cliente o de recursos específica. Los tokens de sesión SSO se pueden revocar y su validez se comprueba cada vez que se utilizan.
+Cuando un usuario se autentica con la Plataforma de identidad de Microsoft, se establece una sesión de inicio de sesión único (SSO) con la Plataforma de identidad de Microsoft y el explorador del usuario. El token de SSO, en forma de cookie, representa esta sesión. El token de sesión SSO no está enlazado a una aplicación cliente o de recursos específica. Los tokens de sesión SSO se pueden revocar y su validez se comprueba cada vez que se utilizan.
 
 La Plataforma de identidad de Microsoft usa dos tipos de tokens de sesión SSO: persistente y no persistente. El explorador almacena los tokens de sesión persistentes como cookies. Los tokens de sesión no persistentes se almacenan como cookies de sesión. (Las cookies de sesión se destruyen cuando se cierra el explorador). Por lo general, se almacena un token de sesión no persistente. Pero, si el usuario selecciona la casilla **Mantener la sesión iniciada** durante la autenticación, un token de sesión persistente se almacena.
 
@@ -232,9 +234,9 @@ Factores:
 
 A las 12:00 p.m. el usuario inicia una nueva sesión en el explorador e intenta acceder a la aplicación web A. El usuario es redirigido a la Plataforma de identidad de Microsoft y se le pide que inicie sesión. Esta acción crea una cookie con un token de sesión en el explorador. El usuario es redirigido de nuevo a la aplicación web A con un token de identificador que le permite acceder a la aplicación.
 
-A las 12:15 p.m., el usuario intenta acceder a la aplicación web B. El explorador le redirige a la Plataforma de identidad de Microsoft, que detecta la cookie de sesión. La entidad de servicio de la aplicación web B está vinculada a la directiva 2 de vigencia del token, pero también forma parte de la organización primaria con la directiva 1 de vigencia del token predeterminada. La directiva 2 de vigencia del token se aplica porque las directivas vinculadas a entidades de servicio tienen una prioridad más alta que las directivas predeterminadas de la organización. El token de sesión se emitió originalmente en los últimos 30 minutos, por lo que se considera válido. El usuario es redirigido de nuevo a la aplicación web B con un token de identificador que le concede acceso.
+A las 12:15 p. m., el usuario intenta acceder a la aplicación web B. El explorador le redirige a la Plataforma de identidad de Microsoft, que detecta la cookie de sesión. La entidad de servicio de la aplicación web B está vinculada a la directiva 2 de vigencia del token, pero también forma parte de la organización primaria con la directiva 1 de vigencia del token predeterminada. La directiva 2 de vigencia del token se aplica porque las directivas vinculadas a entidades de servicio tienen una prioridad más alta que las directivas predeterminadas de la organización. El token de sesión se emitió originalmente en los últimos 30 minutos, por lo que se considera válido. El usuario es redirigido de nuevo a la aplicación web B con un token de identificador que le concede acceso.
 
-A la 1:00 p.m., el usuario intenta acceder a la aplicación web A y se le redirige a la Plataforma de identidad de Microsoft. La aplicación web A no está vinculada a ninguna directiva, pero como está en una organización con la directiva predeterminada 1 de vigencia del token, se aplica esta directiva. Se detectó la cookie de sesión que se emitió originalmente en las últimas ocho horas. En modo silencioso, se redirige al usuario a la aplicación web A con un nuevo token de identificador. No es necesario que el usuario se autentique.
+A la 1:00 p. m., el usuario intenta acceder a la aplicación web A y se le redirige a la Plataforma de identidad de Microsoft. La aplicación web A no está vinculada a ninguna directiva, pero como está en una organización con la directiva predeterminada 1 de vigencia del token, se aplica esta directiva. Se detectó la cookie de sesión que se emitió originalmente en las últimas ocho horas. En modo silencioso, se redirige al usuario a la aplicación web A con un nuevo token de identificador. No es necesario que el usuario se autentique.
 
 Inmediatamente después, el usuario intenta acceder a la aplicación web B y se le redirige a la Plataforma de identidad de Microsoft. Como antes, se aplica la directiva 2 de vigencia del token. Dado que el token se emitió hace más de 30 minutos, se le solicita al usuario que vuelva a escribir sus credenciales de inicio de sesión. Se emite un nuevo token de sesión y de identificador. El usuario puede acceder entonces a la aplicación web B.
 

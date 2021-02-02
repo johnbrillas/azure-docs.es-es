@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b323268c625ed25236cf4a9f9faa17606bd967c
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570072"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873780"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -48,7 +48,7 @@ Si tiene preguntas específicas, vamos a apuntar a documentos o flujos específi
 - ¿Se admiten marcos de alta disponibilidad de terceros, además de Windows y Pacemaker? Consulte la parte inferior de la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 - ¿Cuál es el mejor almacenamiento de Azure para mi escenario? Lea [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md)
 - ¿El kernel de Red Hat de Oracle Enterprise Linux es compatible con SAP? Vea la [nota de soporte técnico de SAP 1565179](https://launchpad.support.sap.com/#/notes/1565179)
-- ¿Por qué las familias de VM [Da(s)v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)/[Ea(s)](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) de Azure no están certificadas para SAP HANA? Las familias de máquinas virtuales Das/Eas de Azure se basan en hardware controlado por un procesador AMD. SAP HANA no es compatible con los procesadores AMD, ni siquiera en escenarios virtualizados.
+- ¿Por qué las familias de VM [Da(s)v4](../../dav4-dasv4-series.md)/[Ea(s)](../../eav4-easv4-series.md) de Azure no están certificadas para SAP HANA? Las familias de máquinas virtuales Das/Eas de Azure se basan en hardware controlado por un procesador AMD. SAP HANA no es compatible con los procesadores AMD, ni siquiera en escenarios virtualizados.
 - ¿Por qué sigo recibiendo el mensaje: "The cpu flags for the RDTSCP instruction or the cpu flags for constant_tsc or nonstop_tsc are not set or current_clocksource and available_clocksource are not correctly configured"·(Las marcas de CPU para la instrucción RDTSCP o las marcas de CPU para constant_tsc o nonstop_tsc no están establecidas o current_clocksource y available_clocksource no están configurados correctamente) con SAP HANA, a pesar de que ejecuto los kernels de Linux más recientes. Para obtener la respuesta, consulte la [nota de soporte técnico de SAP 2791572](https://launchpad.support.sap.com/#/notes/2791572)
 - ¿Dónde puedo encontrar arquitecturas para implementar SAP Fiori en Azure? Consulte la entrada de blog [SAP on Azure: Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) (SAP en Azure: Configuración de Application Gateway Web Application Firewall (WAF) v2 para aplicaciones de SAP Fiori con acceso a Internet). 
 
@@ -84,13 +84,14 @@ En esta sección encontrará documentos sobre la integración de Microsoft Powe
 
 ## <a name="change-log"></a>Registro de cambios
 
-- 18 de enero de 2021: Compatibilidad agregada de NFS basado en archivos de Azure Net Apps para Oracle en [Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) y ajuste de decimales en la tabla de documentos [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+- 23/01/2021: Se presenta la funcionalidad de creación de particiones del volumen de datos de HANA como funcionalidad para seccionar operaciones de E/S en archivos de datos de HANA en diferentes discos de Azure o en recursos compartidos de NFS sin usar un administrador de volúmenes de disco en los artículos [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md) y [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).
+- 18 de enero de 2021: Compatibilidad agregada de NFS basado en archivos de Azure Net Apps para Oracle en [Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md) y ajuste de decimales en la tabla de documentos [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 - 01/11/2021: Cambios menores en [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux para aplicaciones SAP](./high-availability-guide-rhel.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) y [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux: guía de varios SID](./high-availability-guide-rhel-multi-sid.md) para ajustar los comandos que funcionan tanto para RHEL8 como para RHEL7, ENSA1 y ENSA2
 - 05/01/2021: Se ha cambiado el [escalado horizontal de SAP HANA con el nodo en espera en máquinas virtuales de Azure con ANF en SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) y el [escalado horizontal de SAP HANA con nodo en espera en máquinas virtuales de Azure con ANF en RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), revisando la configuración recomendada para permitir que el agente de host de SAP administre el intervalo de puertos local.  
-- 04/01/2021: Se han agregado nuevas regiones de Azure compatibles con HLI en [¿Qué es SAP HANA en Azure (instancias grandes)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- 29/12/2020: Se han agregado recomendaciones de arquitectura para regiones de Azure específicas en [Configuraciones de cargas de trabajo de SAP con Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones).
+- 04/01/2021: Se han agregado nuevas regiones de Azure compatibles con HLI en [¿Qué es SAP HANA en Azure (instancias grandes)?](./hana-overview-architecture.md)
+- 29/12/2020: Se han agregado recomendaciones de arquitectura para regiones de Azure específicas en [Configuraciones de cargas de trabajo de SAP con Azure Availability Zones](./sap-ha-availability-zones.md).
 - 21/12/2020: Se han agregado nuevas certificaciones a las SKU de instancias grandes de HANA en [SKU disponibles para HLI](./hana-available-skus.md)
-- 12/12/2020: se ha agregado un puntero a la nota de SAP que clarifica los detalles sobre el soporte técnico de Oracle Enterprise Linux por parte de SAP a [Qué software de SAP es compatible con las implementaciones de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
+- 12/12/2020: se ha agregado un puntero a la nota de SAP que clarifica los detalles sobre el soporte técnico de Oracle Enterprise Linux por parte de SAP a [Qué software de SAP es compatible con las implementaciones de Azure](./sap-supported-product-on-azure.md#oracle-dbms-support)
 - 26/11/2020: adaptación de [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md) y [Tipos de Azure Storage para una carga de trabajo de SAP](./planning-guide-storage.md) a las modificaciones de [SLA para una máquina virtual](https://azure.microsoft.com/support/legal/sla/virtual-machines) única.
 - 11/05/2020: Cambio de vínculo a una nueva nota de SAP acerca de los tipos de sistema de archivos compatibles con HANA en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md). 
 - 26/10/2020: cambio de algunas tablas para la configuración de Azure Premium Storage y así poder aclarar el rendimiento aprovisionado frente al de ráfaga en las [configuraciones de almacenamiento de máquinas virtuales de Azure de SAP HANA](./hana-vm-operations-storage.md).

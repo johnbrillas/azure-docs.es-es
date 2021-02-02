@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81536189"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754658"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ámbitos para una API web que acepta tokens de la versión 1.0
 
@@ -64,7 +64,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 La lógica que usa Azure AD es la siguiente:
 
 - Para el punto de conexión de ADAL (Azure AD v1.0) con un token de acceso de la versión 1.0 (el único posible), aud = resource.
-- En el caso de MSAL (punto de conexión de la Plataforma de identidad de Microsoft [v2.0]) que pide un token de acceso para un recurso que acepta tokens v2.0, `aud=resource.AppId`.
+- En el caso de MSAL (Plataforma de identidad de Microsoft) que pide un token de acceso para un recurso que acepta tokens v2.0, `aud=resource.AppId`.
 - En el caso de MSAL (punto de conexión de la versión 2.0) que pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https:\//database.windows.net espera una audiencia de "htpps\//database.windows.net/", deberá solicitar un ámbito de "https:\//database.windows.net//.default". Consulte también el problema de GitHub [#747: falta la barra diagonal final de la dirección URL del recurso, lo que ha provocado un error de autenticación de SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a todos los permisos de una aplicación de la versión 1.0

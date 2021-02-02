@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122748"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685042"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Informe de uso y conclusiones en el portal de Azure Active Directory
 
@@ -43,7 +43,7 @@ Para obtener acceso a los datos del informe de uso y conclusiones, necesita:
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Seleccione el directorio correcto y luego seleccione **Azure Active Directory** y elija **Aplicaciones empresariales**.
-3. Desde la sección **Actividad** , seleccione **Uso y conclusiones** para abrir el informe. 
+3. Desde la sección **Actividad**, seleccione **Uso y conclusiones** para abrir el informe. 
 
 ![Captura de pantalla que muestra que se seleccionó Uso y conclusiones en la sección Actividad.](./media/concept-usage-insights-report/main-menu.png)
                                      
@@ -52,13 +52,15 @@ Para obtener acceso a los datos del informe de uso y conclusiones, necesita:
 
 El informe de uso y conclusiones muestra la lista de aplicaciones con un intento o más de inicio de sesión, y permite ordenar por el número de inicios de sesión correctos, inicios de sesión con error y la tasa de éxito.
 
-Al hacer clic para cargar más en la parte inferior de la lista, permite ver aplicaciones adicionales en la página. Puede seleccionar el intervalo de fechas para ver todas las aplicaciones que se hayan usado dentro de ese intervalo.
+Al hacer clic para **cargar más** en la parte inferior de la lista, permite ver aplicaciones adicionales en la página. Puede seleccionar el intervalo de fechas para ver todas las aplicaciones que se hayan usado dentro de ese intervalo.
+
+![Captura de pantalla que muestra Uso y conclusiones para una actividad de aplicación en la que puede seleccionar un intervalo y consultar la actividad de inicio de sesión de aplicaciones distintas.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 También puede establecer el foco en una aplicación específica. Seleccione **Ver actividad de inicio de sesión** para ver la actividad de inicio de sesión durante un tiempo para la aplicación, así como los errores principales.  
 
 Al seleccionar un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades para la aplicación.  
 
-![Captura de pantalla que muestra Uso y conclusiones para una actividad de aplicación en la que puede seleccionar un intervalo y consultar la actividad de inicio de sesión de aplicaciones distintas.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="La captura de pantalla muestra el uso y las conclusiones de una aplicación específica en la que puede ver un gráfico para la actividad de inicio de sesión.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

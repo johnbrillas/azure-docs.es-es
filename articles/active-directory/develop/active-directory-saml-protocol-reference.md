@@ -12,14 +12,14 @@ ms.date: 10/05/2018
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e9d63b8fe7fc281a87deb27ddadd794e14fa04d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994407"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755624"
 ---
-# <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Uso del protocolo SAML por parte de la Plataforma de identidad de Microsoft
+# <a name="how-the-microsoft-identity-platform-uses-the-saml-protocol"></a>Uso del protocolo SAML por parte de la Plataforma de identidad de Microsoft
 
 La Plataforma de identidad de Microsoft usa el protocolo SAML 2.0 para permitir a las aplicaciones proporcionar una experiencia de inicio de sesión único a sus usuarios. Los perfiles SAML de [inicio](single-sign-on-saml-protocol.md) y [cierre de sesión único](single-sign-out-saml-protocol.md) de Azure AD explican cómo se usan las aserciones, los protocolos y los enlaces SAML en el servicio de proveedor de identidades.
 

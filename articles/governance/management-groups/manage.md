@@ -1,14 +1,14 @@
 ---
 title: 'Trabajo con grupos de administración: Gobernanza en Azure'
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
-ms.date: 10/14/2020
+ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 33c7da1d7484056eb1bb2fd4b00d892137ed2b64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058104"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787375"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -41,7 +41,7 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 
 1. Cuando se abra el menú, escriba el nuevo nombre que desea mostrar.
 
-   :::image type="content" source="./media/rename_context.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/rename_context.png" alt-text="Captura de pantalla de la ventana Cambiar nombre de grupo y las opciones para cambiar el nombre de un grupo de administración." border="false":::
 
 1. Seleccione **Guardar**.
 
@@ -82,14 +82,14 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 1. Seleccionar **Eliminar**
 
-   :::image type="content" source="./media/delete.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Captura de pantalla de la página Grupo de administración con el botón &quot;Eliminar&quot; resaltado." border="false":::
 
    > [!TIP]
    > Si el icono está deshabilitado, al mantener el selector del mouse sobre el icono se muestra el motivo.
 
 1. Se abre una ventana para que confirme si quiere eliminar el grupo de administración.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Captura de pantalla del cuadro de diálogo de confirmación &quot;Eliminar grupo&quot; para eliminar un grupo de administración." border="false":::
 
 1. Seleccione **Sí**.
 
@@ -123,7 +123,7 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de Azure 
 
 1. Para ver los detalles del grupo de administración, seleccione el vínculo **(detalles)** situado junto al título de este. Si este vínculo no está disponible, no tiene permisos para ver ese grupo de administración.
 
-   :::image type="content" source="./media/main.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios." border="false":::
 
 ### <a name="view-in-powershell"></a>Ver en PowerShell
 
@@ -229,7 +229,7 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 
 1. Seleccione la suscripción de la lista con el identificador correcto.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Captura de pantalla de las opciones &quot;Agregar suscripción&quot; para seleccionar una suscripción existente para agregarla a un grupo de administración." border="false":::
 
 1. Seleccione "Guardar".
 
@@ -243,13 +243,13 @@ Para ver qué permisos tiene en Azure Portal, seleccione el grupo de administrac
 
 1. Seleccione los puntos suspensivos al final de la fila correspondiente a la suscripción de la lista que quiere mover.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Captura de pantalla del menú alternativo para una suscripción para seleccionar la opción &quot;Mover&quot;." border="false":::
 
 1. Seleccione **Mover**.
 
 1. En el menú que se abre, seleccione el **grupo de administración primario**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Captura de pantalla de la ventana &quot;Mover&quot; y opciones para mover una suscripción a otro grupo de administración." border="false":::
 
 1. Seleccione **Guardar**.
 
@@ -281,6 +281,42 @@ Para quitar la suscripción del grupo de administración, use el comando subscri
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
+### <a name="move-subscriptions-in-arm-template"></a>Traslado de las suscripciones de la plantilla de ARM
+
+Para trasladar una suscripción de una plantilla de Azure Resource Manager (plantilla de ARM), use la siguiente plantilla.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMgId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the management group that you want to move the subscription to."
+            }
+        },
+        "subscriptionId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the existing subscription to move."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "type": "Microsoft.Management/managementGroups/subscriptions",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
+            "properties": {
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="move-management-groups"></a>Movimiento de grupos de administración 
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de administración en el portal
@@ -298,7 +334,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Al seleccionar Nuevo se crea un grupo de administración.
    - Al seleccionar un grupo existente se mostrará una lista desplegable de todos los grupos de administración que se pueden mover a este grupo de administración.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Captura de pantalla de las opciones de &quot;Agregar grupo de administración&quot; para crear un nuevo grupo de administración." border="false":::
 
 1. Seleccione **Guardar**.
 
@@ -323,7 +359,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure. Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Captura de pantalla de la barra de acciones y el botón &quot;Cambiar nombre de grupo&quot; en la página grupo de administración." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Captura de pantalla de los registros de actividad y las operaciones relacionadas con el grupo de administración seleccionado." border="false":::
 
 Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

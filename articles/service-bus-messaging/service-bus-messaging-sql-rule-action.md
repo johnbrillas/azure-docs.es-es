@@ -3,16 +3,16 @@ title: Sintaxis de acciones de SQL de regla de suscripción de Azure Service Bus
 description: En este artículo se ofrece una referencia para la sintaxis de acciones de reglas SQL. Las acciones se escriben con una sintaxis basada en lenguaje SQL que se realiza en un mensaje.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489401"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742696"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxis de acciones de SQL de regla de suscripción
 
-Una *acción de SQL* se usa para manipular metadatos de mensajes después de que un filtro de una regla de suscripción haya seleccionado un mensaje. Es una expresión de texto que depende de un subconjunto del estándar SQL-92. Las expresiones de acción se usan con el elemento `sqlExpression` de la propiedad "action" de una `Rule` de Service Bus en una [plantilla de Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), o con el argumento [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) del comando `az servicebus topic subscription rule create` de la CLI de Azure y varias funciones de SDK que permiten administrar reglas de suscripción.
+Una *acción de SQL* se usa para manipular metadatos de mensajes después de que un filtro de una regla de suscripción haya seleccionado un mensaje. Es una expresión de texto que depende de un subconjunto del estándar SQL-92. Las expresiones de acción se usan con el elemento `sqlExpression` de la propiedad "action" de una `Rule` de Service Bus en una [plantilla de Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), o con el argumento [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) del comando `az servicebus topic subscription rule create` de la CLI de Azure y varias funciones de SDK que permiten administrar reglas de suscripción.
   
   
 ```  
@@ -94,7 +94,7 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
   
 ```  
   
- `<quoted_identifier>` es cualquier cadena que se incluye entre comillas dobles. Las comillas dobles en el identificador se representan como dos comillas dobles. No se recomienda utilizar identificadores entre comillas, ya que pueden confundirse fácilmente con una constante de cadena. Si es posible, utilice un identificador delimitado. A continuación, se muestra un ejemplo de `<quoted_identifier>`:  
+ `<quoted_identifier>` es cualquier cadena que se incluye entre comillas dobles. Las comillas dobles en el identificador se representan como dos comillas dobles. No se recomienda usar identificadores entre comillas, ya que pueden confundirse fácilmente con una constante de cadena. Si es posible, utilice un identificador delimitado. A continuación, se muestra un ejemplo de `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -137,7 +137,7 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` es una cadena de números que no se incluyen entre comillas y no contienen decimales. Los valores se almacenan como `System.Int64` internamente y siguen el mismo intervalo.  
+-   `<integer_constant>` es una cadena de números que no se incluye entre comillas y no contiene decimales. Los valores se almacenan como `System.Int64` internamente y siguen el mismo intervalo.  
   
      A continuación, se muestran ejemplos de constantes largas:  
   
@@ -146,7 +146,7 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
     2  
     ```  
   
--   `<decimal_constant>` es una cadena de números que no se incluyen entre comillas y contienen un separador decimal. Los valores se almacenan como `System.Double` internamente y siguen el mismo intervalo o la misma precisión.  
+-   `<decimal_constant>` es una cadena de números que no se incluye entre comillas y contiene un separador decimal. Los valores se almacenan como `System.Double` internamente y siguen el mismo intervalo o la misma precisión.  
   
      En una versión futura, este número podría almacenarse en un tipo de datos diferente para admitir la semántica de número exacto. Por lo tanto, no debe confiar en el hecho de que el tipo de datos subyacente es `System.Double` en `<decimal_constant>`.  
   
@@ -195,9 +195,11 @@ Las constantes de cadena se incluyen entre comillas simples y contienen caracter
   
 ### <a name="remarks"></a>Comentarios  
 
-La función `newid()` devuelve un elemento **System.Guid** generado por el método `System.Guid.NewGuid()`.  
+La función `newid()` devuelve un elemento `System.Guid` generado por el método `System.Guid.NewGuid()`.  
   
 La función `property(name)` devuelve el valor de la propiedad a la que hace referencia `name`. El valor `name` puede ser cualquier expresión válida que devuelve un valor de cadena.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>Consideraciones
 
@@ -214,5 +216,5 @@ La función `property(name)` devuelve el valor de la propiedad a la que hace ref
 - [Clase SQLRuleAction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 - [Clase SqlRuleAction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
-- [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

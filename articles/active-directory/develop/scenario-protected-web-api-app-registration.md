@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443949"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756453"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -27,7 +27,7 @@ Para conocer los pasos comunes para registrar una aplicación, consulte [Inicio 
 
 ## <a name="accepted-token-version"></a>Versión del token aceptada
 
-El punto de conexión de la plataforma de identidad de Microsoft puede emitir tokens v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md).
+La plataforma de identidad de Microsoft puede emitir tokens v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md).
 
 La versión del token que puede aceptar la API depende de los **tipos de cuenta admitidos** que haya seleccionado al crear el registro de aplicación de API web en Azure Portal.
 
@@ -44,7 +44,7 @@ Después de crear la aplicación, puede determinar o cambiar la versión del tok
 1. Si ha cambiado la versión del token, seleccione **Guardar**.
 
 > [!NOTE]
-> La API web especifica qué versión del token acepta. Cuando un cliente solicita un token para la API web desde el punto de conexión de la plataforma de identidad de Microsoft (v2.0), el cliente obtiene un token que indica qué versión del token acepta la API web.
+> La API web especifica qué versión del token acepta. Cuando un cliente solicita un token para la API web desde la Plataforma de identidad de Microsoft, el cliente obtiene un token que indica qué versión del token acepta la API web.
 
 ## <a name="no-redirect-uri"></a>URI sin redireccionamiento
 

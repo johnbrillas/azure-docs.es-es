@@ -1,5 +1,6 @@
 ---
-title: 'Registro de una aplicación web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Registro de una aplicación web que llama a las API web | Azure
+titleSuffix: Microsoft identity platform
 description: Aprenda a registrar una aplicación web que llama a las API web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 863d8d87d5de771293199dd60618128b0ac11bba
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: bb9a1ca6c2c81e3b0d5dbeff06f4de012446cf79
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442606"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756328"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Aplicación web que llama a las API web: Registro de aplicación
 

@@ -1,21 +1,24 @@
 ---
-title: Recopilar contadores de rendimiento en Azure Cloud Services | Microsoft Docs
+title: Recopilación de contadores de rendimiento en Azure Cloud Services (clásico) | Microsoft Docs
 description: Obtenga información acerca de cómo detectar, usar y crear contadores de rendimiento en Cloud Services con Azure Diagnostics y Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078602"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739843"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recopilar información con contadores de rendimiento para Azure Cloud Service
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Recopilación de contadores de rendimiento para Azure Cloud Services (clásico)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md) es un nuevo modelo de implementación basado en Azure Resource Manager para el producto Azure Cloud Services. Con este cambio, se ha modificado el nombre del modelo de implementación basado en Azure Cloud Services para Azure Service Manager a Cloud Services (clásico), y todas las implementaciones nuevas deben usar [Cloud Services (soporte extendido)](../cloud-services-extended-support/overview.md).
 
 Los contadores de rendimiento le ofrecen una forma de realizar un seguimiento del rendimiento de su aplicación y host. Windows Server proporciona diferentes contadores de rendimiento relacionados con hardware, aplicaciones, sistema operativo, etc. Al recopilar y enviar información de los contadores de rendimiento a Azure, puede analizar esta información para ayudar a tomar mejores decisiones. 
 
@@ -112,7 +115,7 @@ Application Insights recopila automáticamente los siguientes contadores de rend
 
 Para más información, vea [Contadores de rendimiento de sistema en Application Insights](../azure-monitor/app/performance-counters.md) y [Application Insights para Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
 
-### <a name="azure-diagnostics"></a>Diagnóstico de Azure
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
 > Aunque todos estos datos se agregan a la cuenta de almacenamiento, el portal **no** ofrece una forma nativa de crear gráficos de los datos. Se recomienda encarecidamente que integre otro servicio de diagnóstico, como Application Insights, en la aplicación.
@@ -257,7 +260,7 @@ Como se mencionó anteriormente, los contadores de rendimiento para Application 
 <!-- ... cut to save space ... -->
 ```
 
-### <a name="azure-diagnostics"></a>Diagnóstico de Azure
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 Como se indicó anteriormente, los contadores de rendimiento que quiere recopilar se definen en el archivo **diagnostics.wadcfgx**. Abra este archivo (se define según el rol) en Visual Studio y busque el elemento **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Agregue un nuevo elemento **PerformanceCounterConfiguration** como secundario. Establezca el atributo `counterSpecifier` en la categoría y el nombre del contador de rendimiento que creó en el código. 
 

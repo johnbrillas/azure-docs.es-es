@@ -2,13 +2,13 @@
 title: Configuración de vRealize Operations para Azure VMware Solution
 description: Aprenda a configurar vRealize Operations para una nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 25469089cf1fef076711bfaf1492fad43edbcf33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/26/2021
+ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371790"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880698"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configuración de vRealize Operations para Azure VMware Solution
 
@@ -27,8 +27,8 @@ Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin
 * Opcionalmente, revise la documentación del producto [vRealize Operations Remote Controller](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) para la opción de administración de vRealize Operations local de la implementación de Azure VMware Solution. 
 
 
-
 ## <a name="prerequisites"></a>Requisitos previos
+* [vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) instalado.
 * Una VPN o Azure ExpressRoute configurados entre el SDDC de Azure VMware Solution y el entorno local.
 * Una nube privada de Azure VMware Solution se ha implementado en Azure.
 
@@ -50,12 +50,13 @@ Para ampliar las funciones de vRealize Operations a la nube privada de Azure VMw
 
 Otra opción consiste en implementar una instancia de vRealize Operations Manager en un clúster de vSphere de la nube privada. 
 
+>[!IMPORTANT]
+>Esta opción no es compatible actualmente con VMware.
+
 :::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="vRealize Operations que se ejecutan en Azure VMware Solution" border="false":::
 
 Una vez que se ha implementado la instancia, puede configurar vRealize Operations para recopilar datos de vCenter, ESXi, NSX-T, vSAN y HCX. 
 
-> [!TIP]
-> Consulte la [documentación de VMware](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) y obtenga una guía paso a paso de cómo instalar vRealize Operations Manager.
 
 
 ## <a name="known-limitations"></a>Limitaciones conocidas

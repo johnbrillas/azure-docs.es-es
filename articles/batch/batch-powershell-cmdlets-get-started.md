@@ -2,34 +2,34 @@
 title: Introducción a PowerShell
 description: Una rápida introducción a los cmdlets de Azure PowerShell que puede usar para administrar recursos de Batch.
 ms.topic: how-to
-ms.date: 01/15/2019
+ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 3c152733ee3a75732d119db16f7db7c266740fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079853"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685517"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
-Con los cmdlets de PowerShell de Azure Batch puede realizar directamente y mediante scripts muchas de las tareas que se llevan a cabo con las API de Batch, Azure Portal y la interfaz de la línea de comandos (CLI) de Azure. Esta es una breve introducción a los cmdlets que se pueden usar para administrar cuentas de Batch y trabajar con recursos de Batch tales como grupos, trabajos y tareas.
+Con los cmdlets de PowerShell de Azure Batch, puede realizar muchas tareas comunes de Batch y crear scripts para las mismas. Esta es una breve introducción a los cmdlets que se pueden usar para administrar cuentas de Batch y trabajar con recursos de Batch tales como grupos, trabajos y tareas.
 
 Para obtener una lista completa de los cmdlets de Batch y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Azure Batch](/powershell/module/az.batch).
 
-En este artículo se usan los cmdlets de la versión 1.0.0 del módulo Az Batch. Se recomienda actualizar los módulos de Azure PowerShell con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
+Se recomienda actualizar los módulos de Azure PowerShell con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Instale y configure el módulo de Azure PowerShell](/powershell/azure/). Para instalar un módulo específico de Azure Batch, como una versión preliminar, consulte [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+- [Instale y configure el módulo de Azure PowerShell](/powershell/azure/). Para instalar un módulo específico de Azure Batch, como una versión preliminar, consulte [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/).
 
-* Ejecute el cmdlet **Connect-AzAccount** para conectarse a su suscripción (los cmdlets de Azure Batch se incluyen en el módulo de Azure Resource Manager):
+- Ejecute el cmdlet **Connect-AzAccount** para conectarse a su suscripción (los cmdlets de Azure Batch se incluyen en el módulo de Azure Resource Manager):
 
   ```powershell
   Connect-AzAccount
   ```
 
-* **Registro con el espacio de nombres del proveedor de Batch**. Solo tiene que realizar esta operación **una vez por cada suscripción**.
+- **Registro con el espacio de nombres del proveedor de Batch**. Solo tiene que realizar esta operación **una vez por cada suscripción**.
   
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -114,9 +114,9 @@ Cuando se utilizan muchos de estos cmdlets, además de pasar un objeto BatchCont
 
 ### <a name="create-a-batch-pool"></a>Crear un grupo de Batch
 
-Al crear o actualizar un grupo de Batch, seleccione la configuración de servicios en la nube o de máquina virtual para el sistema operativo de los nodos de proceso (consulte [Nodos y grupos](nodes-and-pools.md#configurations)). Si se especifica la configuración de servicios en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del sistema operativo invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de la máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
+Al crear o actualizar un grupo de Batch, se especifica una [configuración](nodes-and-pools.md#configurations). Por lo general, los grupos deben configurarse con la configuración de máquina virtual, lo que le permite especificar alguna de las imágenes de máquina virtual Linux o Windows compatibles que aparecen en [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), o proporcionar una imagen personalizada que haya preparado. Los grupos de configuración de Cloud Services proporcionan solo nodos de proceso de Windows y no admiten todas las características de Batch.
 
-Al ejecutar **New-AzBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente fragmento de código crea un grupo de Batch con nodos de proceso de tamaño Standard_A1 en la configuración de la máquina virtual con una imagen de Ubuntu Server 18.04-LTS. En este caso, el parámetro **VirtualMachineConfiguration** especifica la variable *$configuration* como objeto PSVirtualMachineConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
+Al ejecutar **New-AzBatchPool**, pase la configuración del sistema operativo en un objeto PSVirtualMachineConfiguration o PSCloudServiceConfiguration. Por ejemplo, el siguiente fragmento de código crea un grupo de Batch con nodos de proceso de tamaño Standard_A1 en la configuración de la máquina virtual con una imagen de Ubuntu Server 18.04-LTS. En este caso, el parámetro **VirtualMachineConfiguration** especifica la variable *$configuration* como objeto PSVirtualMachineConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -190,7 +190,10 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 ## <a name="application-package-management"></a>Administración de paquetes de aplicación
 
-Los paquetes de aplicación proporcionan una manera simplificada de implementar aplicaciones a los nodos de proceso de los grupos. Con los cmdlets de PowerShell incluidos en Batch, puede cargar y administrar paquetes de aplicación de la cuenta de Batch e implementar versiones del paquete en los nodos de proceso.
+Los [paquetes de aplicación](batch-application-packages.md) proporcionan una manera simplificada de implementar aplicaciones a los nodos de proceso de los grupos. Con los cmdlets de PowerShell incluidos en Batch, puede cargar y administrar paquetes de aplicación de la cuenta de Batch e implementar versiones del paquete en los nodos de proceso.
+
+> [!IMPORTANT]
+> Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Azure Storage a su cuenta de Batch.
 
 **Cree** una aplicación:
 
@@ -247,17 +250,13 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Ahora se crea la configuración y el grupo. En este ejemplo se usa el parámetro **CloudServiceConfiguration** con un objeto de tipo `PSCloudServiceConfiguration` inicializado en `$configuration`, que establece **OSFamily** en `6` para "Windows Server 2019" y **OSVersion** en `*`. Especifique el objeto de referencia del paquete como argumento para la opción `ApplicationPackageReferences`:
+Ahora, cree el grupo y especifique el objeto de referencia del paquete como argumento en la opción `ApplicationPackageReferences`:
 
 ```powershell
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
-New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
+New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -VirtualMachineConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
 Puede encontrar más información sobre los paquetes de aplicación en [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
-
-> [!IMPORTANT]
-> Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Azure Storage a su cuenta de Batch.
 
 ### <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
 
@@ -291,11 +290,9 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 ```
 
 > [!TIP]
-> Puede implementar varios paquetes de aplicación en los nodos de proceso de un grupo. Si en lugar de reemplazar los paquetes que están instalados actualmente prefiere *agregar* un paquete de aplicación, omita la línea `$pool.ApplicationPackageReferences.Clear()` anterior.
+> Puede implementar varios paquetes de aplicación en los nodos de proceso de un grupo. Si en lugar de reemplazar los paquetes que están instalados actualmente prefiere agregar un paquete de aplicación, omita la línea `$pool.ApplicationPackageReferences.Clear()` anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](/powershell/module/az.batch)(Cmdlets de Lote de Azure).
-* Para más información sobre las aplicaciones y los paquetes de aplicación de Batch, consulte [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
-
-[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1
+- Revise la [referencia de cmdlets de Azure Batch](/powershell/module/az.batch) para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos.
+- Obtenga información sobre cómo [implementar aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).

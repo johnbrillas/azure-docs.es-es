@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107927"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754932"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migración de aplicaciones a MSAL para iOS y macOS
 
@@ -38,14 +38,14 @@ La Plataforma de identidad de Microsoft tiene algunas diferencias importantes co
 
 ### <a name="standards-compliance"></a>Cumplimiento normativo
 
-* El punto de conexión de la Plataforma de identidad de Microsoft sigue las normas OAuth 2.0 y OpenId Connect.
+* La Plataforma de identidad de Microsoft sigue las normas OAuth 2.0 y OpenId Connect.
 
 ### <a name="incremental-and-dynamic-consent"></a>Consentimiento incremental y dinámico
 
 * El punto de conexión de Azure Active Directory v1.0 requiere que todos los permisos se declaren por adelantado durante el registro de la aplicación. Esto significa que esos permisos son estáticos.
 * La Plataforma de identidad de Microsoft le permite solicitar permisos de forma dinámica. Las aplicaciones pueden pedir permisos solo según sea necesario y solicitar más cuando la aplicación los necesite.
 
-Para más información sobre las diferencias entre Azure Active Directory v1.0 y la Plataforma de identidad de Microsoft, consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md).
+Para más información sobre las diferencias entre Azure Active Directory v1.0 y la Plataforma de identidad de Microsoft, consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Diferencias entre las bibliotecas ADAL y MSAL
 

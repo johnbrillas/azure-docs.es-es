@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados para la plataforma de identidad de Microsoft | Azure
+title: Procedimientos recomendados para la Plataforma de identidad de Microsoft | Azure
 description: Conozca los procedimientos recomendados, las recomendaciones y los descuidos más comunes al realizar la integración con la plataforma de identidad de Microsoft.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063797"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755257"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft
 
@@ -104,7 +104,7 @@ Utilice la siguiente lista de comprobación para asegurarse de que su aplicació
 
 Explore la información detallada acerca de la versión 2.0:
 
-* [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](v2-overview.md)
+* [Plataforma de identidad de Microsoft (introducción)](v2-overview.md)
 * [Referencia a los protocolos de la plataforma de identidad de Microsoft](active-directory-v2-protocols.md)
 * [Referencia de los tokens de acceso](access-tokens.md)
 * [Referencia de los tokens de identificador](id-tokens.md)

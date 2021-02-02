@@ -4,22 +4,22 @@ description: Aprenda a interpretar los modelos de facturación aprovisionado y d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831472"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632485"
 ---
 # <a name="understanding-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
 
 Los precios actuales de Azure Files pueden encontrarse en la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Facturación aprovisionada
+## <a name="provisioned-model"></a>Modelo aprovisionado
 Azure Files usa un modelo aprovisionado para los recursos compartidos de archivos prémium. En un modelo de negocio aprovisionado, debe especificar de forma proactiva cuáles son los requisitos de almacenamiento del servicio Azure Files, en lugar de que se le aplique una factura basada en lo que usa. Esto es similar a la compra de hardware local, ya que cuando se aprovisiona un recurso compartido de archivos de Azure con una determinada cantidad de almacenamiento, se paga por ese almacenamiento independientemente de si se usa o no, de la misma manera que no se empiezan a pagar los costos de los soportes físicos locales al empezar a usar el espacio. A diferencia de la compra de soportes físicos locales, los recursos compartidos de archivos aprovisionados se pueden escalar o reducir verticalmente de forma dinámica en función de las características de rendimiento de almacenamiento y de E/S.
 
 Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
@@ -63,7 +63,7 @@ Los créditos de recursos compartidos tienen tres estados:
 
 Los nuevos recursos compartidos de archivo empiezan con la cantidad total de créditos del cubo de ráfagas. Los créditos de ráfaga no se acumularán si el valor de IOPS del recurso compartido cae por debajo del valor de IOPS de la línea de base debido a una limitación del servidor.
 
-## <a name="pay-as-you-go-billing"></a>Facturación de pago por uso
+## <a name="pay-as-you-go-model"></a>Modelo de pago por uso
 Azure Files usa un modelo de negocio de pago por uso para los recursos compartidos de archivos estándar. En un modelo de negocio de pago por uso, la cantidad que se paga se determina según el volumen que se usa realmente, en lugar de basarse en una cantidad aprovisionada. En un nivel alto, se paga un costo por la cantidad de datos almacenados en el disco y, a continuación, un conjunto adicional de transacciones en función del uso de esos datos. Un modelo de pago por uso puede ser rentable, ya que no es necesario sobreaprovisionar para tener en cuenta los requisitos futuros de crecimiento o rendimiento ni el desaprovisionamiento si la carga de trabajo tiene una superficie de datos que varía con el tiempo. Por otro lado, un modelo de pago por uso también puede ser difícil de planear como parte de un proceso de presupuesto, porque este modelo se basa en el consumo del usuario final.
 
 ### <a name="differences-in-standard-tiers"></a>Diferencias en los niveles estándar

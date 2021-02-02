@@ -2,18 +2,18 @@
 title: 'Preguntas más frecuentes sobre los servicios de FHIR en Azure: Azure API for FHIR'
 description: Obtenga respuestas a las preguntas más frecuentes sobre Azure API for FHIR, como la ubicación de almacenamiento de datos detrás de las API de FHIR y la compatibilidad con versiones.
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2020
-ms.author: matjazl
-ms.openlocfilehash: 31ae5b780bf451e29a97f04202f804db27fc387a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 1/21/2021
+ms.author: cavoeg
+ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452930"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746720"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -105,6 +105,12 @@ A continuación se muestran algunos ejemplos de eso:
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>¿Cuál es el orden predeterminado al buscar recursos en Azure API for FHIR?
 
 Se admite la ordenación por la fecha de la última actualización: _sort=_lastUpdated. Para más información sobre otros parámetros de búsqueda admitidos, consulte la [página de características admitidas](./fhir-features-supported.md#search).
+
+### <a name="does-the-azure-api-for-fhir-support-everything"></a>¿Azure API for FHIR admite $everything? 
+
+No. En este momento no se admite $everything. Sin embargo, se puede lograr con dos llamadas API. Por ejemplo, para obtener Patient$everything, puede tomar primero el registro del paciente mediante /Patient/[ID] y, a continuación, una segunda llamada para recuperar todos los datos del paciente mediante /Patient/[ID]/*.
+
+Puede ver más detalles en esta [publicación de la comunidad](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
 
 ### <a name="how-does-export-work"></a>¿Cómo funciona $export?
 

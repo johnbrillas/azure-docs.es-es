@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913409"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624782"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso del Explorador de Azure Storage para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -80,7 +80,7 @@ Para descargar los archivos mediante el **Explorador de Azure Storage**, con un 
 
 Puede establecer permisos en la raíz del contenedor. Para ello, debe iniciar sesión en el Explorador de Azure Storage con su cuenta individual con derechos para hacerlo (en contraposición al uso de una cadena de conexión). Haga clic con el botón derecho en el contenedor y seleccione **Administrar permisos**, tras lo que aparece el cuadro de diálogo **Manage Permission** (Administrar permiso).
 
-![Explorador de Microsoft Azure Storage: administración del acceso al directorio](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Explorador de Microsoft Azure Storage: administración del acceso al directorio](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 El cuadro de diálogo **Administrar permiso** permite administrar los permisos de propietario y del grupo de propietarios. También permite agregar usuarios y grupos nuevos a la lista de control de acceso para la que quiere administrar los permisos.
 
@@ -105,6 +105,10 @@ Dentro de ambas categorías existen tres permisos que puede asignar en los archi
 > Las selecciones que haga aquí no establecerán permisos en ningún elemento existente actual dentro del directorio. Debe ir a cada elemento individual y establecer manualmente los permisos, si el archivo ya existe.
 
 Puede administrar los permisos en directorios individuales, así como en archivos individuales, que es lo que le permite tener un control de acceso detallado. El proceso de administrar permisos tanto para directorios como archivos es el mismo que ya se describió. Haga clic con el botón derecho en el archivo o el directorio en el que quiere administrar los permisos y siga el mismo proceso.
+
+## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Puntos de conexión privados en Azure Data Lake Storage Gen2
+
+Al trabajar con Azure Data Lake Storage Gen2, el Explorador de Storage hace uso de los [puntos de conexión](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) de Blob (blob) y Data Lake Storage Gen2 (DFS). Si el acceso a Azure Data Lake Storage Gen2 se configura mediante puntos de conexión privados, asegúrese de que se crean dos puntos de conexión privados para la cuenta de almacenamiento: uno con el subrecurso de destino `blob` y el otro con el subrecurso de destino `dfs`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

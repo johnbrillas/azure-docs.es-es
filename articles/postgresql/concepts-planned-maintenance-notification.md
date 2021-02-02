@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920260"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735748"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificación de mantenimiento planeado en Azure Database for PostgreSQL: servidor único
 
@@ -25,7 +25,7 @@ Un mantenimiento planeado es una ventana de mantenimiento durante la que estas a
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Mantenimiento planeado: duración e impacto en el cliente
 
-Normalmente se espera que un mantenimiento planeado para una región de Azure concreta se ejecute durante 15 horas. La ventana también incluye el tiempo de búfer para ejecutar un plan de reversión si es necesario. Durante el mantenimiento planeado, puede haber reinicios o conmutaciones por error del servidor de bases de datos, lo que podría dar lugar a una breve indisponibilidad de los servidores de bases de datos para los usuarios finales. Los servidores de Azure Database for PostgreSQL se ejecutan en contenedores, por lo que los reinicios del servidor de bases de datos suelen ser rápidos y normalmente se espera que se completen en 60-120 segundos. El equipo de ingeniería supervisa cuidadosamente el evento de mantenimiento planeado completo, incluidos los reinicios del servidor. El tiempo de conmutación por error del servidor depende del tiempo de recuperación de la base de datos, lo que puede hacer que la base de datos se ponga en línea más tiempo si tiene mucha actividad transaccional en el servidor en el momento de la conmutación por error. Para evitar un tiempo de reinicio más largo, se recomienda evitar las transacciones de larga duración (cargas masivas) durante los eventos de mantenimiento planeado.
+Normalmente se espera que un mantenimiento planeado para una región de Azure concreta se complete en un período de 15 horas. Este período de tiempo también incluye el tiempo de búfer para ejecutar un plan de reversión si es necesario. Los servidores de Azure Database for PostgreSQL se ejecutan en contenedores, por lo que los reinicios del servidor de bases de datos normalmente tardan entre 60 y 120 segundos en completarse, pero no hay ninguna manera determinista de saber cuándo se verá afectado el servidor en este período de 15 horas. El equipo de ingeniería supervisa cuidadosamente el evento de mantenimiento planeado completo, incluidos los reinicios del servidor. El tiempo de conmutación por error del servidor depende de la recuperación de la base de datos, lo que puede hacer que la base de datos se ponga en línea más tiempo si tiene mucha actividad transaccional en el servidor en el momento de la conmutación por error. Para evitar un tiempo de reinicio más largo, se recomienda evitar las transacciones de larga duración (cargas masivas) durante los eventos de mantenimiento planeado.
 
 En resumen, mientras que el evento de mantenimiento planeado se ejecuta durante 15 horas, el impacto individual del servidor suele durar 60 segundos, en función de la actividad transaccional en el servidor. Se envía una notificación 72 horas naturales antes de que se inicie el mantenimiento planeado y otra mientras está en curso en una región concreta.
 

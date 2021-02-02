@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Una introducción a los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017328"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755118"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -22,7 +22,7 @@ En este artículo se describen las características de un almacén de Recovery S
 
 - **Eliminación temporal**:  Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. La retención adicional de 14 días de los datos de copia de seguridad con el estado de "eliminación temporal" no tiene costo alguno para el cliente. [Más información](backup-azure-security-feature-cloud.md).
 
-- **Restauración entre regiones**:  la restauración entre regiones (CRR) permite restaurar máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure. Si Azure declara un desastre en la región primaria, los datos replicados en la región secundaria estarán disponibles para su restauración en esta última región para mitigar el desastre de tiempo de inactividad real en la región primaria de su entorno. [Más información](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Restauración entre regiones**:  la restauración entre regiones (CRR) permite restaurar máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure. Al habilitar esta característica en el [nivel de almacén](backup-create-rs-vault.md#set-cross-region-restore), puede restaurar los datos replicados en la región secundaria en cualquier momento, cuando prefiera. Esto le permite restaurar los datos de la región secundaria para la compatibilidad con auditorías y, durante los escenarios de interrupción, sin esperar a que Azure declare un desastre (a diferencia de la configuración de GRS del almacén). [Más información](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Configuración de almacenamiento en el almacén de Recovery Services
 

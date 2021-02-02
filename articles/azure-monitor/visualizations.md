@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522675"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881238"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -46,9 +46,9 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Ventajas
-- Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el Explorador de métricas, Log Analytics y Application Insights.
+- Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el [Explorador de métricas](platform/metrics-charts.md), [Log Analytics](log-query/log-analytics-overview.md) y [Application Insights](app/app-insights-overview.md).
 - Es compatible con las métricas y los registros.
-- Puede combinar datos de varios orígenes, incluidos los resultados del [Explorador de métricas](platform/metrics-charts.md), las [consultas del registro](log-query/log-query-overview.md) y los [mapas](app/app-map.md), y la disponibilidad de Application Insights.
+- Puede combinar datos de varios orígenes, incluidos los resultados del [Explorador de métricas](platform/metrics-charts.md), las[ consultas del registro](log-query/log-query-overview.md) y los [mapas](app/app-map.md), y la disponibilidad de [Application Insights](app/app-insights-overview.md).
 - Opción de paneles personales o compartidos. Esta actualización también se integra con los [controles de acceso basado en roles (Azure RBAC) de Azure](../role-based-access-control/overview.md).
 - Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Registra la actualización cada hora, con una opción de actualización manual a petición mediante un clic en el icono "Actualizar" en una visualización determinada o mediante la actualización del panel completo.
 - Paneles de métricas parametrizadas con marca de tiempo y parámetros personalizados.
@@ -57,7 +57,7 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 
 
 ### <a name="limitations"></a>Limitaciones
-- Control limitado sobre las visualizaciones de registros sin compatibilidad con tablas de datos. El número total de series de datos se limita a 10 con otras series de datos agrupadas en _otro_ depósito.
+- Control limitado sobre las visualizaciones de registros sin compatibilidad con tablas de datos. El número total de series de datos se limita a 50 con otras series de datos agrupadas en _otro_ depósito.
 - Los gráficos de registro no son compatibles con los parámetros personalizados.
 - Los gráficos de registro se limitan a los últimos 30 días.
 - Los gráficos de registro solo se pueden anclar a los paneles compartidos.
@@ -140,8 +140,9 @@ Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visua
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre los [datos que Azure Monitor recopila](platform/data-platform.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
-- Obtenga información sobre las [vistas de Azure Monitor](platform/view-designer.md).
+- Más información acerca de [Explorador de métricas](platform/metrics-getting-started.md).
 - Obtenga información sobre [Workbooks](./platform/workbooks-overview.md).
 - Obtenga información sobre cómo [importar datos de registro en Power BI](./platform/powerbi.md).
 - Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](./platform/grafana-plugin.md).
+- Obtenga información sobre las [vistas de Azure Monitor](platform/view-designer.md).
 

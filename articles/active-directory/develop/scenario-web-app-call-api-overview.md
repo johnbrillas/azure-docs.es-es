@@ -1,5 +1,6 @@
 ---
-title: 'Compilación de una aplicación web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Compilación de una aplicación web que llama a las API web | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación web que llame a API web (información general)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b4123b0424e52c6a2919de4b60bcc6158062b0f1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1fdbdada54320ef28f6a4b04a7f415c835acc9dd
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442640"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756294"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Escenario: Aplicación web que llama a las API web
 

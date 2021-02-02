@@ -2,13 +2,13 @@
 title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657318"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621846"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -125,6 +125,12 @@ Si desea que sus niveles tengan ciclos de vida independientes, puede implementar
 ![plantilla de niveles](./media/overview/tier-templates.png)
 
 Para más información acerca de las plantillas anidadas, consulte [Uso de plantillas vinculadas con Azure Resource Manager](linked-templates.md).
+
+## <a name="share-templates"></a>Uso compartido de plantillas
+
+Después de crear la plantilla, puede que desee compartirla con otros usuarios de la organización. Las [especificaciones de plantilla](template-specs.md) permiten almacenar una plantilla como un tipo de recurso. Usará el control de acceso basado en rol para conceder acceso a la especificación de plantilla. Los usuarios con acceso de lectura a la especificación de plantilla pueden implementarla, pero no cambiar la plantilla.
+
+Este enfoque significa que puede compartir de forma segura plantillas que satisfagan los estándares de su organización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

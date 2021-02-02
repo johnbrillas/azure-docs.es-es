@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955559"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804855"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Implementación de una extensión de script personalizado en máquinas virtuales que se ejecutan en el dispositivo Azure Stack Edge Pro
 
@@ -62,13 +62,13 @@ If your script is on a local server, then you may still need additional firewall
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-1. [Descargue las plantillas de máquina virtual y los archivos de parámetros](https://aka.ms/ase-vm-templates) en la máquina cliente. Descomprímalos en un directorio que usará como directorio de trabajo.
+1. [Descargue las plantillas de máquina virtual y los archivos de parámetros](https://aka.ms/ase-vm-templates) en la máquina cliente. Descomprima la descarga en un directorio que usará como directorio de trabajo.
 
 1. Debe tener una máquina virtual creada e implementada en el dispositivo. Para crear máquinas virtuales, siga todos los pasos de [Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro mediante plantillas](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
     Si tiene que descargar un script de forma externa de la misma forma que desde GitHub o Azure Storage, durante la configuración de la red de proceso, habilite el puerto conectado a Internet para el proceso. Esto le permite descargar el script.
 
-    Este es un ejemplo en el que el puerto 2 estaba conectado a Internet y se usaba para habilitar la red de proceso. Si ha identificado que Kubernetes no es necesario en el paso anterior, puede omitir la dirección IP del nodo de Kubernetes y la asignación de direcciones IP del servicio externo.    
+    En el ejemplo siguiente, el puerto 2 estaba conectado a Internet y se usaba para habilitar la red de proceso. Si ha identificado que Kubernetes no es necesario en el paso anterior, puede omitir la dirección IP del nodo de Kubernetes y la asignación de direcciones IP del servicio externo.
 
     ![Habilitación de la configuración de proceso en el puerto conectado a Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ El archivo `addCSExtWindowsVM.parameters.json` toma los parámetros siguientes:
 ```
 Proporcione el nombre de la máquina virtual, el nombre de la extensión y el comando que quiere ejecutar.
 
-Este es un archivo de parámetros de ejemplo que se usó en este artículo. 
+Este es el archivo de parámetros de ejemplo que se usó en este artículo.
 
 ```powershell
 {
@@ -396,4 +396,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlets de Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449233"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804896"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Uso de kubectl para ejecutar una aplicación con estado de Kubernetes con PersistentVolume en el dispositivo Azure Stack Edge Pro
 
@@ -26,7 +26,7 @@ Azure Stack Edge Pro también admite la ejecución de contenedores de Azure SQL 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de implementar la aplicación con estado, asegúrese de que ha completado los siguientes requisitos previos en el dispositivo y en el cliente que vaya a usar para acceder al dispositivo:
+Antes de implementar la aplicación con estado, complete los siguientes requisitos previos en el dispositivo y en el cliente que vaya a usar para acceder al dispositivo:
 
 ### <a name="for-device"></a>Para el dispositivo
 
@@ -37,7 +37,7 @@ Antes de implementar la aplicación con estado, asegúrese de que ha completado 
 ### <a name="for-client-accessing-the-device"></a>Para el cliente que va a acceder al dispositivo
 
 - Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge Pro.
-    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - También puede utilizar cualquier otro cliente con un [sistema operativo compatible](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). En este artículo, el procedimiento que se describe emplea un cliente Windows. 
     
@@ -50,7 +50,7 @@ Antes de implementar la aplicación con estado, asegúrese de que ha completado 
     - Asegúrese de que la versión del cliente de `kubectl` es como máximo una versión superior o inferior a la versión maestra de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro. 
         - Use `kubectl version` para comprobar la versión de kubectl que se ejecuta en el cliente. Anote la versión completa.
         - En la interfaz de usuario local del dispositivo Azure Stack Edge Pro, vaya a **Información general** y anote el número de software de Kubernetes. 
-        - Compruebe la compatibilidad entre estas dos versiones con la asignación proporcionada en la versión de Kubernetes admitida <!-- insert link-->. 
+        - Compruebe la compatibilidad entre estas dos versiones con la asignación proporcionada en la versión de Kubernetes admitida.<!-- insert link--> 
 
 
 Está listo para implementar una aplicación con estado en el dispositivo Azure Stack Edge Pro. 
@@ -176,7 +176,7 @@ Todos los comandos `kubectl` que utiliza para crear y administrar implementacion
 
     `kubectl apply -f <URI path to the mysql-pv.yml file> -n <your-user-namespace>`
     
-    Este es un ejemplo de resultado de la implementación.
+    Este es un ejemplo de salida de la implementación.
 
     
     ```powershell
@@ -191,7 +191,7 @@ Todos los comandos `kubectl` que utiliza para crear y administrar implementacion
 
     `kubectl apply -f <URI path to mysql-deployment.yml file> -n <your-user-namespace>`
 
-    Este es un ejemplo de resultado de la implementación.
+    Este es un ejemplo de salida de la implementación.
     
     ```powershell
     C:\Users\user>kubectl apply -f "C:\stateful-application\mysql-deployment.yml" -n userns1
@@ -327,7 +327,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Este es el resultado de ejemplo de cuando se elimina la implementación y el servicio.
+Esta es la salida de ejemplo cuando se elimina la implementación y el servicio.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -335,13 +335,13 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Este es el resultado de ejemplo de cuando se elimina el PVC.
+Esta es la salida de ejemplo cuando se elimina el PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
 PV ya no está enlazado al PVC, ya que este se eliminó. Como el PV se aprovisionó cuando se creó el recurso compartido, deberá eliminar el recurso compartido. Siga estos pasos:
 

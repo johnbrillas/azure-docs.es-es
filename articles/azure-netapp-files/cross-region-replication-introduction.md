@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937481"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696098"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -37,6 +37,7 @@ La replicación de volúmenes de Azure NetApp Files está disponible actualmente
 * Centro y Sur de EE. UU. y Centro de EE. UU. 
 * Centro y Sur de EE. UU. y Este de EE. UU.
 * Centro y Sur de EE. UU. y Este de EE. UU. 2 
+* Este de EE. UU. y Este de EE. UU. 2  
 * Este de EE. UU. 2 y Centro de EE. UU. 
 * Este de Australia y Sudeste de Australia
 * Centro de Canadá y Este de Canadá

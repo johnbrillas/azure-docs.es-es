@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014542"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783808"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
@@ -115,6 +115,21 @@ Puede acceder a las funciones de Video Indexer de tres maneras:
     Para más información, consulte  [Inserción de widgets de Video Indexer en las aplicaciones](video-indexer-embed-widgets.md).
 
 Si usa el sitio web, la información se agrega como metadatos y es visible en el portal. Si usa las API, la información está disponible como archivo JSON.
+
+## <a name="supported-browsers"></a>Exploradores compatibles
+
+En la lista siguiente se muestran los exploradores admitidos que puede usar para el sitio web de Video Indexer y para las aplicaciones que insertan los widgets. La lista también muestra la versión mínima admitida del explorador:
+
+- Edge, versión 16
+- Firefox, versión 54
+- Chrome, versión 58
+- Safari, versión 11
+- Opera, versión 44
+- Opera Mobile, versión 59
+- Explorador de Android, versión 81
+- Explorador de Samsung, versión 7
+- Chrome para Android, versión 87
+- Firefox para Android, versión 83
 
 ## <a name="next-steps"></a>Pasos siguientes
 

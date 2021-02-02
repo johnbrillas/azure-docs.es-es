@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936131"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760629"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Introducción: Versión preliminar de Azure Logic Apps
 
@@ -138,6 +138,8 @@ La versión preliminar de Azure Logic Apps incluye muchas capacidades actuales y
 * Publique o implemente directamente las aplicaciones lógicas y sus flujos de trabajo desde Visual Studio Code en varios entornos de hospedaje, como Azure y [contenedores de Docker](/dotnet/core/docker/introduction).
 
 * Habilite las capacidades de registro de diagnóstico y seguimiento de la aplicación lógica mediante [Application Insights](../azure-monitor/app/app-insights-overview.md) cuando lo admitan la configuración de la aplicación lógica y la suscripción de Azure.
+
+* Regenere las claves de acceso para las conexiones administradas usadas por flujos de trabajo individuales en un recurso de **aplicación lógica (versión preliminar)** recurso. Para esta tarea, [siga los mismos pasos para el recurso **Logic Apps**, pero en el nivel de flujo de trabajo individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), no en el nivel de recursos de la aplicación lógica.
 
 > [!NOTE]
 > Para obtener información sobre los problemas conocidos actuales, vea la [página de problemas conocidos de la versión preliminar pública de Logic Apps en GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).

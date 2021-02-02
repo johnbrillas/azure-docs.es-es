@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232478"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756037"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -31,7 +31,7 @@ Estas notificaciones opcionales sirven para:
 
 Para obtener las listas de notificaciones estándar, vea la documentación de notificaciones de [token de acceso](access-tokens.md) y de [id_token](id-tokens.md).
 
-Aunque las notificaciones opcionales se admiten en los tokens de formato de las versiones 1.0 y 2.0, así como en los tokens SAML, estos tokens proporcionan la mayoría de sus valores al pasar de la versión 1.0 a la 2.0. Uno de los objetivos del [punto de conexión de la plataforma de identidad de Microsoft de la versión 2.0](./v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes. Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.
+Aunque las notificaciones opcionales se admiten en los tokens de formato de las versiones 1.0 y 2.0, así como en los tokens SAML, estos tokens proporcionan la mayoría de sus valores al pasar de la versión 1.0 a la 2.0. Uno de los objetivos de la [Plataforma de identidad de Microsoft](./v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes. Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.
 
 **Tabla 1: Aplicabilidad**
 

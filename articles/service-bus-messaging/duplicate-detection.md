@@ -3,12 +3,12 @@ title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184686"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684815"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -17,6 +17,9 @@ Si una aplicación deja de funcionar debido a un error grave inmediatamente desp
 También puede producirse un error en el nivel de cliente o de red un momento antes y que un mensaje enviado se confirme en la cola, sin que la confirmación se devuelva al cliente correctamente. Este escenario deja al cliente en duda sobre el resultado de la operación de envío.
 
 La detección de duplicados elimina la duda en estas situaciones, ya que permite al remitente reenviar el mismo mensaje, y la cola o el tema descartan las copias duplicadas.
+
+> [!NOTE]
+> El nivel Básico de Service Bus no admite la detección de duplicados. Los niveles Estándar y Premium admiten la detección de duplicados. Para conocer las diferencias entre estos niveles, consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="how-it-works"></a>¿Cómo funciona? 
 La habilitación de la detección de duplicados ayuda a mantener el seguimiento del valor *MessageId* controlado por la aplicación de todos los mensajes enviados a una cola o un tema durante una ventana de tiempo específica. Si se envía algún mensaje nuevo con *MessageId* que se haya registrado durante el periodo de tiempo, se notifica como aceptado (la operación de envío se realiza correctamente), pero el mensaje recién enviado se ignora y descarta al instante. No se tiene en cuenta ninguna otra parte del mensaje que no sea *MessageId*.

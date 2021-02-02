@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9759c1109c7be279520fa187bd3366bcac505d46
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503750"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661211"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definición de atributos personalizados en Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ El directorio de Azure AD B2C viene con un [conjunto integrado de atributos](u
 * Un proveedor de identidades tiene un identificador de usuario único (**uniqueUserGUID**) que se debe conservar.
 * Un recorrido del usuario personalizado debe conservar el estado del usuario, **migrationStatus**, para que otra lógica funcione.
 
-Azure AD B2C le permite ampliar el conjunto de atributos que se almacenan en cada cuenta de usuario. También puede leer y escribir estos atributos mediante [Microsoft Graph API](manage-user-accounts-graph-api.md).
+Azure AD B2C le permite ampliar el conjunto de atributos que se almacenan en cada cuenta de usuario. También puede leer y escribir estos atributos mediante [Microsoft Graph API](microsoft-graph-operations.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,7 +60,7 @@ El atributo personalizado ahora está disponible en la lista de **Atributos de u
 1. Seleccione **Notificaciones de aplicación** y, después, seleccione el atributo personalizado.
 1. Haga clic en **Save**(Guardar).
 
-Después de crear un usuario mediante un flujo de usuario que usa el atributo personalizado recién creado, el objeto se puede consultar en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, puede usar la característica [Ejecutar flujo de usuario](./tutorial-create-user-flows.md) del flujo de usuario para comprobar la experiencia del cliente. Ahora debe ver **ShoeSize** en la lista de atributos que se recopilan durante el viaje de suscripción y en el token enviado de vuelta a la aplicación.
+Después de crear un usuario mediante un flujo de usuarios que usa el atributo personalizado recién creado, el objeto se puede consultar en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, puede usar la característica [Ejecutar flujo de usuario](./tutorial-create-user-flows.md) del flujo de usuario para comprobar la experiencia del cliente. Ahora debe ver **ShoeSize** en la lista de atributos que se recopilan durante el viaje de suscripción y en el token enviado de vuelta a la aplicación.
 
 ::: zone-end
 
@@ -135,7 +135,7 @@ Puede crear estos atributos mediante la interfaz de usuario del portal antes o d
 |Nombre     |Se usa en |
 |---------|---------|
 |`extension_loyaltyId`  | Directiva personalizada|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](microsoft-graph-operations.md)|
 
 En el ejemplo siguiente se muestra el uso de atributos personalizados en una definición de notificación de directiva personalizada de Azure AD B2C.
 

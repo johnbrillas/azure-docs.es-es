@@ -1,6 +1,7 @@
 ---
-title: SSO entre aplicaciones de ADAL y MSAL (iOS/macOS) - Plataforma de identidad de Microsoft | Azure
-description: ''
+title: Inicio de sesión único entre aplicaciones de ADAL y MSAL (iOS/macOS) | Azure
+titleSuffix: Microsoft identity platform
+description: Obtener información sobre cómo compartir el inicio de sesión único entre aplicaciones de ADAL y de MSAL
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80880757"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756208"
 ---
-# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedimientos: Inicio de sesión único entre aplicaciones de ADAL y de MSAL en macOS e iOS
+# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedimiento: Inicio de sesión único entre aplicaciones de ADAL y de MSAL en macOS e iOS
 
 La Biblioteca de autenticación de Microsoft (MSAL) para iOS puede compartir el estado del inicio de sesión único con [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) entre aplicaciones. Puede migrar sus aplicaciones a MSAL a su propio ritmo, asegurándose así de que los usuarios seguirán disfrutando del inicio de sesión único entre aplicaciones, incluso con una combinación de aplicaciones basadas en ADAL y MSAL.
 

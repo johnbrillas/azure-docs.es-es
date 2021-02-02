@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
-ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993670"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878551"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configuración de una directiva de IPsec o IKE para conexiones VPN S2S o conexiones entre redes virtuales: Azure Portal
 
@@ -28,10 +28,8 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 ### <a name="considerations"></a>Consideraciones
 
 * La directiva IPsec/IKE solo funciona en las siguientes SKU de puerta de enlace:
-  * ***VpnGw1~5 y VpnGw1AZ~5AZ***
-  * ***Standard*** y ***HighPerformance***
-* Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
-* Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
+  * ***VpnGw1~5 and VpnGw1AZ~5AZ** _ _ ***Standard** _ y _*_HighPerformance_*_ _ Solo se puede especificar ***una** _ combinación de directivas para una conexión determinada.
+  _ Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 * Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Flujo de trabajo
@@ -95,7 +93,7 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 
    Para obtener más información sobre los selectores de tráfico basados en directivas, consulte [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) (Conectar varios dispositivos VPN basados en directivas locales).
 
-* Tiempo de expiración de DPD: el valor predeterminado es 45 segundos en las puertas de enlace de VPN de Azure. Si se establece el tiempo de expiración en un periodo menor, IKE volverá a especificar la clave de forma más agresiva, lo que provoca que en algunos momentos parezca que la conexión está desconectada, algo que no se desea si las ubicaciones locales están lejos de la región de Azure en la que reside la puerta de enlace de VPN o si el estado de vínculo físico puede llegar a provocar la pérdida de paquetes. La recomendación general es establecer el tiempo de expiración entre **30 y 45**segundos.
+* Tiempo de expiración de DPD: el valor predeterminado es 45 segundos en las puertas de enlace de VPN de Azure. Si se establece el tiempo de expiración en un periodo menor, IKE volverá a especificar la clave de forma más agresiva, lo que provoca que en algunos momentos parezca que la conexión está desconectada, algo que no se desea si las ubicaciones locales están lejos de la región de Azure en la que reside la puerta de enlace de VPN o si el estado de vínculo físico puede llegar a provocar la pérdida de paquetes. La recomendación general es establecer el tiempo de expiración entre **30 y 45** segundos.
 
 ### <a name="diffie-hellman-groups"></a>Grupos Diffie-Hellman
 
@@ -116,27 +114,27 @@ Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) y [RFC5114](https://tool
 
 En esta sección se describen los pasos necesarios para crear una conexión VPN de sitio a sitio con una directiva IPsec o IKE. Los pasos siguientes permiten crear la conexión, como se muestra en el diagrama siguiente:
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagrama de directiva IPsec o IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Directiva de sitio a sitio" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Paso 1: crear la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
-Cree los siguientes recursos, como se muestra en las capturas de pantallas siguientes. Para ver los pasos necesarios, consulte [Creación de una conexión de sitio a sitio mediante Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Cree los siguientes recursos, como se muestra en las capturas de pantallas siguientes. Para ver los pasos necesarios, consulte [Creación de una conexión de sitio a sitio mediante Azure Portal](./tutorial-site-to-site-portal.md).
 
 * **Red virtual:**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Red virtual":::
 
 * **Puerta de enlace VPN:** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Puerta de enlace":::
 
 * **Puerta de enlace de red local:** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Sitio":::
 
 * **Connection:** VNet1 a Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Diagrama de directiva IPsec o IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Connection":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>Paso 2: configurar la directiva IPsec o IKE en la conexión de VPN de sitio a sitio
 
@@ -147,15 +145,15 @@ En esta sección, configure una directiva de IPsec o IKE con los algoritmos y pa
 
 1. Vaya al recurso de conexión, **VNet1toSite6**, en Azure Portal. Seleccione la página **Configuración** y seleccione **Personalizada** en Directiva IPsec o IKE para mostrar todas las opciones de configuración. En la captura de pantalla siguiente se muestra la configuración de acuerdo con la lista:
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Diagrama de directiva IPsec o IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Site 6":::
 
 1. Si usa GCMAES para IPsec, debe usar el mismo algoritmo GCMAES y longitud de clave para la integridad y el cifrado IPsec. Por ejemplo, en la siguiente captura de pantalla se especifica GCMAES128 tanto para el cifrado IPsec como para la integridad de IPsec:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="GCMAES para IPsec":::
 
 1. Opcionalmente, puede seleccionar **Habilitar** en la opción **Use policy based traffic selectors** (Usar selectores de tráfico basados en directivas) para que la puerta de enlace de VPN se pueda conectar a dispositivos VPN basados en directivas de forma local, como se ha descrito anteriormente.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Selector de tráfico basado en directiva":::
 
 1. Una vez seleccionadas todas las opciones, seleccione **Guardar** para confirmar los cambios en el recurso de conexión. La directiva se aplicará en un minuto aproximadamente.
 
@@ -170,13 +168,13 @@ En esta sección, configure una directiva de IPsec o IKE con los algoritmos y pa
 
 Los pasos necesarios para crear una conexión de red virtual a red virtual con una directiva de IPsec o IKE son similares a los pasos para crear una conexión VPN de sitio a sitio.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagrama de directiva IPsec o IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagrama de las directivas de red virtual a red virtual" border="false":::
 
 1. Siga los pasos del artículo sobre la [creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para crear la suya.
 
 2. Tras completar los pasos, verá dos conexiones de red virtual a red virtual, como se muestra en la captura de pantalla siguiente del recurso VNet2GW:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Conexiones de red virtual a red virtual":::
 
 3. Vaya al recurso de la conexión y, después, a la **Configuración** del portal. Seleccione **Personalizada** en **Directiva IPsec o IKE** para mostrar las opciones de directiva personalizadas. Seleccione los algoritmos criptográficos con las longitudes de clave correspondientes.
 
@@ -184,7 +182,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
    * IKE: AES128, SHA1, DHGroup14, tiempo de expiración de DPD 45 segundos
    * IPsec: GCMAES128, GCMAES128, PFS14, vigencia de SA de 14 400 segundos y 102 400 000 KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Directiva de conexión":::
 
 4. Seleccione **Guardar** para aplicar los cambios de la directiva en el recurso de conexión.
 
@@ -203,7 +201,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
 
 2. Seleccione **Predeterminada** en la opción **Directiva IPsec o IKE**. Se quitarán todas las directivas personalizadas especificadas previamente en la conexión y se restaurará la configuración predeterminada de IPsec/IKE en esta conexión:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Diagrama de directiva IPsec o IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Eliminar directiva":::
 
 3. Seleccione **Guardar** para quitar la directiva personalizada y restaurar la configuración predeterminada de IPsec o IKE en la conexión.
 

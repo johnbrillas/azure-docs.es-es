@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95316627"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673627"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -133,6 +133,8 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 | Público | Centro-sur de EE. UU. | https:\//southcentralus01.afs.azure.net | Centro-Norte de EE. UU | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sur de la India | https:\//southindia01.afs.azure.net<br>https:\//kailani-sin.one.microsoft.com | Centro de la India | https:\//tm-southindia01.afs.azure.net<br>https:\//tm-kailani-sin.one.microsoft.com |
 | Público | Sudeste de Asia | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | Este de Asia | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
+| Público | Norte de Suiza | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net | Oeste de Suiza | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net |
+| Público | Oeste de Suiza | https:\//switzerlandwest01.afs.azure.net<br>https:\//tm-switzerlandwest01.afs.azure.net | Norte de Suiza | https:\//switzerlandnorth01.afs.azure.net<br>https:\//tm-switzerlandnorth01.afs.azure.net |
 | Público | Sur de Reino Unido | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Oeste de Reino Unido | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste de Reino Unido | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sur de Reino Unido | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | Centro-Oeste de EE. UU. | https:\//westcentralus01.afs.azure.net | Oeste de EE. UU. 2 | https:\//tm-westcentralus01.afs.azure.net |

@@ -1,5 +1,6 @@
 ---
-title: 'Compilación de una aplicación demonio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Compilación de una aplicación de demonio que llama a las API web | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación de demonio que llama a las API web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443269"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753829"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
@@ -45,7 +46,7 @@ Las aplicaciones que adquieren un token para sus propias identidades:
 
 > [!IMPORTANT]
 >
-> - Los usuarios no pueden interactuar con una aplicación de demonio. Una aplicación de demonio requiere su propia identidad. Este tipo de aplicación solicita un token de acceso mediante su identidad de aplicación y presenta el identificador de aplicación, las credenciales (contraseña o certificado) y el URI del identificador de aplicación a Azure AD. Tras una autenticación correcta, el demonio recibe un token de acceso (y un token de actualización) del punto de conexión de la plataforma de identidad de Microsoft. Este token se usa luego para llamar a la API web (y se actualiza según sea necesario).
+> - Los usuarios no pueden interactuar con una aplicación de demonio. Una aplicación de demonio requiere su propia identidad. Este tipo de aplicación solicita un token de acceso mediante su identidad de aplicación y presenta el identificador de aplicación, las credenciales (contraseña o certificado) y el URI del identificador de aplicación a Azure AD. Tras una autenticación correcta, el demonio recibe un token de acceso (y un token de actualización) de la Plataforma de identidad de Microsoft. Este token se usa luego para llamar a la API web (y se actualiza según sea necesario).
 > - Dado que los usuarios no pueden interactuar con aplicaciones de demonio, no es posible el consentimiento incremental. Todos los permisos de API necesarios deben configurarse en el registro de aplicación. El código de la aplicación simplemente solicita permisos definidos de forma estática. Esto también significa que las aplicaciones de demonio no admiten el consentimiento incremental.
 
 Para los desarrolladores, la experiencia total de este escenario tiene los siguientes aspectos:

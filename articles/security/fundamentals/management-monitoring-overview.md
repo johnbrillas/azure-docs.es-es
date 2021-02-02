@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842760"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747180"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
@@ -117,15 +117,18 @@ Más información:
 
 ## <a name="security-center"></a>Security Center
 
-Azure Security Center ayuda a evita y a detectar las amenazas, además de a responder a ellas. Security Center aporta visibilidad mejorada y control sobre la seguridad de los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
+Azure Security Center ayuda a evita y a detectar las amenazas, además de a responder a ellas. Security Center aporta visibilidad mejorada en la seguridad de los recursos de Azure y de los del entorno de nube híbrida, así como control sobre todos estos recursos. 
+
+Security Center realiza valoraciones de seguridad continuas de los recursos conectados y compara su configuración e implementación con las [pruebas comparativas de seguridad de Azure](../benchmarks/introduction.md) para proporcionar recomendaciones de seguridad detalladas adaptadas al entorno.
 
 Security Center ayuda a optimizar y supervisar la seguridad de los recursos de Azure de la manera siguiente:
 
-* Le permite definir directivas para los recursos de suscripción de Azure de acuerdo con:
-  * Las necesidades de seguridad de la empresa.
-  * El tipo de aplicaciones o confidencialidad de los datos en cada suscripción.
-* Supervisa el estado de las máquinas virtuales, las redes y las aplicaciones de Azure.
-* Proporciona una lista de alertas de seguridad clasificadas por orden de prioridad, incluyendo alertas de soluciones de socios integradas. Asimismo, también proporciona la información que necesita para investigar rápidamente un ataque y recomendaciones sobre cómo remediarlo.
+- Le permite definir directivas para los recursos de suscripción de Azure de acuerdo con:
+    - Las necesidades de seguridad de su organización.
+    - El tipo de aplicaciones o confidencialidad de los datos en cada suscripción.
+    - Cualquier norma o prueba comparativa del sector o reguladora que aplique a sus suscripciones. 
+- Supervisa el estado de las máquinas virtuales, las redes y las aplicaciones de Azure.
+- Proporciona una lista de alertas de seguridad clasificadas por orden de prioridad, incluyendo alertas de soluciones de socios integradas. Asimismo, también proporciona la información que necesita para investigar rápidamente un ataque y recomendaciones sobre cómo remediarlo.
 
 Más información:
 

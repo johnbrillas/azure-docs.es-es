@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938722"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737683"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -35,7 +35,7 @@ Azure Standard Load Balancer admite el equilibrio de carga entre regiones que ha
 * [Compilación en la solución del equilibrador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sin curva de aprendizaje
 
 > [!IMPORTANT]
-> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y está oculto en el portal de versión preliminar. Inicie sesión en **https://preview.portal.azure.com** para ver e implementar la característica. </br> </br>
+> El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar y se puede implementar en el portal. Inicie sesión en **https://preview.portal.azure.com** para ver e implementar la característica. </br> </br>
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El equilibrio de carga entre regiones ofrece las mismas ventajas de alto rendimiento y baja latencia que la instancia de Standard Load Balancer regional. 
