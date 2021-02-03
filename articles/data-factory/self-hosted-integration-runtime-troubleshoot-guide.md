@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757685"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942042"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -198,7 +198,7 @@ En el siguiente error, puede ver claramente que falta el ensamblado *System.Valu
  
 "\<LogProperties>\<ErrorInfo>[{"Código":0,"Mensaje":"Se produjo una excepción en el inicializador de tipo de 'Npgsql.PoolManager'.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Código":0,"Mensaje":"No se puede cargar el archivo o ensamblado 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' ni una de sus dependencias. No se puede encontrar el archivo especificado.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-Para obtener más información sobre GAC, consulte [Caché global de ensamblados](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Para obtener más información sobre GAC, consulte [Caché global de ensamblados](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="self-hosted-integration-runtime-authentication-key-is-missing"></a>Falta la clave de autenticación del entorno de ejecución de integración autohospedado

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935207"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901195"
 ---
 Azure Functions permite crear tareas de replicación de solo configuración que se apoyan en un punto de entrada pregenerado. Los [ejemplos de replicación basada en la configuración para Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) muestran cómo aprovechar [asistentes pregenerados](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) en el propio código o evitar por completo el control de código y tan solo usar la configuración.
 
@@ -218,13 +218,12 @@ En la tabla siguiente se proporcionan los valores correctos para las combinacion
 
 ### <a name="retry-policy"></a>Directiva de reintentos
 
-Consulte la [documentación de Azure Functions sobre reintentos](/azure/azure-functions/functions-bindings-error-pages) para configurar la directiva de reintentos. La configuración de directiva elegida en todos los proyectos de este repositorio configura una estrategia de retroceso exponencial con intervalos de reintento de 5 segundos a 5 minutos con reintentos infinitos para evitar la pérdida de datos.
+Consulte la [documentación de Azure Functions sobre reintentos](../articles/azure-functions/functions-bindings-error-pages.md) para configurar la directiva de reintentos. La configuración de directiva elegida en todos los proyectos de este repositorio configura una estrategia de retroceso exponencial con intervalos de reintento de 5 segundos a 5 minutos con reintentos infinitos para evitar la pérdida de datos.
 
-En el caso de Service Bus, revise la sección ["Uso de la compatibilidad con los reintentos sobre la resistencia del desencadenador"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender la interacción de los desencadenadores y el número máximo de entregas definidos para la cola.
+En el caso de Service Bus, revise la sección ["Uso de la compatibilidad con los reintentos sobre la resistencia del desencadenador"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender la interacción de los desencadenadores y el número máximo de entregas definidos para la cola.
 
 ### <a name="build-deploy-and-configure"></a>Compilación, implementación y configuración
 
 Mientras se centra en la configuración, las tareas aún requieren la compilación de una aplicación implementable y la configuración de los hosts de Azure Functions de forma que disponga de toda la información necesaria para conectarse a los puntos de conexión especificados. 
 
 Esto se muestra, junto con scripts reutilizables, en los [ejemplos de replicación basada en la configuración para Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
-

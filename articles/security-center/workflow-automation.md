@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900841"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919534"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatización de respuestas a desencadenadores de Security Center
 
@@ -26,7 +26,7 @@ En este artículo se describe la característica de automatización de flujos de
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Rol Administrador de seguridad** o **Propietario** en el grupo de recursos<br>También debe tener permisos de escritura para el recurso de destino.<br><br>Para trabajar con flujos de trabajo de Azure Logic Apps, también debe tener los siguientes roles o permisos de Logic Apps:<br> Son necesarios los permisos de - [Operador de aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-operator) o el acceso de lectura o desencadenamiento de aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo *ejecutar* las existentes).<br> Los permisos de - [Colaborador de la aplicación lógica](../role-based-access-control/built-in-roles.md#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.<br>Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -49,7 +49,7 @@ En este artículo se describe la característica de automatización de flujos de
     1. Los desencadenadores que iniciarán este flujo de trabajo automático. Por ejemplo, cuando quiera que la aplicación lógica se ejecute cuando se genere una alerta de seguridad que contenga "SQL".
 
         > [!NOTE]
-        > Si el desencadenador es una recomendación que tiene "recomendaciones secundarias", por ejemplo **Se deben remediar los resultados de evaluación de vulnerabilidades en las bases de datos SQL** , la aplicación lógica no se desencadenará para cada nueva búsqueda de seguridad; solo cuando cambie el estado de la recomendación primaria.
+        > Si el desencadenador es una recomendación que tiene "recomendaciones secundarias", por ejemplo **Se deben remediar los resultados de evaluación de vulnerabilidades en las bases de datos SQL**, la aplicación lógica no se desencadenará para cada nueva búsqueda de seguridad; solo cuando cambie el estado de la recomendación primaria.
 
     1. La aplicación lógica que se ejecutará cuando se cumplan las condiciones del desencadenador. 
 
@@ -70,9 +70,9 @@ En este artículo se describe la característica de automatización de flujos de
 
     El diseñador de aplicaciones lógicas admite estos desencadenadores de Security Center:
 
-    * **Cuando se crea o se desencadena una recomendación de Azure Security Center** : si la aplicación lógica se basa en una recomendación que entra en desuso o se reemplaza, la automatización dejará de funcionar y deberá actualizar el desencadenador. Para hacer un seguimiento de los cambios en las recomendaciones, vea las [notas de la versión de Azure Security Center](release-notes.md).
+    * **Cuando se crea o se desencadena una recomendación de Azure Security Center**: si la aplicación lógica se basa en una recomendación que entra en desuso o se reemplaza, la automatización dejará de funcionar y deberá actualizar el desencadenador. Para hacer un seguimiento de los cambios en las recomendaciones, vea las [notas de la versión de Azure Security Center](release-notes.md).
 
-    * **Cuando se crea o se desencadena una alerta de Azure Security Center** : puede personalizar el desencadenador para que se refiera solo a las alertas con los niveles de gravedad que le interesen.
+    * **Cuando se crea o se desencadena una alerta de Azure Security Center**: puede personalizar el desencadenador para que se refiera solo a las alertas con los niveles de gravedad que le interesen.
     
     > [!NOTE]
     > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará su instancia de aplicación lógica. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
@@ -90,7 +90,7 @@ En este artículo se describe la característica de automatización de flujos de
 
 También puede ejecutar Logic Apps manualmente al ver una alerta o recomendación de seguridad.
 
-Para ejecutar manualmente una aplicación lógica, abra una alerta o recomendación y haga clic en **Desencadenar aplicación lógica** :
+Para ejecutar manualmente una aplicación lógica, abra una alerta o recomendación y haga clic en **Desencadenar aplicación lógica**:
 
 [![Desencadenar manualmente una aplicación lógica](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -123,8 +123,8 @@ Para implementar estas directivas:
     :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Asignación de Azure Policy":::
 
 1. Abra cada pestaña y establezca los parámetros como quiera:
-    1. En la pestaña **Aspectos básicos** , establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la automatización de flujos de trabajo. 
-    1. En la pestaña **Parámetros** , establezca el grupo de recursos y los detalles del tipo de datos. 
+    1. En la pestaña **Aspectos básicos**, establezca el ámbito de la directiva. Para usar la administración centralizada, asigne la directiva al grupo de administración que contiene las suscripciones que usarán la automatización de flujos de trabajo. 
+    1. En la pestaña **Parámetros**, establezca el grupo de recursos y los detalles del tipo de datos. 
         > [!TIP]
         > Cada parámetro tiene información sobre herramientas que explica las opciones disponibles.
         >

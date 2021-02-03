@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741684"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938430"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilitación del registro de información de seguridad combinado en Azure Active Directory
 
 Antes del registro combinado, los usuarios se registraban a los métodos de autenticación para Azure AD Multi-factor Authentication y el autoservicio de restablecimiento de contraseña (SSPR) por separado. La gente estaba confundida por el hecho de que se usaban métodos parecidos para Azure AD Multi-Factor Authentication y SSPR pero, aún así, se tenían que registrar en las dos características. Ahora, con el registro combinado, los usuarios pueden registrarse una vez y obtener las ventajas de Azure AD Multi-Factor Authentication y SSPR.
 
 > [!NOTE]
-> A partir del 15 de agosto de 2020, todos los nuevos inquilinos de Azure AD se habilitarán automáticamente para el registro combinado. A partir del 14 de diciembre de 2020, todos los inquilinos de Azure AD con un usuario se habilitarán automáticamente para el registro combinado.
+> A partir del 15 de agosto de 2020, todos los nuevos inquilinos de Azure AD se habilitarán automáticamente para el registro combinado. 
 
 Para asegurarse de comprender la funcionalidad y los efectos antes de habilitar la nueva experiencia, consulte los [conceptos del registro de información de seguridad combinado](concept-registration-mfa-sspr-combined.md).
 

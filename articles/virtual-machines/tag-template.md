@@ -7,15 +7,14 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: d1acbe82a086574a102e7897bbd3b99683c1185e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594887"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897381"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Etiquetado de una máquina virtual mediante una plantilla
-
 
 En este artículo se describe cómo etiquetar una máquina virtual en Azure mediante una plantilla de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente.
 
@@ -46,8 +45,7 @@ A continuación, en la sección **Editar parámetros** , puede rellenar los valo
 
 Haga clic en **Crear** para implementar esta plantilla con sus valores de etiqueta.
 
-
-**Pasos siguientes**
+### <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre el etiquetado de los recursos de Azure, consulte [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md) y [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md).
-- Para ver cómo las etiquetas pueden ayudarle a administrar el uso de los recursos de Azure, consulte [Comprender la factura de Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md) y [Obtención de información sobre el consumo de recursos de Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver cómo las etiquetas pueden ayudarle a administrar el uso de recursos de Azure, consulte [Descripción de la factura de Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md).

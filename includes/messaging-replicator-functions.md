@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 279a00a6146d756e6a518dbf86b88f471d170b3a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1ce983ee739a4a124a93c7913f092b23dfec3cbd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805596"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901196"
 ---
 ## <a name="what-is-a-replication-task"></a>¿Qué es una tarea de replicación?
 
@@ -22,30 +22,30 @@ La mayoría de las tareas de replicación reenvían eventos sin cambios y, como 
 
 Normalmente, las tareas de replicación son sin estado, lo que significa que no comparten el estado u otros efectos secundarios en las ejecuciones secuenciales o en paralelo de una tarea. Esto también es cierto para el procesamiento por lotes y el encadenamiento, que se pueden implementar sobre el estado existente de una secuencia. 
 
-Esto hace que las tareas de replicación sean distintas de las de agregación, que suelen ser con estado, y son el dominio de los marcos y servicios de análisis como [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+Esto hace que las tareas de replicación sean distintas de las de agregación, que suelen ser con estado, y son el dominio de los marcos y servicios de análisis como [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="replication-applications-and-tasks-in-azure-functions"></a>Aplicaciones y tareas de replicación en Azure Functions
 
-En Azure Functions, una tarea de replicación se implementa mediante un [desencadenador](/azure/azure-functions/functions-triggers-bindings) que adquiere uno o más mensajes de entrada de un origen configurado y un [enlace de salida](/azure/azure-functions/functions-triggers-bindings#binding-direction) que reenvía los mensajes copiados desde el origen a un destino configurado. 
+En Azure Functions, una tarea de replicación se implementa mediante un [desencadenador](../articles/azure-functions/functions-triggers-bindings.md) que adquiere uno o más mensajes de entrada de un origen configurado y un [enlace de salida](../articles/azure-functions/functions-triggers-bindings.md#binding-direction) que reenvía los mensajes copiados desde el origen a un destino configurado. 
 
 | Desencadenador  | Output |
 |----------|--------|
-| [Desencadenador de Azure Event Hubs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp) | [Enlace de salida de Azure Event Hubs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-output?tabs=csharp) |
-| [Desencadenador de Azure Service Bus](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=csharp) | [Enlace de salida de Azure Service Bus](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-output?tabs=csharp)
-| [Desencadenador de Azure IoT Hub](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-iot-trigger?tabs=csharp) | [Enlace de salida de Azure IoT Hub](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-iot-output?tabs=csharp)
-| [Desencadenador de Azure Event Grid](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=csharp) | [Enlace de salida de Azure Event Grid](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-output?tabs=csharp)
-| [Desencadenador Azure Queue Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp) | [Enlace de salida de Azure Queue Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output?tabs=csharp)
+| [Desencadenador de Azure Event Hubs](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp) | [Enlace de salida de Azure Event Hubs](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp) |
+| [Desencadenador de Azure Service Bus](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp) | [Enlace de salida de Azure Service Bus](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp)
+| [Desencadenador de Azure IoT Hub](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp) | [Enlace de salida de Azure IoT Hub](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp)
+| [Desencadenador de Azure Event Grid](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp) | [Enlace de salida de Azure Event Grid](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp)
+| [Desencadenador Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp) | [Enlace de salida de Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=csharp)
 | [Desencadenador de Apache Kafka](https://github.com/azure/azure-functions-kafka-extension) | [Enlace de salida de Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
 | [Desencadenador de RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) | [Enlace de salida de RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) 
-| | [Enlace de salida de Azure Notification Hubs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-notification-hubs)
-||[Enlace de salida de Azure SignalR Service](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service-output?tabs=csharp)
-||[Enlace de salida de Twilio SendGrid](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid?tabs=csharp)
+| | [Enlace de salida de Azure Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md)
+||[Enlace de salida de Azure SignalR Service](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp)
+||[Enlace de salida de Twilio SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp)
 
 Las tareas de replicación se implementan como en la aplicación de replicación, a través de los mismos métodos de implementación que cualquier otra aplicación de Azure Functions. Puede configurar varias tareas en la misma aplicación. 
 
 Con Azure Functions Premium, varias aplicaciones de replicación pueden compartir el mismo grupo de recursos subyacente, denominado Plan de App Service. Esto significa que puede colocar fácilmente las tareas de replicación escritas en .NET con tareas de replicación escritas en Java, por ejemplo. Esto tendrá importancia si quiere aprovechar bibliotecas específicas, como Apache Camel, que solo están disponibles para Java y si estas son la mejor opción para una ruta de acceso de integración determinada, aunque normalmente preferiría un lenguaje y un entorno de ejecución diferentes para las otras tareas de replicación. 
 
-Siempre que esté disponible, son preferibles los desencadenadores orientados por lotes a los que entregan eventos o mensajes individuales, y siempre debe obtener el evento completo o la estructura del mensaje en lugar de depender de las [expresiones de enlace de parámetros ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) de la función de Azure.
+Siempre que esté disponible, son preferibles los desencadenadores orientados por lotes a los que entregan eventos o mensajes individuales, y siempre debe obtener el evento completo o la estructura del mensaje en lugar de depender de las [expresiones de enlace de parámetros ](../articles/azure-functions/functions-bindings-expressions-patterns.md) de la función de Azure.
 
 El nombre de la función debe reflejar el par de origen y destino que se va a conectar, y debe prefijar las referencias a las cadenas de conexión u otros elementos de configuración de los archivos de configuración de la aplicación con ese nombre. 
 
@@ -57,17 +57,17 @@ En el caso de las tareas de replicación sencillas que copian mensajes entre Eve
 
 ### <a name="retry-policy"></a>Directiva de reintentos
 
-Para evitar la pérdida de datos durante el evento de disponibilidad en cualquier lado de una función de replicación, debe configurar la directiva de reintentos para que sea sólida. Consulte la [documentación de Azure Functions sobre reintentos](/azure/azure-functions/functions-bindings-error-pages) para configurar la directiva de reintentos. 
+Para evitar la pérdida de datos durante el evento de disponibilidad en cualquier lado de una función de replicación, debe configurar la directiva de reintentos para que sea sólida. Consulte la [documentación de Azure Functions sobre reintentos](../articles/azure-functions/functions-bindings-error-pages.md) para configurar la directiva de reintentos. 
 
 La configuración de directiva elegida en los proyectos de ejemplo del [repositorio de ejemplo](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configura una estrategia de retroceso exponencial con intervalos de reintento de 5 segundos a 15 minutos, con reintentos infinitos para evitar la pérdida de datos. 
 
-En el caso de Service Bus, revise la sección ["Uso de la compatibilidad con los reintentos sobre la resistencia del desencadenador"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender la interacción de los desencadenadores y el número máximo de entregas definidos para la cola.
+En el caso de Service Bus, revise la sección ["Uso de la compatibilidad con los reintentos sobre la resistencia del desencadenador"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender la interacción de los desencadenadores y el número máximo de entregas definidos para la cola.
 
 ### <a name="setting-up-a-replication-application-host"></a>Configuración de un host de aplicación de replicación
 
 Una aplicación de replicación es un host de ejecución para una o varias tareas de replicación. 
 
-Se trata de una aplicación Azure Functions que está configurada para ejecutarse en el plan de consumo o en un plan de Azure Functions Premium (recomendado). Todas las aplicaciones de replicación deben ejecutarse en una [identidad administrada asignada por el usuario o el sistema](/azure/app-service/overview-managed-identity). 
+Se trata de una aplicación Azure Functions que está configurada para ejecutarse en el plan de consumo o en un plan de Azure Functions Premium (recomendado). Todas las aplicaciones de replicación deben ejecutarse en una [identidad administrada asignada por el usuario o el sistema](../articles/app-service/overview-managed-identity.md). 
 
 Las plantillas vinculadas Azure Resource Manager (ARM) crean y configuran una aplicación de replicación con lo siguiente:
 
@@ -129,15 +129,15 @@ Los métodos asistentes pueden facilitar la replicación entre Event Hubs y Serv
 
 ### <a name="monitoring"></a>Supervisión
 
-Para obtener información sobre cómo puede supervisar la aplicación de replicación, consulte la [sección de supervisión](https://docs.microsoft.com/azure/azure-functions/configure-monitoring) de la documentación de Azure Functions.
+Para obtener información sobre cómo puede supervisar la aplicación de replicación, consulte la [sección de supervisión](../articles/azure-functions/configure-monitoring.md) de la documentación de Azure Functions.
 
-Una herramienta visual especialmente útil para supervisar las tareas de replicación es el [Mapa de aplicación](https://docs.microsoft.com/azure/azure-monitor/app/app-map) de Application Insights, que se genera automáticamente a partir de la información de supervisión capturada y permite explorar la fiabilidad y el rendimiento de las transferencias de origen y destino de la tarea de replicación.
+Una herramienta visual especialmente útil para supervisar las tareas de replicación es el [Mapa de aplicación](../articles/azure-monitor/app/app-map.md) de Application Insights, que se genera automáticamente a partir de la información de supervisión capturada y permite explorar la fiabilidad y el rendimiento de las transferencias de origen y destino de la tarea de replicación.
 
-Para obtener información de diagnóstico inmediata, puede trabajar con la herramienta [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) del portal, que proporciona una visualización de baja latencia de los detalles de registro.
+Para obtener información de diagnóstico inmediata, puede trabajar con la herramienta [Live Metrics](../articles/azure-monitor/app/live-stream.md) del portal, que proporciona una visualización de baja latencia de los detalles de registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Implementaciones de Azure Functions](/azure/azure-functions/functions-deployment-technologies)
-* [Diagnósticos de Azure Functions](/azure/azure-functions/functions-diagnostics)
-* [Opciones de redes de Azure Functions](/azure/azure-functions/functions-networking-options)
-* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [Implementaciones de Azure Functions](../articles/azure-functions/functions-deployment-technologies.md)
+* [Diagnósticos de Azure Functions](../articles/azure-functions/functions-diagnostics.md)
+* [Opciones de redes de Azure Functions](../articles/azure-functions/functions-networking-options.md)
+* [Azure Application Insights](../articles/azure-monitor/app/app-insights-overview.md)

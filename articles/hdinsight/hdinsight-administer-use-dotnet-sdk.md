@@ -1,19 +1,16 @@
 ---
 title: Administración de clústeres de Apache Hadoop en HDInsight con el SDK para .NET en Azure
 description: Aprenda a realizar tareas administrativas para clústeres de Apache Hadoop en HDInsight mediante el SDK de .NET en HDInsight.
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 367b47e8dbe0e1ee56fea620d97109631ba87a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86e279fef9561397343b3e6cb55ac335a5b39542
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484889"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942851"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 
@@ -25,7 +22,7 @@ Más información sobre cómo administrar los clústeres de HDInsight con el [SD
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-* **Una suscripción de Azure** . Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Conexión a HDInsight de Azure
 

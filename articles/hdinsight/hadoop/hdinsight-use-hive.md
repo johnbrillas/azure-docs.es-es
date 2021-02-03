@@ -1,19 +1,16 @@
 ---
 title: ¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 description: Apache Hive es un sistema de almacenamiento de datos para Apache Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540404"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944287"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -72,14 +69,14 @@ Para obtener más información sobre formatos de archivo compatibles con Hive, c
 
 Hay dos tipos de tablas que puede crear con Hive:
 
-* __Internas__ : los datos se almacenan en el almacenamiento de datos de Hive. El almacenamiento de datos se encuentra en `/hive/warehouse/` en el almacenamiento predeterminado para el clúster.
+* __Internas__: los datos se almacenan en el almacenamiento de datos de Hive. El almacenamiento de datos se encuentra en `/hive/warehouse/` en el almacenamiento predeterminado para el clúster.
 
     Use las tablas internas cuando se cumpla alguna de las condiciones siguientes:
 
     * Los datos sean temporales.
     * Desee que Hive administre el ciclo de vida de la tabla y los datos.
 
-* __Externas__ : los datos se almacenan fuera del almacenamiento de datos. Los datos se pueden almacenar en cualquier almacenamiento accesible desde el clúster.
+* __Externas__: los datos se almacenan fuera del almacenamiento de datos. Los datos se pueden almacenar en cualquier almacenamiento accesible desde el clúster.
 
     Use las tablas externas cuando se cumpla alguna de las condiciones siguientes:
 
@@ -166,9 +163,9 @@ Estas instrucciones realizan las acciones siguientes:
 
 |. |Descripción |
 |---|---|
-|CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL** , esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
+|CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
 |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
-|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs** .|
+|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.|
 
 > [!NOTE]  
 > A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.

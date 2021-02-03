@@ -3,12 +3,12 @@ title: Configuración de la versión 4.x de Red Hat OpenShift en Azure con Azure
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en la versión 4 o posterior de Red Hat OpenShift en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994539"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944538"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configuración de la versión 4.x de Red Hat OpenShift en Azure con Azure Monitor para contenedores
 
@@ -20,7 +20,7 @@ Azure Monitor para contenedores proporciona una experiencia de supervisión enri
 
 Azure Monitor para contenedores se puede habilitar para una o más implementaciones existentes de la versión 4.x de Red Hat OpenShift en Azure con los métodos admitidos que se describen en este artículo.
 
-Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Características admitidas y no admitidas
 

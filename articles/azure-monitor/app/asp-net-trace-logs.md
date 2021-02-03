@@ -4,12 +4,12 @@ description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920346"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937562"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -85,7 +85,7 @@ Si prefiere log4net o NLog, use lo siguiente:
 ```
 
 ## <a name="use-eventsource-events"></a>Uso de eventos EventSource
-Puede configurar eventos [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) para enviarse a Application Insights como seguimientos. Primero, instale el paquete de NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Seguidamente, edite la sección `TelemetryModules` del archivo [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
+Puede configurar eventos [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) para enviarse a Application Insights como seguimientos. Primero, instale el paquete de NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Seguidamente, edite la sección `TelemetryModules` del archivo [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -203,7 +203,7 @@ Si usa el SDK de Java, utilice los [adaptadores de registro de Java](./java-trac
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>No aparece la opción de adaptador de registro en la herramienta de configuración
 * Instale primero la plataforma de registro.
-* Si usa System.Diagnostics.Trace, asegúrese de que lo ha [configurado en *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Si usa System.Diagnostics.Trace, asegúrese de que lo ha [configurado en *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Asegúrese de que tiene la última versión de Application Insights. En Visual Studio, vaya a **Herramientas** > **Extensiones y actualizaciones** y abra la pestaña **Actualizaciones**. Si **Developer Analytics Tools** está instalado, selecciónelo para actualizarlo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía"

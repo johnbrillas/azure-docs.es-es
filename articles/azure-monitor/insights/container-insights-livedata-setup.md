@@ -4,12 +4,12 @@ description: En este artículo se describe cómo configurar la vista en tiempo r
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050789"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943849"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
@@ -19,7 +19,7 @@ Esta característica admite los métodos siguientes para controlar el acceso a l
 
 - AKS sin autorización RBAC de Kubernetes habilitada
 - AKS habilitado con autorización de RBAC de Kubernetes
-    - AKS configurado con el enlace de rol de clúster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - AKS configurado con el enlace de rol de clúster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)**
 - AKS habilitado con inicio de sesión único basado en SAML de Azure Active Directory (AD)
 
 Estas instrucciones requieren acceso administrativo al clúster de Kubernetes y, si se configura para usar Azure Active Directory (AD) para la autenticación de usuario, el acceso administrativo a Azure AD.

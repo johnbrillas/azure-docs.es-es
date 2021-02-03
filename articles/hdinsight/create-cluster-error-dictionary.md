@@ -3,28 +3,27 @@ title: 'Creación de un clúster en Azure HDInsight: lista de errores'
 description: Obtenga información sobre cómo solucionar los errores que se producen al crear clústeres de Azure HDInsight
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543107"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943330"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Errores de creación de clúster
 
 En este artículo se describen las soluciones a errores que pueden surgir al crear clústeres.
 
 > [!NOTE]
-> Los tres primeros errores descritos en este artículo son errores de validación. Pueden producirse cuando un producto de Azure HDInsight usa la clase **CsmDocument_2_0** .
+> Los tres primeros errores descritos en este artículo son errores de validación. Pueden producirse cuando un producto de Azure HDInsight usa la clase **CsmDocument_2_0**.
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de error: Error de DeploymentDocument "CsmDocument_2_0" para su validación.
 
-**Error** : "No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT ACTION URL\>"
+**Error**: "No se puede acceder a la ubicación de la acción de script con el URI: \<SCRIPT ACTION URL\>"
 
 ### <a name="error-message-1"></a>Mensaje de error 1
 
@@ -82,11 +81,11 @@ El valor de **VirtualNetworkId** especificado durante la creación del clúster 
 
 ### <a name="resolution"></a>Solución
 
-Asegúrese de que los valores de **VirtualNetworkId** y de la subred tengan el formato correcto. Para obtener el valor de **VirtualNetworkId** :
+Asegúrese de que los valores de **VirtualNetworkId** y de la subred tengan el formato correcto. Para obtener el valor de **VirtualNetworkId**:
 
 1. Vaya a Azure Portal.
 1. Seleccione la red virtual.
-1. Seleccione el elemento de menú **Propiedades** . El valor de la propiedad **ResourceID** es el valor de **VirtualNetworkId** .
+1. Seleccione el elemento de menú **Propiedades**. El valor de la propiedad **ResourceID** es el valor de **VirtualNetworkId**.
 
 Este es un ejemplo de identificador de red virtual:
 

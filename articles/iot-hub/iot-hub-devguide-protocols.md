@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016014"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919032"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
 
@@ -42,7 +42,7 @@ La tabla siguiente proporciona recomendaciones generales para la elección del p
 
 Considere los siguientes aspectos a la hora de elegir el protocolo para las comunicaciones del dispositivo:
 
-* **Patrón de nube a dispositivo**. HTTPS no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTPS, los dispositivos sondean los mensajes de nube a dispositivo en IoT Hub. Este enfoque es ineficaz tanto para el dispositivo como para IoT Hub. Según las directrices actuales de HTTPS, cada dispositivo sondeará si hay mensajes cada 25 minutos o más. AMQP y MQTT admiten la inserción de servidor cuando se reciben mensajes de la nube a dispositivo. Permiten inserciones inmediatas de mensajes desde IoT Hub en el dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar los protocolos MQTT o AMQP. Para dispositivos conectados en raras ocasiones, HTTPS funciona bien.
+* **Patrón de nube a dispositivo**. HTTPS no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTPS, los dispositivos sondean los mensajes de nube a dispositivo en IoT Hub. Este enfoque es ineficaz tanto para el dispositivo como para IoT Hub. Según las directrices actuales de HTTPS, cada dispositivo sondeará si hay mensajes cada 25 minutos o más. Emitir más recepciones HTTP tendrá como resultado la limitación de solicitudes de IoT Hub. AMQP y MQTT admiten la inserción de servidor cuando se reciben mensajes de la nube a dispositivo. Permiten inserciones inmediatas de mensajes desde IoT Hub en el dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar los protocolos MQTT o AMQP. Para dispositivos conectados en raras ocasiones, HTTPS funciona bien.
 
 * **Puertas de enlace de campo**. MQTT y HTTPS solo admiten una única identidad de dispositivo (id. de dispositivo más credenciales) por conexión TLS. Por este motivo, estos protocolos no se admiten en [escenarios de puerta de enlace de campo](iot-hub-devguide-endpoints.md#field-gateways) que requieran la multiplexación de mensajes con varias identidades de dispositivo en una única conexión ascendente a IoT Hub o un grupo de ellas. Estas puertas de enlace pueden usar un protocolo que admita varias identidades de dispositivo por conexión, como AMQP, para su tráfico ascendente.
 

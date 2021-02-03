@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564022"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937349"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canales de telemetría en Application Insights
 
@@ -18,7 +18,7 @@ Los canales de telemetría son una parte integral de los [SDK de Azure Applicati
 
 ## <a name="what-are-telemetry-channels"></a>¿Cuáles son los canales de telemetría?
 
-Los canales de telemetría son responsables de almacenar en búfer los elementos de telemetría y enviarlos al servicio Application Insights, donde se almacenan con finalidades de consultas y análisis. Un canal de telemetría es cualquier clase que implementa la interfaz [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet).
+Los canales de telemetría son responsables de almacenar en búfer los elementos de telemetría y enviarlos al servicio Application Insights, donde se almacenan con finalidades de consultas y análisis. Un canal de telemetría es cualquier clase que implementa la interfaz [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel).
 
 El método `Send(ITelemetry item)` de un canal de telemetría se invoca después de llamar a todos los inicializadores y procesadores de telemetría. Por lo tanto, todos los elementos que proporciona un procesador de telemetría no alcanzarán el canal. Normalmente, el método `Send()` no envía los elementos al back-end de manera instantánea. Por lo general, los almacena en búfer y los envía en lotes a fin de que la transmisión sea eficaz.
 

@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080012"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943892"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -124,7 +124,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </table>
 
 
-Hasta ahora, este diseño es similar a una tabla en una base de datos relacional. Las principales diferencias son las columnas obligatorias y la capacidad de almacenar varios tipos de entidad en la misma tabla. Además, cada una de las propiedades definidas por el usuario, como **FirstName** o **Age** , tienen un tipo de datos, como un número entero o una cadena, al igual que una columna en una base de datos relacional. Aunque, a diferencia de una base de datos relacional, la naturaleza sin esquema de Table Storage significa que una propiedad no necesita tener los mismos tipos de datos en cada entidad. Para almacenar tipos de datos complejos en una sola propiedad, debe utilizar un formato serializado como JSON o XML. Para obtener más información, consulte [Descripción del modelo de datos de Table Storage](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Hasta ahora, este diseño es similar a una tabla en una base de datos relacional. Las principales diferencias son las columnas obligatorias y la capacidad de almacenar varios tipos de entidad en la misma tabla. Además, cada una de las propiedades definidas por el usuario, como **FirstName** o **Age**, tienen un tipo de datos, como un número entero o una cadena, al igual que una columna en una base de datos relacional. Aunque, a diferencia de una base de datos relacional, la naturaleza sin esquema de Table Storage significa que una propiedad no necesita tener los mismos tipos de datos en cada entidad. Para almacenar tipos de datos complejos en una sola propiedad, debe utilizar un formato serializado como JSON o XML. Para obtener más información, consulte [Descripción del modelo de datos de Table Storage](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 La elección de `PartitionKey` y `RowKey` es fundamental para un buen diseño de tabla. Todas las entidades almacenadas en una tabla deben tener una combinación única de `PartitionKey` y `RowKey`. Al igual que con las claves de una tabla de base de datos relacional, los valores `PartitionKey` y `RowKey` se indexan para crear un índice agrupado para permitir búsquedas rápidas. El servicio Table Storage, sin embargo, no crea ningún índice secundario, por lo que estas son las dos únicas propiedades indexadas (algunos de los patrones que se describen más adelante muestran cómo puede solucionar esta limitación aparente).  
 
@@ -211,7 +211,7 @@ Estas son algunas directrices generales para diseñar consultas de Table Storage
 * Un *recorrido de tabla* no incluye `PartitionKey` y es ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realiza un recorrido de tabla independientemente de si su filtro usa `RowKey`. Por ejemplo: `$filter=LastName eq 'Jones'`.  
 * Las consultas de Azure Table Storage que devuelven varias entidades las clasifican en orden `PartitionKey` y `RowKey`. Para evitar reordenar las entidades del cliente, seleccione un valor `RowKey` que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
-Al usar " **or** " para especificar un filtro basado en valores `RowKey`, se generará un examen de partición y no se tratará como una consulta por rango. Por lo tanto, evite las consultas que utilizan filtros como `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
+Al usar "**or**" para especificar un filtro basado en valores `RowKey`, se generará un examen de partición y no se tratará como una consulta por rango. Por lo tanto, evite las consultas que utilizan filtros como `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
 Para obtener ejemplos de código de cliente que utilizan la biblioteca cliente de Storage para ejecutar consultas eficaces, consulte:  
 
@@ -495,7 +495,7 @@ Los dos criterios de filtro siguientes (uno de búsqueda por identificador de em
 
 Si consulta un intervalo de entidades de empleado, puede especificar un intervalo ordenado por identificador de empleado o un intervalo ordenado por dirección de correo electrónico. Consulte entidades con el prefijo adecuado en `RowKey`.  
 
-* Para buscar todos los empleados del departamento de ventas con un identificador de empleado en el intervalo de **000100** a **000199** , clasificados en orden de identificador de empleado, use: $filter=(PartitionKey eq 'empid_Sales') y (RowKey ge '000100') y (RowKey le '000199').  
+* Para buscar todos los empleados del departamento de ventas con un identificador de empleado en el intervalo de **000100** a **000199**, clasificados en orden de identificador de empleado, use: $filter=(PartitionKey eq 'empid_Sales') y (RowKey ge '000100') y (RowKey le '000199').  
 * Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por "a", ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email_Sales') y (RowKey ge 'a') y (RowKey lt 'b').  
 
 Observe que la sintaxis de filtro utilizada en los ejemplos anteriores procede de la API REST de Table Storage. Para más información, consulte [Consulta de entidades](/rest/api/storageservices/Query-Entities).  
@@ -551,12 +551,12 @@ Sin embargo, no se puede usar una EGT para realizar estas dos operaciones. Para 
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagrama de la solución para mantener la coherencia final":::
 
-Un cliente inicia la operación de almacenamiento mediante la colocación de un mensaje en una cola de Azure, en este ejemplo para archivar el empleado #456. Un rol de trabajador sondea la cola de mensajes nuevos; si encuentra alguno, lee el mensaje y deja una copia oculta en la cola. A continuación, el rol de trabajo busca una copia de la entidad en la tabla **Current** , inserta una copia en la tabla **Archive** y, seguidamente, elimina la original de la tabla **Current**. Por último, si no ha habido errores en los pasos anteriores, el rol de trabajador elimina el mensaje oculto de la cola.  
+Un cliente inicia la operación de almacenamiento mediante la colocación de un mensaje en una cola de Azure, en este ejemplo para archivar el empleado #456. Un rol de trabajador sondea la cola de mensajes nuevos; si encuentra alguno, lee el mensaje y deja una copia oculta en la cola. A continuación, el rol de trabajo busca una copia de la entidad en la tabla **Current**, inserta una copia en la tabla **Archive** y, seguidamente, elimina la original de la tabla **Current**. Por último, si no ha habido errores en los pasos anteriores, el rol de trabajador elimina el mensaje oculto de la cola.  
 
 En este ejemplo, el paso 4 del diagrama inserta el empleado en la tabla **Archive**. Puede añadir el empleado a un blob en Blob Storage o un archivo en un sistema de archivos.  
 
 #### <a name="recover-from-failures"></a>Recuperación de errores
-Es importante que las operaciones de los pasos 4-5 sean *idempotentes* , por si el rol de trabajo necesita reiniciar la operación de archivado. Si va a utilizar Table Storage para el paso 4, debe utilizar una operación de "insertar o reemplazar"; en el paso 5, debe usar una operación de "eliminar si existe" en la biblioteca cliente que esté usando. Si está utilizando otro sistema de almacenamiento, debe utilizar una operación idempotente adecuada.  
+Es importante que las operaciones de los pasos 4-5 sean *idempotentes*, por si el rol de trabajo necesita reiniciar la operación de archivado. Si va a utilizar Table Storage para el paso 4, debe utilizar una operación de "insertar o reemplazar"; en el paso 5, debe usar una operación de "eliminar si existe" en la biblioteca cliente que esté usando. Si está utilizando otro sistema de almacenamiento, debe utilizar una operación idempotente adecuada.  
 
 Si el rol de trabajo no completa el paso 6 del diagrama, después de un tiempo de expiración el mensaje volverá a aparecer en la cola listo para que el rol de trabajo intente volver a procesarlo. El rol de trabajo puede comprobar cuántas veces se ha leído un mensaje de la cola y, si es necesario, marcarlo como mensaje "dudoso" para investigarlo mediante el envío a una cola independiente. Para obtener más información acerca de cómo leer mensajes de la cola y comprobar el número de eliminaciones de cola, consulte [Obtener mensajes](/rest/api/storageservices/Get-Messages).  
 
@@ -1109,7 +1109,7 @@ Entre las excepciones que se producen cuando la biblioteca cliente de Storage ej
 También debe considerar cómo afecta su diseño a la forma en que la aplicación cliente trata las operaciones de simultaneidad y actualización.  
 
 #### <a name="managing-concurrency"></a>Administrar la simultaneidad
-De forma predeterminada, Table Storage implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones de inserción, combinación y eliminación, aunque es posible que un cliente fuerce a Table Storage a omitir estas comprobaciones. Para obtener más información, consulte [Administración de la simultaneidad en Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+De forma predeterminada, Table Storage implementa comprobaciones de simultaneidad optimista en el nivel de entidades individuales para las operaciones de inserción, combinación y eliminación, aunque es posible que un cliente fuerce a Table Storage a omitir estas comprobaciones. Para obtener más información, consulte [Administración de la simultaneidad en Microsoft Azure Storage](../storage/blobs/concurrency-manage.md).  
 
 #### <a name="merge-or-replace"></a>Combinar o reemplazar
 El método `Replace` de la clase `TableOperation` siempre reemplaza la entidad completa en Table Storage. Si no incluye una propiedad en la solicitud cuando esa propiedad existe en la entidad almacenada, la solicitud quita esa propiedad de la entidad almacenada. A menos que desee quitar una propiedad de forma explícita de entidad almacenada, debe incluir todas las propiedades en la solicitud.  

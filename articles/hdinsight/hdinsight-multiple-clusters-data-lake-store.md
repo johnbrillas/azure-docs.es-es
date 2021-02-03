@@ -1,19 +1,16 @@
 ---
 title: Varios clústeres de HDInsight y la misma cuenta de Azure Data Lake Storage
 description: Obtenga información sobre cómo usar más de un clúster de HDInsight con una sola cuenta de Data Lake Storage
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: df28374d0f124ceb46d2f97d55218d428275deca
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6e220592f53103320c3bdb586fcbd0106219bfed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533094"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939544"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Storage
 
@@ -28,7 +25,7 @@ En el resto de este artículo se da por supuesto que tiene un conocimiento profu
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuración de Data Lake Storage para varios clústeres de HDInsight
 
-Empecemos por una jerarquía de carpetas de dos niveles para explicar las recomendaciones de uso de varios clústeres de HDInsight con una cuenta de Data Lake Storage. Supongamos que tiene una cuenta de Data Lake Storage con la estructura de carpetas **/clusters/finance** . Con esta estructura, todos los clústeres requeridos por la organización de Finanzas pueden usar /clusters/finance como la ubicación de almacenamiento. En el futuro, si otra organización (por ejemplo, Marketing) desea crear clústeres de HDInsight con la misma cuenta de Data Lake Storage, podría crear /clusters/marketing. De momento, usaremos simplemente **/clusters/finance** .
+Empecemos por una jerarquía de carpetas de dos niveles para explicar las recomendaciones de uso de varios clústeres de HDInsight con una cuenta de Data Lake Storage. Supongamos que tiene una cuenta de Data Lake Storage con la estructura de carpetas **/clusters/finance**. Con esta estructura, todos los clústeres requeridos por la organización de Finanzas pueden usar /clusters/finance como la ubicación de almacenamiento. En el futuro, si otra organización (por ejemplo, Marketing) desea crear clústeres de HDInsight con la misma cuenta de Data Lake Storage, podría crear /clusters/marketing. De momento, usaremos simplemente **/clusters/finance**.
 
 Para que los clústeres de HDInsight puedan utilizar esta estructura de carpetas eficazmente, el administrador de Data Lake Storage debe asignar los permisos adecuados, tal como se describe en la tabla. Los permisos mostrados en la tabla corresponden a las ACL de acceso, y no a las ACL predeterminadas.
 
@@ -50,8 +47,8 @@ Algunos puntos que se deben tener en cuenta:
 
 - El administrador de Data Lake Storage debe crear la estructura de carpetas de dos niveles ( **/clusters/finance/** ) y aprovisionarla con los permisos adecuados **antes** de utilizar la cuenta de almacenamiento para clústeres. Esta estructura no se crea automáticamente durante la creación de clústeres.
 - El ejemplo anterior recomienda establecer el grupo propietario de **/clusters/finance** como **FINGRP** y permitir acceso **r-x** a FINGRP a la jerarquía de carpetas completa desde la raíz. Esto garantiza que los miembros de FINGRP pueden navegar desde la raíz de la estructura de carpetas.
-- En el caso de que varias entidades de servicio de AAD puedan crear clústeres en **/clusters/finance** , el bit sticky (cuando se establece en la carpeta **finance** ) garantiza que una carpeta creada por una entidad de servicio no puede eliminar a otra.
-- Una vez que la estructura de carpetas y los permisos estén configurados, el proceso de creación de clústeres de HDInsight crea una ubicación de almacenamiento específica para clústeres en **/clusters/finance/** . Por ejemplo, el almacenamiento para un clúster con el nombre fincluster01 podría ser **/clusters/finance/fincluster01** . La propiedad y los permisos para las carpetas creadas por un clúster de HDInsight se muestran en esta tabla.
+- En el caso de que varias entidades de servicio de AAD puedan crear clústeres en **/clusters/finance**, el bit sticky (cuando se establece en la carpeta **finance**) garantiza que una carpeta creada por una entidad de servicio no puede eliminar a otra.
+- Una vez que la estructura de carpetas y los permisos estén configurados, el proceso de creación de clústeres de HDInsight crea una ubicación de almacenamiento específica para clústeres en **/clusters/finance/** . Por ejemplo, el almacenamiento para un clúster con el nombre fincluster01 podría ser **/clusters/finance/fincluster01**. La propiedad y los permisos para las carpetas creadas por un clúster de HDInsight se muestran en esta tabla.
 
     |Carpeta  |Permisos  |usuario propietario  |grupo propietario  | Usuario con nombre | Permisos de usuario con nombre | Grupo con nombre | Permisos de grupo con nombre |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -59,7 +56,7 @@ Algunos puntos que se deben tener en cuenta:
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Recomendaciones para los datos de entrada y salida de trabajos
 
-Se recomienda que los datos de entrada y salida de un trabajo se almacenen en una carpeta fuera de **/clusters** . Esto garantiza que incluso si se elimina la carpeta específica del clúster para liberar espacio de almacenamiento, las entradas y salidas de trabajo y seguirán disponibles para su uso futuro. En ese caso, asegúrese de que la jerarquía de carpetas para almacenar las entradas y salidas de trabajo permita un nivel de acceso adecuado para la entidad de servicio.
+Se recomienda que los datos de entrada y salida de un trabajo se almacenen en una carpeta fuera de **/clusters**. Esto garantiza que incluso si se elimina la carpeta específica del clúster para liberar espacio de almacenamiento, las entradas y salidas de trabajo y seguirán disponibles para su uso futuro. En ese caso, asegúrese de que la jerarquía de carpetas para almacenar las entradas y salidas de trabajo permita un nivel de acceso adecuado para la entidad de servicio.
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>Límite de clústeres que comparten una única cuenta de almacenamiento
 
@@ -87,7 +84,7 @@ Como se indica en el JIRA YARN vinculado anteriormente, al localizar recursos p�
 
 #### <a name="workaround"></a>Solución alternativa
 
-Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/** , **/clusters** y **/clusters/finance** ), como se muestra en la tabla anterior.
+Configure los permisos de lectura y ejecución para **otros** mediante la jerarquía (por ejemplo, en **/** , **/clusters** y **/clusters/finance**), como se muestra en la tabla anterior.
 
 ## <a name="see-also"></a>Consulte también
 

@@ -1,19 +1,17 @@
 ---
 title: 'Seguridad: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de las prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545266"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939750"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -116,9 +114,9 @@ Para obtener más información, consulte el artículo: [Aplicación de revisión
 
 ## <a name="post-migration"></a>Después de la migración
 
-1. **Corregir aplicaciones** : realice de forma iterativa los cambios necesarios en los trabajos, procesos y scripts.
+1. **Corregir aplicaciones**: realice de forma iterativa los cambios necesarios en los trabajos, procesos y scripts.
 2. **Realizar pruebas** : realice pruebas funcionales y de rendimiento de forma iterativa.
-3. **Optimizar** : aborde cualquier problema de rendimiento basándose en los resultados de las pruebas anteriores y luego vuelva a realizar la prueba para confirmar las mejoras de rendimiento.
+3. **Optimizar**: aborde cualquier problema de rendimiento basándose en los resultados de las pruebas anteriores y luego vuelva a realizar la prueba para confirmar las mejoras de rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

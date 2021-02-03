@@ -1,18 +1,15 @@
 ---
 title: Control del tráfico de red en Azure HDInsight
 description: Aprenda técnicas para controlar el tráfico entrante y saliente en los clústeres de Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543175"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943369"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Control del tráfico de red en Azure HDInsight
 
@@ -40,7 +37,7 @@ Si planifica usar **grupos de seguridad de red** para controlar el tráfico de r
 
 3. Cree o modifique los grupos de seguridad de red de la subred en la que tiene previsto instalar HDInsight.
 
-    * __Grupos de seguridad de red__ : permita tráfico de __entrada__ en el puerto __443__ desde las direcciones IP. Esto garantizará que los servicios de administración de HDInsight puedan comunicarse con el clúster desde fuera de la red virtual. En el caso de los clústeres habilitados para el __proxy REST de Kafka__ , permita también el tráfico __entrante__ en el puerto  __9400__ . Esto garantizará que el proxy REST de Kafka sea accesible.
+    * __Grupos de seguridad de red__: permita tráfico de __entrada__ en el puerto __443__ desde las direcciones IP. Esto garantizará que los servicios de administración de HDInsight puedan comunicarse con el clúster desde fuera de la red virtual. En el caso de los clústeres habilitados para el __proxy REST de Kafka__, permita también el tráfico __entrante__ en el puerto __9400__. Esto garantizará que el proxy REST de Kafka sea accesible.
 
 Para más información sobre los grupos de seguridad de red, consulte [Introducción a los grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
 

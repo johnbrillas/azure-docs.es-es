@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 690dcca23aedb129090b3bf4f0da8874705b5fcc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555787"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941467"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Línea de referencia de seguridad de Azure para Azure Data Factory
 
@@ -960,7 +960,7 @@ Tenga en cuenta que esto solo se aplica si Integration Runtime se ejecuta en una
 
 En la mayoría de los escenarios, las plantillas de máquina virtual base de Microsoft combinadas con Desired State Configuration de Azure Automation pueden ayudar a cumplir y mantener los requisitos de seguridad.
 
-* [Información sobre cómo descargar la plantilla de máquina virtual](../virtual-machines/windows/download-template.md)
+* [Información sobre cómo descargar la plantilla de máquina virtual](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Información sobre la creación de plantillas de Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 

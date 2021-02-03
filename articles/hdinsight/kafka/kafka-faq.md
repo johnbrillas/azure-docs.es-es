@@ -1,18 +1,15 @@
 ---
 title: Preguntas frecuentes sobre Apache Kafka en Azure HDInsight
 description: Obtenga respuestas a preguntas habituales sobre Apache Kafka en Azure HDInsight, un servicio en la nube de Hadoop administrado.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 851d7ceb44d2466ed31e26c1442fde9acea9fd22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532547"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939093"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Preguntas frecuentes sobre Apache Kafka en Azure HDInsight
 
@@ -78,7 +75,7 @@ La durabilidad de los datos reduce al mínimo el riesgo de pérdida de mensajes.
 * Usar un factor de replicación mínimo de 4 en regiones con solo dos dominios de error.
 * Deshabilitar elecciones de líderes no limpios.
 * Establecer **min.insync.replicas** en 2 o más; esto cambia el número de réplicas que deben estar completamente sincronizadas con el líder antes de que pueda continuar un proceso de escritura.
-* Establecer la propiedad **acks** en **all** ; esta propiedad requiere que todas las réplicas confirmen todos los mensajes.
+* Establecer la propiedad **acks** en **all**; esta propiedad requiere que todas las réplicas confirmen todos los mensajes.
 
 Si se configura Kafka para una mayor coherencia de datos, la disponibilidad de los agentes para producir solicitudes se verá afectada.
 

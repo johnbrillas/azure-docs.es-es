@@ -2,25 +2,22 @@
 title: Uso de Apache Pig
 titleSuffix: Azure HDInsight
 description: Aprenda a usar Pig con Apache Hadoop en HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538738"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944620"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Uso de Pig con Apache Hadoop en HDInsight
 
 Aprenda a usar [Apache Pig](https://pig.apache.org/) con HDInsight.
 
-Apache Pig es una plataforma para crear programas de Apache Hadoop mediante un lenguaje de procedimientos que se conoce como *Pig Latin* . Pig es una alternativa a Java para crear soluciones *MapReduce* y se incluye con HDInsight de Azure. Utilice la tabla siguiente para conocer las distintas formas de usar Pig con HDInsight:
+Apache Pig es una plataforma para crear programas de Apache Hadoop mediante un lenguaje de procedimientos que se conoce como *Pig Latin*. Pig es una alternativa a Java para crear soluciones *MapReduce* y se incluye con HDInsight de Azure. Utilice la tabla siguiente para conocer las distintas formas de usar Pig con HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Motivos para usar Apache Pig
 
@@ -30,11 +27,11 @@ Pig permite definir los procesos como una serie de transformaciones por la que f
 
 El lenguaje de Pig Latin le permite describir el flujo de datos desde entrada sin formato, a través de una o varias transformaciones, para producir el resultado deseado. Los programas de Pig Latin siguen este patrón general:
 
-* **Carga** : Lectura de los datos que se van a manipular desde el sistema de archivos.
+* **Carga**: Lectura de los datos que se van a manipular desde el sistema de archivos.
 
-* **Transformación** : Manipulación de los datos.
+* **Transformación**: Manipulación de los datos.
 
-* **Volcado o almacén** : Generación de los datos en la pantalla o almacenamiento para su posterior procesamiento.
+* **Volcado o almacén**: Generación de los datos en la pantalla o almacenamiento para su posterior procesamiento.
 
 ### <a name="user-defined-functions"></a>Funciones definidas por el usuario
 

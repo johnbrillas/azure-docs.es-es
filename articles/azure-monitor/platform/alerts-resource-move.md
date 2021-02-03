@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cf5882913426062e281194b61a8c760141512a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505489"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944153"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Actualización de reglas de alertas o reglas de acción cuando su recurso de destino se mueve a otra región de Azure
 
@@ -106,7 +106,7 @@ Si se han movido **solo algunos** de los recursos del ámbito, debe quitar de la
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Cambio del ámbito de una regla mediante la CLI de Azure
 
-1.  Obtenga la regla existente ([alertas de métricas](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+1.  Obtenga la regla existente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.  Actualice el ámbito de la regla directamente ([alertas de métricas](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertas del registro de actividad](/cli/azure/monitor/activity-log/alert/scope)).
 3.  Si es necesario, divida en dos reglas (lo que es pertinente en algunos casos de alertas de métricas, como se ha indicado anteriormente).
 

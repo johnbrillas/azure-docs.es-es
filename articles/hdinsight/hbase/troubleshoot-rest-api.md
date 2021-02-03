@@ -1,18 +1,15 @@
 ---
 title: API REST para consultar de Apache HBase en Azure HDInsight
 description: En este artículo se describen los pasos de solución de problemas al interactuar con componentes de Apache HBase en clústeres de Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
-ms.openlocfilehash: 1091366ac4d0445a465bc75913baf0f812e6a635
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 636f84c4c6aa097288dc2fb5481dcedd6863409d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629296"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942879"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>API REST para consultar de Apache HBase en Azure HDInsight
 

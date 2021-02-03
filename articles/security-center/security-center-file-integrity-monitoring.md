@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734766"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918613"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisión de la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -28,7 +28,7 @@ Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en A
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).<br>FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Roles y permisos necesarios:|El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>El **lector** puede ver los resultados.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|

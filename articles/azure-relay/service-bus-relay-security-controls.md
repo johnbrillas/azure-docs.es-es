@@ -3,12 +3,12 @@ title: Controles de seguridad para Azure Relay
 description: En este artículo se proporciona una lista de comprobación de los controles de seguridad integrados para evaluar Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce5053366ac1d3536a152610d8ed7f76fad62b84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133351"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919585"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controles de seguridad para Azure Relay
 
@@ -20,8 +20,8 @@ En este artículo se explican los controles de seguridad integrados en Azure Rel
 
 | Control de seguridad | Sí/No | Notas | Documentación |
 |---|---|--|--|
-| Compatibilidad con el punto de conexión privado| No |  |   |
-| Compatibilidad con el aislamiento de red y los firewalls| No |  |   |
+| Compatibilidad con el punto de conexión privado| Sí |  |   |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí |  |   |
 | Compatibilidad con la tunelización forzada| N/D | La retransmisión es el túnel de TLS  |   |
 
 ## <a name="monitoring--logging"></a>Supervisión y registro

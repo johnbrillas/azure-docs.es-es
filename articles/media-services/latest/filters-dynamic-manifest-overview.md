@@ -1,6 +1,5 @@
 ---
 title: Filtrado de los manifiestos mediante el empaquetador dinámico
-titleSuffix: Azure Media Services
 description: Aprenda a crear filtros con el empaquetador dinámico para filtrar y transmitir selectivamente los manifiestos.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299038"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897669"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrado de los manifiestos mediante el empaquetador dinámico
 

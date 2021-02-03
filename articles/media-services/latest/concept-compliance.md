@@ -1,6 +1,5 @@
 ---
 title: Cumplimiento normativo de Media Services
-titleSuffix: Azure Media Services
 description: Azure Media Services se atiene a Azure Government.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 978af4754e6e083e8bf5375ade84891019abccca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015828"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897061"
 ---
 # <a name="media-services-regulatory-compliance"></a>Cumplimiento normativo de Media Services
 

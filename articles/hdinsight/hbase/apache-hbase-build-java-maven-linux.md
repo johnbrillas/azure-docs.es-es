@@ -1,19 +1,16 @@
 ---
 title: Uso de Apache Maven para crear un cliente de HBase de Java para Azure HDInsight
 description: Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en HBase en Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547918"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942970"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
 
@@ -48,7 +45,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creación de un proyecto de Maven
 
-1. Especifique el siguiente comando para crear un proyecto de Maven llamado **hbaseapp** :
+1. Especifique el siguiente comando para crear un proyecto de Maven llamado **hbaseapp**:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -95,7 +92,7 @@ En la sección `pom.xml`, agregue el siguiente texto a la sección `<dependencie
 </dependency>
 ```  
 
-En esta sección se indica que el proyecto necesita los componentes **hbase-client** y **phoenix-core** . En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio central de Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) para ver más información sobre esta dependencia.
+En esta sección se indica que el proyecto necesita los componentes **hbase-client** y **phoenix-core**. En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio central de Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) para ver más información sobre esta dependencia.
 
 > [!IMPORTANT]  
 > El número de versión de hbase-client debe coincidir con la versión de Apache HBase que se proporciona con el clúster de HDInsight. Utilice la siguiente tabla para buscar el número de versión correcto.
@@ -415,7 +412,7 @@ En los siguientes pasos se usa `scp` para copiar el archivo JAR en el nodo prima
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
     ```
 
-    Este comando crea una tabla HBase denominada **people** , que se rellenará con datos.
+    Este comando crea una tabla HBase denominada **people**, que se rellenará con datos.
 
 4. Use el siguiente comando para buscar direcciones de correo electrónico almacenadas en la tabla:
 
@@ -645,8 +642,8 @@ En los siguientes pasos se usa el [módulo AZ](/powershell/azure/new-azureps-mod
 
     Este archivo contiene dos módulos:
 
-   * **Add-HDInsightFile** : se usa para cargar archivos en el clúster.
-   * **Start-HBaseExample** : se usa para ejecutar las clases creadas anteriormente.
+   * **Add-HDInsightFile**: se usa para cargar archivos en el clúster.
+   * **Start-HBaseExample**: se usa para ejecutar las clases creadas anteriormente.
 
 2. Guarde el archivo `hbase-runner.psm1` en el directorio `hbaseapp`.
 

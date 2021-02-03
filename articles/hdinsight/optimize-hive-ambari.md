@@ -1,18 +1,15 @@
 ---
 title: Optimización de Apache Hive con Apache Ambari en Azure HDInsight
 description: Use la interfaz de usuario web de Apache Ambari para configurar y optimizar Apache Hive.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084365"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939250"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optimización de Apache Hive con Apache Ambari en Azure HDInsight
 

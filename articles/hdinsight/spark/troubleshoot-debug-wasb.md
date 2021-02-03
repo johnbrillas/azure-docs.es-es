@@ -1,18 +1,15 @@
 ---
 title: Depuración de operaciones de archivo WASB en Azure HDInsight
 description: Describe los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al interactuar con clústeres de Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0f06c81906116dc278377cf9fd8871e8899a1d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014659"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938750"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Depuración de operaciones de archivo WASB en Azure HDInsight
 
