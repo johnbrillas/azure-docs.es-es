@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895552"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051658"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedimientos recomendados para el servicio Route de Azure Maps
 
@@ -59,10 +59,10 @@ Esta es una comparación para mostrar algunas de las funcionalidades de las API 
 
 | API de Azure Maps | Número máximo de consultas en la solicitud | Áreas que evitar | Rutas para camiones y vehículos eléctricos | Optimización de puntos de referencia y viajante | Puntos complementarios |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Get Route Directions | 1 | | X | X | |
-| Post Route Directions | 1 | X | X | X | X |
-| Post Route Directions Batch | 700 | | X | X | |
-| Post Route Matrix | 700 | | X | | |
+| Get Route Directions | 1 | | ✔ | ✔ | |
+| Post Route Directions | 1 | ✔ | ✔ | ✔ | ✔ |
+| Post Route Directions Batch | 700 | | ✔ | ✔ | |
+| Post Route Matrix | 700 | | ✔ | | |
 
 Para obtener más información sobre las funcionalidades de ruta para vehículos eléctricos, vea el tutorial sobre [rutas para vehículos eléctricos mediante Azure Notebooks (Python)](tutorial-ev-routing.md).
 
@@ -90,7 +90,7 @@ En el primero de los ejemplos siguientes, la hora de salida se establece en el f
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-La respuesta contiene un elemento summary (resumen), como el siguiente. Como la hora de salida se establece en el futuro, el valor de **trafficDelayInSeconds** es cero. El valor **travelTimeInSeconds** se calcula con los datos de tráfico histórico dependientes del tiempo. Por tanto, en este caso el valor **travelTimeInSeconds** es igual al valor **historicTrafficTravelTimeInSeconds** .
+La respuesta contiene un elemento summary (resumen), como el siguiente. Como la hora de salida se establece en el futuro, el valor de **trafficDelayInSeconds** es cero. El valor **travelTimeInSeconds** se calcula con los datos de tráfico histórico dependientes del tiempo. Por tanto, en este caso el valor **travelTimeInSeconds** es igual al valor **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -113,7 +113,7 @@ En el segundo ejemplo siguiente, hay una solicitud de enrutamiento en tiempo rea
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-La respuesta contiene un resumen, como se muestra a continuación. Debido a los atascos, el valor **trafficDelaysInSeconds** es mayor que cero. También es mayor que **historicTrafficTravelTimeInSeconds** .
+La respuesta contiene un resumen, como se muestra a continuación. Debido a los atascos, el valor **trafficDelaysInSeconds** es mayor que cero. También es mayor que **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Expanda el elemento `point` para ver la lista de coordenadas para el trayecto:
 
 ![Elemento points expandido](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Las API Route Directions admiten diferentes formatos de instrucciones que se pueden usar mediante la especificación del parámetro **instructionsType** . Para dar formato a las instrucciones y facilitar el procesamiento del equipo, use **instructionsType=coded** . Use **instructionsType=tagged** para mostrar las instrucciones como texto para el usuario. Además, a las instrucciones se les puede aplicar formato de texto, donde se marcan algunos elementos de las instrucciones y la indicación se presenta con un formato especial. Para obtener más información, vea la [lista de tipos de instrucciones compatibles](/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Las API Route Directions admiten diferentes formatos de instrucciones que se pueden usar mediante la especificación del parámetro **instructionsType**. Para dar formato a las instrucciones y facilitar el procesamiento del equipo, use **instructionsType=coded**. Use **instructionsType=tagged** para mostrar las instrucciones como texto para el usuario. Además, a las instrucciones se les puede aplicar formato de texto, donde se marcan algunos elementos de las instrucciones y la indicación se presenta con un formato especial. Para obtener más información, vea la [lista de tipos de instrucciones compatibles](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Cuando se solicitan instrucciones, la respuesta devuelve un nuevo elemento denominado `guidance`. El elemento `guidance` contiene dos fragmentos de información: indicaciones paso a paso e instrucciones resumidas.
 
@@ -214,7 +214,7 @@ En la actualidad, Azure Maps proporciona dos formas para optimizar una ruta:
 
 Para el enrutamiento de varias paradas, se pueden especificar hasta 150 puntos de referencia en una única solicitud de ruta. Las ubicaciones de coordenadas inicial y final pueden ser las mismas, como en el caso de un viaje de ida y vuelta. Sin embargo, tendrá que proporcionar por lo menos un punto de referencia adicional para realizar el cálculo de la ruta. Los puntos de referencia se pueden agregar a la consulta entre las coordenadas de origen y de destino.
 
-Si quiere optimizar el mejor orden para visitar los puntos de referencia concretos, debe especificar **computeBestOrder=true** . Este escenario también se conoce como "problema de optimización del viajante".
+Si quiere optimizar el mejor orden para visitar los puntos de referencia concretos, debe especificar **computeBestOrder=true**. Este escenario también se conoce como "problema de optimización del viajante".
 
 ### <a name="sample-query"></a>Consulta de ejemplo
 

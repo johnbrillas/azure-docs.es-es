@@ -1,18 +1,15 @@
 ---
 title: Uso de la replicación de Apache Hive en clústeres de Azure HDInsight
 description: Aprenda a usar la replicación de Hive en clústeres de HDInsight para replicar el metastore de Hive y el lago de datos de Azure Data Lake Storage Gen2.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857748"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941334"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Uso de la replicación de Apache Hive en clústeres de Azure HDInsight
 
@@ -140,7 +137,7 @@ La replicación incremental sigue el mismo proceso y requiere el último identif
 
 Normalmente, la replicación se configura de forma unidireccional entre el clúster principal y el secundario, donde el principal se encarga de las solicitudes de lectura y escritura, mientras que el secundario solo se ocupa de las solicitudes de lectura. Se permiten las escrituras en el clúster secundario si se produce un desastre, pero es necesario volver a configurar en el principal la replicación inversa.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Diagrama de replicación de Hive":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Patrón de replicación de Hive":::
 
 Hay muchos patrones adecuados para la replicación de Hive, como principal-secundario, radial y retransmisión.
 
