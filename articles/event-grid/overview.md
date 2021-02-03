@@ -2,13 +2,13 @@
 title: ¿Qué es Azure Event Grid?
 description: Envíe datos de eventos desde un origen a los controladores con Azure Event Grid. Cree aplicaciones basadas en eventos e intégrelas con servicios de Azure.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576689"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055147"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -20,7 +20,7 @@ Azure Event Grid se implementa para maximizar la disponibilidad mediante la dist
 
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de orígenes y controladores de Event Grid" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de orígenes y controladores de Event Grid" lightbox="./media/overview/functional-model-big.png":::
 
 En esta imagen se muestra cómo se conectan los orígenes y los controladores en Event Grid, pero no proporciona una lista completa de las integraciones admitidas.
 
@@ -42,6 +42,7 @@ Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Ev
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Suscripciones de Azure](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>Controladores de eventos
 

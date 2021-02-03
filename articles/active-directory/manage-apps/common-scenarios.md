@@ -3,7 +3,7 @@ title: Escenarios comunes de administración de aplicaciones para Azure Active D
 description: Centralización de la administración de aplicaciones con Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835499"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259577"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralización de la administración de aplicaciones con Azure AD
 
@@ -43,7 +43,7 @@ Ya no más administración de contraseñas. Obtenga acceso de forma segura a tod
 |Característica  | Descripción | Recomendación |
 |---------|---------|---------|
 |SSO|SSO federado basado en estándares con estándares de confianza del sector.|Use siempre [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) para habilitar SSO cuando la aplicación lo admita.|
-|Mis aplicaciones|Proporcione a sus usuarios un lugar centralizado y sencillo desde el que puedan acceder a todas las aplicaciones. Favorezca la productividad con funcionalidades de autoservicio, como la solicitud de acceso a aplicaciones y grupos, o la administración del acceso a recursos en nombre de otros usuarios.| Implemente [Mis aplicaciones](./access-panel-deployment-plan.md) en la organización una vez que haya integrado las aplicaciones con Azure AD para el inicio de sesión único.|
+|Mis aplicaciones|Proporcione a sus usuarios un lugar centralizado y sencillo desde el que puedan acceder a todas las aplicaciones. Favorezca la productividad con funcionalidades de autoservicio, como la solicitud de acceso a aplicaciones y grupos, o la administración del acceso a recursos en nombre de otros usuarios.| Implemente [Mis aplicaciones](my-apps-deployment-plan.md) en la organización una vez que haya integrado las aplicaciones con Azure AD para el inicio de sesión único.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Escenario 2: Automatización de aprovisionamiento y desaprovisionamiento 
 

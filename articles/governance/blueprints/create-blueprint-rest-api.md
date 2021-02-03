@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056998"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915648"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -124,7 +124,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      }
      ```
 
-1. Agregue una asignación de roles a la suscripción. El **cuerpo de la solicitud** define el _tipo_de artefacto, las propiedades se alinean con el identificador de definición de rol y las identidades de la entidad de servicio se pasan como una matriz de valores. En el siguiente ejemplo, las identidades de la entidad de servicio a las que se ha asignado el rol especificado se configuran con un parámetro que se establece durante la asignación de planos técnicos. Este ejemplo se usa el rol integrado _Colaborador_ con el GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Agregue una asignación de roles a la suscripción. El **cuerpo de la solicitud** define el _tipo_ de artefacto, las propiedades se alinean con el identificador de definición de rol y las identidades de la entidad de servicio se pasan como una matriz de valores. En el siguiente ejemplo, las identidades de la entidad de servicio a las que se ha asignado el rol especificado se configuran con un parámetro que se establece durante la asignación de planos técnicos. Este ejemplo se usa el rol integrado _Colaborador_ con el GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI DE LA API REST
 

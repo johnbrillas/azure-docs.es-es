@@ -1,19 +1,16 @@
 ---
 title: 'Inicio rápido: RStudio Server y Machine Learning Services para R: Azure HDInsight'
 description: En el inicio rápido, ejecutará un script de R en un clúster de Machine Learning Services en Azure HDInsight con RStudio Server.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "73241889"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935720"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con RStudio Server
 
@@ -144,7 +141,7 @@ Una vez conectado, la pantalla debe ser similar a la siguiente captura de pantal
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

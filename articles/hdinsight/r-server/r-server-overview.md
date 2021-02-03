@@ -1,23 +1,20 @@
 ---
 title: Introducción a ML Services en Azure HDInsight
 description: Aprenda a usar ML Services en HDInsight para crear aplicaciones para al análisis de macrodatos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: b3a6fc2ff45d61d63118edc23f40f69f16db9131
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943917"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>¿Qué es ML Services en Azure HDInsight?
 
-Microsoft Machine Learning Server está disponible como opción de implementación al crear clústeres de HDInsight en Azure. El tipo de clúster que proporciona esta opción se denomina **ML Services** . Esta funcionalidad proporciona acceso a petición a métodos de análisis adaptables y distribuidos en HDInsight.
+Microsoft Machine Learning Server está disponible como opción de implementación al crear clústeres de HDInsight en Azure. El tipo de clúster que proporciona esta opción se denomina **ML Services**. Esta funcionalidad proporciona acceso a petición a métodos de análisis adaptables y distribuidos en HDInsight.
 
 ML Services en HDInsight proporciona las funcionalidades más recientes para el análisis basado en R en conjuntos de datos de prácticamente cualquier tamaño. Los conjuntos de datos se pueden cargar en un blob de Azure o en el almacenamiento de Data Lake. Las aplicaciones basadas en R pueden usar los más de 8000 paquetes de R de código abierto. También están disponibles rutinas de ScaleR, un paquete de análisis de macrodatos de Microsoft.
 
@@ -27,7 +24,7 @@ Los modelos o las predicciones que se generen a partir de los análisis pueden d
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introducción a ML Services en HDInsight
 
-Para crear un clúster de ML Services en HDInsight, seleccione el tipo de clúster **ML Services** . El tipo de clúster de ML Services incluye ML Server en los nodos de datos y en el nodo perimetral. El nodo perimetral actúa como zona de aterrizaje para los análisis basados en ML Services. Consulte [Creación de clústeres basados en Linux en HDInsight mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) para ver un tutorial sobre cómo crear el clúster.
+Para crear un clúster de ML Services en HDInsight, seleccione el tipo de clúster **ML Services**. El tipo de clúster de ML Services incluye ML Server en los nodos de datos y en el nodo perimetral. El nodo perimetral actúa como zona de aterrizaje para los análisis basados en ML Services. Consulte [Creación de clústeres basados en Linux en HDInsight mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) para ver un tutorial sobre cómo crear el clúster.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>Razones para elegir ML Services en HDInsight
 
@@ -112,7 +109,7 @@ Los paquetes adicionales pueden instalarse con una acción de script después de
 
 La memoria disponible para ML Services se puede modificar cuando se ejecuta un trabajo de MapReduce. Para modificar un clúster, use la interfaz de usuario de Apache Ambari para el clúster. Para instrucciones sobre la interfaz de usuario de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-La memoria disponible para ML Services se puede cambiar mediante conmutadores de Hadoop en la llamada a **RxHadoopMR** :
+La memoria disponible para ML Services se puede cambiar mediante conmutadores de Hadoop en la llamada a **RxHadoopMR**:
 
 ```r
 hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"

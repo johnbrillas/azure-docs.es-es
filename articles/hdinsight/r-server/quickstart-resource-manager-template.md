@@ -1,19 +1,16 @@
 ---
 title: 'Inicio rápido: Creación de un clúster de ML Services mediante una plantilla: Azure HDInsight'
 description: Esta guía de inicio rápido muestra cómo usar la plantilla de Resource Manager para crear un clúster de ML Services en Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: ad1b08110e91457f1c9031f864ba67086872f22e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15e06d959510d74078a738db2606778d313ad65
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855571"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943996"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>Inicio rápido: Creación de un clúster de ML Services en Azure HDInsight mediante una plantilla de Resource Manager
 
@@ -42,7 +39,7 @@ En la plantilla se definen dos recursos de Azure:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager.
+1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de ARM.
 
     [![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-rserver%2Fazuredeploy.json)
 

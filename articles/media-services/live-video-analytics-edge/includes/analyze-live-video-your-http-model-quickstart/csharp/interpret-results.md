@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6471108cbbb1ec7fffeb53de61ac71f94927019b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 373b7b8dbf2ccc516edbbb3b87e284d88dfaf0c2
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684294"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508496"
 ---
 Cuando se ejecuta el grafo multimedia, los resultados del nodo del procesador de extensión HTTP atraviesan el nodo de receptor de IoT Hub y llegan al centro de IoT. Los mensajes que aparecen en la ventana **SALIDA** contienen una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -82,20 +82,12 @@ En el siguiente ejemplo, se han detectado dos automóviles en el mismo fotograma
         "type": "entity"
       }
     ]
-  },
-  "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
-    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-04-23T06:37:16.097Z"
   }
 }
 ```
 
 En los mensajes, tenga en cuenta los siguientes detalles:
 
-* En `applicationProperties`, `subject` hace referencia al nodo de la topología del grafo multimedia desde el que se generó el mensaje. 
-* En `applicationProperties`, `eventType` indica que este es un evento de análisis.
 * El valor `eventTime` es la hora en que se produjo el evento.
 * La sección `body` contiene datos sobre el evento de análisis. En este caso, el evento es un evento de inferencia, por lo que el cuerpo contiene los datos `inferences`.
 * La sección `inferences` indica que el valor de `type` es `entity`. En esta sección se incluyen datos adicionales sobre la entidad.

@@ -2,13 +2,13 @@
 title: Información general sobre la mensajería de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajes de integración empresarial totalmente administrado.
 ms.topic: overview
-ms.date: 11/20/2020
-ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/28/2021
+ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881608"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219169"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 Microsoft Azure Service Bus es un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas que se pueden publicar y a los que es posible suscribirse. Service Bus se usa para desacoplar aplicaciones de servicios, lo que proporciona las siguientes ventajas:
@@ -152,12 +152,12 @@ El [protocolo principal de Azure Service Bus es AMQP 1.0](service-bus-amqp-over
 
 Service Bus se integra totalmente con muchos servicios de Microsoft y Azure, por ejemplo:
 
-* [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Funciones de Azure](https://azure.microsoft.com/services/functions/)
-* [Power Platform](https://powerplatform.microsoft.com/)
-* [Dynamics 365](https://dynamics.microsoft.com)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Event Grid](service-bus-to-event-grid-integration-example.md)
+* [Logic Apps](../connectors/connectors-create-api-servicebus.md)
+* [Funciones de Azure](../azure-functions/functions-bindings-service-bus.md)
+* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

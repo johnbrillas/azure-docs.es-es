@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740353"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089231"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Descripción de los roles en Azure Active Directory
 
@@ -61,7 +61,7 @@ La tabla siguiente se ofrece como ayuda para comprender estas categorías de rol
 Category | Role
 ---- | ----
 Roles específicos de Azure AD | Administrador de aplicaciones<br>Desarrollador de aplicaciones<br>Administrador de autenticación<br>Administrador de conjuntos de claves B2C con IEF<br>Administrador de directivas B2C con IEF<br>Administrador de aplicaciones en la nube<br>Administrador de dispositivos en la nube<br>Administrador de acceso condicional<br>Administradores de dispositivos<br>Lectores de directorios<br>Cuentas de sincronización de directorios<br>Escritores de directorios<br>Administrador de flujos de usuarios con id. externo<br>Administrador de atributos de flujos de usuarios con id. externo<br>Administrador de proveedor de identidades externo<br>Administrador de grupos<br>Invitador de usuarios<br>Administrador del departamento de soporte técnico<br>Administrador de identidades híbridas<br>Administrador de licencias<br>Soporte para asociados de nivel 1<br>Soporte para asociados de nivel 2<br>Administrador de contraseñas<br>Administrador de autenticación con privilegios<br>Administrador de roles con privilegios<br>Lector de informes<br>Administrador de cuenta de usuario
-Roles multiservicios | Administrador de la compañía<br>Administrador de cumplimiento<br>Administrador de datos de cumplimiento<br>Lector global<br>Administrador de seguridad<br>Operador de seguridad<br>Lector de seguridad<br>Administrador del soporte técnico del servicio
+Roles multiservicios | Administrador global<br>Administrador de cumplimiento<br>Administrador de datos de cumplimiento<br>Lector global<br>Administrador de seguridad<br>Operador de seguridad<br>Lector de seguridad<br>Administrador del soporte técnico del servicio
 Roles de servicio específico | Administrador de Azure DevOps<br>Administrador de Azure Information Protection<br>Administrador de facturación<br>Administrador de servicios de CRM<br>Aprobador del acceso a la Caja de seguridad del cliente<br>Administrador de análisis de escritorio<br>Administrador de servicios de Exchange<br>Administrador de Insights<br>Coordinador de Insights de la empresa<br>Administrador de servicios de Intune<br>Administrador de Kaizala<br>Administrador de servicios de Lync<br>Lector de privacidad del Centro de mensajes<br>Lector del Centro de mensajes<br>Usuario de comercio moderno<br>Administrador de red<br>Administrador de aplicaciones de Office<br>Administrador de servicios de Power BI<br>Administrador de Power Platform<br>Administrador de impresoras<br>Técnico de impresoras<br>Administrador de búsqueda<br>Editor de búsqueda<br>Administrador de servicios de SharePoint<br>Administrador de comunicaciones de Teams<br>Ingeniero de soporte técnico de comunicaciones de Teams<br>Especialista de soporte técnico de comunicaciones de Teams<br>Administrador de dispositivos de Teams<br>Administrador de servicios de Teams
 
 ## <a name="next-steps"></a>Pasos siguientes

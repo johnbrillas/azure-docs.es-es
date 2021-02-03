@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71fa79cb8847d16ac0890f9aba647cb8f5e2e444
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87282490"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089349"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galería de complementos de Azure Media Player #
 
@@ -21,7 +21,7 @@ ms.locfileid: "87282490"
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Características adicionales                 | | | |
 | **¡Nuevo!** AMP360Video                | [Demostración](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | El complemento le permite visualizar vídeo 360 º en Amp, ya sea en el escritorio o en los dispositivos compatibles con realidad virtual. La documentación completa está disponible [aquí](https://doc.babylonjs.com/extensions/amp360video): |
-|  Sprite Tip                         | [Demostración](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Complemento de Azure Media Player (AMP) para la representación de escalas de tiempo de un sprite de imagen en miniatura de vídeo que se genera a partir de Media Encoder Standard (MES) de Azure Media Services (AMS). |
+|  Sprite Tip                         | [Demostración](https://www.smwcentral.net/?p=section&a=details&id=10301)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Complemento de Azure Media Player (AMP) para la representación de escalas de tiempo de un sprite de imagen en miniatura de vídeo que se genera a partir de Media Encoder Standard (MES) de Azure Media Services (AMS). |
 | Diagnostics Overlay                 | [Demostración](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este complemento muestra: todos los parámetros clave, estadísticas de vídeo, todos los eventos del ciclo de vida de reproducción de vídeo e información de protección DRM, como el identificador de clave, las direcciones URL de adquisición de licencias, si están protegidas.                                                                                                                                                                      |
 | Velocidad de fotogramas y calculadora de código de tiempo | No hay demostración disponible | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este complemento calcula la velocidad de fotogramas de vídeo en función de los `tfhd`/`trun` cuadros MP4 del primer fragmento de vídeo MPEG-DASH, analiza el valor de la escala de tiempo del manifiesto de cliente MPEG-DASH y, además, proporciona una forma de generar el código de tiempo para una hora absoluta determinada desde el reproductor (y proporciona el tiempo absoluto del reproductor dado el código de tiempo) |
 | <strike>Playback Speed</strike>                      | [Demostración](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Este complemento permite a los visores controlar la velocidad del vídeo. *Tenga en cuenta que esta funcionalidad está disponible automáticamente a partir de la versión 2.0.0 de AMP, pero está deshabilitada de forma predeterminada.* Para aprender a habilitarla, consulte nuestros ejemplos [aquí](https://github.com/Azure-Samples/azure-media-player-samples) |

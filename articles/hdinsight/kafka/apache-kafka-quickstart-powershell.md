@@ -1,19 +1,16 @@
 ---
 title: 'Inicio rápido: Creación de Apache Kafka con Azure PowerShell: HDInsight'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure PowerShell. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533009"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942619"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante PowerShell
 
@@ -176,7 +173,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obtención de la información del host de Apache Zookeeper y del agente
 
-Cuando se trabaja con Kafka, debe conocer los hosts de *Apache Zookeeper* y del *agente* . Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
+Cuando se trabaja con Kafka, debe conocer los hosts de *Apache Zookeeper* y del *agente*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
 
 En esta sección, obtendrá la información de host de la API de REST de Apache Ambari en el clúster.
 
@@ -232,15 +229,15 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
 
 ## <a name="manage-apache-kafka-topics"></a>Administración de temas de Apache Kafka
 
-Kafka almacena flujos de datos en *temas* . Puede usar la utilidad `kafka-topics.sh` para administrar temas.
+Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.sh` para administrar temas.
 
-* **Para crear un tema** , use el comando siguiente en la conexión SSH:
+* **Para crear un tema**, use el comando siguiente en la conexión SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Kafka llamado **test** . 
+    Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Kafka llamado **test**. 
 
     * Los datos almacenados en este tema se dividen en ocho particiones.
 
@@ -262,7 +259,7 @@ Kafka almacena flujos de datos en *temas* . Puede usar la utilidad `kafka-topics
 
         * Escale verticalmente un clúster
 
-* **Para mostrar temas** , use el comando siguiente:
+* **Para mostrar temas**, use el comando siguiente:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -270,7 +267,7 @@ Kafka almacena flujos de datos en *temas* . Puede usar la utilidad `kafka-topics
 
     Este comando muestra los temas disponibles en el clúster de Kafka.
 
-* **Para eliminar un tema** , use el comando siguiente:
+* **Para eliminar un tema**, use el comando siguiente:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -289,7 +286,7 @@ Para obtener más información acerca de los comandos disponibles con la utilida
 
 ## <a name="produce-and-consume-records"></a>Generación y consumo de registros
 
-Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores* . Los productores y consumidores se comunican con el servicio de *agente de Kafka* . Cada nodo de trabajo del clúster de HDInsight es un host de agente de Kafka.
+Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores*. Los productores y consumidores se comunican con el servicio de *agente de Kafka*. Cada nodo de trabajo del clúster de HDInsight es un host de agente de Kafka.
 
 Use los pasos siguientes para almacenar registros en el tema de prueba que creó anteriormente y luego leerlos mediante un consumidor:
 

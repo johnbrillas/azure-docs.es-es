@@ -1,19 +1,16 @@
 ---
 title: 'Qué son Apache Hadoop y MapReduce: Azure HDInsight'
 description: Una introducción a HDInsight y la pila de tecnología y los componentes de Apache Hadoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: ef1914499765beff9913f9735cf55736135f9d96
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1e3fc23dd220a8d9764a64c453e9fb856307ac47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899623"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946519"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>¿Qué es Apache Hadoop en Azure HDInsight?
 
@@ -27,9 +24,9 @@ Para ver los componentes disponibles de la pila de tecnología de Hadoop en HDIn
 
 [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
 
-* **Asignador** : consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
+* **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
 
-* **Reductor** : consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador
+* **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador
 
 En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:
 

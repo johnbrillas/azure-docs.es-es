@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 128e93720da54132b9bc7c8a191038339434f096
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: f9e85960f3efc074eca18475c4a3e6c422c1990b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598946"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090848"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -93,7 +93,7 @@ Para conocer mejor Azure AD y su documentación, es aconsejable revisar los tér
 |Administrador de cuenta|Este rol de administrador de suscripción clásica conceptualmente es el propietario de facturación de una suscripción. Este rol tiene acceso al [centro de cuentas de Azure](https://account.azure.com/Subscriptions) y permite administrar todas las suscripciones de una cuenta. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de servicios|Este rol de administrador de suscripciones clásico permite administrar todos los recursos de Azure, incluido el acceso. Tiene el acceso equivalente a un usuario al que se le ha asignado la función de propietario en el ámbito de la suscripción. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Propietario|Este rol ayuda a administrar todos los recursos de Azure, incluido el acceso. Este rol se basa en un sistema de autorización más reciente llamado control de acceso basado en rol de Azure (RBAC de Azure) que proporciona una administración detallada del acceso a los recursos de Azure. Para más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrador global de Azure AD|Este rol de administrador se asigna automáticamente a quien haya creado el inquilino de Azure AD. Los administradores globales pueden realizar todas las funciones administrativas de Azure AD y los servicios que se federan con Azure AD, como Exchange Online, SharePoint Online y Skype Empresarial Online. Puede tener varios administradores globales, pero estos administradores son los únicos que pueden asignar roles de administrador (lo que incluye la asignación de otros administradores globales) a los usuarios. Tenga en cuenta que este rol de administrador se denomina Administrador global en Azure Portal, pero se denomina **Administrador de empresa** en Microsoft Graph API y Azure AD PowerShell. Para más información acerca de los distintos roles de administrador, consulte [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md).|
+|Administrador global de Azure AD|Este rol de administrador se asigna automáticamente a quien haya creado el inquilino de Azure AD. Los administradores globales pueden realizar todas las funciones administrativas de Azure AD y los servicios que se federan con Azure AD, como Exchange Online, SharePoint Online y Skype Empresarial Online. Puede tener varios administradores globales, pero estos administradores son los únicos que pueden asignar roles de administrador (lo que incluye la asignación de otros administradores globales) a los usuarios. Para más información acerca de los distintos roles de administrador, consulte [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md).|
 |Suscripción de Azure| Se usa para pagar los servicio en la nube de Azure. Puede tener muchas suscripciones y están vinculadas a una tarjeta de crédito.|
 |Inquilino de Azure| Es una instancia dedicada y de confianza de Azure AD que se crea automáticamente cuando una organización se suscribe a un servicio en la nube de Microsoft, como Microsoft Azure, Microsoft Intune u Microsoft 365. Un inquilino de Azure representa una organización individual.|
 |Un solo inquilino| Los inquilinos de Azure que acceden a otros servicios en un entorno dedicado se consideran inquilino individuales.|

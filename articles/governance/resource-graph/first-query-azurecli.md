@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: La primera en la CLI de Azure'
 description: En esta guía de inicio rápido, dará los pasos necesarios para habilitar la extensión de Resource Graph en la CLI de Azure y ejecutar la primera consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 216972fb3c64efa22dc4d344e5021a3c2da74266
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5111f59eb760afda4e206837ca5bdf8bcc201338
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056777"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917848"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 

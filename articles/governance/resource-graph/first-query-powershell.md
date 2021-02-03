@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: La primera consulta en PowerShell'
 description: En este inicio rápido, dará los pasos necesarios para habilitar el módulo Resource Graph de Azure PowerShell y ejecutar la primera consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b810f4af319d3a5212d35e3387ab35b9fa40aafa
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 131bed4fe60035682a317e186f11561bc005b298
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057440"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917680"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell
 

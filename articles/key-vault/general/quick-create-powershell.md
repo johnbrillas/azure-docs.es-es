@@ -3,19 +3,18 @@ title: 'Guía de inicio rápido: creación de una instancia de Azure Key Vault c
 description: Guía de inicio rápido que muestra cómo crear una instancia de Azure Key Vault mediante Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 73d247464f167040c6f7129bdf7014b877317fc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e77493bc73bc2d6f590d9bdcf891171fbd71f74e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936271"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070227"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Inicio rápido: Creación de un almacén de claves mediante PowerShell
 
@@ -33,44 +32,15 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name 'myResourceGroup" -Location "EastUS"
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
-Cree un almacén de claves en el grupo de recursos del paso anterior. Tendrá que proporcionar algo de información:
-
-- Nombre del almacén de claves: cadena de entre 3 y 24 caracteres que puede contener solo números (0-9), letras (a-z, A-Z) y guiones (-).
-
-  > [!Important]
-  > Cada almacén de claves debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
-
-- Nombre del grupo de recursos: **myResourceGroup**.
-- Ubicación: **EastUS**.
-
-```azurepowershell-interactive
-New-AzKeyVault -Name "<your-unique-key-vault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
-```
-
-La salida de este cmdlet muestra las propiedades del almacén de claves que acaba de crear. Tome nota de las dos propiedades siguientes:
-
-- **Nombre del almacén**: nombre que proporcionó al parámetro --name anterior.
-- **URI de almacén**: en el ejemplo, es https://<su-nombre-de-almacén-de-claves-único>.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
-
-En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si tiene pensado seguir trabajando en otras guías de inicio rápido y tutoriales, considere la posibilidad de dejar estos recursos activos.
-
-Cuando ya no los necesite, puede usar el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) de Azure PowerShell para quitar el grupo de recursos y todos los recursos relacionados.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
