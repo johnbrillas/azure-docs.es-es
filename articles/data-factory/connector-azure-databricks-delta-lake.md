@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507479"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221166"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copia de datos con Azure Databricks Delta Lake como origen o destino mediante Azure Data Factory
 
@@ -41,8 +41,8 @@ En general, Azure Data Factory es compatible con Delta Lake con las siguientes f
 
 Para usar este conector de Azure Databricks Delta Lake, debe configurar un clúster en Azure Databricks.
 
-- Para copiar datos a Delta Lake, la actividad de copia invoca un clúster de Azure Databricks para leer los datos de una instancia de Azure Storage, que es el origen original o el área de almacenamiento provisional en la que Data Factory escribe primero los datos de origen a través de la copia preconfigurada integrada. Obtenga más información sobre [Delta Lake como origen](#delta-lake-as-source).
-- Del mismo modo, para copiar datos desde Delta Lake, la actividad de copia invoca un clúster de Azure Databricks para escribir los datos en una instancia de Azure Storage, que es el receptor original o el área de almacenamiento provisional desde la que Data Factory sigue escribiendo los datos de a un receptor final a través de la copia preconfigurada integrada. Obtenga más información sobre [Delta Lake como receptor](#delta-lake-as-sink).
+- Para copiar datos a Delta Lake, la actividad de copia invoca un clúster de Azure Databricks para leer los datos de una instancia de Azure Storage, que es el origen original o el área de almacenamiento provisional en la que Data Factory escribe primero los datos de origen a través de la copia preconfigurada integrada. Obtenga más información sobre [Delta Lake como receptor](#delta-lake-as-sink).
+- Del mismo modo, para copiar datos desde Delta Lake, la actividad de copia invoca un clúster de Azure Databricks para escribir los datos en una instancia de Azure Storage, que es el receptor original o el área de almacenamiento provisional desde la que Data Factory sigue escribiendo los datos de a un receptor final a través de la copia preconfigurada integrada. Obtenga más información sobre [Delta Lake como origen](#delta-lake-as-source).
 
 El clúster de Databricks debe tener acceso a una cuenta de blob de Azure o Azure Data Lake Storage Gen2, al sistema de archivos o contenedor de almacenamiento usado como origen, receptor o almacenamiento provisional y al sistema de archivos o contenedor en el que quiere escribir las tablas de Delta Lake.
 

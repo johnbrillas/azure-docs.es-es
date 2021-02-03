@@ -3,19 +3,19 @@ title: Descripción del inicio de sesión único (SSO) basado en contraseña par
 description: Descripción del inicio de sesión único (SSO) basado en contraseña para aplicaciones en Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: bac04bd70469d7b9c4d9485b6a87fd7133967154
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219885"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255312"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Inicio de sesión único basado en contraseña
 
@@ -54,7 +54,7 @@ El uso de Azure AD como proveedor de identidades (IdP) y la configuración del 
 En la [serie de guías de inicio rápido](view-applications-portal.md), ha aprendido a agregar una aplicación al inquilino, lo que permite saber a Azure AD que se usa como proveedor de identidades (IdP) de la aplicación. Algunas aplicaciones ya están preconfiguradas y aparecen en la galería de Azure AD. Otras aplicaciones no están en la galería y tiene que crear una aplicación genérica y configurarla manualmente. Dependiendo de la aplicación, es posible que la opción SSO basado en contraseña no esté disponible. Si no ve la lista de opciones basadas en contraseña en la página de inicio de sesión único de la aplicación, no estará disponible.
 
 > [!IMPORTANT]
-> La extensión del navegador Aplicaciones es necesaria para el inicio de sesión único basado en contraseña. Para más información, consulte [Planeamiento de una implementación de Aplicaciones](access-panel-deployment-plan.md).
+> La extensión del navegador Aplicaciones es necesaria para el inicio de sesión único basado en contraseña. Para más información, consulte [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md).
 
 La página de configuración para SSO basado en contraseña es sencilla. Incluye solo la dirección URL de la página de inicio de sesión que usa la aplicación. Esta cadena debe ser la página que incluye el campo de entrada del nombre de usuario.
 

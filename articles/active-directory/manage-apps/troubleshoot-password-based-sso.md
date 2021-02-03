@@ -2,7 +2,7 @@
 title: Solución de problemas de inicio de sesión único basado en contraseña en Azure Active Directory
 description: Solución de incidencias relacionadas con aplicaciones de Azure AD configuradas para inicio de sesión único basado en contraseña.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618083"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257588"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
 
 Para usar el inicio de sesión único (SSO) basado en contraseña en Aplicaciones, debe instalarse la extensión del explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="my-apps-browser-extension-not-installed"></a>Extensión del explorador Aplicaciones no instalada
-Asegúrese de que la extensión del explorador está instalada. Para obtener más información, consulte [Planeamiento de la implementación de Aplicaciones de Azure Active Directory](access-panel-deployment-plan.md). 
+Asegúrese de que la extensión del explorador está instalada. Para obtener más información, consulte [Planeamiento de la implementación de Aplicaciones de Azure Active Directory](my-apps-deployment-plan.md). 
 
 ## <a name="single-sign-on-not-configured"></a>Inicio de sesión único no configurado
 Asegúrese de que el inicio de sesión único basado en contraseña está configurado. Para obtener más información, consulte [Configuración del inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md).
@@ -247,4 +247,4 @@ En la siguiente información se explica qué significa cada elemento de la notif
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-* [Planeamiento de una implementación de Aplicaciones](access-panel-deployment-plan.md)
+* [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md)

@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602689"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257818"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Uso del inventario de blobs de Azure Storage para administrar datos de blobs (versión preliminar)
 
@@ -32,6 +32,8 @@ La versión preliminar del inventario de blobs está disponible en las cuentas d
 - Centro de Francia
 - Centro de Canadá
 - Este de Canadá
+- Este de EE. UU.
+- Este de EE. UU. 2
 
 ### <a name="pricing-and-billing"></a>Precios y facturación
 

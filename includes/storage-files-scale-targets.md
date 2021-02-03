@@ -2,20 +2,20 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 01/27/2021
 ms.author: rogarana
-ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7da7c2fbb49a9dd936762b23f3c251d2142c52fd
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025889"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221764"
 ---
 | Resource | Recursos compartidos de archivos estándar\* | Recursos compartidos de archivos Prémium |
 |----------|---------------|------------------------------------------|
 | Tamaño máximo de un recurso compartido de archivos | Sin mínimo; pago por uso | 100 GiB; aprovisionado |
 | Tamaño máximo de un recurso compartido de archivos | 100 TiB\*\*, 5 TiB | 100 TiB |
-| Tamaño máximo de un archivo en un recurso compartido de archivos | 1 TiB | 4 TiB |
+| Tamaño máximo de un archivo en un recurso compartido de archivos | 4 TiB | 4 TiB |
 | Número máximo de archivos en un recurso compartido de archivos | Sin límite | Sin límite |
 | Número máximo de IOPS por recurso compartido | 10 000 IOPS\*\*, 1000 IOPS o 100 solicitudes en 100 ms | 100 000 IOPS |
 | Número máximo de directivas de acceso almacenadas por recurso compartido de archivos | 5 | 5 |

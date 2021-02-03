@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: edbcabfe4d0b633a784163562f52b303120916ca
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1c9ac872587804adbd9e62a3dc3ef3daed9e0c25
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685076"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223058"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creación de imágenes generalizadas sin un agente de aprovisionamiento
 
@@ -154,7 +154,7 @@ wireserver_conn.close()
 
 Si la máquina virtual no tiene Python instalado ni tampoco disponible, puede reproducir esta lógica de script anterior mediante programación con los pasos siguientes:
 
-1. Recupere el `ContainerId` y el `InstanceId` analizando la respuesta de WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate`.
+1. Recupere el `ContainerId` y el `InstanceId` analizando la respuesta de WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
 2. Construya los siguientes datos XML, insertando el `ContainerId` y el `InstanceId` analizados del paso anterior:
    ```xml

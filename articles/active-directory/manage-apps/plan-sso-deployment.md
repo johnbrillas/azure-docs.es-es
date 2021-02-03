@@ -3,7 +3,7 @@ title: Planificación de una implementación de inicio de sesión único de Azur
 description: Guía para ayudarle a planear, implementar y administrar el inicio de sesión único en la organización.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658730"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258106"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -62,7 +62,7 @@ Hay dos formas principales de permitir a los usuarios el inicio de sesión únic
 
 El uso de Azure AD para el inicio de sesión único basado en contraseña requiere implementar una extensión del explorador que recuperará de forma segura las credenciales y rellenará los formularios de inicio de sesión. Defina un mecanismo para implementar la extensión a escala con los [exploradores compatibles](../user-help/my-apps-portal-end-user-access.md). Las opciones incluyen:
 
-- [Directiva de grupo para Internet Explorer](./access-panel-deployment-plan.md)
+- [Directiva de grupo para Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager para Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Descarga y configuración de Chrome, Firefox, Microsoft Edge o IE controlada por el usuario](../user-help/my-apps-portal-end-user-access.md)
 

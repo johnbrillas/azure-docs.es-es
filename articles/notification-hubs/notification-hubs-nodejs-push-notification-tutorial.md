@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ef6ef85ea9d256303852e4b281071da455ebb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250426"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097680"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 
@@ -83,7 +83,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenga el valor de conexión `connectionstring` de [Azure Portal] mediante los siguientes pasos:
 
 1. En el panel de navegación izquierdo, haga clic en **Examinar**.
-2. Seleccione **Notification Hubs**y, a continuación, elija el centro que desea usar para el ejemplo. Puede consultar el tutorial [Introducción a Microsoft Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda para crear un nuevo Centro de notificaciones.
+2. Seleccione **Notification Hubs** y, a continuación, elija el centro que desea usar para el ejemplo. Puede consultar el tutorial [Introducción a Microsoft Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda para crear un nuevo Centro de notificaciones.
 3. Seleccione **Configuración**.
 4. Haga clic en **Directivas de acceso**. Verá las cadenas de conexión de acceso, tanto las compartidas como las de acceso completo.
 
@@ -109,7 +109,7 @@ El objeto `GcmService` proporciona un método `send` que se puede usar para envi
 - **Payload** : el código JSON del mensaje o la carga útil de la cadena sin formato.
 - **Callback** : función de devolución de llamada.
 
-Para obtener más información sobre el formato de carga, consulte la [documentación de Payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Para obtener más información sobre el formato de carga, consulte la [documentación de Payload](https://payload.readthedocs.io/en/latest/).
 
 El código siguiente usa la instancia `GcmService` expuesta por `NotificationHubService` para enviar una notificación push a todos los clientes registrados.
 

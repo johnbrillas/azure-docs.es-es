@@ -3,7 +3,7 @@ title: Administración de la asignación de usuarios para una aplicación en Azu
 description: Aprenda a asignar y anular la asignación de usuarios y grupos para una aplicación mediante el uso de Azure Active Directory para la administración de identidades.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861684"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259741"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 
@@ -148,7 +148,7 @@ En este ejemplo se asigna el usuario Britta Simon a la aplicación [Microsoft Wo
 ## <a name="related-articles"></a>Artículos relacionados
 
 - [Más información sobre el acceso de los usuarios finales a las aplicaciones](end-user-experiences.md)
-- [Planeamiento de la implementación de Aplicaciones de Azure AD](access-panel-deployment-plan.md)
+- [Planeamiento de la implementación de Aplicaciones de Azure AD](my-apps-deployment-plan.md)
 - [Administración del acceso a las aplicaciones](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791365"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093764"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solución de problemas de errores de conexión transitorios en SQL Database e Instancia administrada de SQL
 
@@ -31,7 +31,7 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 Un error transitorio tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, es posible que tenga problemas de conexión con la base de datos de SQL Database. Las aplicaciones que se conectan a la base de datos deberían crearse de modo que contemplen esos errores transitorios. Para controlarlos, implemente una lógica de reintento en el código en lugar de mostrarlas a los usuarios como errores de aplicación.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException** .
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -132,11 +132,11 @@ Si el programa cliente se conecta a la base de datos de SQL Database mediante la
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Cuando cree la [cadena de conexión](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) para su objeto **SqlConnection** , coordine los valores entre los parámetros siguientes:
+Cuando cree la [cadena de conexión](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) para su objeto **SqlConnection**, coordine los valores entre los parámetros siguientes:
 
-- **ConnectRetryCount** :&nbsp;&nbsp;El valor predeterminado es 1. El intervalo es de 0 a 255.
-- **ConnectRetryInterval** :&nbsp;&nbsp;El valor predeterminado es 10 segundos. El intervalo es de 1 a 60.
-- **Connection Timeout** :&nbsp;&nbsp;El valor predeterminado es 15 segundos. El intervalo es de 0 a 2147483647.
+- **ConnectRetryCount**:&nbsp;&nbsp;El valor predeterminado es 1. El intervalo es de 0 a 255.
+- **ConnectRetryInterval**:&nbsp;&nbsp;El valor predeterminado es 10 segundos. El intervalo es de 1 a 60.
+- **Connection Timeout**:&nbsp;&nbsp;El valor predeterminado es 15 segundos. El intervalo es de 0 a 2147483647.
 
 Específicamente, los valores elegidos deben cumplir la siguiente igualdad: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -189,7 +189,7 @@ Por lo general, debe asegurarse de que solo el puerto 1433 está abierto para la
 Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows, puede usar Firewall de Windows en el host para abrir el puerto 1433.
 
 1. Abra el Panel de control.
-2. Seleccione **Todos los elementos de Panel de control** > **Firewall de Windows** > **Configuración avanzada** > **Reglas de salida** > **Acción** > **Nueva regla** .
+2. Seleccione **Todos los elementos de Panel de control** > **Firewall de Windows** > **Configuración avanzada** > **Reglas de salida** > **Acción** > **Nueva regla**.
 
 Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, lea [Puertos más allá del 1433 para ADO.NET 4.5 y SQL Database](adonet-v12-develop-direct-route-ports.md).
 
@@ -207,7 +207,7 @@ Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** p
 
 #### <a name="starting-with-adonet-461"></a>A partir de ADO.NET 4.6.1
 
-- Con SQL Database, se mejora la confiabilidad si abre una conexión con el método **SqlConnection.Open** . Ahora, el método **Open** incorpora los mejores mecanismos de reintento en respuesta a errores transitorios para determinados errores dentro del período de tiempo de espera de conexión.
+- Con SQL Database, se mejora la confiabilidad si abre una conexión con el método **SqlConnection.Open**. Ahora, el método **Open** incorpora los mejores mecanismos de reintento en respuesta a errores transitorios para determinados errores dentro del período de tiempo de espera de conexión.
 - Se admite a agrupación de conexiones, que incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no se vaya a usar de inmediato. Volver a abrir una conexión no tiene un costo alto, pero sí lo tiene crear una nueva.
@@ -331,15 +331,15 @@ Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a imple
 La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para más información, vea [4: Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
+> El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](https://github.com/MicrosoftArchive/enterprise-library). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Clases de EntLib60 para errores transitorios y reintentos
 
-Las siguientes clases de EntLib60 son especialmente útiles para la lógica de reintento. Todas esas clases se encuentran en el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** .
+Las siguientes clases de EntLib60 son especialmente útiles para la lógica de reintento. Todas esas clases se encuentran en el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
-En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
+En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
 - **RetryPolicy**
   - **ExecuteAction**
@@ -348,7 +348,7 @@ En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultH
 - **ReliableSqlConnection**
   - **ExecuteCommand**
 
-En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
+En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
 - **AlwaysTransientErrorDetectionStrategy**
 - **NeverTransientErrorDetectionStrategy**
@@ -375,7 +375,7 @@ Para más información, vea [5 - El procedimiento más sencillo: uso del bloque 
 
 ### <a name="entlib60-istransient-method-source-code"></a>Código fuente del método IsTransient de EntLib60
 
-A continuación, en la clase **SqlDatabaseTransientErrorDetectionStrategy** , se encuentra el código fuente de C# para el método **IsTransient** . Desde abril de 2013, el código fuente explica qué errores se consideran transitorios y dignos de reintento.
+A continuación, en la clase **SqlDatabaseTransientErrorDetectionStrategy**, se encuentra el código fuente de C# para el método **IsTransient**. Desde abril de 2013, el código fuente explica qué errores se consideran transitorios y dignos de reintento.
 
 ```csharp
 public bool IsTransient(Exception ex)

@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725793"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093332"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Descripción y resolución de problemas de bloqueo en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -371,7 +371,7 @@ Los siguientes escenarios explicarán estos escenarios.
 
 ## <a name="see-also"></a>Consulte también
 
-* [Supervisión y ajuste del rendimiento en Azure SQL Database e Instancia administrada de Azure SQL](/monitor-tune-overview.md)
+* [Supervisión y ajuste del rendimiento en Azure SQL Database e Instancia administrada de Azure SQL](/azure/azure-sql/database/monitor-tune-overview)
 * [Supervisión del rendimiento mediante el Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Guía de versiones de fila y bloqueo de transacciones](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219290"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095650"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
@@ -30,7 +30,7 @@ Es posible que experimente problemas y errores de conectividad de máquina virtu
 El soporte técnico para las aplicaciones virtuales de red de terceros y su integración con la plataforma Azure lo proporciona el proveedor de la aplicación virtual de red.
 
 > [!NOTE]
-> Si tiene un problema de conectividad o de enrutamiento que implica una aplicación virtual de red, debería [ponerse en contacto directamente con el proveedor de la aplicación virtual de red](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Si tiene un problema de conectividad o de enrutamiento que implica una aplicación virtual de red, debería [ponerse en contacto directamente con el proveedor de la aplicación virtual de red](https://mskb.pkisolutions.com/kb/2984655).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ El soporte técnico para las aplicaciones virtuales de red de terceros y su inte
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Comprobación de los requisitos mínimos de la configuración de las aplicaciones virtuales de red en Azure
 
-Cada aplicación virtual de red tiene requisitos básicos de configuración para funcionar correctamente en Azure. En la sección siguiente se proporcionan los pasos para comprobar estas configuraciones básicas. Para más información, [póngase en contacto con el proveedor de la aplicación virtual de red](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Cada aplicación virtual de red tiene requisitos básicos de configuración para funcionar correctamente en Azure. En la sección siguiente se proporcionan los pasos para comprobar estas configuraciones básicas. Para más información, [póngase en contacto con el proveedor de la aplicación virtual de red](https://mskb.pkisolutions.com/kb/2984655).
 
 **Comprobación de si está habilitado el reenvío IP en la aplicación virtual de red**
 
@@ -112,17 +112,17 @@ Uso de PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Si no ve el puerto TCP que utiliza el software de la aplicación virtual de red que aparece en los resultados, debe configurar la aplicación en la aplicación virtual de red y en la máquina virtual para que escuche y responda al tráfico que llega a esos puertos. [Póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Si no ve el puerto TCP que utiliza el software de la aplicación virtual de red que aparece en los resultados, debe configurar la aplicación en la aplicación virtual de red y en la máquina virtual para que escuche y responda al tráfico que llega a esos puertos. [Póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Comprobación del rendimiento de la aplicación virtual de red
 
 ### <a name="validate-vm-cpu"></a>Validación de la CPU de la máquina virtual
 
-Si el uso de CPU se acerca al 100 por ciento, es posible que se produzca un problema que afecte a las colocaciones de paquetes de red. La máquina virtual notifica la CPU promedio durante un intervalo de tiempo específico en Azure Portal. Durante un pico de CPU, investigue qué proceso de la máquina virtual invitada está causando la elevada CPU y lo solucione, si es posible. También es posible que tenga que cambiar el tamaño de la máquina virtual a un tamaño de SKU más grande o, para el conjunto de escalado de máquinas virtuales, aumentar el número de instancias o establecer el escalado automático en el uso de CPU. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), según sea necesario.
+Si el uso de CPU se acerca al 100 por ciento, es posible que se produzca un problema que afecte a las colocaciones de paquetes de red. La máquina virtual notifica la CPU promedio durante un intervalo de tiempo específico en Azure Portal. Durante un pico de CPU, investigue qué proceso de la máquina virtual invitada está causando la elevada CPU y lo solucione, si es posible. También es posible que tenga que cambiar el tamaño de la máquina virtual a un tamaño de SKU más grande o, para el conjunto de escalado de máquinas virtuales, aumentar el número de instancias o establecer el escalado automático en el uso de CPU. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda](https://mskb.pkisolutions.com/kb/2984655), según sea necesario.
 
 ### <a name="validate-vm-network-statistics"></a>Validación de las estadísticas de red de la máquina virtual
 
-Si la red de VM utiliza picos o muestra períodos de uso elevado, es posible que también tenga que aumentar el tamaño de la SKU de la máquina virtual para obtener mayores capacidades de rendimiento. También puede volver a implementar la máquina virtual con las redes aceleradas habilitadas. Para comprobar si el dispositivo virtual de red admite la característica de redes aceleradas, [póngase en contacto con el proveedor de la aplicación virtual de red](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), según sea necesario.
+Si la red de VM utiliza picos o muestra períodos de uso elevado, es posible que también tenga que aumentar el tamaño de la SKU de la máquina virtual para obtener mayores capacidades de rendimiento. También puede volver a implementar la máquina virtual con las redes aceleradas habilitadas. Para comprobar si el dispositivo virtual de red admite la característica de redes aceleradas, [póngase en contacto con el proveedor de la aplicación virtual de red](https://mskb.pkisolutions.com/kb/2984655), según sea necesario.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Solución de problemas del administrador de red avanzado
 
@@ -146,4 +146,4 @@ Capture un seguimiento de red simultáneo en la máquina virtual de origen, la a
 
 Si no ve los paquetes de entrada para el seguimiento de la máquina virtual de back-end, es probable que un grupo de seguridad de red o un enrutamiento definido por el usuario esté interfiriendo o que las tablas de enrutamiento de la aplicación virtual de red sean incorrectas.
 
-Si ve que los paquetes entran, pero no hay ninguna respuesta, puede ser necesario resolver un problema de la aplicación de la máquina virtual o del firewall. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Si ve que los paquetes entran, pero no hay ninguna respuesta, puede ser necesario resolver un problema de la aplicación de la máquina virtual o del firewall. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](https://mskb.pkisolutions.com/kb/2984655).

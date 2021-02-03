@@ -3,19 +3,19 @@ title: Exportación de la configuración de aprovisionamiento y reversión a un 
 description: Aprenda a exportar la configuración de aprovisionamiento y a revertir a un estado correcto conocido en la recuperación ante desastres.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6af42c78bda66c4b397cbb99b26af7d6a5c7f07
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994815"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256380"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procedimiento: Exportación de la configuración de aprovisionamiento y reversión a un estado correcto conocido
 

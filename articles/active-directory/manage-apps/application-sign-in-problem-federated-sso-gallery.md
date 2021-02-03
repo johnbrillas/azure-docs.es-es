@@ -3,7 +3,7 @@ title: Problemas al iniciar sesión en aplicaciones configuradas con inicio de s
 description: Instrucciones para resolver errores específicos al iniciar sesión en una aplicación que se ha configurado para un inicio de sesión único federado basado en SAML con Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586353"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430418"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML
 Para solucionar estos problemas de inicio de sesión, se recomienda que siga los siguientes consejos para obtener un mejor diagnóstico y automatizar los pasos de resolución:
 
-- Instale la [extensión del explorador seguro de Mis aplicaciones](./access-panel-deployment-plan.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
+- Instale la [extensión del explorador seguro de Mis aplicaciones](my-apps-deployment-plan.md) para ayudar a Azure Active Directory (Azure AD) a proporcionar mejores diagnósticos y resoluciones al usar la experiencia de pruebas en Azure Portal.
 - Reproduzca el error mediante la experiencia de pruebas en la página de configuración de aplicaciones en Azure Portal. Obtenga más información en [Depuración del inicio de sesión único basado en SAML en aplicaciones](./debug-saml-sso-issues.md).
 
 Si usa la [experiencia de pruebas](./debug-saml-sso-issues.md) de Azure Portal con la extensión del explorador seguro de Aplicaciones, no tiene que seguir los siguientes pasos manualmente para abrir la página de configuración del inicio de sesión único basado en SAML.
@@ -54,7 +54,7 @@ Asegúrese de que el atributo `Issuer` de la solicitud SAML coincide con el valo
 En la página de configuración del inicio de sesión único basado en SAML, en la sección **Configuración básica de SAML**, compruebe que el valor del cuadro de texto Identificador coincide con el valor del identificador que aparece en el error.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Causa posible**
 

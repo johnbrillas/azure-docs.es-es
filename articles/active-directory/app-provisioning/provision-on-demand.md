@@ -3,7 +3,7 @@ title: Aprovisionamiento de un usuario a petición mediante Azure Active Directo
 description: Sincronización forzada
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629019"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255668"
 ---
 # <a name="on-demand-provisioning"></a>Aprovisionamiento a petición
 Use el aprovisionamiento a petición para aprovisionar un usuario en una aplicación en cuestión de segundos. Entre otras cosas, puede usar esta capacidad para:
@@ -124,7 +124,7 @@ Por último, el servicio de aprovisionamiento realiza una acción, como crear, a
 
 Este es un ejemplo de lo que podría ver después del aprovisionamiento a petición correcto de un usuario:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de pantalla que muestra la interfaz de usuario de Azure Portal para aprovisionar a un usuario a petición.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Captura de pantalla que muestra el aprovisionamiento a petición correcto de un usuario.":::
 
 #### <a name="view-details"></a>Ver detalles
 
