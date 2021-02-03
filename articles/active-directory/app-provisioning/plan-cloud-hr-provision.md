@@ -3,7 +3,7 @@ title: Planeamiento de la aplicación de RR. HH. en la nube para el aprovisiona
 description: En este artículo se describe el proceso de implementación de la integración de sistemas de RR. HH. en la nube, como Workday y SuccessFactors, con Azure Active Directory. La integración de Azure AD con el sistema de RR. HH. en la nube tiene como resultado un sistema completo de administración del ciclo de vida de la identidad.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174907"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256718"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 

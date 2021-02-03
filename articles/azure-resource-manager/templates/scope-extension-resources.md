@@ -3,12 +3,12 @@ title: Ámbito en tipos de recursos de extensión
 description: Aquí se describe cómo utilizar la propiedad del ámbito al implementar tipos de recursos de extensión.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179986"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492168"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager
 
@@ -87,4 +87,4 @@ En el ejemplo siguiente se crea una cuenta de almacenamiento y se aplica un rol 
 
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
-* Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla privada con el token de SAS](secure-template-with-sas-token.md).
+* Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](secure-template-with-sas-token.md).

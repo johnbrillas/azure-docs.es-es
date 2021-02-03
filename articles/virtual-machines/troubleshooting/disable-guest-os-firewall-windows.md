@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009771"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093202"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en Azure Virtual Machine
 
@@ -47,7 +47,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
 >   ```
 > * Si el firewall se establece con una directiva de Active Directory, puede ejecutar el siguiente script para tener acceso temporal. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,7 +88,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigación4: Registro remoto 
 
-Siga estos pasos para utilizar [Registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Siga estos pasos para utilizar [Registro remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837).
 
 1.  En la máquina virtual donde solucionar el problema, inicie el editor del Registro y, a continuación, vaya a **Archivo** > **Conectar al Registro de red**.
 
@@ -126,7 +126,7 @@ Si tiene una situación en la que no se puede llegar a la máquina virtual media
 
 4.  Antes de hacer cambios, cree una copia de la carpeta \Windows\system32\config, por si necesita una reversión de los cambios.
 
-5.  En la máquina virtual donde solucionar el problema, inicie el editor del Registro (regedit.exe). 
+5.  En la máquina virtual donde solucionar el problema, inicie el editor del Registro (regedit.exe). 
 
 6.  En procedimiento de solución de problemas, vamos a montar los subárboles como BROKENSYSTEM y BROKENSOFTWARE.
 

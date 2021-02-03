@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058765"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092375"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitación o deshabilitación de una regla de firewall en el SO invitado de una máquina virtual de Azure
 
@@ -95,7 +95,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigación4: Registro remoto
 
-Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual de la misma red virtual, puede usar el [Registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) en la otra máquina virtual.
+Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual de la misma red virtual, puede usar el [Registro remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) en la otra máquina virtual.
 
 1.  En la máquina virtual donde está solucionando el problema, inicie el editor del Registro (regedit.exe) y, a continuación, vaya a **Archivo** > **Conectar al Registro de red**.
 
@@ -142,7 +142,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema de la m
 7.  Busque y abra el archivo \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Se le pedirá un nombre. Escriba **BROKENSYSTEM**y expanda **HKEY_LOCAL_MACHINE**. Ahora verá una clave adicional que se denomina **BROKENSYSTEM**. Para esta solución de problemas, estamos montando estos subárboles de problema como **BROKENSYSTEM**.
+    > Se le pedirá un nombre. Escriba **BROKENSYSTEM** y expanda **HKEY_LOCAL_MACHINE**. Ahora verá una clave adicional que se denomina **BROKENSYSTEM**. Para esta solución de problemas, estamos montando estos subárboles de problema como **BROKENSYSTEM**.
 
 8.  Realice los cambios siguientes en la rama BROKENSYSTEM:
 

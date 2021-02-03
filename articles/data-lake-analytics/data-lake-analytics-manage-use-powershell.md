@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220319"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092358"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
 
@@ -24,11 +24,11 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 
 Para usar PowerShell con Data Lake Analytics, recopile la siguiente información:
 
-* **Identificador de suscripción** : el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
-* **Grupo de recursos** : el nombre del grupo de recursos de Azure que contiene la cuenta de Data Lake Analytics.
-* **Nombre de la cuenta de Data Lake Analytics** : el nombre de la cuenta de Data Lake Analytics.
-* **Nombre de la cuenta predeterminada de Data Lake Store** : cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada.
-* **Ubicación** : la ubicación de la cuenta de Data Lake Analytics como "Este de EE. UU. 2" u otras ubicaciones admitidas.
+* **Identificador de suscripción**: el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
+* **Grupo de recursos**: el nombre del grupo de recursos de Azure que contiene la cuenta de Data Lake Analytics.
+* **Nombre de la cuenta de Data Lake Analytics**: el nombre de la cuenta de Data Lake Analytics.
+* **Nombre de la cuenta predeterminada de Data Lake Store**: cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada.
+* **Ubicación**: la ubicación de la cuenta de Data Lake Analytics como "Este de EE. UU. 2" u otras ubicaciones admitidas.
 
 Los fragmentos de código de PowerShell de este tutorial usan estas variables para almacenar esta información
 
@@ -298,7 +298,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Análisis del historial de trabajo
 
-El uso de Azure PowerShell para analizar el historial de trabajos que se han ejecutado en Data Lake Analytics es una técnica eficaz. Puede usarla para obtener información sobre el uso y el costo. Puede obtener más información examinando el [repositorio de ejemplo del análisis del historial de trabajo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+El uso de Azure PowerShell para analizar el historial de trabajos que se han ejecutado en Data Lake Analytics es una técnica eficaz. Puede usarla para obtener información sobre el uso y el costo. Puede obtener más información examinando el [repositorio de ejemplo del análisis del historial de trabajo](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Enumeración de canalizaciones y repeticiones de trabajos
 

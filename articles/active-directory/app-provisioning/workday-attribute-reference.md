@@ -3,7 +3,7 @@ title: Referencia de atributos de Workday
 description: Obtenga información acerca de los atributos que puede obtener de Workday mediante consultas XPATH.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266571"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255481"
 ---
 # <a name="workday-attribute-reference"></a>Referencia de atributos de Workday
 
@@ -117,7 +117,7 @@ En la tabla siguiente se captura la lista de atributos de WorkDay y las expresio
 
 Si la versión v30.0 de API de WWS o superior en la dirección URL de conexión, como se muestra a continuación:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="No hay información de versión de WorkDay":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Información de versión de WorkDay":::
 
 ...entonces, antes de activar el trabajo de aprovisionamiento, debe actualizar las **expresiones de la API XPATH** en **Asignación de atributos -> Opciones avanzadas -> Editar lista de atributos para Workday** para que use los valores de la tabla. 
 

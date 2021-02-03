@@ -3,19 +3,19 @@ title: Sincronización de atributos en Azure AD para la asignación
 description: Obtenga información sobre cómo sincronizar los atributos de Active Directory local en Azure AD. Al configurar el aprovisionamiento de usuarios para aplicaciones SaaS, use la característica de extensión de directorio para agregar atributos de origen que no están sincronizados de manera predeterminada.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040987"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256092"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sincronización de un atributo de Active Directory local en Azure AD para el aprovisionamiento en una aplicación
 
@@ -33,7 +33,7 @@ Si los datos que necesita para el aprovisionamiento están en Active Directory, 
  
 2. Inicie sesión como administrador global de Azure AD. 
 
-3. En la página **Características opcionales** , seleccione **Sincronización de atributos de las extensiones de directorios**.
+3. En la página **Características opcionales**, seleccione **Sincronización de atributos de las extensiones de directorios**.
  
    ![Página de características opcionales del asistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -50,7 +50,7 @@ Si los datos que necesita para el aprovisionamiento están en Active Directory, 
    ![Página de selección de las extensiones de directorios del asistente de Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> La capacidad de aprovisionar atributos de referencia desde AD local, como **managedby** o **DN/DistinguishedName** , no se admite actualmente. Puede solicitar esta característica en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> La capacidad de aprovisionar atributos de referencia desde AD local, como **managedby** o **DN/DistinguishedName**, no se admite actualmente. Puede solicitar esta característica en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

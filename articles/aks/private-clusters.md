@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734671"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254519"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -130,7 +130,6 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
 * En el caso de los clientes que necesitan habilitar Azure Container Registry para trabajar con instancias privadas de AKS, la red virtual de Container Registry debe estar emparejada con la red virtual del clúster del agente.
 * No se admite la conversión de clústeres de AKS existentes en clústeres privados.
 * La eliminación o modificación del punto de conexión privado en la subred del cliente hará que el clúster deje de funcionar. 
-* Actualmente no existe compatibilidad con los datos en directo de Azure Monitor para contenedores.
 * Una vez que los clientes hayan actualizado el registro A en sus propios servidores DNS, esos pods seguirán resolviendo el FQDN apiserver en la dirección IP anterior después de la migración hasta que se reinicien. Los clientes deben reiniciar los pods de hostNetwork y de DNSPolicy predeterminados después de la migración del plano de control.
 * En el caso de mantenimiento en el plano de control, es posible que cambie la [IP de AKS](./limit-egress-traffic.md). En este caso, tendrá que actualizar el registro A que apunta a la dirección IP privada del servidor de la API en el servidor DNS personalizado y reiniciar los pods o las implementaciones personalizados mediante hostNetwork.
 

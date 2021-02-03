@@ -1,16 +1,16 @@
 ---
 title: Definiciones de directivas integradas en Azure Logic Apps
 description: Se enumeran las definiciones de directivas integradas de Azure Policy para Azure Logic Apps. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a04d5bffd6c2a4b358bb12bbc4c1bbed32c57d77
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b734e48f69c3caf3abe88f1cacbe4dad7eadca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806472"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093187"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Definiciones integradas de Azure Policy para Azure Logic Apps
 

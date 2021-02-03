@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: a152735d21a347262ce6485e6110f9e040a0071a
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916242"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259158"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 
@@ -84,7 +84,7 @@ Antes de comenzar, consulte las siguientes notas y documentos de SAP:
 * [Guías de procedimientos recomendados para la alta disponibilidad de SUSE SAP][suse-ha-guide]: contiene toda la información necesaria para configurar la alta disponibilidad de NetWeaver y la replicación del sistema local de SAP HANA (para usarse como base de referencia; proporcionan información mucho más detallada).
 * [Notas de la versión de la Extensión 12 SP3 de alta disponibilidad para SUSE][suse-ha-12sp3-relnotes]
 * [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure]
-
+* [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Información general
 
@@ -368,7 +368,7 @@ Configure y prepare el sistema operativo. Para ello, siga estos pasos:
     </code></pre>
 
 > [!TIP]
-> Evite configurar net.ipv4.ip_local_port_range y net.ipv4.ip_local_reserved_ports explícitamente en los archivos de configuración de sysctl para permitir que el agente de host de SAP administre los intervalos de puertos. Para más información, consulte la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+> Evite configurar net.ipv4.ip_local_port_range y net.ipv4.ip_local_reserved_ports explícitamente en los archivos de configuración de sysctl para permitir que el agente de host de SAP administre los intervalos de puertos. Consulte la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421) para más información.  
 
 4. **[A]** Ajuste la configuración de sunrpc, tal como se recomienda en [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure].  
 
@@ -863,4 +863,5 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
 * [Planeamiento e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]
+* [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * Para más información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en VM de Azure, consulte [Alta disponibilidad de SAP HANA en Azure Virtual Machines (VM)][sap-hana-ha].

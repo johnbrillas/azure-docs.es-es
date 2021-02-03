@@ -2,13 +2,13 @@
 title: Mensajes, cargas y serialización de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona información general sobre los mensajes, las cargas, el enrutamiento de mensajes y la serialización de Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: db1989004e60c305341e54e62e42f31e40e47487
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341678"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219186"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -57,7 +57,7 @@ Un subconjunto de las propiedades de agente descritas anteriormente, en concreto
 - **Solicitud/respuesta simple**: el publicador envía un mensaje a una cola y espera una respuesta por parte del consumidor de mensajes. Para recibir la respuesta, el publicador es el propietario de una cola en la que se espera que se entreguen las respuestas. La dirección de esa cola se expresa en la propiedad **ReplyTo** del mensaje saliente. Cuando el consumidor responde, copia la propiedad **MessageId** del mensaje manipulado en la propiedad **CorrelationId** del mensaje de respuesta y entrega el mensaje al destino indicado por la propiedad **ReplyTo**. Un mensaje puede producir varias respuestas, en función del contexto de la aplicación.
 - **Solicitud/respuesta de multidifusión**: como una variación del patrón anterior, el publicador envía el mensaje a un tema y varios suscriptores son elegibles para consumir el mensaje. Cada uno de los suscriptores puede responder en la manera anteriormente descrita. Este patrón se utiliza en escenarios de consolidación de llamada o de detección y el destinatario normalmente se identifica con una propiedad de usuario o en la carga. Si la propiedad **ReplyTo** señala a un tema, dicho conjunto de respuestas de detección se puede distribuir a una audiencia.
 - **Multiplexación**: esta característica de sesión permite multiplexar secuencias de mensajes relacionadas a través de una cola o suscripción, de forma que cada sesión (o grupo) de mensajes relacionados, identificadas por los valores de **SessionId** coincidentes, se enrutan a un receptor específico, mientras que el receptor retiene la sesión en un bloqueo. Obtenga [aquí](message-sessions.md) más información sobre los detalles de las sesiones.
-- **Solicitud/respuesta multiplexadas**: esta característica de sesión permite respuestas multiplexadas, lo que permite que varios publicadores compartan una cola de respuestas. Al establecer la propiedad**ReplyToSessionId**, el publicador puede indicar a los consumidores que copien ese valor en la propiedad **SessionId** del mensaje de respuesta. La cola o tema de publicación no tiene que tener en cuenta la sesión. Cuando se envía el mensaje, el publicador entonces esperar una sesión con la propiedad **SessionId** especificada con el fin de materializarla en la cola al aceptar condicionalmente un receptor de la sesión. 
+- **Solicitud/respuesta multiplexadas**: esta característica de sesión permite respuestas multiplexadas, lo que permite que varios publicadores compartan una cola de respuestas. Al establecer la propiedad **ReplyToSessionId**, el publicador puede indicar a los consumidores que copien ese valor en la propiedad **SessionId** del mensaje de respuesta. La cola o tema de publicación no tiene que tener en cuenta la sesión. Cuando se envía el mensaje, el publicador entonces esperar una sesión con la propiedad **SessionId** especificada con el fin de materializarla en la cola al aceptar condicionalmente un receptor de la sesión. 
 
 El enrutamiento dentro de un espacio de nombres de Service Bus puede llevarse a cabo mediante el encadenamiento de reenvío automático y las reglas de suscripción de temas. El enrutamiento por los espacios de nombres se puede realizar con [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/). Como se indica en la lista anterior, la propiedad **To** se reserva para uso futuro y la puede interpretar el agente con una característica especialmente habilitada. Las aplicaciones que desean implementar el enrutamiento deben hacerlo en función de las propiedades de usuario y no depender de la propiedad **To**; sin embargo, si así se hace, no se producirán problemas de compatibilidad.
 
@@ -70,8 +70,6 @@ A diferencia de las variantes de Java o .NET Standard, la versión de .NET Frame
 Cuando se usa el protocolo SBMP heredado, los objetos se serializan con el serializador binario predeterminado, o con un serializador que se proporciona externamente. Cuando se utiliza el protocolo AMQP, el objeto se serializa en un objeto AMQP. El receptor puede recuperar esos objetos con el método [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) mediante el suministro del tipo esperado. Con AMQP, los objetos se serializan en un gráfico de AMQP de objetos **ArrayList** y **IDictionary<string,object>** , y cualquier cliente de AMQP puede descodificarlos. 
 
 Aunque esta magia de serialización oculta resulta cómoda, las aplicaciones deben tomar el control explícito de la serialización de objetos y convertir sus grafos de objetos en secuencias antes de incluirlos en un mensaje y realizar el proceso inverso en el receptor. Esto produce resultados interoperables. También debe tenerse en cuenta que mientras AMQP tiene un modelo de codificación binario eficaz, está ligado al ecosistema de mensajería de AMQP y los clientes HTTP tendrán problemas para descodificar tales cargas. 
-
-Por lo general se recomienda JSON y Apache Avro como formatos de carga de datos estructurados.
 
 Las variantes de .NET Standard y la API de Java solo aceptan matrices de bytes, lo que significa que la aplicación debe administrar el control de la serialización de objetos. 
 

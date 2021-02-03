@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790821"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225350"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicación transaccional con Azure SQL Managed Instance (versión preliminar)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,7 +39,7 @@ Puede usar la replicación transaccional para insertar los cambios realizados en
 
 ### <a name="components"></a>Componentes
 
-Los componentes clave de la replicación transaccional son el **publicador** , el **distribuidor** y el **suscriptor** , como se muestra en la siguiente imagen:  
+Los componentes clave de la replicación transaccional son el **publicador**, el **distribuidor** y el **suscriptor**, como se muestra en la siguiente imagen:  
 
 ![replicación con SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -109,7 +109,7 @@ La replicación transaccional resulta útil en los siguientes escenarios:
 | Category | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
-| Inconvenientes | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Alto costo de mantenimiento |
+| Inconvenientes | - Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Alto costo de mantenimiento |
 
 ## <a name="common-configurations"></a>Configuraciones comunes
 
@@ -197,7 +197,7 @@ Para obtener más información sobre la configuración de la replicación transa
 - [Configuración de la replicación entre un publicador y un suscriptor de Instancia administrada de SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configuración de la replicación entre un publicador de Instancia administrada de SQL, un distribuidor de Instancia administrada de SQL y un suscriptor de SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
 - [Cree una publicación](/sql/relational-databases/replication/publish/create-a-publication).
-- [Creación de una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks** . )
+- [Creación de una suscripción de inserción](/sql/relational-databases/replication/create-a-push-subscription) mediante el nombre del servidor como suscriptor (por ejemplo, `N'azuresqldbdns.database.windows.net`) y el nombre de Azure SQL Database como base de datos de destino (por ejemplo, **AdventureWorks**. )
 
 ## <a name="see-also"></a>Consulte también  
 

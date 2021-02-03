@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222894"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096396"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -87,7 +87,7 @@ Siga los pasos descritos en: [Configuración del tránsito de la puerta de enlac
 Para más información, consulte [Encadenamiento de servicios](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> Si necesita ayuda para configurar un NVA, [póngase en contacto con el proveedor de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Si necesita ayuda para configurar un NVA, [póngase en contacto con el proveedor de NVA](https://mskb.pkisolutions.com/kb/2984655).
 
 Para obtener ayuda con la solución de problemas de configuración y enrutamiento del dispositivo NVA, consulte [Problemas de aplicaciones virtuales de red en Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -190,7 +190,7 @@ Para conexiones de punto a sitio:
 
 Las redes del centro deben incluir un NVA. Configure UDR en los radios que tengan un NVA establecido como próximo salto y habilite **Permitir tráfico reenviado** en la red virtual del centro.
 
-Para obtener más información, consulte [Encadenamiento de servicios](./virtual-network-peering-overview.md#service-chaining) y analice estos requisitos con el [proveedor de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) de su elección.
+Para obtener más información, consulte [Encadenamiento de servicios](./virtual-network-peering-overview.md#service-chaining) y analice estos requisitos con el [proveedor de NVA](https://mskb.pkisolutions.com/kb/2984655) de su elección.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Solución de incidencias de conectividad de red de tipo hub-and-spoke entre redes virtuales de radio de diferentes regiones
 

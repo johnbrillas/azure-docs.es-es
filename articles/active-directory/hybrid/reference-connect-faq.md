@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836077"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092673"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -162,8 +162,8 @@ Los usuarios sincronizados se pueden crear o controlar en el entorno local. Si l
 **P: ¿Por qué el atributo userPrincipalName (UPN) de Azure AD no coincide con el UPN local?**  
 Para obtener más información, consulte estos artículos:
 
-* [Los nombres de usuario de Microsoft 365, Azure o Intune no coinciden con el UPN local o la id. de inicio de sesión alternativo](https://support.microsoft.com/kb/2523192)
-* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550) (La herramienta de sincronización de Azure Active Directory no sincroniza los cambios después de cambiar el UPN de una cuenta de usuario para usar otro dominio federado)
+* [Los nombres de usuario de Microsoft 365, Azure o Intune no coinciden con el UPN local o la id. de inicio de sesión alternativo](https://mskb.pkisolutions.com/kb/2523192)
+* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://mskb.pkisolutions.com/kb/2669550) (La herramienta de sincronización de Azure Active Directory no sincroniza los cambios después de cambiar el UPN de una cuenta de usuario para usar otro dominio federado)
 
 También puede configurar Azure AD para permitir que el motor de sincronización actualice el UPN, como se describe en [Características del servicio de sincronización de Azure AD Connect](how-to-connect-syncservice-features.md).
 

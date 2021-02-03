@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780746"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475546"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperación de registros de implementaciones de IoT Edge
 
@@ -51,8 +51,8 @@ Este método acepta una carga JSON con el siguiente esquema:
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -70,8 +70,8 @@ Este método acepta una carga JSON con el siguiente esquema:
 | id | string | Expresión regular que proporciona el nombre del módulo. Puede coincidir con varios módulos en un dispositivo perimetral. Se espera un formato de [expresiones regulares de .NET](/dotnet/standard/base-types/regular-expressions). |
 | filter | Sección JSON | Filtros de registro que se aplicarán a los módulos que coincidan con la expresión regular `id` en la tupla. |
 | tail | integer | Número de líneas de registro del pasado que se recuperarán a partir de la más reciente. OPCIONAL. |
-| since | integer | Recupera registros solo desde esta hora, como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos) o como marca de tiempo rfc3339 o UNIX.  Si se especifica tanto `tail` como `since`, los registros se recuperan usando el valor `since` en primer lugar. A continuación, se aplica el valor `tail` al resultado y se devuelve el resultado final. OPCIONAL. |
-| until | integer | Devuelve solo registros anteriores a la hora especificada como marca de hora rfc3339 o UNIX o como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos). OPCIONAL. |
+| since | string | Recupera registros solo desde esta hora, como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos) o como marca de tiempo rfc3339 o UNIX.  Si se especifica tanto `tail` como `since`, los registros se recuperan usando el valor `since` en primer lugar. A continuación, se aplica el valor `tail` al resultado y se devuelve el resultado final. OPCIONAL. |
+| until | string | Devuelve solo registros anteriores a la hora especificada como marca de hora rfc3339 o UNIX o como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos). OPCIONAL. |
 | log level | integer | Filtra las líneas con un nivel de registro igual o inferior al especificado. Las líneas de registro deben seguir el formato de registro recomendado y usar el estándar de [nivel de gravedad de Syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level). OPCIONAL. |
 | regex | string | Filtre las líneas de registro que tengan contenido que se corresponda con la expresión regular especificada con el formato de [expresiones regulares de .NET](/dotnet/standard/base-types/regular-expressions). OPCIONAL. |
 | encoding | string | `gzip` o `none`. El valor predeterminado es `none`. |
@@ -160,8 +160,8 @@ Este método acepta una carga JSON similar a **GetModuleLogs**, con la adición 
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -293,8 +293,8 @@ Este método acepta una carga JSON con el siguiente esquema:
 |-|-|-|
 | schemaVersion | string | Establézcala en `1.0` |
 | sasURL | cadena (URI) | [URL de firma de acceso compartido con acceso de escritura al contenedor de Azure Blob Storage](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | integer | Recupera registros solo desde esta hora, como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos) o como marca de tiempo rfc3339 o UNIX. OPCIONAL. |
-| until | integer | Devuelve solo registros anteriores a la hora especificada como marca de hora rfc3339 o UNIX o como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos). OPCIONAL. |
+| since | string | Recupera registros solo desde esta hora, como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos) o como marca de tiempo rfc3339 o UNIX. OPCIONAL. |
+| until | string | Devuelve solo registros anteriores a la hora especificada como marca de hora rfc3339 o UNIX o como duración (1 día; 90 minutos; 2 días, 3 horas y 2 minutos). OPCIONAL. |
 | edgeRuntimeOnly | boolean | Si es true, solo se devuelven los registros del Agente de Edge, el Centro de Edge y el demonio de seguridad de Edge. Valor predeterminado: false.  OPCIONAL. |
 
 > [!IMPORTANT]
