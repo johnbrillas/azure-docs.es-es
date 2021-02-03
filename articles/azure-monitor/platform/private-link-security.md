@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734973"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941901"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura
 
@@ -217,13 +217,13 @@ Restringir el acceso de esta manera solo se aplica a los datos del recurso de Ap
 
 Puede automatizar el proceso descrito anteriormente mediante plantillas de Azure Resource Manager, REST e interfaces de la línea de comandos.
 
-Para crear y administrar ámbitos de Private Link, use la [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o la [CLI de Azure (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Para crear y administrar ámbitos de Private Link, use la [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o la [CLI de Azure (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Para administrar el acceso a la red, utilice las marcas `[--ingestion-access {Disabled, Enabled}]` y `[--query-access {Disabled, Enabled}]`en [áreas de trabajo de Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) o [componentes de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Para administrar el acceso a la red, utilice las marcas `[--ingestion-access {Disabled, Enabled}]` y `[--query-access {Disabled, Enabled}]`en [áreas de trabajo de Log Analytics](/cli/azure/monitor/log-analytics/workspace) o [componentes de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Recopilación de registros personalizados a través de Private Link
 
-Las cuentas de almacenamiento se usan en el proceso de ingesta de registros personalizados. De forma predeterminada, se usan cuentas de almacenamiento administradas por el servicio. Sin embargo, para ingerir registros personalizados en vínculos privados, debe usar sus propias cuentas de almacenamiento y asociarlas a áreas de trabajo de Log Analytics. Vea más detalles sobre cómo configurar tales cuentas mediante la [línea de comandos](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Las cuentas de almacenamiento se usan en el proceso de ingesta de registros personalizados. De forma predeterminada, se usan cuentas de almacenamiento administradas por el servicio. Sin embargo, para ingerir registros personalizados en vínculos privados, debe usar sus propias cuentas de almacenamiento y asociarlas a áreas de trabajo de Log Analytics. Vea más detalles sobre cómo configurar tales cuentas mediante la [línea de comandos](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Para obtener más información sobre cómo traer su propia cuenta de almacenamiento, consulte [Cuentas de almacenamiento propiedad del cliente para la ingesta de registros](private-storage.md)
 
@@ -252,7 +252,7 @@ Para usar las experiencias del portal de Azure Monitor, como Application Insight
 
 ### <a name="programmatic-access"></a>Acceso mediante programación
 
-Para usar la API REST, la [CLI](/cli/azure/monitor?view=azure-cli-latest) o PowerShell con Azure Monitor en redes privadas, agregue las [etiquetas de servicio](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** y **AzureResourceManager** al firewall.
+Para usar la API REST, la [CLI](/cli/azure/monitor) o PowerShell con Azure Monitor en redes privadas, agregue las [etiquetas de servicio](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** y **AzureResourceManager** al firewall.
 
 La incorporación de estas etiquetas permite realizar acciones como consultar datos de registro así como crear y administrar áreas de trabajo de Log Analytics y componentes de Application Insights.
 

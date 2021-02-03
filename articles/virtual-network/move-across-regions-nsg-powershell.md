@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0f569c623deb8e6249323cf1925d2c754eac7d42
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ad73ef03aa9623fb724f1397697fac18f659a90c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218848"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934990"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Traslado del grupo de seguridad de red (NSG) de Azure a otra región mediante Azure PowerShell
 
@@ -43,19 +43,19 @@ En los pasos siguientes se muestra cómo preparar el grupo de seguridad de red p
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exportación de la plantilla e implementación desde un script
 
-1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) y siga las instrucciones de la pantalla:
+1. Inicie sesión en la suscripción a Azure con el comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) y siga las instrucciones de la pantalla:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenga el identificador de recurso del NSG que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
+2. Obtenga el identificador de recurso del NSG que quiere trasladar a la región de destino y colóquelo en una variable mediante [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup):
 
     ```azurepowershell-interactive
     $sourceNSGID = (Get-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exporte el NSG de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Exporte el NSG de origen a un archivo .json en el directorio donde se ejecuta el comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
@@ -99,7 +99,7 @@ En los pasos siguientes se muestra cómo preparar el grupo de seguridad de red p
             }
     ```
   
-7. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) al ejecutar el siguiente comando:
+7. Para obtener los códigos de ubicación de la región, puede usar el cmdlet Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation) al ejecutar el siguiente comando:
 
     ```azurepowershell-interactive
 
@@ -173,13 +173,13 @@ En los pasos siguientes se muestra cómo preparar el grupo de seguridad de red p
 
 9. Guarde el archivo **\<resource-group-name>.json**.
 
-10. Cree un grupo de recursos en la región de destino para el NSG de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
+10. Cree un grupo de recursos en la región de destino para el NSG de destino que se va a implementar mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Implemente el archivo **\<resource-group-name>.json** editado en el grupo de recursos que creó en el paso anterior mediante [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -187,7 +187,7 @@ En los pasos siguientes se muestra cómo preparar el grupo de seguridad de red p
     
     ```
 
-12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) y [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0):
+12. Para comprobar que los recursos se crearon en la región de destino, use los comandos [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) y [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup):
     
     ```azurepowershell-interactive
 
@@ -203,7 +203,7 @@ En los pasos siguientes se muestra cómo preparar el grupo de seguridad de red p
 
 ## <a name="discard"></a>Discard (Descartar) 
 
-Después de la implementación, si quiere empezar de nuevo o descartar el NSG en el destino, elimine el grupo de recursos que se creó en el destino y se eliminará el NSG trasladado.  Para quitar el grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Después de la implementación, si quiere empezar de nuevo o descartar el NSG en el destino, elimine el grupo de recursos que se creó en el destino y se eliminará el NSG trasladado.  Para quitar el grupo de recursos, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 
@@ -213,7 +213,7 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Limpieza
 
-Para confirmar los cambios y completar el traslado del NSG, elimine el NSG o el grupo de recursos de origen mediante [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) o [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup?view=azps-2.6.0):
+Para confirmar los cambios y completar el traslado del NSG, elimine el NSG o el grupo de recursos de origen mediante [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) o [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup):
 
 ```azurepowershell-interactive
 

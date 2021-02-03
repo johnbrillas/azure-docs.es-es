@@ -1,19 +1,16 @@
 ---
 title: Guía de programación de SCP.NET para Storm en Azure HDInsight
 description: Aprenda a usar SCP.NET para crear topologías de Storm basadas en .NET para usarlas con Storm ejecutándose en HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000148"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932639"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guía de programación de SCP para Apache Storm en Azure HDInsight
 
@@ -97,7 +94,7 @@ Cuando se llama a **NextTuple**, el código de C# puede emitir una o más tuplas
 
 Se llama a los métodos **NextTuple**, **Ack** y **Fail** en un bucle cerrado en un único subproceso de un proceso de C#. Cuando no haya ninguna tupla que emitir, mantenga **NextTuple** inactivo durante una breve cantidad de tiempo (como 10 milisegundos). Esto ayudará a evitar que se desperdicie la disponibilidad de la CPU.
 
-Los métodos**Ack** y **Fail** solo se llaman cuando un archivo de especificación habilita el mecanismo de confirmación. El parámetro *seqId* identifica la tupla que se ha confirmado o en la que se ha producido un error. Si la confirmación se habilita en una topología no transaccional, se debe usar la siguiente función **Emit** en un spout:
+Los métodos **Ack** y **Fail** solo se llaman cuando un archivo de especificación habilita el mecanismo de confirmación. El parámetro *seqId* identifica la tupla que se ha confirmado o en la que se ha producido un error. Si la confirmación se habilita en una topología no transaccional, se debe usar la siguiente función **Emit** en un spout:
 
 ```csharp
 public abstract void Emit(string streamId, List<object> values, long seqId);

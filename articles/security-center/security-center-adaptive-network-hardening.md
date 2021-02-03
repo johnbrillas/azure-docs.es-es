@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341760"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916191"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Security Center.
@@ -26,7 +26,7 @@ Obtenga información sobre cómo configurar la protección de red adaptable en S
 ## <a name="availability"></a>Disponibilidad
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|Permisos de escritura en los NSG de la máquina|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -60,7 +60,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
       * **No hay suficientes datos disponibles**: para generar recomendaciones de protección de tráfico precisas, Security Center requiere al menos 30 días de datos de tráfico.
       * **La VM no está protegida por Azure Defender**: Solo las máquinas virtuales protegidas con [Azure Defender para servidores](defender-for-servers-introduction.md) son válidas para esta característica.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Acceso a las herramientas de protección de red adaptable":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Página de detalles de la recomendación Las recomendaciones de protección de redes adaptables se deben aplicar en las máquinas virtuales orientadas a Internet":::
 
 1. En la pestaña **Recursos con estado incorrecto**, seleccione una VM para ver sus alertas y las reglas de protección recomendadas que se deben aplicar.
 
@@ -78,7 +78,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
     > [!TIP]
     > Si los intervalos de direcciones IP de origen permitidos se muestran como "Ninguno", significa que la regla recomendada es una regla de *denegación*; de lo contrario, es una regla de *permiso*.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Acceso a las herramientas de protección de red adaptable":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Administración de reglas de protección de red adaptable":::
 
       > [!NOTE]
       > Las reglas aplicadas se agregan a los NSG que protegen la VM. (Una VM podría estar protegida por un NSG asociado a su NIC, la subred en la que reside la VM o ambos).

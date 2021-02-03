@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441506"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927896"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -139,7 +139,7 @@ El diseño actual presenta los problemas y limitaciones siguientes:
 Para obtener documentación oficial de Azure acerca de cómo crear una entidad de servicio, consulte:
 
 * [Uso de Azure PowerShell para crear una entidad de servicio](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Uso de la CLI de Azure para crear a una entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Uso de la CLI de Azure para crear a una entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) (Uso de Azure Portal para crear una entidad de servicio)
 
 ### <a name="suggestions"></a>Sugerencias

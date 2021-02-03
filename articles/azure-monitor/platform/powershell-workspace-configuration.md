@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ece92e4603c0c74190003745d55be0aea5cdb0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515451"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941753"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Crear y configurar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 En este artículo se proporcionan dos ejemplos de código que muestran cómo crear y configurar un área de trabajo de Log Analytics en Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> El formato del parámetro **CustomLogRawJson** que define la configuración de un registro personalizado puede ser complejo. Utilice [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar la configuración de un registro personalizado existente. La propiedad **Properties** es la configuración necesaria para el parámetro **CustomLogRawJson**.
+> El formato del parámetro **CustomLogRawJson** que define la configuración de un registro personalizado puede ser complejo. Utilice [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) para recuperar la configuración de un registro personalizado existente. La propiedad **Properties** es la configuración necesaria para el parámetro **CustomLogRawJson**.
 
 En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva línea. El delimitador de registro también puede ser una marca de tiempo.  Estos son los formatos admitidos:
 

@@ -2,19 +2,15 @@
 title: Solución de problemas de Change Tracking e Inventario de Azure Automation
 description: En este artículo se trata cómo solucionar problemas con la característica Change Tracking e Inventario de Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/31/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.topic: troubleshooting
+ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205615"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896552"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solución de problemas de Change Tracking e Inventario
 
@@ -24,7 +20,7 @@ En este artículo se describe cómo diagnosticar y solucionar problemas de Chang
 
 ### <a name="scenario-change-tracking-and-inventory-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Change Tracking e Inventario para máquinas Windows
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 No aparecen los resultados de Change Tracking e Inventario para las máquinas Windows donde se ha habilitado la característica.
 
@@ -37,7 +33,7 @@ Este error puede tener las causas siguientes:
 * No se han descargado los módulos de administración de Change Tracking e Inventario.
 * La VM que se quiere habilitar puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 En la máquina del agente de Log Analytics, vaya a **C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Tools** y ejecute los siguientes comandos:
 
@@ -79,7 +75,7 @@ Si utiliza una imagen clonada, primero prepare con sysprep la imagen y, a contin
 
 ### <a name="scenario-no-change-tracking-and-inventory-results-on-linux-machines"></a>Escenario: No hay resultados de Change Tracking e Inventario en las máquinas Linux
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 No ve los resultados de Change Tracking e Inventario de las máquinas Linux que tienen habilitada la característica. 
 
@@ -89,7 +85,7 @@ Estas son algunas causas posibles específicas de este problema:
 * El agente de Log Analytics para Linux no está configurado correctamente.
 * Hay conflictos de supervisión de la integridad de los archivos (FIM).
 
-#### <a name="resolution"></a>Resolución 
+#### <a name="resolution"></a>Solución 
 
 ##### <a name="log-analytics-agent-for-linux-not-running"></a>El agente de Log Analytics para Linux no está en ejecución
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4915fd69940450f22548ae326879b5729b687248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699753"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942087"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -66,7 +66,7 @@ Use el siguiente procedimiento para eliminar las soluciones con Azure Portal:
 
 ### <a name="delete-using-powershell"></a>Eliminación con PowerShell
 
-Para eliminar las soluciones con PowerShell, use el cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) como se muestra en el siguiente ejemplo:
+Para eliminar las soluciones con PowerShell, use el cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) como se muestra en el siguiente ejemplo:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>

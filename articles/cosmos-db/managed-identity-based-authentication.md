@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345736"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927415"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Uso de identidades administradas asignadas por el sistema para acceder a datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Usará la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obtener el token de identidad administrada asignada por el sistema. Para aprender otras formas de conseguir el token y obtener más información sobre la biblioteca `Microsoft.Azure.Service.AppAuthentication`, vea el artículo [Autenticación entre servicios](../key-vault/general/service-to-service-authentication.md).
+Usará la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obtener el token de identidad administrada asignada por el sistema. Para aprender otras formas de conseguir el token y obtener más información sobre la biblioteca `Microsoft.Azure.Service.AppAuthentication`, vea el artículo [Autenticación entre servicios](/dotnet/api/overview/azure/service-to-service-authentication).
 
 
 ```csharp

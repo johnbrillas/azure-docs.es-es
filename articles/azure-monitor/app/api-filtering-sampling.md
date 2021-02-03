@@ -4,12 +4,12 @@ description: Escriba procesadores e inicializadores de telemetría para que el S
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758037"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927752"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -497,7 +497,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Adición de información desde HttpContext
 
-El inicializador de ejemplo siguiente lee los datos de [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) y lo anexa a una instancia de `RequestTelemetry`. `IHttpContextAccessor` se proporciona automáticamente a través de la inserción de dependencias del constructor.
+El inicializador de ejemplo siguiente lee los datos de [`HttpContext`](/aspnet/core/fundamentals/http-context) y lo anexa a una instancia de `RequestTelemetry`. `IHttpContextAccessor` se proporciona automáticamente a través de la inserción de dependencias del constructor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer

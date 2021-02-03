@@ -3,12 +3,12 @@ title: Exportación a SQL desde Azure Application Insights | Microsoft Docs
 description: Exportación continua de datos de Application Insights a mediante el Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979454"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942414"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics
 En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a Azure SQL Database mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -82,7 +82,7 @@ Asegúrese de que el servidor permite el acceso a los servicios de Azure:
 ![Examinar, Servidores, su servidor, Configuración, Firewall, Permitir acceso a Azure.](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Creación de una tabla en Azure SQL Database
-Conéctese a la base de datos creada en la sección anterior con su herramienta preferida de administración. En este tutorial, usaremos [Herramientas de administración de SQL Server](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Conéctese a la base de datos creada en la sección anterior con su herramienta preferida de administración. En este tutorial, usaremos [Herramientas de administración de SQL Server](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ![Conexión a Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 

@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 87504625c298c4fb858ff90430d707081e87cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186578"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896332"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configuración de la implementación continua con Chocolatey
 
@@ -213,5 +213,5 @@ Desde ese momento, corresponderá a las máquinas virtuales que dependen de esa 
 - Para obtener información general, vea [Información general de Azure Automation State Configuration](automation-dsc-overview.md).
 - Para empezar a usar la característica, vea [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Para aprender a compilar configuraciones de DSC para poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones de DSC en Azure Automation State Configuration](automation-dsc-compile.md).
-- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).

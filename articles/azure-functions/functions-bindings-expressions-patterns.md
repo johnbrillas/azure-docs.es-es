@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927420"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920297"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Patrones de expresiones de enlace de Azure Functions
 
-Una de las características más eficaces de los [desencadenadores y enlaces](./functions-triggers-bindings.md) son las *expresiones de enlace*. En el archivo *function.json* , y en el código y en los parámetros de función, puede usar expresiones que se resuelvan como valores procedentes de diversos orígenes.
+Una de las características más eficaces de los [desencadenadores y enlaces](./functions-triggers-bindings.md) son las *expresiones de enlace*. En el archivo *function.json*, y en el código y en los parámetros de función, puede usar expresiones que se resuelvan como valores procedentes de diversos orígenes.
 
 La mayoría de las expresiones se identifican encerrándolas entre llaves. Por ejemplo, en una función de desencadenador de cola, `{queueTrigger}` se resuelve como el texto del mensaje de cola. Si la propiedad `path` de un enlace de blob de salida es `container/{queueTrigger}` y la función se desencadena mediante un mensaje de cola `HelloWorld`, se crea un blob denominado `HelloWorld`.
 
@@ -161,9 +161,10 @@ Por ejemplo, un desencadenador de Azure Queue Storage admite las siguientes prop
 * NextVisibleTime
 * PopReceipt
 
-A estos valores de metadatos se accede en las propiedades del archivo *function.json*. Por ejemplo, supongamos que usa un desencadenador de cola y el mensaje de la cola contiene el nombre de un blob que desea leer. En el archivo *function.json* , puede usar la propiedad de metadatos `queueTrigger` en la propiedad de blob `path`, como se muestra en el ejemplo siguiente:
+A estos valores de metadatos se accede en las propiedades del archivo *function.json*. Por ejemplo, supongamos que usa un desencadenador de cola y el mensaje de la cola contiene el nombre de un blob que desea leer. En el archivo *function.json*, puede usar la propiedad de metadatos `queueTrigger` en la propiedad de blob `path`, como se muestra en el ejemplo siguiente:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,9 +180,10 @@ A estos valores de metadatos se accede en las propiedades del archivo *function.
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
-Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el artículo de referencia correspondiente. Para un ejemplo, consulte la sección acerca de los [metadatos de los desencadenadores de cola](functions-bindings-storage-queue-trigger.md#message-metadata). También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación** , debajo del área de configuración de enlaces.  
+Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el artículo de referencia correspondiente. Para un ejemplo, consulte la sección acerca de los [metadatos de los desencadenadores de cola](functions-bindings-storage-queue-trigger.md#message-metadata). También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación**, debajo del área de configuración de enlaces.  
 
 ## <a name="json-payloads"></a>Cargas JSON
 

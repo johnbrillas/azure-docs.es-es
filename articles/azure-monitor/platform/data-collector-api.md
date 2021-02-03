@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bdbb4307f46566d1cac259cbdc4c81d1dfba5c7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006634"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927791"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -66,7 +66,7 @@ Este es el formato del encabezado de autorización:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* es el identificador único del área de trabajo de Log Analytics. *Signature* es un [código de autenticación de mensajes basado en hash (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) que se construye a partir de la solicitud y después se procesa mediante el [algoritmo SHA256](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Luego se codifica con la codificación Base64.
+*WorkspaceID* es el identificador único del área de trabajo de Log Analytics. *Signature* es un [código de autenticación de mensajes basado en hash (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256) que se construye a partir de la solicitud y después se procesa mediante el [algoritmo SHA256](/dotnet/api/system.security.cryptography.sha256). Luego se codifica con la codificación Base64.
 
 Use este formato para codificar la cadena de firma **SharedKey**:
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 203782ef2d95cd2b47082f630fa12531a110d49e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968898"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933920"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -194,7 +194,7 @@ El tiempo de ejecución de la actividad varía cuando el conjunto de datos se ba
 
     - El nivel de Azure SQL Database no es suficientemente alto.
 
-    - El uso de la DTU de Azure SQL Database está cerca del 100 %. Puede [supervisar el rendimiento](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) y considerar la posibilidad de actualizar el nivel de Azure SQL Database.
+    - El uso de la DTU de Azure SQL Database está cerca del 100 %. Puede [supervisar el rendimiento](../azure-sql/database/monitor-tune-overview.md) y considerar la posibilidad de actualizar el nivel de Azure SQL Database.
 
     - Los índices no están configurados correctamente. Quite todos los índices antes de la carga de datos y vuelva a crearlos después de completar la carga.
 
@@ -202,7 +202,6 @@ El tiempo de ejecución de la actividad varía cuando el conjunto de datos se ba
 
     - En lugar de Bulk insert, se usa el procedimiento almacenado, cuyo rendimiento es previsiblemente menor. 
 
-- **Solución:** Consulte [Solución de problemas de rendimiento de la actividad de copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tiempo de espera o rendimiento lento al analizar un archivo de Excel de gran tamaño
 

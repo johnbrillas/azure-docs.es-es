@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603071"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935457"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Inserción de datos de linaje de Data Factory en Azure Purview (versión preliminar)
 
@@ -29,7 +29,7 @@ En este tutorial, usará la interfaz de usuario (UI) de Data Factory para crear 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Azure Data Factory**. Si no tiene ninguna instancia de Azure Data Factory, consulte el artículo sobre la [creación de una instancia de Azure Data Factory](./quickstart-create-data-factory-portal.md).
-* **Cuenta de Azure Purview**. La cuenta de Purview captura todos los datos de linaje que genera la factoría de datos. Si no dispone de una cuenta de Azure Purview, consulte [Creación de una instancia de Azure Purview](https://docs.microsoft.com/azure/purview/create-catalog-portal).
+* **Cuenta de Azure Purview**. La cuenta de Purview captura todos los datos de linaje que genera la factoría de datos. Si no dispone de una cuenta de Azure Purview, consulte [Creación de una instancia de Azure Purview](../purview/create-catalog-portal.md).
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Ejecución de actividades de Data Factory e inserción de datos de linaje en Azure Purview
@@ -76,6 +76,6 @@ También puede ver los datos de linaje de la actividad de ejecución de paquetes
 > En cuanto al linaje de la actividad de ejecución de paquetes SSIS, solo se admiten el origen y el destino. Todavía no se admite el linaje de transformación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía de usuario del linaje de Data Catalog](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Guía de usuario del linaje de Data Catalog](../purview/catalog-lineage-user-guide.md)
 
 [Conexión de Data Factory a Azure Purview](connect-data-factory-to-azure-purview.md)

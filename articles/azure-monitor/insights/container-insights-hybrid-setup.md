@@ -3,12 +3,12 @@ title: Configuración de los clústeres híbridos de Kubernetes con Azure Monito
 description: En este artículo se describe cómo puede configurar Azure Monitor para contenedores con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890469"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936404"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
@@ -21,7 +21,7 @@ Las siguientes configuraciones se admiten oficialmente con Azure Monitor para co
 - Entornos:
 
     - Kubernetes en un entorno local.
-    - Motor de AKS en Azure y Azure Stack. Para más información, consulte [Motor de AKS en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
+    - Motor de AKS en Azure y Azure Stack. Para más información, consulte [Motor de AKS en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versión 4 y posteriores, en el entorno local o en otros entornos en la nube.
 
 - Las versiones de Kubernetes y de la directiva de soporte son las mismas que las versiones de [AKS compatibles](../../aks/supported-kubernetes-versions.md).
@@ -89,10 +89,10 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 
 Este método incluye dos plantillas JSON. Una plantilla especifica la configuración para habilitar la supervisión y la otra contiene los valores de los parámetros que se configuran para especificar lo siguiente:
 
-- **workspaceResourceId** : el identificador de recurso completo del área de trabajo de Log Analytics.
-- **workspaceRegion** : la región en la que se crea el área de trabajo, que también se conoce como **Ubicación** en las propiedades del área de trabajo cuando se visualiza desde el Azure Portal.
+- **workspaceResourceId**: el identificador de recurso completo del área de trabajo de Log Analytics.
+- **workspaceRegion**: la región en la que se crea el área de trabajo, que también se conoce como **Ubicación** en las propiedades del área de trabajo cuando se visualiza desde el Azure Portal.
 
-Para localizar primero el identificador de recurso completo del área de trabajo de Log Analytics necesario para el valor del parámetro `workspaceResourceId` en el archivo **containerSolutionParams.json** , realice los pasos siguientes y luego ejecute el cmdlet de PowerShell o el comando CLI de Azure para agregar la solución.
+Para localizar primero el identificador de recurso completo del área de trabajo de Log Analytics necesario para el valor del parámetro `workspaceResourceId` en el archivo **containerSolutionParams.json**, realice los pasos siguientes y luego ejecute el cmdlet de PowerShell o el comando CLI de Azure para agregar la solución.
 
 1. Enumere todas las suscripciones a las que tiene acceso con el siguiente comando:
 
@@ -202,7 +202,7 @@ Para localizar primero el identificador de recurso completo del área de trabajo
     }
     ```
 
-7. Edite los valores de **workspaceResourceId** con el valor que copió en el paso 3, y para **workspaceRegion** copie el valor de **Región** después de ejecutar el comando CLI de Azure [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
+7. Edite los valores de **workspaceResourceId** con el valor que copió en el paso 3, y para **workspaceRegion** copie el valor de **Región** después de ejecutar el comando CLI de Azure [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Guarde este archivo como containerSolutionParams.json en una carpeta local.
 
@@ -303,7 +303,7 @@ En esta sección, instalará el agente en contenedor para Azure Monitor para con
 
 Puede especificar un complemento en el archivo JSON de especificaciones del clúster del motor de AKS, también conocido como el modelo de API. En este complemento, proporcione la versión codificada en Base 64 de `WorkspaceGUID` y `WorkspaceKey` del área de trabajo de Log Analytics donde se almacenan los datos de supervisión recopilados. Puede encontrar el valor de `WorkspaceGUID` y `WorkspaceKey` mediante los pasos 1 y 2 de la sección anterior.
 
-Las definiciones de API admitidas para el clúster de Azure Stack Hub se pueden encontrar en este ejemplo: [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). En concreto, busque la propiedad **addons** en **kubernetesConfig** :
+Las definiciones de API admitidas para el clúster de Azure Stack Hub se pueden encontrar en este ejemplo: [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). En concreto, busque la propiedad **addons** en **kubernetesConfig**:
 
 ```json
 "orchestratorType": "Kubernetes",
@@ -349,7 +349,7 @@ El valor de configuración del servidor proxy tiene la siguiente sintaxis: `[pro
 
 Por ejemplo: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-Si especifica el protocolo como **http** , las solicitudes HTTP se crean con una conexión segura SSL/TLS. El servidor proxy debe admitir los protocolos SSL y TLS.
+Si especifica el protocolo como **http**, las solicitudes HTTP se crean con una conexión segura SSL/TLS. El servidor proxy debe admitir los protocolos SSL y TLS.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

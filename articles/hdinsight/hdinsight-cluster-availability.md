@@ -1,19 +1,16 @@
 ---
 title: Supervisión de la disponibilidad del clúster con Apache Ambari en Azure HDInsight
 description: Aprenda a usar Apache Ambari para supervisar la disponibilidad y el estado del clúster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34f752d4c3d50d5f680e317b2724b1e631537f32
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533570"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933191"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Supervisión de la disponibilidad del clúster con Apache Ambari en Azure HDInsight
 
@@ -49,7 +46,7 @@ Ambari también ofrece varias alertas configurables que pueden proporcionar una 
 
 ![Recuento de alertas actuales de Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
-Para ver una lista de definiciones de alertas y sus estados, seleccione la pestaña **Alertas** , tal como se muestra a continuación.
+Para ver una lista de definiciones de alertas y sus estados, seleccione la pestaña **Alertas**, tal como se muestra a continuación.
 
 ![Ver las definiciones de alertas de Ambari](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
 
@@ -71,11 +68,11 @@ Aquí, puede editar la descripción y, lo que es más importante, el intervalo d
 
 ![Vista de edición de las configuraciones de alertas de Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
 
-En este ejemplo, puede hacer que 2 elementos DataNodes en mal estado desencadenen una alerta crítica y 1 elemento DataNode en mal estado desencadenen solo una advertencia. Cuando termine la edición, seleccione **Guardar** .
+En este ejemplo, puede hacer que 2 elementos DataNodes en mal estado desencadenen una alerta crítica y 1 elemento DataNode en mal estado desencadenen solo una advertencia. Cuando termine la edición, seleccione **Guardar**.
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 
-Opcionalmente, también puede configurar notificaciones por correo electrónico para las alertas de Ambari. Para ello, en la pestaña **Alertas** , haga clic en el botón **Acciones** de la esquina superior izquierda y seleccione **Administrar notificaciones** .
+Opcionalmente, también puede configurar notificaciones por correo electrónico para las alertas de Ambari. Para ello, en la pestaña **Alertas**, haga clic en el botón **Acciones** de la esquina superior izquierda y seleccione **Administrar notificaciones**.
 
 ![Acción de administración de las notificaciones de Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881391"
+ms.locfileid: "98916428"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introducción a Azure Defender para Storage
 
@@ -25,7 +25,7 @@ Las alertas de seguridad se desencadenan cuando se producen anomalías en una ac
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|**Azure Defender para Storage** se factura como se muestra en la [página de precios](security-center-pricing.md).|
 |Tipos de almacenamiento protegido:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Archivos de Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|

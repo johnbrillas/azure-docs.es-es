@@ -1,25 +1,22 @@
 ---
 title: Envío de trabajos de MapReduce mediante el SDK de HDInsight para .NET en Azure
 description: Obtenga información sobre cómo enviar trabajos de MapReduce a HDInsight Apache Hadoop de Azure mediante el SDK de .NET de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489547"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932184"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envío de trabajos de MapReduce mediante el SDK .NET de HDInsight
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los clústeres de HDInsight vienen con un archivo .jar con varios ejemplos de MapReduce. El archivo jar es `/example/jars/hadoop-mapreduce-examples.jar`.  Uno de los ejemplos es **wordcount** . Desarrollará una aplicación de consola de C# para enviar un trabajo de recuento de palabras.  El trabajo lee el archivo `/example/data/gutenberg/davinci.txt` y envía los resultados a `/example/data/davinciwordcount`.  Si desea volver a ejecutar la aplicación, deberá limpiar la carpeta de salida.
+Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los clústeres de HDInsight vienen con un archivo .jar con varios ejemplos de MapReduce. El archivo jar es `/example/jars/hadoop-mapreduce-examples.jar`.  Uno de los ejemplos es **wordcount**. Desarrollará una aplicación de consola de C# para enviar un trabajo de recuento de palabras.  El trabajo lee el archivo `/example/data/gutenberg/davinci.txt` y envía los resultados a `/example/data/davinciwordcount`.  Si desea volver a ejecutar la aplicación, deberá limpiar la carpeta de salida.
 
 > [!NOTE]  
 > Los pasos de este artículo deben realizarse desde un cliente de Windows. Para obtener información sobre cómo usar un cliente Linux, OS X o Unix para trabajar con Hive, utilice el selector de pestañas que se muestra en la parte superior del artículo.
@@ -42,7 +39,7 @@ El SDK de HDInsight para .NET ofrece bibliotecas cliente .NET que facilitan el t
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copie el código que se indica a continuación en **Program.cs** . A continuación, modifique el código mediante el establecimiento de los valores de `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey` y `defaultStorageContainerName`.
+1. Copie el código que se indica a continuación en **Program.cs**. A continuación, modifique el código mediante el establecimiento de los valores de `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey` y `defaultStorageContainerName`.
 
     ```csharp
     using System.Collections.Generic;

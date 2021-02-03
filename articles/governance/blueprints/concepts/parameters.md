@@ -1,14 +1,14 @@
 ---
 title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dbf7ec02e89eac791ec3e17202a5ab13a04b81d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918541"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -65,7 +65,7 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto seleccionado. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Captura de pantalla de una definición de plano técnico y &quot;X of Y parameters populated&quot; (X de Y parámetros rellenos) resaltado." border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Captura de pantalla de los parámetros estáticos en un artefacto de plano técnico." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Establecimiento de parámetros estáticos desde la API REST
 
@@ -176,7 +176,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Captura de pantalla de una definición de plano técnico y &quot;X of Y parameters populated&quot; (X de Y parámetros rellenos) resaltado." border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Captura de pantalla de la configuración de parámetros dinámicos durante la asignación del plano técnico." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 

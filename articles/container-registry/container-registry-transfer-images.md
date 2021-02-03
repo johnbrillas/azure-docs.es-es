@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932607"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935341"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Transferir blob (opcional) 
 
-Use la herramienta AzCopy u otros métodos para [transferir datos de blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) de la cuenta de almacenamiento de origen a la cuenta de almacenamiento de destino.
+Use la herramienta AzCopy u otros métodos para [transferir datos de blob](../storage/common/storage-use-azcopy-v10.md#transfer-data) de la cuenta de almacenamiento de origen a la cuenta de almacenamiento de destino.
 
 Por ejemplo, el siguiente [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando copia myblob del contenedor *transfer* de la cuenta de origen en el contenedor *transfer* de la cuenta de destino. Si el blob existe en la cuenta de destino, se sobrescribe. La autenticación usa tokens de SAS con los permisos adecuados para los contenedores de origen y de destino. (No se muestran los pasos para crear tokens).
 

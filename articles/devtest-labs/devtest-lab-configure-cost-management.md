@@ -3,12 +3,12 @@ title: Visualización de las tendencias de costos mensuales estimados de laborat
 description: En este artículo se proporciona información sobre cómo realizar un seguimiento del costo del laboratorio (gráfico de tendencias de costo estimadas mensuales) en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283833"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892344"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Seguimiento de los costos asociados con un laboratorio en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo seguir el costo del laboratorio. Muestra cómo ver la tendencia de costo estimado durante el mes actual para el laboratorio. El artículo también muestra cómo ver el costo por recurso del mes hasta la fecha en el laboratorio.
@@ -38,7 +38,7 @@ Para ver el gráfico de tendencias de costos mensuales estimados, siga estos pas
 
      Los siguientes costos *no* se incluyen en el cálculo de costos:
 
-   * Actualmente no se admiten suscripciones de DreamSpark y CSP, puesto que Azure DevTest Labs emplea las [API de facturación de Azure](../cost-management-billing/manage/usage-rate-card-overview.md) para calcular el costo de laboratorio, y estas suscripciones no las admiten.
+   * Actualmente no se admiten suscripciones de DreamSpark y CSP, puesto que Azure DevTest Labs emplea las API de facturación de Azure para calcular el costo de laboratorio, y estas suscripciones no las admiten.
    * Las tarifas de su oferta. Actualmente, no puede usar las tarifas de oferta (que aparecen en su suscripción) negociadas con Microsoft o con asociados de Microsoft. Solo se usan tarifas de pago por uso.
    * Los impuestos
    * Los descuentos

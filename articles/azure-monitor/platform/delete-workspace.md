@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706888"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927702"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
@@ -41,7 +41,7 @@ La operación de eliminación del área de trabajo quita el recurso de Resource 
 > [!NOTE] 
 > Tanto las soluciones instaladas como los servicios vinculados, como la cuenta de Azure Automation, se quitan permanentemente del área de trabajo en el momento de la eliminación y no se pueden recuperar. Deben volver a configurarse después de la operación de recuperación para que el área de trabajo vuelva al estado en que estaba configurado anteriormente.
 
-Las áreas de trabajo se pueden eliminar un mediante [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [API REST](/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
+Las áreas de trabajo se pueden eliminar un mediante [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), [API REST](/rest/api/loganalytics/workspaces/delete) o en [Azure Portal](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Azure portal
 

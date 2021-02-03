@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: 7c0759e78b1adc1704acb602daa12cf9cabbe153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d05503c2a22c476d9ab08e8aeb058ca1b9826778
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934810"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928689"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -87,7 +87,7 @@ Informa del [tiempo de respuesta y del código del resultado](../../azure-monito
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-El paquete Microsoft.ApplicationInsights proporciona la [API principal](/dotnet/api/microsoft.applicationinsights?view=azure-dotnet) del SDK. Los otros módulos de telemetría usan esto y también puede [usarlo usted mismo para definir su propia telemetría](./api-custom-events-metrics.md).
+El paquete Microsoft.ApplicationInsights proporciona la [API principal](/dotnet/api/microsoft.applicationinsights) del SDK. Los otros módulos de telemetría usan esto y también puede [usarlo usted mismo para definir su propia telemetría](./api-custom-events-metrics.md).
 
 * No hay entrada en ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) . Si solamente instala este NuGet, no se genera ningún archivo .config.

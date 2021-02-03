@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 55e9d2d1af863084b080c2de7833712413221050
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445644"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916157"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Protección de los puertos de administración con acceso Just-in-Time
 
@@ -33,7 +33,7 @@ Esta página le enseña cómo incluir JIT en el programa de seguridad. Aprender�
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Máquinas virtuales admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas virtuales implementadas mediante Azure Resource Manager.<br>![No](./media/icons/no-icon.png) Máquinas virtuales con modelos de implementación clásica. [Más información acerca de estos modelos de implementación](../azure-resource-manager/management/deployment-models.md).<br>![No](./media/icons/no-icon.png) Máquinas virtuales que las instancias de Azure Firewall protegen y que [Azure Firewall Manager](../firewall-manager/overview.md) controla.|
 |Roles y permisos necesarios:|Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros de JIT.<br>Para crear roles personalizados que puedan funcionar con JIT, consulte [¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.|

@@ -1,19 +1,16 @@
 ---
 title: 'Configuración de las opciones de Spark: Azure HDInsight'
 description: Visualización y configuración de los valores de Apache Spark en un clúster de Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821152"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929748"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 

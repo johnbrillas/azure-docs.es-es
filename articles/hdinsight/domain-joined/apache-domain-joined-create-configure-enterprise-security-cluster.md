@@ -3,17 +3,14 @@ title: 'Creación y configuración de clústeres de Enterprise Security Package:
 description: Aprenda a crear clústeres de Enterprise Security Package en Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: 07bd92e17b827dfeede5958587cecbdc97694329
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003929"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934047"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creación y configuración de clústeres de Enterprise Security Package en Azure HDInsight
 

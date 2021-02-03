@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo usar Azure AD en Azure Automati
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400679"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894667"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uso de Azure AD para autenticarse en Azure
 
@@ -39,9 +39,9 @@ Antes de instalar los módulos de Azure AD en el equipo, haga lo siguiente:
 >[!NOTE]
 >Para trabajar con estos módulos, debe usar la versión de PowerShell 5.1 o posterior con una versión de Windows de 64 bits. 
 
-1. Instale Windows Management Framework (WMF) 5.1. Consulte [Instalación y configuración de WMF 5.1](/powershell/scripting/wmf/setup/install-configure?view=powershell-7).
+1. Instale Windows Management Framework (WMF) 5.1. Consulte [Instalación y configuración de WMF 5.1](/powershell/scripting/wmf/setup/install-configure).
 
-2. Instale AzureRM o Az. Para ello, siga las instrucciones del artículo [Instalación de Azure PowerShell en Windows con PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0).
+2. Instale AzureRM o Az. Para ello, siga las instrucciones del artículo [Instalación de Azure PowerShell en Windows con PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="install-the-msonline-module"></a>Instalación del módulo MSOnline
 
@@ -62,7 +62,7 @@ Antes de instalar los módulos de Azure AD en el equipo, haga lo siguiente:
 
 ### <a name="install-support-for-pscredential"></a>Instalación de la compatibilidad con PSCredential
 
-Azure Automation usa la clase [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) para representar un recurso de credencial. Los scripts recuperan los objetos `PSCredential` mediante el cmdlet `Get-AutomationPSCredential`. Para obtener más información, consulte [Recursos de credenciales en Azure Automation](shared-resources/credentials.md).
+Azure Automation usa la clase [PSCredential](/dotnet/api/system.management.automation.pscredential) para representar un recurso de credencial. Los scripts recuperan los objetos `PSCredential` mediante el cmdlet `Get-AutomationPSCredential`. Para obtener más información, consulte [Recursos de credenciales en Azure Automation](shared-resources/credentials.md).
 
 ## <a name="assign-a-subscription-administrator"></a>Asignación de un administrador de suscripción
 
@@ -80,7 +80,7 @@ Para cambiar la contraseña del usuario de Azure AD, haga lo siguiente:
 
 ## <a name="configure-azure-automation-to-manage-the-azure-subscription"></a>Configuración de Azure Automation para administrar la suscripción a Azure
 
-Para que Azure Automation se comunique con Azure AD, debe recuperar las credenciales asociadas con la conexión entre Azure y Azure AD. Algunos ejemplos de estas credenciales son el id. de inquilino, el id. de suscripción y otras similares. Para obtener más información sobre la conexión entre Azure y Azure AD, consulte [Conexión de la organización a Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
+Para que Azure Automation se comunique con Azure AD, debe recuperar las credenciales asociadas con la conexión entre Azure y Azure AD. Algunos ejemplos de estas credenciales son el id. de inquilino, el id. de suscripción y otras similares. Para obtener más información sobre la conexión entre Azure y Azure AD, consulte [Conexión de la organización a Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="create-a-credential-asset"></a>Creación de un recurso de credencial
 
@@ -92,11 +92,11 @@ Puede usar Azure Portal para crear el recurso de credencial. Realice esta operac
 
 ### <a name="create-the-credential-asset-with-windows-powershell"></a>Creación de un recurso de credencial con Windows PowerShell
 
-Para preparar un nuevo recurso de credencial en Windows PowerShell, el script debe crear primero un objeto `PSCredential` con el nombre de usuario y la contraseña asignados. Después, el script usa este objeto para crear el recurso a través de una llamada al cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0). El script también podría llamar al cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) para solicitar al usuario que escriba un nombre y una contraseña. Consulte [Recursos de credenciales en Azure Automation](shared-resources/credentials.md). 
+Para preparar un nuevo recurso de credencial en Windows PowerShell, el script debe crear primero un objeto `PSCredential` con el nombre de usuario y la contraseña asignados. Después, el script usa este objeto para crear el recurso a través de una llamada al cmdlet [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential). El script también podría llamar al cmdlet [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) para solicitar al usuario que escriba un nombre y una contraseña. Consulte [Recursos de credenciales en Azure Automation](shared-resources/credentials.md). 
 
 ## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Administración de recursos de Azure desde un runbook de Azure Automation
 
-Puede administrar los recursos de Azure desde los runbooks de Azure Automation mediante el recurso de credencial. A continuación se muestra un ejemplo de runbook de PowerShell que recopila al recurso de credencial que se usará para detener e iniciar máquinas virtuales en una suscripción a Azure. En primer lugar, este runbook usa `Get-AutomationPSCredential` para recuperar la credencial que se usará para autenticarse en Azure. A continuación, llama al cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) para conectarse a Azure mediante la credencial. El script usa el cmdlet [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription?view=azuresmps-4.0.0) para elegir la suscripción con la que trabajará. 
+Puede administrar los recursos de Azure desde los runbooks de Azure Automation mediante el recurso de credencial. A continuación se muestra un ejemplo de runbook de PowerShell que recopila al recurso de credencial que se usará para detener e iniciar máquinas virtuales en una suscripción a Azure. En primer lugar, este runbook usa `Get-AutomationPSCredential` para recuperar la credencial que se usará para autenticarse en Azure. A continuación, llama al cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para conectarse a Azure mediante la credencial. El script usa el cmdlet [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription) para elegir la suscripción con la que trabajará. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 

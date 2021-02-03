@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796630"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916720"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introducción a Azure Defender para App Service
 
@@ -25,7 +25,7 @@ Azure App Service es una plataforma totalmente administrada para crear y hospeda
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|[Azure Defender para App Service](azure-defender.md) se factura como se muestra en la [página de precios](security-center-pricing.md).<br>En la página precios y configuración se muestra el número de instancias necesarias para su **cantidad de recursos**. Dicho número es el número total de instancias de proceso, en todos los planes de App Service de la suscripción, en ejecución en el momento en que ha abierto la hoja del plan de tarifa.<br>Para validar el recuento, abra **planes de App Service** en Azure Portal y consulte el número de instancias de proceso que usa cada plan.|
 |Planes de App Service admitidos:|![Sí](./media/icons/yes-icon.png) Básico, Estándar, Premium, Aislado o Linux<br>![No](./media/icons/no-icon.png) Gratis, Compartido ni Consumo<br>[Obtenga más información sobre los planes de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|

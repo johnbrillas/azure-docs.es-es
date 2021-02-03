@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898501"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
@@ -303,6 +303,8 @@ No compatible.
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
 Puede usar el comando magic ```%run <notebook path>``` para hacer referencia a otro cuaderno en el contexto del cuaderno actual. Todas las variables definidas en el cuaderno de referencia están disponibles en el cuaderno actual. El comando magic ```%run``` admite llamadas anidadas pero no admite llamadas recursivas. Recibirá una excepción si la profundidad de la instrucción es superior a cinco. Actualmente, el comando ```%run``` solo se admite para pasar una ruta de acceso del cuaderno como parámetro. 
+
+Ejemplo: ``` %run /path/notebookA ```.
 
 ---
 

@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/18/2021
+ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: f94076f06fb13bae2a26e8ab6003d7574a2dacfd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 73216b1b089444c1dc92bbe73ed07895de3711b2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98674249"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98951547"
 ---
 ## <a name="configure-the-relying-party-policy"></a>Configuración de la directiva de usuario de confianza.
 
@@ -33,11 +33,5 @@ En el ejemplo siguiente, para el recorrido de usuario `CustomSignUpOrSignIn`, el
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Cargar directiva personalizada** y, a continuación, cargue los dos archivos de directivas que ha cambiado, en el siguiente orden: la directiva de extensiones, por ejemplo `TrustFrameworkExtensions.xml`, luego la directiva de usuarios de confianza, como `SignUpSignIn.xml`.
 
-## <a name="test-your-custom-policy"></a>Prueba de la directiva personalizada
 
-1. Seleccione la directiva de usuarios de confianza, por ejemplo `B2C_1A_signup_signin`.
-1. En **Aplicación**, seleccione la aplicación web que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Seleccione el botón **Ejecutar ahora**.
-
-Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 

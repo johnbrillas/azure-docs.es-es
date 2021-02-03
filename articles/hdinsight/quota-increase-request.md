@@ -1,19 +1,16 @@
 ---
 title: 'Solicitud de aumento de cuota de núcleos de CPU: Azure HDInsight'
 description: Obtenga información sobre el proceso para solicitar un aumento de los núcleos de la CPU asignados a su suscripción.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539418"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935842"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Solicitud de aumentos de cuota para Azure HDInsight
 
@@ -30,7 +27,7 @@ Si ha recibido un error que indica que ha alcanzado un límite de cuota, use el 
 
     1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
     1. Vaya a la página **información general** para el clúster de HDInsight.
-    1. En el menú de la izquierda, seleccione **Límites de cuota** . La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
+    1. En el menú de la izquierda, seleccione **Límites de cuota**. La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
 
 Para solicitar un aumento de la cuota, siga los pasos siguientes:
 
@@ -39,17 +36,17 @@ Para solicitar un aumento de la cuota, siga los pasos siguientes:
 
     ![botón de ayuda y soporte técnico](./media/quota-increase-request/help-support-button.png)
 
-1. Seleccione **Nueva solicitud de soporte técnico** .
-1. En la página **Nueva solicitud de soporte técnico** , en la pestaña **Fundamentos** , seleccione las opciones siguientes:
+1. Seleccione **Nueva solicitud de soporte técnico**.
+1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
 
-   - **Tipo de problema** : **Límites de servicio y suscripción (cuotas)**
-   - **Suscripción** : la suscripción que desea modificar.
-   - **Tipo de cuota** : **HDInsight**
+   - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
+   - **Suscripción**: la suscripción que desea modificar.
+   - **Tipo de cuota**: **HDInsight**
 
      ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
 1. Seleccione **Siguiente: Soluciones >>** .
-1. En la página **Detalles** , escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios. Use la plantilla que se muestra a continuación para asegurarse de proporcionar la información necesaria. El equipo de capacidad de Azure es quién evalúa las solicitudes de aumento de cuota, y no el equipo del producto de HDInsight. Cuanto más completa sea la información que proporcione, más probabilidades habrá de que se apruebe la solicitud.
+1. En la página **Detalles**, escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios. Use la plantilla que se muestra a continuación para asegurarse de proporcionar la información necesaria. El equipo de capacidad de Azure es quién evalúa las solicitudes de aumento de cuota, y no el equipo del producto de HDInsight. Cuanto más completa sea la información que proporcione, más probabilidades habrá de que se apruebe la solicitud.
 
     ```
     I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
@@ -62,7 +59,7 @@ Para solicitar un aumento de la cuota, siga los pasos siguientes:
     ![detalles del problema](./media/quota-increase-request/problem-details.png)
 
 1. Seleccione **Siguiente: Revisar y crear >>** .
-1. En la pestaña **Revisar y crear** , seleccione **Crear** .
+1. En la pestaña **Revisar y crear**, seleccione **Crear**.
 
 > [!NOTE]  
 > Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista aprobada](https://aka.ms/canaryintwhitelist).

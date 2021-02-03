@@ -1,19 +1,16 @@
 ---
 title: 'Ejecución de consultas de Apache Hive mediante el SDK de HDInsight para .NET: Azure'
 description: Obtenga información sobre cómo enviar trabajos de Apache Hadoop a HDInsight Apache Hadoop de Azure mediante el SDK de .NET de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487677"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927235"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight
 
@@ -33,7 +30,7 @@ Antes de empezar este artículo, debe tener los siguientes elementos:
     > [!IMPORTANT]  
     > A partir del 15 de septiembre de 2017, el SDK de .NET para HDInsight solo admite devolver resultados de consulta de Hive desde cuentas de Azure Storage. Si usa este ejemplo con un clúster de HDInsight que utilice Azure Data Lake Storage como almacenamiento principal, no se pueden recuperar resultados de búsqueda mediante .NET SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 y versiones posteriores. Se debe instalar al menos la carga de trabajo **Desarrollo de escritorio de .NET** .
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 y versiones posteriores. Se debe instalar al menos la carga de trabajo **Desarrollo de escritorio de .NET**.
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 

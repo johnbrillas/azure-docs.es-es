@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712279"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916241"
 ---
 # <a name="harden-your-docker-hosts"></a>Protección de los hosts de Docker
 
@@ -29,8 +29,8 @@ Cuando se detectan vulnerabilidades, se agrupan en una sola recomendación.
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
-|Precios:|Se requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
+|Estado de la versión:|Disponibilidad general (GA)|
+|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Roles y permisos necesarios:|**Lector** en el área de trabajo a la que se conecta el host.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
@@ -50,11 +50,11 @@ Cuando se detectan vulnerabilidades, se agrupan en una sola recomendación.
     > [!TIP]
     > Si empezó en la página de inventario de recursos y ha llegado a esta recomendación desde ahí, seleccione el botón **Realizar acción** de la página de la recomendación.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Recomendación para corregir vulnerabilidades en las configuraciones de seguridad de contenedores":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Botón Realizar acción para iniciar Log Analytics":::
 
     Log Analytics se abre con una operación personalizada lista para ejecutarse. La consulta personalizada predeterminada incluye una lista de todas las reglas con errores que se han evaluado, junto con instrucciones para ayudarle a resolver los problemas.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Recomendación para corregir vulnerabilidades en las configuraciones de seguridad de contenedores":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Página de Log Analytics con la consulta que muestra todos los controles de CIS con errores":::
 
 1. Retoque los parámetros de consulta si es necesario.
 

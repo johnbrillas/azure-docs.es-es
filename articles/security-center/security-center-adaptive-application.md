@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071613"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916140"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -50,7 +50,7 @@ Al definir listas de aplicaciones seguras conocidas y generar alertas cuando se 
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Máquinas admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas de Azure y que no son de Azure que ejecutan Windows y Linux<br>![Sí](./media/icons/yes-icon.png) Máquinas de [Azure Arc](../azure-arc/index.yml)|
 |Roles y permisos necesarios:|Los roles **Lector de seguridad** y **Lector** pueden ver grupos y las listas de aplicaciones seguras conocidas.<br>Los roles **Colaborador** y **Administrador de seguridad** pueden editar grupos y las listas de aplicaciones seguras conocidas.|

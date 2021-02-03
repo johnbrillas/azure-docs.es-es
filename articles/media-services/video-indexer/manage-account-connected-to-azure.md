@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/16/2019
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25025efe5254442c4862563ce329cfae69e7d033
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79499672"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898450"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Administración de una cuenta de Video Indexer conectada a Azure
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo administrar una cuenta de Video Indexer conec
 
 Conecte su cuenta de Video Indexer a Azure, como se describe en [Conexión a Azure](connect-to-azure.md).
 
-Asegúrese de tener en cuenta los [requisitos previos](connect-to-azure.md#prerequisites) y de revisar las [consideraciones](connect-to-azure.md#considerations) del artículo.
+Asegúrese de tener en cuenta los [requisitos previos](connect-to-azure.md#prerequisites-for-connecting-to-azure) y de revisar las [consideraciones](connect-to-azure.md#azure-media-services-considerations) del artículo.
 
 ## <a name="examine-account-settings"></a>Comprobación de la configuración de la cuenta
 

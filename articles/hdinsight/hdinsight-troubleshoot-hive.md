@@ -3,17 +3,14 @@ title: Solución de problemas de Hive mediante Azure HDInsight
 description: Obtenga respuestas a las preguntas comunes sobre cómo trabajar con Apache Hive y Azure HDInsight.
 keywords: Azure HDInsight, Hive, preguntas más frecuentes, guía de solución de problemas, preguntas comunes
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288968"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931443"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solución de problemas de Apache Hive mediante Azure HDInsight
 
@@ -120,17 +117,17 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
    Debe proporcionar un programa de ejemplo como el primer argumento.
 
    Los nombres de programa válidos incluyen:
-    - **ContainerReuseAnalyzer** : imprima los detalles de la reutilización del contenedor en un DAG.
-    - **CriticalPath** : busque la ruta crítica de un DAG.
-    - **LocalityAnalyzer** : imprima los detalles de localidad en un DAG.
-    - **ShuffleTimeAnalyzer** : analice los detalles de tiempo de orden aleatorio en un DAG.
-    - **SkewAnalyzer** : analice los detalles de sesgo en un DAG.
-    - **SlowNodeAnalyzer** : imprima los detalles del nodo en un DAG.
-    - **SlowTaskIdentifier** : imprima los detalles de una tarea lenta en un DAG.
-    - **SlowestVertexAnalyzer** : imprima los detalles de los vértices más lentos en un DAG.
-    - **SpillAnalyzer** : imprima los detalles de desbordamiento en un DAG.
-    - **TaskConcurrencyAnalyzer** : imprima los detalles de la simultaneidad de tareas en un DAG.
-    - **VertexLevelCriticalPathAnalyzer** : busque la ruta crítica en el nivel de vértices en un DAG.
+    - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG.
+    - **CriticalPath**: busque la ruta crítica de un DAG.
+    - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG.
+    - **ShuffleTimeAnalyzer**: analice los detalles de tiempo de orden aleatorio en un DAG.
+    - **SkewAnalyzer**: analice los detalles de sesgo en un DAG.
+    - **SlowNodeAnalyzer**: imprima los detalles del nodo en un DAG.
+    - **SlowTaskIdentifier**: imprima los detalles de una tarea lenta en un DAG.
+    - **SlowestVertexAnalyzer**: imprima los detalles de los vértices más lentos en un DAG.
+    - **SpillAnalyzer**: imprima los detalles de desbordamiento en un DAG.
+    - **TaskConcurrencyAnalyzer**: imprima los detalles de la simultaneidad de tareas en un DAG.
+    - **VertexLevelCriticalPathAnalyzer**: busque la ruta crítica en el nivel de vértices en un DAG.
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 

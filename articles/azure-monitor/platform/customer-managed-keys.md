@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757549"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917839"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -30,9 +30,6 @@ La clave administrada por el cliente se entrega en [clústeres dedicados](../log
 Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, con independencia de la configuración de la clave administrada por el cliente, pero el control sobre los datos de SSD se ciñe a la [revocación de claves](#key-revocation). Estamos trabajando para cifrar los datos de SSD con una clave administrada por el cliente en la primera mitad de 2021.
 
 Los clústeres dedicados de Log Analytics usan un [modelo de precios](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidad que parte de 1000 GB/día.
-
-> [!IMPORTANT]
-> Debido a las restricciones de capacidad temporales, se exige el registro previo a crear un clúster. Use sus contactos en Microsoft o abra la solicitud de soporte técnico para registrar los id. de las suscripciones.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funcionamiento de las claves administradas por el cliente en Azure Monitor
 
@@ -68,7 +65,6 @@ Se aplican las reglas siguientes:
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Pasos de aprovisionamiento de la clave administrada por el cliente
 
-1. Registro de la suscripción para permitir la creación de clústeres
 1. Creación de una instancia de Azure Key Vault y almacenamiento de la clave
 1. Creación de un clúster
 1. Concesión de permisos a la instancia de Key Vault
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Habilitación de la suscripción
-
-Use sus contactos en Microsoft o abra la solicitud de soporte técnico en Log Analytics para proporcionar los id. de las suscripciones.
 
 ## <a name="storing-encryption-key-kek"></a>Almacenamiento de la clave de cifrado de claves (KEK)
 

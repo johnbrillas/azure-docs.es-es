@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927584"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Introducción a Azure Diagnostics Extension
 Azure Diagnostics Extension es un [agente de Azure Monitor](agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, máquinas virtuales incluidas. En este artículo se proporciona información general sobre Azure Diagnostics Extension, incluida la funcionalidad específica que admite y las opciones de instalación y configuración. 
@@ -50,7 +50,7 @@ En las tablas siguientes se enumeran los datos que se pueden recopilar con la ex
 | Contadores de rendimiento | Valores numéricos que miden el rendimiento de diferentes aspectos del sistema operativo y las cargas de trabajo. |
 | Registros IIS             | Información sobre el uso de los sitios web de IIS que se ejecutan en el sistema operativo invitado. |
 | Registros de aplicación     | Seguimiento de mensajes escritos por la aplicación. |
-| Registros de .NET EventSource |Eventos de escritura de código mediante la clase [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) de .NET |
+| Registros de .NET EventSource |Eventos de escritura de código mediante la clase [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) de .NET |
 | [Registros de ETW basado en manifiesto](/windows/desktop/etw/about-event-tracing) |Seguimiento de eventos para Windows generados por cualquier proceso. |
 | Volcados de memoria (registros)   | Información sobre el estado del proceso en caso de bloqueo de una aplicación. |
 | Registros basados en archivos    | Archivos creados por su aplicación o servicio. |

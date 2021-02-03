@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070718"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895635"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -43,7 +43,7 @@ Después de revisar las limitaciones, una descripción de los pasos necesarios p
 **Task** | **Detalles** |**Sin agente** | **Basado en agente**
 --- | --- | --- | ---
 **Implementación del dispositivo de Azure Migrate** | Un dispositivo ligero que se ejecuta en una máquina virtual de VMware.<br/><br/> El dispositivo se usa para detectar y evaluar máquinas, así como para migrar máquinas mediante la migración sin agente. | Necesario.<br/><br/> Si ya ha configurado el dispositivo para valoración, puede usar el mismo dispositivo para la migración sin agente. | No se requiere.<br/><br/> Si ha configurado un dispositivo para valoración, puede dejarlo en su lugar o quitarlo si ya ha terminado con la valoración.
-**Uso de la herramienta Server Assessment** | Valore las máquinas con la herramienta Server Assessment de Azure Migrate. | Puede valorar las máquinas antes de migrarlas, aunque no es obligatorio. | La valoración es opcional.
+**Uso de la herramienta Server Assessment** | Valore las máquinas con la herramienta Server Assessment de Azure Migrate. | La valoración es opcional. | La valoración es opcional.
 **Uso de la herramienta Server Migration** | Agregue la herramienta Azure Migrate Server Migration en el proyecto de Azure Migrate. | Obligatorio | Obligatorio
 **Preparación de VMware para la migración** | Defina la configuración en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
 **Instalación de Mobility Service en máquinas virtuales** | El servicio Mobility se ejecuta en cada máquina que quiera replicar. | No se requiere | Obligatorio

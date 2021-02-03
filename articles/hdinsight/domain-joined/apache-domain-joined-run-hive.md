@@ -3,17 +3,16 @@ title: 'Directivas de Apache Hive en Apache Ranger: Azure HDInsight'
 description: Obtenga información sobre cómo configurar directivas de Apache Ranger para Hive en Azure HDInsight con Enterprise Security Package.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544943"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932231"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configuración de directivas de Apache Hive en HDInsight con Enterprise Security Package
 
@@ -49,7 +48,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 **Para crear directivas de Ranger**
 
 1. Abra la interfaz de usuario administrador de Ranger. Consulte el artículo sobre la conexión a la interfaz de usuario administrador de Apache Ranger.
-2. Seleccione **CLUSTERNAME_Hive** en **Hive** . Deben aparecer dos directivas preconfiguradas.
+2. Seleccione **CLUSTERNAME_Hive** en **Hive**. Deben aparecer dos directivas preconfiguradas.
 3. Seleccione **Agregar nueva directiva** y escriba los siguientes valores:
 
     |Propiedad |Value |
@@ -87,7 +86,7 @@ Las instrucciones se pueden encontrar en el artículo sobre la [creación de ori
  | --- | --- |
  | Data Source Name | Asigne un nombre al origen de datos |
  | Host | Escriba CLUSTERNAME.azurehdinsight.net. Por ejemplo, myHDICluster.azurehdinsight.net |
- | Port | Use **443** . (Este puerto se ha cambiado de 563 a 443). |
+ | Port | Use **443**. (Este puerto se ha cambiado de 563 a 443). |
  | Base de datos | Use el **valor predeterminado** |
  | Hive Server Type | Seleccione **Hive Server 2** |
  | Mechanism | Seleccione **Azure HDInsight Service** |
@@ -103,23 +102,23 @@ En la última sección ha configurado dos directivas.  hiveuser1 tiene el permis
 
 1. Abra un libro de Excel nuevo o existente.
 
-1. Desde la pestaña **Datos** , vaya a **Obtener datos** > **Desde otros orígenes** > **Desde ODBC** para iniciar la ventana **Desde ODBC** .
+1. Desde la pestaña **Datos**, vaya a **Obtener datos** > **Desde otros orígenes** > **Desde ODBC** para iniciar la ventana **Desde ODBC**.
 
     ![Abrir el Asistente para la conexión de datos](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. De la lista desplegable, seleccione el nombre del origen de datos que creó en la sección anterior y luego seleccione **Aceptar** .
+1. De la lista desplegable, seleccione el nombre del origen de datos que creó en la sección anterior y luego seleccione **Aceptar**.
 
-1. Para el primer uso, se abrirá el cuadro de diálogo **Controlador ODBC** . Seleccione **Windows** en el menú izquierdo. Seleccione **Conectar** para abrir la ventana del **Navegador** .
+1. Para el primer uso, se abrirá el cuadro de diálogo **Controlador ODBC**. Seleccione **Windows** en el menú izquierdo. Seleccione **Conectar** para abrir la ventana del **Navegador**.
 
 1. Espere a que se abra el cuadro de diálogo **Seleccionar base de datos y tabla** . Esta operación puede tardar unos segundos.
 
-1. Seleccione **hivesampletable** y, después, **Siguiente** .
+1. Seleccione **hivesampletable** y, después, **Siguiente**.
 
-1. Seleccione **Finalizar** .
+1. Seleccione **Finalizar**.
 
-1. En el cuadro de diálogo **Importar datos** , puede cambiar o especificar la consulta. Para ello, seleccione **Propiedades** . Esta operación puede tardar unos segundos.
+1. En el cuadro de diálogo **Importar datos** , puede cambiar o especificar la consulta. Para ello, seleccione **Propiedades**. Esta operación puede tardar unos segundos.
 
-1. Seleccione la pestaña **Definición** . El texto del comando es:
+1. Seleccione la pestaña **Definición**. El texto del comando es:
 
     ```sql
     SELECT * FROM "HIVE"."default"."hivesampletable"`
@@ -129,9 +128,9 @@ En la última sección ha configurado dos directivas.  hiveuser1 tiene el permis
 
 1. Seleccione **Aceptar** para cerrar el cuadro de diálogo Propiedades de conexión.
 
-1. Seleccione **Aceptar** para cerrar el cuadro de diálogo **Importar datos** .  
+1. Seleccione **Aceptar** para cerrar el cuadro de diálogo **Importar datos**.  
 
-1. Vuelva a escribir la contraseña de hiveuser1 y haga clic en **Aceptar** . La importación de los datos a Excel tarda algunos segundos. Cuando termine, verá 11 columnas de datos.
+1. Vuelva a escribir la contraseña de hiveuser1 y haga clic en **Aceptar**. La importación de los datos a Excel tarda algunos segundos. Cuando termine, verá 11 columnas de datos.
 
 Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en la última sección
 

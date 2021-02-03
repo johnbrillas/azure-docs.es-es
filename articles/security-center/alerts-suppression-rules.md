@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751995"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920450"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
 
@@ -23,7 +23,7 @@ En esta página se explica cómo usar reglas de eliminación de alertas para eli
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:| Disponibilidad general |
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito<br>(La mayoría de las alertas de seguridad solo están disponibles con Azure Defender).|
 |Roles y permisos necesarios:|Los roles de **Administrador de seguridad** y **Propietario** pueden crear o eliminar reglas.<br>Los roles de **Lector de seguridad** y **Lector** pueden ver las reglas.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
