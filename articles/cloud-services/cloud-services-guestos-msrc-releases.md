@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877516"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089214"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
@@ -1578,7 +1578,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4014511] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |2.63 |9 de mayo de 2017 |
 | N/D | [4014514] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |2.63 |9 de mayo de 2017 |
 | N/D | [4019216] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, mayo |3.50 |9 de mayo de 2017 |
-| N/D | [4014503] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
+| N/D | 4014503 |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
 | N/D | [4014506] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
 | N/D | [4014509] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
 | N/D | [4014513] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
@@ -2327,7 +2327,6 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2679,7 +2678,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2689,7 +2688,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

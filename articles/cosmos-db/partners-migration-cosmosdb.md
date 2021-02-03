@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: a105df6b27be943b14a29bb25fd048bfd294c867
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097437"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090510"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Asociados de desarrollo de aplicaciones y migración NoSQL de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,7 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 | [Capgemini](https://www.capgemini.com/) | Comercio minorista (inventario), IoT, análisis operativo (Spark), desarrollo de aplicaciones | Estados Unidos, Francia, Reino Unido, Países Bajos, Finlandia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personalización, comercio minorista (inventario), análisis operativo (Spark), desarrollo de aplicaciones |Estados Unidos, Canadá, Reino Unido, Dinamarca, Países Bajos, Suiza, Australia, Japón |
 |[Infosys](https://www.infosys.com/)     | Desarrollo de aplicaciones      |    EE. UU.    |  
-| [Lagash Systems](https://www.lagash.com/) | IoT, arquitectura sin servidor, desarrollo de aplicaciones | Argentina, Chile, Colombia, México|
+| [Lagash Systems](https://www.devex.com/organizations/lagash-systems-131346) | IoT, arquitectura sin servidor, desarrollo de aplicaciones | Argentina, Chile, Colombia, México|
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personalización en tiempo real, inventario de comercio minorista, desarrollo de aplicaciones | Brasil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalización, comercio minorista (inventario), análisis operativo (Spark), desarrollo de aplicaciones  |    EE. UU.     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migración NoSQL      |   EE. UU.      |

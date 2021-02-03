@@ -3,12 +3,12 @@ title: ¿Se pueden hacer copias de seguridad Azure Backup Server V3 RTM?
 description: En este artículo se incluye una matriz de protección en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que Azure Backup Server V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752386"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986894"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de protección de Azure Backup Server V3 RTM
 
@@ -86,11 +86,16 @@ Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute c
 
 Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Direcciones IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
 

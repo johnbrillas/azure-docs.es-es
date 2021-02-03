@@ -3,12 +3,12 @@ title: Instalación del agente de Microsoft Azure Recovery Services (MARS)
 description: Aprenda a instalar el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975298"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986877"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalación del agente de MARS de Azure Backup
 
@@ -88,6 +88,9 @@ Para usar el emparejamiento público, asegúrese primero de tener acceso a los s
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Direcciones IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Para usar el emparejamiento de Microsoft, seleccione los siguientes servicios, regiones y los valores de comunidad correspondientes:
 

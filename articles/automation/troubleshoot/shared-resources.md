@@ -2,18 +2,15 @@
 title: Solución de problemas de recursos compartidos de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con recursos compartidos de Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.subservice: ''
+ms.date: 01/27/2021
+ms.topic: troubleshooting
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187173"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053627"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Solución de problemas de recursos compartidos
 
@@ -33,7 +30,7 @@ Dado que la importación de módulos de PowerShell es un proceso complejo de var
 
 #### <a name="resolution"></a>Solución
 
-Para resolver este problema, debe eliminar el módulo que está bloqueado mediante el cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). A continuación, puede volver a intentar importar el módulo.
+Para resolver este problema, debe eliminar el módulo que está bloqueado mediante el cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule). A continuación, puede volver a intentar importar el módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Algunas razones comunes por las que un módulo no se importa correctamente a Azu
 * La estructura no coincide con la que necesita Automation.
 * El módulo depende de otro módulo que no se ha implementado en su cuenta de Automation.
 * Al módulo le faltan sus dependencias en la carpeta.
-* El cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) se usa para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo mediante una dirección URL de acceso público.
+* El cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) se usa para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo mediante una dirección URL de acceso público.
 
 #### <a name="resolution"></a>Solución
 
@@ -134,7 +131,7 @@ No tiene los permisos que necesita para crear o actualizar la cuenta de ejecuci�
 
 #### <a name="resolution"></a>Solución
 
-Para crear o actualizar una cuenta de ejecución, debe tener los [permisos](../manage-runas-account.md#permissions) adecuados para los distintos recursos que usa la cuenta de ejecución. 
+Para crear o actualizar una cuenta de ejecución, debe tener los [permisos](../automation-security-overview.md#permissions) adecuados para los distintos recursos que usa la cuenta de ejecución.
 
 Si el problema se debe a un bloqueo, compruebe que el bloqueo se puede quitar. A continuación, vaya al recurso que está bloqueado en Azure Portal, haga clic con el botón derecho en el bloqueo y seleccione **Eliminar**.
 
@@ -150,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Este error suele deberse a una configuración incorrecta de la [cuenta de ejecución](../manage-runas-account.md).
+Este error suele deberse a una configuración incorrecta de la [cuenta de ejecución](../automation-security-overview.md).
 
 #### <a name="resolution"></a>Solución
 
@@ -169,4 +166,3 @@ Si en este artículo no se resuelve la incidencia, pruebe uno de los canales sig
 * Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
 * Conectar con [@AzureSupport](https://twitter.com/azuresupport). Se trata de la cuenta oficial de Microsoft Azure para conectar a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 * Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte técnico**.
-

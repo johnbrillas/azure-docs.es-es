@@ -1,18 +1,15 @@
 ---
 title: Cifrado de Azure HDInsight en tránsito
 description: Obtenga información sobre las características de seguridad para proporcionar cifrado en tránsito para el clúster de Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049786"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946857"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Cifrado IPSec en tránsito para Azure HDInsight
 

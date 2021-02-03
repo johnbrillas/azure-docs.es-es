@@ -1,18 +1,15 @@
 ---
 title: Alertas obsoletas de Apache Ambari en Azure HDInsight
 description: Debate y análisis de posibles causas y soluciones para las alertas obsoletas de Apache Ambari en HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533842"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946713"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Escenario: Alertas obsoletas de Apache Ambari en Azure HDInsight
 
@@ -26,7 +23,7 @@ En la interfaz de usuario de Apache Ambari, es posible que vea una alerta simila
 
 ## <a name="cause"></a>Causa
 
-Los agentes de Ambari supervisan continuamente el estado de muchos recursos. Se pueden configurar *alertas* para que le notifiquen si determinadas propiedades del clúster se encuentran dentro de los umbrales predeterminados. Una vez que se ejecuta cada comprobación de recursos, si se cumple la condición de la alerta, los agentes de Ambari notifican el estado al servidor de Ambari y desencadenan una alerta. Si una alerta no se comprueba según el intervalo de su perfil de alerta, el servidor desencadena una alerta que indica las *alertas obsoletas del servidor de Ambari* .
+Los agentes de Ambari supervisan continuamente el estado de muchos recursos. Se pueden configurar *alertas* para que le notifiquen si determinadas propiedades del clúster se encuentran dentro de los umbrales predeterminados. Una vez que se ejecuta cada comprobación de recursos, si se cumple la condición de la alerta, los agentes de Ambari notifican el estado al servidor de Ambari y desencadenan una alerta. Si una alerta no se comprueba según el intervalo de su perfil de alerta, el servidor desencadena una alerta que indica las *alertas obsoletas del servidor de Ambari*.
 
 Hay varios motivos por los que es posible que una comprobación de estado no se ejecute en su intervalo definido:
 
@@ -84,6 +81,6 @@ Si el problema no se ha mencionado aquí o no puede resolverlo, visite uno de lo
 
 * Conéctese con [@AzureSupport](https://twitter.com/azuresupport) en Twitter. Esta es la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, envíe una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para llegar ahí, seleccione Ayuda ( **?** ) en el menú del portal o abra el panel **Ayuda y soporte técnico** . Para más información, consulte [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* Si necesita más ayuda, envíe una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para llegar ahí, seleccione Ayuda ( **?** ) en el menú del portal o abra el panel **Ayuda y soporte técnico**. Para más información, consulte [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   La suscripción a Microsoft Azure incluye soporte técnico para la administración y la facturación de suscripciones. El soporte técnico está disponible mediante los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

@@ -1,19 +1,16 @@
 ---
 title: 'Mensajes de error de seguimiento de la pila de Hadoop: Azure HDInsight'
 description: Índice de los mensajes de error del seguimiento de la pila de Hadoop en Azure HDInsight. Encuentre el error en la lista para ver la información de solución de problemas.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
-ms.openlocfilehash: 3987a2d208bb96120d443300068ea739acbb4131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980c98b6b222ca4a0bb5d2ba2ae53f38de12c931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75680254"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945444"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Apache Hadoop en artículos acerca de la solución de problemas de HDInsight
 

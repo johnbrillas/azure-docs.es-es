@@ -1,19 +1,16 @@
 ---
 title: 'Comprensión y resolución de errores de WebHCat en HDInsight: Azure'
 description: Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945464"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat en HDInsight
 
@@ -39,7 +36,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="too-many-requests"></a>Demasiadas solicitudes
 
-**Código de estado HTTP** : 429
+**Código de estado HTTP**: 429
 
 | Causa | Resolución |
 | --- | --- |
@@ -47,7 +44,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="server-unavailable"></a>Servidor no disponible
 
-**Código de estado HTTP** : 503
+**Código de estado HTTP**: 503
 
 | Causa | Resolución |
 | --- | --- |
@@ -55,7 +52,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="bad-request-content-could-not-find-job"></a>Contenido de solicitud incorrecta: no se encontró el trabajo
 
-**Código de estado HTTP** : 400
+**Código de estado HTTP**: 400
 
 | Causa | Resolución |
 | --- | --- |
@@ -65,7 +62,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="bad-gateway"></a>Puerta de enlace incorrecta
 
-**Código de estado HTTP** : 502
+**Código de estado HTTP**: 502
 
 | Causa | Resolución |
 | --- | --- |

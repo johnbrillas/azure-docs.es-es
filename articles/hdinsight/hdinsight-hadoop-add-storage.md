@@ -1,19 +1,16 @@
 ---
 title: Adición de más cuentas de Azure Storage a HDInsight
 description: Aprenda a agregar cuentas adicionales de Azure Storage a un clúster de HDInsight existente.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542002"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945929"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -61,7 +58,7 @@ Use [Acción de script](hdinsight-hadoop-customize-cluster-linux.md#script-actio
 
 ## <a name="verification"></a>Comprobación
 
-Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __Cuentas de almacenamiento__ en __Propiedades__ , no se mostrarán las cuentas de almacenamiento agregadas mediante esta acción de script. Azure PowerShell y la CLI de Azure tampoco mostrarán la cuenta de almacenamiento adicional. Esto se debe a que el script solo modifica la configuración de `core-site.xml` del clúster. Esta información no se usa al recuperar la información del clúster mediante las API de administración de Azure.
+Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __Cuentas de almacenamiento__ en __Propiedades__, no se mostrarán las cuentas de almacenamiento agregadas mediante esta acción de script. Azure PowerShell y la CLI de Azure tampoco mostrarán la cuenta de almacenamiento adicional. Esto se debe a que el script solo modifica la configuración de `core-site.xml` del clúster. Esta información no se usa al recuperar la información del clúster mediante las API de administración de Azure.
 
 Para comprobar el almacenamiento adicional, use uno de los métodos que se muestran a continuación:
 
@@ -119,7 +116,7 @@ Después de quitar estas claves y guardar la configuración, debe reiniciar Oozi
 
 ### <a name="storage-firewall"></a>Firewall de almacenamiento
 
-Si decide proteger la cuenta de almacenamiento con las restricciones de **Firewalls y redes virtuales** en **Redes seleccionadas** , asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** para que HDInsight pueda acceder a su cuenta de almacenamiento.`.`
+Si decide proteger la cuenta de almacenamiento con las restricciones de **Firewalls y redes virtuales** en **Redes seleccionadas**, asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** para que HDInsight pueda acceder a su cuenta de almacenamiento.`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>No se puede acceder a almacenamiento después de cambiar la clave
 

@@ -1,19 +1,16 @@
 ---
 title: Base de datos de Apache Ambari personalizada en Azure HDInsight
 description: Aprenda a crear clústeres de HDInsight con su propia base de datos de Apache Ambari personalizada.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.author: hrasheed
-ms.openlocfilehash: 87d8074772863d0ca1cbf98220e5ca9b027fb085
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fe38ddc594060c78a2d26e9b25476e38736b4cf7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134303"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946049"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada
 

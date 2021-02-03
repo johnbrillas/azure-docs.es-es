@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987326"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051588"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -95,7 +95,7 @@ Cuando se habilita el reintento de una actividad, puede establecer un retraso y 
 
 La condición de reintento es una expresión de PowerShell que se evalúa después de cada vez que se ejecuta la actividad. Si la expresión se resuelve en True, la actividad se vuelve a ejecutar. Si la expresión se resuelve en False, la actividad no se vuelve a ejecutar y el runbook pasa a la actividad siguiente.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de pantalla de la configuración de la característica Habilitar reintento.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de pantalla que muestra el campo Reintentar hasta que se cumpla esta condición y ejemplos de expresiones de PowerShell que se pueden usar en la condición de reintento.":::
 
 La condición de reintento puede utilizar una variable denominada `RetryData` que proporciona acceso a información sobre los reintentos de actividad. Esta variable tiene las propiedades de la tabla siguiente:
 
@@ -373,7 +373,7 @@ En el ejemplo siguiente se usa la salida de una actividad llamada `Get Twitter C
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticarse en los recursos de Azure
 
-Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La [cuenta de ejecución](./manage-runas-account.md), también denominada entidad de servicio, es el método predeterminado que utiliza un runbook de Automation para acceder a los recursos de Azure Resource Manager de la suscripción. Para agregar esta funcionalidad a un runbook gráfico, agregue al lienzo el recurso de conexión `AzureRunAsConnection`, que usa el cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) de PowerShell. También puede agregar el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Este escenario se ilustra en el siguiente ejemplo.
+Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La [cuenta de ejecución](./automation-security-overview.md), también denominada entidad de servicio, es el método predeterminado que utiliza un runbook de Automation para acceder a los recursos de Azure Resource Manager de la suscripción. Para agregar esta funcionalidad a un runbook gráfico, agregue al lienzo el recurso de conexión `AzureRunAsConnection`, que usa el cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) de PowerShell. También puede agregar el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Este escenario se ilustra en el siguiente ejemplo.
 
 ![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

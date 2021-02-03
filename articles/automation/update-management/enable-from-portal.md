@@ -2,15 +2,16 @@
 title: Habilitación de Update Management de Azure Automation desde Azure Portal
 description: En este artículo se describe cómo habilitar Update Management desde Azure Portal.
 services: automation
-ms.date: 04/11/2019
-ms.topic: article
+ms.subservice: update-management
+ms.date: 01/07/2021
+ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 089c5fea6ac4a6fc4fb25af2d631335ef51cf4cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182774"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054913"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitación de Update Management desde Azure Portal
 
@@ -24,7 +25,7 @@ El número de grupos de recursos que puede usar para administrar las máquinas v
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [cuenta de Automation](../index.yml) para administrar máquinas.
+* Una [cuenta de Automation](../automation-security-overview.md) para administrar máquinas.
 * Una [máquina virtual](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure

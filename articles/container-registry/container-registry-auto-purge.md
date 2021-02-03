@@ -2,13 +2,13 @@
 title: Purgar etiquetas y manifiestos
 description: Use un comando de purga para eliminar varias etiquetas y manifiestos de una instancia de Azure Container Registry en función de la edad y un filtro de etiquetas y, opcionalmente, programar operaciones de purga.
 ms.topic: article
-ms.date: 11/10/2020
-ms.openlocfilehash: 406a1f231af57407e9475a8888b68aad9d88dcb3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 01/27/2021
+ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445122"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954045"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purga automática de imágenes a partir de una instancia de Azure Container Registry
 

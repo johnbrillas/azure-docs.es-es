@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c23259a9cb1f3c409ad437a1e91151b5f401129
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221772"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946288"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
@@ -326,7 +326,7 @@ El acceso se deniega y recibe un error `mount error(13): Permission denied` porq
 
 Salga de la sesión de SSH en la máquina virtual *myVmPublic*.
 
-Desde su equipo, intente ver los recursos compartidos en la cuenta de almacenamiento con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Reemplace `<account-name>` y `<account-key>` con el nombre de la cuenta de almacenamiento y la clave de [Crear una cuenta de almacenamiento](#create-a-storage-account):
+Desde su equipo, intente ver los recursos compartidos en la cuenta de almacenamiento con [az storage share list](/cli/azure/storage/share). Reemplace `<account-name>` y `<account-key>` con el nombre de la cuenta de almacenamiento y la clave de [Crear una cuenta de almacenamiento](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

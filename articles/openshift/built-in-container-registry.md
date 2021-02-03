@@ -6,16 +6,16 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492427"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070617"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Configuración del registro de contenedor integrado para Red Hat OpenShift 4 en Azure
 
-Red Hat OpenShift en Azure proporciona un registro de imágenes de contenedor integrado llamado [OpenShift Container Registry (OCR)](https://docs.openshift.com/aro/4/registry/architecture-component-imageregistry.html) que agrega la capacidad de aprovisionar automáticamente nuevos repositorios de imágenes a petición. Esto proporciona a los usuarios una ubicación integrada para que las compilaciones de la aplicación inserten las imágenes resultantes.
+Red Hat OpenShift en Azure proporciona un registro de imágenes de contenedor integrado llamado [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) que agrega la capacidad de aprovisionar automáticamente nuevos repositorios de imágenes a petición. Esto proporciona a los usuarios una ubicación integrada para que las compilaciones de la aplicación inserten las imágenes resultantes.
 
 En este artículo, configurará el registro de imágenes de contenedor integrado para un clúster de Red Hat OpenShift en Azure (ARO) 4. Aprenderá a:
 

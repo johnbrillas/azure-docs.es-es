@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight para Visual Studio Code
 description: Obtenga información sobre cómo usar las herramientas Spark y Hive (Azure HDInsight) para Visual Studio Code. Use las herramientas para crear y enviar consultas y scripts.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610988"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946134"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
@@ -375,7 +372,7 @@ Envíe un archivo y observe que la carpeta `.vscode` se agrega automáticamente 
 
   | name | description | type |
   | --- | ---| --- |
-  | ID | Identificador de sesión | Int |
+  | id | Identificador de sesión | Int |
   | appId | Id. de aplicación de esta sesión | String |
   | appInfo | Información detallada de la aplicación | Mapa de clave=valor |
   | log | Líneas de registro | Lista de cadenas |

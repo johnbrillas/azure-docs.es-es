@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448605"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061820"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Administración del acceso, el encendido y el modo de conectividad de Azure Stack Edge Pro con GPU
 
@@ -54,7 +54,7 @@ El flujo de trabajo de restablecimiento no requiere que el usuario recupere la c
 
 1. En Azure Portal, vaya a **Información general > Restablecer la contraseña del administrador**.
 
-    ![Captura de pantalla que muestra el dispositivo con la contraseña de restablecimiento del dispositivo seleccionada.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Captura de pantalla que muestra el dispositivo con la contraseña de restablecimiento del dispositivo seleccionada.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Escriba la nueva contraseña y confírmela. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Seleccione **Restablecer**.

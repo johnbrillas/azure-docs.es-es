@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987012"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -335,13 +335,19 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 
-Si hay un firewall o un proxy que impide el acceso a Azure, agregue las direcciones de dominio siguientes a la lista de perfiles permitidos de firewall y proxy:
+Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall en la máquina o el proxy está establecida para permitir las direcciones URL y direcciones IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Direcciones IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Una vez restaurada la conectividad a Azure en Azure Backup Server, el estado de la suscripción de Azure determina las operaciones que se pueden realizar. Una vez que el servidor esté **conectado**, use la tabla que aparece en [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) (Conectividad de red) para ver las operaciones disponibles.
 

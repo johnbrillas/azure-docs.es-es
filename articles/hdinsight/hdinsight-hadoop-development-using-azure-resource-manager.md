@@ -1,19 +1,16 @@
 ---
 title: Migración a herramientas de Azure Resource Manager para HDInsight
 description: Migración a las herramientas de desarrollo de Azure Resource Manager para clústeres de HDInsight
-ms.reviewer: jasonh
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 57dec799cbda03e20717a402a88f1d818d9acd92
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629483"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945772"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
 
@@ -83,7 +80,7 @@ Para más información sobre otras formas de ejecutar Apache Hadoop MapReduce, A
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migración de Azure PowerShell a Azure Resource Manager
 La información general acerca de Azure PowerShell en el modo de Azure Resource Manager se puede encontrar en [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-Los cmdlets de Resource Manager de Azure PowerShell se pueden instalar en paralelo con los cmdlets de ASM. Los cmdlets de los dos modos se pueden distinguir por sus nombres.  El modo de Resource Manager tiene *AzHDInsight* en los nombres de cmdlet en lugar de *AzureHDInsight* , en el modo antiguo de administración de servicios de Azure.  Por ejemplo, *New-AzHDInsightCluster* frente a *New-AzureHDInsightCluster*. Parámetros y conmutadores pueden tener nombres nuevos, y hay muchos parámetros nuevos disponibles si utiliza Resource Manager.  Por ejemplo, varios cmdlets requieren un nuevo modificador llamado *- ResourceGroupName*.
+Los cmdlets de Resource Manager de Azure PowerShell se pueden instalar en paralelo con los cmdlets de ASM. Los cmdlets de los dos modos se pueden distinguir por sus nombres.  El modo de Resource Manager tiene *AzHDInsight* en los nombres de cmdlet en lugar de *AzureHDInsight*, en el modo antiguo de administración de servicios de Azure.  Por ejemplo, *New-AzHDInsightCluster* frente a *New-AzureHDInsightCluster*. Parámetros y conmutadores pueden tener nombres nuevos, y hay muchos parámetros nuevos disponibles si utiliza Resource Manager.  Por ejemplo, varios cmdlets requieren un nuevo modificador llamado *- ResourceGroupName*.
 
 Para poder usar los cmdlets de HDInsight, debe conectarse a su cuenta de Azure y crear un nuevo grupo de recursos:
 
@@ -134,17 +131,17 @@ Los siguientes son los nuevos cmdlets que solo están disponibles en el modo de 
 
 **Cmdlets relacionados con acciones de script:**
 
-* **Get-AzHDInsightPersistedScriptAction** : obtiene las acciones de script persistentes para un clúster y las muestra en orden cronológico u obtiene detalles de una acción de script persistente concreta. 
-* **Get-AzHDInsightScriptActionHistory** : obtiene el historial de una acción de script para un clúster y los datos se enumeran en orden cronológico inverso u obtiene detalles de una acción de script ejecutada anteriormente. 
-* **Remove-AzHDInsightPersistedScriptAction** : quita una acción de script persistente de un clúster de HDInsight.
-* **Set-AzHDInsightPersistedScriptAction** : establece una acción de script ejecutada anteriormente para que sea una acción de script persistente.
-* **Submit-AzHDInsightScriptAction** : envía una nueva acción de script a un clúster de HDInsight de Azure. 
+* **Get-AzHDInsightPersistedScriptAction**: obtiene las acciones de script persistentes para un clúster y las muestra en orden cronológico u obtiene detalles de una acción de script persistente concreta. 
+* **Get-AzHDInsightScriptActionHistory**: obtiene el historial de una acción de script para un clúster y los datos se enumeran en orden cronológico inverso u obtiene detalles de una acción de script ejecutada anteriormente. 
+* **Remove-AzHDInsightPersistedScriptAction**: quita una acción de script persistente de un clúster de HDInsight.
+* **Set-AzHDInsightPersistedScriptAction**: establece una acción de script ejecutada anteriormente para que sea una acción de script persistente.
+* **Submit-AzHDInsightScriptAction**: envía una nueva acción de script a un clúster de HDInsight de Azure. 
 
 Para más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Cmdlets relacionados con la identidad del clúster:**
 
-* **Add-AzHDInsightClusterIdentity** : agrega una identidad de clúster a un objeto de configuración de clúster para que el clúster de HDInsight pueda acceder a Azure Data Lake Storage. Consulte [Creación de un clúster de HDInsight con Data Lake Storage mediante Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzHDInsightClusterIdentity**: agrega una identidad de clúster a un objeto de configuración de clúster para que el clúster de HDInsight pueda acceder a Azure Data Lake Storage. Consulte [Creación de un clúster de HDInsight con Data Lake Storage mediante Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Ejemplos
 **Crear clúster**

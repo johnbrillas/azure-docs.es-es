@@ -1,19 +1,16 @@
 ---
 title: Supervisión y administración de clústeres de Hadoop mediante la API REST de Ambari en Azure HDInsight
 description: Aprenda a usar Ambari para supervisar y administrar clústeres de Hadoop en Azure HDInsight. En este documento, aprenderá a usar la API REST de Ambari incluida con clústeres de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546082"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945578"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
@@ -37,11 +34,11 @@ Apache Ambari simplifica la administración y la supervisión de los clústeres 
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificador uniforme de recursos base para la API REST de Ambari
 
- El identificador uniforme de recursos (URI) base de la API REST de Ambari en HDInsight es `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, donde `CLUSTERNAME` es el nombre del clúster.  Los nombres de clúster en los URI **distinguen mayúsculas de minúsculas** .  Si bien el nombre del clúster en la parte del nombre de dominio completo (FQDN) del URI (`CLUSTERNAME.azurehdinsight.net`) no distingue entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí lo hacen.
+ El identificador uniforme de recursos (URI) base de la API REST de Ambari en HDInsight es `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, donde `CLUSTERNAME` es el nombre del clúster.  Los nombres de clúster en los URI **distinguen mayúsculas de minúsculas**.  Si bien el nombre del clúster en la parte del nombre de dominio completo (FQDN) del URI (`CLUSTERNAME.azurehdinsight.net`) no distingue entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí lo hacen.
 
 ## <a name="authentication"></a>Authentication
 
-La conexión a Ambari en HDInsight requiere HTTPS. Utilice el nombre de la cuenta de administrador (el valor predeterminado es **admin** ) y la contraseña que proporcionó durante la creación del clúster.
+La conexión a Ambari en HDInsight requiere HTTPS. Utilice el nombre de la cuenta de administrador (el valor predeterminado es **admin**) y la contraseña que proporcionó durante la creación del clúster.
 
 En el caso de los clústeres de Enterprise Security Package, en lugar de `admin`, use un nombre de usuario completo, como `username@domain.onmicrosoft.com`.
 
@@ -269,7 +266,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-Este ejemplo devuelve un documento JSON que contiene la configuración actual de los componentes instalados. Vea el valor *etiqueta* . Por ejemplo, el siguiente es un extracto de los datos devueltos de un tipo de clúster Spark.
+Este ejemplo devuelve un documento JSON que contiene la configuración actual de los componentes instalados. Vea el valor *etiqueta*. Por ejemplo, el siguiente es un extracto de los datos devueltos de un tipo de clúster Spark.
 
 ```json
 "jupyter-site" : {
@@ -335,7 +332,7 @@ Este ejemplo devuelve un documento JSON que contiene la configuración actual de
 
    * Crea un documento raíz para la nueva configuración.
 
-   * Obtiene el contenido de la matriz `.items[]` y lo agrega al elemento **desired_config** .
+   * Obtiene el contenido de la matriz `.items[]` y lo agrega al elemento **desired_config**.
 
    * Elimina los elementos `href`, `version` y `Config`, porque no son necesarios para enviar una nueva configuración.
 

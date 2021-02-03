@@ -2,19 +2,16 @@
 title: 'Empleo de un espacio aislado o emulador de Apache Hadoop: Azure HDInsight'
 description: 'Para empezar a obtener información sobre el ecosistema de Apache Hadoop, puede configurar un espacio aislado de Hadoop desde Hortonworks en una máquina virtual de Azure. '
 keywords: emulador de hadoop, espacio aislado de hadoop
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547969"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946607"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
@@ -34,7 +31,7 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 
 Para obtener instrucciones sobre cómo configurar el espacio aislado, consulte [Sandbox Deployment and Install Guide](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/) (Guía de instalación e implementación del espacio aislado).
 
-Para descargar un espacio aislado anterior de la versión de HDP, consulte los vínculos en **Versiones anteriores** .
+Para descargar un espacio aislado anterior de la versión de HDP, consulte los vínculos en **Versiones anteriores**.
 
 ## <a name="start-the-virtual-machine"></a>Inicio de la máquina virtual
 

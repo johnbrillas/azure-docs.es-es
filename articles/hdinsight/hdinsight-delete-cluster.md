@@ -1,19 +1,16 @@
 ---
 title: Eliminación de un clúster de Azure HDInsight
 description: Información sobre las distintas formas de eliminar un clúster de Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
-ms.openlocfilehash: 49a43f821a159af6944abb9509c24a8dd081be43
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 55c19ee9b23d43b0f9988363405d76fa16949ec9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748797"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946041"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure
 
@@ -28,7 +25,7 @@ La facturación del clúster de HDInsight se inicia una vez creado el clúster y
 
 2. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **Clústeres de HDInsight** y seleccione su clúster.
 
-3. En la vista predeterminada, seleccione el icono **Eliminar** . Siga las indicaciones para eliminar el clúster.
+3. En la vista predeterminada, seleccione el icono **Eliminar**. Siga las indicaciones para eliminar el clúster.
 
     ![Botón de eliminación de clúster de HDInsight](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
 

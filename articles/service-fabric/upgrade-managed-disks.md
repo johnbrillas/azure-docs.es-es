@@ -3,12 +3,12 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316153"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090661"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
@@ -30,11 +30,11 @@ Este artículo le guiará a lo largo de los pasos necesarios para actualizar el 
 > [!CAUTION]
 > Experimentará una interrupción con este procedimiento solo si tiene dependencias en el DNS del clúster (por ejemplo, al acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). El [procedimiento recomendado para los servicios de front-end](/azure/architecture/microservices/design/gateway) en el nivel de arquitectura es tener algún tipo de [equilibrador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) delante de los tipos de nodo para que el intercambio de nodos sea posible sin interrupción.
 
-Estos son los [cmdlets y plantillas](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para completar el escenario de actualización. Los cambios en la plantilla se explicarán en [Implementación de un conjunto de escalado actualizado para el tipo de nodo principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) a continuación.
+Estos son los [cmdlets y plantillas](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) para Azure Resource Manager que usaremos para completar el escenario de actualización. Los cambios en la plantilla se explicarán en [Implementación de un conjunto de escalado actualizado para el tipo de nodo principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) a continuación.
 
 ## <a name="set-up-the-test-cluster"></a>Configuración del clúster de prueba
 
-Configuremos el clúster de prueba inicial de Service Fabric. En primer lugar, [descargue](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) las plantillas de muestra de Azure Resource Manager que usaremos para completar este escenario.
+Configuremos el clúster de prueba inicial de Service Fabric. En primer lugar, [descargue](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) las plantillas de muestra de Azure Resource Manager que usaremos para completar este escenario.
 
 A continuación, inicie sesión en la cuenta de Azure.
 
@@ -373,6 +373,6 @@ Obtenga información sobre cómo:
 
 Consulte también:
 
-* [Ejemplo: Actualización de nodos de clúster para usar Azure Managed Disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Ejemplo: Actualización de nodos de clúster para usar Azure Managed Disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Consideraciones sobre escalado vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

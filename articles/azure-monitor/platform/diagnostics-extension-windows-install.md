@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 14f37d0779f245301b3750329658a580dc3f9e42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328877"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946213"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows
 [Azure Diagnostics Extension](diagnostics-extension-overview.md) es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo se proporcionan detalles sobre cómo instalar y configurar la extensión de diagnósticos para Windows y una descripción de cómo se almacenan los datos en la cuenta de Azure Storage.
@@ -78,7 +78,7 @@ Puede instalar y configurar la extensión de diagnósticos en una máquina virtu
 Consulte [Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) para información sobre la implementación de la extensión de diagnósticos con plantillas de Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
-La CLI de Azure se puede usar para implementar la extensión de Azure Diagnostics en una máquina virtual existente mediante [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set), como en el ejemplo siguiente. 
+La CLI de Azure se puede usar para implementar la extensión de Azure Diagnostics en una máquina virtual existente mediante [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set), como en el ejemplo siguiente. 
 
 ```azurecli
 az vm extension set \

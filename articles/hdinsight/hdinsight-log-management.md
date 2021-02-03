@@ -1,19 +1,16 @@
 ---
 title: Administración de registros para un clúster de HDInsight en Azure HDInsight
 description: Determine las directivas de tipos, tamaños y retención para los archivos de registro de actividad de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546031"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945268"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -75,13 +72,13 @@ Un clúster típico de HDInsight utiliza varios servicios y paquetes de software
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver las opciones de configuración del clúster con la UI de Ambari
 
-Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione **Panel de clúster** en la página de HDInsight de Azure Portal para abrir la página del vínculo **Paneles de clúster** .  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
+Apache Ambari simplifica la administración, la configuración y la supervisión de un clúster de HDInsight al proporcionar una API de REST y una interfaz de usuario web. Ambari se incluye en los clústeres de HDInsight basados en Linux. Seleccione **Panel de clúster** en la página de HDInsight de Azure Portal para abrir la página del vínculo **Paneles de clúster**.  A continuación, seleccione el **panel de clúster de HDInsight** para abrir la UI de Ambari.  Se le solicitarán las credenciales de inicio de sesión del clúster.
 
 Para abrir una lista de vistas de servicio, seleccione el panel de **vistas de Ambari** en la página de Azure Portal para HDInsight.  Esta lista varía en función de qué bibliotecas haya instalado.  Por ejemplo, puede ver YARN Queue Manager, Hive View y Tez View.  Seleccione cualquier vínculo de servicio para ver información sobre la configuración y el servicio.  La página de **pila y la versión** de la UI de Ambari proporciona información sobre la configuración de los servicios de clúster y el historial de versiones del servicio. Para navegar a esta sección de la UI de Ambari, seleccione el menú **Administración** y, a continuación, **Stacks and Versions** (Pilas y versiones).  Seleccione la pestaña **Versiones** para ver la información de la versión del servicio.
 
 ![Versiones y pila de administración de Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Con la UI de Ambari, puede descargar la configuración de cualquier servicio (o de todos) que se ejecute en un host determinado (o nodo) del clúster.  Seleccione el menú **Hosts** y, a continuación, el vínculo para el host de interés. En la página de dicho host, seleccione el botón **Acciones del host** y, a continuación, **Descargar configuraciones de cliente** .
+Con la UI de Ambari, puede descargar la configuración de cualquier servicio (o de todos) que se ejecute en un host determinado (o nodo) del clúster.  Seleccione el menú **Hosts** y, a continuación, el vínculo para el host de interés. En la página de dicho host, seleccione el botón **Acciones del host** y, a continuación, **Descargar configuraciones de cliente**.
 
 ![Configuración del cliente de host de descarga de Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -144,7 +141,7 @@ La interfaz de usuario de YARN ResourceManager se ejecuta en el nodo principal d
 
 1. Abra un explorador y vaya a `https://CLUSTERNAME.azurehdinsight.net`. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 2. En la lista de servicios de la izquierda de la página, seleccione YARN.
-3. En la lista desplegable Vínculos rápidos, seleccione uno de los nodos principales del clúster y, a continuación, **Registros de ResourceManager** . Aparece una lista de vínculos a los registros de YARN.
+3. En la lista desplegable Vínculos rápidos, seleccione uno de los nodos principales del clúster y, a continuación, **Registros de ResourceManager**. Aparece una lista de vínculos a los registros de YARN.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Paso 4: Previsión de los costos y tamaños de almacenamiento del volumen de registros
 
@@ -158,7 +155,7 @@ Ahora tiene información suficiente para crear una estrategia de administración
 
 Después de determinar qué archivos de registro se pueden eliminar, puede ajustar los parámetros de registro en muchos servicios de Hadoop para eliminar automáticamente los archivos de registro tras un período de tiempo específico.
 
-Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros de Resource Manager mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad** .  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos.
+Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros de Resource Manager mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad**.  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos.
 
 ![Vista previa del registro de actividad de exportación de Azure Portal](./media/hdinsight-log-management/hdi-export-log-files.png)
 

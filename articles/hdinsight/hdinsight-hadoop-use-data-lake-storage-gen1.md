@@ -1,19 +1,16 @@
 ---
 title: Uso de Data Lake Storage Gen1 con Hadoop en Azure HDInsight
 description: Aprenda a consultar datos desde Azure Data Lake Storage Gen1 y a almacenar los resultados del análisis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539843"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945416"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight
 
@@ -62,7 +59,7 @@ Cuando se implementa HDInsight con Data Lake Storage Gen1 como almacenamiento pr
 * Cluster1 puede usar la ruta de acceso `adl://mydatalakestore/cluster1storage`
 * Cluster2 puede usar la ruta de acceso `adl://mydatalakestore/cluster2storage`
 
-Observe que ambos clústeres usan la misma cuenta de Data Lake Storage Gen1, **mydatalakestore** . Cada clúster tiene acceso a su propio sistema de archivos raíz en Data Lake Storage. La experiencia de implementación de Azure Portal le pide que use un nombre de carpeta como **/clusters/\<clustername>** para la ruta de acceso raíz.
+Observe que ambos clústeres usan la misma cuenta de Data Lake Storage Gen1, **mydatalakestore**. Cada clúster tiene acceso a su propio sistema de archivos raíz en Data Lake Storage. La experiencia de implementación de Azure Portal le pide que use un nombre de carpeta como **/clusters/\<clustername>** para la ruta de acceso raíz.
 
 Para usar Data Lake Storage Gen1 como almacenamiento predeterminado, debe conceder a la entidad de servicio acceso a las siguientes rutas:
 
@@ -137,19 +134,19 @@ Para obtener más información sobre el modelo de control de acceso, consulte [C
 
 Existen varias maneras de acceder a los archivos de Data Lake Storage desde un clúster de HDInsight.
 
-* **Con el nombre completo** . Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
+* **Con el nombre completo**. Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Con el formato abreviado de la ruta de acceso** . Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
+* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     adl:///<file path>
     ```
 
-* **Con la ruta de acceso relativa** . Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
+* **Con la ruta de acceso relativa**. Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
 
     ```
     /<file.path>/

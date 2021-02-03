@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220276"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944906"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solución de problemas relacionados con orquestaciones y desencadenadores de canalizaciones en Azure Data Factory
 
@@ -60,7 +60,7 @@ Mensaje de error:
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Causa**: Ha alcanzado el límite de capacidad del entorno de ejecución de integración. Podría estar ejecutando una gran cantidad de flujos de datos mediante el mismo entorno de ejecución de integración de manera simultánea. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2)).
+**Causa**: Ha alcanzado el límite de capacidad del entorno de ejecución de integración. Podría estar ejecutando una gran cantidad de flujos de datos mediante el mismo entorno de ejecución de integración de manera simultánea. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2)).
 
 **Solución:**
  
@@ -76,13 +76,13 @@ Azure Data Factory evalúa el resultado de todas las actividades de nivel de hoj
 **Resolución**
 
 1. Implemente comprobaciones en el nivel de actividad con las indicaciones de [Control de errores de canalización](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Use Azure Logic Apps para supervisar las canalizaciones a intervalos regulares con las indicaciones de [Consulta por factoría](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+1. Use Azure Logic Apps para supervisar las canalizaciones a intervalos regulares con las indicaciones de [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Supervisión de errores de canalización en intervalos regulares
 
 Quizá necesite supervisar las canalizaciones de Data Factory con errores a intervalos, por ejemplo, de 5 minutos. Puede consultar y filtrar las ejecuciones de canalización de una factoría de datos con el punto de conexión. 
 
-Configure una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos como se describe en [Consulta por factoría](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). A continuación, puede notificar los incidentes en nuestro sistema de incidencias.
+Configure una aplicación lógica de Azure para consultar todas las canalizaciones con error cada 5 minutos como se describe en [Consulta por factoría](/rest/api/datafactory/pipelineruns/querybyfactory). A continuación, puede notificar los incidentes en nuestro sistema de incidencias.
 
 Para obtener más información, diríjase a [Envío de notificaciones desde Data Factory, parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 

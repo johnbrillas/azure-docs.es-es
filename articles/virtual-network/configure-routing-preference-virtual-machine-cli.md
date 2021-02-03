@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d375b860c6b23fd6033e985e23c6f12dfe9a3c68
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7673a42afa3b85a2aaf3f11f5e9b74fd46d48488
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223574"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945094"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configuración de la preferencia de enrutamiento de una VM mediante la CLI de Azure
 
@@ -58,7 +58,7 @@ Antes de implementar una VM, debe crear recursos de red compatibles, como un gru
 
 ### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
-Cree un grupo de seguridad de red para las reglas que van a controlar la comunicación entrante y saliente de la red virtual con [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create).
+Cree un grupo de seguridad de red para las reglas que van a controlar la comunicación entrante y saliente de la red virtual con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con las subredes *mySubnet*:
+Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con las subredes *mySubnet*:
 
 ```azurecli
 # Create a virtual network
@@ -89,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Creación de un NIC
 
-Cree un NIC virtual para la VM con [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). En el ejemplo siguiente se crea un NIC virtual, que se conectará a la VM.
+Cree un NIC virtual para la VM con [az network nic create](/cli/azure/network/nic#az-network-nic-create). En el ejemplo siguiente se crea un NIC virtual, que se conectará a la VM.
 
 ```azurecli-interactive
 # Create a NIC
@@ -105,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). En el ejemplo siguiente, se crea una VM de Windows Server 2019 y los componentes de red virtual necesarios, si aún no existen.
+Cree la máquina virtual con [az vm create](/cli/azure/vm#az-vm-create). En el ejemplo siguiente, se crea una VM de Windows Server 2019 y los componentes de red virtual necesarios, si aún no existen.
 
 ```azurecli
 az vm create \

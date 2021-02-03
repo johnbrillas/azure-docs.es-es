@@ -1,25 +1,22 @@
 ---
 title: Componentes de alta disponibilidad en Azure HDInsight
 description: Información general de los diversos componentes de alta disponibilidad que usan los clústeres de HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539724"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945304"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servicios de alta disponibilidad admitidos en Azure HDInsight
 
 Con el fin de proporcionarle niveles óptimos de disponibilidad para los componentes de análisis, HDInsight se desarrolló con una arquitectura única que garantiza la alta disponibilidad (HA) de los servicios críticos. Microsoft desarrolló algunos componentes de esta arquitectura para proporcionar conmutación automática por error. Otros son componentes de Apache estándar que se implementan para la compatibilidad con servicios específicos. En este artículo se explica la arquitectura del modelo de servicio de alta disponibilidad en HDInsight, el modo en que HDInsight admite la conmutación por error de los servicios de alta disponibilidad y los procedimientos recomendados para recuperarse de otras interrupciones del servicio.
 
 > [!NOTE]
-> Este artículo contiene referencias al término *esclavo* , un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 ## <a name="high-availability-infrastructure"></a>Infraestructura de alta disponibilidad
 

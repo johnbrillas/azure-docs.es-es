@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934601"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070668"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -203,12 +203,13 @@ Consulte los siguientes parámetros de configuración.
 
 7. Crear la alerta 
 
+### <a name="example-email-alert"></a>Ejemplo de alerta por correo electrónico 
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla en la que se resalta la información necesaria para configurar una alerta por correo electrónico.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Enhorabuena, ha creado correctamente un panel de supervisión y configurado las alertas para el almacén de claves. Si ha seguido todos los pasos anteriores, debería recibir alertas por correo electrónico cuando el almacén de claves cumpla los criterios de alerta que ha configurado. A continuación se muestra un ejemplo. Use las herramientas que ha configurado en este artículo para supervisar activamente el estado de su almacén de claves. 
 
-### <a name="example-email-alert"></a>Ejemplo de alerta por correo electrónico 
 
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla en la que se resalta la información necesaria para configurar una alerta por correo electrónico.](../media/alert-20.png)

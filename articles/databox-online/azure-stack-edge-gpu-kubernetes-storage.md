@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448697"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063323"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Administración del almacenamiento de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU
 
@@ -79,11 +79,11 @@ Tienen lugar los pasos siguientes:
 
 En el dispositivo Azure Stack Edge Pro, los `PersistentVolumes` aprovisionados de forma estática se crean mediante las funcionalidades de almacenamiento del dispositivo. Cuando se aprovisiona un recurso compartido y la opción **Usar el recurso compartido con el proceso perimetral** está habilitada, esta acción crea un recurso PV automáticamente en el clúster de Kubernetes.
 
-![Creación de recursos compartidos locales en Azure Portal para el aprovisionamiento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Creación de recursos compartidos locales en Azure Portal para el aprovisionamiento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Para usar la nube por niveles, puede crear un recurso compartido en la nube de Edge con la opción Usar el recurso compartido con el proceso perimetral habilitada. Se vuelve a crear automáticamente un PV para este recurso compartido. Los datos de aplicación que se escriben en el recurso compartido de Edge están organizados en capas en la nube. 
 
-![Creación de recursos compartidos de nube en Azure Portal para el aprovisionamiento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Creación de recursos compartidos de nube en Azure Portal para el aprovisionamiento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Se pueden crear recursos compartidos de archivos SMB y NFS para aprovisionar PV de forma estática en un dispositivo Azure Stack Edge Pro. Una vez aprovisionado el PV, usted enviará una PVC para notificar este almacenamiento. Este es un ejemplo de una implementación de PVC `yaml` que notifica el almacenamiento y usa los recursos compartidos aprovisionados.
 

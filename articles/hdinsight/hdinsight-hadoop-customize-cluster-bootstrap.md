@@ -1,19 +1,16 @@
 ---
 title: Personalización de configuraciones de clúster de Azure HDInsight mediante el arranque
 description: Obtenga información sobre cómo personalizar la configuración del clúster de HDInsight mediante programación con .NET, PowerShell y plantillas de Resource Manager.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547493"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945744"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 
@@ -88,7 +85,7 @@ En el [Anexo](#appendix-powershell-sample) se incluye un script de PowerShell co
 1. Vaya a `https://CLUSTERNAME.azurehdinsight.net/`, donde `CLUSTERNAME` es el nombre del clúster.
 1. En el menú de la izquierda, vaya a **Hive** > **Configs (Configuraciones)**  > **Advanced (Avanzado)** .
 1. Expanda **Advanced hive-site** (Sitio de Hive avanzado).
-1. Busque **hive.metastore.client.socket.timeout** y confirme que el valor es **90s** .
+1. Busque **hive.metastore.client.socket.timeout** y confirme que el valor es **90s**.
 
 Otros ejemplos de cómo personalizar otros archivos de configuración:
 

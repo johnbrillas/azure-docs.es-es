@@ -1,18 +1,15 @@
 ---
 title: Ejecutar trabajos de Apache Sqoop con Azure HDInsight (Apache Hadoop)
 description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y la exportación en Sqoop entre un clúster de Hadoop y una base de datos de Azure SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545232"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946444"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 
@@ -97,9 +94,9 @@ El clúster, la instancia de SQL Database y otros objetos se crean a través de 
 
     El nombre del [servidor lógico de SQL Server](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver`. El nombre de la base de datos será `<ClusterName>db`. El nombre predeterminado de la cuenta de almacenamiento será `e6qhezrh2pdqu`.
 
-3. Seleccione **Acepto los términos y condiciones indicados anteriormente** .
+3. Seleccione **Acepto los términos y condiciones indicados anteriormente**.
 
-4. Seleccione **Comprar** . Verá un icono nuevo llamado Envío de implementación para la implementación de plantilla. Tarda aproximadamente 20 minutos en crear un clúster y la base de datos SQL.
+4. Seleccione **Comprar**. Verá un icono nuevo llamado Envío de implementación para la implementación de plantilla. Tarda aproximadamente 20 minutos en crear un clúster y la base de datos SQL.
 
 ## <a name="run-sqoop-jobs"></a>Ejecución de trabajos de Sqoop
 

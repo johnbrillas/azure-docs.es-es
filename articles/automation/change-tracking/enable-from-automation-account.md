@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677294"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055168"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitación de Change Tracking e Inventario desde una cuenta de Automation
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo puede usar la cuenta de Automation para habi
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [cuenta de Automation](../index.yml) para administrar máquinas.
+* Una [cuenta de Automation](../automation-security-overview.md) para administrar máquinas.
 * Una [máquina virtual](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -61,13 +61,13 @@ Las máquinas instaladas manualmente o las que ya envían notificaciones al áre
 
 1. En la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 
-2. Seleccione **Administrar máquinas**. Es posible que, si previamente seleccionó la opción **Habilitar en todas las máquinas disponibles y futuras** , la opción **Administrar máquinas** esté atenuada.
+2. Seleccione **Administrar máquinas**. Es posible que, si previamente seleccionó la opción **Habilitar en todas las máquinas disponibles y futuras**, la opción **Administrar máquinas** esté atenuada.
 
     ![Búsquedas guardadas](media/enable-from-automation-account/manage-machines.png)
 
 3. Para habilitar el Seguimiento de cambios e inventario en todas las máquinas disponibles, seleccione **Habilitar en todas las máquinas disponibles** en la página **Administrar máquinas**. Esta acción deshabilita el control para agregar máquinas individualmente y agrega todas las máquinas que informan al área de trabajo a la consulta de búsqueda guardada del grupo de equipos. Cuando se selecciona, esta acción deshabilita la opción **Administrar máquinas**.
 
-4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y abre la característica para todas las máquinas de Azure y que no son de Azure que envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas** , ya que no queda ninguna configuración de ámbito.
+4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y abre la característica para todas las máquinas de Azure y que no son de Azure que envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas**, ya que no queda ninguna configuración de ámbito.
 
     > [!NOTE]
     > Dado que esta opción elimina la búsqueda guardada y la configuración de ámbito dentro de Log Analytics, es importante quitar todos los bloqueos de eliminación en el área de trabajo de Log Analytics antes de seleccionar esta opción. Si no lo hace, la opción no quitará las configuraciones y deberá hacerlo manualmente.

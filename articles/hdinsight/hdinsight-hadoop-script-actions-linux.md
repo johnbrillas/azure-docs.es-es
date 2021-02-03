@@ -1,18 +1,15 @@
 ---
 title: Desarrollo de acciones de script para personalizar clústeres de Azure HDInsight
 description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight. Las acciones de script le permiten ejecutar scripts durante o después de la creación del clúster para cambiar la configuración del clúster o instalar software adicional.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629449"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945471"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -256,7 +253,7 @@ Esta sección proporciona instrucciones sobre cómo implementar algunos de los p
 
 En algunos casos, un script puede requerir parámetros. Por ejemplo, puede que necesite la contraseña de administrador para el clúster si utiliza la API REST de Ambari.
 
-Los parámetros que se pasan al script se conocen como *parámetros posicionales* , y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
+Los parámetros que se pasan al script se conocen como *parámetros posicionales*, y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
 
 Los valores se pasan al script como parámetros deben estar rodeados de comillas simples ('). De este modo, se garantiza que el valor pasado se trate literalmente.
 
@@ -332,9 +329,9 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 
 Estos son los errores que pueden producirse al usar los scripts desarrollados:
 
-**Error** : `$'\r': command not found`. A veces seguido de `syntax error: unexpected end of file`.
+**Error**: `$'\r': command not found`. A veces seguido de `syntax error: unexpected end of file`.
 
-*Causa* : este error se produce si las líneas en un script terminan con CRLF. Los sistemas UNIX esperan solo LF como final de la línea.
+*Causa*: este error se produce si las líneas en un script terminan con CRLF. Los sistemas UNIX esperan solo LF como final de la línea.
 
 Este problema suele producirse cuando se crea el script en un entorno Windows, ya que CRLF es una línea común final para muchos editores de texto en Windows.
 
@@ -350,9 +347,9 @@ Este problema suele producirse cuando se crea el script en un entorno Windows, y
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica el archivo directamente |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contendrá una versión con finales de línea solo LF. |
 
-**Error** : `line 1: #!/usr/bin/env: No such file or directory`.
+**Error**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Causa* : este error se produce cuando el script se guarda como UTF-8 con una marca BOM (Byte Order Mark).
+*Causa*: este error se produce cuando el script se guarda como UTF-8 con una marca BOM (Byte Order Mark).
 
 *Solución:* guarde el archivo como ASCII o UTF-8 sin una marca BOM. También puede usar el siguiente comando en un sistema Linux o UNIX para crear un archivo sin marca BOM:
 

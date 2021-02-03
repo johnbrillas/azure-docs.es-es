@@ -2,19 +2,15 @@
 title: Traslado de la cuenta de Azure Automation a otra suscripción
 description: En este artículo se indica cómo mover la cuenta de Automation a otra suscripción.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185558"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051031"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Traslado de la cuenta de Azure Automation a otra suscripción
 
@@ -41,7 +37,7 @@ Para desvincular el área de trabajo de la cuenta de Automation, se deben quitar
 
     ![Captura de pantalla de la eliminación de recursos de características en Azure Portal](../media/move-account/delete-solutions.png)
 
-Si lo prefiere, puede eliminar los recursos mediante el cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0):
+Si lo prefiere, puede eliminar los recursos mediante el cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource):
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -80,7 +76,7 @@ En el caso de la característica Start/Stop VMs during off hours, también debe 
 
     ![Captura de pantalla de la página Grupo de acciones](../media/move-account/delete-action-group.png)
 
-Si lo prefiere, puede eliminar el grupo de acciones mediante el cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0):
+Si lo prefiere, puede eliminar el grupo de acciones mediante el cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup):
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -108,7 +104,7 @@ Ahora puede mover la cuenta de Automation y sus runbooks.
 
 ## <a name="re-create-run-as-accounts"></a>Volver a crear las cuentas de ejecución
 
-Las [cuentas de ejecución](../manage-runas-account.md) crean una entidad de servicio en Azure Active Directory para autenticarse con recursos de Azure. Al cambiar las suscripciones, la cuenta de Automation ya no usa la cuenta de ejecución existente. Para volver a crear las cuentas de ejecución:
+Las [cuentas de ejecución](../automation-security-overview.md#run-as-accounts) crean una entidad de servicio en Azure Active Directory para autenticarse con recursos de Azure. Al cambiar las suscripciones, la cuenta de Automation ya no usa la cuenta de ejecución existente. Para volver a crear las cuentas de ejecución:
 
 1. Vaya a la cuenta de Automation en la nueva suscripción y, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución**. Verá que las cuentas de ejecución se muestran ahora como incompletas.
 
@@ -117,7 +113,7 @@ Las [cuentas de ejecución](../manage-runas-account.md) crean una entidad de ser
 2. Elimine las cuentas de ejecución de una en una mediante el botón **Eliminar** de la página **Propiedades**. 
 
     > [!NOTE]
-    > Si no tiene permisos para crear o ver las cuentas de ejecución, verá el siguiente mensaje: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para más información, consulte [Permisos necesarios para configurar cuentas de ejecución](../manage-runas-account.md#permissions).
+    > Si no tiene permisos para crear o ver las cuentas de ejecución, verá el siguiente mensaje: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para más información, consulte [Permisos necesarios para configurar cuentas de ejecución](../automation-security-overview.md#permissions).
 
 3. Después de eliminar las cuentas de ejecución, seleccione **Crear** en **Cuenta de ejecución de Azure**. 
 

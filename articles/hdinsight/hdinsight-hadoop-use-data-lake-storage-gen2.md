@@ -1,19 +1,16 @@
 ---
 title: Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 description: Obtenga información sobre cómo usar Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2bbfbd2d953ea663453f0092ff366e95f6dd5ea7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744595"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945380"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -28,7 +25,7 @@ Para ver una comparación completa de las opciones de creación de clústeres co
 Data Lake Storage Gen2 está disponible como opción de almacenamiento para casi todos los tipos de clúster de Azure HDInsight como una cuenta de almacenamiento predeterminada o adicional. Aun así, HBase solo puede tener una cuenta con Data Lake Storage Gen2.
 
 > [!Note]  
-> Una vez que selecciona Data Lake Storage Gen2 como el **tipo de almacenamiento principal** , no puede seleccionar Data Lake Storage Gen1 como almacenamiento adicional.
+> Una vez que selecciona Data Lake Storage Gen2 como el **tipo de almacenamiento principal**, no puede seleccionar Data Lake Storage Gen1 como almacenamiento adicional.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Creación de clústeres de HDInsight con Data Lake Storage Gen2
 
@@ -66,19 +63,19 @@ Para establecer los permisos para que los usuarios consulten los datos, utilice 
 
 Existen varias maneras de acceder a los archivos de Data Lake Storage Gen2 desde un clúster de HDInsight.
 
-* **Con el nombre completo** . Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
+* **Con el nombre completo**. Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Con el formato abreviado de la ruta de acceso** . Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
+* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Con la ruta de acceso relativa** . Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
+* **Con la ruta de acceso relativa**. Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
 
     ```
     /<file.path>/

@@ -1,19 +1,17 @@
 ---
 title: 'Almacenamiento: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de las prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544875"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944857"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migración de clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -98,15 +96,15 @@ Una característica fundamental de Data Lake Storage Gen2 es la adición de un [
 
 Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo en materia de rendimiento, administración y seguridad. Las características clave de Azure Data Lake Storage (ADLS) Gen2 son las siguientes:
 
-- **Acceso compatible con Hadoop** : Azure Data Lake Storage Gen2 permite administrar datos y acceder a ellos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponible en todos los entornos de Apache Hadoop que se incluyen en [Azure HDInsight](../index.yml). Este controlador permite acceder a datos almacenados en Data Lake Storage Gen2.
+- **Acceso compatible con Hadoop**: Azure Data Lake Storage Gen2 permite administrar datos y acceder a ellos igual que lo haría con un [sistema de archivos distribuido de Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). El nuevo [controlador ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) está disponible en todos los entornos de Apache Hadoop que se incluyen en [Azure HDInsight](../index.yml). Este controlador permite acceder a datos almacenados en Data Lake Storage Gen2.
 
-- **Superconjunto de permisos POSIX** : el modelo de seguridad de Data Lake Gen2 es totalmente compatible con los permisos de ACL y POSIX junto con granularidad adicional específica de Data Lake Storage Gen2. Se puede realizar la configuración mediante herramientas de administración o marcos, como Hive y Spark.
+- **Superconjunto de permisos POSIX**: el modelo de seguridad de Data Lake Gen2 es totalmente compatible con los permisos de ACL y POSIX junto con granularidad adicional específica de Data Lake Storage Gen2. Se puede realizar la configuración mediante herramientas de administración o marcos, como Hive y Spark.
 
-- **Rentabilidad** : Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Mientras las transiciones de datos recorren su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el [ciclo de vida de Azure Blob Storage](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Mientras las transiciones de datos recorren su ciclo de vida completo, las tasas de facturación cambian para minimizar los costos a través de características integradas, como el [ciclo de vida de Azure Blob Storage](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Funciona con aplicaciones, marcos y herramientas de Blob Storage** : Data Lake Storage Gen2 sigue funcionando con una amplia gama de herramientas, marcos y aplicaciones que existen actualmente para Blob Storage.
+- **Funciona con aplicaciones, marcos y herramientas de Blob Storage**: Data Lake Storage Gen2 sigue funcionando con una amplia gama de herramientas, marcos y aplicaciones que existen actualmente para Blob Storage.
 
-- **Controlador optimizado** : el controlador de Azure Blob File System (ABFS) está [específicamente optimizado](../../storage/blobs/data-lake-storage-abfs-driver.md) para el análisis de macrodatos. Las API REST correspondientes se exponen a través del punto de conexión dfs, dfs.core.windows.net.
+- **Controlador optimizado**: el controlador de Azure Blob File System (ABFS) está [específicamente optimizado](../../storage/blobs/data-lake-storage-abfs-driver.md) para el análisis de macrodatos. Las API REST correspondientes se exponen a través del punto de conexión dfs, dfs.core.windows.net.
 
 Uno de los formatos siguientes puede utilizarse para acceder a los datos almacenados en ADLS Gen2:
 - `abfs:///`: accede al almacén Data Lake Storage predeterminado del clúster.
@@ -173,7 +171,7 @@ Por defecto, HDInsight tiene acceso total a los datos de las cuentas de Azure St
 
 6. Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
-    **Clave** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor** : clave SAS que devuelve la aplicación Python en el paso 4 anterior.
+    **Clave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor**: clave SAS que devuelve la aplicación Python en el paso 4 anterior.
 
 7. Haga clic en el botón **Add** (Agregar) para guardar esta clave y este valor y, a continuación, haga clic en el botón **Save** (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en **Save** (Guardar).
 

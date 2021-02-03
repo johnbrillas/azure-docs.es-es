@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002873"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985638"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -48,7 +48,7 @@ Tipos de archivo admitidos | La copia de seguridad de estos tipos de archivos se
 Tipo de archivo no admitidos | <li>Servidores en sistemas de archivos que distinguen mayúsculas de minúsculas<li> Vínculos físicos (omitidos)<li> Puntos de reanálisis (omitidos)<li> Cifrados y comprimidos (omitidos)<li> Cifrados y dispersos (omitidos)<li> Flujo comprimido<li> Secuencia de análisis
 Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener almacenamiento libre local de al menos el 5 % del tamaño de los datos cuya copia se va a hacer. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
 Almacenamiento de almacén | No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Azure Backup; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54 400 GB.
-Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
+Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/> Direcciones URL:<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Direcciones IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
 Agente de Azure Backup | Si DPM se ejecuta en System Center 2012 SP1, instale el paquete acumulativo de actualizaciones 2 o posterior para DPM SP1. Esto es necesario para la instalación del agente.<br/><br/> En este artículo se describe cómo implementar la última versión del agente de Azure Backup, también conocido como el agente de Microsoft Azure Recovery Service (MARS). Si tiene una versión anterior implementada, actualice a la última versión para asegurarse de que la copia de seguridad funciona según lo previsto.
 
 Antes de empezar, necesitará una cuenta de Azure con la característica Azure Backup habilitada. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Lea acerca de los [Precios de Backup](https://azure.microsoft.com/pricing/details/backup/).

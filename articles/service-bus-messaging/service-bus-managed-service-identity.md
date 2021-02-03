@@ -3,12 +3,12 @@ title: Identidades administradas para recursos de Azure con Service Bus
 description: En este artículo se describe cómo usar identidades administradas para obtener acceso a entidades de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: dac12820adf863a7e51457d34f9180543089fc7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881574"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954317"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -138,8 +138,6 @@ Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el no
 
 > [!NOTE]
 > - La identidad administrada solo funciona en el entorno de Azure, en servicios de aplicaciones, en máquinas virtuales de Azure y en conjuntos de escalado. En el caso de las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication, que es la que usa el paquete NuGet de Service Bus, proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local. Esta biblioteca también permite probar el código localmente en una máquina de desarrollo, con su cuenta de usuario de Visual Studio, la CLI de Azure 2.0 o la autenticación integrada de Active Directory. Para más información acerca de las opciones de desarrollo local con esta biblioteca, consulte [Autenticación entre servicios en Azure Key Vault mediante .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
-> 
-> - Actualmente, las identidades administradas no funcionan con las ranuras de implementación de App Service.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
