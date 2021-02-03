@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072180"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226563"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -83,7 +83,7 @@ Los modelos base y los modelos personalizados se retirarán después de un tiemp
 
 **P: ¿Se registran mis solicitudes?**
 
-**R.** : De forma predeterminada, las solicitudes no se registran (ni audio ni transcripción). Si es necesario, puede seleccionar la opción *Log content from this endpoint* (Registrar contenido desde este punto de conexión) al [crear un punto de conexión personalizado](./how-to-custom-speech-train-model.md). También puede habilitar el registro de audio en el [SDK de voz](speech-sdk.md) por solicitud sin crear un punto de conexión personalizado. En ambos casos, los resultados de audio y reconocimiento de las solicitudes se guardarán en un almacenamiento seguro. En el caso de las suscripciones que usan almacenamiento propiedad de Microsoft, estarán disponibles durante 30 días.
+**R.** : De forma predeterminada, las solicitudes no se registran (ni audio ni transcripción). Si es necesario, puede seleccionar la opción *Log content from this endpoint* (Registrar contenido desde este punto de conexión) al [crear un punto de conexión personalizado](how-to-custom-speech-train-model.md#deploy-a-custom-model). También puede habilitar el registro de audio en el [SDK de voz](how-to-use-logging.md) por solicitud sin crear un punto de conexión personalizado. En ambos casos, los resultados de audio y reconocimiento de las solicitudes se guardarán en un almacenamiento seguro. En el caso de las suscripciones que usan almacenamiento propiedad de Microsoft, estarán disponibles durante 30 días.
 
 Puede exportar los archivos registrados en la página de implementación de Speech Studio si usa un punto de conexión personalizado con la opción *Log content from this endpoint* (Registrar contenido desde este punto de conexión) habilitada. Si el registro de audio se habilita a través del SDK, llame a la [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) para acceder a los archivos.
 

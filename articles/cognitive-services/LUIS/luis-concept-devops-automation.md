@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561314"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932543"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flujos de trabajo de integración continua y entrega continua de DevOps para LUIS
 
@@ -41,7 +41,7 @@ Use las siguientes herramientas para crear flujos de trabajo de automatización 
 
 * [Bot Framework Tools LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) para trabajar con las aplicaciones y las versiones de LUIS, así como entrenarlas, probarlas y publicarlas en el servicio de LUIS.
 
-* [CLI de Azure](/cli/azure/?view=azure-cli-latest) para consultar las suscripciones de Azure y capturar claves de predicción y creación de LUIS, así como para crear una [entidad de servicio](/cli/azure/ad/sp?view=azure-cli-latest) de Azure que se use para la autenticación de la automatización.
+* [CLI de Azure](/cli/azure/) para consultar las suscripciones de Azure y capturar claves de predicción y creación de LUIS, así como para crear una [entidad de servicio](/cli/azure/ad/sp) de Azure que se use para la autenticación de la automatización.
 
 * Herramienta [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) para [probar una aplicación de LUIS](luis-concept-devops-testing.md) y para analizar los resultados de la prueba.
 

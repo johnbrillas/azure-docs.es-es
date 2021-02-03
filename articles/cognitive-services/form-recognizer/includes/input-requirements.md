@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7cf3d86eeea9d1b0f5fcbb757d3597e21cbcc369
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548249"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901204"
 ---
 Form Recognizer trabaja con documentos de entrada que cumplen estos requisitos:
 
@@ -25,8 +25,3 @@ Form Recognizer trabaja con documentos de entrada que cumplen estos requisitos:
 * El texto debe usar el alfabeto latino (caracteres ingleses).
 * En el caso del aprendizaje sin supervisión (sin datos etiquetados), los datos deben contener claves y valores.
 * En el caso del aprendizaje sin supervisión (sin datos etiquetados), las claves deben aparecer por encima o a la izquierda de los valores; no pueden aparecer por abajo ni a la derecha.
-
-Form Recognizer no admite actualmente estos tipos de datos de entrada:
-
-* Tablas complejas (tablas anidadas, encabezados combinados o celdas, etc.)
-* Casillas o botones de radio

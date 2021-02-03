@@ -3,19 +3,19 @@ title: 'Recuentos de caracteres: Traductor'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se explica cómo Traductor de Azure Cognitive Services cuenta los caracteres para que pueda entenderse cómo ingiere el contenido.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7fad90cf47591b5ffab4232c2be3180138738f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83992842"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895890"
 ---
 # <a name="how-the-translator-counts-characters"></a>Cómo Traductor cuenta los caracteres
 

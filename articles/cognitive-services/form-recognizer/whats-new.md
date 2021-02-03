@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: f6d610db01b465306cdaaafa9b1308dba63ff9ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844996"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936149"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -85,7 +85,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="new-features"></a>Nuevas características
 
-* **Referencia de v2.0 disponible**: consulte la [referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) y [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **Referencia de v2.0 disponible**: consulte la [referencia de la API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) y los SDK actualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme) y [JavaScript](/javascript/api/overview/azure/).
 * **Mejoras en tablas y extracciones**: incluye mejoras tanto en la precisión como en las extracciones de tablas, en concreto, la funcionalidad para aprender encabezados y estructuras de tablas en el _entrenamiento personalizado sin etiquetas_. 
 
 * **Compatibilidad de divisas**: detección y extracción de símbolos de moneda globales.
@@ -110,10 +110,10 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 
 ### <a name="new-features"></a>Nuevas características
 * **Compatibilidad del SDK con la versión preliminar pública de la API Form Recognizer v2.0**: este mes hemos ampliado nuestro servicio de soporte técnico para incluir un SDK de versión preliminar para la versión 2.0 (versión preliminar) de Form Recognizer. Use los vínculos siguientes para empezar a trabajar con el lenguaje que prefiera: 
-   * [SDK de .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [SDK de Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [SDK de Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [SDK de JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [SDK de .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [SDK de Java](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [SDK de Python](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [SDK de JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   El nuevo SDK es compatible con todas las características de la API REST v 2.0 de Form Recognizer. Por ejemplo, puede entrenar un modelo con o sin etiquetas y extraer texto, pares clave-valor y tablas de los formularios; extraer datos de las confirmaciones con el servicio de confirmaciones pregeneradas; y extraer texto y tablas con el servicio de diseño de los documentos. Puede compartir sus comentarios sobre los SDK mediante el [formulario de comentarios de SDK](https://aka.ms/FR_SDK_v1_feedback).
  

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842114"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928659"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante una plantilla de Resource Manager
 
@@ -75,7 +75,7 @@ En la plantilla, se define un recurso de Azure:
 > [!NOTE]
 > La creación de `az deployment group` requiere la versión 2.6 de la CLI de Azure, o cualquier versión posterior. Para mostrar el tipo de versión `az --version`. Para más información, consulte la [documentación](/cli/azure/deployment/group).
 
-Ejecute el siguiente script mediante la interfaz de la línea de comandos (CLI) de Azure [en la máquina local](/cli/azure/install-azure-cli?view=azure-cli-latest) o en un explorador con el botón **Pruébelo**. Escriba un nombre y una ubicación (por ejemplo `centralus`) para un nuevo grupo de recursos y la plantilla de Resource Manager se usará para implementar un recurso de Cognitive Services dentro de él. Recuerde el nombre que use. Lo usará más adelante para validar la implementación.
+Ejecute el siguiente script mediante la interfaz de la línea de comandos (CLI) de Azure [en la máquina local](/cli/azure/install-azure-cli) o en un explorador con el botón **Pruébelo**. Escriba un nombre y una ubicación (por ejemplo `centralus`) para un nuevo grupo de recursos y la plantilla de Resource Manager se usará para implementar un recurso de Cognitive Services dentro de él. Recuerde el nombre que use. Lo usará más adelante para validar la implementación.
 
 
 ```azurecli-interactive

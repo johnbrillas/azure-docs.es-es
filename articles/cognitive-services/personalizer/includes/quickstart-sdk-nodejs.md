@@ -8,14 +8,14 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/27/2020
-ms.openlocfilehash: d2b0d4435f681ce6dedea7cace929a03e6782bce
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f050ed5aff63d7e75c45505309b2cf7d18e9ea1a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371918"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948510"
 ---
-[Documentación de referencia](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Paquete (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+[Documentación de referencia](/javascript/api/@azure/cognitiveservices-personalizer/) |[Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Paquete (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -77,11 +77,11 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="object-model"></a>Modelo de objetos
 
-El cliente de Personalizer es un objeto [PersonalizerClient](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest) que se autentica en Azure mediante Microsoft.Rest.ServiceClientCredentials, que contiene la clave.
+El cliente de Personalizer es un objeto [PersonalizerClient](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient) que se autentica en Azure mediante Microsoft.Rest.ServiceClientCredentials, que contiene la clave.
 
-Para solicitar el mejor elemento del contenido, cree un elemento [RankRequest](/javascript/api/@azure/cognitiveservices-personalizer/rankrequest?view=azure-node-latest) y, luego, páselo al método [client.Rank](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient?view=azure-node-latest#rank-rankrequest--msrest-requestoptionsbase-). El método Rank devuelve un elemento RankResponse.
+Para solicitar el mejor elemento del contenido, cree un elemento [RankRequest](/javascript/api/@azure/cognitiveservices-personalizer/rankrequest) y, luego, páselo al método [client.Rank](/javascript/api/@azure/cognitiveservices-personalizer/personalizerclient#rank-rankrequest--msrest-requestoptionsbase-). El método Rank devuelve un elemento RankResponse.
 
-Para enviar una recompensa a Personalizer, cree un [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest?view=azure-node-latest) y, a continuación, páselo al método [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events?view=azure-node-latest#reward-string--rewardrequest--servicecallback-void--) en la clase de eventos.
+Para enviar una recompensa a Personalizer, cree un [RewardRequest](/javascript/api/@azure/cognitiveservices-personalizer/rewardrequest) y, a continuación, páselo al método [Reward](/javascript/api/@azure/cognitiveservices-personalizer/events#reward-string--rewardrequest--servicecallback-void--) en la clase de eventos.
 
 La determinación de la recompensa en este inicio rápido es trivial. En un sistema de producción, la determinación de lo que afecta a la [puntuación de recompensa](../concept-rewards.md) y cuánto le afecta, puede ser un proceso complejo que decida cambiar con el tiempo. Esta debe ser una de las decisiones de diseño principales en la arquitectura de su instancia de Personalizer.
 

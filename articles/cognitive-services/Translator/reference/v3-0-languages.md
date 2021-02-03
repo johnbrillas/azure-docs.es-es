@@ -3,19 +3,19 @@ title: Método de idiomas de Traductor
 titleSuffix: Azure Cognitive Services
 description: El método de idiomas obtiene el conjunto de idiomas admitidos actualmente en otras operaciones de Traductor.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: d9abd1f305e47eca743dc9274e0ec1f0a950dd6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 8471983d24cfed39e6521e19366f6023e519adaf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021276"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895482"
 ---
 # <a name="translator-30-languages"></a>Traductor 3.0: Lenguajes
 

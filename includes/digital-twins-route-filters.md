@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: e06e660a43aaa0ff5eb79bc00bd8a5d2c61c6580
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045326"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859907"
 ---
 | Nombre de filtro | Descripción | Esquema de texto de filtro | Valores admitidos | 
 | --- | --- | --- | --- |
@@ -22,10 +22,6 @@ ms.locfileid: "98045326"
 | Tipo de contenido | Tipo de contenido del valor de datos. | `datacontenttype = '<contentType>'` | El tipo de contenido es `application/json`. |
 | Versión de especificación | Versión del esquema de evento que se usa. | `specversion = '<version>'` | La versión debe ser `1.0`. Esto indica la versión de esquema de CloudEvents es la 1.0. |
 | Cuerpo de la notificación | Referencia a cualquier propiedad en el campo `data` de una notificación | `$body.<property>` | Consulte [*Procedimientos: Descripción de los datos de eventos*](../articles/digital-twins/how-to-interpret-event-data.md) para obtener ejemplos de notificaciones. Se puede hacer referencia a cualquier propiedad del campo `data` mediante `$body`
-
-Tenga en cuenta que puede agregar varios filtros a una solicitud como esta: 
-
-:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 Los siguientes tipos de datos se admiten como valores devueltos por las referencias a los datos anteriores:
 

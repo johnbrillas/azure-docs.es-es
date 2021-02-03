@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371783"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948044"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
@@ -42,7 +42,7 @@ Cree un proyecto en Visual Studio mediante la plantilla de aplicación web de A
 
 ### <a name="configure-authentication-values"></a>Configuración de los valores de autenticación
 
-Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario**. Se abrirá un archivo denominado _secrets.json_. Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
+Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario**. Se abrirá un archivo denominado _secrets.json_. Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](/aspnet/core/security/app-secrets?tabs=windows). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
 
 ```json
 {
@@ -55,7 +55,7 @@ Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ 
 
 ### <a name="install-active-directory-nuget-package"></a>Instalación del paquete NuGet en Active Directory
 
-El código siguiente usa objetos del paquete NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory** , por lo que tendrá que agregar una referencia a ese paquete en el proyecto.
+El código siguiente usa objetos del paquete NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**, por lo que tendrá que agregar una referencia a ese paquete en el proyecto.
 
 Abra la Consola del Administrador de paquetes NuGet en **Herramientas -> Administrador de paquetes NuGet -> Consola del Administrador de paquetes** y ejecute el siguiente comando:
 
@@ -71,7 +71,7 @@ Abra _Controllers\HomeController.cs_ y agregue el código siguiente después de 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Ahora, configuraremos el controlador para obtener los valores de Azure AD de _secrets.json_. En la parte superior de la clase _HomeController_ , después de ```public class HomeController : Controller {``` agregue el código siguiente.
+Ahora, configuraremos el controlador para obtener los valores de Azure AD de _secrets.json_. En la parte superior de la clase _HomeController_, después de ```public class HomeController : Controller {``` agregue el código siguiente.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -214,13 +214,13 @@ Ahora, vamos a agregar contenido de ejemplo a esta aplicación web. Abra _Views\
 </div>
 ```
 
-Tenga en cuenta que todo el texto tiene un atributo **lang** , que describe los idiomas del texto. Este atributo ayuda al Lector inmersivo a proporcionar características de idioma y gramática pertinentes.
+Tenga en cuenta que todo el texto tiene un atributo **lang**, que describe los idiomas del texto. Este atributo ayuda al Lector inmersivo a proporcionar características de idioma y gramática pertinentes.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Incorporación de JavaScript para administrar el inicio del Lector inmersivo
 
 La biblioteca del Lector inmersivo proporciona funcionalidades como el inicio del Lector inmersivo y la representación de sus botones. Obtenga más información [aquí](../../reference.md).
 
-En la parte inferior de _Views\Home\Index.cshtml_ , agregue el siguiente código:
+En la parte inferior de _Views\Home\Index.cshtml_, agregue el siguiente código:
 
 ```html
 @section Scripts

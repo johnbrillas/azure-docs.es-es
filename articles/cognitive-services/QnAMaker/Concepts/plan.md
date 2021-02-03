@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353177"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222872"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeamiento de la aplicación de QnA Maker
 
@@ -94,13 +94,13 @@ Ahora puede tener knowledge bases en distintos idiomas dentro del mismo recurso 
 
 ### <a name="ingest-data-sources"></a>Ingesta de orígenes de datos
 
-Puede usar uno de los siguientes [orígenes de datos](../index.yml) para crear una base de conocimiento:
+Puede usar uno de los siguientes [orígenes de datos](../Concepts/data-sources-and-content.md) para crear una base de conocimiento:
 
 * URL pública
 * URL privada de SharePoint
 * Archivo
 
-El proceso de ingesta convierte los [tipos de contenido admitidos](../index.yml) a Markdown. La edición posterior de la *respuesta* se realiza con Markdown. Después de crear una base de conocimiento, puede editar los [pares de preguntas y respuestas](question-answer-set.md) en el portal de QnA Maker mediante la [creación de texto enriquecido](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+El proceso de ingesta convierte los [tipos de contenido admitidos](../reference-document-format-guidelines.md) a Markdown. La edición posterior de la *respuesta* se realiza con Markdown. Después de crear una base de conocimiento, puede editar los [pares de preguntas y respuestas](question-answer-set.md) en el portal de QnA Maker mediante la [creación de texto enriquecido](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Consideraciones sobre el formato de los datos
 
@@ -124,7 +124,7 @@ Debe diseñar el flujo de conversación con un bucle en mente para que el usuari
 
 Los colaboradores podrían ser otros desarrolladores que comparten la pila de desarrollo completa de la aplicación de base de conocimiento, o tal vez se limiten a crear la base de conocimiento.
 
-La creación de la base de conocimiento admite varios [permisos de acceso basado en roles](../index.yml) que se apliquen en Azure Portal para limitar el ámbito de las capacidades de un colaborador.
+La creación de la base de conocimiento admite varios [permisos de acceso basado en roles](../reference-role-based-access-control.md) que se apliquen en Azure Portal para limitar el ámbito de las capacidades de un colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integración con aplicaciones cliente
 

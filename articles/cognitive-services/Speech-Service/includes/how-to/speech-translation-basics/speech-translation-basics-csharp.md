@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8392770d7edb18f776f7664657c6985b9f7fb63
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0db21032d8bd31bce2407ddf1c647d75cef86696
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425437"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99244970"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer la voz humana y traducirla a otros idiomas. En este inicio rápido, aprenderá a usar Speech SDK en sus aplicaciones y productos para realizar la traducción de voz de alta calidad. En este inicio rápido se tratan temas que incluyen:
 
@@ -28,7 +28,7 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
-En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz <span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo _Acerca del SDK de Voz_.
+En primer lugar, deberá instalar Speech SDK. Dependiendo de la plataforma, siga las instrucciones de la sección <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Obtención del SDK de Voz <span class="docon docon-navigate-external x-hidden-focus"></span></a> del artículo _Acerca del SDK de Voz_.
 
 ## <a name="import-dependencies"></a>Dependencias de importación
 
@@ -112,7 +112,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-La propiedad [`SpeechRecognitionLanguage`][recognitionlang] espera una cadena con formato de configuración regional de idioma. En la columna **Locale** , puede proporcionar cualquier valor de la lista de idiomas o configuraciones regionales [compatibles](../../../language-support.md).
+La propiedad [`SpeechRecognitionLanguage`][recognitionlang] espera una cadena con formato de configuración regional de idioma. En la columna **Locale**, puede proporcionar cualquier valor de la lista de idiomas o configuraciones regionales [compatibles](../../../language-support.md).
 
 ## <a name="add-translation-language"></a>Incorporación del idioma de traducción
 

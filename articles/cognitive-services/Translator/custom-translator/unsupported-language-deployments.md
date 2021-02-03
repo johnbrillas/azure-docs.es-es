@@ -3,19 +3,19 @@ title: 'Implementaciones de idiomas no compatibles: Traductor personalizado'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se muestra cómo implementar pares de idiomas no admitidos en Traductor personalizado de Azure Cognitive Services.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369042"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898077"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
@@ -37,7 +37,7 @@ Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos 
 
 ![Captura de pantalla que resalta la sección de entrenamientos no admitidos del centro de traductores.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-En la página de selección de **entrenamientos de Translator Hub no admitidos** , la pestaña **Unrequested trainings** (Entrenamientos no solicitados) incluye modelos que cumplen los requisitos para la implementación.  Seleccione los modelos que desea implementar y envíe una solicitud.   Antes del 30 de abril, fecha límite de la implementación, podrá seleccionar tantos modelos como desee para la implementación.
+En la página de selección de **entrenamientos de Translator Hub no admitidos**, la pestaña **Unrequested trainings** (Entrenamientos no solicitados) incluye modelos que cumplen los requisitos para la implementación.  Seleccione los modelos que desea implementar y envíe una solicitud.   Antes del 30 de abril, fecha límite de la implementación, podrá seleccionar tantos modelos como desee para la implementación.
  
 ![Captura de pantalla que muestra la pestaña de entrenamientos no solicitados.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 

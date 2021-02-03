@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: aahi
-ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97034027"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940044"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -340,9 +340,6 @@ Proporcione intervalos de direcciones de Internet permitidos mediante la [notaci
    > Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
 
 Las reglas de red IP solo se permiten para direcciones IP de **Internet público**. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por `10.*`, `172.16.*` - `172.31.*` y `192.168.*`.
-
-   > [!NOTE]
-   > Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que el recurso de Cognitive Services. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
 
 Solo se admiten direcciones IPV4 en este momento. Cada recurso de Cognitive Services admite hasta 100 reglas de red IP, que se pueden combinar con [reglas de red virtual](#grant-access-from-a-virtual-network).
 

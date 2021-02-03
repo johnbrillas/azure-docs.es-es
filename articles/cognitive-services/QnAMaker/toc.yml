@@ -103,6 +103,8 @@
       href: How-To/change-default-answer.md
     - name: Configuración del servicio
       href: reference-app-service.md
+    - name: Instrucciones de formato de contenido
+      href: reference-document-format-guidelines.md
     - name: Contenido y formatos de datos
       items:
         - name: Instrucciones de formato de contenido

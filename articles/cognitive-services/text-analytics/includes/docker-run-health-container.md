@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af8fec56c32b52e2af584e59f08db6cc7129c9c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689623"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947579"
 ---
 ## <a name="install-the-container"></a>Instalación del contenedor
 
@@ -112,7 +112,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 También puede usar una instancia de contenedor de Azure (ACI) para facilitar la implementación. ACI es un recurso que le permite ejecutar contenedores de Docker a petición en un entorno de Azure administrado y sin servidor. 
 
-Consulte [Cómo usar Azure Container Instances](../how-tos/text-analytics-how-to-use-container-instances.md) para conocer los pasos necesarios para implementar un recurso ACI con Azure Portal. También puede usar el siguiente script de PowerShell con CLI de Azure, que creará un ACI en su suscripción con la imagen del contenedor.  Espere a que se complete el script (aproximadamente de 25 a 30 minutos) antes de enviar la primera solicitud.  Debido al límite en el número máximo de CPU por recurso de ACI, no seleccione esta opción si espera enviar más de 5 documentos grandes (aproximadamente 5000 caracteres cada uno) por solicitud.
+Consulte [Cómo usar Azure Container Instances](../../containers/azure-container-instance-recipe.md) para conocer los pasos necesarios para implementar un recurso ACI con Azure Portal. También puede usar el siguiente script de PowerShell con CLI de Azure, que creará un ACI en su suscripción con la imagen del contenedor.  Espere a que se complete el script (aproximadamente de 25 a 30 minutos) antes de enviar la primera solicitud.  Debido al límite en el número máximo de CPU por recurso de ACI, no seleccione esta opción si espera enviar más de 5 documentos grandes (aproximadamente 5000 caracteres cada uno) por solicitud.
 Para obtener información de disponibilidad, consulte el artículo [Compatibilidad de regiones de ACI](../../../container-instances/container-instances-region-availability.md). 
 
 > [!NOTE] 
@@ -213,4 +213,3 @@ docker-compose up
 ```
 
 Para obtener más información, consulte la documentación de NGINX sobre la [Terminación SSL de NGINX](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-

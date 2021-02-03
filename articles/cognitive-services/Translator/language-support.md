@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Translator'
 titleSuffix: Azure Cognitive Services
 description: Translator de Cognitive Services admite los siguientes idiomas para la conversión de texto a texto con traducción automática neuronal (NMT).
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
-ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.author: lajanuar
+ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789286"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919925"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -68,6 +68,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 | Húngaro | `hu` |
 | Islandés | `is` |
 | Indonesio | `id` |
+| Inuktitut | `iu` |
 | Irlandés | `ga` |
 | Italiano | `it` |
 | Japonés | `ja` |

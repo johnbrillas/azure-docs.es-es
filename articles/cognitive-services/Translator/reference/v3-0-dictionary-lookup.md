@@ -3,19 +3,19 @@ title: Método de búsqueda de diccionario de Traductor
 titleSuffix: Azure Cognitive Services
 description: El método Dictionary Lookup proporciona traducciones alternativas para una palabra y un pequeño número de frases hechas.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
-ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 88a76a16de43853a001f5db895d6ad418940de0f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021293"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895499"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Traductor 3.0: Búsqueda en diccionario
 

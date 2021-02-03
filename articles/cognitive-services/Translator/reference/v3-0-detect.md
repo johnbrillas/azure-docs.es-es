@@ -3,19 +3,19 @@ title: Método Detect de Translator
 titleSuffix: Azure Cognitive Services
 description: Identifique el idioma de un fragmento de texto con el método Detect de Translator de Azure Cognitive Services.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: 12029d7a77eb7cbbb10cb5330eb18d6316520a2d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: cb6660585b5f2b9ab56eaf863f1ec431e5e85109
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021327"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895533"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0: Detect
 

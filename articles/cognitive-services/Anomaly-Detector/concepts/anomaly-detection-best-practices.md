@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702733"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936209"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar Anomaly Detector API
 
@@ -52,7 +52,7 @@ Este es el mismo conjunto de datos pero con la detección de anomalías por lote
 
 ## <a name="data-preparation"></a>Preparación de los datos
 
-Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) se define como la velocidad a la que se muestrean los datos. 
+Anomaly Detector API acepta datos de serie temporal con formato de un objeto de solicitud JSON. Una serie temporal puede ser cualquier dato numérico registrado con el tiempo en orden secuencial. Puede enviar ventanas de los datos de serie temporal al punto de conexión de Anomaly Detector API para mejorar el rendimiento de las API. El número mínimo de puntos de datos que puede enviar es 12, y el máximo es 8640 puntos. [Granularidad](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) se define como la velocidad a la que se muestrean los datos. 
 
 Los puntos de datos enviados a la API de Anomaly Detector deben tener una marca de tiempo válida en hora universal coordinada (UTC) y un valor numérico. 
 

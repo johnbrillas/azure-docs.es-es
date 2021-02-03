@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790891"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932514"
 ---
 # <a name="devops-practices-for-luis"></a>Prácticas de DevOps para LUIS
 
@@ -18,7 +18,7 @@ Los ingenieros de software que desarrollan una aplicación de Language Understan
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Control de código fuente y estrategias de ramificación para LUIS
 
-Uno de los factores clave de los que depende el éxito de DevOps es el [control de código fuente](/azure/devops/user-guide/source-control?view=azure-devops). Un sistema de control de código fuente permite a los desarrolladores colaborar en el código y realizar el seguimiento de los cambios. El uso de ramas permite a los desarrolladores cambiar entre diferentes versiones de la base de código y trabajar de forma independiente de otros miembros del equipo. Cuando los desarrolladores generan una [solicitud de incorporación de cambios](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para proponer actualizaciones de una rama a otra, o cuando se combinan los cambios, pueden ser el desencadenador de [compilaciones automatizadas](luis-concept-devops-automation.md) para compilar y probar continuamente el código.
+Uno de los factores clave de los que depende el éxito de DevOps es el [control de código fuente](/azure/devops/user-guide/source-control). Un sistema de control de código fuente permite a los desarrolladores colaborar en el código y realizar el seguimiento de los cambios. El uso de ramas permite a los desarrolladores cambiar entre diferentes versiones de la base de código y trabajar de forma independiente de otros miembros del equipo. Cuando los desarrolladores generan una [solicitud de incorporación de cambios](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) para proponer actualizaciones de una rama a otra, o cuando se combinan los cambios, pueden ser el desencadenador de [compilaciones automatizadas](luis-concept-devops-automation.md) para compilar y probar continuamente el código.
 
 Mediante los conceptos y las instrucciones que se describen en este documento, puede desarrollar una aplicación de LUIS mientras realiza el seguimiento de los cambios en un sistema de control de código fuente y seguir estos procedimientos recomendados de ingeniería de software:
 
@@ -42,7 +42,7 @@ Mediante los conceptos y las instrucciones que se describen en este documento, p
 
 ## <a name="source-control"></a>Control de código fuente
 
-Para mantener la [definición del esquema de la aplicación](./app-schema-definition.md) de una aplicación de LUIS en un sistema de administración de código fuente, use la representación del [formato LUDown (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) de la aplicación. El formato `.lu` se prefiere al formato `.json` porque es legible, lo que facilita la creación y revisión de cambios en las solicitudes de incorporación de cambios.
+Para mantener la [definición del esquema de la aplicación](./app-schema-definition.md) de una aplicación de LUIS en un sistema de administración de código fuente, use la representación del [formato LUDown (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format) de la aplicación. El formato `.lu` se prefiere al formato `.json` porque es legible, lo que facilita la creación y revisión de cambios en las solicitudes de incorporación de cambios.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Almacenamiento de una aplicación de LUIS con el formato LUDown
 
@@ -81,7 +81,7 @@ No incluya claves de suscripción ni valores confidenciales similares en los arc
 - Claves de creación y predicción de LUIS
 - Puntos de conexión de creación y predicción de LUIS
 - Claves de suscripción a Azure
-- Tokens de acceso, como el token de una [entidad de servicio](/cli/azure/ad/sp?view=azure-cli-latest) de Azure, que se usan para la autenticación de la automatización.
+- Tokens de acceso, como el token de una [entidad de servicio](/cli/azure/ad/sp) de Azure, que se usan para la autenticación de la automatización.
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Estrategias para administrar secretos de forma segura
 
@@ -183,7 +183,7 @@ Una aplicación de LUIS en formato LUDown es legible para el usuario y admite la
 
 ## <a name="versioning"></a>Control de versiones
 
-Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
+Una aplicación consta de varios componentes que pueden incluir elementos como un bot que se ejecute en [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), el [servicio Voz de Azure](../speech-service/overview.md), etc. Para lograr el objetivo de las aplicaciones de acoplamiento flexible, use el [control de versiones](/azure/devops/learn/git/what-is-version-control) para que cada componente de una aplicación tenga versiones independientes, lo que permite a los desarrolladores detectar cambios importantes o actualizaciones simplemente mediante la consulta del número de versión. Es más fácil crear una versión de la aplicación de LUIS independientemente de otros componentes si la mantiene en su propio repositorio.
 
 La aplicación de LUIS de la rama principal debe tener aplicado un esquema de control de versiones. Al combinar las actualizaciones con el archivo `.lu` de una aplicación de LUIS en la rama principal, importará ese código fuente actualizado a una nueva versión de la rama principal en la aplicación de LUIS.
 

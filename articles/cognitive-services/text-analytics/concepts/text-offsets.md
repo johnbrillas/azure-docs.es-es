@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363789"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932366"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Desplazamientos de texto en la salida de Text Analytics API
 
@@ -34,9 +34,9 @@ Siempre que se devuelvan desplazamientos en la respuesta de API, como [Reconocim
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extracción de subcadenas de texto con desplazamientos
 
-Los desplazamientos pueden causar problemas al usar métodos substring basados en caracteres, por ejemplo el método [substring()](/dotnet/api/system.string.substring?view=netframework-4.8) de .NET. Un problema es que un desplazamiento puede hacer que un método substring finalice en mitad de una codificación de grafemas de carácter múltiple en lugar de al final.
+Los desplazamientos pueden causar problemas al usar métodos substring basados en caracteres, por ejemplo el método [substring()](/dotnet/api/system.string.substring) de .NET. Un problema es que un desplazamiento puede hacer que un método substring finalice en mitad de una codificación de grafemas de carácter múltiple en lugar de al final.
 
-En .NET, tenga en cuenta el uso de la clase [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8), que le permite trabajar con una cadena como una serie de elementos textuales, en lugar de objetos de caracteres individuales. También puede buscar bibliotecas del separador de grafemas en su entorno de software preferido. 
+En .NET, tenga en cuenta el uso de la clase [StringInfo](/dotnet/api/system.globalization.stringinfo), que le permite trabajar con una cadena como una serie de elementos textuales, en lugar de objetos de caracteres individuales. También puede buscar bibliotecas del separador de grafemas en su entorno de software preferido. 
 
 Text Analytics API devuelve estos elementos textuales también, por motivos de comodidad.
 

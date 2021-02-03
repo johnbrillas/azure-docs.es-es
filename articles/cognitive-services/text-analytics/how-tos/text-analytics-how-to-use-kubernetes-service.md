@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb33bd4fe70c51e1e2afffece10ba3b29dcb0450
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017894"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932445"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implementación de un contenedor de Text Analytics en Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de empezar.
 * Un editor de texto; por ejemplo, [Visual Studio Code](https://code.visualstudio.com/download).
-* La [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
+* La [CLI de Azure](/cli/azure/install-azure-cli) instalada.
 * La [CLI de Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalada.
 * Un recurso de Azure con el plan de tarifa correcto. No todos los planes de tarifa funcionan con este contenedor:
     * El recurso **Azure Text Analytics** solo con los planes de tarifas Estándar o F0.
