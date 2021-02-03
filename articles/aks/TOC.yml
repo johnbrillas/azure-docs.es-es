@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -338,6 +338,8 @@
         - name: Compilación de una aplicación con MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
+        - name: Implementación de una aplicación de Open Liberty o WebSphere Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Uso de Azure API Management
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true

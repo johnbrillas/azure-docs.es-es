@@ -49,6 +49,8 @@
           href: scenario-isolate-vnets.md
         - name: 'Aislamiento de redes virtuales: personalizado'
           href: scenario-isolate-vnets-custom.md
+        - name: Aislamiento de redes virtuales y ramas
+          href: scenario-isolate-virtual-networks-branches.md
         - name: Redes virtuales de servicios compartidos
           href: scenario-shared-services-vnet.md
         - name: Enrutamiento a través de una aplicación virtual de red

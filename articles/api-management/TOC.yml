@@ -68,6 +68,8 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
+    - name: Backends
+      href: backends.md
     - name: Suscripciones
       href: api-management-subscriptions.md
     - name: Versiones
@@ -104,10 +106,10 @@
           href: import-function-app-as-api.md
         - name: Importación de una aplicación lógica
           href: import-logic-app-as-api.md
-        - name: Importación de una aplicación de Service Fabric
-          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
         - name: Edición de una API
           href: edit-api.md
+        - name: Configuración de back-end de Service Fabric
+          href: how-to-configure-service-fabric-backend.md
     - name: Aprovisionamiento y escalado
       items:
         - name: Métrica de capacidad

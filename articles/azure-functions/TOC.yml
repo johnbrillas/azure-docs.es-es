@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Desencadenador de temporizador
               href: functions-create-scheduled-function.md
-        - name: Adición de enlaces
+        - name: Conexión a los servicios
           items:
-            - name: Adición de un enlace
+            - name: Procedimientos para conectar a los servicios
+              displayName: 'bindings,integrate'
               href: add-bindings-existing-function.md
             - name: 'Azure Cosmos DB: portal'
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Adición de enlaces
+        - name: Conexión a los servicios
           items:
             - name: 'Azure Cosmos DB: portal'
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -459,7 +460,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
