@@ -222,7 +222,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -250,7 +250,7 @@
               href: search-blob-metadata-properties.md
         - name: Azure Tables
           href: search-howto-indexing-azure-tables.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
@@ -302,10 +302,10 @@
               href: knowledge-store-projections-examples.md
     - name: Consultas
       items:
-        - name: Tipos de consulta y composición
-          href: search-query-overview.md
         - name: Creación de una consulta básica
           href: search-query-create.md
+        - name: Tipos de consulta y composición
+          href: search-query-overview.md
         - name: Uso de sintaxis simple (ejemplos)
           href: search-query-simple-examples.md
         - name: Uso de la sintaxis completa de Lucene (ejemplos)
