@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: c7e40de2caec49bd0e4fed32ddd9f131c9649dcd
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: ee806b9c1dac128da543e4aa07dace58e8ba8f1a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256380"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500268"
 ---
 Introducción a la biblioteca cliente de Custom Vision para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo a fin de crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
@@ -24,7 +24,7 @@ Use la biblioteca cliente de Custom Vision para Python con los fines siguientes:
 * Publicación de la iteración actual
 * Prueba del punto de conexión de la predicción
 
-[Documentación de referencia](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Paquete (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Ejemplos](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
+[Documentación de referencia](/python/api/overview/azure/cognitiveservices/customvision) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Paquete (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Ejemplos](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -68,9 +68,9 @@ Cree variables para las claves de suscripción y el punto de conexión de Azure 
 
 |Nombre|Descripción|
 |---|---|
-|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | Esta clase controla la creación, el entrenamiento y la publicación de los modelos. |
-|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| Esta clase controla la consulta de las predicciones de clasificación de imágenes en los modelos.|
-|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| Esta clase define una sola predicción de objetos en una sola imagen. Se incluyen las propiedades del identificador y el nombre del objeto, la ubicación del rectángulo delimitador del objeto y una puntuación de confianza.|
+|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) | Esta clase controla la creación, el entrenamiento y la publicación de los modelos. |
+|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient)| Esta clase controla la consulta de las predicciones de clasificación de imágenes en los modelos.|
+|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction)| Esta clase define una sola predicción de objetos en una sola imagen. Se incluyen las propiedades del identificador y el nombre del objeto, la ubicación del rectángulo delimitador del objeto y una puntuación de confianza.|
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -86,7 +86,7 @@ Estos fragmentos de código muestran cómo realizar las siguientes tareas con la
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree instancias de clientes de entrenamiento y predicción mediante su punto de conexión y claves. Cree objetos **ApiKeyServiceClientCredentials** con sus claves y úselos con el punto de conexión para crear un objeto [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) y un objeto [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python).
+Cree instancias de clientes de entrenamiento y predicción mediante su punto de conexión y claves. Cree objetos **ApiKeyServiceClientCredentials** con sus claves y úselos con el punto de conexión para crear un objeto [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) y un objeto [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_auth)]
 
@@ -94,7 +94,7 @@ Cree instancias de clientes de entrenamiento y predicción mediante su punto de 
 
 Para crear un proyecto de Custom Vision Service, agregue el siguiente código al script. 
 
-Consulte el método [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](../../getting-started-build-a-classifier.md)).  
+Consulte el método [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](../../getting-started-build-a-classifier.md)).  
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_create)]
 
@@ -110,7 +110,7 @@ Para agregar etiquetas de clasificación al proyecto, utilice el código siguien
 En primer lugar, descargue las imágenes de ejemplo de este proyecto. Guarde el contenido de la [carpeta de imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) en el dispositivo local.
 
 > [!NOTE]
-> Trove, un proyecto de Microsoft Garage, le permite recopilar y comprar conjuntos de imágenes con fines de aprendizaje. Una vez que haya recopilado sus imágenes, puede descargarlas y, a continuación, importarlas en el proyecto de Custom Vision de la manera habitual. Visite la [página de Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para más información.
+> ¿Necesita un conjunto de imágenes más amplio para completar el entrenamiento? Trove, un proyecto de Microsoft Garage, le permite recopilar y comprar conjuntos de imágenes con fines de aprendizaje. Una vez que haya recopilado sus imágenes, puede descargarlas y, a continuación, importarlas en el proyecto de Custom Vision de la manera habitual. Visite la [página de Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para más información.
 
 Para agregar las imágenes de ejemplo al proyecto, inserte el siguiente código después de crear la etiqueta. Este código carga cada imagen con su etiqueta correspondiente. Puede cargar hasta 64 imágenes en un único lote.
 
@@ -128,7 +128,7 @@ Este código crea la primera iteración del modelo de predicción.
 > [!TIP]
 > Entrenamiento con etiquetas seleccionadas
 >
-> Opcionalmente, puede entrenar solo en un subconjunto de las etiquetas aplicadas. Es posible que desee hacer esto si aún no ha aplicado suficientes etiquetas de un tipo determinado, pero tiene bastantes de las otras. En la llamada a **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** , establezca el parámetro opcional *selected_tags* en una lista de las cadenas de identificadores de las etiquetas que desea usar. El modelo se entrenará para reconocer solo las etiquetas de esa lista.
+> Opcionalmente, puede entrenar solo en un subconjunto de las etiquetas aplicadas. Es posible que desee hacer esto si aún no ha aplicado suficientes etiquetas de un tipo determinado, pero tiene bastantes de las otras. En la llamada a **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** , establezca el parámetro opcional *selected_tags* en una lista de las cadenas de identificadores de las etiquetas que desea usar. El modelo se entrenará para reconocer solo las etiquetas de esa lista.
 
 ## <a name="publish-the-current-iteration"></a>Publicación de la iteración actual
 
@@ -179,4 +179,4 @@ Ya ha visto que todos los pasos del proceso de clasificación de imágenes se pu
 
 * ¿Qué es Custom Vision?
 * El código fuente correspondiente a este ejemplo se encuentra disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.py).
-* [Documentación de referencia del SDK](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* [Documentación de referencia del SDK](/python/api/overview/azure/cognitiveservices/customvision)

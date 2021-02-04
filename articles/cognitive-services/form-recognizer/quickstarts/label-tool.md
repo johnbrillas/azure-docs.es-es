@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845542"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221098"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -202,7 +202,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
    1. Haga clic en **+** para crear una nueva etiqueta.
    1. Escriba el nombre de la etiqueta.
    1. Presione Entrar para guardar la etiqueta.
-1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados. En la versión preliminar _v2.1 preview.2_, también puede hacer clic para seleccionar _marcas de selección_ como botones de radio y casillas de verificación como pares clave-valor. Form Recognizer identificará si la marca de selección está "activada" o "desactivada" como el valor.
+1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados. En la versión _v2.1 preview.2_ de la API, también puede hacer clic para seleccionar _marcas de selección_ como botones de radio y casillas de verificación como pares clave-valor. Form Recognizer identificará si la marca de selección está "activada" o "desactivada" como el valor.
 1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
     > [!Tip]
     > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.

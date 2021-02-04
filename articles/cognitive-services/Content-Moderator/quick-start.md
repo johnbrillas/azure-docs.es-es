@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderación de contenido
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905220"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221183"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
 
@@ -88,6 +88,6 @@ O bien continúe con los pasos siguientes para empezar a usar las API de moderac
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar las API de moderación en su aplicación.
-- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o siga un [inicio rápido de la biblioteca cliente o API REST](client-libraries.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
-- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o un [inicio rápido de la biblioteca cliente o API REST](client-libraries.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
+- Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o siga un [inicio rápido](client-libraries.md) para examinar imágenes y detectar posible contenido para adultos y subido de tono mediante etiquetas, puntuaciones de confianza y otra información extraída.
+- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o siga un [Inicio rápido](client-libraries.md) para examinar el contenido de texto en busca de posibles palabras soeces, datos personales y otro tipo de texto no deseado.
 - Implementación de la moderación de vídeo. Consulte la [guía de procedimientos de moderación en vídeo para C#](video-moderation-api.md) para buscar vídeos y detectar posible contenido para adultos y subido de tono. 

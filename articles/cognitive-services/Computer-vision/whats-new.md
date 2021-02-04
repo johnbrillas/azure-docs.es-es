@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738108"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490884"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -30,6 +30,12 @@ Se ha lanzado una nueva versión del [contenedor de análisis espacial](spatial-
 * Las [operaciones de análisis espaciales](spatial-analysis-operations.md) se pueden configurar para detectar si una persona tiene algún tipo de protección facial, como una mascarilla. 
     * Se puede habilitar un clasificador de mascarillas para las operaciones `personcount`, `personcrossingline` y `personcrossingpolygon` mediante la configuración del parámetro `ENABLE_FACE_MASK_CLASSIFIER`.
     * Los atributos `face_mask` y `face_noMask` se devolverán como metadatos con una puntuación de confianza para cada persona detectada en el flujo de vídeo
+* La operación *personcrossingpolygon* se ha ampliado para permitir el cálculo del tiempo que una persona permanece en una zona. Puede establecer el parámetro `type` en la configuración de zona de la operación en `zonedwelltime` y un nuevo evento del tipo *personZoneDwellTimeEvent* incluirá el campo `durationMs` rellenado con el número de milisegundos que la persona estuvo en la zona.
+* **Cambio importante**: se ha cambiado el nombre del evento *personZoneEvent* a *personZoneEnterExitEvent*. Este evento lo genera la operación *personZoneEnterExitEvent* cuando una persona entra o sale de la zona y proporciona información direccional con el lado numerado de la zona que se ha atravesado.
+* La dirección URL de vídeo se puede proporcionar como "parámetro privado/ofuscado" en todas las operaciones. La ofuscación es opcional ahora y solo funcionará si se proporcionan `KEY` y `IV` como variables de entorno.
+* La calibración está habilitada de forma predeterminada para todas las operaciones. Establezca `do_calibration: false` para deshabilitarla.
+* Se ha agregado compatibilidad con la recalibración automática (que está deshabilitada de forma predeterminada) mediante el parámetro `enable_recalibration`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Parámetros de calibración de la cámara en `DETECTOR_NODE_CONFIG`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
 
 
 ## <a name="october-2020"></a>Octubre de 2020

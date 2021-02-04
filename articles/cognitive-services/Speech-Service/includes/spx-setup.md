@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540475"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427464"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -19,18 +19,16 @@ ms.locfileid: "98540475"
 Siga estos pasos para instalar la CLI de Voz en Windows:
 
 1. En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
-2. Descargue el [archivo ZIP](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz y extráigalo.
-3. Vaya al directorio en el que extrajo `spx-zips`. Esta carpeta contiene los archivos de programa de la CLI de Voz para varias plataformas. 
-4. Extraiga los archivos para su plataforma (`spx-net471` para .NET Framework 4.7 o `spx-netcore-win-x64` para .NET Core 3.0 en una CPU x64). Tenga en cuenta que ejecutará `spx` desde este directorio.
+1. Instale [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
-### <a name="run-the-speech-cli"></a>Ejecución de la CLI de Voz
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
-1. Abra el símbolo del sistema o PowerShell y vaya hasta el directorio en el que extrajo la CLI de Voz.  
-2. Escriba `spx` para ver los comandos de ayuda de la CLI de Voz.
+Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 > [!NOTE]
-> PowerShell no comprueba el directorio local al buscar un comando. En PowerShell, cambie el directorio a la ubicación de `spx` y llame a la herramienta escribiendo `.\spx`.
-> Si agrega este directorio a su ruta de acceso, PowerShell y el símbolo del sistema de Windows buscarán `spx` en cualquier directorio sin incluir el prefijo `.\`.
+> Como alternativa a NuGet, puede descargar y extraer [archivo zip](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz, buscar y extraer la plataforma del directorio `spx-zips`, y agregar la ruta de acceso `spx` a la variable **PATH** del sistema.
+
 
 ### <a name="font-limitations"></a>Limitaciones de fuentes
 
@@ -43,15 +41,16 @@ Si se genera la salida a un archivo, un editor de texto como el Bloc de notas o 
 
 Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 
-1. Instale [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Descargue el [archivo ZIP](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz y extráigalo.
-3. Vaya al directorio raíz `spx-zips` que extrajo de la descarga y extraiga `spx-netcore-30-linux-x64` en un nuevo directorio `~/spx`.
-4. En un terminal, escriba estos comandos:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Instale [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Escriba `spx` para ver la ayuda de la CLI de Voz.
+
+> [!NOTE]
+> Como alternativa a NuGet, puede descargar los binarios en [archivo zip](https://aka.ms/speech/spx-zips.zip), extraer `spx-netcore-30-linux-x64` a un directorio `~/spx` nuevo, escribir `sudo chmod +r+x spx` en el binario y agregar la ruta de acceso `~/spx` a la variable PATH del sistema.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 

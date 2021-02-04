@@ -63,6 +63,8 @@
       items:
         - name: Crear un conjunto de escalado de máquinas virtuales
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Creación y administración de un conjunto de escalado de máquinas virtuales
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: Creación de un conjunto de escalado a partir de una imagen de máquina virtual personalizada
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: Instalación de aplicaciones en un conjunto de escalado

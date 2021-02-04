@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664034"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071688"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -94,10 +94,10 @@ En el diagrama siguiente se muestra dónde se encuentra Azure Digital Twins en e
 
 ## <a name="service-limits"></a>Límites de servicio
 
-Puede encontrar una lista de los límites de Azure Digital Twins en [*Referencia: Límites de servicio*](reference-service-limits.md).
+Para obtener una lista de los límites de Azure Digital Twins, consulte el artículo en el que se muestran los [*límites del servicio Azure Digital Twins*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ha trabajado con la primera versión preliminar de Azure Digital Twins (octubre de 2018), obtenga información sobre lo que ha cambiado: [*Información general: Diferencias respecto a la primera versión*](overview-differences.md).
+* Profundice en el uso de Azure Digital Twins en el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-adt-explorer.md).
 
-O bien, avance y profundice en el trabajo con Azure Digital Twins con el inicio rápido: [*Guía de inicio rápido: Exploración de un escenario de ejemplo*](quickstart-adt-explorer.md).
+* O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [*Conceptos: Modelos personalizados*](concepts-models.md).

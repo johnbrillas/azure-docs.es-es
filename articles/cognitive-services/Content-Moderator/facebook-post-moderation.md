@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: e930e5d125a8f1ee90448e293e2e0ca2c5c28465
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913677"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220997"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderación de comandos y publicaciones de Facebook con Azure Content Moderator
 
@@ -44,7 +44,7 @@ En este diagrama se ilustra cada componente de este escenario:
 
 ## <a name="create-a-review-team"></a>Creación de un equipo de revisión
 
-Consulte la guía de inicio rápido [Cómo familiarizarse con Content Moderator](quick-start.md) para obtener instrucciones sobre cómo registrarse en la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y crear un equipo de revisión. Anote el valor de **Id. de equipo** en la página **Credenciales** .
+Consulte la guía de inicio rápido [Cómo familiarizarse con Content Moderator](quick-start.md) para obtener instrucciones sobre cómo registrarse en la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y crear un equipo de revisión. Anote el valor de **Id. de equipo** en la página **Credenciales**.
 
 ## <a name="configure-image-moderation-workflow"></a>Configuración del flujo de trabajo de moderación de imágenes
 
@@ -66,7 +66,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
 
 1. Cree una aplicación de función de Azure, tal y como se muestra en la página [Azure Functions](../../azure-functions/functions-create-function-app-portal.md).
 1. Vaya a la instancia de Function App recién creada.
-1. Dentro de esta, vaya a la pestaña **Características de la plataforma** y seleccione **Configuración** . En la sección **Configuración de la aplicación** de la página siguiente, seleccione **Nueva configuración de la aplicación** para agregar los siguientes pares de clave/valor:
+1. Dentro de esta, vaya a la pestaña **Características de la plataforma** y seleccione **Configuración**. En la sección **Configuración de la aplicación** de la página siguiente, seleccione **Nueva configuración de la aplicación** para agregar los siguientes pares de clave/valor:
     
     | Nombre del valor de configuración de la aplicación | value   | 
     | -------------------- |-------------|
@@ -81,18 +81,18 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
 
     Haga clic en el botón **Guardar** de la parte superior de la página.
 
-1. Vuelva a la pestaña **Características de la plataforma** . Use el botón **+** del panel izquierdo para abrir el panel **Nueva función** . La función que va a crear recibirá eventos de Facebook.
+1. Vuelva a la pestaña **Características de la plataforma**. Use el botón **+** del panel izquierdo para abrir el panel **Nueva función**. La función que va a crear recibirá eventos de Facebook.
 
     ![Panel Azure Functions con el botón Agregar función resaltado.](images/new-function.png)
 
-    1. Haga clic en el icono **Desencadenador HTTP** .
-    1. Escriba el nombre **FBListener** . El campo **Nivel de autorización** debe establecerse en **Función** .
-    1. Haga clic en **Crear** .
+    1. Haga clic en el icono **Desencadenador HTTP**.
+    1. Escriba el nombre **FBListener**. El campo **Nivel de autorización** debe establecerse en **Función**.
+    1. Haga clic en **Crear**.
     1. Reemplace el contenido de **run.csx** por el contenido de **FbListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Cree una nueva función **Desencadenador HTTP** llamada **CMListener** . Esta función recibe eventos de Content Moderator. Reemplace el contenido de **run.csx** por el contenido de **CMListener/run.csx**
+1. Cree una nueva función **Desencadenador HTTP** llamada **CMListener**. Esta función recibe eventos de Content Moderator. Reemplace el contenido de **run.csx** por el contenido de **CMListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -105,35 +105,35 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
     ![página del desarrollador de facebook](images/facebook-developer-app.png)
 
     1. Vaya al [sitio para desarrolladores de Facebook](https://developers.facebook.com/).
-    1. Haga clic en **My Apps** (Mis aplicaciones).
+    1. Vaya a **Aplicaciones**.
     1. Agregue una nueva aplicación.
-    1. asígnele un nombre
+    1. Proporcione un nombre
     1. Seleccione **Webhooks -> Configurar**
     1. Seleccione **Página** en el menú desplegable y seleccione **Suscribirse a este objeto**
-    1. Indique la **dirección URL de FBListener** como dirección URL de devolución de llamada, y el **token de comprobación** que configuró en las **opciones de la aplicación de función** .
+    1. Indique la **dirección URL de FBListener** como dirección URL de devolución de llamada, y el **token de comprobación** que configuró en las **opciones de la aplicación de función**.
     1. Una vez suscrito, vaya hasta la fuente y seleccione **Subscribe** (Suscribirse).
-    1. Haga clic en botón **Test** (Probar) de la fila **Feed** (Fuente) para enviar un mensaje de prueba a BListener Azure Function y luego presione el botón **Send to My Server** (Enviar a mi servidor). Debería ver la solicitud que se recibe en su instancia de FBListener.
+    1. Seleccione el botón **Test** (Probar) de la fila **Feed** (Fuente) para enviar un mensaje de prueba a la función de Azure FBListener y pulse el botón **Send to My Server** (Enviar a mi servidor). Debería ver la solicitud que se recibe en su instancia de FBListener.
 
 1. Cree una página de Facebook.
 
     > [!IMPORTANT]
     > En 2018, Facebook puso en marcha una investigación más estricta de las aplicaciones de Facebook. No podrá ejecutar las secciones 2, 3 y 4 si la aplicación no se ha revisado y aprobado por el equipo de revisión de Facebook.
 
-    1. Vaya a [Facebook](https://www.facebook.com/bookmarks/pages) y cree una **nueva página de Facebook** .
+    1. Vaya a [Facebook](https://www.facebook.com/bookmarks/pages) y cree una **nueva página de Facebook**.
     1. Permita a la app de Facebook acceder a esta página; para ello, siga estos pasos:
         1. Vaya al [Explorador de Graph API](https://developers.facebook.com/tools/explorer/).
         1. Seleccione **Application** (Aplicación).
-        1. Seleccione **Page Access Token** (Token de acceso a página) y envíe una solicitud **Get** .
-        1. Haga clic en **Page ID** (Id. de página) en la respuesta.
+        1. Seleccione **Page Access Token** (Token de acceso a página) y envíe una solicitud **Get**.
+        1. Seleccione **Page ID** (Id. de página) en la respuesta.
         1. Ahora, anexe **/subscribed_apps** a la dirección URL y envíe una solicitud **Get** (respuesta vacía).
-        1. Envíe una solicitud **Post** . Obtendrá la respuesta como **success: true** .
+        1. Envíe una solicitud **Post**. Obtendrá la respuesta como **success: true**.
 
 3. Cree un token de acceso a Graph API que no expire.
 
     1. Vaya al [Explorador de Graph API](https://developers.facebook.com/tools/explorer/).
     2. Seleccione la opción **Application** (Aplicación).
     3. Seleccione la opción **Get User Access Token** (Obtener token de acceso de usuario).
-    4. En **Select Permissions** (Seleccionar permisos), seleccione las opciones **manage_pages** y **publish_pages** .
+    4. En **Select Permissions** (Seleccionar permisos), seleccione las opciones **manage_pages** y **publish_pages**.
     5. Usaremos el **token de acceso** (token de breve duración) en el paso siguiente.
 
 4. Usamos Postman en los pasos siguientes.
@@ -153,13 +153,13 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) y siga estos pasos:
         1. Seleccione **Generate Long-Lived Access Token** (Generar token de acceso de larga duración) y haga clic en **Send** (Enviar).
         2. Seleccione **Get User ID** (Obtener id. de usuario) y haga clic en **Send** (Enviar).
         3. Seleccione **Get Permanent Page Access Token** (Obtener token de acceso de página permanente) y haga clic en **Send** (Enviar).
-    5. Copie el valor de **access_token** de la respuesta y asígnelo a la opción de la aplicación, **fb:PageAccessToken** .
+    5. Copie el valor de **access_token** de la respuesta y asígnelo a la opción de la aplicación, **fb:PageAccessToken**.
 
 La solución envía todas las imágenes y el texto que se publican en la página de Facebook a Content Moderator. A continuación, se invocan los flujos de trabajo que configuró anteriormente. El contenido que no supere los criterios definidos en los flujos de trabajo se pasará a las revisiones dentro de la herramienta de revisión. El resto del contenido se publica automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, configurará un programa para analizar las imágenes de productos con el fin de etiquetarlos por tipo de producto para que un equipo de revisión pueda tomar decisiones informadas sobre la moderación de contenido. Después, obtendrá más información acerca de los detalles de la moderación de imágenes.
+En este tutorial, configurará un programa para analizar las imágenes de productos y etiquetarlas por tipo de producto para que un equipo de revisión pueda tomar decisiones informadas sobre la moderación de contenido. Después, obtendrá más información acerca de los detalles de la moderación de imágenes.
 
 > [!div class="nextstepaction"]
 > [Moderación de imágenes](./image-moderation-api.md)

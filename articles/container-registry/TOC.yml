@@ -101,6 +101,8 @@
               href: container-registry-access-selected-networks.md
             - name: Restricción del acceso mediante puntos de conexión de servicio (versión preliminar)
               href: container-registry-vnet.md
+            - name: Permiso para acceder por parte de servicios de confianza
+              href: allow-access-trusted-services.md
             - name: Cifrado con una clave administrada por el cliente
               href: container-registry-customer-managed-keys.md
             - name: Acceso detrás de un firewall

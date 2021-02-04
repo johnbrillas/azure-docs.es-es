@@ -103,6 +103,8 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: Filtro de paquetes de FreeBSD
       href: ./linux/freebsd-pf-nat.md
+    - name: Rehospedaje del sistema central
+      href: ./workloads/mainframe-rehosting/overview.md
     - name: Bases de datos
       items:
         - name: MySQL en SUSE
@@ -1448,6 +1450,8 @@
               href: ./linux/move-vm.md
             - name: PowerShell
               href: ./windows/move-vm.md
+            - name: Cambio de suscripción de máquinas virtuales de Marketplace
+              href: azure-cli-change-subscription-marketplace.md
         - name: Traslado de máquinas virtuales a otra región
           href: ../site-recovery/azure-to-azure-tutorial-migrate.md
         - name: Traslado a una zona de disponibilidad
@@ -1480,7 +1484,7 @@
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Solución de problemas
-  href: ./troubleshooting/index.yml
+  href: 'https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines'
 - name: Recursos
   items:
     - name: Cloud Adoption Framework

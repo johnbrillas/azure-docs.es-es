@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -179,7 +179,7 @@
         - name: Implementación de AKS con Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
-        - name: Vista de recursos de Azure Portal Kubernetes
+        - name: Vista de recursos de Kubernetes de Azure Portal
           href: kubernetes-portal.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md

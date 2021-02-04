@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image recognition app, custom vision
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131702"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221251"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Inicio rápido: Creación de un clasificador con el sitio web de Custom Vision
 
@@ -71,7 +71,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 En esta sección, cargará y etiquetará manualmente las imágenes para ayudar a entrenar al clasificador. 
 
-1. Para agregar imágenes, haga clic en el botón __Add images__ (Agregar imágenes) y seleccione __Browse local files__ (Examinar archivos locales). Seleccione __Open__ (Abrir) para empezar a etiquetar. La selección de etiquetas se aplicará a todo el grupo de imágenes que ha seleccionado para cargar, por lo que es más fácil cargar imágenes en grupos independientes según sus etiquetas deseadas. También puede cambiar las etiquetas de las imágenes individuales después de haberlas cargado.
+1. Para agregar imágenes, seleccione __Add images__ (Agregar imágenes) y, después, __Browse local files__ (Examinar archivos locales). Seleccione __Open__ (Abrir) para empezar a etiquetar. La selección de etiquetas se aplicará a todo el grupo de imágenes que ha seleccionado para cargar, por lo que es más fácil cargar imágenes en grupos independientes según las etiquetas que se han aplicado. También puede cambiar las etiquetas de las imágenes individuales después de que se hayan cargado.
 
     ![El control para agregar imágenes se muestra en la parte superior izquierda y como un botón en la parte inferior central.](./media/getting-started-build-a-classifier/add-images01.png)
 

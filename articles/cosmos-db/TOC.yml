@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Cuotas de servicio
       href: concepts-limits.md
-    - name: 'Preparación para empresas: cumplimiento'
-      href: compliance.md
+    - name: Adecuado para empresas
+      items:
+        - name: Introducción a la copia de seguridad y la restauración
+          href: online-backup-and-restore.md
+        - name: Copia de seguridad continua
+          items:
+            - name: 'Copia de seguridad continua: introducción'
+              href: continuous-backup-restore-introduction.md
+            - name: 'Copia de seguridad continua: preguntas frecuentes'
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: 'Copia de seguridad continua: modelo de recursos'
+              items:
+                - name: Introducción al modelo de recursos
+                  href: continuous-backup-restore-resource-model.md
+                - name: 'Cuentas que se pueden restaurar: lista'
+                  href: restorable-database-accounts-list.md
+                - name: 'Cuentas que se pueden restaurar: lista por ubicación'
+                  href: restorable-database-accounts-list-by-location.md
+                - name: 'Recursos de SQL que se pueden restaurar: lista'
+                  href: restorable-sql-resources-list.md
+                - name: 'Bases de datos SQL que se pueden restaurar: lista'
+                  href: restorable-sql-databases-list.md
+                - name: 'Contenedores de SQL que se pueden restaurar: lista'
+                  href: restorable-sql-containers-list.md
+                - name: 'Recursos de MongoDB que se pueden restaurar: lista'
+                  href: restorable-mongodb-resources-list.md
+                - name: 'Colecciones de MongoDB que se pueden restaurar: lista'
+                  href: restorable-mongodb-collections-list.md
+                - name: 'Bases de datos de MongoDB que se pueden restaurar: lista'
+                  href: restorable-mongodb-databases-list.md
+        - name: Cumplimiento normativo
+          href: compliance.md
     - name: Recomendaciones automáticas
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -1365,8 +1395,20 @@
           href: how-to-setup-cmk.md
     - name: Adecuado para empresas
       items:
-        - name: Copias de seguridad y restauración a petición en línea
-          href: online-backup-and-restore.md
+        - name: Administración de la copia de seguridad continua
+          items:
+            - name: 'Copia de seguridad continua: permisos y roles'
+              href: continuous-backup-restore-permissions.md
+            - name: 'Copia de seguridad continua: Azure Portal'
+              href: continuous-backup-restore-portal.md
+            - name: 'Copia de seguridad continua: PowerShell'
+              href: continuous-backup-restore-powershell.md
+            - name: 'Copia de seguridad continua: CLI'
+              href: continuous-backup-restore-command-line.md
+            - name: 'Copia de seguridad continua: Resource Manager'
+              href: continuous-backup-restore-template.md
+        - name: Administración de la copia de seguridad periódica
+          href: configure-periodic-backup-restore.md
         - name: Solicitud de un aumento de cuota
           href: create-support-request-quota-increase.md
     - name: Supervisión

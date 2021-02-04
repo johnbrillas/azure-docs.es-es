@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
-ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b987f98281c298da2d634c686d740faf3dda3502
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187765"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214437"
 ---
 1. Inicie Android Studio y seleccione **Start a new Android Studio project** (Iniciar un nuevo proyecto de Android Studio) en la ventana **Welcome** (Bienvenida).
 
@@ -27,7 +27,7 @@ Android Studio tardará unos minutos en preparar el nuevo proyecto de Android. A
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de voz de Cognitive Services es la 1.13.0.
+La versión actual del SDK de Voz de Cognitive Services es la 1.15.0.
 
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android.
 Se hospeda en un repositorio de Maven en https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Configure el proyecto para usar el SDK de Voz. Abra la ventana de la **estructur
 
    ![Captura de pantalla de la dependencia de biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. En la ventana que aparece, escriba el nombre y la versión del SDK de Voz para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.13.0*. Después, seleccione **Aceptar**.
+1. En la ventana que aparece, escriba el nombre y la versión del SDK de Voz para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.15.0*. Después, seleccione **Aceptar**.
    El SDK de Voz se agregará a la lista de dependencias, como se muestra a continuación:
 
    ![Captura de pantalla del SDK de Voz en la lista de dependencias](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
