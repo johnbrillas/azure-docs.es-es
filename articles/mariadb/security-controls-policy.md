@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Database for MariaDB
 description: Ofrece una lista de los controles de cumplimiento normativo de Azure Policy disponibles para Azure Database for MariaDB. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9d1a74ce6655b11684ad5d5100d64d19ff6642b5
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a24d42592b4b2d1ab651f0a3402e963fc1dfead8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796131"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093153"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controles de cumplimiento normativo de Azure Policy para Azure Database for MariaDB
 

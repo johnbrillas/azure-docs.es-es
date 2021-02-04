@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879938"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491729"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -104,20 +104,6 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen.
-
-### <a name="firewall-settings"></a>Configuración de firewall
-
-El servidor de bases de datos debe permitir que se habiliten las conexiones de Azure. De este modo, Azure Purview podrá llegar y conectarse al servidor. Puede seguir la guía de procedimientos para las [Conexiones desde dentro de Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
-
-1. Vaya a la cuenta de la base de datos.
-1. En la página **Información general**, seleccione el nombre del servidor.
-1. Seleccione **Security > Firewalls and virtual networks** (Seguridad > Firewalls y redes virtuales).
-1. Seleccione **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor**.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Opciones de registro de orígenes." border="true":::
-    
-> [!Note]
-> Actualmente, Azure Purview no admite la configuración de redes virtuales. Por lo tanto, no puede configurar el firewall basado en IP.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registro de un origen de datos de Instancia administrada de Azure SQL Database
 

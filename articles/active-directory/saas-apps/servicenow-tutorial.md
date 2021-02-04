@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353619"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092639"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -36,7 +36,7 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de ServiceNow con inicio de sesión único (SSO) habilitado.
 * En ServiceNow, una instancia o un inquilino de ServiceNow admiten las versiones de Calgary, Kingston, Londres, Madrid, Nueva York, Orlando y París o posteriores.
 * Para ServiceNow Express, una instancia de ServiceNow Express, versión Helsinki o posterior.
-* El inquilino de ServiceNow debe tener habilitado el [complemento de inicio de sesión único en varios proveedores](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0).
+* El inquilino de ServiceNow debe tener habilitado el [complemento de inicio de sesión único en varios proveedores](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0).
 * Para la configuración automática, habilite el complemento de varios proveedores para ServiceNow.
 * Para instalar la aplicación ServiceNow Classic (móvil), vaya a la tienda de aplicaciones adecuada y busque la aplicación ServiceNow Classic. A continuación, descárguela.
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/07/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: eb71db05a61a0e32f3f092f37a4da72bc04e581d
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935693"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525761"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configuración del proceso en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -43,40 +43,7 @@ Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro,
 
 ## <a name="configure-compute"></a>Configurar el proceso
 
-Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub en Azure Portal.
-
-1. En Azure Portal, en el recurso de Azure Stack Edge, vaya a **Información general** y seleccione **IoT Edge**.
-
-   ![Introducción al proceso](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
-
-2. En **Enable IoT Edge service** (Habilitar servicio IoT Edge), seleccione **Add** (Agregar).
-
-   ![Configurar el proceso](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
-
-3. En la hoja **Configure Edge compute** (Configurar el proceso de Edge), escriba la siguiente información:
-   
-   |Campo  |Value  |
-   |---------|---------|
-   |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que el recurso de Azure Stack Edge.     |
-   |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
-
-   ![Introducción al proceso 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
-
-4. Cuando termine la configuración, seleccione **Review + Create** (Revisar y crear). Revise la configuración del recurso de IoT Hub y seleccione **Create** (Crear).
-
-   La creación del recurso de IoT Hub tarda varios minutos. Una vez creado el recurso, la página **Overview** (Información general) indica que el servicio IoT Edge ahora está en ejecución.
-
-   ![Introducción al proceso 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
-
-5. Para confirmar que se ha configurado el rol de proceso de Edge, seleccione **Properties** (Propiedades).
-
-   ![Introducción al proceso 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
-
-   Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
-
-Puede tardar de 20 a 30 minutos en configurar el proceso, ya que en segundo plano se crean las máquinas virtuales y el clúster de Kubernetes.
-
-Después de haber configurado correctamente el proceso en Azure Portal, existe un clúster de Kubernetes y un usuario predeterminado asociado al espacio de nombres de IoT (un espacio de nombres del sistema controlado por Azure Stack Edge Pro).
+[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
 
 ## <a name="get-kubernetes-endpoints"></a>Obtención de los puntos de conexión de Kubernetes
 

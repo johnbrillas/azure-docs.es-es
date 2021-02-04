@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c3221063469315b2324c5039a46db622109826aa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 0b337225c5909563ef4aeb49cf0754e11075a6fb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673635"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Tutorial: Integración de Azure Active Directory con Bridge
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Bridge, realice los 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<company name>.bridgeapp.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Bridge](https://community.bridgeapp.com/community/help) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Bridge](https://community.bridgeapp.com/hc/en-us/community/topics) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Bridge, realice los 
 
 ### <a name="configure-bridge-single-sign-on"></a>Configuración del inicio de sesión único de Bridge
 
-Para configurar el inicio de sesión único en **Bridge**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Bridge](https://community.bridgeapp.com/community/help). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Bridge**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Bridge](https://community.bridgeapp.com/hc/en-us/community/topics). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -179,7 +179,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-bridge-test-user"></a>Creación de un usuario de prueba de Bridge
 
-En esta sección, creará un usuario llamado Britta Simon en Bridge. Trabaje con el [equipo de soporte técnico de Bridge](https://community.bridgeapp.com/community/help) para agregar los usuarios a la plataforma de Bridge. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Bridge. Trabaje con el [equipo de soporte técnico de Bridge](https://community.bridgeapp.com/hc/en-us/community/topics) para agregar los usuarios a la plataforma de Bridge. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

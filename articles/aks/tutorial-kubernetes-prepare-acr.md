@@ -3,14 +3,14 @@ title: 'Kubernetes en el tutorial de Azure: Creación de un registro de contened
 description: En este tutorial de Azure Kubernetes Service (AKS) se crea una instancia de Azure Container Registry y se carga una imagen del contenedor de aplicaciones de ejemplo.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250628"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430970"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementación y uso de Azure Container Registry
 
@@ -61,7 +61,7 @@ Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesió
 Para ver una lista de las imágenes locales actuales, use el comando [docker images][docker-images]:
 
 ```console
-$ docker images
+docker images
 ```
 La salida del comando anterior muestra una lista de las imágenes locales actuales:
 
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 Para comprobar que se aplican las etiquetas, vuelva a ejecutar [docker images][docker-images].
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 Una imagen se etiqueta con la dirección de la instancia de ACR y un número de versión.

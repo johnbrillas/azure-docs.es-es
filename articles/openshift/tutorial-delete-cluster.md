@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 254a9737b805aeeae2008923a8178cd971602132
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 372f531154528698da05c7a20c5d842b593259d1
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677753"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072258"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Eliminación de un clúster de Red Hat OpenShift 4 en Azure
 
@@ -26,7 +26,7 @@ En este tutorial, la tercera parte de tres, se elimina un clúster de Red Hat Op
 
 En los tutoriales anteriores, se creó un clúster de Red Hat OpenShift en Azure y se estableció una conexión a él mediante la consola web de OpenShift. Si no ha realizado estos pasos, pero desea continuar, comience con el [Tutorial 1: Creación de un clúster de la versión 4 de Red Hat Openshift en Azure](tutorial-create-cluster.md).
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -61,4 +61,4 @@ En esta parte del tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Eliminación de un clúster de Red Hat OpenShift 4 en Azure
 
-Más información sobre cómo usar OpenShift con la [documentación oficial de Red Hat OpenShift](https://www.openshift.com/try)
+Más información sobre cómo usar OpenShift con la [documentación oficial de Red Hat OpenShift](https://docs.openshift.com/container-platform/4.6/welcome/index.html)
