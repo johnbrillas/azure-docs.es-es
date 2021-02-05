@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059140"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050692"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C
 
@@ -90,6 +90,7 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | ClaimsEndpointAccessTokenName | No | El nombre del parámetro de la cadena de consulta del token de acceso. Los puntos de conexión de notificaciones de algunos proveedores de identidades admiten la solicitud GET HTTP. En este caso, se envía el token de portador mediante un parámetro de cadena de consulta en lugar del encabezado de autorización. Valor predeterminado: `access_token`. |
 | ClaimsEndpointFormatName | No | El nombre del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el nombre como `format` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
 | ClaimsEndpointFormat | No | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
+| BearerTokenTransmissionMethod | No | Especifica cómo se envía el token. El método predeterminado es una cadena de consulta. Para enviar el token como un encabezado de solicitud, establezca en `AuthorizationHeader`. |
 | ProviderName | No | Nombre del proveedor de identidades. |
 | response_mode | No | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
 | scope | No | El ámbito de la solicitud que se define según la especificación del proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |

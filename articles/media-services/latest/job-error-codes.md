@@ -1,5 +1,5 @@
 ---
-title: Códigos de error (de codificación y análisis) de trabajos de Azure Media Services | Microsoft Docs
+title: Códigos de error de trabajos (codificación y análisis)
 description: En este artículo se vincula a temas de referencia de códigos de error de trabajos y proporciona vínculos útiles a temas relacionados.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed57252a112aad8dd7d94dda95219867424dbb8f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289569"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954164"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de error de trabajos de Media Services
 

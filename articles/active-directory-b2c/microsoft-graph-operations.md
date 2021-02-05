@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805236"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952244"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -35,18 +35,33 @@ Para usar MS Graph API e interactuar con los recursos de su inquilino de Azure 
 - [Actualizar usuario](/graph/api/user-update)
 - [Eliminar un usuario](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>Administración de números de teléfono del usuario
+## <a name="user-phone-number-management-beta"></a>Administración de números de teléfono de usuarios (versión beta)
+
+Número de teléfono que un usuario puede emplear para iniciar sesión mediante [llamadas de voz o SMS](identity-provider-local.md#phone-sign-in-preview) o [autenticación multifactor](multi-factor-authentication.md). Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add (Agregar)](/graph/api/authentication-post-phonemethods)
-- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Actualizar](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Lista](/graph/api/authentication-list-phonemethods)
+- [Get](/graph/api/phoneauthenticationmethod-get)
+- [Actualizar](/graph/api/phoneauthenticationmethod-update)
 - [Eliminar](/graph/api/phoneauthenticationmethod-delete)
 
-Para más información sobre cómo administrar el número de teléfono de inicio de sesión del usuario, consulte [Métodos de autenticación B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
+Tenga en cuenta que la operación [Enumerar](/graph/api/authentication-list-phonemethods) solo devuelve los números de teléfono habilitados. El siguiente número de teléfono debe estar habilitado para su uso con las operaciones Enumerar. 
 
-## <a name="identity-providers-user-flow"></a>Proveedores de identidades (flujo de usuarios)
+![Habilitación de inicio de sesión telefónico](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
-Administre los proveedores de identidades disponibles para los flujos de usuarios en el inquilino de Azure AD B2C.
+## <a name="self-service-password-reset-email-address-beta"></a>Dirección de correo electrónico de autoservicio de restablecimiento de contraseña (versión beta)
+
+Dirección de correo electrónico que una [cuenta de inicio de sesión mediante nombre de usuario](identity-provider-local.md#username-sign-in) puede usar para restablecer la contraseña. Para obtener más información, vea [API de métodos de autenticación de Azure AD](/graph/api/resources/emailauthenticationmethod).
+
+- [Add (Agregar)](/graph/api/emailauthenticationmethod-post)
+- [Lista](/graph/api/emailauthenticationmethod-list)
+- [Get](/graph/api/emailauthenticationmethod-get)
+- [Actualizar](/graph/api/emailauthenticationmethod-update)
+- [Eliminar](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>Proveedores de identidades
+
+Administre los [proveedores de identidades](add-identity-provider.md) disponibles para los flujos de usuario en el inquilino de Azure AD B2C.
 
 - [Enumerar proveedores de identidades en el inquilino de Azure AD B2C](/graph/api/identityprovider-list)
 - [Crear proveedores de identidades](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +77,13 @@ Configure las directivas predefinidas para el registro, el inicio de sesión, el
 - [Crear flujos de usuario](/graph/api/identitycontainer-post-b2cuserflows)
 - [Obtener flujos de usuario](/graph/api/b2cidentityuserflow-get)
 - [Eliminar flujos de usuario](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>Métodos de autenticación de flujos de usuario (versión beta)
+
+Elija un mecanismo para permitir a los usuarios registrarse mediante cuentas locales. Las cuentas locales son aquellas en las que Azure AD realiza la aserción de identidad. Para obtener más información, vea [tipo de recurso b2cAuthenticationMethodsPolicy](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Actualizar](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Directivas personalizadas
 

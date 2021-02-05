@@ -1,5 +1,5 @@
 ---
-title: Supervisión de los registros de diagnósticos de Media Services mediante Azure Monitor | Microsoft Docs
+title: Supervisión de registros de diagnóstico mediante Azure Monitor
 description: En este artículo se muestra cómo enrutar y ver registros de diagnóstico mediante Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91707768"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953961"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 

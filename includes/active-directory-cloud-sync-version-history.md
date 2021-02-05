@@ -1,14 +1,42 @@
 ---
-ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97700583"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901183"
 ---
 En este artículo se enumeran las versiones y las características del agente de aprovisionamiento de Azure Active Directory Connect que se han publicado. El equipo de Azure AD actualiza periódicamente el agente de aprovisionamiento con nuevas características y funciones. El agente de aprovisionamiento se actualiza de forma automática cuando se publica una nueva versión. 
 
 Microsoft proporciona soporte técnico directo para la versión más reciente del agente y una versión anterior.
+
+## <a name="113540"></a>1.1.354.0
+
+20 de enero de 2021: publicado para descarga.
+
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+- Mejora de la experiencia de GMSA que incluye compatibilidad con cuentas de GMSA personalizadas creadas previamente
+- Compatibilidad de los [cmdlets de PowerShell](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) con la configuración de GMSA
+- [Compatibilidad de la CLI](../articles/active-directory/cloud-sync/how-to-install-pshell.md) con la instalación del agente (instalación silenciosa)
+- Diagnósticos adicionales para problemas de cuarentena del origen del agente
+- Correcciones de errores que incluyen la reducción del uso de memoria de los filtros de ámbito de UO, la ejecución de PHS solo para usuarios del ámbito, el control de objetos anidados en una unidad organizativa al usar el ámbito de UO, etc. 
+
+
+### <a name="fixed-issues"></a>Problemas corregidos
+-    Se evita la cuarentena cuando el grupo de ámbito está fuera de ámbito
+-   Si los filtros de ámbito están configurados, el trabajo de PHS ahora solo funciona para los usuarios del ámbito
+-   El agente se bloquearía en algún momento durante la actualización
+-   Sincronización inicial de objetos en unidades organizativas anidadas al usar el ámbito de UO
+-   Repair-AADCloudSyncToolsAccount es más sólido
+-   Se ha reducido el uso de memoria de los filtros de ámbito de UO
+-   Se produce un error en la comprobación del rol de administrador si los miembros del rol contienen un grupo de seguridad
+-   Se ha corregido el problema de permisos de la carpeta de GMSA que evita la renovación de certificados del agente
+
+
+
+
+
+
 
 ## <a name="112810"></a>1.1.281.0
 
@@ -18,18 +46,18 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
-* Compatibilidad con [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts).
+* Compatibilidad con [gMSA](../articles/active-directory/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts).
 * Compatibilidad con grupos de hasta 1500 miembros durante el ciclo de sincronización incremental o diferencial. Esto se puede aplicar cuando se usa el filtro de ámbito de grupo
 * Compatibilidad con grupos grandes, de hasta 15 000 miembros
 * Mejoras en la sincronización inicial
 * Registro detallado avanzado
-* Introducción del [módulo AADCloudSyncTools de PowerShell](../articles/active-directory/cloud-provisioning/reference-powershell.md)
+* Introducción del [módulo AADCloudSyncTools de PowerShell](../articles/active-directory/cloud-sync/reference-powershell.md)
 * Limitaciones fijas para que el agente se pueda instalar en un servidor que no esté en inglés
 * Compatibilidad con el filtrado PHS solo para los objetos en el ámbito (originalmente, se sincronizaban los hash de contraseña de todos los objetos)
 * Se ha corregido el problema de fuga de memoria en el agente
 * Registros de aprovisionamiento mejorados
-* Compatibilidad con la configuración del [tiempo de espera de la conexión LDAP](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
-* Compatibilidad con la configuración del [seguimiento de referencias](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
+* Compatibilidad con la configuración del [tiempo de espera de la conexión LDAP](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Compatibilidad con la configuración del [seguimiento de referencias](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## <a name="11960"></a>1.1.96.0
@@ -40,7 +68,7 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
-* Incluye compatibilidad con el [aprovisionamiento en la nube de Azure AD Connect](../articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar datos de usuarios, contactos y grupos de la instancia local de Active Directory a Azure AD
+* Incluye compatibilidad con la [sincronización en la nube de Azure AD Connect](../articles/active-directory/cloud-sync/what-is-cloud-sync.md) para sincronizar datos de usuarios, contactos y grupos de la instancia de Active Directory local en Azure AD
 
 
 ## <a name="11670"></a>1.1.67.0
@@ -71,5 +99,3 @@ Microsoft proporciona soporte técnico directo para la versión más reciente de
 * Se ha renovado la arquitectura del conector y el agente de aprovisionamiento para mejorar el rendimiento, la estabilidad y la confiabilidad. 
 * Se ha simplificado la configuración del agente de aprovisionamiento simplificado mediante el Asistente para la instalación basada en la interfaz de usuario 
 * Se ha agregado la compatibilidad para las actualizaciones automáticas del agente.
-
-

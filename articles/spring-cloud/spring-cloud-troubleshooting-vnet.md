@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887109"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935257"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Solución de problemas de Azure Spring Cloud en redes virtuales
 
@@ -39,7 +39,7 @@ Para configurar la instancia de servicio de Azure Spring Cloud mediante la plant
 |------|------|
 | Resources created by Azure Spring Cloud were disallowed by policy (La directiva no permitió los recursos creados por Azure Spring Cloud). | Los recursos de red se crearán al implementar Azure Spring Cloud en su propia red virtual. Compruebe si se ha definido [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) para bloquear esa creación. Los recursos que no se pudieron crear se encuentran en el mensaje de error. |
 | Provided subnets have associated with route tables, please disassociate them (Las subredes proporcionadas están asociadas a tablas de rutas, debe desasociarlas). | Actualmente no se admite la implementación de Azure Spring Cloud en una subred asociada a tablas de rutas existentes, debe desasociarlas e intentarlo de nuevo. |
-| Required traffic is not whitelisted (El tráfico necesario no está en la lista de permitidos). | Consulte [Responsabilidades del cliente al ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario está en la lista de permitidos. |
+| Required traffic is not allowlisted (El tráfico necesario no está en la lista de permitidos). | Vea [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario esté en la lista de permitidos. |
 
 ## <a name="my-application-cant-be-registered"></a>No se puede registrar mi aplicación
 

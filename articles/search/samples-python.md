@@ -7,29 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 6e0f3d318cc462b03151d5a4935ae318df46e2c5
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 01/27/2021
+ms.openlocfilehash: 0d09851cf8e68cead4a67615aaa792512482f351
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955129"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de Python de Azure Cognitive Search
 
-Obtenga información sobre los ejemplos de código de Python que muestran las características y la funcionalidad de Azure Cognitive Search. Los repositorios principales son los siguientes:
+Obtenga información sobre los ejemplos de código de Python que muestran la funcionalidad y el flujo de trabajo de una solución de Azure Cognitive Search. En estos ejemplos se usa la [**biblioteca cliente de Azure Cognitive Search**](/python/api/overview/azure/search-documents-readme) para el [**SDK de Azure para Python**](/azure/developer/python/), que puede examinar por medio de los vínculos siguientes.
 
-| Repositorio | Descripción |
-|------------|-------------|
-| [azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples/](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) | Ejemplos generados por el equipo del SDK de Azure incluidos en la biblioteca cliente Azure.Search.Documents del SDK. También puede revisar [pruebas unitarias](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) de la biblioteca cliente para ver cómo se denominan las distintas API. |
-| [Azure-Samples/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Ejemplos de código que acompañan a artículos paso a paso, incluido [Inicio rápido: Creación de un índice de Azure Cognitive Search en Python](search-get-started-python.md).|
+| Destino | Vínculo |
+|--------|------|
+| Descarga del paquete | [pypi.org/project/azure-search-documents/](https://pypi.org/project/azure-search-documents/) |
+| Referencia de API | [azure-search-documents](/python/api/azure-search-documents)  |
+| Casos de prueba de la API | [github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) |
+| Código fuente | [github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents)  |
 
-> [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=python&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+## <a name="sdk-samples"></a>Ejemplos del SDK
 
-## <a name="python-sdk-samples"></a>Ejemplos de SDK de Python
-
-El SDK de Azure para Python incluye numerosos ejemplos y una [página de introducción](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) que incluye los requisitos previos y la instalación del paquete. La página también contiene vínculos a los ejemplos siguientes, que se enumeran aquí para su comodidad.
+Los ejemplos de código del equipo de desarrollo del SDK de Azure muestran el uso de la API. Puede encontrar estos ejemplos en [**azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples**](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) en GitHub.
 
 | Ejemplos | Descripción |
 |---------|-------------|
@@ -43,12 +42,15 @@ El SDK de Azure para Python incluye numerosos ejemplos y una [página de introdu
 | [Consulta con filtro](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_filter_query.py) | Muestra la configuración de una [expresión de filtro](search-filters.md). |
 | [Consulta de facetas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Muestra el trabajo con [facetas](search-filters-facets.md). |
 
-## <a name="documentation-samples"></a>Documentación y ejemplos
+## <a name="doc-samples"></a>Ejemplos de documentación
 
-Los ejemplos siguientes tienen un artículo asociado en [Documentación de Azure Cognitive Search](./index.yml).
+Los ejemplos de código del equipo de Cognitive Search muestran características y flujos de trabajo. En tutoriales, inicios rápidos y artículos de procedimientos se hace referencia a muchos de estos ejemplos. Puede encontrar estos ejemplos en [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples) en GitHub.
 
-| Ejemplos | Descripción | 
-|---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Código fuente de [Inicio rápido: Creación de un índice de Azure Cognitive Search en Python](search-get-started-python.md).  |
-| [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Código fuente de [Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure](cognitive-search-tutorial-blob-python.md).  |
-| [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Código fuente de [Ejemplo: Creación de una aptitud personalizada con Python](cognitive-search-custom-skill-python.md).  |
+| Ejemplos | Artículo |
+|---------|---------|
+| [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Código fuente de [Inicio rápido: Creación de un índice de Azure Cognitive Search en Python](search-get-started-python.md). En este artículo se habla del flujo de trabajo básico para crear, cargar y consultar un índice de búsqueda con datos de ejemplo. |
+| [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Código fuente de [Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure](cognitive-search-tutorial-blob-python.md). En este artículo se muestra cómo crear un indizador de blobs con un conjunto de aptitudes cognitivas, donde el conjunto de aptitudes crea y transforma contenido sin procesar para que pueda buscarse o consumirse. |
+| [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Código fuente de [Ejemplo: Creación de una aptitud personalizada con Python](cognitive-search-custom-skill-python.md). En este artículo se muestra la integración del indizador y el conjunto de aptitudes con modelos de aprendizaje profundo en Azure Machine Learning. |
+
+> [!Tip]
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=python&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.

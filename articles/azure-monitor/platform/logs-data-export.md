@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804943"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895975"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
 
 ## <a name="overview"></a>Introducción
-Una vez configurada la exportación de datos del área de trabajo de Log Analytics, los nuevos datos que se envían a las tablas seleccionadas en el área de trabajo se exportan automáticamente a la cuenta de almacenamiento o al centro de eventos casi en tiempo real.
+Una vez configurada la exportación de datos del área de trabajo de Log Analytics, los nuevos datos enviados a las tablas seleccionadas del área de trabajo se exportan automáticamente a la cuenta de almacenamiento en blobs en anexos cada hora o al centro de eventos prácticamente en tiempo real.
 
 ![Información general sobre la exportación de datos](media/logs-data-export/data-export-overview.png)
 
@@ -67,7 +67,7 @@ Actualmente no se cobran cargos adicionales por la característica de exportaci�
 ## <a name="export-destinations"></a>Destinos de la exportación
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
-Los datos se envían a las cuentas de almacenamiento prácticamente en tiempo real a medida que llegan a Azure Monitor. La configuración de la exportación de datos crea un contenedor para cada tabla de la cuenta de almacenamiento con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un contenedor denominado *am-SecurityEvent*.
+Los datos se envían a las cuentas de almacenamiento cuando llegan a Azure Monitor y se almacenan en blobs en anexos cada hora. La configuración de la exportación de datos crea un contenedor para cada tabla de la cuenta de almacenamiento con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un contenedor denominado *am-SecurityEvent*.
 
 La ruta de acceso a los blobs de la cuenta de almacenamiento es *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Dado que los blobs en anexos están limitados a 50 000 escrituras en el almacenamiento, el número de blobs exportados puede ampliarse si el número de anexos es elevado. El patrón de nomenclatura de los blobs sería PT1H_#.json en este caso, donde # corresponde al incremento del número de blobs.
 

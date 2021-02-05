@@ -1,15 +1,15 @@
 ---
 title: Trabajo con grandes conjuntos de datos
 description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826030"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917697"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
@@ -65,7 +65,7 @@ En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resource
 ## <a name="paging-results"></a>Paginación de resultados
 
 Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
-**QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**. **resultTruncated** es un valor booleano que informa al consumidor si existen registros adicionales no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
+**QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**. **resultTruncated** es un valor booleano que avisa al consumidor si existen más registros no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
 
  **resultTruncated** es **true** cuando la paginación está deshabilitada o no es posible debido a que no hay columna `id` o cuando hay menos recursos disponibles de los que una consulta está solicitando. Cuando **resultTruncated** es **true**, la propiedad **$skipToken** no se establece.
 

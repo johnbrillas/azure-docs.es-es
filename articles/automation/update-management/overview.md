@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185621"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896908"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -185,16 +185,7 @@ El uso medio de datos de los registros de Azure Monitor para una máquina que ut
 
 ## <a name="network-planning"></a><a name="ports"></a>Planeamiento de red
 
-Las direcciones siguientes se requieren específicamente para Update Management. La comunicación con estas direcciones se realiza a través del puerto 443.
-
-|Azure Public  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
-|`*.azure-automation.net` | `*.azure-automation.us`|
-
-Al crear reglas de seguridad de grupo de red o configurar Azure Firewall para permitir el tráfico en el servicio Automation y en el área de trabajo de Log Analytics, utilice la [etiqueta de servicio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** y **AzureMonitor**. De esta forma, se simplifica la administración continua de las reglas de seguridad de red. Para conectarse al servicio Automation desde las máquinas virtuales de Azure de forma segura y privada, revise [Uso de Azure Private Link](../how-to/private-link-security.md). Para obtener información de intervalos y la etiqueta de servicio actual para incluirla como parte de las configuraciones del firewall local, consulte [Archivos JSON descargables](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Vea [Configuración de red de Azure Automation](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) para obtener información detallada sobre los puertos, las direcciones URL y otros detalles de red necesarios para Update Management.
 
 En el caso de máquinas Windows, también debe permitir el tráfico a los puntos de conexión que necesita Windows Update. Puede encontrar una lista actualizada de los puntos de conexión necesarios en [Problemas relacionados con HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si tiene un [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, también debe permitir el tráfico al servidor especificado en la [clave de WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -227,11 +218,14 @@ En la tabla siguiente se definen las clasificaciones admitidas para las actualiz
 |Otras actualizaciones     | Todas las demás actualizaciones que ni son críticas por naturaleza ni son actualizaciones de seguridad.        |
 
 >[!NOTE]
->La clasificación de actualizaciones para máquinas Linux solo está disponible cuando se usa en las regiones de la nube pública de Azure admitidas. Al usar Update Management en las siguientes regiones de la nube nacional:
+>La clasificación de actualizaciones para máquinas Linux solo está disponible en las regiones de nube pública de Azure admitidas. No hay clasificación de actualizaciones de Linux si se usa Update Management en las siguientes regiones de nube nacional:
+>
 >* Azure US Government
 >* 21Vianet en China
 >
-> No hay ninguna clasificación de las actualizaciones de Linux y se muestran en la categoría **Otras actualizaciones**. Update Management usa los datos publicados por las distribuciones admitidas, en concreto, sus archivos de [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Dado que el acceso a Internet está restringido desde estas nubes nacionales, Update Management no puede tener acceso a estos archivos ni consumirlos.
+> En lugar de clasificarse, las actualizaciones se muestran en la categoría **Otras actualizaciones**.
+>
+> Update Management usa los datos publicados por las distribuciones admitidas, en concreto, sus archivos de [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language). Dado que el acceso a Internet está restringido desde estas nubes nacionales, Update Management no puede acceder a los archivos.
 
 En Linux, Update Management puede distinguir entre actualizaciones críticas y de seguridad en la nube en la clasificación **Seguridad** y en **Otras**, y mostrar al mismo tiempo datos de evaluación debido al enriquecimiento de datos en la nube. Para aplicar revisiones, Update Management se basa en los datos de clasificación disponibles en la máquina. A diferencia de otras distribuciones, CentOS no dispone de esta información en la versión RTM. Si tiene máquinas de CentOS configuradas para devolver datos de seguridad para el siguiente comando, Update Management puede aplicar revisiones basadas en clasificaciones.
 

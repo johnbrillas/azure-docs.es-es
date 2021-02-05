@@ -3,16 +3,16 @@ title: Tarea de DevOps del servicio Azure Image Builder
 description: Tarea de Azure DevOps para insertar artefactos de compilación en una imagen de máquina virtual, para que pueda instalar y configurar la aplicación y el sistema operativo
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684549"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934296"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarea de DevOps del servicio Azure Image Builder
 
@@ -154,6 +154,12 @@ En los ejemplos siguientes se explica cómo funciona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   Puede hacer referencia a varios scripts o agregar más comandos, por ejemplo:
+
+       ```PowerShell
+       & 'c:\buildArtifacts\webapp\webconfig.ps1'
+       & 'c:\buildArtifacts\webapp\installAgent.ps1'
+       ```
 * Linux: en los sistemas Linux, los artefactos de compilación se colocan en el directorio `/tmp`. Sin embargo, en muchos sistemas operativos Linux, al reiniciar, se elimina el contenido del directorio /tmp. Si desea que los artefactos existan en la imagen, debe crear otro directorio y copiarlos.  Por ejemplo:
 
     ```bash

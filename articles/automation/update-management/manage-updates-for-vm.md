@@ -4,14 +4,13 @@ description: En este artículo se indica cómo usar Update Management para admin
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221870"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915989"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales
 
@@ -35,11 +34,13 @@ Update Management usa una configuración de ámbito dentro del área de trabajo 
 
 Antes de implementar las actualizaciones de software en las máquinas, revise los resultados de la evaluación del cumplimiento de las actualizaciones para las máquinas habilitadas. Para cada actualización de software, se registra su estado de cumplimiento y, una vez completada la evaluación, se recopila y reenvía de forma masiva a los registros de Azure Monitor.
 
-En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada. Además del examen programado, el examen del cumplimiento de las actualizaciones se inicia a los 15 minutos del reinicio del agente de Log Analytics, así como antes y después de la instalación de actualizaciones. También es importante revisar nuestras recomendaciones sobre cómo [configurar el cliente de Windows Update](configure-wuagent.md) con Update Management para evitar problemas que impidan su correcta administración.
+En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de manera predeterminada y se inicia en los 15 minutos posteriores al reinicio del agente de Log Analytics para Windows. Luego, los datos de la valoración se reenvían al área de trabajo y actualizan la tabla **Actualizaciones**. Antes y después de la instalación de actualizaciones se realiza un examen de cumplimiento de actualizaciones para identificar las que faltan, pero los resultados no se usan para actualizar los datos de la valoración en la tabla.
+
+Es importante revisar las recomendaciones sobre cómo [configurar el cliente de Windows Update](configure-wuagent.md) con Update Management para evitar problemas que impidan su correcta administración.
 
 En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics para Linux, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
-Los resultados de cumplimiento se presentan en Update Management para cada máquina evaluada. En el caso de una nueva máquina habilitada para administración, pueden transcurrir hasta 30 minutos antes de que el panel muestre los datos actualizados.
+Los resultados de cumplimiento se presentan en Update Management para cada máquina evaluada. Pueden transcurrir hasta 30 minutos antes de que el panel muestre los datos actualizados de una nueva máquina habilitada para administración.
 
 Revise [Supervisión de las actualizaciones de software](view-update-assessments.md) para obtener información sobre cómo ver los resultados de cumplimiento.
 
