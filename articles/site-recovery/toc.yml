@@ -478,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Adición de runbooks de Automation a los planes de recuperación
       href: site-recovery-runbook-automation.md
+    - name: Plantillas ARM
+      href: asr-arm-templates.md
 - name: Supervisión
   items:
     - name: Preguntas habituales sobre supervisión

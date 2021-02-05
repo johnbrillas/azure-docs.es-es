@@ -42,6 +42,8 @@
       href: authentication.md
     - name: Línea de base de seguridad
       href: security-baseline.md
+    - name: Controles de seguridad de Azure Policy
+      href: ./security-controls-policy.md
 - name: Compatibilidad con los contenedores
   items:
     - name: Compatibilidad con los contenedores
