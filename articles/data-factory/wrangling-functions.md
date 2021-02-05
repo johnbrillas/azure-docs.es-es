@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633684"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896670"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
@@ -24,7 +24,7 @@ La limpieza y transformación de datos en Azure Data Factory permite la ágil pr
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar las recopilaciones, aparecerá el siguiente mensaje de error si no se admite una función:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 A continuación se muestra una lista de funciones admitidas de Power Query M.
 
@@ -96,7 +96,7 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 | Table.Distinct | No se admite la eliminación de filas duplicadas. |
 | Table.RemoveLastN | No se admite la eliminación de las filas inferiores. |
 | Table.RowCount | No se admite, pero se puede lograr agregando una columna personalizada que contenga el valor 1 y sumando después esa columna con List.Sum. Se admite Table.Group. | 
-| Control de errores de nivel de fila | El control de errores de nivel de fila no se admite actualmente. Por ejemplo, para filtrar los valores no numéricos de una columna, una opción sería transformar la columna de texto en números. Cada celda que no se pueda transformar tendrá un estado de error y debe filtrarse. Este escenario no es posible en el flujo de datos de limpieza y transformación. |
+| Control de errores de nivel de fila | El control de errores de nivel de fila no se admite actualmente. Por ejemplo, para filtrar los valores no numéricos de una columna, una opción sería transformar la columna de texto en números. Cada celda que no se pueda transformar tendrá un estado de error y debe filtrarse. Este escenario no es posible en M con escalabilidad horizontal. |
 | Table.Transpose | No compatible |
 | Table.Pivot | No compatible |
 

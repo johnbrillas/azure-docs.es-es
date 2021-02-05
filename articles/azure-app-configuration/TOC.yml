@@ -122,7 +122,7 @@
       href: howto-import-export-data.md
     - name: Uso de un tipo de contenido JSON para valores clave
       href: howto-leverage-json-content-type.md
-    - name: Enrutamiento de eventos a un punto de conexión personalizado
+    - name: Uso de Event Grid para las notificaciones de cambios de datos
       href: howto-app-configuration-event.md
     - name: Copia de seguridad automática del almacén de configuración
       href: howto-backup-config-store.md
