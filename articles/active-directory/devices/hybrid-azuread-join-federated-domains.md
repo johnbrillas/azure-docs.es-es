@@ -28,7 +28,7 @@ Al igual que un usuario de su organización, un dispositivo es una identidad pri
 
 Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios mediante un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Puede proteger el acceso a los recursos de nube y del entorno local con [acceso condicional](../conditional-access/howto-conditional-access-policy-compliant-device.md) al mismo tiempo.
 
-Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes. Si tiene un entorno federado en que se utilizan los Servicios de federación de Active Directory (AD FS), ya se admiten los requisitos anteriores.
+Un entorno federado debe tener un proveedor de identidades que admita los requisitos siguientes. Si tiene un entorno federado en que se utilizan los Servicios de federación de Active Directory (AD FS), entonces los siguientes requisitos ya son compatibles.
 
 - **Notificación WIAORMULTIAUTHN:** Esta notificación es necesaria para realizar la unión a Azure AD híbrido para dispositivos Windows de nivel inferior.
 - **Protocolo WS-Trust:** Este protocolo es necesario para autenticar en Azure AD los dispositivos Windows actuales unidos a Azure AD híbrido.
