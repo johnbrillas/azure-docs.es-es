@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516091"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218781"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -37,14 +37,14 @@ Aunque la mayoría de las opciones de directivas personalizadas ya se encuentran
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades de los desarrolladores de conjunto de características de directivas personalizadas
 
-La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único. Las múltiples permutaciones de proveedores de identidades personalizados, las relaciones de confianza, las integraciones con servicios externos y los flujos de trabajo paso a paso exigen un enfoque de diseño y configuración más metódico.
+La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único. Las múltiples combinaciones posibles de proveedores de identidades personalizadas, relaciones de confianza, integraciones con servicios externos y flujos de trabajo paso a paso requieren un enfoque de diseño y configuración más metódico.
 
 Los desarrolladores que utilizan el conjunto de características de directivas personalizadas deben cumplir las siguientes directrices:
 
 - Conocer el lenguaje de configuración de las directivas personalizadas y la administración de claves/secretos. Para más información, consulte [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Tomar posesión de escenarios e integraciones personalizadas. Documentar su trabajo e informar a la organización del sitio activo.
 - Realizar pruebas metódicas de los escenarios.
-- Seguir los procedimientos recomendados de desarrollo de software y almacenamiento provisional con un mínimo de un entorno de desarrollo y prueba, y un entorno de producción.
+- Siga los procedimientos recomendados de desarrollo de software y almacenamiento provisional. Se recomienda un mínimo de un entorno de desarrollo y pruebas.
 - Mantenerse informado sobre los nuevos desarrollos de los proveedores de identidad y los servicios con los que está integrado. Por ejemplo, realizar un seguimiento de cambios en los secretos y los cambios programados y no programados en el servicio.
 - Configurar la supervisión activa y supervisar la capacidad de respuesta de los entornos de producción. Para más información sobre la integración con Application Insights, vea [Azure Active Directory B2C: Recopilación de registros](analytics-with-application-insights.md).
 - Mantenga actualizadas las direcciones de correo electrónico de contacto y responda a los correos mensajes de correo electrónico del equipo de Microsoft.
@@ -58,7 +58,7 @@ Los desarrolladores que utilizan el conjunto de características de directivas p
 
 ## <a name="features-by-stage-and-known-issues"></a>Características por fase y problemas conocidos
 
-Las directivas personalizadas y las funcionalidades de Identity Experience Framework están en desarrollo constante y rápido. La siguiente tabla es un índice de disponibilidad de características y componentes.
+Las funcionalidades de las directivas personalizadas se encuentran en constante desarrollo. La siguiente tabla es un índice de disponibilidad de características y componentes.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protocolos y flujos de autorización
@@ -144,7 +144,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | Azure Portal-IEF UX |  |  | X |  |
 | Carga de directiva |  |  | X |  |
 | [Registros de recorridos del usuario de Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Se usa para solucionar problemas durante el desarrollo.  |
-| [Registros de eventos de Application Insights](application-insights-technical-profile.md) |  | X |  | Se usa para supervisar flujos de usuario en producción. |
+| [Registros de eventos de Application Insights](analytics-with-application-insights.md) |  | X |  | Se usa para supervisar flujos de usuario en producción. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

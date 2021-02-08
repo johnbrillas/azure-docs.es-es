@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880732"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092057"
 ---
 # <a name="security-control-v2-privileged-access"></a>Control de seguridad V2: Acceso con privilegios
 
@@ -26,7 +26,7 @@ El acceso con privilegios abarca los controles para proteger el acceso con privi
 
 Limite el número de cuentas de usuario con privilegios elevados y proteja dichas cuentas en un nivel elevado. Los roles integrados más críticos de Azure AD son administrador global y administrador de roles con privilegios, ya que los usuarios asignados a estos dos roles pueden delegar roles de administrador. Con estos privilegios, los usuarios pueden leer y modificar todos los recursos de su entorno de Azure de forma directa o indirecta:
 
-- Administrador global/administrador de empresa: los usuarios con este rol tienen acceso a todas las características administrativas de Azure AD, así como a los servicios que utilizan identidades de Azure AD.
+- Administrador global: los usuarios con este rol tienen acceso a todas las características administrativas de Azure AD, así como a los servicios que utilizan identidades de Azure AD.
 
 - Administrador de roles con privilegios: los usuarios con este rol pueden administrar asignaciones de roles en Azure AD, y dentro de Azure AD Privileged Identity Management (PIM). Además, este rol permite administrar todos los aspectos de PIM y de las unidades administrativas.
 

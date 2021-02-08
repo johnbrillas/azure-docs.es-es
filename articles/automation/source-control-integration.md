@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579460"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050777"
 ---
 # <a name="use-source-control-integration"></a>Uso de la integración del control de código fuente
 
@@ -29,7 +29,7 @@ Azure Automation admite tres tipos de control de código fuente:
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Un repositorio de control de código fuente (GitHub o Azure Repos).
-* Una [cuenta de ejecución](manage-runas-account.md)
+* Una [cuenta de ejecución](automation-security-overview.md#run-as-accounts)
 * Los [módulos de Azure más recientes](automation-update-azure-modules.md) en la cuenta de Automation, incluido el módulo `Az.Accounts` (módulo Az equivalente a `AzureRM.Profile`)
 
 > [!NOTE]
@@ -209,4 +209,4 @@ Actualmente, no puede usar Azure Portal para actualizar el token de acceso perso
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para integrar el control de código fuente en Azure Automation, vea [Azure Automation: integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Para integrar el control de código fuente de runbook con Visual Studio Online, vea [Azure Automation: integración del control de código fuente de runbook mediante Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Para integrar el control de código fuente del runbook con Visual Studio Codespaces, consulte [Azure Automation: Integración del control de código fuente del runbook mediante Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

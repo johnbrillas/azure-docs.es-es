@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511940"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095398"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -48,6 +48,8 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Rendimiento mínimo asignado para un volumen de QoS manual     |    1 MiB/s   |    No    |    
 |  Rendimiento máximo asignado para un volumen de QoS manual     |    4500 MiB/s    |    No    |    
 |  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    5    |    Sí    |     
+
+Para ver si un directorio está llegando al límite de tamaño máximo de los metadatos del directorio (320 MB), consulte [¿Cómo puedo determinar si un directorio está llegando al tamaño límite?](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
 
 Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
 

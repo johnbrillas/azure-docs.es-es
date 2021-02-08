@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878297"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051302"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -97,6 +97,18 @@ Live Video Analytics se implementa como un módulo de IoT Edge en el dispositivo
 
     > [!TIP]
     > Si experimenta problemas al ejecutar módulos de Azure IoT Edge en el entorno, use **[Pasos de diagnóstico estándar de Azure IoT Edge](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como guía para la solución de problemas y el diagnóstico.
+
+También podría encontrar problemas al ejecutar el **[script de configuración de los recursos de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)** . Algunos problemas comunes son:
+
+* El uso de una suscripción en la que no tenga privilegios de propietario. Esto hará que en el script se produzca el error **ForbiddenError** o **AuthorizationFailed**.
+    * Para solucionar este problema, asegúrese de tener privilegios de **PROPIETARIO** sobre la suscripción que planea usar. Si no puede hacerlo por sí mismo, póngase en contacto con el administrador de suscripciones para conceder los privilegios correctos.
+* **Se produjo un error en la implementación de la plantilla debido a la infracción de la directiva.**
+    * Para solucionar este problema, trabaje con el administrador de TI para que las llamadas para crear máquinas virtuales pasen por alto el bloqueo de la autenticación de SSH. Esto no será necesario, dado que se usa una red Bastion que requiere un nombre de usuario y una contraseña para comunicarse con los recursos de Azure. Estas credenciales se almacenarán en el archivo **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** de Cloud Shell, una vez que la máquina virtual se haya creado, implementado y asociado correctamente al centro de IoT.
+* El script de instalación no puede crear una entidad de servicio o recursos de Azure.
+    * Para solucionar este problema, compruebe que la suscripción y el inquilino de Azure no hayan alcanzado sus límites de servicio máximos. Más información sobre [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) y [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+> [!TIP]
+> Si hay algún problema adicional con el que pueda necesitar ayuda, consulte **[Recopilación de registros para enviar una incidencia de soporte técnico](#collect-logs-for-submitting-a-support-ticket)** . También puede ponerse en contacto con nosotros enviándonos un correo electrónico a **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>Live Video Analytics trabajando con módulos externos
 
 Live Video Analytics, mediante el procesador de extensiones del grafo multimedia, puede ampliar el grafo multimedia para enviar y recibir datos de otros módulos de IoT Edge mediante HTTP o protocolos gRPC. Como [ejemplo específico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), este grafo multimedia puede enviar fotogramas de vídeo como imágenes a un módulo de inferencia externo, como Yolo v3, y recibir resultados de análisis basados en JSON mediante el protocolo HTTP. En esta topología, el destino final de los eventos es, principalmente, el centro de IoT. En situaciones en las que no vea los eventos de inferencia en el centro de conectividad, compruebe lo siguiente:

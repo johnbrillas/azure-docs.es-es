@@ -3,19 +3,19 @@ title: Acceso a orígenes de datos en entornos locales
 description: Conexión a orígenes de datos locales desde Azure Logic Apps mediante la creación de un recurso de puerta de enlace de datos en Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009267"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219001"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, debe crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/apis-list.md#on-premises-connectors) disponibles en Azure Logic Apps. Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
+Después de [instalar la *puerta de enlace de datos local* en un equipo local](../logic-apps/logic-apps-gateway-install.md) y antes de poder acceder a los orígenes de datos locales desde las aplicaciones lógicas, tiene que crear un recurso de puerta de enlace en Azure para la instalación de la puerta de enlace. Después puede seleccionar este recurso de puerta de enlace en los desencadenadores y las acciones que quiere usar para los [conectores locales](../connectors/apis-list.md#on-premises-connectors) disponibles en Azure Logic Apps. Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure para una [puerta de enlace instalada previamente en el equipo local](../logic-apps/logic-apps-gateway-install.md). Para más información sobre la puerta de enlace, consulte el [funcionamiento de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -48,17 +48,20 @@ En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores l
 * SQL Server
 * Teradata
 
-También puede crear [conectores personalizados](../logic-apps/custom-connector-overview.md) que se conectan a orígenes de datos a través de HTTP o HTTPS mediante REST o SOAP. Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
+También puede crear [conectores personalizados](../logic-apps/custom-connector-overview.md) que se conectan a orígenes de datos a través de HTTP o HTTPS mediante REST o SOAP. Aunque la puerta de enlace por sí sola no genera costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Ya ha [instalado la puerta de enlace de datos local en un equipo local](../logic-apps/logic-apps-gateway-install.md). Esta instalación de puerta de enlace debe existir antes de que pueda crear un recurso de puerta de enlace que se vincule a esta instalación.
 
-* Tiene la [misma cuenta y suscripción de Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que usó para la instalación de la puerta de enlace. Esta cuenta de Azure debe pertenecer solo a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Debe usar la misma cuenta y suscripción de Azure para crear el recurso de puerta de enlace en Azure, porque solo el administrador de la puerta de enlace puede crear el recurso de puerta de enlace en Azure. Actualmente, no se admiten las entidades de servicio.
+* Tiene la [misma cuenta y suscripción de Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que usó para la instalación de la puerta de enlace. Esta cuenta de Azure debe pertenecer solo a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Tiene que usar la misma cuenta y suscripción de Azure para crear el recurso de puerta de enlace en Azure, porque solo el administrador de la puerta de enlace puede crear el recurso de puerta de enlace en Azure. Actualmente, no se admiten las entidades de servicio.
 
   * Al crear un recurso de puerta de enlace en Azure, selecciona una instalación de la puerta de enlace que está vinculada al recurso de puerta de enlace y solo a ese recurso. Cada recurso de puerta de enlace solo se puede vincular a una instalación de puerta de enlace. No se puede seleccionar una instalación de puerta de enlace que ya esté asociada a otro recurso de puerta de enlace.
-  
-  * No es necesario que la aplicación lógica y el recurso de puerta de enlace estén en la misma suscripción de Azure. Siempre que tenga acceso a la suscripción, en los desencadenadores y acciones que puedan acceder a los orígenes de datos locales, puede seleccionar otras suscripciones de Azure que tengan recursos de puerta de enlace.
+
+  * No es necesario que la aplicación lógica y el recurso de puerta de enlace estén en la misma suscripción de Azure. En los desencadenadores y las acciones en los que puede usar el recurso de puerta de enlace, puede seleccionar una suscripción de Azure diferente que tenga un recurso de puerta de enlace, pero solo si esa suscripción existe en el mismo inquilino o directorio de Azure AD que la aplicación lógica. También debe tener permisos de administrador en la puerta de enlace, que otro administrador puede configurar automáticamente. Para más información, consulte [Puerta de enlace de datos: automatización con PowerShell, parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) y [PowerShell: puerta de enlace de datos: Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Actualmente, no se puede compartir un recurso o una instalación de puerta de enlace en varias suscripciones. Para enviar comentarios sobre el producto, consulte [Foro de comentarios de Microsoft Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Después de crear el recurso de puerta de enlace y asociar su suscripción de Az
 
 1. Seleccione **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local).
 
-1. En **Puertas de enlace**, en la lista **Suscripciones**, seleccione la suscripción de Azure con el recurso de puerta de enlace que desee.
+1. En **Puerta de enlace**, en la lista **Suscripción**, seleccione la suscripción de Azure con el recurso de puerta de enlace que quiera.
 
-   Siempre que tenga acceso a la suscripción, puede seleccionar entre distintas suscripciones de Azure que están asociadas a un recurso de puerta de enlace diferente. No es necesario que la aplicación lógica y el recurso de puerta de enlace estén en la misma suscripción de Azure.
-
+   No es necesario que la aplicación lógica y el recurso de puerta de enlace estén en la misma suscripción de Azure. Puede seleccionar otras suscripciones de Azure que cada una tenga un recurso de puerta de enlace, pero solo si estas suscripciones existen en el mismo inquilino o directorio de Azure AD que la aplicación lógica, y tiene permisos de administrador en la puerta de enlace, que otro administrador puede configurar automáticamente. Para más información, consulte [Puerta de enlace de datos: automatización con PowerShell, parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) y [PowerShell: puerta de enlace de datos: Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. En la lista **Puerta de enlace de conexión**, que muestra los recursos de puerta de enlace disponibles en la suscripción seleccionada, seleccione el recurso de puerta de enlace que desee. Cada recurso de puerta de enlace está vinculado a una única instalación de la puerta de enlace.
 
    > [!NOTE]

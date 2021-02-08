@@ -3,14 +3,14 @@ title: Administración de módulos en Azure Automation
 description: En este artículo se explica cómo usar los módulos de PowerShell para habilitar cmdlets en runbooks y recursos de DSC en configuraciones de DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458156"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936631"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -25,10 +25,18 @@ Azure Automation usa una serie de módulos de PowerShell para habilitar cmdlets 
 
 Cuando se crea una cuenta de Automation, Azure Automation importa algunos módulos de forma predeterminada. Consulte [Módulos predeterminados](#default-modules).
 
+## <a name="sandboxes"></a>Espacios aislados
+
 Cuando Automation ejecuta trabajos de compilación de runbook y DSC, carga los módulos en espacios aislados en los que se pueden ejecutar los runbooks y se pueden compilar las configuraciones de DSC. Automation también coloca automáticamente los recursos de DSC en los módulos del servidor de extracción de DSC. Las máquinas pueden extraer los recursos cuando aplican las configuraciones de DSC.
 
 >[!NOTE]
 >Asegúrese de importar solo los módulos necesarios para los runbooks y las configuraciones de DSC. No es recomendable importar el módulo Az raíz, ya que incluye muchos otros módulos que es posible que no necesite, lo que puede causar problemas de rendimiento. En su lugar, importe módulos individuales, como Az.Compute.
+
+El espacio aislado de nube admite 48 llamadas del sistema como máximo y, por motivos de seguridad, restringe todas las demás. Otras funcionalidades, como la administración de credenciales y algunas redes, no se admiten en el espacio aislado de nube.
+
+Debido al número de módulos y cmdlets incluidos, es difícil saber de antemano cuál de los cmdlets realizará llamadas no admitidas. Por lo general, se han detectado problemas con cmdlets que requieren acceso con privilegios elevados, que requieren una credencial como parámetro o con cmdlets relacionados con redes. Los cmdlets que realizan operaciones de red de pila completa no se admiten en el espacio aislado, lo que incluye [Connect-AipService](/powershell/module/aipservice/connect-aipservice) del módulo AIPService de PowerShell y [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) del módulo DNSClient.
+
+Estas son limitaciones conocidas del espacio aislado. La solución recomendada es implementar una instancia de [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) o usar [Azure Functions](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Módulos predeterminados
 
@@ -134,7 +142,7 @@ Al importar un módulo Az en la cuenta de Automation, no se importa automáticam
 
 Puede importar los módulos Az en Azure Portal. No olvide importar solo los módulos Az que necesite, no todo el módulo Az.Automation. Dado que [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) es una dependencia para los otros módulos Az, asegúrese de importar este módulo antes que cualquier otro.
 
-1. En la cuenta de Automation, en **Recursos compartidos** , seleccione **Módulos**.
+1. En la cuenta de Automation, en **Recursos compartidos**, seleccione **Módulos**.
 2. Seleccione **Explorar la galería**.  
 3. En la barra de búsqueda, escriba el nombre del módulo, por ejemplo, `Az.Accounts`.
 4. En la página Módulo de PowerShell, seleccione **Importar** para importar el módulo en la cuenta de Automation.
@@ -169,7 +177,7 @@ TestModule
 
 Dentro de cada una de las carpetas de versión, copie los archivos **.dll** de módulo de PowerShell o .psm1 y .psd1 que componen un módulo en la carpeta de la versión correspondiente. Comprima la carpeta del módulo para que Azure Automation pueda importarla como un único archivo .zip. Mientras que Automation solo muestra la versión más alta del módulo importado, si el paquete de módulo contiene versiones en paralelo, estarán disponibles para su uso en los runbooks o configuraciones de DSC.  
 
-Aunque Automation admite módulos que contienen versiones en paralelo en el mismo paquete, no admite el uso de varias versiones de un módulo entre importaciones de paquetes de módulos. Por ejemplo, puede importar el **módulo A** , que contiene las versiones 1 y 2 a la cuenta de Automation. Después, actualice el **módulo A** para incluir las versiones 3 y 4; cuando lo importe en la cuenta de Automation, solo las versiones 3 y 4 se pueden usar en cualquier runbook o configuración de DSC. Si necesita que todas las versiones (1, 2, 3 y 4) estén disponibles, se deben incluir en el archivo .zip.
+Aunque Automation admite módulos que contienen versiones en paralelo en el mismo paquete, no admite el uso de varias versiones de un módulo entre importaciones de paquetes de módulos. Por ejemplo, puede importar el **módulo A**, que contiene las versiones 1 y 2 a la cuenta de Automation. Después, actualice el **módulo A** para incluir las versiones 3 y 4; cuando lo importe en la cuenta de Automation, solo las versiones 3 y 4 se pueden usar en cualquier runbook o configuración de DSC. Si necesita que todas las versiones (1, 2, 3 y 4) estén disponibles, se deben incluir en el archivo .zip.
 
 Si va a usar otras versiones del mismo módulo entre runbooks, siempre debe declarar la versión que quiera utilizar en el runbook con el cmdlet `Import-Module` e incluir el parámetro `-RequiredVersion <version>`. Incluso si la versión que quiere usar es la más reciente. Esto se debe a que los trabajos de runbook se pueden ejecutar en el mismo espacio aislado. Si el espacio aislado ya ha cargado de forma explícita un módulo de un número de versión concreto, porque un trabajo anterior de ese espacio aislado lo haya indicado, los trabajos futuros de ese espacio aislado no cargarán automáticamente la versión más reciente de ese módulo. Esto se debe a que alguna versión ya está cargada en el espacio aislado.
 
@@ -316,7 +324,7 @@ En esta sección se definen varias formas de importar un módulo en la cuenta de
 Para importar un módulo en Azure Portal:
 
 1. Vaya a su cuenta de Automation.
-2. En **Recursos compartidos** , seleccione **Módulos**.
+2. En **Recursos compartidos**, seleccione **Módulos**.
 3. Seleccione **Agregar un módulo**.
 4. Seleccione el archivo **.zip** que contiene el módulo.
 5. Seleccione **Aceptar** para iniciar el proceso de importación.
@@ -344,14 +352,14 @@ Puede importar módulos de la [Galería de PowerShell](https://www.powershellgal
 Para importar un módulo directamente desde la Galería de PowerShell:
 
 1. Vaya a https://www.powershellgallery.com y busque el módulo que desea importar.
-2. En **Opciones de instalación** , en la pestaña **Azure Automation** , seleccione **Implementar en Azure Automation**. Esta acción abre Azure Portal. 
+2. En **Opciones de instalación**, en la pestaña **Azure Automation**, seleccione **Implementar en Azure Automation**. Esta acción abre Azure Portal. 
 3. En la página Importar, seleccione su cuenta de Automation y seleccione **Aceptar**.
 
 ![Captura de pantalla del módulo de importación de la Galería de PowerShell](../media/modules/powershell-gallery.png)
 
 Para importar un módulo de la Galería de PowerShell directamente desde la cuenta de Automation:
 
-1. En **Recursos compartidos** , seleccione **Módulos**. 
+1. En **Recursos compartidos**, seleccione **Módulos**. 
 2. Seleccione **Examinar galería** y busque el módulo en la galería. 
 3. Seleccione el módulo que quiere importar y, después, haga clic en **Importar**. 
 4. Seleccione **Aceptar** para iniciar el proceso de importación.
@@ -366,7 +374,7 @@ Si tiene problemas con un módulo o necesita revertir a una versión anterior de
 
 Para eliminar un módulo en Azure Portal:
 
-1. Vaya a su cuenta de Automation. En **Recursos compartidos** , seleccione **Módulos**.
+1. Vaya a su cuenta de Automation. En **Recursos compartidos**, seleccione **Módulos**.
 2. Seleccione el módulo que quiera quitar.
 3. En la página Módulo, seleccione **Eliminar**. Si este módulo es uno de los [módulos predeterminados](#default-modules), se revertirá a la versión que existía cuando se creó la cuenta de Automation.
 

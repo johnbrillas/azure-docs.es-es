@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752962"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937808"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferencias de validación por tipos de cuenta compatibles (signInAudience)
 
@@ -24,9 +24,9 @@ Al registrar una aplicación con la plataforma de Microsoft Identity para desarr
 
 Están disponibles las siguientes opciones:
 
-- *AzureADMyOrg*: solo las cuentas del directorio de la organización donde está registrada la aplicación (un solo inquilino)
-- *AzureADMultipleOrgs*: Cuentas en cualquier directorio organizativo (multiinquilino)
-- *AzureADandPersonalMicrosoftAccount*: cuentas en cualquier directorio organizativo (multiinquilino) y cuentas de Microsoft personales (como Skype, Xbox o Outlook.com)
+- **AzureADMyOrg**: solo las cuentas del directorio de la organización donde está registrada la aplicación (un solo inquilino).
+- **AzureADMultipleOrgs**: cuentas de cualquier directorio organizativo (multiinquilino).
+- **AzureADandPersonalMicrosoftAccount**: cuentas de cualquier directorio organizativo (multiinquilino) y cuentas Microsoft personales (como Skype, Xbox o Outlook.com).
 
 En el caso de las aplicaciones registradas, puede encontrar el valor de los tipos de cuenta compatibles en la sección **Authentication** (Autenticación) de una aplicación. También puede encontrarlo en la propiedad `signInAudience` del **manifiesto**.
 
@@ -44,11 +44,11 @@ Vea la tabla siguiente para conocer las diferencias de validación de diversas p
 | Ámbitos definidos con esta API (`oauth2Permissions`) | Longitud máxima de nombre de ámbito de 120 caracteres <br><br> No existe un límite* en el número de ámbitos definidos | Longitud máxima de nombre de ámbito de 120 caracteres <br><br> No existe un límite* en el número de ámbitos definidos |  Longitud máxima del nombre de ámbito de 40 caracteres <br><br> Máximo de 100 ámbitos definidos | 
 | Aplicaciones cliente autorizadas (`preAuthorizedApplications`) | Ilimitado* | Ilimitado* | Máximo total de 500 <br><br> Máximo de 100 aplicaciones cliente definidas <br><br> Máximo de 30 ámbitos definidos por cliente | 
 | appRoles | Compatible <br> Ilimitado* | Compatible <br> Ilimitado* | No compatible | 
-| URL de cierre de sesión | http://localhost se permite <br><br> Tiene una longitud máxima de 255 caracteres | http://localhost se permite <br><br> Tiene una longitud máxima de 255 caracteres | <br><br> https://localhost se permite, http://localhost da error para MSA <br><br> Tiene una longitud máxima de 255 caracteres <br><br> El esquema HTTP no se admite <br><br> No se admiten caracteres comodín | 
+| Dirección URL de cierre de sesión del canal frontal | https://localhost se permite <br><br> El esquema `http` no se admite. <br><br> Tiene una longitud máxima de 255 caracteres | https://localhost se permite <br><br> El esquema `http` no se admite. <br><br> Tiene una longitud máxima de 255 caracteres | <br><br> https://localhost se permite, http://localhost da error para MSA <br><br> Tiene una longitud máxima de 255 caracteres <br><br> El esquema `http` no se admite. <br><br> No se admiten caracteres comodín | 
 
-*Hay un límite global de aproximadamente 1000 elementos en todas las propiedades de colección del objeto de aplicación
+*Hay un límite global de aproximadamente 1000 elementos en todas las propiedades de colección del objeto de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información sobre el [registro de aplicación](app-objects-and-service-principals.md)
-- Obtenga más información sobre el [manifiesto de aplicación](reference-app-manifest.md).
+- Información sobre el [registro de aplicación](app-objects-and-service-principals.md).
+- Más información sobre el [manifiesto de aplicación](reference-app-manifest.md).

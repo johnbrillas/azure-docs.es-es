@@ -1,19 +1,16 @@
 ---
 title: Notas de la versión de Azure HDInsight.
 description: Notas más recientes de la versión de Azure HDInsight. Obtenga sugerencias de desarrollo y detalles sobre Hadoop, Spark, R Server, Hive, etc.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786358"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092241"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -52,6 +49,9 @@ HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) 
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios.
+
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Cambio importante de .NET para Apache Spark 1.0.0
+HDInsight introducirá la primera versión principal oficial de .NET para Apache Spark en la próxima versión. Proporciona la integridad de la API DataFrame para Spark 2.4.x y Spark 3.0.x junto con otras características. Habrá cambios importantes en esta versión principal. Consulte [este GUID de migración](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para comprender los pasos necesarios para actualizar el código y las canalizaciones. Obtenga más información [aquí](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
 
 ### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>El tamaño de la máquina virtual del clúster predeterminado se cambiará a la familia Ev3.
 A partir de la próxima versión (a finales de enero), los tamaños de la máquina virtual del clúster predeterminados se cambiarán de la familia D a la familia Ev3. Este cambio se aplica a los nodos principales y los nodos de trabajo. Para evitar este cambio, especifique los tamaños de máquina virtual que desea usar en la plantilla de ARM.

@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440491"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955282"
 ---
 # <a name="scenario-any-to-any"></a>Escenario: Universal
 
-Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario universal, cualquier radio puede comunicarse con otro radio. Cuando existen varios centros, el enrutamiento de centro a centro (también conocido como hub-to-hub o interhub) está habilitado de forma predeterminada en Virtual WAN Estándar. Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario universal, cualquier radio puede comunicarse con otro radio. Cuando existen varios centros, el enrutamiento de centro a centro (también conocido como hub-to-hub o interhub) está habilitado de forma predeterminada en Virtual WAN Estándar. Puede crear esta configuración mediante diferentes métodos, como Azure Portal o una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Diseño
 
@@ -44,7 +44,7 @@ Para obtener más información sobre el enrutamiento de centros virtuales, vea [
 
 ## <a name="architecture"></a><a name="architecture"></a>Arquitectura
 
-En la **Ilustración 1** , todas las redes virtuales y ramas (VPN, ExpressRoute, P2S) pueden comunicarse entre sí. En un centro virtual, las conexiones funcionan de la siguiente manera:
+En la **Ilustración 1**, todas las redes virtuales y ramas (VPN, ExpressRoute, P2S) pueden comunicarse entre sí. En un centro virtual, las conexiones funcionan de la siguiente manera:
 
 * Una conexión VPN conecta un sitio VPN a una puerta de enlace de VPN.
 * La conexión de red virtual conecta una red virtual a un centro virtual. El enrutador del centro virtual proporciona la funcionalidad de tránsito entre las redes virtuales.
@@ -58,7 +58,7 @@ Estas conexiones (de forma predeterminada en la creación) están asociadas a la
 
 ## <a name="workflow"></a><a name="workflow"></a>Flujo de trabajo
 
-Este escenario está habilitado de forma predeterminada para Virtual WAN Estándar. Si la configuración de rama a rama está deshabilitada en la configuración de WAN, no se permitirá la conectividad entre los radios de las ramas. VPN/ExpressRoute/VPN de usuario se consideran radios de ramas en Virtual WAN.
+Este escenario está habilitado de forma predeterminada para Virtual WAN Estándar. Si la configuración de rama a rama está deshabilitada en la configuración de WAN, no se permitirá la conectividad entre los radios de la rama. VPN/ExpressRoute/VPN de usuario se consideran radios de ramas en Virtual WAN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

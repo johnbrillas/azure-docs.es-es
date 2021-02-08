@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 222c961f9e5587cd5526778e6ef1c800f5085a69
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064307"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937870"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro de Azure Portal para aplicaciones de desarrollo personalizado
 
@@ -61,7 +61,7 @@ Cuando haya rellenado los campos anteriores, la aplicación se registrará en Az
 
 | Campo           | Descripción        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL de cierre de sesión      | Es la dirección URL de cierre de sesión único. Azure AD envía una solicitud de cierre de sesión a esta dirección URL cuando el usuario termina la sesión en Azure AD con cualquier otra aplicación registrada.|
+| Dirección URL de cierre de sesión del canal frontal      | Es la dirección URL de cierre de sesión único. Azure AD envía una solicitud de cierre de sesión a esta dirección URL cuando el usuario termina la sesión en Azure AD con cualquier otra aplicación registrada.|
 | Tipos de cuenta admitidos  | Este parámetro especifica si la aplicación pueden utilizarla varios inquilinos. Normalmente, esto significa que las organizaciones externas pueden usar la aplicación si la registran en su inquilino y conceden acceso a los datos de la organización.|
 | URL de redireccionamiento      | Las direcciones URL de redireccionamiento o respuesta son puntos de conexión en los que Azure AD devuelve los tokens que solicita la aplicación. En el caso de las aplicaciones nativas, aquí es donde se envía al usuario después de una autorización correcta. Azure°AD comprueba que el URI de redireccionamiento que proporciona la aplicación en la solicitud de OAuth 2.0 coincide con uno de los valores registrados en el portal.|
 

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408012"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937630"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -35,8 +35,13 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 
 ![Inicio de sesión único de conexión directa](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->El inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido al dominio** únicamente, pero no se usa en dispositivos [unidos a Azure AD](../devices/concept-azure-ad-join.md) o [unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). El inicio de sesión único (SSO) en dispositivos registrados en Azure AD unido, Azure AD híbrido unido y Azure AD funciona según el [token de actualización principal](../devices/concept-primary-refresh-token.md).
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>Inicio de sesión único mediante el token de actualización principal frente a inicio de sesión único de conexión directa
+
+En Windows 10, se recomienda usar el inicio de sesión único mediante el token de actualización principal (PRT). En Windows 7 y 8.1, se recomienda usar el inicio de sesión único de conexión directa.
+Para el inicio de sesión único de conexión directa, es necesario que el dispositivo del usuario esté unido a un dominio, pero este inicio de sesión no se usa en [dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md) ni en [dispositivos unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). El inicio de sesión único en dispositivos unidos a Azure AD, unidos a Azure AD híbrido y registrados en Azure AD funciona según el [token de actualización principal (PRT)](../devices/concept-primary-refresh-token.md)
+
+El inicio de sesión único mediante PRT funciona una vez que los dispositivos se registran con Azure AD en el caso de los dispositivos unidos a Azure AD híbrido, unidos a Azure AD o dispositivos personales registrados mediante Agregar cuenta profesional o educativa. Para más información sobre cómo funciona el inicio de sesión único con Windows 10 mediante PRT, consulte: [Token de actualización principal (PRT) y Azure AD](../devices/concept-primary-refresh-token.md).
+
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -78,9 +83,6 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 \*\*\*Requiere [configuración adicional](how-to-connect-sso-quick-start.md#browser-considerations).
 
 \*\*\*\*Requiere la versión 77 o posterior de Microsoft Edge.
-
->[!NOTE]
->En el caso de Windows 10, la recomendación es usar [Azure AD Join](../devices/concept-azure-ad-join.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Cuentas de Batch y de Azure Storage
 description: Obtenga información sobre las cuentas de Azure Batch y cómo se usan desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83790912"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896755"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Cuentas de Batch y de Azure Storage
 
@@ -20,9 +20,10 @@ Todo el procesamiento y los recursos se asocian con una cuenta de Batch. Cuando 
 
 Puede ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch. También puede distribuir las cargas de trabajo entre cuentas de Batch que se encuentren en la misma suscripción, pero ubicadas en diferentes regiones de Azure.
 
+Puede crear una cuenta de Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca Batch Management .NET](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-Puede crear una cuenta de Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca Batch Management .NET](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
 
 ## <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
@@ -41,4 +42,5 @@ Puede asociar una cuenta de almacenamiento con su cuenta de Batch cuando crea la
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre [nodos y grupos](nodes-and-pools.md).
-- Obtenga información sobre cómo crear una cuenta de Batch con [Azure Portal](batch-account-create-portal.md).
+- Aprenda a crear y administrar cuentas de Batch mediante [Azure Portal](batch-account-create-portal.md) o [Batch Management .NET](batch-management-dotnet.md).
+- Aprenda a usar [puntos de conexión privados](private-connectivity.md) con cuentas de Azure Batch.

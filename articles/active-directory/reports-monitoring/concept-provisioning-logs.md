@@ -1,6 +1,6 @@
 ---
-title: Registros de aprovisionamiento en el portal de Azure Active Directory (versión preliminar) | Microsoft Docs
-description: Introducción a los informes de registro de aprovisionamiento en el portal de Azure Active Directory
+title: Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar) | Microsoft Docs
+description: Obtenga una introducción a los informes de registros de aprovisionamiento en Azure Active Directory a través de Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,31 +13,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/19/2021
+ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726308"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091939"
 ---
-# <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
+# <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar)
 
 La arquitectura de los informes de Azure Active Directory (Azure AD) consta de los siguientes componentes:
 
-- **Actividad** 
+- Actividad: 
     - **Inicios de sesión**: información sobre el uso de aplicaciones administradas y actividades de inicio de sesión de usuario.
-    - **Registros de auditoría**: los [registros de auditoría](concept-audit-logs.md) proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio. - 
-    - **Registros de aprovisionamiento**: proporcionan la actividad del sistema sobre el usuario, los grupos y los roles aprovisionados por el servicio de aprovisionamiento de Azure AD. 
+    - [Registros de auditoría](concept-audit-logs.md): información de la actividad del sistema sobre los usuarios y la administración de grupos, sus aplicaciones administradas y actividades de directorio.
+    - **Registros de aprovisionamiento**: la actividad del sistema sobre los usuarios, los grupos y los roles aprovisionados por el servicio de aprovisionamiento de Azure AD. 
 
-- **Seguridad** 
+- Seguridad: 
     - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
-    - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
+    - **Usuarios marcados de riesgo**: un [usuario de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
-Este tema ofrece una visión general de los registros de aprovisionamiento. Pueden responderle preguntas como las siguientes: 
+Este tema ofrece una visión general de los registros de aprovisionamiento. Los registros responden preguntas como las siguientes: 
 
 * ¿Qué grupos se han creado correctamente en ServiceNow?
 * ¿Qué usuarios se han quitado correctamente de Adobe?
@@ -45,30 +45,29 @@ Este tema ofrece una visión general de los registros de aprovisionamiento. Pued
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
-* Los propietarios de la aplicación pueden ver los registros de las aplicaciones que poseen.
-* Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
+Estos usuarios pueden acceder a los datos de los registros de aprovisionamiento:
+
+* Propietarios de aplicaciones (registros para sus propias aplicaciones)
+* Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Operador de seguridad, Administrador de aplicaciones y Administrador de aplicaciones en la nube
 * Usuarios en un rol personalizado con el [permiso provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Administradores globales
 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>¿Qué licencia de Azure AD se necesita para acceder a las actividades de aprovisionamiento?
-
-El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de aprovisionamiento al completo. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. 
+Para ver el informe de actividades de aprovisionamiento, el inquilino debe tener una licencia de Azure AD Premium asociada. Para actualizar la edición de Azure AD, consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
 
 
 ## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Maneras de interactuar con los registros de aprovisionamiento 
-Los clientes pueden interactuar mediante cuatro métodos con los registros de aprovisionamiento:
+Los clientes pueden interactuar con los registros de aprovisionamiento de cuatro maneras:
 
-1. Acceder a los registros desde Azure Portal como se describe a continuación.
-1. Transmitir los registros de aprovisionamiento a [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), lo que permite una amplia retención de datos y la creación de paneles personalizados, alertas y consultas.
-1. Consultar la [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
-1. Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
+- Acceder a los registros desde Azure Portal, como se describe en la siguiente sección.
+- Transmitir los registros de aprovisionamiento a [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Este método permite la retención extendida de datos y la creación de paneles, alertas y consultas personalizados.
+- Consultar la [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
+- Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Acceso a los registros desde Azure Portal
-Se puede tener acceso a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** de la hoja **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
+Se puede acceder a los registros de aprovisionamiento si se selecciona **Registros de aprovisionamiento** en la sección **Supervisión** del panel **Azure Active Directory** en [Azure Portal](https://portal.azure.com). Algunos registros de aprovisionamiento pueden tardar hasta dos horas en aparecer en el portal.
 
-![Registros de aprovisionamiento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registros de aprovisionamiento")
+![Captura de pantalla que muestra las selecciones para acceder a los registros de aprovisionamiento.](./media/concept-provisioning-logs/access-provisioning-logs.png "Registros de aprovisionamiento")
 
 
 Un registro de aprovisionamiento tiene una vista de lista predeterminada que muestra:
@@ -81,39 +80,44 @@ Un registro de aprovisionamiento tiene una vista de lista predeterminada que mue
 - La fecha
 
 
-![Columnas predeterminadas](./media/concept-provisioning-logs/default-columns.png "Columnas predeterminadas")
+![Captura de pantalla que muestra las columnas predeterminadas en un registro de aprovisionamiento.](./media/concept-provisioning-logs/default-columns.png "Columnas predeterminadas")
 
-Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
+Puede personalizar la vista de lista seleccionando **Columnas** en la barra de herramientas.
 
-![Selector de columnas](./media/concept-provisioning-logs/column-chooser.png "Selector de columnas")
+![Captura de pantalla que muestra el botón para personalizar las columnas.](./media/concept-provisioning-logs/column-chooser.png "Selector de columnas")
 
-Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
+Esta área le permite mostrar campos adicionales o quitar campos que ya se muestran.
 
-![Columnas disponibles](./media/concept-provisioning-logs/available-columns.png "Columnas disponibles")
+![Captura de pantalla que muestra las columnas disponibles con algunas seleccionadas.](./media/concept-provisioning-logs/available-columns.png "Columnas disponibles")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 
-![Información detallada](./media/concept-provisioning-logs/steps.png "Filter")
+![Captura de pantalla que muestra información detallada.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrado de las actividades de aprovisionamiento
 
-Puede filtrar los datos de aprovisionamiento. Algunos valores de los filtros se rellenan dinámicamente en función del inquilino. Por ejemplo, si no tiene ningún evento de creación en el inquilino, no habrá una opción de filtro para la creación.
+Puede filtrar los datos de aprovisionamiento. Algunos valores de los filtros se rellenan dinámicamente en función del inquilino. Por ejemplo, si no tiene ningún evento “crear” en el inquilino, no habrá una opción de filtro **Crear**.
+
 En la vista predeterminada, puede seleccionar los siguientes filtros:
 
-- Identidad
-- Date
-- Status
-- Acción
+- **Identidad**
+- **Fecha**
+- **Estado**
+- **Acción**
 
 
-![Agregar filtros](./media/concept-provisioning-logs/default-filter.png "Filter")
+![Captura de pantalla que muestra valores de filtro.](./media/concept-provisioning-logs/default-filter.png "Filter")
 
-El filtro **Identidad** le permite especificar el nombre o la identidad que le interesa. Esta identidad podría ser un usuario, un grupo, un rol u otro objeto. Puede buscar por nombre o por identificador de objeto. El identificador varía según el escenario. Por ejemplo, al aprovisionar un objeto de Azure AD en SalesForce, el identificador de origen es el identificador de objeto del usuario en Azure AD, mientras que el identificador de destino es el identificador del usuario en Salesforce. Al aprovisionar de Workday a Active Directory, el identificador de origen es el identificador de empleado del trabajador de Workday. Tenga en cuenta que el nombre del usuario puede no estar siempre presente en la columna de identidad. Siempre habrá un identificador. 
+El filtro **Identidad** le permite especificar el nombre o la identidad que le interesa. Esta identidad puede ser un usuario, un grupo, un rol u otro objeto. 
+
+Puede buscar por nombre o por identificador de objeto. El identificador varía según el escenario. Por ejemplo, al aprovisionar un objeto de Azure AD a Salesforce, el id. de origen es el id. de objeto del usuario en Azure AD. El id. de destino es el id. del usuario en Salesforce. Al aprovisionar desde Workday a Active Directory, el id. de origen es el id. de empleado del trabajador de Workday. 
+
+> [!NOTE]
+> El nombre del usuario puede no estar siempre presente en la columna **Identidad**. Siempre habrá un identificador. 
 
 
-El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos.  
-Los valores posibles son:
+El filtro **Fecha** le permite definir un período de tiempo para los datos devueltos. Los valores posibles son:
 
 - 1 mes
 - 7 días
@@ -123,186 +127,146 @@ Los valores posibles son:
 
 Cuando se selecciona un período de tiempo personalizado, puede configurar una fecha de inicio y una fecha de finalización.
 
-
 El filtro **Estado** le permite seleccionar:
 
-- All
-- Correcto
-- Error
-- Omitido
+- **Todo**
+- **Success**
+- **Error**
+- **Omitido**
 
+El filtro **Acción** permite filtrar estas acciones:
 
+- **Crear** 
+- **Actualizar**
+- **Eliminar**
+- **Deshabilitar**
+- **Otros**
 
-El filtro **Acción** permite filtrar:
+Además de los filtros de la vista predeterminada, también puede establecer los siguientes filtros.
 
-- Crear 
-- Actualizar
-- Eliminar
-- Disable
-- Otros
+![Captura de pantalla que muestra los campos que se pueden agregar como filtros.](./media/concept-provisioning-logs/add-filter.png "Seleccionar un campo")
 
-Además, en los filtros de la vista predeterminada, también puede establecer los siguientes filtros:
+- **Id. del trabajo**: un id. del trabajo único se asocia a cada aplicación para la que se ha habilitado el aprovisionamiento.   
 
-- Id. del trabajo
-- Id. de ciclo
-- Id. de cambio
-- Id. de origen
-- Id. de destino
-- Application
+- **Id. de ciclo**: el id. de ciclo identifica de forma única el ciclo de aprovisionamiento. Puede compartir este id. con el soporte técnico del producto para buscar el ciclo en el que se ha producido este evento.
 
+- **Id. de cambio**: el id. de cambio es un identificador único para el evento de aprovisionamiento. Puede compartir este id. con el soporte técnico del producto para buscar el evento de aprovisionamiento.   
 
-![Seleccionar un campo](./media/concept-provisioning-logs/add-filter.png "Seleccionar un campo")
+- **Sistema de origen**: puede especificar desde dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto desde Azure AD a ServiceNow, el sistema de origen es Azure AD. 
 
+- **Sistema de destino**: puede especificar adónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto desde Azure AD a ServiceNow, el sistema de destino es ServiceNow. 
 
-- **Id. de trabajo**: es un identificador de trabajo único que está asociado a cada aplicación para la que se ha habilitado el aprovisionamiento.   
-
-- **Id. de ciclo**: identifica de forma única el ciclo de aprovisionamiento. Puede compartir este identificador para permitir buscar el ciclo en el que se ha producido este evento.
-
-- **Id. de cambio**: identificador único para el evento de aprovisionamiento. Puede compartir este identificador para permitir buscar el evento de aprovisionamiento.   
-
-
-- **Sistema de origen**: permite especificar desde dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de origen es Azure AD. 
-
-- **Sistema de destino**: permite especificar dónde se aprovisiona la identidad. Por ejemplo, al aprovisionar un objeto de Azure AD a ServiceNow, el sistema de destino es ServiceNow. 
-
-- **Aplicación**: permite mostrar solo los registros de aplicaciones con un nombre para mostrar que contenga una cadena específica.
-
- 
+- **Aplicación**: puede mostrar solo los registros de aplicaciones con un nombre para mostrar que contenga una cadena específica.
 
 ## <a name="provisioning-details"></a>Detalles de aprovisionamiento 
 
-Al seleccionar un elemento en la vista de lista de aprovisionamiento, obtendrá más información sobre dicho elemento.
-Los detalles se agrupan en función de las categorías siguientes:
+Al seleccionar un elemento en la vista de lista de aprovisionamiento, obtendrá más información sobre dicho elemento. Los detalles se agrupan en las siguientes pestañas.
 
-- Pasos
+![Captura de pantalla que muestra cuatro pestañas que contienen los detalles del aprovisionamiento.](./media/concept-provisioning-logs/provisioning-tabs.png "Pestañas")
 
-- Solución de problemas y recomendaciones
+- **Pasos**: se describen los pasos necesarios para aprovisionar un objeto. El aprovisionamiento de un objeto puede constar de cuatro pasos:
+  
+  1. Importación del objeto.
+  1. Determinación de si el objeto está en el ámbito.
+  1. Coincidencia del objeto entre el origen y el destino.
+  1. Aprovisionamiento del objeto (creación, actualización, eliminación o deshabilitación).
 
-- Propiedades modificadas
+  ![Captura de pantalla que muestra los pasos de aprovisionamiento en la pestaña Pasos.](./media/concept-provisioning-logs/steps.png "Filter")
 
-- Resumen
+- **Troubleshooting & Recommendations** (Solución de problemas y recomendaciones): proporciona el código de error y el motivo. La información de error solo está disponible si se produce uno.
 
+- **Propiedades modificadas**: se muestran el valor anterior y el nuevo. Si no hay ningún valor anterior, esa columna está en blanco.
 
-![Detalles de aprovisionamiento](./media/concept-provisioning-logs/provisioning-tabs.png "Pestañas")
-
-
-
-### <a name="steps"></a>Pasos
-
-En la pestaña **Pasos** se describen los pasos necesarios para aprovisionar un objeto. El aprovisionamiento de un objeto puede constar de cuatro pasos: 
-
-- Importación del objeto
-- Determinación de si el objeto está en el ámbito
-- Coincidencia del objeto entre el origen y el destino
-- Aprovisionamiento del objeto (realización de una acción, como crear, actualizar, eliminar o deshabilitar)
-
-
-
-![Captura de pantalla que muestra la pestaña Pasos, que muestra los pasos de aprovisionamiento.](./media/concept-provisioning-logs/steps.png "Filter")
-
-
-### <a name="troubleshoot-and-recommendations"></a>Solución de problemas y recomendaciones
-
-
-La pestaña **Solución de problemas y recomendaciones** proporciona el código de error y el motivo. La información del error solo está disponible en caso de error. 
-
-
-### <a name="modified-properties"></a>Propiedades modificadas
-
-En la pestaña **Propiedades modificadas** se muestran el valor anterior y el nuevo. En los casos en los que no hay ningún valor anterior, la columna con este valor está en blanco. 
-
-### <a name="summary"></a>Resumen
-
-En la pestaña **Resumen** se proporciona información general sobre lo que sucedió y los identificadores del objeto en el sistema de origen y de destino. 
+- **Resumen**: se proporciona información general sobre lo que sucedió y los identificadores del objeto en los sistemas de origen y de destino.
 
 ## <a name="download-logs-as-csv-or-json"></a>Descarga de registros como archivo CSV o JSON
 
-Puede descargar los registros de aprovisionamiento para usarlos más adelante. Para ello, vaya a los registros de Azure Portal y haga clic en descargar. El archivo se filtrará en función de los criterios de filtro seleccionados. Se recomienda que los filtros sean lo más específicos posible para reducir el tiempo necesario para descargar, así como el tamaño de la descarga. La descarga de CSV se divide en tres archivos:
+Puede descargar los registros de aprovisionamiento para usarlos más adelante. Para ello, vaya a los registros en Azure Portal y seleccione **Descargar**. El archivo se filtrará en función de los criterios de filtro seleccionados. Haga que los filtros sean lo más específicos posible para reducir el tamaño y el tiempo de la descarga. 
 
-* ProvisioningLogs: descarga todos los registros, excepto los pasos de aprovisionamiento y las propiedades modificadas.
-* ProvisioningLogs_ProvisioningSteps: contiene los pasos de aprovisionamiento y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
-* ProvisioningLogs_ModifiedProperties: contiene los atributos que se cambiaron y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
+La descarga de CSV incluye tres archivos:
 
-#### <a name="opening-the-json-file"></a>Apertura del archivo JSON
-Para abrir el archivo JSON, use un editor de texto como [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code facilita la lectura gracias al resaltado de sintaxis. El archivo JSON también se puede abrir con exploradores en un formato no editable; por ejemplo, con [Microsoft Edge.](https://aka.ms/msedge) 
+* **ProvisioningLogs**: descarga todos los registros, excepto los pasos de aprovisionamiento y las propiedades modificadas.
+* **ProvisioningLogs_ProvisioningSteps**: contiene los pasos de aprovisionamiento y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
+* **ProvisioningLogs_ModifiedProperties**: contiene los atributos que se cambiaron y el id. de cambio. El id. de cambio se puede usar para unir el evento con los otros dos archivos.
 
-#### <a name="prettifying-the-json-file"></a>Mejora del formato del archivo JSON
-El archivo JSON se descarga en formato reducido para reducir el tamaño de la descarga. Esto, a su vez, puede dificultar la lectura de la carga útil. Consulte dos opciones para mejorar el formato del archivo:
+#### <a name="open-the-json-file"></a>Apertura del archivo JSON
+Para abrir el archivo JSON, use un editor de texto como [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code facilita la lectura del archivo gracias al resaltado de sintaxis. También puede abrir el archivo JSON mediante exploradores en un formato no editable, como [Microsoft Edge](https://aka.ms/msedge). 
 
-1. Uso de Visual Studio Code para dar formato al JSON
+#### <a name="prettify-the-json-file"></a>Mejora del archivo JSON
+El archivo JSON se descarga en formato reducido para reducir el tamaño de la descarga. Este formato puede hacer que la carga sea difícil de leer. Consulte dos opciones para mejorar el formato del archivo:
 
-Siga las instrucciones definidas [aquí](https://code.visualstudio.com/docs/languages/json#_formatting) para dar formato al archivo JSON mediante Visual Studio Code.
+- Uso de [Visual Studio Code para dar formato al JSON](https://code.visualstudio.com/docs/languages/json#_formatting).
 
-2. Uso de PowerShell para dar formato al JSON
+- Uso de PowerShell para dar formato al JSON. Este script generará el archivo JSON en un formato que incluya tabulaciones y espacios: 
 
-Este script generará el archivo JSON en formato mejorado con tabulaciones y espacios. 
+  ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
-` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+  `$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
 
-`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
-
-#### <a name="parsing-the-json-file"></a>Análisis del archivo JSON
+#### <a name="parse-the-json-file"></a>Análisis del archivo JSON
 
 Estos son algunos comandos de ejemplo para trabajar con el archivo JSON mediante PowerShell. Puede usar cualquier lenguaje de programación con el que esté familiarizado.  
 
-En primer lugar, ejecute lo siguiente para [leer el archivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1):
+En primer lugar, para [leer el archivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1), ejecute este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 
-Ahora puede analizar los datos en función de su escenario. Estos son algunos ejemplos: 
+Ahora puede analizar los datos de acuerdo a su escenario. Estos son algunos ejemplos: 
 
-1. Generar todos los jobID en el archivo JsonFile
+- Generación de todos los id. de trabajo en el archivo JSON:
 
-`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+  `foreach ($provitem in $JSONContent) { $provitem.jobId }`
 
-2. Generar todos los changeId para los eventos en los que la acción fue "create"
+- Generación de todos los id. de cambio para los eventos en los que la acción era "crear":
 
-`foreach ($provitem in $JSONContent) { `
-`   if ($provItem.action -eq 'Create') {`
-`       $provitem.changeId `
-`   }`
-`}`
+  `foreach ($provitem in $JSONContent) { `
+  `   if ($provItem.action -eq 'Create') {`
+  `       $provitem.changeId `
+  `   }`
+  `}`
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
-- Azure Portal almacena durante 30 días los datos de aprovisionamiento detectados si tiene una edición Premium, y durante siete días si tiene una edición gratuita. Los registros de aprovisionamiento pueden publicarse en [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) si se quiere realizar una retención superior a 30 días. 
+Estas son algunas sugerencias y consideraciones para el aprovisionamiento de informes:
 
-- Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
+- Azure Portal almacena durante 30 días los datos de aprovisionamiento notificados si tiene una edición prémium y durante siete días si tiene una edición gratuita. Puede publicar los registros de aprovisionamiento en [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) para una retención superior a 30 días. 
 
-- Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
+- Puede usar el atributo de id. de cambio como identificador único. Esto es útil, por ejemplo, al interactuar con el soporte técnico del producto.
+
+- Es posible que vea eventos omitidos para usuarios que no están en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. El servicio evaluará todos los objetos del inquilino, incluso los que están fuera del ámbito. 
 
 - Los registros de aprovisionamiento no están disponibles actualmente en la nube de administración pública. Si no puede acceder a los registros de aprovisionamiento, use los registros de auditoría como una solución temporal. 
 
-- Los registros de aprovisionamiento no muestran importaciones de roles (se aplica a AWS, SalesForce y ZenDesk). Los registros de importaciones de roles se encuentran en los registros de auditoría. 
+- Los registros de aprovisionamiento no muestran importaciones de roles (se aplica a AWS, Salesforce y Zendesk). Puede encontrar los registros de importaciones de roles en los registros de auditoría. 
 
 ## <a name="error-codes"></a>Códigos de error
 
-Use la tabla siguiente para entender mejor cómo resolver los errores que puede encontrar en los registros de aprovisionamiento. En el caso de los códigos de error que faltan, proporcione comentarios mediante el vínculo situado en la parte inferior de esta página. 
+Use la tabla siguiente para entender mejor cómo resolver los errores que se encuentre en los registros de aprovisionamiento. En el caso de los códigos de error que faltan, proporcione comentarios mediante el vínculo situado en la parte inferior de esta página. 
 
 |Código de error|Descripción|
 |---|---|
-|Conflict, EntryConflict|Corrija los valores de atributo en conflicto en Azure AD o en la aplicación, o bien revise la configuración de atributo correspondiente si se supone que la cuenta de usuario en conflicto debía coincidir y tomarse. Revise la siguiente [documentación](../app-provisioning/customize-application-attributes.md) para obtener más información sobre cómo configurar atributos coincidentes.|
+|Conflict, EntryConflict|Corrija los valores de atributo en conflicto en Azure AD o en la aplicación. O bien revise la configuración de atributo correspondiente si se supone que la cuenta de usuario en conflicto debería coincidir y tomarse. Revise la [documentación](../app-provisioning/customize-application-attributes.md) para obtener más información sobre cómo configurar atributos coincidentes.|
 |TooManyRequests|La aplicación de destino rechazó este intento de actualizar el usuario porque está sobrecargado y recibe demasiadas solicitudes. No hay nada que hacer. Este intento se retirará automáticamente. También se ha notificado a Microsoft de este problema.|
-|InternalServerError |La aplicación de destino devolvió un error inesperado. Es posible que haya un problema de servicio con la aplicación de destino que impide que esto funcione. Este intento se retirará automáticamente en 40 minutos.|
-|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD se pudo autenticar con la aplicación de destino, pero no tenía autorización para realizar la actualización. Revise las instrucciones proporcionadas por la aplicación de destino, así como el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente.|
-|UnprocessableEntity|La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación de destino no sea correcta o que haya un problema de servicio con la aplicación de destino que impide que esto funcione.|
-|WebExceptionProtocolError |Error de protocolo HTTP al conectarse a la aplicación de destino. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Compruebe que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use MS Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Reiniciar el aprovisionamiento desencadenará un ciclo inicial, que puede tardar en completarse. También se elimina la memoria caché que usa el servicio de aprovisionamiento para operar, lo que significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y se podrían quitar ciertos eventos de aprovisionamiento.|
-|NotImplemented | La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación no sea correcta o que haya un problema de servicio con la aplicación de destino que impide que esto funcione. Revise las instrucciones proporcionadas por la aplicación de destino y el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente. |
-|MandatoryFieldsMissing, MissingValues |No se pudo crear el usuario porque faltan los valores necesarios. Corrija los valores de atributo que faltan en el registro de origen o revise la configuración de atributo coincidente para asegurarse de que no se omiten los campos obligatorios. [Más información](../app-provisioning/customize-application-attributes.md) sobre cómo configurar atributos coincidentes.|
-|SchemaAttributeNotFound |No se pudo realizar la operación porque se especificó un atributo que no existe en la aplicación de destino. Consulte la [documentación](../app-provisioning/customize-application-attributes.md) sobre la personalización de atributos y asegúrese de que la configuración es correcta.|
+|InternalServerError |La aplicación de destino devolvió un error inesperado. Un problema de servicio con la aplicación de destino puede estar impidiendo que esto funcione. Este intento se retirará automáticamente en 40 minutos.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD se autenticó con la aplicación de destino, pero no tenía autorización para realizar la actualización. Revise las instrucciones proporcionadas por la aplicación de destino, junto con el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente.|
+|UnprocessableEntity|La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación de destino no sea correcta o que haya un problema de servicio con la aplicación de destino que impida que esto funcione.|
+|WebExceptionProtocolError |Se produjo un error de protocolo HTTP al conectarse a la aplicación de destino. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
+|InvalidAnchor|Ya no existe un usuario que se había creado previamente o que coincidía con el servicio de aprovisionamiento. Asegúrese de que el usuario existe. Para forzar una nueva coincidencia de todos los usuarios, use Microsoft Graph API para [reiniciar el trabajo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). <br><br>Reiniciar el aprovisionamiento desencadenará un ciclo inicial, que puede tardar en completarse. Al reiniciar el aprovisionamiento también se elimina la memoria caché que usa el servicio de aprovisionamiento para funcionar. Esto significa que todos los usuarios y grupos del inquilino tendrán que volver a evaluarse y que se pueden quitar determinados eventos de aprovisionamiento.|
+|NotImplemented | La aplicación de destino devolvió una respuesta inesperada. Es posible que la configuración de la aplicación no sea correcta o que haya un problema de servicio con la aplicación de destino que impida que esto funcione. Revise las instrucciones proporcionadas por la aplicación de destino, junto con el [tutorial](../saas-apps/tutorial-list.md) de la aplicación correspondiente. |
+|MandatoryFieldsMissing, MissingValues |No se pudo crear el usuario porque faltan los valores necesarios. Corrija los valores de atributo que faltan en el registro de origen o revise la configuración de atributo coincidente para asegurarse de que no se omitan los campos obligatorios. [Más información](../app-provisioning/customize-application-attributes.md) sobre cómo configurar atributos coincidentes.|
+|SchemaAttributeNotFound |La operación no se pudo realizar porque se especificó un atributo que no existe en la aplicación de destino. Consulte la [documentación](../app-provisioning/customize-application-attributes.md) sobre la personalización de atributos y asegúrese de que la configuración sea correcta.|
 |InternalError |Se produjo un error de servicio interno en el servicio de aprovisionamiento de Azure AD. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|InvalidDomain |No se pudo realizar la operación debido a un valor de atributo que contiene un nombre de dominio no válido. Actualice el nombre de dominio en el usuario o agréguelo a la lista de valores permitidos en la aplicación de destino. |
+|InvalidDomain |No se pudo realizar la operación porque un valor de atributo contiene un nombre de dominio no válido. Actualice el nombre de dominio en el usuario o agréguelo a la lista de valores permitidos en la aplicación de destino. |
 |Tiempo de espera |No se pudo completar la operación porque la aplicación de destino tardó demasiado tiempo en responder. No hay nada que hacer. Este intento se retirará automáticamente en 40 minutos.|
-|LicenseLimitExceeded|No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir más licencias para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.|
-|DuplicateTargetEntries  |No se pudo completar la operación porque se encontró más de un usuario en la aplicación de destino con los atributos coincidentes configurados. Quite el usuario duplicado de la aplicación de destino o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
-|DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
-|ImportSkipped | Cuando se evalúa a cada usuario, se intenta importar al usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, no se pueden evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, ya que aún no se ha evaluado su ámbito.|
-|EntrySynchronizationSkipped | El servicio de aprovisionamiento ha consultado correctamente el sistema de origen y ha identificado al usuario. No se realizó ninguna acción adicional en el usuario y se omitió. La omisión podría deberse a que el usuario está fuera del ámbito, o a que ya existe en el sistema de destino sin necesidad de realizar más cambios.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Al realizar una solicitud GET para recuperar un usuario o grupo, se recibieron varios usuarios o grupos en la respuesta. Se espera solo un usuario o grupo en la respuesta. Si, [por ejemplo](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), se realiza una solicitud GET para recuperar un grupo y se proporciona un filtro para excluir miembros y el punto de conexión SCIM devuelve a esos miembros, se producirá este error.|
+|LicenseLimitExceeded|No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Adquiera más licencias para la aplicación de destino. O bien revise las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.|
+|DuplicateTargetEntries  |No se pudo completar la operación porque se encontró más de un usuario en la aplicación de destino con los atributos coincidentes configurados. Quite el usuario duplicado de la aplicación de destino o [vuelva a configurar las asignaciones de atributos](../app-provisioning/customize-application-attributes.md).|
+|DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o [vuelva a configurar las asignaciones de atributos](../app-provisioning/customize-application-attributes.md).|
+|ImportSkipped | Cuando se evalúa a cada usuario, el sistema intenta importar el usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, el sistema no puede evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, porque aún no ha evaluado el ámbito para el usuario.|
+|EntrySynchronizationSkipped | El servicio de aprovisionamiento ha consultado correctamente el sistema de origen y ha identificado al usuario. No se realizó ninguna acción adicional en el usuario y se omitió. Puede que el usuario estuviera fuera del ámbito o que ya existiera en el sistema de destino sin necesidad de realizar más cambios.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Una solicitud GET para recuperar un usuario o grupo recibió varios usuarios o grupos en la respuesta. El sistema espera solo un usuario o grupo en la respuesta. [Por ejemplo](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), si realiza una solicitud GET para recuperar un grupo y proporciona un filtro para excluir miembros y el punto de conexión System for Cross-Domain Identity Management (SCIM) devuelve los miembros, obtendrá este error.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Comprobación del estado de aprovisionamiento de usuarios](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [Registros de aprovisionamiento de Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Graph API para registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

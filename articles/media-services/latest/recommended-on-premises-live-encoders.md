@@ -1,5 +1,5 @@
 ---
-title: Codificadores de streaming en vivo recomendados por Media Services en Azure | Microsoft Docs
+title: Codificadores de streaming en vivo recomendados por Media Services
 description: Información sobre los codificadores locales de streaming en vivo recomendados por Media Services
 services: media-services
 keywords: encoding;encoders;media
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: bf282b3fbba0f22cd41c0420014c46ddb7c958eb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734317"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955146"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales comprobados
 

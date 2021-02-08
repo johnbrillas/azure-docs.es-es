@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170623"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219237"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -31,6 +31,10 @@ Puede enrutar los eventos de registro a:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 En este artículo, aprenderá a transferir los registros a un área de trabajo de Azure Log Analytics. Después, puede crear un panel o crear alertas basadas en las actividades de los usuarios en Azure AD B2C.
+
+> [!IMPORTANT]
+> Al planear la transferencia de registros de Azure AD B2C a diferentes soluciones de supervisión, o repositorio, tenga en cuenta lo siguiente. Los registros de Azure AD B2C contienen datos personales. Estos datos se deben procesar de una manera que garantice la seguridad adecuada de los datos personales, incluida la protección frente al procesamiento no autorizado o ilícito, utilizando las medidas técnicas u organizativas adecuadas.
+
 
 ## <a name="deployment-overview"></a>Introducción a la implementación
 

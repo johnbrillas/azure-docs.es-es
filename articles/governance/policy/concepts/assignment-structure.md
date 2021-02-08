@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904074"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219573"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -22,6 +22,7 @@ Utilice JSON para crear una definición de directiva. La asignación de directiv
 - modo de cumplimiento
 - ámbitos excluidos
 - definición de directiva
+- mensajes de no cumplimiento
 - parámetros
 
 Por ejemplo, el siguiente archivo JSON muestra una asignación de directiva en el modo _DoNotEnforce_ con parámetros dinámicos:
@@ -37,6 +38,11 @@ Por ejemplo, el siguiente archivo JSON muestra una asignación de directiva en e
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -79,6 +85,32 @@ El **ámbito** de la asignación incluye todos los contenedores de recursos secu
 
 Este campo debe ser el nombre de la ruta de acceso completa de una definición de directiva o una definición de iniciativa.
 `policyDefinitionId` es una cadena y no una matriz. Se recomienda que, si a menudo se asignan varias directivas, se use una [iniciativa](./initiative-definition-structure.md) en su lugar.
+
+## <a name="non-compliance-messages"></a>Mensajes de no cumplimiento
+
+Para establecer un mensaje personalizado que describa por qué un recurso no es compatible con la definición de la directiva o de la iniciativa, establezca `nonComplianceMessages` en la definición de la asignación. Este nodo es una matriz de `message` entradas. Este mensaje personalizado es adicional al mensaje de error predeterminado para el no cumplimiento y es opcional.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Si la asignación es para una iniciativa, se pueden configurar diferentes mensajes para cada definición de directiva en la iniciativa. Los mensajes utilizan el valor `policyDefinitionReferenceId` configurado en la definición de la iniciativa. Para obtener más información, vea las [propiedades de las definiciones de propiedad](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parámetros
 

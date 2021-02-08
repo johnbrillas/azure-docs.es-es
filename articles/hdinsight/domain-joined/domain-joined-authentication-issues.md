@@ -1,18 +1,15 @@
 ---
 title: Problemas de autenticación en Azure HDInsight
 description: Problemas de autenticación en Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 9f10597023314aed8640ee5a7499a77f952c3694
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284421"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095131"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticación en Azure HDInsight
 
@@ -38,7 +35,7 @@ El código de error 50126 de Azure AD significa que el inquilino no ha estableci
 
 ### <a name="resolution"></a>Solución
 
-El administrador de la compañía del inquilino de Azure AD debe habilitar Azure AD para usar los hash de contraseña para los usuarios respaldados por ADFS.  Aplique `AllowCloudPasswordValidationPolicy` como se muestra en el artículo [Uso de Enterprise Security Package en HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+El administrador global del inquilino de Azure AD debe habilitar Azure AD para usar los hash de contraseña para los usuarios respaldados por ADFS.  Aplique `AllowCloudPasswordValidationPolicy` como se muestra en el artículo [Uso de Enterprise Security Package en HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 

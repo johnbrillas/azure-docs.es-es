@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0972c9ed48f56a495804052c1ffc2b28e1db083
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650755"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095331"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -24,6 +24,8 @@ Las máquinas virtuales de la serie Av2 se pueden implementar en diversos proces
 [Migración en vivo](maintenance-and-updates.md): Compatible <br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible <br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 <br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCore | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. NIC | Ancho de banda de red esperado (Mbps)

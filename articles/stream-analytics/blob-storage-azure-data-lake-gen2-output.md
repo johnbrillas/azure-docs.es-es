@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882168"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935151"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Salida de Blob Storage y Azure Data Lake Gen2 de Azure Stream Analytics
 
@@ -44,7 +44,7 @@ En la siguiente tabla se enumeran los nombres de propiedad y su descripción par
 Cuando usa el almacenamiento de blobs como salida, se crea un nuevo archivo en el blob en los siguientes casos:
 
 * Si el archivo excede el número máximo de bloques permitidos (actualmente, 50 000). Puede alcanzar el número máximo permitido de bloques sin que se alcance el tamaño máximo permitido de blobs. Por ejemplo, si la velocidad de salida es alta, puede ver más bytes por bloque y el tamaño de archivo es mayor. Si la velocidad de salida es baja, cada bloque tiene menos datos y el tamaño de archivo es menor.
-* Si hay un cambio de esquema en la salida y el formato de salida requiere un esquema fijo (CSV y Avro).
+* Si hay un cambio de esquema en la salida y el formato de salida requiere un esquema fijo (CSV, Avro, Parquet).
 * Si se reinicia un trabajo, ya sea externamente por un usuario que lo detiene e inicia, o internamente para el mantenimiento del sistema o la recuperación tras un error.
 * Si la consulta está completamente particionada y se crea un nuevo archivo para cada partición de salida.
 * Si el usuario elimina un archivo o un contenedor de la cuenta de almacenamiento.

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bb4ff3198764a35bebc124ee1ce99a93428693d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632574"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095962"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solución de problemas con la experiencia de usuario de Azure Data Factory
 
@@ -28,25 +28,25 @@ En este artículo se exploran métodos comunes de solución de problemas con la 
 
 ### <a name="third-party-cookies-blocked"></a>Cookies de terceros bloqueadas
 
-La experiencia de usuario de ADF usa cookies del explorador para conservar la sesión del usuario y habilitar las experiencias interactivas de desarrollo y supervisión. Es posible que el explorador bloquee las cookies de terceros si usa una sesión de incógnito o tiene habilitado un bloqueador de anuncios. El bloqueo de las cookies de terceros puede provocar problemas al cargar el portal, como que se le redirija a una página en blanco, https://adf.azure.com/accesstoken.html, o que se muestre un mensaje de advertencia que indique que las cookies de terceros están bloqueadas. Para solucionar este problema, habilite las opciones de cookies de terceros en el explorador mediante estos pasos:
+La experiencia de usuario de ADF usa cookies del explorador para conservar la sesión del usuario y habilitar las experiencias interactivas de desarrollo y supervisión. Es posible que el explorador bloquee las cookies de terceros si usa una sesión de incógnito o tiene habilitado un bloqueador de anuncios. El bloqueo de las cookies de terceros puede provocar problemas al cargar el portal, como que se le redirija a una página en blanco, “https://adf.azure.com/accesstoken.html”, o que se muestre un mensaje de advertencia que indique que las cookies de terceros están bloqueadas. Para solucionar este problema, habilite las opciones de cookies de terceros en el explorador mediante estos pasos:
 
 ### <a name="google-chrome"></a>Google Chrome
 
 #### <a name="allow-all-cookies"></a>Permitir todas las cookies
 
 1. Vaya a **chrome://settings/cookies** en el explorador.
-1. Seleccione la opción **Permitir todas las cookies** . 
+1. Seleccione la opción **Permitir todas las cookies**. 
 
     ![Permitir todas las cookies en Chrome](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
 1. Actualice la experiencia de usuario de ADF e inténtelo de nuevo.
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Permitir que solo la experiencia de usuario de ADF utilice cookies
 Si no desea permitir todas las cookies, puede permitir que solo las utilice la experiencia de usuario de ADF:
-1. Vaya a **chrome://settings/cookies** .
-1. Seleccione **Añadir** en la opción **Sitios web que pueden usar cookies siempre** . 
+1. Vaya a **chrome://settings/cookies**.
+1. Seleccione **Añadir** en la opción **Sitios web que pueden usar cookies siempre**. 
 
     ![Agregar la experiencia de usuario de ADF a sitios permitidos en Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
-1. Agregue el sitio **adf.azure.com** , active la opción **Todas las cookies** y guarde. 
+1. Agregue el sitio **adf.azure.com**, active la opción **Todas las cookies** y guarde. 
 
     ![Permitir todas las cookies del sitio de la experiencia de usuario de ADF](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
 1. Actualice la experiencia de usuario de ADF e inténtelo de nuevo.
@@ -63,25 +63,25 @@ Si no desea permitir todas las cookies, puede permitir que solo las utilice la e
 
 Si no desea permitir todas las cookies, puede permitir que solo las utilice la experiencia de usuario de ADF:
 
-1. Vaya a **edge://settings/content/cookies** .
-1. En la sección **Permitir** , seleccione **Agregar** y agregue el sitio **adf.azure.com** . 
+1. Vaya a **edge://settings/content/cookies**.
+1. En la sección **Permitir**, seleccione **Agregar** y agregue el sitio **adf.azure.com**. 
 
     ![Agregar la experiencia de usuario de ADF a sitios permitidos en Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
 1. Actualice la experiencia de usuario de ADF e inténtelo de nuevo.
 
 ## <a name="connection-failed-on-adf-ux"></a>Error en la conexión de la experiencia de usuario de ADF
 
-A veces aparecerán "errores de conexión" en la experiencia de usuario de ADF parecidos a los de la siguiente captura de pantalla después de hacer clic en **Prueba de conexión** , **Vista previa** , etc.
+A veces aparecerán "errores de conexión" en la experiencia de usuario de ADF parecidos a los de la siguiente captura de pantalla después de hacer clic en **Prueba de conexión**, **Vista previa**, etc.
 
 ![Error en la conexión](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 En este caso, puede intentar primero la misma operación con el modo de exploración InPrivate del explorador.
 
-Si sigue sin funcionar, en el explorador, presione F12 para abrir **Herramientas de desarrollo** . Vaya a la pestaña **Red** , active **Disable Cache** (Deshabilitar caché), vuelva a intentar la operación con el error y busque la solicitud con error (en rojo).
+Si sigue sin funcionar, en el explorador, presione F12 para abrir **Herramientas de desarrollo**. Vaya a la pestaña **Red**, active **Disable Cache** (Deshabilitar caché), vuelva a intentar la operación con el error y busque la solicitud con error (en rojo).
 
 ![Solicitud con error](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-A continuación, busque el **nombre de host** (en este caso, **dpnortheurope.svc.datafactory.azure.com** ) de la **dirección URL de la solicitud** de la solicitud con error.
+A continuación, busque el **nombre de host** (en este caso, **dpnortheurope.svc.datafactory.azure.com**) de la **dirección URL de la solicitud** de la solicitud con error.
 
 Escriba directamente el **nombre de host** en la barra de direcciones del explorador. Si ve 404 en el explorador, esto normalmente significa que el lado cliente es correcto y que el problema está en el lado del servicio ADF. Abra una incidencia de soporte técnico con el **identificador de actividad** del mensaje de error de la experiencia del usuario de ADF.
 
@@ -91,7 +91,7 @@ Si no es así, o si ve un error similar a continuación en el explorador, esto s
 
 ![Error del lado cliente](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Abra el **símbolo del sistema** y escriba **nslookup dpnortheurope.svc.datafactory.azure.com** . Una respuesta normal debería tener este aspecto:
+Abra el **símbolo del sistema** y escriba **nslookup dpnortheurope.svc.datafactory.azure.com**. Una respuesta normal debería tener este aspecto:
 
 ![Respuesta del comando 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 

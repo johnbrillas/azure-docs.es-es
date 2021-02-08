@@ -1,15 +1,15 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056181"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917714"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -132,7 +132,7 @@ Debido a la manera en que se aplica la limitación, se recomienda que las consul
   |---------------------|-----|------|-------|-------|
   | Intervalo de tiempo (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-A continuación proporcionamos un ejemplo de respetar los encabezados de limitación al consultar Azure Resource Graph:
+A continuación, se proporciona un ejemplo de cómo se respetan los encabezados de limitación al consultar Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta en paralelo
 
-Aunque la agrupación es recomendable en comparación con la paralelización, hay ocasiones en las que las consultas no se pueden agrupar fácilmente. En estos casos, puede consultar Azure Resource Graph al enviar varias consultas en paralelo. A continuación proporcionamos un ejemplo de cómo hacer un _retroceso_ según los encabezados de limitación en este tipo de escenario:
+Aunque la agrupación es recomendable en comparación con la paralelización, hay ocasiones en las que las consultas no se pueden agrupar fácilmente. En estos casos, puede consultar Azure Resource Graph al enviar varias consultas en paralelo. A continuación, se proporciona un ejemplo de cómo hacer un _retroceso_ según los encabezados de limitación en este tipo de escenarios:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */

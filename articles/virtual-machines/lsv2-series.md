@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498428"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097849"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -32,6 +32,8 @@ La serie Lsv2 proporciona un alto rendimiento, baja latencia, almacenamiento NVM
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 Expansión: Compatible<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCPU | Memoria (GiB) | Disco temporal <sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Rendimiento de disco NVMe<sup>3</sup> (IOPS de lectura/Mbps) | Rendimiento de disco de datos sin caché (IOPS/MBps)<sup>4</sup> | Rendimiento máx. de disco de datos de expansión sin caché (IOPS/MBps)<sup>5</sup>| Nº máx. de discos de datos | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |

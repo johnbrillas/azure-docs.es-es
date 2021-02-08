@@ -1,21 +1,21 @@
 ---
 title: 'Procedimientos recomendados de rendimiento: Azure Database for MySQL'
-description: En este artículo se describen los procedimientos recomendados para supervisar y ajustar el rendimiento para Azure Database for MySQL.
-author: mksuni
-ms.author: sumuth
+description: En este artículo se describen algunas recomendaciones para supervisar y ajustar el rendimiento para Azure Database for MySQL.
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/28/2021
+ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880413"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217761"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Procedimientos recomendados para un rendimiento óptimo de Azure Database for MySQL: servidor único
 
-Obtenga información sobre los procedimientos recomendados para obtener el mejor rendimiento mientras trabaja con Azure Database for MySQL: servidor único. A medida que agregamos nuevas funcionalidades a la plataforma, seguiremos perfeccionando los procedimientos recomendados que se detallan en esta sección.
+Obtenga información sobre cómo obtener el mejor rendimiento mientras trabaja con Azure Database for MySQL: servidor único. Al agregar nuevas funcionalidades a la plataforma, seguiremos perfeccionando las recomendaciones de esta sección.
 
 ## <a name="physical-proximity"></a>Proximidad física
 
@@ -49,6 +49,23 @@ Un procedimiento recomendado de rendimiento de Azure Database for MySQL es asign
 - Compruebe si el porcentaje de memoria se está utilizando para alcanzar los [límites](./concepts-pricing-tiers.md) con las [métricas del servidor de MySQL](./concepts-monitoring.md). 
 - Configure alertas con tales números para asegurarse de que, a medida que los servidores alcanzan los límites, puede realizar acciones rápidas para corregirlo. En función de los límites definidos, compruebe si se escala verticalmente la SKU de la base de datos, ya sea para un mayor tamaño de proceso o para mejorar el plan de tarifa, lo que da lugar a un aumento considerable del rendimiento. 
 - Escale verticalmente hasta que los números de rendimiento dejen de caer drásticamente después de una operación de escalado. Para información sobre la supervisión de las métricas de una instancia de base de datos, consulte [Métricas de base de datos de MySQL](./concepts-monitoring.md#metrics).
+ 
+## <a name="use-innodb-buffer-pool-warmup"></a>Uso de la preparación del grupo de búferes de InnoDB
+
+Después de reiniciar el servidor de Azure Database for MySQL, las páginas de datos que residen en el almacenamiento se cargan cuando se consultan las tablas, lo que conduce a una mayor latencia y un menor rendimiento en la primera ejecución de las consultas. Esta situación puede no ser aceptable para cargas de trabajo sensibles a la latencia. 
+
+El uso de la preparación del grupo de búferes de InnoDB acorta el período de preparación mediante la recarga de las páginas del disco que estaban en el grupo de búferes antes del reinicio, en lugar de esperar a que las operaciones DML o SELECT accedan a las filas correspondientes.
+
+Puede reducir el período de preparación después de reiniciar el servidor de Azure Database for MySQL, lo que representa una ventaja de rendimiento mediante la configuración de los [parámetros del servidor del grupo de búferes de InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB guarda un porcentaje de las páginas usadas más recientemente para cada grupo de búferes al cerrar el servidor y restaura estas páginas al iniciar el servidor.
+
+También es importante tener en cuenta que el rendimiento mejorado se produce a costa del tiempo de inicio más largo para el servidor. Cuando este parámetro está habilitado, se espera que el tiempo de inicio y reinicio del servidor aumente en función de las IOPS aprovisionadas en dicho servidor. 
+
+Se recomienda probar y supervisar el tiempo de reinicio para garantizar que el rendimiento de inicio y reinicio es aceptable, ya que el servidor no está disponible durante ese tiempo. No se recomienda usar este parámetro con menos de 1000 IOPS aprovisionadas (es decir, cuando el almacenamiento aprovisionado es inferior a 335 GB).
+
+Para guardar el estado del grupo de búferes al cerrar el servidor, establezca el parámetro de servidor `innodb_buffer_pool_dump_at_shutdown` en `ON`. Del mismo modo, establezca el parámetro de servidor `innodb_buffer_pool_load_at_startup` en `ON` para restaurar el estado del grupo de búferes al iniciar el servidor. Puede controlar el impacto del tiempo de inicio o reinicio si reduce y ajusta el valor del parámetro de servidor `innodb_buffer_pool_dump_pct`. De manera predeterminada, este parámetro está establecido en `25`.
+
+> [!Note]
+> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

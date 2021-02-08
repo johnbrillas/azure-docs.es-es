@@ -11,28 +11,28 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861860"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219679"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades utilizando una directiva personalizada en Azure Active Directory B2C (Azure AD B2C). Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña.
+Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades. Los perfiles técnicos se usan para comunicarse con su inquilino de Azure AD B2C, crear un usuario o leer un perfil de usuario. Un perfil técnico puede ser autoafirmado para habilitar la interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión y, a continuación, representar la página de registro o la página de restablecimiento de contraseña.
 
 ## <a name="type-of-technical-profiles"></a>Tipo de perfiles técnicos
 
 Un perfil técnico posibilita estos tipos de escenarios:
 
-- [Application Insights](application-insights-technical-profile.md): envía datos de eventos a [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md): envía datos de eventos a [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md): proporciona compatibilidad para la administración de usuarios de Azure Active Directory B2C.
 - [Multi-Factor Authentication de Azure AD](multi-factor-auth-technical-profile.md): proporciona compatibilidad para verificar un número de teléfono mediante Multi-Factor Authentication (MFA) de Azure AD. 
 - [Transformación de notificaciones](claims-transformation-technical-profile.md): llamada a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validar las notificaciones o establecer valores predeterminados para un conjunto de notificaciones de salida.
-- [Sugerencia de token de identificador](id-token-hint.md): valida la firma, el nombre del emisor y la audiencia del token JWT `id_token_hint` y extrae la notificación del token de entrada.
+- [Sugerencia de token de id.](id-token-hint.md): valida la firma del token JWT `id_token_hint`, el nombre del emisor y la audiencia y extrae la notificación del token de entrada.
 - [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza.
 - [OAuth1](oauth1-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 2.0.
@@ -47,7 +47,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico
 
-Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario envía notificaciones de entrada, ejecuta la transformación de notificaciones y se comunica con la entidad configurada, como un proveedor de identidades, la API REST o los servicios de directorio de Azure AD. Una vez finalizado el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Independientemente de la entidad con la que interactúe el perfil técnico, una vez que se ejecute la transformación de las notificaciones, las notificaciones de salida del perfil técnico se almacenan de inmediato en el contenedor de notificaciones.
+Todos los tipos de perfiles técnicos comparten el mismo concepto. Empiece por leer las notificaciones de entrada, ejecute la transformación de notificaciones. Después póngase en comunicación con la entidad configurada, como un proveedor de identidades, la API de REST o los servicios de directorio de Azure AD. Una vez finalizado el proceso, el perfil técnico devuelve las notificaciones de salida y puede ejecutar la transformación de notificaciones de salida. El diagrama siguiente muestra cómo se procesan las transformaciones y las asignaciones a las que se hace referencia en el perfil técnico. Una vez ejecutada la transformación de notificaciones, las notificaciones de salida se almacenan inmediatamente en el contenedor de notificaciones. Independientemente de la entidad con la que interactúa el perfil técnico.
 
 ![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 1. **Transformaciones de notificaciones de salida**: una vez completado el perfil técnico, Azure AD B2C ejecuta la [transformación de notificaciones](claimstransformations.md) de salida. 
 1. **Administración de la sesión de inicio de sesión único (SSO)**: conserva los datos del perfil técnico en la sesión mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
 
-Un elemento **TechnicalProfiles** contiene un conjunto de perfiles técnicos admitidos por el proveedor de notificaciones. Cada proveedor de notificaciones necesita tener uno o más perfiles técnicos que determinen los puntos de conexión y protocolos necesarios para establecer comunicación con el proveedor de notificaciones. Un proveedor de notificaciones puede tener varios perfiles técnicos.
+Un elemento **TechnicalProfiles** contiene un conjunto de perfiles técnicos admitidos por el proveedor de notificaciones. Cada proveedor de notificaciones debe tener al menos un perfil técnico. El perfil técnico que determina los puntos de conexión y los protocolos necesarios para establecer comunicación con el proveedor de notificaciones. Un proveedor de notificaciones puede tener varios perfiles técnicos.
 
 ```xml
 <ClaimsProvider>
@@ -96,14 +96,14 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | DisplayName | 1:1 | Nombre para mostrar del perfil técnico. |
 | Descripción | 0:1 | Descripción del perfil técnico. |
 | Protocolo | 1:1 | Protocolo usado para la comunicación con la otra parte. |
-| Metadatos | 0:1 | Colección de pares de clave y valor usada por el protocolo para comunicarse con el punto de conexión durante una transacción. |
+| Metadatos | 0:1 | Colección de clave/valor que controla el comportamiento del perfil técnico. |
 | InputTokenFormat | 0:1 | Formato del token de entrada. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. El valor `JWT` representa un token de JSON Web Token según la especificación IETF. El valor `SAML11` representa un token de seguridad SAML 1.1 según la especificación OASIS.  El valor `SAML2` representa un token de seguridad SAML 2.0 según la especificación OASIS. |
 | OutputTokenFormat | 0:1 | Formato del token de salida. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. |
 | CryptographicKeys | 0:1 | Lista de claves criptográficas que se usan en el perfil técnico. |
 | InputClaimsTransformations | 0:1 | Lista de referencias (definidas anteriormente) a transformaciones de notificaciones que tienen que ejecutarse antes de enviar notificaciones al proveedor de notificaciones o al usuario de confianza. |
 | InputClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que se usan como entrada en el perfil técnico. |
-| PersistedClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que el proveedor de notificaciones hace persistir y que están relacionadas con el perfil técnico. |
-| DisplayClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que el proveedor de notificaciones presenta y que están relacionadas con el [perfil técnico autoafirmado](self-asserted-technical-profile.md). La característica DisplayClaims se encuentra actualmente en **versión preliminar**. |
+| PersistedClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que serán persistentes en el perfil técnico. |
+| DisplayClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que el [perfil técnico autoafirmado](self-asserted-technical-profile.md) presenta. La característica DisplayClaims se encuentra actualmente en **versión preliminar**. |
 | OutputClaims | 0:1 | Lista de referencias (definidas anteriormente) a tipos de notificación que se usan como salida en el perfil técnico. |
 | OutputClaimsTransformations | 0:1 | Lista de referencias (definidas anteriormente) a transformaciones de notificaciones que tienen que ejecutarse cuando el proveedor de notificaciones reciba las notificaciones. |
 | ValidationTechnicalProfiles | 0:n | Lista de referencias a otros perfiles técnicos que el perfil técnico usa con fines de validación. Para obtener más información, vea [Validación del perfil técnico](validation-technical-profile.md).|
@@ -121,7 +121,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Nombre | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary` o `None`. |
-| Controlador | No | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
+| Controlador | No | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
 
 ## <a name="metadata"></a>Metadatos
 
@@ -129,7 +129,7 @@ El elemento **Metadata** contiene las opciones de configuración pertinentes de 
 
 | Elemento | Repeticiones | Descripción |
 | ------- | ----------- | ----------- |
-| Elemento | 0:n | Los metadatos relacionados con el perfil técnico. Cada tipo de perfil técnico tiene un conjunto distinto de elementos de metadatos. Para obtener más información, vea la sección sobre los tipos de perfil técnico. |
+| Elemento | 0:n | Los metadatos relacionados con el perfil técnico. Cada tipo de perfil técnico tiene un conjunto distinto de elementos de metadatos. Para más información, vea la sección sobre los tipos de perfil técnico.  |
 
 ### <a name="item"></a>Elemento
 
@@ -173,7 +173,7 @@ En el ejemplo siguiente se muestra el uso de metadatos pertinentes para el [perf
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
-Azure AD B2C almacena secretos y certificados en forma de [claves de directiva](policy-keys-overview.md) para establecer la confianza con los servicios con los que se integra. Durante la ejecución del perfil técnico, Azure AD B2C recupera las claves criptográficas de las claves de directiva de Azure AD B2C las claves de directiva y, a continuación, usa las claves para establecer la confianza, cifrar o firmar un token. Estas confianzas constan de los siguientes componentes:
+Para establecer la confianza con los servicios con los que se integra, Azure AD B2C almacena secretos y certificados en forma de [claves de directiva](policy-keys-overview.md). Durante la ejecución del perfil técnico, Azure AD B2C recupera las claves criptográficas de las claves de directiva de Azure AD B2C. A continuación, usa las claves para establecer la confianza, cifrar o firmar un token. Estas confianzas constan de los siguientes componentes:
 
 - Federación con los proveedores de identidades [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys) y [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
 - Protección de la conexión con los [servicios de la API de REST](secure-rest-api.md)
@@ -251,13 +251,13 @@ El elemento **InputClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| ClaimTypeReferenceId | Sí | Identificador de un tipo de notificación. La notificación ya se ha definido en la sección del esquema de notificaciones del archivo de directiva o del archivo de directiva primario. |
 | DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
 | PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ## <a name="display-claims"></a>Notificaciones de visualización
 
-El elemento **DisplayClaims** contiene una lista de notificaciones definidas por el [perfil técnico autoafirmado](self-asserted-technical-profile.md) que se va a presentar en la pantalla para recopilar datos del usuario. En la colección de notificaciones de visualización, puede incluir una referencia a un [tipo de notificación](claimsschema.md) o a un elemento [DisplayControl](display-controls.md) que haya creado. 
+El elemento **DisplayClaims** contiene una lista de las notificaciones que se van a presentar en la pantalla para recopilar datos del usuario. En la colección de notificaciones de visualización, puede incluir una referencia a un [tipo de notificación](claimsschema.md) o a un elemento [DisplayControl](display-controls.md) que haya creado. 
 
 - Un tipo de notificación es una referencia a una notificación que se va a mostrar en la pantalla. 
   - Para forzar que el usuario proporcione un valor para una notificación específica, establezca el atributo **Required** del elemento **DisplayClaim** en `true`.
@@ -326,7 +326,7 @@ El elemento **PersistedClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la esta no existe. |
 | PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 En el siguiente ejemplo, el perfil técnico **AAD-UserWriteUsingLogonEmail** o el [paquete de inicio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) crea una cuenta local y conserva las notificaciones siguientes:
@@ -357,13 +357,13 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la esta no existe. |
 |AlwaysUseDefaultValue |No |Obliga a usar el valor predeterminado.  |
-| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
+| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo de tipo de notificación de socio, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ## <a name="output-claims-transformations"></a>Transformaciones de notificaciones de salida
 
-El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation** que se usan para modificar las notificaciones de salida o para generar nuevas. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Puede usar esas notificaciones en el paso de orquestaciones siguiente.
+El elemento **OutputClaimsTransformations** puede contener una colección de elementos **OutputClaimsTransformation**. Las transformaciones de notificaciones de salida se usan para modificar las notificaciones de salida o generar otras nuevas. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Puede usar esas notificaciones en el paso de orquestaciones siguiente.
 
 Las notificaciones de salida de una transformación de notificaciones anterior en la colección de transformaciones de notificaciones pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente, lo que le permite tener una secuencia de transformación de notificaciones dependiendo unas de otras.
 
@@ -404,7 +404,7 @@ El siguiente perfil técnico hace referencia a la transformación de notificacio
 
 ## <a name="validation-technical-profiles"></a>Perfiles técnicos de validación
 
-Los perfiles técnicos de validación se usan para validar algunas o todas las notificaciones de salida de las referencias en un [perfil técnico autoafirmado](self-asserted-technical-profile.md#validation-technical-profiles). Un perfil técnico de validación es un perfil técnico normal de cualquier protocolo, como [Azure Active Directory](active-directory-technical-profile.md) o una [API de REST](restful-technical-profile.md). El perfil técnico de validación devuelve notificaciones de salida o devuelve el código de error. El mensaje de error se representa para el usuario en la pantalla, lo que le permite volver a intentarlo.
+Los perfiles técnicos de validación se usan para validar las notificaciones de salida de [perfil técnico autoafirmado](self-asserted-technical-profile.md#validation-technical-profiles). Un perfil técnico de validación es un perfil técnico normal de cualquier protocolo, como [Azure Active Directory](active-directory-technical-profile.md) o una [API de REST](restful-technical-profile.md). El perfil técnico de validación devuelve notificaciones de salida o devuelve el código de error. El mensaje de error se representa para el usuario en la pantalla, lo que le permite volver a intentarlo.
 
 En el siguiente diagrama se muestra cómo Azure AD B2C usa un perfil técnico de validación para validar las credenciales de usuario
 
@@ -434,7 +434,9 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 
 ## <a name="include-technical-profile"></a>Inclusión de un perfil técnico
 
-Un perfil técnico puede incluir otro perfil técnico para cambiar la configuración o agregar funcionalidades. El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico común del que se deriva un perfil técnico. Para reducir la redundancia y complejidad de los elementos de la directiva, use la inclusión cuando tenga varios perfiles técnicos que compartan los elementos básicos. Use un perfil técnico común con el conjunto común de configuración, junto con perfiles técnicos de tareas específicos que incluyen el perfil técnico común. Por ejemplo, supongamos que tiene un [perfil técnico de la API de REST](restful-technical-profile.md) con un solo punto de conexión en el que debe enviar diferentes conjuntos de notificaciones para diversos escenarios. Cree un perfil técnico común con la funcionalidad compartida, como el URI de punto de conexión de la API de REST, los metadatos, el tipo de autenticación y las claves criptográficas. A continuación, cree perfiles técnicos de tareas específicos que incluyan el perfil técnico común, agregue las notificaciones de entrada, las notificaciones de salida o sobrescriba el URI de punto de conexión de la API de REST pertinente para ese perfil técnico.
+Un perfil técnico puede incluir otro perfil técnico para cambiar la configuración o agregar funcionalidades. El elemento **IncludeTechnicalProfile** es una referencia al perfil técnico común del que se deriva un perfil técnico. Para reducir la redundancia y complejidad de los elementos de la directiva, use la inclusión cuando tenga varios perfiles técnicos que compartan los elementos básicos. Use un perfil técnico común con el conjunto común de configuración, junto con perfiles técnicos de tareas específicos que incluyen el perfil técnico común. 
+
+Supongamos que tiene un [perfil técnico de la API de REST](restful-technical-profile.md) con un solo punto de conexión en el que debe enviar diferentes conjuntos de notificaciones para diversos escenarios. Cree un perfil técnico común con la funcionalidad compartida, como el URI de punto de conexión de la API de REST, los metadatos, el tipo de autenticación y las claves criptográficas. Cree perfiles técnicos de tareas específicas que incluyan el perfil técnico común. Después, agregue las notificaciones de entrada, las notificaciones de salida o sobrescriba el URI del punto de conexión de la API de REST pertinente para ese perfil técnico.
 
 El elemento **IncludeTechnicalProfile** contiene el atributo siguiente:
 
@@ -561,7 +563,10 @@ El elemento [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) 
 - **OnItemExistenceInStringCollectionClaim**: solo se ejecuta cuando existe un elemento en una notificación de colección de cadenas.
 - **OnItemAbsenceInStringCollectionClaim**: solo se ejecuta cuando no existe un elemento en una notificación de colección de cadenas.
 
-Para usar **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** o **OnItemAbsenceInStringCollectionClaim** es necesario que proporcione los siguientes metadatos: **ClaimTypeOnWhichToEnable** especifica el tipo de notificación que se va a evaluar, mientras **ClaimValueOnWhichToEnable** especifica el valor que se va a comparar.
+Para usar **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** o **OnItemAbsenceInStringCollectionClaim** es necesario que proporcione los siguientes metadatos: 
+
+- **ClaimTypeOnWhichToEnable**: especifica el tipo de la demanda que se va a evaluar.
+- **ClaimValueOnWhichToEnable**: especifica el valor que se va a comparar.
 
 El siguiente perfil técnico solo se ejecuta si la colección de cadenas **identityProviders** contiene el valor de `facebook.com`:
 

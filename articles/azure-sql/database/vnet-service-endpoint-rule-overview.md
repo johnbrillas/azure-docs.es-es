@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092506"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095365"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos de [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué las reglas de redes virtuales a veces son la mejor opción para permitir la comunicación de forma segura con la base de datos de SQL Database y Azure Synapse Analytics.
+Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos del grupo de SQL dedicado de [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué las reglas de redes virtuales a veces son la mejor opción para permitir la comunicación de forma segura con la base de datos de SQL Database y Azure Synapse Analytics.
 
 > [!NOTE]
 > Este artículo es aplicable a SQL Database y a Azure Synapse Analytics. Para simplificar, el término *base de datos* hace referencia a las bases de datos de SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a *servidor* indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda SQL Database y Azure Synapse Analytics.

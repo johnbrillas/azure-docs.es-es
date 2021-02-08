@@ -3,17 +3,17 @@ title: Aprovisionamiento de dispositivos con claves simétricas en Azure IoT Hub
 description: Uso de claves simétricas para aprovisionar dispositivos con su instancia de Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967319"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051116"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Aprovisionamiento de dispositivos mediante grupos de inscripción de clave simétrica
 
@@ -21,9 +21,7 @@ En este artículo se muestra cómo aprovisionar de forma segura varios dispositi
 
 Puede que algunos dispositivos no tengan un certificado, un módulo de plataforma segura o cualquier otra característica de seguridad que se pueda usar para identificar de forma segura al dispositivo. Device Provisioning Service incluye la [atestación de clave simétrica](concepts-symmetric-key-attestation.md). La atestación de clave simétrica se puede usar para identificar un dispositivo basándose en información única, como la dirección MAC o un número de serie.
 
-Si puede instalar fácilmente un [módulo de seguridad de hardware (HSM)](concepts-service.md#hardware-security-module) y un certificado, ese puede ser un mejor enfoque para identificar y aprovisionar los dispositivos. Esto se debe a que este enfoque le permite omitir la actualización del código implementado en todos los dispositivos y no tendría ninguna clave secreta insertada en la imagen del dispositivo.
-
-En este artículo se da por supuesto que ni un HSM ni un certificado son viables. No obstante, se supone que tiene algún método para actualizar el código del dispositivo para que use Device Provisioning Service para aprovisionar estos dispositivos. 
+Si puede instalar fácilmente un [módulo de seguridad de hardware (HSM)](concepts-service.md#hardware-security-module) y un certificado, ese puede ser un mejor enfoque para identificar y aprovisionar los dispositivos. El uso de un HSM permitirá que omita la actualización del código implementado en todos los dispositivos y no tendrá ninguna clave secreta insertada en las imágenes del dispositivo. En este artículo se da por supuesto que ni un HSM ni un certificado son viables. No obstante, se supone que tiene algún método para actualizar el código del dispositivo para que use Device Provisioning Service para aprovisionar estos dispositivos. 
 
 En este artículo también se da por supuesto que la actualización del dispositivo tiene lugar en un entorno seguro para impedir el acceso no autorizado a la clave maestra de grupo o la clave de dispositivo derivada.
 
@@ -142,39 +140,18 @@ En este ejemplo se usa una combinación de una dirección MAC y un número de se
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Cree un identificador de registro único para el dispositivo. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones ("-").
+Cree identificadores de registro únicos para cada dispositivo. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones ("-").
 
 
 ## <a name="derive-a-device-key"></a>Derivación de una clave de dispositivo 
 
-Para generar la clave del dispositivo, use la clave maestra del grupo para calcular un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro único del dispositivo y convierta el resultado en formato Base64.
+Para generar claves de dispositivo, use la clave maestra del grupo de inscripción para calcular un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro de cada dispositivo. El resultado se convierte luego en formato Base64 para cada dispositivo.
 
 > [!WARNING]
-> El código del dispositivo solo debe incluir la clave de dispositivo derivada para el dispositivo individual. No incluya la clave maestra del grupo en el código del dispositivo. Una clave maestra vulnerada puede poner en peligro la seguridad de todos los dispositivos que se autentican con ella.
+> El código de dispositivo de cada dispositivo solo debe incluir la clave de dispositivo derivada correspondiente de ese dispositivo. No incluya la clave maestra del grupo en el código del dispositivo. Una clave maestra vulnerada puede poner en peligro la seguridad de todos los dispositivos que se autentican con ella.
 
 
-#### <a name="linux-workstations"></a>Estaciones de trabajo de Linux
-
-Si utiliza una estación de trabajo de Linux, puede usar openssl para generar la clave de dispositivo derivada tal y como se muestra en el ejemplo siguiente.
-
-Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
-
-Reemplace el valor de **REG_ID** por el identificador del registro.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Estaciones de trabajo basadas en Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-El dispositivo usará la clave de dispositivo derivada con el identificador de registro único para realizar la atestación de clave simétrica con el grupo de inscripción durante el aprovisionamiento.
+Si utiliza una estación de trabajo de Linux, puede usar openssl para generar la clave de dispositivo derivada tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
+
+Reemplace el valor de **REG_ID** por el identificador del registro.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Cada dispositivo usa su clave de dispositivo derivada y su identificador de registro único para realizar la atestación de claves simétricas con el grupo de inscripción durante el aprovisionamiento.
 
 
 
@@ -206,9 +204,9 @@ El dispositivo usará la clave de dispositivo derivada con el identificador de r
 
 En esta sección, actualizará el ejemplo de aprovisionamiento denominado **prov\_dev\_client\_sample** que está ubicado en el SDK de Azure IoT para C que ha configurado anteriormente. 
 
-El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne el dispositivo al centro de IoT que configuró en el grupo de inscripción.
+El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne el dispositivo al centro de IoT que configuró en el grupo de inscripción. Esta acción se llevaría cabo para cada dispositivo que se aprovisionara mediante el grupo de inscripción.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -280,10 +278,7 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
 
 ## <a name="security-concerns"></a>Problemas de seguridad
 
-Tenga en cuenta que esto deja la clave de dispositivo derivada incluida como parte de la imagen, lo cual no es un procedimiento recomendado de seguridad. Este es uno de los motivos por los que la seguridad y la facilidad de uso pueden estar contrapuestos. 
-
-
-
+Tenga en cuenta que la clave de dispositivo derivada se deja incluida como parte de la imagen de cada dispositivo, lo que no es un procedimiento recomendado de seguridad. Este es uno de los motivos por los que la seguridad y la facilidad de uso pueden estar a menudo contrapuestos. Debe revisar por completo la seguridad de los dispositivos en función de sus propios requisitos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
