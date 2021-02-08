@@ -261,7 +261,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL
           href: connector-azure-sql-managed-instance.md
@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Descripción de los precios
       items:
+        - name: Información general de la capacidad reservada del flujo de datos
+          href: data-flow-reserved-capacity-overview.md
+        - name: Información de cargos de la reserva del flujo de datos
+          href: data-flow-understand-reservation-charges.md
         - name: Planificación y administración de costos
           href: plan-manage-costs.md
         - name: Ejemplos de precios
