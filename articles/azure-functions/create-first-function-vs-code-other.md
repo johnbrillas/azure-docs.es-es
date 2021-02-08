@@ -3,12 +3,12 @@ title: 'Creación de una función en Go o Rust con Visual Studio Code: Azure Fu
 description: Obtenga información sobre cómo crear una función de Go como un controlador personalizado de Azure Functions y, a continuación, publicar el proyecto local en el hospedaje sin servidor de Azure Functions con la extensión de Azure Functions en Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 911e2ed263271cff41562f383f231d3ca8181854
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567567"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493672"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de Go o Rust en Azure con Visual Studio Code
 
@@ -226,7 +226,7 @@ Puede ejecutar este proyecto en el equipo de desarrollo local antes de publicar 
 
 1. Se devuelve una respuesta, que tiene un aspecto similar al siguiente en un explorador:
 
-    ![Explorador: salida de ejemplo de localhost](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Explorador: salida de ejemplo de localhost](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. La información sobre la solicitud se muestra en el panel **Terminal**.
 
@@ -308,7 +308,7 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
 1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el botón de **implementación en la aplicación de funciones**.
 
-    ![Publicación del proyecto en Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publicación del proyecto en Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Escriba la siguiente información cuando se le indique:
 
@@ -337,19 +337,17 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
     + **Seleccione un recurso de Application Insights**: Elija `+ Create Application Insights resource`. Este nombre debe ser único globalmente en Azure. Puede usar el nombre sugerido en la solicitud.
 
-    + **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. 
+    + **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. La extensión muestra el estado de los recursos individuales a medida que se crean en Azure en el área de notificación.
 
-1. Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones:
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notificación de creación de recursos de Azure":::
 
-    + Un grupo de recursos, que es un contenedor lógico de recursos relacionados.
-    + Una cuenta de Azure Storage estándar, que mantiene el estado e información adicional sobre los proyectos.
-    + Un plan de consumo, que define el host subyacente para su aplicación de funciones sin servidor. 
-    + Una aplicación de funciones, que proporciona el entorno para ejecutar el código de función. Una aplicación de funciones permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos en el mismo plan de hospedaje.
-    + Una instancia de Application Insights conectada a la aplicación de funciones, que realiza un seguimiento del uso de la función sin servidor.
+1. Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción:
+
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Una vez que se haya creado la aplicación de función se mostrará una notificación y se aplicará el paquete de implementación. 
 
-1. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
+4. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
 
     ![Creación de la notificación completa](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 

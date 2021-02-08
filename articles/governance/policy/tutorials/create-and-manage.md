@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005442"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221200"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -71,6 +71,10 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 1. Deje sin marcar **Crear una tarea de corrección**. Este cuadro permite crear una tarea para modificar los recursos existentes, además de los recursos nuevos o actualizados. Para más información, consulte [Corrección de recursos](../how-to/remediate-resources.md).
 
 1. La casilla **Crear una identidad administrada** se activa automáticamente, ya que esta definición de directiva usa el efecto [modify](../concepts/effects.md#modify). **Permisos** se establece automáticamente en _Colaborador_ según la definición de directiva. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Seleccione la pestaña **Non-compliance messages** (Mensajes de no cumplimiento) en la parte superior del asistente.
+
+1. Establezca **Non-compliance message** (Mensaje de no cumplimiento) en _This resource doesn't have the required tag_ (Este recurso no tiene la etiqueta necesaria). Este mensaje personalizado se muestra cuando se deniega un recurso o cuando hay recursos no compatibles durante la evaluación periódica.
 
 1. Seleccione la pestaña **Revisar y crear** en la parte superior del asistente.
 

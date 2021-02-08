@@ -1,25 +1,25 @@
 ---
-title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: Python'
-description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Blob Storage versión 12 para Python a fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
+title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12 para Python'
+description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Blob Storage v12 para Python a fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/28/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: dbac832165c57e14e737372e12c4f4b2f3039c0d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e315f0f4f7bfff03a659de430e6fe182037f1b8a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995271"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096413"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Python v12
 
 En este inicio rápido, se aprende a administrar blobs mediante Python. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Cargará, descargará y enumerará los blobs, y creará y eliminará los contenedores.
 
-Recursos adicionales:
+Más recursos:
 
 * [Documentación de referencia de API](/python/api/azure-storage-blob)
 * [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
@@ -36,7 +36,7 @@ Recursos adicionales:
 
 ## <a name="setting-up"></a>Instalación
 
-En esta sección se explica cómo preparar un proyecto para que funcione con la biblioteca cliente de Azure Blob Storage v12 para Python.
+En esta sección se explica cómo preparar un proyecto para que funcione con la biblioteca cliente de Azure Blob Storage v12 para Python.
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
@@ -54,7 +54,7 @@ Cree una aplicación de Python llamada *blob-quickstart-v12*.
     cd blob-quickstart-v12
     ```
 
-1. En el directorio *blob-quickstart-v12*, cree otro directorio denominado *data*. Aquí es donde se crearán y almacenarán los archivos de datos de blobs.
+1. En el directorio *blob-quickstart-v12*, cree otro directorio denominado *data*. Este es el directorio en el que se crearán y almacenarán los archivos de datos de blobs.
 
     ```console
     mkdir data
@@ -62,7 +62,7 @@ Cree una aplicación de Python llamada *blob-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Instalar el paquete
 
-Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca cliente de Azure Blob Storage para Python con el comando `pip install`.
+Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca cliente de Azure Blob Storage para Python mediante el comando `pip install`.
 
 ```console
 pip install azure-storage-blob
@@ -80,17 +80,7 @@ Desde el directorio del proyecto:
 
     Este es el código:
 
-    ```python
-    import os, uuid
-    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
-
-    try:
-        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
-        # Quick start code goes here
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
-    ```
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
 
 1. Guarde el nuevo archivo como *blob-quickstart-v12.py* en el directorio *blob-quickstart-v12*.
 
@@ -98,7 +88,7 @@ Desde el directorio del proyecto:
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Azure Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados. Los datos no estructurados son datos que no cumplen un modelo de datos o definición concreta, como texto o datos binarios. Blob Storage ofrece tres tipos de recursos:
+Azure Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados. Los datos no estructurados son datos que no se ciñen a ningún un modelo de datos o definición concretos, como texto o datos binarios. Blob Storage ofrece tres tipos de recursos:
 
 * La cuenta de almacenamiento
 * Un contenedor en la cuenta de almacenamiento
@@ -116,7 +106,7 @@ Use las siguientes clases de Python para interactuar con estos recursos:
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca cliente de Azure Blob Storage para Python:
+Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes tareas con la biblioteca cliente de Azure Blob Storage para Python:
 
 * [Obtención de la cadena de conexión](#get-the-connection-string)
 * [Creación de un contenedor](#create-a-container)
@@ -131,19 +121,11 @@ El código siguiente recupera la cadena de conexión de la cuenta de almacenamie
 
 Agregue este código dentro del bloque `try`:
 
-```python
-# Retrieve the connection string for use with the application. The storage
-# connection string is stored in an environment variable on the machine
-# running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable is
-# created after the application is launched in a console or with Visual Studio,
-# the shell or application needs to be closed and reloaded to take the
-# environment variable into account.
-connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_ConnectionString":::
 
 ### <a name="create-a-container"></a>Crear un contenedor
 
-Decida un nombre para el nuevo contenedor. El código siguiente anexa un valor de UUID al nombre de contenedor para asegurarse de que sea único.
+Decida un nombre para el nuevo contenedor. El código siguiente anexa un valor de UUID al nombre de contenedor para garantizar que sea único.
 
 > [!IMPORTANT]
 > Los nombres de contenedor deben estar en minúsculas. Para más información acerca de los contenedores de nomenclatura y los blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y realización de referencias a contenedores, blobs y metadatos).
@@ -152,47 +134,20 @@ Cree una instancia de la clase [BlobServiceClient](/python/api/azure-storage-blo
 
 Agregue este código al final del bloque `try`:
 
-```python
-# Create the BlobServiceClient object which will be used to create a container client
-blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-
-# Create a unique name for the container
-container_name = "quickstart" + str(uuid.uuid4())
-
-# Create the container
-container_client = blob_service_client.create_container(container_name)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_CreateContainer":::
 
 ### <a name="upload-blobs-to-a-container"></a>Carga de los blobs en un contenedor
 
 El siguiente fragmento de código:
 
+1. Crea un directorio local para almacenar los archivos de datos.
 1. Crea un archivo de texto en el directorio local.
 1. Obtiene una referencia a un objeto [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) llamando al método [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) en la clase [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) de la sección [Crear un contenedor](#create-a-container).
 1. Carga el archivo de texto local en el blob llamando al método [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-).
 
 Agregue este código al final del bloque `try`:
 
-```python
-# Create a file in local data directory to upload and download
-local_path = "./data"
-local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
-upload_file_path = os.path.join(local_path, local_file_name)
-
-# Write text to the file
-file = open(upload_file_path, 'w')
-file.write("Hello, World!")
-file.close()
-
-# Create a blob client using the local file name as the name for the blob
-blob_client = blob_service_client.get_blob_client(container=container_name, blob=local_file_name)
-
-print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
-
-# Upload the created file
-with open(upload_file_path, "rb") as data:
-    blob_client.upload_blob(data)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_UploadBlobs":::
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
@@ -200,14 +155,7 @@ Enumere los blobs en el contenedor llamando al método [list_blobs](/python/api/
 
 Agregue este código al final del bloque `try`:
 
-```python
-print("\nListing blobs...")
-
-# List the blobs in the container
-blob_list = container_client.list_blobs()
-for blob in blob_list:
-    print("\t" + blob.name)
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_ListBlobs":::
 
 ### <a name="download-blobs"></a>Descargar blobs
 
@@ -215,42 +163,21 @@ Descargue el blob creado previamente llamando al método [download_blob](/python
 
 Agregue este código al final del bloque `try`:
 
-```python
-# Download the blob to a local file
-# Add 'DOWNLOAD' before the .txt extension so you can see both files in the data directory
-download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
-print("\nDownloading blob to \n\t" + download_file_path)
-
-with open(download_file_path, "wb") as download_file:
-    download_file.write(blob_client.download_blob().readall())
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_DownloadBlobs":::
 
 ### <a name="delete-a-container"></a>Eliminación de un contenedor
 
 El código siguiente limpia los recursos que creó la aplicación; para ello, quita todo el contenedor con el método [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-). Si lo desea, también puede eliminar los archivos locales.
 
-La aplicación se detiene para la entrada del usuario mediante una llamada a `input()` antes de eliminar el blob, el contenedor y los archivos locales. Esta es una buena oportunidad para verificar que los recursos se han creado correctamente antes de eliminarlos.
+La aplicación se detiene para la entrada del usuario mediante una llamada a `input()` antes de eliminar el blob, el contenedor y los archivos locales. Compruebe que los recursos se crearon correctamente antes de su eliminación.
 
 Agregue este código al final del bloque `try`:
 
-```python
-# Clean up
-print("\nPress the Enter key to begin clean up")
-input()
-
-print("Deleting blob container...")
-container_client.delete_container()
-
-print("Deleting the local source and downloaded files...")
-os.remove(upload_file_path)
-os.remove(download_file_path)
-
-print("Done")
-```
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart-v12.py" id="Snippet_CleanUp":::
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Esta aplicación crea un archivo de prueba en la carpeta local y lo carga en Blob Storage. Después, en el ejemplo se enumeran los blobs del contenedor y se descarga el archivo con un nombre nuevo para que pueda comparar los archivos antiguo y nuevo.
+Esta aplicación crea un archivo de prueba en la carpeta local y lo carga en Azure Blob Storage. A continuación, el ejemplo enumera los blobs del contenedor y descarga el archivo con otro nombre. Se pueden comparar los archivos antiguos y nuevos.
 
 Navegue hasta el directorio que contiene el archivo *blob-quickstart-v12.py* y, a continuación, ejecute el siguiente comando de `python` para ejecutar la aplicación.
 
@@ -261,7 +188,7 @@ python blob-quickstart-v12.py
 La salida de la aplicación es similar a la del ejemplo siguiente:
 
 ```output
-Azure Blob storage v12 - Python quickstart sample
+Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Azure Storage as blob:
         quickstartcf275796-2188-4057-b6fb-038352e35038.txt
@@ -279,7 +206,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Antes de comenzar a limpiar el proceso, compruebe la carpeta *data* para los dos archivos. Puede abrirlos y ver que son idénticos.
+Antes de comenzar el proceso de limpieza, compruebe la carpeta *data* para ver si están los dos archivos. Puede abrirlos y comprobar que son idénticos.
 
 Después de haber comprobado los archivos, presione la tecla **Entrar** para eliminar los archivos de prueba y terminar la demostración.
 
@@ -290,7 +217,7 @@ En esta guía de inicio rápido, ha aprendido a cargar, descargar y enumerar blo
 Para ver las aplicaciones de ejemplo de Blob Storage, siga estos pasos:
 
 > [!div class="nextstepaction"]
-> [Ejemplos de Azure Blob Storage v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Ejemplos de Azure Blob Storage v12 para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Para más información, consulte el artículo sobre las [bibliotecas cliente de Azure Storage para Python](/azure/developer/python/sdk/storage/overview).
 * Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite [Azure para desarrolladores de Python](/azure/python/).

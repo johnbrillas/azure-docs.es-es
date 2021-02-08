@@ -11,77 +11,75 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e155a253910cc5ee3f4fc71cf9ea66ced5cb46f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742138"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053862"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configuración de BlueJeans para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se dan en BlueJeans y Azure Active Directory (Azure AD) para configurar Azure AD de modo que aprovisione y desaprovisione automáticamente los usuarios o grupos en BlueJeans.
+En este tutorial, se describen los pasos que debe realizar en BlueJeans y Azure Active Directory (Azure AD) para configurar el aprovisionamiento automático de usuarios. Cuando se configura, Azure AD aprovisiona y desaprovisiona automáticamente a los usuarios en [BlueJeans](https://www.bluejeans.com/pricing) mediante el servicio de aprovisionamiento de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
-> [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
+## <a name="capabilities-supported"></a>Funcionalidades admitidas
+> [!div class="checklist"]
+> * Creación de usuarios en BlueJeans
+> * Eliminación de usuarios de BlueJeans cuando ya no necesiten acceso
+> * Mantenimiento de la sincronización de los atributos de usuario entre Azure AD y BlueJeans
+> * [Inicio de sesión único](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) en BlueJeans (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
+En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* Un inquilino de Azure AD
-* Un inquilino de BlueJeans con el plan [My Company](https://www.BlueJeans.com/pricing) o superior habilitado
-* Una cuenta de usuario de BlueJeans con permisos de administrador
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
+* Una cuenta de usuario en Azure AD con [permiso](../roles/permissions-reference.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global). 
+* Un inquilino de BlueJeans con el plan [My Company](https://www.bluejeans.com/pricing) o superior habilitado.
+* Una cuenta de usuario de BlueJeans con permisos de administrador.
+* Aprovisionamiento de SCIM habilitado en BlueJeans Enterprise.
 
 > [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa en la [API de BlueJeans](https://BlueJeans.github.io/developer), que está disponible para los equipos de BlueJeans con el plan Standard o uno superior.
 
-## <a name="adding-bluejeans-from-the-gallery"></a>Incorporación de BlueJeans desde la galería
+## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine qué datos se van a [asignar entre Azure AD y BlueJeans](../app-provisioning/customize-application-attributes.md).
 
-Antes de configurar BlueJeans para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar BlueJeans desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
+## <a name="step-2-configure-bluejeans-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de BlueJeans para admitir el aprovisionamiento con Azure AD
 
-**Para agregar BlueJeans desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+1. Inicie sesión en la consola de administración de BlueJeans. Vaya a Group Settings > Security (Configuración de grupo > Seguridad).
+2. Seleccione **Single Sign On** (Inicio de sesión único) y **Configure Now** (Configurar ahora).
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+    ![ahora](./media/bluejeans-provisioning-tutorial/configure.png)
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+3. En la ventana **Provision & Integration** (Aprovisionamiento e integración), seleccione **Create and manage user accounts through IDP** (Crear y administrar cuentas de usuario mediante IDP) y haga clic en **GENERATE TOKEN** (GENERAR TOKEN).
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+    ![generate](./media/bluejeans-provisioning-tutorial/token.png)
+    
+4. Copie y guarde el token. 
+5. La dirección URL del inquilino de BlueJeans es `https://api.bluejeans.com/v2/scim`. La **dirección URL del inquilino** y el **token de secreto** del paso anterior se especificarán en la pestaña Aprovisionamiento de la aplicación BlueJeans en Azure Portal.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+## <a name="step-3-add-bluejeans-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de BlueJeans desde la galería de aplicaciones de Azure AD
 
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del panel.
+Para empezar a administrar el aprovisionamiento de BlueJeans, agregue esta aplicación desde la galería de aplicaciones de Azure AD. Si ha configurado previamente BlueJeans para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md).
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
-4. En el cuadro de búsqueda, escriba **BlueJeans**, seleccione **BlueJeans** en el panel de resultados y, luego, seleccione el botón **Agregar** para agregar la aplicación.
+El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario. Si elige delimitar quién se aprovisionará en la aplicación en función de la asignación, puede usar los [pasos](../manage-apps/assign-user-or-group-access-portal.md) siguientes para asignar usuarios a la aplicación. Si elige delimitar quién se aprovisionará en función únicamente de los atributos del usuario, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-    ![BlueJeans en la lista de resultados](common/search-new-app.png)
+* Al asignar usuarios a BlueJeans, debe seleccionar un rol que no sea **Acceso predeterminado**. Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
-## <a name="assigning-users-to-bluejeans"></a>Asignación de usuarios a BlueJeans
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios asignados, puede controlarlo asignando uno o dos usuarios a la aplicación. Cuando el ámbito se establece en todos los usuarios, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de usuarios, solo se sincronizan los usuarios y grupos que se han "asignado" a una aplicación en Azure AD.
+## <a name="step-5-configure-automatic-user-provisioning-to-bluejeans"></a>Paso 5. Configuración del aprovisionamiento automático de usuarios en BlueJeans
 
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a BlueJeans. Una vez que lo decida, puede seguir estas instrucciones para asignar dichos usuarios o grupos a BlueJeans:
-
-* [Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
-
-### <a name="important-tips-for-assigning-users-to-bluejeans"></a>Sugerencias importantes para asignar usuarios a BlueJeans
-
-* Se recomienda asignar un único usuario de Azure AD a BlueJeans para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
-
-* Al asignar un usuario a BlueJeans, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
-
-## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>Configuración del aprovisionamiento automático de usuarios en BlueJeans
-
-Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de AD Azure para crear, actualizar y deshabilitar usuarios o grupos en BlueJeans en función de las asignaciones de grupo y usuarios de Azure AD.
-
-> [!TIP]
-> También puede habilitar el inicio de sesión único basado en SAML para BlueJeans siguiendo las instrucciones del [tutorial de inicio de sesión único de BlueJeans](bluejeans-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios en TestApp en función de las asignaciones de usuarios de Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para BlueJeans en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, a continuación, **BlueJeans**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -91,26 +89,26 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de URL de inquilino y Token de secreto de BlueJeans. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a BlueJeans. Si la conexión no se establece, asegúrese de que la cuenta de BlueJeans tiene permisos de administrador de BlueJeans y pruebe otra vez.
+5. En la sección **Credenciales de administrador**, escriba los valores de URL de inquilino y token de secreto de BlueJeans recuperados en el paso 2. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a BlueJeans. Si la conexión no se establece, asegúrese de que la cuenta de BlueJeans tiene permisos de administrador de BlueJeans y pruebe otra vez.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Seleccione **Guardar**.
 
 8. En la sección **Mappings** (Asignaciones), seleccione **Synchronize Azure Active Directory Users to BlueJeans** (Sincronizar usuarios de Azure Active Directory con BlueJeans).
 
-9. Revise los atributos de usuario que se sincronizan entre Azure AD y BlueJeans en la sección **Attribute Mapping** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching**(Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de BlueJeans con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD y BlueJeans en la sección **Attribute Mapping** (Asignaciones de atributos). Los atributos seleccionados como propiedades de **Matching**(Coincidencia) se usan para buscar coincidencias con las cuentas de usuario de BlueJeans con el objetivo de realizar operaciones de actualización. Si decide cambiar el [atributo de destino coincidente](../app-provisioning/customize-application-attributes.md), deberá asegurarse de que la API de BlueJeans admita el filtrado de usuarios en función de ese atributo. Seleccione el botón **Guardar** para confirmar los cambios.
 
 |Atributo|Tipo|Compatible con el filtrado|
 |---|---|---|
@@ -129,7 +127,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Defina los usuarios o grupos que desea que se aprovisionen en BlueJeans eligiendo los valores deseados en **Ámbito**, en la sección **Configuración**.
+12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios que desea que se aprovisionen en BlueJeans.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
@@ -137,9 +135,14 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en BlueJeans.
+Esta operación inicia la sincronización inicial de todos los usuarios definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
+Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
+
+1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
+2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
@@ -153,9 +156,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-
-<!--Image references-->
-
-[1]: ./media/bluejeans-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/bluejeans-tutorial/tutorial_general_02.png
-[3]: ./media/bluejeans-tutorial/tutorial_general_03.png

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029896"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526303"
 ---
 ::: zone target="docs"
 
@@ -63,7 +63,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
 
     - Llame a la oficina local de UPS (número gratuito específico del país o región).
     - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la etiqueta impresa.
-    - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
+    - Si no indica el número de seguimiento, UPS le exigirá que pague una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
 
@@ -83,7 +83,7 @@ Siga estos pasos si va a devolver el dispositivo en Europa o en Reino Unido.
 
 Los centros de datos de Azure en Australia tienen una notificación de seguridad adicional. Todos los envíos entrantes deben tener una notificación avanzada. Realice los pasos siguientes para la recogida en Australia.
 
-1. Use la etiqueta de devolución que se proporciona y asegúrese de en ella aparece el código TAU (número de referencia). Si falta la etiqueta de envío o tiene cualquier otro problema, envíe un correo electrónico al departamento de [operaciones en Asia de Data Box](mailto:adbo@microsoft.com). Especifique el nombre del pedido en el encabezado del asunto y los detalles del problema que haya aparecido.
+1. Use la etiqueta de devolución que se proporciona y asegúrese de en ella aparece el código TAU (número de referencia). Si falta la etiqueta de envío o tiene cualquier otro problema, envíe un correo electrónico al departamento de [operaciones en Asia de Data Box](mailto:adbo@microsoft.com). Especifique el nombre del pedido en el encabezado del asunto y los detalles del problema.
 2. Pegue la etiqueta en la caja.
 3. Utilice el vínculo https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference para reservar en línea una recogida.
 
@@ -119,12 +119,12 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 1. Asegúrese de incluir la nota de entrega de la devolución.
 2. Para solicitar la recogida con la nota de entrega:
     1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft Azure pickup* y el número de solicitud de servicio para organizar la recogida.  
-    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a `microsoft@rocketparcel.com` con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
+    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
     3. Si el mensajero no realiza la recogida, llame a la línea directa de *Quantium Solutions International* para buscar otra fecha.
     4. Recibirá una confirmación por correo electrónico para concertar la recogida.
-3. Siga este paso solo si la nota de entrega no está presente. Para solicitar la recogida:
-    1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft Azure pickup* y el número de solicitud de servicio para organizar la recogida. Especifique que necesita una nueva nota de entrega para concertar una recogida. Proporcione la información sobre el remitente (cliente) y el receptor (centro de datos de Azure), así como el número de referencia (número de solicitud de servicio). 
-    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a `microsoft@rocketparcel.com` con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
+3. Siga este paso solo si no está presente la nota de consignación. Para solicitar la recogida:
+    1. Llame a la línea directa de *Quantium Solutions International*, 070-8231-1418, en horario de oficina (de 10 AM a 5 PM, de lunes a viernes). Indique *Microsoft Azure pickup* y el número de solicitud de servicio para organizar la recogida. Especifique que necesita una nueva nota de entrega para concertar una recogida. Proporcione la información sobre el remitente (cliente) y el receptor (centro de datos de Azure), así como el número de referencia (número de solicitud de servicio).
+    2. Si la línea directa está ocupada, envíe un mensaje de correo electrónico a [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com) con el asunto *Microsoft Azure Pickup* y el número de solicitud de servicio como referencia.
     3. Si el mensajero no realiza la recogida, llame a la línea directa de *Quantium Solutions International* para buscar otra fecha.
     4. Recibirá una confirmación verbal si la solicitud se realiza por teléfono.
 
@@ -152,7 +152,7 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
    > * Antes de las 15:00 p.m., la recogida se realizará el siguiente día laborable entre las 9:00 a.m. y las 13:00 p. m.
    > * Después de las 15:00 p.m., la recogida se realizará el siguiente día laborable entre las 14:00 p.m. y las 18:00 p. m.
 
-   Si surge algún problema, póngase en contacto con Data Box Operations Asia a la siguiente dirección de correo electrónico, adbo@microsoft.com. Especifique el nombre del trabajo en el encabezado del asunto y el problema que ha aparecido.
+   Si surge algún problema, póngase en contacto con el equipo de operaciones de Data Box de Asia en [adbo@microsoft.com](mailto:adbo@microsoft.com). Especifique el nombre del trabajo en el encabezado del asunto y el problema que ha aparecido.
 
 3. Realice la entrega al mensajero.
 
@@ -185,7 +185,7 @@ Siga estos pasos si va a devolver el dispositivo en Sudáfrica.
 
     * También puede dejar el paquete en el punto de servicio de DHL más cercano.
 
-5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles del mismo y mencione el nombre del pedido en el asunto. También puede llamar al +27(0)119213902.
+5. Si surge algún problema, envíe un correo electrónico a [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) con los detalles y mencione el número del pedido en el asunto. También puede llamar al +27(0)119213902.
 
 ### <a name="china"></a>[China](#tab/in-china)
 
@@ -205,7 +205,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en China.
 
 3. Reciba la confirmación por correo electrónico de FedEx después de finalizar la reserva de la recogida.  
 
-4. Si experimenta algún problema, envíe un correo electrónico a [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) con los detalles del problema y mencione el nombre del pedido en el asunto.
+4. Si surge algún problema, envíe un correo electrónico a [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) con los detalles del problema y especifique el nombre del pedido en la línea del asunto.
 
 #### <a name="premier-customer-care-contact-information"></a>Información de contacto del servicio de asistencia al cliente Premier
 
@@ -229,7 +229,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en China.
 
 ### <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box Disk en Gobierno de EE. UU., Japón, Singapur, Corea, Oeste de Europa, Sudáfrica o India, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
+Si usa Data Box Disk en la Administración Pública de EE. UU., Japón, Singapur, Corea, Reino Unido, Oeste de Europa, Australia, Sudáfrica o India, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Vaya a la hoja **Información general** del pedido en Azure Portal. Siga las instrucciones que se muestran al seleccionar **Programar recogida**. Debería ver un código de autorización que se utiliza en el momento de dejar el pedido.
 
@@ -240,9 +240,9 @@ Si usa Data Box Disk en Gobierno de EE. UU., Japón, Singapur, Corea, Oeste de E
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. El equipo de operaciones de Azure Data Box trabajará con usted para organizar la devolución en el centro de datos de Azure.
+3. El equipo de operaciones de Azure Data Box trabajará con usted para organizar la devolución al centro de datos de Azure.
 
 ---
 
@@ -256,7 +256,7 @@ En este tutorial, ha aprendido sobre temas relacionados con Azure Data Box Disk;
 >
 > * Envío de Data Box Disk a Microsoft
 
-Continúe con el siguiente procedimiento para obtener información sobre cómo comprobar la carga de datos de Data Box Disk en la cuenta de Azure Storage.
+Continúe con el siguiente procedimiento para obtener información sobre cómo comprobar la carga de datos desde Data Box Disk a la cuenta de Azure Storage.
 
 > [!div class="nextstepaction"]
 > [Comprobación de la carga de datos desde Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)

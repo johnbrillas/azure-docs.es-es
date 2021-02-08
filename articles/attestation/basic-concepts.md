@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572823"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429286"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -30,9 +31,9 @@ La [clave web de JSON](https://tools.ietf.org/html/rfc7517) (JWK) es una estruct
 
 El proveedor de atestación pertenece al proveedor de recursos de Azure denominado Microsoft.Attestation. El proveedor de recursos es un punto de conexión de servicio que proporciona el contrato REST de Azure Attestation y se implementa mediante [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada proveedor de atestación respeta una directiva específica y reconocible. Los proveedores de atestación se crean con una directiva predeterminada para cada tipo de atestación (tenga en cuenta que el enclave de VBS no tiene ninguna directiva predeterminada). Consulte los [ejemplos de directivas de atestación](policy-examples.md) para más información sobre la directiva predeterminada de SGX.
 
-### <a name="regional-default-provider"></a>Proveedor predeterminado regional
+### <a name="regional-shared-provider"></a>Proveedor compartido regional
 
-Azure Attestation proporciona un proveedor predeterminado en cada región. Los clientes pueden elegir entre usar el proveedor predeterminado para la atestación o crear sus propios proveedores con directivas personalizadas. Los proveedores predeterminados son accesibles para cualquier usuario de Azure AD y la directiva asociada a un proveedor predeterminado no se puede modificar.
+Azure Attestation proporciona un proveedor compartido regional en cada región disponible. Los clientes pueden usar el proveedor predeterminado para la atestación, o bien crear proveedores propios mediante directivas personalizadas. Los proveedores compartidos están disponibles para cualquier usuario de Azure AD y la directiva asociada a él no se puede modificar.
 
 | Region | URI de atestación | 
 |--|--|

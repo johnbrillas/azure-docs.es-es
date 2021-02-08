@@ -8,19 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652857"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220707"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="january-2021"></a>Enero de 2021
+
+* La versión del modelo de `2021-01-15` para [Reconocimiento de entidades con nombre](how-tos/text-analytics-how-to-entity-linking.md) v3.x, que proporciona: 
+  * Compatibilidad de lenguaje expandida para [varias categorías de entidad generales](named-entity-types.md). 
+  * Calidad de IA mejorada de las categorías de entidades generales para todos los lenguajes de v3 admitidos. 
+
+* La versión del modelo de `2021-01-05` para [detección de idioma](how-tos/text-analytics-how-to-language-detection.md), que proporciona [compatibilidad con el idioma](language-support.md?tabs=language-detection) adicional.
+
+Estas versiones del modelo no están disponibles actualmente en la región Este de EE. UU. 
+
+> [!div class="nextstepaction"]
+> [Más información sobre el nuevo modelo de NER](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>Diciembre de 2020
 
@@ -66,7 +79,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 ### <a name="text-analytics-for-health-container-updates"></a>Actualizaciones de Text Analytics para el contenedor de estado
 
 Las siguientes actualizaciones son específicas de la versión de septiembre de Text Analytics para el contenedor de estado únicamente.
-* Se ha publicado una nueva imagen de contenedor con la etiqueta `1.1.013530001-amd64-preview` con la nueva versión de modelo `2020-09-03` en el repositorio containerpreview. 
+* Se ha publicado una nueva imagen de contenedor con la etiqueta `1.1.013530001-amd64-preview` con la nueva versión de modelo `2020-09-03` en el repositorio de vista previa de contenedores. 
 * Esta versión del modelo proporciona mejoras en el reconocimiento de entidades, detección de abreviaturas y mejoras de latencia.
 
 > [!div class="nextstepaction"]

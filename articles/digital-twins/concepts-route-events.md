@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049293"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050522"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -55,7 +55,7 @@ Para definir una ruta de eventos, los desarrolladores deben definir primero los 
 * Centro de eventos
 * Azure Service Bus
 
-Para crear un punto de conexión, puede usar [**API del plano de control**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) de Azure Digital Twins, [**comandos de la CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) o [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+Para crear un punto de conexión, puede usar las [API REST de Azure Digital Twins, comandos de la CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) o [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
 Al definir un punto de conexión, debe proporcionar:
 * El nombre del punto de conexión
@@ -71,7 +71,7 @@ Las API del punto de conexión que están disponibles en el plano de control son
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
  
-Para crear una ruta de eventos, puede usar [**API del plano de datos**](how-to-manage-routes-apis-cli.md#create-an-event-route) de Azure Digital Twins, [**comandos de la CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli) o [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+Para crear una ruta de eventos, puede usar las [API REST de Azure Digital Twins, comandos de la CLI](how-to-manage-routes-apis-cli.md#create-an-event-route) o [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route).
 
 Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación cliente mediante una llamada al [SDK de .NET (C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) `CreateOrReplaceEventRouteAsync`: 
 
@@ -85,8 +85,6 @@ Este es un ejemplo de cómo crear una ruta de eventos dentro de una aplicación 
 
 > [!TIP]
 > Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
-
-Las rutas también se pueden crear con la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Eventos fallidos
 

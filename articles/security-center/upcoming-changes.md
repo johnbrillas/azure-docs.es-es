@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757718"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475597"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -38,7 +38,7 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Pronto se publicarán recomendaciones de protección de cargas de trabajo de Kubernetes para disponibilidad general (GA)
 
-**Fecha estimada del cambio:** 2021 de enero
+**Fecha estimada del cambio:** Febrero de 2021
 
 Las recomendaciones de protección de cargas de trabajo de Kubernetes que se describen en [Protección de cargas de trabajo de Kubernetes](kubernetes-workload-protections.md) se encuentran actualmente en versión preliminar. Mientras una recomendación está en versión preliminar no representa un recurso incorrecto y no se incluye en los cálculos de puntuación segura.
 
@@ -83,7 +83,7 @@ Más información sobre estas recomendaciones en la [página de referencia de la
 
 **Fecha estimada del cambio:** Segundo trimestre de 2021
 
-La versión actual de la recomendación **Se deben clasificar los datos confidenciales de las bases de datos SQL** del control de seguridad **Aplicar clasificación de datos** entrará en desuso y se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado:
+La versión actual de la recomendación **Se deben clasificar los datos confidenciales de las bases de datos SQL** del control de seguridad **Aplicar clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado:
 
 - La recomendación ya no afectará a la puntuación de seguridad.
 - El control de seguridad ("Aplicar clasificación de datos") ya no afectará a la puntuación de seguridad.

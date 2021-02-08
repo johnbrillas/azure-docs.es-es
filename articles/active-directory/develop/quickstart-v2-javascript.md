@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754157"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225721"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un SPA de JavaScript
 
@@ -55,13 +55,14 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Seleccione **Registrar**. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
 > 1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En **Administrar**, seleccione **Autenticación**.
-> 1. En **Configuraciones de plataforma**, seleccione **Agregar una plataforma**. Se abre un panel a la izquierda. Allí, seleccione la región de **Aplicaciones web**.
-> 1. También en el panel de la izquierda, establezca el valor **URI de redireccionamiento** en `http://localhost:3000/`. A continuación, seleccione **Token de acceso** y **Token de identificador**.
+> 1. En **Configuraciones de plataforma** > **Agregar una plataforma**. Seleccione **Web**.
+> 1. Establezca el valor de **URI de redireccionamiento** en `http://localhost:3000/`. 
+> 1. Seleccione **Tokens de acceso** y **Tokens de id.** en **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos).
 > 1. Seleccione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para hacer que el código de ejemplo funcione en este inicio rápido, tiene que agregar un `redirectUri` como `http://localhost:3000/` y habilitar **Concesión implícita**.
+> El código de ejemplo de este inicio rápido requiere un **URI de redirección** de `http://localhost:3000/` y que la opción **Concesión implícita** se habilite.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
 >

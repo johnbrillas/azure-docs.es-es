@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2517f132578b5de6b062b38ce94581f118327a13
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008239"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493604"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar el proyecto en Azure
 
@@ -21,7 +21,7 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
 1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el botón de **implementación en la aplicación de funciones**.
 
-    ![Publicación del proyecto en Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Publicación del proyecto en Azure](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Escriba la siguiente información cuando se le indique:
 
@@ -35,16 +35,18 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
     
     - **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted. 
     
+    La extensión muestra el estado de los recursos individuales a medida que se crean en Azure en el área de notificación.
+
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Notificación de creación de recursos de Azure":::
+    
 1.  Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones:
     
-    - Un grupo de recursos, que es un contenedor lógico de recursos relacionados.
-    - Una cuenta de Azure Storage estándar, que mantiene el estado e información adicional sobre los proyectos.
-    - Un plan de consumo, que define el host subyacente para su aplicación de funciones sin servidor. 
-    - Una aplicación de funciones, que proporciona el entorno para ejecutar el código de función. Una aplicación de funciones permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos en el mismo plan de hospedaje.
-    - Una instancia de Application Insights conectada a la aplicación de funciones, que realiza un seguimiento del uso de la función sin servidor.
+    [!INCLUDE [functions-vs-code-created-resources](functions-vs-code-created-resources.md)]
 
     Una vez que se haya creado la aplicación de función se mostrará una notificación y se aplicará el paquete de implementación. 
-    
-1. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
+
+    [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
+
+4. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
 
     ![Creación de la notificación completa](media/functions-publish-project-vscode/function-create-notifications.png)

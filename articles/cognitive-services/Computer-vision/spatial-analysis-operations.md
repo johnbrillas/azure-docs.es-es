@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734546"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226073"
 ---
 # <a name="spatial-analysis-operations"></a>Operaciones de análisis espacial
 
@@ -61,7 +61,7 @@ Estos son los parámetros necesarios para cada una de estas operaciones de anál
 |---------|---------|
 | Id. de operación | Identificador de operación de la tabla anterior.|
 | enabled | Booleano: true o false|
-| VIDEO_URL| Dirección URL de RTSP del dispositivo de cámara (ejemplo: `rtsp://username:password@url`). El análisis espacial admite la secuencia con codificación H.264 mediante RTSP, HTTP o mp4. Video_URL se puede proporcionar como un valor de cadena de Base64 ofuscado mediante el cifrado AES, y, si la dirección URL del vídeo se ofusca, `KEY_ENV` y `IV_ENV` se deben proporcionar como variables de entorno. Se puede encontrar una utilidad de ejemplo para generar claves y cifrado [aquí](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| Dirección URL de RTSP del dispositivo de cámara (ejemplo: `rtsp://username:password@url`). El análisis espacial admite la secuencia con codificación H.264 mediante RTSP, HTTP o mp4. Video_URL se puede proporcionar como un valor de cadena de Base64 ofuscado mediante el cifrado AES, y, si la dirección URL del vídeo se ofusca, `KEY_ENV` y `IV_ENV` se deben proporcionar como variables de entorno. Se puede encontrar una utilidad de ejemplo para generar claves y cifrado [aquí](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Nombre descriptivo para el dispositivo de cámara o la secuencia de vídeo. Se devolverá con la salida JSON del evento.|
 | VIDEO_IS_LIVE| True para dispositivos de cámara; false para vídeos grabados.|
 | VIDEO_DECODE_GPU_INDEX| GPU con la que se va a decodificar el fotograma de vídeo. De manera predeterminada, es 0. Esta información debe corresponder a la misma de `gpu_index` en otra configuración de nodo, como `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -130,7 +130,7 @@ Este es un ejemplo de los parámetros de DETECTOR_NODE_CONFIG para todas las ope
 | `threshold` | FLOAT| Los eventos se generan cuando la confianza de los modelos de IA es mayor o igual que este valor. |
 | `type` | string| Para **cognitiveservices.vision.spatialanalysis-personcount**, debe ser `count`.|
 | `trigger` | string| Tipo de desencadenador para enviar un evento. Los valores admitidos son `event` para enviar eventos cuando el recuento cambia o `interval` para enviar eventos de manera periódica, independientemente de si el recuento ha cambiado o no.
-| `interval` | string| Tiempo en segundos que se agregará al recuento de personas antes de que se active un evento. La operación seguirá analizando la escena a una velocidad constante y devolverá el recuento más común en ese intervalo. El intervalo de agregación se aplica tanto a `event` como a `interval`.|
+| `output_frequency` | int | Velocidad a la que se generan los eventos. Cuando `output_frequency` = X, se genera cada X evento, por ejemplo, `output_frequency` = 2 significa que se genera evento por medio. `output_frequency` se aplica a `event` y `interval`. |
 | `focus` | string| Ubicación del punto en el rectángulo delimitador de la persona usado para calcular los eventos. El valor del foco puede ser `footprint` (la superficie de la persona), `bottom_center` (la parte inferior central del rectángulo delimitador de la persona) o `center` (el centro del cuadro delimitador de la persona).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configuración de línea para cognitiveservices.vision.spatialanalysis-personcrossingline
@@ -255,8 +255,7 @@ Este es un ejemplo de una entrada JSON para el parámetro SPACEANALYTICS_CONFIG 
 | `threshold` | FLOAT| Los eventos se generan cuando la confianza de los modelos de IA es mayor o igual que este valor. |
 | `type` | string| Para **cognitiveservices.vision.spatialanalysis-persondistance**, debe ser `people_distance`.|
 | `trigger` | string| Tipo de desencadenador para enviar un evento. Los valores admitidos son `event` para enviar eventos cuando el recuento cambia o `interval` para enviar eventos de manera periódica, independientemente de si el recuento ha cambiado o no.
-| `interval` | string | Tiempo en segundos que se agregará a las infracciones antes de que se active un evento. El intervalo de agregación se aplica tanto a `event` como a `interval`.|
-| `output_frequency` | int | Velocidad a la que se generan los eventos. Cuando `output_frequency` = X, se genera cada X evento, por ejemplo, `output_frequency` = 2 significa que se genera evento por medio. La frecuencia output_frequency se aplica tanto a `event` como a `interval`.|
+| `output_frequency` | int | Velocidad a la que se generan los eventos. Cuando `output_frequency` = X, se genera cada X evento, por ejemplo, `output_frequency` = 2 significa que se genera evento por medio. `output_frequency` se aplica a `event` y `interval`.|
 | `minimum_distance_threshold` | FLOAT| Distancia en pies que desencadenará un evento "TooClose" cuando las personas estén más cerca de esa distancia entre sí.|
 | `maximum_distance_threshold` | FLOAT| Distancia en pies que desencadenará un evento "TooFar" cuando las personas estén más lejos de esa distancia entre sí.|
 | `focus` | string| Ubicación del punto en el rectángulo delimitador de la persona usado para calcular los eventos. El valor del foco puede ser `footprint` (la superficie de la persona), `bottom_center` (la parte inferior central del rectángulo delimitador de la persona) o `center` (el centro del cuadro delimitador de la persona).|

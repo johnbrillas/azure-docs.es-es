@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353007"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052996"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Los costos de software no se incluyen en Azure Reserved Virtual Machine Instances.
 
@@ -61,7 +61,7 @@ Los descuentos de la instancia reservada de máquina virtual y de la capacidad r
 
 ## <a name="get-rates-for-azure-meters"></a>Obtener las tarifas de medidores de Azure
 
-El costo de cada uno de estos medidores se puede consultar a través de la API RateCard de Azure. Para obtener información sobre las tasas de un medidor de Azure, consulte [Información de precios y metadatos de los recursos usados en una suscripción de Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
+Puede obtener el costo de cada uno de los medidores con la API de precios de minoristas de Azure. Para más información sobre cómo obtener las tarifas de un medidor de Azure, consulte [Información general sobre precios de minoristas de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:

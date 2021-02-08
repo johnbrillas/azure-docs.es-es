@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575306"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429609"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -25,6 +25,8 @@ Hay dos formas de configurar un grupo de back-end:
 Configure el grupo de back-end por la NIC si usa máquinas virtuales y conjuntos de escalado de máquinas virtuales existentes. Este método crea el vínculo más directo entre el recurso y el grupo de back-end. 
 
 Al asignar previamente el grupo de back-end con un intervalo de direcciones IP con el que planea crear posteriormente máquinas virtuales y conjuntos de escalado de máquinas virtuales, configure el grupo de back-end por la combinación de dirección IP e identificador de red virtual.
+
+Aunque puede configurar grupos de back-end basados en NIC e IP para el mismo equilibrador de carga, no puede crear un único grupo de back-end que combine las direcciones guardadas que son el destino de las NIC y las direcciones IP dentro del mismo grupo.
 
 Las secciones de configuración de este artículo se centrarán en los siguientes elementos:
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754427"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225806"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
 
@@ -49,11 +49,11 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 > 1. Si la cuenta tiene acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
 > 1. Siga las instrucciones para [registrar una aplicación de página única](./scenario-spa-app-registration.md) en Azure Portal.
 > 1. Agregue una nueva plataforma en el panel **Autenticación** del registro de la aplicación y registre el identificador URI de redireccionamiento: `http://localhost:4200/`.
-> 1. En este inicio rápido se usa el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). Seleccione la configuración de **Concesión implícita** para **Tokens de identificador** y **Tokens de acceso**. Tanto los tokens de identificador como los tokens de acceso son obligatorios, ya que esta aplicación inicia la sesión de los usuarios y llama a una API.
+> 1. En este inicio rápido se usa el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos), seleccione **Tokens de id.** y **Tokens de acceso**. Tanto los tokens de identificador como los tokens de acceso son obligatorios, ya que esta aplicación inicia la sesión de los usuarios y llama a una API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Paso 1: Configurar la aplicación en Azure Portal
-> Para que el código de ejemplo de este inicio rápido funcione, tiene que agregar un identificador URI de redirección como **http://localhost:4200/** y habilitar **Concesión implícita**.
+> Para que el código de ejemplo de este inicio rápido funcione, tiene que agregar un URI de redirección como **http://localhost:4200/** y habilitar ****Concesión implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
 >

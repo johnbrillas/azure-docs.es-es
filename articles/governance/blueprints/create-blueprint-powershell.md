@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 339cd4628cda5f469a783db02c10f86259c93941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051532"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918286"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
@@ -16,9 +16,9 @@ Aprender a crear y asignar planos técnicos permite definir patrones comunes par
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
-
-Si aún no se ha instalado, siga las instrucciones en [Adición del módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar y validar el módulo **Az.Blueprint** desde la Galería de PowerShell.
+- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
+- Si aún no se ha instalado, siga las instrucciones en [Adición del módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar y validar el módulo **Az.Blueprint** desde la Galería de PowerShell.
+- Si es la primera vez que usa Azure Blueprints, registre el proveedor de recursos mediante Azure PowerShell con `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -305,7 +305,7 @@ El valor de `{BlueprintVersion}` es una cadena de letras, números y guiones (si
 
 ## <a name="assign-a-blueprint"></a>Asignación de un plano técnico
 
-Cuando se ha publicado un plano técnico con PowerShell, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El parámetro**Blueprint** especifica el plano técnico que se va a asignar. Para proporcionar los parámetros de nombre, ubicación, identidad, bloqueo y plano técnico, use los parámetros de PowerShell coincidentes en el cmdlet `New-AzBlueprintAssignment` o del archivo JSON del parámetro **AssignmentFile**.
+Cuando se ha publicado un plano técnico con PowerShell, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El parámetro **Blueprint** especifica el plano técnico que se va a asignar. Para proporcionar los parámetros de nombre, ubicación, identidad, bloqueo y plano técnico, use los parámetros de PowerShell coincidentes en el cmdlet `New-AzBlueprintAssignment` o del archivo JSON del parámetro **AssignmentFile**.
 
 1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el **AssignmentFile** para sus propios usuarios, grupos o entidades de servicio.
 

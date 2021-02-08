@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7cbb9a09a6f8eae6a9325f060664d50c5725e09f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531964"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508524"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examen y edición de los archivos de ejemplo
 
@@ -16,16 +16,13 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
 1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
 
-    * ***c2d-console-app.csproj** _: archivo del proyecto de Visual Studio Code.
-    _ ***operations.json** _: lista de las operaciones que desea que ejecute el programa.
-    _ ***Program.cs** _: código del programa de ejemplo. Este código:
+    * operations.json: una lista de las operaciones que desea que ejecute el programa.
+    * main.py: código del programa de ejemplo. Este código:
 
-        _ Carga la configuración de la aplicación.
-        * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](../../../direct-methods.md).
+        * Carga la configuración de la aplicación.
+        * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus métodos directos.
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
-        * Invoca los métodos directos para limpiar los recursos.
-
-
+        * Invoca los métodos directos para limpiar los recursos.  
 1. Edite el archivo *operations.json*:
     * Cambie el vínculo a la topología del grafo:
 
@@ -53,6 +50,12 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     
     ![Establecimiento de la cadena de conexión de IoT Hub](../../../media/quickstarts/set-iotconnection-string.png)
 
+> [!NOTE]
+> Es posible que se le pida que proporcione información del punto de conexión integrado de IoT Hub. Para obtener esa información, en Azure Portal, vaya a su instancia de IoT Hub y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Haga clic con el botón derecho en *src/edge/config/deployment.yolov3.amd64.json* y seleccione **Create Deployment for Single Device** (Crear una implementación para un dispositivo individual). 
 
     ![Crear una implementación para un dispositivo individual](../../../media/quickstarts/create-deployment-single-device.png)
@@ -62,6 +65,15 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
     * El módulo de Live Video Analytics, denominado **lvaEdge**.
     * El módulo **rtspsim**, que simula un servidor RTSP y actúa como el origen de una fuente de vídeo en directo.
+        > [!NOTE]
+        > En los pasos anteriores se supone que usa la máquina virtual creada mediante el script de configuración. Si usa su propio dispositivo perimetral, acceda a él y ejecute los siguientes comandos con **derechos de administrador** a fin de extraer y almacenar el archivo de vídeo de ejemplo que se usa en este inicio rápido:  
+        
+        ```
+        mkdir /home/lvaadmin/samples
+        mkdir /home/lvaadmin/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+        chown -R lvaadmin /home/lvaadmin/samples/  
+        ```
     * El módulo **yolov3**, que es el modelo de detección de objetos YOLOv3 que aplica Computer Vision a las imágenes y devuelve varias clases de tipos de objeto
  
       ![Módulos que se implementan en el dispositivo perimetral](../../../media/quickstarts/yolov3.png)

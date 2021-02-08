@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533793"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070857"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -33,11 +33,11 @@ También puede administrar los puntos de conexión y las rutas con las [API de E
 
 Estos detalles se pueden encontrar en [Azure Portal](https://portal.azure.com) después de configurar la instancia. Inicie sesión en el portal y busque el nombre de la instancia en la barra de búsqueda del portal.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Captura de pantalla de la barra de búsqueda de Azure Portal.":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Captura de pantalla de la barra de búsqueda de Azure Portal." lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-En los resultados, seleccione la instancia para ver la página de detalles:
+En los resultados, seleccione la instancia para ver su página Información general:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de pantalla de detalles de la instancia de ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Captura de pantalla de la página Información general de una instancia de Azure Digital Twins. Se resaltan el nombre y el grupo de recursos.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creación de un punto de conexión para Azure Digital Twins
 
@@ -48,83 +48,59 @@ Estos son los tipos de puntos de conexión admitidos que puede crear para la ins
 
 Para obtener más información sobre los distintos tipos de puntos de conexión, vea [*Elección entre los distintos servicios de mensajería de Azure*](../event-grid/compare-messaging-services.md).
 
-Para vincular un punto de conexión a Azure Digital Twins, es necesario que ya exista el tema de Event Grid, Event Hubs o Service Bus que esté usando para el punto de conexión. 
+En esta sección se explica cómo crear uno de estos puntos de conexión en [Azure Portal](https://portal.azure.com).
 
-### <a name="create-an-event-grid-endpoint"></a>Creación de un punto de conexión de Event Grid
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Requisito previo**: Cree un tema de Event Grid siguiendo los pasos descritos en [la sección *Creación de un tema personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) del inicio rápido *Eventos personalizados* de Event Grid.
+### <a name="create-the-endpoint"></a>Creación del punto de conexión 
 
-Después de crear el tema, puede vincularlo a Azure Digital Twins desde la página de la instancia de este servicio en [Azure Portal](https://portal.azure.com) (para encontrar la instancia, escriba su nombre en la barra de búsqueda del portal).
+Una vez que haya creado los recursos de punto de conexión, puede usarlos para un punto de conexión de Azure Digital Twins. Para crear un punto de conexión, vaya a la página de la instancia en [Azure Portal](https://portal.azure.com) (para buscar la instancia, escriba su nombre en la barra de búsqueda del portal).
 
-En el menú de la instancia, seleccione _Endpoints_ (Puntos de conexión). Luego, en la página *Endpoints* (Puntos de conexión) que le sigue, seleccione *+ Create an endpoint* (+ Crear un punto de conexión). 
+1. En el menú de la instancia, seleccione _Endpoints_ (Puntos de conexión). Luego, en la página *Endpoints* (Puntos de conexión) que le sigue, seleccione *+ Create an endpoint* (+ Crear un punto de conexión). Se abrirá la página *Crear un punto de conexión*, donde rellenará los campos en los pasos siguientes.
 
-En la página *Create an Endpoint* (Crear un punto de conexión) que se abre, puede crear un punto de conexión de tipo _Event Grid_ seleccionando el botón de radio correspondiente. Complete los demás detalles: escriba un nombre para el punto de conexión en el campo _Name_ (Nombre), elija la subscription en la lista desplegable _Subscription_ (Suscripción) y, en _Event Grid Topic_ (Tema de Event Grid), seleccione el tema creado anteriormente en la tercera lista desplegable.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
-A continuación, haga clic en _Save_ (Guardar) para crear el punto de conexión.
+1. Escriba un **Nombre** para el punto de conexión y elija el **Tipo de punto de conexión**.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Grid.":::
+1. Complete los demás detalles necesarios para el tipo de punto de conexión, incluida la suscripción y los recursos del punto de conexión descritos [antes](#prerequisite-create-endpoint-resources).
+    1. Solo para los puntos de conexión de centro de eventos y Service Bus, debe seleccionar un **Tipo de autenticación**. Puede usar la autenticación basada en claves con una regla de autorización creada previamente, o bien la autenticación basada en identidades si va a utilizar el punto de conexión con una [identidad administrada](concepts-security.md#managed-identity-for-accessing-other-resources-preview) para la instancia de Azure Digital Twins. 
 
-Para comprobar que el punto de conexión se ha creado correctamente, examine el icono de notificación de la barra superior de Azure Portal: 
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo de centro de eventos." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de pantalla del icono de notificación para comprobar la creación del punto de conexión." border="false":::
+1. Seleccione _Guardar_ para terminar de crear el punto de conexión.
+
+>[!IMPORTANT]
+> Para usar correctamente la autenticación basada en identidades para el punto de conexión, tendrá que crear una identidad administrada para la instancia mediante los pasos descritos en [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)* ](how-to-enable-managed-identities.md).
+
+Después de crear el punto de conexión, puede comprobar que se ha creado correctamente si examina el icono de notificación de la barra superior de Azure Portal: 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Captura de pantalla de la notificación para comprobar la creación del punto de conexión. El icono en forma de campana de la barra superior del portal está seleccionado y aparece una notificación en la que se indica &quot;El punto de conexión ADT-eh-endpoint se ha creado correctamente&quot;.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
 
 También se puede ver el punto de conexión que se ha creado de vuelta en la página *Endpoints* (Puntos de conexión) de la instancia de Azure Digital Twins.
 
-Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
-
-Ahora, el tema de Event Grid está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
-
-### <a name="create-an-event-hubs-endpoint"></a>Creación de un punto de conexión de Event Hubs
-
-**Requisitos previos**: 
-* Se necesita un _espacio de nombres de Event Hubs_ y un _centro de eventos_. Para crearlos, siga los pasos del inicio rápido [*Creación de un centro de eventos*](../event-hubs/event-hubs-create.md) de Event Hubs.
-* Se necesita una _regla de autorización_. Para crearla, consulte el artículo [*Autorización del acceso a recursos de Event Hubs mediante firmas de acceso compartido*](../event-hubs/authorize-access-shared-access-signature.md) de Event Hubs.
-
-Vaya a la página de detalles de la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (para buscarla, escriba su nombre en la barra de búsqueda del portal).
-
-En el menú de la instancia, seleccione _Endpoints_ (Puntos de conexión). Luego, en la página *Endpoints* (Puntos de conexión) que le sigue, seleccione *+ Create an endpoint* (+ Crear un punto de conexión). 
-
-En la página *Create an Endpoint* (Crear un punto de conexión) que se abre, puede crear un punto de conexión de tipo _Event Hub_ seleccionando el botón de radio correspondiente. Escriba un nombre para el punto de conexión en el campo _Name_ (Nombre). Después, en las listas desplegables _Subscription_ (Suscripción), _Event hub namespace_ (Espacio de nombres del centro de eventos), _Event Hub_ (Centro de eventos) y _Authorization rule_ (Regla de autorización), seleccione la suscripción, el espacio de nombres del centro de eventos creado anteriormente, el centro de eventos y la regla de autorización, respectivamente.
-
-A continuación, haga clic en _Save_ (Guardar) para crear el punto de conexión.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Event Hubs.":::
-
-Para comprobar que el punto de conexión se ha creado correctamente, examine el icono de notificación de la barra superior de Azure Portal. 
-
-Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
-
-Ahora, el centro de eventos está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
-
-### <a name="create-a-service-bus-endpoint"></a>Creación de un punto de conexión de Service Bus
-
-**Requisitos previos**: 
-* Se necesita un _espacio de nombres de Service Bus_ y un _tema de Service Bus_. Para crear ambos, siga los pasos del inicio rápido [*Creación de temas y suscripciones*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de Service Bus. No es necesario completar la sección [*Crear suscripciones al tema*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic).
-* Se necesita una _regla de autorización_. Para crearla, consulte el artículo [*Autenticación y autorización*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) de Service Bus.
-
-Vaya a la página de detalles de la instancia de Azure Digital Twins en [Azure Portal](https://portal.azure.com) (para buscarla, escriba su nombre en la barra de búsqueda del portal).
-
-En el menú de la instancia, seleccione _Endpoints_ (Puntos de conexión). Luego, en la página *Endpoints* (Puntos de conexión) que le sigue, seleccione *+ Create an endpoint* (+ Crear un punto de conexión). 
-
-En la página *Create an Endpoint* (Crear un punto de conexión) que se abre, puede crear un punto de conexión de tipo _Service Bus_ seleccionando el botón de radio correspondiente. Escriba un nombre para el punto de conexión en el campo _Name_ (Nombre). Después, en las listas desplegables _Subscription_ (Suscripción), _Service Bus namespace_ (Espacio de nombres de Service Bus), _Service Bus topic_ (Tema de Service Bus) y _Authorization rule_ (Regla de autorización), seleccione la suscripción, el espacio de nombres de Service Bus creado anteriormente, el tema de Service Bus y la regla de autorización, respectivamente.
-
-A continuación, haga clic en _Save_ (Guardar) para crear el punto de conexión.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Captura de pantalla de la creación de un punto de conexión de tipo Service Bus.":::
-
-Para comprobar que el punto de conexión se ha creado correctamente, examine el icono de notificación de la barra superior de Azure Portal. 
-
-Si se produce un error en la creación del punto de conexión, observe el mensaje de error y vuelva a intentarlo al cabo de unos minutos.
-
-Ahora, el tema de Service Bus está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre especificado en el campo _Name_ (Nombre). Normalmente se usará ese nombre como destino de una **ruta de evento**, que se creará [más tarde en este artículo](#create-an-event-route).
+Ahora, Event Grid, el centro de eventos o el tema de Service Bus está disponible como punto de conexión dentro de Azure Digital Twins, con el nombre que haya elegido para el punto de conexión. Normalmente se usará ese nombre como destino de una **ruta de eventos**, que se creará [más tarde en este artículo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creación de un punto de conexión con colas de mensajes fallidos
 
-Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, puede enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
+Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
-Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar las [API de ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
+Para crear un punto de conexión con las colas de mensajes fallidos habilitadas, debe usar los [comandos de la CLI](how-to-use-cli.md) o las [API del plano de control](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) en lugar de Azure Portal para crear el punto de conexión.
 
-Para obtener instrucciones sobre cómo hacerlo con las API, vea la versión [*API y CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
+Para obtener instrucciones sobre cómo hacerlo con estas herramientas, vea la versión para [*API y CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de este artículo.
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
 

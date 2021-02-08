@@ -3,12 +3,12 @@ title: 'Creación de una función de Java con Visual Studio Code: Azure Functio
 description: Obtenga información sobre cómo crear una función de Java y, a continuación, publicar el proyecto local en el hospedaje sin servidor de Azure Functions con la extensión de Azure Functions en Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: daaa578b2842a6314706b3578f4c9e44d46aa6ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 36516abd8b50c0b0b7d72e6bae0b67701509ca65
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424833"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493641"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de Java con Visual Studio Code
 
@@ -86,7 +86,7 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha usado Visual Studio Code para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, esa función se expande mediante la adición de un enlace de salida. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
+Ha usado [Visual Studio Code](functions-develop-vs-code.md?tabs=java) para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, va a expandir esa función mediante la conexión a Azure Storage. Para más información sobre cómo conectarse a otros servicios de Azure, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=java). 
 
 > [!div class="nextstepaction"]
 > [Conexión a una cola de Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)

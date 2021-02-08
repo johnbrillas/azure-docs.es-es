@@ -2,27 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/01/2020
+ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 55a75651b724a4fe975f655958e36fbd40e35db7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4b15fec0f22db740bbd7c24fcc0acf2ad1a2d1cd
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96748235"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493512"
 ---
 ## <a name="run-the-function-in-azure"></a>Ejecución de la función en Azure
 
-1. Vuelva al área **Azure: Functions** en la barra lateral y expanda la aplicación de funciones nueva en la suscripción. Expanda **Functions**, haga clic con el botón derecho (Windows) o presione <kbd>Ctrl</kbd> y haga clic (macOS) en **HttpExample** y, luego, elija **Copy function URL** (Copiar dirección URL de función).
+1. Vuelva al área **Azure: Functions** de la barra lateral, expanda **Proyecto local** > **Functions**. Haga clic con el botón derecho (Windows) o <kbd>Ctrl</kbd> + clic en (macOS) en la función `HttpExample` y elija **Execute Function Now...** (Ejecutar la función ahora...).
 
-    ![Copia de la dirección URL de la función para el nuevo desencadenador HTTP](./media/functions-vs-code-run-remote/function-copy-endpoint-url.png)
+    :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Ejecutar la función ahora en Azure desde Visual Studio Code":::
 
-1. Pegue esta dirección URL de la solicitud HTTP en la barra de dirección del navegador, agregue la `name` cadena de consulta como `?name=Functions` al final de la dirección URL y, después, ejecute la solicitud. La dirección URL que llama a la función desencadenada por HTTP debería tener el formato siguiente:
+1. En **Enter request body** (Especificar el cuerpo de la solicitud) verá el valor del cuerpo del mensaje de solicitud de `{ "name": "Azure" }`. Presione Entrar para enviar este mensaje de solicitud a la función.  
 
-    ```http
-    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions
-    ```
-
-    En el siguiente ejemplo se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función:
-
-    ![Respuesta de la función en el explorador](./media/functions-vs-code-run-remote/functions-test-remote-browser.png)
+1. Cuando la función se ejecuta en Azure y devuelve una respuesta, se genera una notificación en Visual Studio Code.

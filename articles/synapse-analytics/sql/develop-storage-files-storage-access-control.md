@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b493ee7d77fc45018dbf8d2bac748b03e3d74b8a
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120417"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430216"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -94,6 +94,9 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 
 Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identidad de usuario** o **Identidad administrada**.
 
+> [!NOTE]
+> La característica de firewall de Azure Storage está en versión preliminar pública y está disponible en todas las regiones de la nube pública. 
+
 #### <a name="user-identity"></a>Identidad del usuario
 
 Para acceder a un almacenamiento que está protegido por firewall mediante Identidad de usuario, puede usar el módulo Az.Storage de PowerShell.
@@ -102,12 +105,13 @@ Para acceder a un almacenamiento que está protegido por firewall mediante Ident
 Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y agregar una excepción para el área de trabajo de Synapse.
 
 1. Abra o [instale PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1).
-2. Instale el módulo Az. Storage actualizado: 
+2. Instale el Módulo Az.Storage 3.0.1 y Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Asegúrese de que usa la versión 3.0.1 o posterior. Puede comprobar la versión de Az.Storage con este comando:  
+    > Asegúrese de que usa la **versión 3.0.1**. Puede comprobar la versión de Az.Storage con este comando:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -121,16 +125,23 @@ Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y ag
     - Nombre del grupo de recursos: puede encontrarlo en Azure Portal, en la información general del área de trabajo de Synapse.
     - Nombre de cuenta: nombre de la cuenta de almacenamiento que está protegida por reglas de firewall.
     - Id. de inquilino: puede encontrarlo en Azure Portal, en la información del inquilino de Azure Active Directory.
-    - Id. de recurso: puede encontrarlo en Azure Portal, en la información general del área de trabajo de Synapse.
+    - Nombre del área de trabajo: nombre del área de trabajo de Synapse.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Asegúrese de que el identificador de recurso coincida con el de esta plantilla.
+    > Asegúrese de que el identificador de recurso coincide con esta plantilla en la impresión de la variable resourceId.
     >
     > Es importante escribir **resourcegroups** en minúsculas.
     > Ejemplo de un identificador de recurso: 
@@ -145,7 +156,14 @@ Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y ag
 6. Compruebe que la regla se aplicó en la cuenta de almacenamiento: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+            $rule.ResourceAccessRules
+        } else {
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+            $rule.ResourceAccessRules
+        }
     ```
 
 #### <a name="managed-identity"></a>Identidad administrada

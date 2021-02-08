@@ -4,17 +4,17 @@ description: Use las características de Azure Cost Management y facturación pa
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029947"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051100"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>¿Qué es Azure Cost Management y facturación?
 
@@ -43,11 +43,11 @@ Cuando se registra para usar Azure, se crea una cuenta de facturación. Use su c
 
 Azure Portal admite actualmente los siguientes tipos de cuentas de facturación:
 
-- **Microsoft Online Services Program**: se crea una cuenta de facturación individual para el programa de Microsoft Online Services cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una cuenta gratuita de Azure, como una cuenta con tarifas de pago por uso o como un suscriptor de Visual Studio.
+- **Microsoft Online Services Program**: se crea una cuenta de facturación individual para el programa de Microsoft Online Services cuando se registra en el sitio web de Azure. Por ejemplo, cuando se registra para obtener una [cuenta gratuita de Azure](./manage/create-free-services.md), una cuenta con tarifas de pago por uso o como un suscriptor de Visual Studio.
 
 - **Contrato Enterprise**: Se crea una cuenta de facturación para un Contrato Enterprise cuando la organización firma este Contrato Enterprise (EA) para utilizar Azure.
 
-- **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una cuenta con tarifas de pago por uso o actualizar su cuenta gratuita de Azure, también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft.
+- **Contrato de cliente de Microsoft**: Se crea una cuenta de facturación para un contrato de cliente de Microsoft cuando una organización trabaja con un representante de Microsoft para firmar un contrato de cliente de Microsoft. Algunos clientes en regiones seleccionadas, que se registran en el sitio web de Azure para una cuenta con tarifas de pago por uso o actualizar su [cuenta gratuita de Azure](./manage/create-free-services.md), también pueden tener una cuenta de facturación para un contrato de cliente de Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Ámbitos para las cuentas de facturación
 Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios utilizan para ver y administrar la facturación. Es donde se administran los datos de facturación, los pagos, las facturas y se realiza la administración de cuentas generales.

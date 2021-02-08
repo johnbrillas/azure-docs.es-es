@@ -1,5 +1,5 @@
 ---
-title: Creación de un streaming en vivo de Azure Media Services con OBS Studio
+title: Creación de streaming en vivo con OBS Studio
 description: Aprenda a crear streaming en vivo de Azure Media Services mediante el portal y OBS Studio
 services: media-services
 ms.service: media-services
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 08/31/2020
-ms.openlocfilehash: 04b0ef0d6a480270b1f0a3546319b2608d638677
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83f072b67f5aa162137a55d2b311dccf0daf7f53
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89265514"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956079"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Creación de un streaming en vivo de Azure Media Services con OBS
 
@@ -143,7 +143,7 @@ En el siguiente procedimiento, volverá a Azure Media Services en el explorador 
 
 1. Seleccione **Output** (Salida) en el menú **Settings** (Configuración).
 
-1. Escriba *2* en el campo**Keyframe interval** (Intervalo de fotogramas clave). Esto establece la longitud del fragmento en 2 segundos. Si desea una entrega en vivo de baja latencia, use el valor de 1 segundo.
+1. Escriba *2* en el campo **Keyframe interval** (Intervalo de fotogramas clave). Esto establece la longitud del fragmento en 2 segundos. Si desea una entrega en vivo de baja latencia, use el valor de 1 segundo.
 
 1. OPCIONAL: En **CPU Usage Preset** (Valor preestablecido de uso de CPU), seleccione *veryfast* si usa un equipo con poca capacidad de procesamiento. Opcionalmente, puede establecer los kbps en un valor algo más bajo si las condiciones de la red no son las deseables.
 

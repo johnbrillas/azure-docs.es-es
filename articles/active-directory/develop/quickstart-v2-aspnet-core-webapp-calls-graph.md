@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754487"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938235"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Inicio rápido: aplicación web ASP.NET Core que inicia la sesión de los usuarios y llama a Microsoft Graph en su nombre
 
@@ -55,7 +55,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Escriba un **URI de redirección** de `https://localhost:44321/signin-oidc`.
 > 1. Seleccione **Registrar**.
 > 1. En **Administrar**, seleccione **Autenticación**.
-> 1. Escriba una **URL de cierre de sesión** de `https://localhost:44321/signout-oidc`.
+> 1. Especifique un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc`.
 > 1. Seleccione **Guardar**.
 > 1. En **Administrar**, seleccione **Certificados y secretos** > **Nuevo secreto de cliente**.
 > 1. Escriba un valor en **Descripción**, por ejemplo`clientsecret1`.
@@ -64,7 +64,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que funcione el código de ejemplo de este inicio rápido, es preciso agregar las direcciones URL de respuesta como `https://localhost:44321/signin-oidc` y agregar la dirección URL de cierre de sesión como `https://localhost:44321/signout-oidc`.
+> El código de ejemplo de este inicio rápido requiere un **URI de redirección** de `https://localhost:44321/signin-oidc` y una **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc` en el registro de la aplicación.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >

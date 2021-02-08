@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875218"
+ms.locfileid: "98920247"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
@@ -167,6 +167,9 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Al usar `az blueprint` en un equipo Mac, reemplace `\` por `/` cuando se usen valores de parámetro que incluyan la ruta de acceso. En este caso, el valor de **parameters** se convierte en `artifacts/policyTags.json`.
+
 1. Agregue otra asignación de directiva para la etiqueta Storage (reutilizando el parámetro _storageAccountType_) en la suscripción. Este artefacto de asignación de directivas adicional muestra que un parámetro definido en el plano técnico lo puede utilizar más de un artefacto. En el ejemplo, **storageAccountType** se usa para establecer una etiqueta en el grupo de recursos. Este valor proporciona información acerca de la cuenta de almacenamiento que se crea en el paso siguiente. En este ejemplo se usa la directiva integrada _Aplicar una etiqueta y su valor predeterminado a los grupos de recursos_ con el GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Archivo JSON: \artifacts\policyStorageTags.json
@@ -193,6 +196,9 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Al usar `az blueprint` en un equipo Mac, reemplace `\` por `/` cuando se usen valores de parámetro que incluyan la ruta de acceso. En este caso, el valor de **parameters** se convierte en `artifacts/policyStorageTags.json`.
 
 1. Agregue la plantilla en el grupo de recursos. El parámetro **template** de una plantilla de Resource Manager incluye los componentes JSON normales de la plantilla. La plantilla también reutiliza los parámetros del plano técnico **storageAccountType**, **tagName** y **tagValue**, cada uno de los cuales se pasa a la plantilla. Los parámetros del plano técnico se ponen a disposición de la plantilla mediante el parámetro **parameters** y dentro de la plantilla JSON en la que se utiliza el par clave-valor para insertar el valor. Los nombres de los parámetros blueprint y template podrían ser los mismos.
 
@@ -276,6 +282,9 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Al usar `az blueprint` en un equipo Mac, reemplace `\` por `/` cuando se usen valores de parámetro que incluyan la ruta de acceso. En este caso, el valor de **template** se convierte en `artifacts/templateStorage.json` y el de **parameters** en `artifacts/templateStorageParams.json`.
 
 1. Agregue la asignación de roles en el grupo de recursos. Similar a la entrada anterior de asignación de roles, el ejemplo siguiente utiliza el identificador de definición para el rol **Propietario** y le proporciona un parámetro diferente del plano técnico. Este ejemplo se usa el rol integrado _Propietario_ con el GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 

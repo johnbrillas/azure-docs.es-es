@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882459"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953757"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -40,7 +40,7 @@ Busque *Azure Digital Twins* en el cuadro de búsqueda y elija el servicio **Azu
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selección de Crear en la página del servicio de Azure Digital Twins":::
 
-En la siguiente página *Crear recurso*, rellene los valores indicados a continuación:
+En la siguiente página **Crear recurso**, rellene los valores indicados a continuación:
 * **Suscripción**: la suscripción de Azure que está usando.
   - **Grupo de recursos**: grupo de recursos en el que implementar la instancia. Si aún no tiene un grupo de recursos existente en mente, puede crear uno aquí mediante la selección del vínculo *Crear nuevo* y la introducción de un nombre para el nuevo grupo de recursos.
 * **Ubicación**: región habilitada para Azure Digital Twins para la implementación. Para obtener más información sobre la compatibilidad regional, visite [*Productos de Azure disponibles por región (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ En la siguiente página *Crear recurso*, rellene los valores indicados a continu
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Paso para rellenar los valores descritos para crear un recurso de Azure Digital Twins":::
 
-Cuando termine, seleccione _Revisar y crear_. Esta acción le llevará a una página de resumen donde puede revisar los detalles de la instancia que ha introducido y pulsar _Crear_. 
+Cuando haya terminado, puede seleccionar **Revisar y crear** si no quiere configurar más opciones para la instancia. Esta acción le llevará a una página de resumen, donde puede revisar los detalles de la instancia que ha introducido y finalizar con **Crear**. 
+
+Si quiere configurar más detalles para la instancia, en la sección siguiente se describen las pestañas de configuración restantes.
+
+### <a name="additional-setup-options"></a>Opciones de configuración adicionales
+
+Estas son las opciones adicionales que puede configurar durante la instalación, mediante las demás pestañas del proceso **Crear recurso**.
+
+* **Redes**: en esta pestaña, puede habilitar puntos de conexión privados con [Azure Private Link](../private-link/private-link-overview.md) para eliminar la exposición de la red pública a la instancia. Para instrucciones, consulte [*Procedimiento: para habilitar el acceso privado con Private Link (versión preliminar)* ](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avanzadas**: en esta pestaña, puede habilitar una [identidad administrada por el sistema](../active-directory/managed-identities-azure-resources/overview.md) para la instancia que se puede usar al reenviar eventos a [puntos de conexión](concepts-route-events.md). Para instrucciones, consulte [*Procedimiento: para habilitar identidades administradas para eventos de enrutamiento (versión preliminar)* ](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Etiquetas**: en esta pestaña, puede agregar etiquetas a la instancia a fin de facilitar su organización entre los recursos de Azure. Para obtener más información sobre las etiquetas de recurso de Azure, vea [*Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Comprobación de que la operación es correcta y recopilación de valores importantes
 
-Después de pulsar *Crear*, puede ver el estado de la implementación de la instancia en las notificaciones de Azure junto con la barra de iconos del portal. La notificación le indicará cuándo se ha realizado la implementación correctamente y podrá seleccionar el botón _Ir al recurso_ para ver la instancia creada.
+Después de finalizar la configuración de la instancia con la selección de **Crear**, puede ver el estado de la implementación en las notificaciones de Azure que hay en la barra de iconos del portal. La notificación le indicará cuándo se ha realizado la implementación correctamente y podrá seleccionar el botón _Ir al recurso_ para ver la instancia creada.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vista de las notificaciones de Azure que muestra una implementación correcta y resalta el botón Ir al recurso":::
 

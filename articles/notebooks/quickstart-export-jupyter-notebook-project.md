@@ -1,38 +1,22 @@
 ---
-title: Exportación de un proyecto de Jupyter Notebooks desde Azure Notebooks (versión preliminar)
-description: Exporte rápidamente un proyecto de Jupyter Notebooks.
+title: Uso de un cuaderno de Jupyter Notebook con las ofertas de Microsoft
+description: Obtenga información sobre cómo se pueden usar cuadernos de Jupyter Notebook con ofertas de Microsoft.
 ms.topic: quickstart
-ms.date: 06/29/2020
-ms.openlocfilehash: ea16bd61b542217fb6f2d5ba1d926a0bc19d4cce
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/01/2021
+ms.openlocfilehash: 5679c28d9cc8a4f1893ffad72002b66ad59861e6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606019"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507384"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Exportación de un proyecto de un cuaderno de Jupyter Notebook en Azure Notebooks (versión preliminar)
+# <a name="use-a-jupyter-notebook-with-microsoft-offerings"></a>Uso de un cuaderno de Jupyter Notebook con las ofertas de Microsoft
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-En este inicio rápido descargará un proyecto de Azure Notebooks para usarlo en otras soluciones de Jupyter Notebooks. 
+En esta guía de inicio rápido, aprenderá a importar un cuaderno de Jupyter Notebook para usarlo con diversas ofertas de Microsoft. 
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-Un proyecto de Azure Notebooks existente.
-
-## <a name="export-an-azure-notebooks-project"></a>Exportación de un proyecto de Azure Notebooks
-
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. Para más información, consulte [Inicio rápido: Inicio de sesión en Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
-
-1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
-
-    ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
-
-1. Seleccione un proyecto.
-1. Haga clic en el botón "Descargar" para desencadenar la descarga de un archivo ZIP que contiene todos los archivos del proyecto.
-1. O también, en una página específica del proyecto, haga clic en el botón "Descargar proyecto" para descargar todos los archivos de un proyecto dado.
-
-Después de descargar los archivos del proyecto puede usarlos con otras soluciones de Jupyter Notebook. Estas son algunas de las opciones que se describen en las secciones siguientes: 
+Si ya tiene cuadernos de Jupyter Notebook o desea crear un proyecto nuevo, puede usarlos con muchas de las ofertas de Microsoft. Estas son algunas de las opciones que se describen en las secciones siguientes: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
 - [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
@@ -41,7 +25,7 @@ Después de descargar los archivos del proyecto puede usarlos con otras solucion
 
 ## <a name="create-an-environment-for-notebooks"></a>Creación de un entorno para Notebooks
 
-Si desea crear un entorno que coincida con el de la versión preliminar de Azure Notebooks, puede usar el archivo de script que se proporciona en GitHub.
+Si desea crear un entorno que coincida con el de la versión preliminar de Azure Notebooks retirada, puede usar el archivo de script que se proporciona en GitHub.
 
 1. Vaya al [repositorio de GitHub](https://github.com/microsoft/AzureNotebooks) de Azure Notebooks o [acceda directamente a la carpeta del entorno](https://aka.ms/aznbrequirementstxt).
 1. En un símbolo del sistema, vaya al directorio que desea usar para los proyectos.
@@ -54,14 +38,14 @@ Si desea crear un entorno que coincida con el de la versión preliminar de Azure
 
 ![Compatibilidad de VS Code y Jupyter Notebook](media/vs-code-jupyter-notebook.png)
 
-Después de [descargar](#export-an-azure-notebooks-project) los archivos del proyecto puede usarlos con VS Code. Para obtener instrucciones sobre cómo usar VS Code con Jupyter Notebooks, consulte los tutoriales sobre cómo [trabajar con Jupyter Notebooks en Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) y sobre la [ciencia de datos en Visual Studio Code](https://code.visualstudio.com/docs/python/data-science-tutorial).
+Si tiene archivos de proyecto existentes o desea crear un nuevo cuaderno, puede usar VS Code. Para obtener instrucciones sobre cómo usar VS Code con cuadernos de Jupyter Notebook, consulte los tutoriales sobre cómo [trabajar con cuadernos de Jupyter Notebook en Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) y sobre la [ciencia de datos en Visual Studio Code](https://code.visualstudio.com/docs/python/data-science-tutorial).
 
 También puede usar el [script de entorno de Azure Notebooks](#create-an-environment-for-notebooks) con Visual Studio Code para crear un entorno que coincida con la versión preliminar de Azure Notebooks.
 
 ## <a name="use-notebooks-in-github-codespaces"></a>Uso de cuadernos en GitHub Codespaces
 
 GitHub Codespaces proporciona entornos hospedados en la nube en los que puede editar los cuadernos mediante Visual Studio Code o un explorador web. Ofrece la misma experiencia de Jupyter que VS Code, pero sin necesidad de instalar nada en el dispositivo. Si no desea configurar un entorno local y prefiere una solución con el respaldo de la nube, una solución excelente es crear un espacio de código. Primeros pasos:
-1. [Descargue](#export-an-azure-notebooks-project) los archivos del proyecto.
+1. (Opcional) Recopile los archivos de proyecto que desea usar con GitHub Codespaces.
 1. [Cree un repositorio de GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para almacenar los cuadernos.   
 1. [Agregue los archivos](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) al repositorio.
 1. [Solicitud de acceso a la versión preliminar de GitHub Codespaces](https://github.com/features/codespaces)
@@ -70,14 +54,14 @@ GitHub Codespaces proporciona entornos hospedados en la nube en los que puede ed
 
 Azure Machine Learning proporciona una plataforma de aprendizaje automático de un extremo a otro que permite a los usuarios crear e implementar modelos más rápidamente en Azure. Azure Machine Learning permite ejecutar cuadernos de Jupyter Notebook en una máquina virtual o en un entorno de computación de clúster compartido. Si necesita una solución en la nube para su carga de trabajo de Machine Learning con seguimiento de experimentos, administración de conjuntos de datos, etc., es aconsejable que use Azure Machine Learning. Para empezar a utilizar Azure Machine Learning:
 
-1. [Descargue](#export-an-azure-notebooks-project) los archivos del proyecto.
+1. (Opcional) Recopile los archivos de proyecto que desee usar con Azure ML.
 1. [Cree un área de trabajo](../machine-learning/how-to-manage-workspace.md) en Azure Portal.
 
    ![Crear un área de trabajo](../machine-learning/media/how-to-manage-workspace/create-workspace.gif)
  
 1. Abra [Azure Studio (versión preliminar)](https://ml.azure.com/).
 1. Use la barra de navegación izquierda para seleccionar **Notebooks**.
-1. Haga clic en el botón **Cargar archivos** y cargue los archivos del proyecto que descargó de Azure Notebooks.
+1. Haga clic en el botón **Cargar archivos** y cargue los archivos del proyecto.
 
 Para más información sobre Azure Machine Learning y la ejecución de Jupyter Notebooks, puede consultar la [documentación](../machine-learning/how-to-run-jupyter-notebooks.md) o probar el módulo [Introducción a Azure Machine Learning](/learn/modules/intro-to-azure-machine-learning-service/) de Microsoft Learn.
 
@@ -88,13 +72,13 @@ Para más información sobre Azure Machine Learning y la ejecución de Jupyter N
 
 ![imagen](../lab-services/media/tutorial-setup-classroom-lab/new-lab-button.png)
 
- Tras [descargar](#export-an-azure-notebooks-project) los archivos del proyecto puede usarlos con Azure Lab Services. Si desea una guía para configurar un laboratorio, consulte [Configuración de un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks](../lab-services/class-type-jupyter-notebook.md)
+Si tiene archivos de proyecto existentes o desea crear un nuevo cuaderno, puede usar Azure Lab Services. Si desea una guía para configurar un laboratorio, consulte [Configuración de un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks](../lab-services/class-type-jupyter-notebook.md)
 
 ## <a name="use-github"></a>Uso de GitHub
 
 GitHub ofrece una forma gratuita y con el respaldo del control del origen de almacenar cuadernos (y otros archivos), compartir cuadernos con otros usuarios y trabajar de forma colaborativa. Si busca una forma de compartir proyectos y colaborar con otros usuarios, GitHub es una opción magnífica que, además, se puede combinar con [GitHub Codespaces](#use-notebooks-in-github-codespaces) para que la experiencia de desarrollo sea excelente. Para empezar a usar GitHub
 
-1. [Descargue](#export-an-azure-notebooks-project) los archivos del proyecto.
+1. (Opcional) Recopile los archivos de proyecto que desee usar con GitHub.
 1. [Cree un repositorio de GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) para almacenar los cuadernos. 
 1. [Agregue los archivos](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) al repositorio.
 

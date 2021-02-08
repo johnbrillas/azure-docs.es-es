@@ -1,16 +1,16 @@
 ---
 title: 'Ampliación de la aplicación en tiempo de ejecución: LUIS'
-description: ''
+description: Obtenga información sobre cómo extender un punto de conexión de predicción ya publicado para pasar información nueva.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 69e2608fb01ece81f555aae2f3d4a2e4a05cfc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d94e9f59062e4d730b8f3b71022442e81e6eeda
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322808"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953028"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Ampliación de la aplicación en tiempo de ejecución de predicción
 

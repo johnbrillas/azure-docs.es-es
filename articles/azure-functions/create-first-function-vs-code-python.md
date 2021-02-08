@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear una función de Python y, a 
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d7b98c44b85e17d084994bbcaa285c55c7a5e4d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e022843f95e5d5b52a15eaab2d28b6b9eb923006
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880851"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493573"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Inicio rápido: Creación de una función en Azure con Python mediante Visual Studio Code
 
@@ -54,7 +54,8 @@ En esta sección se usa Visual Studio Code para crear un proyecto local de Azur
 
     + **Seleccione un lenguaje para el proyecto de funciones**: Elija `Python`.
 
-    + **Seleccione un alias de Python para crear un entorno virtual**: Elija la ubicación del intérprete de Python. Si no se muestra la ubicación, escriba la ruta de acceso completa al archivo binario de Python.  
+    + **Seleccione un alias de Python para crear un entorno virtual**: Elija la ubicación del intérprete de Python.  
+    Si no se muestra la ubicación, escriba la ruta de acceso completa al archivo binario de Python.  
 
     + **Seleccione una plantilla para la primera función del proyecto**: Elija `HTTP trigger`.
 
@@ -81,15 +82,18 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
 1. Seleccione el icono de Azure en la barra de actividades y después en el área **Azure: Functions**, seleccione el botón de **implementación en la aplicación de funciones**.
 
-    ![Publicación del proyecto en Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publicación del proyecto en Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Escriba la siguiente información cuando se le indique:
 
-    + **Seleccione la carpeta**: elija una carpeta en el área de trabajo o busque una que contenga la aplicación de funciones. No verá esta opción si ya tiene una aplicación de funciones válida abierta.
+    + **Seleccione la carpeta**: elija una carpeta en el área de trabajo o busque una que contenga la aplicación de funciones.   
+    No verá esta opción si ya tiene una aplicación de funciones válida abierta.
 
-    + **Seleccione la suscripción**: elija la suscripción que desee usar. No se mostrará esta opción si solo tiene una suscripción.
+    + **Seleccione la suscripción**: elija la suscripción que desee usar.  
+    No se mostrará esta opción si solo tiene una suscripción.
 
-    + **Seleccione la aplicación de funciones en Azure**: Elija `+ Create new Function App`. (No elija la opción `Advanced`, que no se trata en este artículo).
+    + **Seleccione la aplicación de funciones en Azure**: Elija `+ Create new Function App`.  
+    (No elija la opción `Advanced`, que no se trata en este artículo).
 
     + **Escriba un nombre único global para la aplicación de funciones**: Escriba un nombre que sea válido en una ruta de acceso de la dirección URL. El nombre que escriba se valida para asegurarse de que es único en Azure Functions. 
 
@@ -97,17 +101,19 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
     + **Seleccione una ubicación para los nuevos recursos**:  Para mejorar el rendimiento, elija una [región](https://azure.microsoft.com/regions/) cerca de usted.
 
+    La extensión muestra el estado de los recursos individuales a medida que se crean en Azure en el área de notificación.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notificación de creación de recursos de Azure":::
+
 1. Cuando se complete, se crearán los siguientes recursos de Azure en la suscripción con nombres que se basan en el nombre de la aplicación de funciones:
 
-    + Un grupo de recursos, que es un contenedor lógico de recursos relacionados.
-    + Una cuenta de Azure Storage estándar, que mantiene el estado e información adicional sobre los proyectos.
-    + Un plan de consumo, que define el host subyacente para su aplicación de funciones sin servidor. 
-    + Una aplicación de funciones, que proporciona el entorno para ejecutar el código de función. Una aplicación de funciones permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos en el mismo plan de hospedaje.
-    + Una instancia de Application Insights conectada a la aplicación de funciones, que realiza un seguimiento del uso de la función sin servidor.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Una vez que se haya creado la aplicación de función se mostrará una notificación y se aplicará el paquete de implementación. 
 
-1. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
+
+4. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado. Si se pierde la notificación, seleccione el icono de campana en la esquina inferior derecha para verlo de nuevo.
 
     ![Creación de la notificación completa](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
@@ -117,7 +123,7 @@ En esta sección, va a crear una aplicación de funciones y los recursos relacio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha usado Visual Studio Code para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, esa función se expande mediante la adición de un enlace de salida. Este enlace escribe la cadena de la solicitud HTTP en un mensaje en una cola de Azure Queue Storage. 
+Ha usado [Visual Studio Code](functions-develop-vs-code.md?tabs=python) para crear una aplicación de función con una función simple desencadenada por HTTP. En el siguiente artículo, va a expandir esa función mediante la conexión a Azure Storage. Para más información sobre cómo conectarse a otros servicios de Azure, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=python). 
 
 > [!div class="nextstepaction"]
 > [Conexión a una cola de Azure Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934528"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -89,6 +89,39 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)*](troubleshoot-error-403.md).
 
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identidad administrada para acceder a otros recursos (versión preliminar)
+
+La configuración de una **identidad administrada** de [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) para una instancia de Azure Digital Twins puede permitir que la instancia acceda fácilmente a otros recursos protegidos de Azure AD, como [Azure Key Vault](../key-vault/general/overview.md). La identidad está administrada por la plataforma Azure y no es necesario que aprovisione o rote ningún secreto. Para obtener más información sobre las identidades administradas en Azure AD, vea  [*Identidades administradas para recursos de Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Azure admite dos tipos de identidades administradas: asignadas por el sistema y asignadas por el usuario. Actualmente, Azure Digital Twins solo admite las **identidades asignadas por el sistema**. 
+
+Puede usar una identidad administrada asignada por el sistema para que la instancia de Azure Digital Twins se autentique en un [punto de conexión definido por el usuario](concepts-route-events.md#create-an-endpoint). Azure Digital Twins admite la autenticación basada en identidades asignadas por el sistema en los puntos de conexión de destinos de [centro de eventos](../event-hubs/event-hubs-about.md) y  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , y en un punto de conexión de [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)  para los [eventos de mensajes con problemas de entrega](concepts-route-events.md#dead-letter-events). Actualmente, los puntos de conexión de [Event Grid](../event-grid/overview.md) no se admiten para las identidades administradas.
+
+Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)* ](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Acceso a redes privadas con Azure Private Link (versión preliminar)
+
+[Azure Private Link](../private-link/private-link-overview.md) es un servicio que le permite acceder a recursos de Azure (como [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md) y [Azure Cosmos DB](../cosmos-db/introduction.md)) y a los servicios de asociados o clientes hospedados por Azure mediante un punto de conexión privado en la instancia de [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
+
+Del mismo modo, puede usar puntos de conexión privados para la instancia de Azure Digital Twins a fin de permitir que los clientes ubicados en la red virtual accedan de forma segura a la instancia mediante Private Link. 
+
+El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual de Azure. El tráfico de red entre un cliente en la red privada y la instancia de Azure Digital Twins atraviesa la red virtual y un servicio Private Link en la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Esta es una representación visual del sistema:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Un diagrama en el que se muestra una red para una empresa PowerGrid que es una red virtual protegida sin acceso a Internet ni a la nube pública, que se conecta a través de Private Link a una instancia de Azure Digital Twins llamada CityOfTwins.":::
+
+La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la red virtual.
+
+Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [*Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)* ](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Consideraciones de diseño 
+
+Al trabajar con Private Link para Azure Digital Twins, estos son algunos de los factores que debería tener en cuenta:
+* **Precios**: para obtener más información sobre los precios, vea  [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link). 
+* **Disponibilidad regional**: en el caso de Azure Digital Twins, esta característica está disponible en todas las regiones de Azure donde está disponible Azure Digital Twins. 
+* **Número máximo de puntos de conexión privados por instancia de Azure Digital Twins**: 10
+
+Para obtener información sobre los límites de Azure Private Link, vea  [Documentación de Azure Private Link: Limitaciones](../private-link/private-link-service-overview.md#limitations).
+
 ## <a name="service-tags"></a>Etiquetas de servicio
 
 Una **etiqueta de servicio** representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte  [*Etiquetas de red virtuales*](../virtual-network/service-tags-overview.md). 
@@ -113,7 +146,7 @@ Estos son los pasos para acceder a puntos de conexión de [ruta de eventos](conc
 
 4. Establezca filtros IP en los recursos externos mediante los intervalos IP del *paso 2*.  
 
-5. Actualice los intervalos IP periódicamente según sea necesario. Los intervalos pueden cambiar con el tiempo, por lo que es una buena idea comprobarlos periódicamente y actualizarlos cuando sea necesario. Aunque la frecuencia de estas actualizaciones puede variar, es una buena idea comprobarlos una vez por semana.
+5. Actualice los intervalos IP periódicamente según sea necesario. Los rangos pueden cambiar con el tiempo, por lo que es aconsejable comprobarlos periódicamente y actualizarlos cuando sea necesario. Aunque la frecuencia de estas actualizaciones puede variar, es una buena idea comprobarlos una vez por semana.
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 
@@ -123,7 +156,7 @@ Azure Digital Twins permite el cifrado de los datos en reposo y en tránsito a m
 
 Azure Digital Twins no admite actualmente el **uso compartido de recursos entre orígenes (CORS)** . Como resultado, si está llamando a una API REST desde una aplicación de explorador, una interfaz de [API Management (APIM)](../api-management/api-management-key-concepts.md) o un conector de [Power Apps](/powerapps/powerapps-overview), es posible que vea un error de directiva.
 
-Para resolver este error, realice una de las siguientes acciones:
+Para resolver este error, puede realizar una de las acciones siguientes:
 * Quite el encabezado CORS `Access-Control-Allow-Origin` del mensaje. Este encabezado indica si la respuesta se puede compartir. 
 * Como alternativa, cree un proxy CORS y solicite la API REST de Azure Digital Twins través de él. 
 

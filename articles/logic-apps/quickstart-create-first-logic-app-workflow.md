@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455064"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052049"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo de Logic Apps en Azure Portal
 
@@ -30,11 +30,14 @@ Si desea obtener información sobre cómo crear y administrar la primera aplicac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Una cuenta y una suscripción de Azure. Si no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Una cuenta de correo electrónico de un servicio admitido por Logic Apps (como Outlook de Office 365 o Outlook.com). Para otros proveedores de correo electrónico admitidos, [consulte la lista de conectores](/connectors/).
 
     > [!IMPORTANT]
     > Si va a usar el [conector de Gmail](/connectors/gmail/), tenga en cuenta que solo las cuentas de G Suite pueden usarlo sin restricciones en Logic Apps. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, a menos que pueda [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Si la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall debe permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps o por el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
 
 <a name="create-logic-app"></a>
 
@@ -51,8 +54,8 @@ Si desea obtener información sobre cómo crear y administrar la primera aplicac
    ![Captura de pantalla de la página del servicio Logic Apps en Azure Portal, que muestra la lista de aplicaciones lógicas y el botón seleccionado, "Agregar".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. En el panel **Aplicación lógica**, proporcione los detalles básicos y la configuración de la aplicación lógica. Cree un nuevo [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para los fines de esta aplicación lógica de ejemplo.
-    
-   | Propiedad | Valor | Descripción |
+
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*nombre-de-la-aplicación-lógica*> | Nombre de la aplicación lógica, que debe ser único en todas las regiones. El nombre solo puede contener letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`, `)`) y puntos (`.`). En este ejemplo se usa "My-First-Logic-App". |
    | **Suscripción** | <*Azure-subscription-name*> | Nombre de la suscripción de Azure. |
@@ -91,7 +94,7 @@ En este ejemplo de inicio rápido, después de [crear una aplicación lógica](#
 
 1. Proporcione la dirección URL de la fuente RSS para el desencadenador. A continuación, defina la programación del desencadenador; para ello, establezca el intervalo y la frecuencia.
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    | -------- | ----- | ----------- |
    | **URL de fuente RSS** | <*URL-de-fuente-RSS*> | Dirección URL de la fuente RSS que desea supervisar. En este ejemplo se usa la fuente RSS del Wall Street Journal en `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`. Sin embargo, para los fines de este ejemplo, puede usar cualquier fuente RSS que no requiera autorización HTTP. Elija una fuente RSS que publique con frecuencia, para después poder probar la aplicación lógica fácilmente. |
    | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones de la fuente RSS. Este ejemplo utiliza intervalos de 1 minuto. |

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f5101233f7995fb58fc530e613ba3235a55c783c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: dbb32aa0cb61024c3d59879775fe73801d2b9668
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628755"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214075"
 ---
 ### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
@@ -25,7 +25,7 @@ ms.locfileid: "97628755"
             },
             "initialOffsetOptions": {
                 "type": "fromStart",
-                "enqueuedTime": ""
+                "enqueuedTimeUtc": ""
             }
         }
     }
@@ -38,7 +38,7 @@ ms.locfileid: "97628755"
 |eventProcessorOptions/maxBatchSize|10|Número máximo de eventos recibido por cada bucle de recepción.|
 |eventProcessorOptions/prefetchCount|300|Número predeterminado de capturas previas utilizado por el elemento `EventProcessorHost` subyacente. El valor mínimo permitido es 10.|
 |initialOffsetOptions/type|fromStart|Ubicación en el flujo de eventos desde la que se inicia el procesamiento cuando no existe un punto de control en el almacenamiento. Las opciones son `fromStart`, `fromEnd` o `fromEnqueuedTime`. `fromEnd` procesa los nuevos eventos que se pusieron en cola después de iniciar la ejecución de la aplicación de funciones. Se aplica a todas las particiones.  Para más información, consulte la documentación de [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
-|initialOffsetOptions/enqueuedTime|N/D| Especifica la hora de puesta en cola del evento en la secuencia a partir de la que se va a iniciar el procesamiento. Cuando `initialOffsetOptions/type` se configura como `fromEnqueuedTime`, este valor es obligatorio. Admite la hora en cualquier formato admitido por [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), como `2020-10-26T20:31Z`. Para mayor claridad, también debe especificar una zona horaria. Cuando no se especifica una zona horaria, Functions asume la zona horaria local del equipo que ejecuta la aplicación de funciones, que es la hora UTC cuando se ejecuta en Azure. Para más información, consulte la documentación de [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
+|initialOffsetOptions/enqueuedTimeUtc|N/D| Especifica la hora de puesta en cola del evento en la secuencia a partir de la que se va a iniciar el procesamiento. Cuando `initialOffsetOptions/type` se configura como `fromEnqueuedTime`, este valor es obligatorio. Admite la hora en cualquier formato admitido por [DateTime.Parse()](/dotnet/standard/base-types/parsing-datetime), como `2020-10-26T20:31Z`. Para mayor claridad, también debe especificar una zona horaria. Cuando no se especifica una zona horaria, Functions asume la zona horaria local del equipo que ejecuta la aplicación de funciones, que es la hora UTC cuando se ejecuta en Azure. Para más información, consulte la documentación de [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider?view=azure-dotnet).|
 > [!NOTE]
 > Para una referencia de host.json en Azure Functions 2.x y versiones posteriores, consulte [Referencia de host.json para Azure Functions](../articles/azure-functions/functions-host-json.md).
 

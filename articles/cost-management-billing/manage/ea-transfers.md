@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030100"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943683"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 
@@ -55,22 +55,22 @@ Una transferencia de inscripción se tiene en cuenta cuando:
 - Una inscripción está en estado expirado o extendido y se negocia un nuevo contrato.
 - Tiene varias inscripciones y desea combinar todas las cuentas y la facturación en una sola inscripción.
 
-Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Para transferir una inscripción de empresa a una nueva, se necesita una solicitud de soporte técnico.
+Esta sección tiene solo carácter informativo, ya que el administrador de la empresa no puede realizar la acción. Se necesita una solicitud de soporte técnico para transferir una inscripción empresarial a una nueva, a menos que la inscripción sea apta para la [transferencia de inscripción automática](#auto-enrollment-transfer).
 
 Cuando se solicita la transferencia de una inscripción empresarial completa a una inscripción, se producen las siguientes acciones:
 
 - Todos los servicios, suscripciones, cuentas, departamentos y la estructura de inscripción de Azure completa, incluidos todos los administradores de departamento del Contrato Enterprise, se transfieren a una nueva inscripción de destino.
 - El estado de inscripción se establece en _Transferido_. La inscripción transferida solo está disponible con fines de informe de historial de uso.
-- No se pueden agregar roles o suscripciones a una inscripción transferida. El estado transferido evita el uso adicional en la inscripción.
+- No se pueden agregar roles o suscripciones a una inscripción transferida. El estado Transferido evita más uso en la inscripción.
 - Se pierde cualquier saldo de prepago de Azure restante en el contrato, incluidos los términos futuros.
 -    Si la inscripción desde la que va a realizar la transferencia tiene compras de instancias reservadas, el precio de compra permanecerá en la inscripción de origen; sin embargo, todas las ventajas de las instancias reservadas se transferirán para su uso en la nueva inscripción.
--    La cuota de compra única de Marketplace y las tarifas fijas mensuales que ya se hayan realizado en la inscripción antigua no se transferirán a la nueva inscripción. Se transferirán los cargos de Marketplace basados en el consumo.
+-    La cuota de compra única de Marketplace y las tarifas fijas mensuales que ya se hayan realizado en la inscripción antigua no se transfieren a la nueva inscripción. Se transferirán los cargos de Marketplace basados en el consumo.
 
 ### <a name="effective-transfer-date"></a>Fecha de transferencia efectiva
 
 La fecha de transferencia efectiva puede ser la fecha de inicio de la suscripción de destino o una fecha posterior.
 
-El uso de la inscripción de origen se cobra en el prepago de Azure o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere a la nueva inscripción y se cobra en consecuencia.
+El uso de la inscripción de origen se cobra en el prepago de Azure o como uso por encima del límite. El uso que se produce después de la fecha de transferencia efectiva se transfiere y se carga a la nueva inscripción.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -85,6 +85,17 @@ Otros puntos que hay que tener en cuenta antes de una transferencia de inscripci
 - Es necesaria la aprobación de un administrador del Contrato Enterprise para la inscripción de origen y destino.
 - Si una transferencia de inscripción no cumple sus requisitos, considere la posibilidad de transferir una cuenta.
 - El estado de inscripción de origen se actualizará al estado transferido y solo estará disponible para fines de informes de uso históricos.
+
+### <a name="auto-enrollment-transfer"></a>Transferencia de inscripción automática
+
+Podría ver que una inscripción tiene el estado **Transferido** aunque no haya enviado una incidencia de soporte técnico para solicitar una transferencia de inscripción. El estado **Transferido** se produce como resultado del proceso de transferencia de inscripción automática. Para que el proceso de transferencia de inscripción automática se produzca durante la fase de renovación, hay algunos elementos que se deben incluir en el nuevo contrato:
+
+- Número de inscripción anterior (debe existir en Enterprise Portal)
+- La fecha de expiración del número de inscripción anterior es un día anterior a la fecha de inicio efectiva del nuevo contrato.
+- El nuevo contrato tiene una orden de pago por adelantado de Azure facturada que tiene una fecha actual o pasada.
+- La nueva inscripción se ha creado en Enterprise Portal.
+
+Si no faltan datos de uso en Enterprise Portal entre la inscripción anterior y la nueva inscripción, no tiene que crear una incidencia de soporte técnico de transferencia.
 
 ### <a name="azure-prepayment"></a>Prepago de Azure
 

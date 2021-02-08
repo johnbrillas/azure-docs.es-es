@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 7841affc7a8988cb113af3b728ae117093000011
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348294"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257464"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -132,20 +132,22 @@ El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilid
 
 Una de las ventajas de ejecutar una carga de trabajo en Azure es su alcance global. El servidor flexible para Azure Database for MySQL está disponible actualmente en las siguientes regiones de Azure:
 
-- Oeste de Europa
-- Norte de Europa
-- Sur de Reino Unido
-- Este de EE. UU. 2
-- Oeste de EE. UU. 2
-- Centro de EE. UU.
-- Este de EE. UU.
-- Centro de Canadá
-- Sudeste de Asia
-- Centro de Corea del Sur
-- Japón Oriental
-- Este de Australia
+| Region (Región) | Disponibilidad | Alta disponibilidad con redundancia de zona | 
+| --- | --- | --- |
+| Oeste de Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Norte de Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Sur de Reino Unido | :heavy_check_mark: | :x: | 
+| Este de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste de EE. UU. 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de EE. UU. | :heavy_check_mark: | :x: | 
+| Este de EE. UU. | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de Canadá | :heavy_check_mark: | :x: | 
+| Sudeste de Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Centro de Corea del Sur | :heavy_check_mark: | :x: | 
+| Japón Oriental | :heavy_check_mark: | :x: | 
+| Este de Australia | :heavy_check_mark: | :heavy_check_mark: |
 
-Estamos trabajando en la incorporación inmediata de nuevos servidores.
+Estamos trabajando para agregar nuevas regiones pronto.
 
 ## <a name="contacts"></a>Contactos
 Para cualquier pregunta o sugerencia que pueda tener sobre el servidor flexible de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.

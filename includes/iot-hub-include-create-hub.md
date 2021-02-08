@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605363"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427247"
 ---
 En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Creación de un centro mediante Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Creación de un centro en Azure Portal.":::
 
 1. Seleccione **Siguiente: Redes** para continuar con la creación del centro.
 
    Elija los puntos de conexión que se pueden conectar a su instancia de IoT Hub. Puede seleccionar la configuración predeterminada **Punto de conexión público (todas las redes)** o elegir **Punto de conexión público (intervalos de IP seleccionados)** o **Punto de conexión privado**. Acepte la configuración predeterminada para este ejemplo.
 
-   ![Elija los puntos de conexión que se pueden conectar.](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Selección de los puntos de conexión que se puedan conectar":::.
 
 1. Seleccione **Siguiente: Administración** para continuar con la creación del centro.
 
-    ![Configuración del tamaño y la escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Configuración del tamaño y la escala de un nuevo centro mediante Azure Portal.":::
 
     Puede aceptar la configuración predeterminada aquí. Si lo desea, puede modificar cualquiera de los siguientes campos:
 
@@ -60,14 +60,14 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
     - **Configuración avanzada** > **Particiones del dispositivo a la nube**: esta propiedad relaciona los mensajes del dispositivo a la nube con el número de lectores simultáneos de los mensajes. La mayoría de los centros solo necesitan cuatro particiones.
 
-1.  Seleccione **Siguiente: Etiquetas** para pasar a la pantalla siguiente.
+1. Seleccione **Siguiente: Etiquetas** para pasar a la pantalla siguiente.
 
     Las etiquetas son pares nombre-valor. Puede asignar la misma etiqueta a varios recursos y grupos de recursos para clasificar los recursos y consolidar la facturación. Para más información, consulte [Uso de etiquetas para organizar los recursos de Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Asignación de etiquetas para el centro mediante Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Asignación de etiquetas para el centro mediante Azure Portal.":::
 
-1.  Seleccione **Siguiente: Revisar y crear** para revisar sus selecciones. Verá algo parecido a esta pantalla, pero con los valores que ha seleccionado al crear el centro. 
+1. Seleccione **Siguiente: Revisar y crear** para revisar sus selecciones. Verá algo parecido a esta pantalla, pero con los valores que ha seleccionado al crear el centro.
 
-    ![Revisión de la información para crear el centro de IoT](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Revisión de la información para crear el centro.":::
 
-1.  Seleccione **Crear** para crear un centro. Esta operación tarda unos minutos.
+1. Seleccione **Crear** para crear un centro. Esta operación tarda unos minutos.

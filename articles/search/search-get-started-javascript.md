@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498989"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509408"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search mediante el SDK de JavaScript
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Para empezar, abra VS Code y su [terminal integrado](https://code.visualstudio.
     npm install @azure/search-documents
     ```
 
-4. Instale `dotenv`, que se usa para importar las variables de entorno como nuestro nombre de servicio y la clave de API.
+4. Instale `dotenv`, que se usa para importar las variables de entorno, como nuestro nombre de servicio y clave de API.
     ```cmd
     npm install dotenv
     ```
@@ -169,7 +169,7 @@ A continuación, se puede crear un índice.
 
 ## <a name="1---create-index"></a>1 - Creación de un índice 
 
-Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede obtener más información sobre los [tipos de datos admitidos](/rest/api/searchservice/supported-data-types) y los [atributos del índice](./search-what-is-an-index.md#index-attributes). 
+Cree el archivo **hotels_quickstart_index.json**.  Este archivo define la forma en que Azure Cognitive Search funciona con los documentos que cargará en el paso siguiente. Cada campo se identificará mediante un elemento `name` y tendrá un elemento especificado `type`. Cada campo también tiene una serie de atributos del índice que especifican si Azure Cognitive Search puede buscar, filtrar, ordenar y cambiar las facetas del campo. La mayoría de los campos son tipos de datos simples; pero algunos, como `AddressType`, son tipos complejos que le permiten crear estructuras de datos enriquecidos en el índice.  Puede leer más sobre los [tipos de datos admitidos](/rest/api/searchservice/supported-data-types) y los atributos de índice descritos en [Creación de un índice (REST)](/rest/api/searchservice/create-index). 
 
 Agregue lo siguiente a **hotels_quickstart_index.json**, o bien [descargue el archivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 

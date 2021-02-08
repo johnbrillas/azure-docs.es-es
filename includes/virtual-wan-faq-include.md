@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798619"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500135"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>¿Qué es Azure Virtual WAN en GA?
 
@@ -140,6 +140,10 @@ Se admiten hasta 1000 conexiones por concentrador virtual. Cada conexión consta
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>¿Qué es una conexión de rama a Azure Virtual WAN?
 
 Una conexión desde una rama o un dispositivo VPN a Azure Virtual WAN no es nada más que una conexión VPN que se conecta de forma virtual al sitio VPN y a Azure VPN Gateway en un centro de conectividad virtual.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>¿Qué ocurre si el dispositivo VPN local solo tiene 1 túnel a una puerta de enlace de VPN de Azure Virtual WAN?
+
+Una conexión de Azure Virtual WAN consta de 2 túneles. Una puerta de enlace de VPN de Virtual WAN se implementa en el centro virtual en modo activo-activo, lo que significa que hay distintos túneles desde los dispositivos locales que terminan en distintas instancias; esta es la recomendación para todos los usuarios. Sin embargo, si, por algún motivo, el usuario decide tener solo 1 túnel a una de las instancias de puerta de enlace de VPN de Virtual WAN (mantenimiento, revisiones, etc.), la instancia de puerta de enlace se desconectará, el túnel se moverá a la instancia activa secundaria y el usuario podría experimentar una reconexión. También se debe tener en cuenta que la sesión BGP no se moverá entre instancias.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>¿El dispositivo VPN local puede conectarse a varios concentradores?
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610155"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429269"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (versión preliminar)
+# <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
-Microsoft Azure Attestation (versión preliminar) es una solución unificada que permite comprobar de forma remota la confiabilidad de una plataforma y la integridad de los archivos binarios que se ejecutan dentro de ella. El servicio admite la atestación de las plataformas respaldadas por módulos de plataforma segura (TPM), junto con la posibilidad de atestiguar el estado de los entornos de ejecución de confianza (TEE), como los enclaves [Software Guard Extensions de Intel®](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) y de [seguridad basada en virtualización](/windows-hardware/design/device-experiences/oem-vbs) (VBS). 
+Microsoft Azure Attestation es una solución unificada para comprobar de forma remota la confiabilidad de una plataforma y la integridad de los archivos binarios que se ejecutan en ella. El servicio admite la atestación de las plataformas respaldadas por módulos de plataforma segura (TPM), junto con la posibilidad de atestiguar el estado de los entornos de ejecución de confianza (TEE), como los enclaves [Software Guard Extensions de Intel®](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) y de [seguridad basada en virtualización](/windows-hardware/design/device-experiences/oem-vbs) (VBS). 
 
 La atestación es un proceso que se utiliza para demostrar que se ha creado correctamente una instancia de los archivos binarios de software en una plataforma de confianza. Así, los usuarios de confianza remotos pueden tener la seguridad de que solo se ejecuta el software previsto en el hardware de confianza. Azure Attestation consta de un servicio y un marco de trabajo unificados orientados al cliente para la atestación.
 
@@ -67,7 +67,7 @@ Azure Attestation es la opción preferida para la atestación de los entornos de
 
 - Ofrece un marco unificado para la atestación de varios entornos, como los TPM y los enclaves SGX y VBS. 
 - Es un servicio multiinquilino que permite la configuración de directivas y proveedores de atestación personalizados para restringir la generación de tokens.
-- Ofrece proveedores predeterminados que pueden encargarse de la atestación sin que los usuarios deban realizar ninguna configuración.
+- Ofrece proveedores regionales compartidos que pueden hacer comprobaciones sin que los usuarios tengan que configurar nada.
 - Protege sus datos mientras está en uso con la implementación en un enclave SGX.
 - Servicio de alta disponibilidad 
 

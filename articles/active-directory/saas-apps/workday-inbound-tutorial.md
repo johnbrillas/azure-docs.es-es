@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569612"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954230"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -157,7 +157,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
 
 1. Busque y seleccione el grupo de seguridad creado en el paso anterior. 
    >[!div class="mx-imgBorder"]
-   >![Seleccionar grupo de seguridad](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Seleccionar grupo de seguridad](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Haga clic en los puntos suspensivos (...) junto al nombre del grupo y, en el menú, seleccione **Security Group > Maintain Domain Permissions for Security Group** (Grupo de seguridad > Mantener permisos de dominio para el grupo de seguridad)
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ En ese paso, concederá permisos de directiva "seguridad de proceso de negocio" 
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Requisitos previos para la instalación del agente de aprovisionamiento
 
-Revise los [requisitos previos de instalación del agente de aprovisionamiento](../cloud-provisioning/how-to-prerequisites.md) antes de continuar con la siguiente sección. 
+Revise los [requisitos previos de instalación del agente de aprovisionamiento](../cloud-sync/how-to-prerequisites.md) antes de continuar con la siguiente sección. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configuración del aprovisionamiento de usuarios de Workday a Active Directory
 
@@ -267,7 +267,7 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 
 Para realizar el aprovisionamiento en Active Directory local, el agente de aprovisionamiento debe estar instalado en un servidor unido a un dominio que tenga acceso de red a los dominios de Active Directory deseados.
 
-Transfiera el instalador del agente descargado al host del servidor y siga los pasos indicados [en la sección de **instalación del agente** ](../cloud-provisioning/how-to-install.md) para completar su configuración.
+Transfiera el instalador del agente descargado al host del servidor y siga los pasos indicados [en la sección de **instalación del agente**](../cloud-sync/how-to-install.md) para completar su configuración.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: En la aplicación de aprovisionamiento, configuración de la conectividad con WorkDay y Active Directory
 En este paso, se establecerá la conectividad con WorkDay y Active Directory en Azure Portal. 
@@ -336,7 +336,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
       * Operador: IS NOT NULL
 
    > [!TIP]
-   > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito en **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de Workday. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
+   > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar [filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) en **Ámbito de objeto de origen** y [aprovisionamiento a petición](../app-provisioning/provision-on-demand.md) para probar las asignaciones con algunos usuarios de prueba de Workday. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
    > [!CAUTION] 
    > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de Workday con AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../app-provisioning/skip-out-of-scope-deletions.md).
@@ -1065,7 +1065,8 @@ Con respecto a la retención de datos, el servicio de aprovisionamiento de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Más información sobre los escenarios de integración de Azure AD y Workday y las llamadas a servicios web](../app-provisioning/workday-integration-reference.md)
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workday](workday-tutorial.md)
-* [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
+* [Aprenda a configurar la escritura diferida de Workday](workday-writeback-tutorial.md)
 * [Obtenga información sobre cómo usar Microsoft Graph API para administrar configuraciones de aprovisionamiento](/graph/api/resources/synchronization-overview)

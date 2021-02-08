@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Envío de eventos personalizados a una cola de almacenamiento: Event Grid, CLI de Azure'
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa una cola de almacenamiento.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566323"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493278"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
 
@@ -116,6 +116,11 @@ done
 Vaya a la instancia de Queue Storage en el portal y tenga en cuenta que Event Grid envió esos tres eventos a la cola.
 
 ![Mostrar mensajes](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Si usa un [desencadenador de Azure Queue Storage para Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) para una cola que recibe mensajes de Event Grid, es posible que vea el siguiente mensaje de error en la ejecución de la función: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> La razón es que, cuando se usa un [desencadenador de Azure Queue Storage](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions espera una **cadena codificada en Base64**, pero Event Grid envía mensajes a una cola de almacenamiento como texto sin formato. Actualmente, no es posible configurar el desencadenador de cola para que Azure Functions acepte el texto sin formato. 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
