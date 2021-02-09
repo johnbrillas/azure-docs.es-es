@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221959"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475191"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureBotService** | Azure Bot Service. | Salida | No | No |
 | **AzureCloud** | Todos las [direcciones IP públicas del centro de recursos](https://www.microsoft.com/download/details.aspx?id=56519). | Salida | Sí | Sí |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta etiqueta o las direcciones IP que cubre esta etiqueta se pueden usar para conceder a los indexadores un acceso seguro a los orígenes de datos. Para más información, consulte la [documentación de la conexión del indexador](../search/search-indexer-troubleshooting.md#connection-errors). <br/><br/> *Nota*: La dirección IP del servicio de búsqueda no se incluye en la lista de intervalos IP para esta etiqueta de servicio y **también se debe agregar** al firewall de IP de los orígenes de datos. | Entrada | No | No |
-| **AzureConnectors** | Conectores de Azure Logic Apps para las conexiones de sondeo y back-end. | Entrada | Sí | Sí |
+| **AzureConnectors** | Esta etiqueta representa las direcciones IP que se usan para los conectores administrados que realizan devoluciones de llamada de webhook entrantes al servicio de Azure Logic Apps y a las llamadas salientes a sus servicios respectivos, por ejemplo, Azure Storage o Azure Event Hubs. | Entrante o saliente | Sí | Sí |
 | **AzureContainerRegistry** | Azure Container Registry. | Salida | Sí | Sí |
 | **AzureCosmosDB** | Azure Cosmos DB. | Salida | Sí | Sí |
 | **AzureDatabricks** | Azure Databricks. | Ambos | No | No |
@@ -97,6 +97,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **LogicAppsManagement** | Tráfico de administración para Logic Apps. | Entrada | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Salida | No | No |
 | **MicrosoftContainerRegistry** | Registro de contenedor para imágenes de contenedor de Microsoft. <br/><br/>*Nota:* Esta etiqueta presenta dependencia con la etiqueta **AzureFrontDoor.FirstParty**. | Salida | Sí | Sí |
+| **PowerBI** | PowerBi. *Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal.* | Ambos | No | No|
 | **PowerQueryOnline** | Power Query Online. | Ambos | No | No |
 | **Service Bus** | Tráfico de Azure Service Bus que usa el nivel de servicio Premium. | Salida | Sí | Sí |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* Esta etiqueta representa el punto de conexión de servicio de Service Fabric para el plano de control por región. Esto permite a los clientes realizar operaciones de administración para sus clústeres de Service Fabric desde la red virtual (punto de conexión, p. ej. https:// westus.servicefabric.azure.com) | Ambos | No | No |
@@ -129,8 +130,8 @@ Puede obtener información de intervalo y la etiqueta de servicio actual para in
 Puede recuperar mediante programación la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [CLI de Azure](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [CLI de Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > Si bien se encuentra en versión preliminar pública, Discovery API podría devolver información menos actual que la información devuelta por las descargas de JSON. (Consulte la sección siguiente).

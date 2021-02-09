@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831931"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492762"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -69,6 +69,8 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
     - [Escalado manual del número de nodos en un clúster de AKS](../aks/scale-cluster.md)
     - [Configuración del escalador automático en AKS](../aks/cluster-autoscaler.md)
+
+- __No actualice directamente el clúster mediante una configuración de YAML__. Aunque Azure Kubernetes Services admite actualizaciones a través de la configuración de YAML, las implementaciones de Azure Machine Learning invalidarán los cambios. Los únicos dos campos de YAML que no se sobrescribirán son __Límites de solicitudes__ y __CPU y memoria__.
 
 ## <a name="azure-kubernetes-service-version"></a>Versión de Azure Kubernetes Service
 
@@ -381,7 +383,6 @@ En Azure Machine Learning Studio, seleccione __Proceso__, __Inference clusters__
 ---
 
 ## <a name="troubleshooting"></a>Solución de problemas
-
 ### <a name="update-the-cluster"></a>Actualización del clúster
 
 Las actualizaciones a componentes de Azure Machine Learning instalados en un clúster de Azure Kubernetes Service se deben aplicar manualmente. 

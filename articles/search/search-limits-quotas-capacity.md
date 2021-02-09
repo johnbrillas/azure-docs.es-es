@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591351"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493048"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -139,7 +139,7 @@ Una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md)
 
 ## <a name="throttling-limits"></a>Limitaciones
 
-Las solicitudes de indexación y de consultas de búsqueda se limitan a medida que el sistema se aproxima a la capacidad máxima. La limitación se comporta de forma diferente para las distintas API. Las API de consulta (Search/Suggest/Autocomplete) y las de indexación se limitan dinámicamente en función de la carga del servicio. Las API de indexación tienen límites estáticos de frecuencia de solicitudes. 
+Las solicitudes de API se limitan a medida que el sistema se aproxima a la capacidad máxima. La limitación se comporta de forma diferente para las distintas API. Las API de consulta (Search/Suggest/Autocomplete) y las de indexación se limitan dinámicamente en función de la carga del servicio. Las API de índice y las API de operaciones de servicio tienen límites estáticos de frecuencia de solicitud. 
 
 Límites estáticos de frecuencia de solicitudes para las operaciones relacionadas con un índice:
 
@@ -148,6 +148,10 @@ Límites estáticos de frecuencia de solicitudes para las operaciones relacionad
 + Crear índice (POST /indexes): 12 por minuto por unidad de búsqueda
 + Crear o actualizar índice (PUT /indexes/myindex): 6 por segundo por unidad de búsqueda
 + Eliminar índice (DELETE /indexes/myindex): 12 por minuto por unidad de búsqueda 
+
+Límites estáticos de frecuencia de solicitudes para las operaciones relacionadas con un servicio:
+
++ Estadísticas del servicio (GET /servicestats): 4 por segundo por unidad de búsqueda
 
 ## <a name="api-request-limits"></a>Límites de solicitud de API
 * Máximo de 16 MB por solicitud <sup>1</sup>

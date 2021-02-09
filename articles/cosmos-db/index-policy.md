@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681657"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475107"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ En Azure Cosmos DB, el almacenamiento total consumido es la combinación del tam
 
 * El tamaño del índice depende de la directiva de indexación. Si todas las propiedades están indexadas, el tamaño del índice puede ser mayor que el tamaño de los datos.
 * Cuando se eliminan datos, los índices se compactan de manera casi continua. Sin embargo, en el caso de pequeñas eliminaciones de datos, es posible que no se observe inmediatamente una disminución en el tamaño del índice.
-* El tamaño del índice puede aumentar en los casos siguientes:
-
-  * Duración de la división de particiones: el espacio del índice se libera una vez completada la división de particiones.
-  * Cuando una partición se está dividiendo, el espacio del índice aumentará temporalmente durante la división de las particiones. 
+* El tamaño del índice puede aumentar temporalmente cuando se dividen las particiones físicas. El espacio del índice se libera una vez completada la división de particiones.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusión y exclusión de rutas de acceso de propiedad
 
@@ -186,33 +183,35 @@ Debe personalizar la directiva de indexación para que pueda atender todas las c
 
 Si una consulta tiene filtros en dos o más propiedades, puede resultar útil crear un índice compuesto para estas propiedades.
 
-Por ejemplo, considere la siguiente consulta que tiene un filtro de igualdad en dos propiedades:
+Por ejemplo, considere la siguiente consulta que tiene un filtro de igualdad y uno de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Esta consulta será más eficaz, ya que tardará menos tiempo y consumirá menos RU si es capaz de aprovechar un índice compuesto en (name ASC, age ASC).
+Esta consulta será más eficaz, ya que tardará menos tiempo y consumirá menos RU si es capaz de aprovechar un índice compuesto en `(name ASC, age ASC)`.
 
-Las consultas con filtros de intervalo también se pueden optimizar con un índice compuesto. Sin embargo, la consulta solo puede tener un solo filtro de intervalo. Los filtros de intervalo incluyen `>`, `<`, `<=`, `>=` y `!=`. El filtro de intervalo debe definirse en último lugar en el índice compuesto.
+Las consultas con varios filtros de intervalo también se pueden optimizar con un índice compuesto. Sin embargo, cada índice compuesto individual solo puede optimizar un único filtro de intervalo. Los filtros de intervalo incluyen `>`, `<`, `<=`, `>=` y `!=`. El filtro de intervalo debe definirse en último lugar en el índice compuesto.
 
-Considere la consulta siguiente con los filtros de igualdad y de intervalo:
+Considere la consulta siguiente con un filtro de igualdad y dos de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Esta consulta será más eficaz con un índice compuesto de (name ASC, age ASC). Sin embargo, la consulta no utilizaría ningún índice compuesto en (age ASC, name ASC) porque los filtros de igualdad primero deben definirse en el índice compuesto.
+Esta consulta será más eficaz con un índice compuesto de `(name ASC, age ASC)` y `(name ASC, _ts ASC)`. Sin embargo, la consulta no utilizaría ningún índice compuesto en `(age ASC, name ASC)` porque las propiedades con los filtros de igualdad primero deben definirse en el índice compuesto. Se requieren dos índices compuestos independientes en lugar de un único índice compuesto en `(name ASC, age ASC, _ts ASC)`, ya que cada índice compuesto solo puede optimizar un único filtro de intervalo.
 
 Las consideraciones siguientes se usan cuando se crean índices compuestos para las consultas con filtros en varias propiedades:
 
+- Las expresiones de filtro pueden utilizar varios índices compuestos.
 - Las propiedades del filtro de la consulta deben coincidir con las del índice compuesto. Si una propiedad se encuentra en el índice compuesto, pero no se incluye en la consulta como filtro, la consulta no utilizará el índice compuesto.
 - Si una consulta tiene propiedades adicionales en el filtro que no se definieron en un índice compuesto, se usará una combinación de índices compuestos y de intervalos para evaluar la consulta. De este modo, se requerirán menos RU que si se usan exclusivamente los índices de intervalo.
-- Si una propiedad tiene un filtro de intervalo (`>`, `<`, `<=`, `>=` o `!=`), esta propiedad se debe definir en último lugar en el índice compuesto. Si una consulta tiene más de un filtro de intervalo, no utilizará el índice compuesto.
+- Si una propiedad tiene un filtro de intervalo (`>`, `<`, `<=`, `>=` o `!=`), esta propiedad se debe definir en último lugar en el índice compuesto. Si una consulta tiene más de un filtro de intervalo, puede aprovechar varios índices compuestos.
 - Al crear un índice compuesto para optimizar las consultas con varios filtros, el valor de `ORDER` del índice compuesto no tendrá ningún impacto en los resultados. Esta propiedad es opcional.
-- Si no define ningún índice compuesto para una consulta con filtros en varias propiedades, la consulta se realizará correctamente de todos modos. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto.
-- Las consultas que tengan tanto agregados (por ejemplo, COUNT o SUM) como filtros también se benefician de los índices compuestos.
-- Las expresiones de filtro pueden utilizar varios índices compuestos.
 
 Tenga en cuenta los ejemplos siguientes, en los que se define un índice compuesto en las propiedades name, age y timestamp:
 
@@ -227,43 +226,76 @@ Tenga en cuenta los ejemplos siguientes, en los que se define un índice compues
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Consultas con un filtro y una cláusula ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Consultas con un filtro y ORDER BY
 
 Si una consulta aplica un filtro en una o más propiedades y tiene propiedades diferentes en la cláusula ORDER BY, puede resultar útil agregar las propiedades del filtro a la cláusula `ORDER BY`.
 
-Por ejemplo, al agregar las propiedades del filtro a la cláusula ORDER BY, se podría volver a escribir la siguiente consulta para aprovechar un índice compuesto:
+Por ejemplo, al agregar las propiedades del filtro a la cláusula `ORDER BY`, se podría volver a escribir la siguiente consulta para aprovechar un índice compuesto:
 
 Consulta mediante un índice de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Consulta mediante un índice de compuesto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-El mismo patrón y las optimizaciones de consulta se pueden generalizar para consultas con varios filtros de igualdad:
+Las mismas optimizaciones de consulta se pueden generalizar para cualquier consulta de `ORDER BY` con filtros, teniendo en cuenta que los índices compuestos individuales solo pueden admitir, como máximo, un filtro de intervalo.
 
 Consulta mediante un índice de intervalo:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Consulta mediante un índice de compuesto:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+Además, puede usar índices compuestos para optimizar las consultas con funciones del sistema y ORDER BY:
+
+Consulta mediante un índice de intervalo:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Consulta mediante un índice de compuesto:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 Las consideraciones siguientes se usan cuando se crean índices compuestos para optimizar una consulta con un filtro y una cláusula `ORDER BY`:
 
+* Si no define ningún índice compuesto en una consulta con un filtro en una propiedad y una cláusula independiente `ORDER BY` mediante una propiedad diferente, la consulta se realizará correctamente. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto, especialmente si la propiedad de la cláusula `ORDER BY` tiene una cardinalidad alta.
 * Si la consulta aplica filtros en las propiedades, estos deben incluirse en primer lugar en la cláusula `ORDER BY`.
 * Si la consulta aplica filtros en varias propiedades, los filtros de igualdad deben ser las primeras propiedades de la cláusula `ORDER BY`.
-* Si no define ningún índice compuesto en una consulta con un filtro en una propiedad y una cláusula independiente `ORDER BY` mediante una propiedad diferente, la consulta se realizará correctamente. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto, especialmente si la propiedad de la cláusula `ORDER BY` tiene una cardinalidad alta.
+* Si la consulta filtra varias propiedades, puede tener un máximo de un filtro de intervalo o una función del sistema utilizada por índice compuesto. La propiedad usada en el filtro de intervalo o en la función del sistema se debe definir en último lugar en el índice compuesto.
 * Todavía se aplican todas las consideraciones para crear índices compuestos para consultas `ORDER BY` con varias propiedades, así como consultas con filtros en varias propiedades.
 
 
@@ -276,6 +308,7 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 

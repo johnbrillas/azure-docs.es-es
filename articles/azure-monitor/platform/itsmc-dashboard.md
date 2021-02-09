@@ -1,63 +1,78 @@
 ---
-title: Investigación de errores mediante el panel
-description: Este documento contiene información sobre la investigación de errores mediante el panel
+title: Investigación de errores mediante el panel de ITSMC
+description: Aprenda a usar el panel de Conector de Administración de servicios de TI para investigar los errores.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 9a43318ed935dd1e71b6da75c9f078fbebbd29eb
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5cbd501b9ccb408ee23cb5c8ed9cde2689ef79fb
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599024"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492542"
 ---
-# <a name="error-investigation-using-the-dashboard"></a>Investigación de errores mediante el panel
+# <a name="investigate-errors-by-using-the-itsmc-dashboard"></a>Investigación de errores mediante el panel de ITSMC
 
-Esta página contiene información sobre el panel del conector de ITSM. Este panel le ayudará a investigar el estado del conector de ITSM.
+Este artículo contiene información sobre el panel de Conector de Administración de servicios de TI (ITSMC). El panel le ayuda a investigar el estado del conector.
 
-## <a name="how-to-view-the-dashboard"></a>Visualización del panel
+## <a name="view-errors"></a>Visualización de errores
 
-Para ver los errores en el panel, siga estos pasos:
+Para ver los errores en el panel:
 
-1. En **Todos los recursos**, busque **ServiceDesk(*nombre de su área de trabajo*)** :
+1. Seleccione **Todos los recursos** y busque **ServiceDesk(*nombre de su área de trabajo*)** .
 
-   ![Captura de pantalla en la que se muestran los recursos recientes en Azure Portal.](media/itsmc-definition/create-new-connection-from-resource.png)
+   ![Captura de pantalla que muestra los recursos de lo servicios de Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 2. En **Orígenes de datos del área de trabajo** en el panel de la izquierda, seleccione **Conexiones de ITSM**:
 
-   ![Captura de pantalla en la que se muestra el elemento de menú Conexiones de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Captura de pantalla que muestra la selección de conexiones de ITSM en Orígenes de datos del área de trabajo.](media/itsmc-overview/add-new-itsm-connection.png)
 
-3. En **Resumen**, en el cuadro **Conector de Administración de servicios de TI** de la izquierda, seleccione **Ver resumen**:
+3. En **Resumen**, en el área del **Conector de Administración de servicios de TI**, seleccione **Ver resumen**:
 
-    ![Captura de pantalla que muestra Ver resumen.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+   ![Captura de pantalla que muestra el botón Ver resumen.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
 
-4. En **Resumen**, en el cuadro **Conector de Administración de servicios de TI** de la izquierda, haga clic en el grafo:
+4. Cuando aparezca un gráfico en el área del **Conector de Administración de servicios de TI**, selecciónelo:
 
-    ![Captura de pantalla que muestra el clic en el grafo.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+   ![Captura de pantalla que muestra la selección de un gráfico.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
 
-5. Con este panel podrá revisar el estado y los errores del conector.
-    ![Captura de pantalla que muestra el estado del conector.](media/itsmc-resync-servicenow/connector-dashboard.png)
+5. Aparecerá el panel. Úselo para revisar el estado y los errores del conector.
+   
+   ![Captura de pantalla que muestra el estado del conector en el panel.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
-## <a name="dashboard-elements"></a>Elementos del panel
+## <a name="understand-dashboard-elements"></a>Descripción de los elementos del panel
 
-El panel contiene información sobre las alertas que se enviaron a la herramienta ITSM mediante este conector.
-Asimismo, el panel se divide en cuatro partes:
+El panel contiene información sobre las alertas que se enviaron a la herramienta ITSM mediante este conector. Asimismo, el panel se divide en cuatro partes.
 
-1. Elemento de trabajo creado: el gráfico y la tabla siguiente contienen el recuento de los elementos de trabajo por tipo. Si hace clic en el gráfico o en la tabla, podrá ver más detalles sobre los elementos de trabajo.
-    ![Captura de pantalla que muestra el elemento de trabajo creado.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-2. Equipos afectados: las tablas contienen detalles sobre los elementos de configuración que crearon elementos de configuración.
-    Al hacer clic en las filas de las tablas, puede obtener más detalles sobre los elementos de configuración.
-    La tabla contiene un número limitado de filas, pero si desea ver toda la lista, puede hacer clic en "Ver todo".
-    ![Captura de pantalla que muestra los equipos afectados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-3. Estado del conector: el gráfico y la tabla siguiente contienen mensajes sobre el estado del conector. Al hacer clic en el gráfico de las filas de la tabla, puede obtener más detalles sobre los mensajes del estado del conector.
-    La tabla contiene un número limitado de filas, pero si desea ver toda la lista, puede hacer clic en "Ver todo".
+### <a name="created-work-items"></a>Elementos de trabajo creados 
 
-    Puede ver los detalles de los mensajes de la tabla [aquí](itsmc-dashboard-errors.md).
+En el área **ELEMENTOS DE TRABAJO CREADOS**, el gráfico y la tabla que están debajo contienen el recuento de los elementos de trabajo por tipo. Si selecciona el gráfico o la tabla, podrá ver más detalles sobre los elementos de trabajo.
 
-    ![Captura de pantalla que muestra el estado del conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-4. Reglas de alertas: las tablas contienen información sobre el número de reglas de alerta que se detectaron.
-    Al hacer clic en las filas de las tablas, puede obtener más detalles sobre las reglas que se detectaron.
-    La tabla contiene un número limitado de filas, pero si desea ver toda la lista, puede hacer clic en "Ver todo".
-    ![Captura de pantalla que muestra las reglas de alertas.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+![Captura de pantalla que muestra el elemento de trabajo creado.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+
+### <a name="affected-computers"></a>Equipos afectados 
+
+En el área **EQUIPOS AFECTADOS**, en la tabla se enumeran los equipos y sus elementos de trabajo asociados. Al seleccionar las filas de las tablas, puede obtener más detalles sobre los equipos.
+
+La tabla contiene un número limitado de filas. Si quiere ver todas las filas, seleccione **Ver todo**.
+
+![Captura de pantalla que muestra los equipos afectados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+
+### <a name="connector-status"></a>Estado del conector 
+
+En el área **ESTADO DEL CONECTOR**, el gráfico y la tabla que están debajo contienen mensajes sobre el estado del conector. Al seleccionar el gráfico o las filas de la tabla, puede obtener más detalles sobre los mensajes.
+
+La tabla contiene un número limitado de filas. Si quiere ver todas las filas, seleccione **Ver todo**.
+
+Para obtener más información sobre los mensajes de la tabla, consulte [este artículo](itsmc-dashboard-errors.md).
+
+![Captura de pantalla que muestra el estado del conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+
+### <a name="alert-rules"></a>Las reglas de alertas 
+
+En el área **REGLAS DE ALERTAS**, las tablas contienen información sobre el número de reglas de alertas que se detectaron. Al seleccionar las filas de la tabla, puede obtener más detalles sobre las reglas detectadas.
+    
+La tabla contiene un número limitado de filas. Si quiere ver todas las filas, seleccione **Ver todo**.
+
+![Captura de pantalla que muestra las reglas de alertas.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403388"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475495"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
@@ -100,7 +100,7 @@ El análisis de imágenes es un proceso intensivo a nivel computacional, incluso
 
 El tiempo máximo de ejecución varía según el nivel: varios minutos en el nivel gratuito, y una indexación de 24 horas en niveles de pago. Si el procesamiento no se completa dentro de un período de 24 horas según el procesamiento bajo demanda, use una programación en la que el indexador pueda retomar el procesamiento desde donde lo dejó. 
 
-En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Cree un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
+En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para obtener más información acerca de la sintaxis de programación, consulte [Programación de un indexador](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indexador se bloqueara en un punto determinado, puede realizar una ejecución a petición del indexador y, si avanza correctamente, el indexador volverá a su intervalo de programación establecido.
@@ -115,6 +115,6 @@ Para realizar una [indexación paralela](search-howto-large-index.md), coloque l
 
 + [Inicio rápido: Cree una canalización de enriquecimiento con IA en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Obtenga información sobre las API REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
-+ [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Configuración de indexadores de blobs](search-howto-indexing-azure-blob-storage.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Asignar campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)

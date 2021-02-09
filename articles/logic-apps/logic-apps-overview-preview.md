@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760629"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430804"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Introducción: Versión preliminar de Azure Logic Apps
 
@@ -168,6 +168,8 @@ Para obtener más información sobre los modelos de precios que se aplican a est
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Capacidades modificadas, limitadas, no disponibles o no admitidas
 
 En la versión preliminar de Azure Logic Apps, estas capacidades han cambiado, o bien están limitadas, no están disponibles o no se admiten:
+
+* **Compatibilidad con SO**: Actualmente, el diseñador de Visual Studio Code no funciona en el sistema operativo Linux, pero puede implementar aplicaciones lógicas que usan el entorno en tiempo de ejecución de la versión preliminar de Logic Apps en máquinas virtuales basadas en Linux. Por ahora, puede compilar las aplicaciones lógicas en Visual Studio Code en Windows o macOS y, luego, implementarlas en una máquina virtual basada en Linux.
 
 * **Desencadenadores y acciones**: algunos desencadenadores integrados no están disponibles, como Ventana deslizante y Lote. Para iniciar el flujo de trabajo, use el [desencadenador integrado Solicitud, HTTP, HTTP Webhook, Event Hubs o Service Bus](../connectors/apis-list.md). Los desencadenadores y las acciones integrados se ejecutan de forma nativa en el runtime de la versión preliminar de Azure Logic Apps, mientras que los conectores administrados se implementan en Azure. En el diseñador, las acciones y los desencadenadores integrados aparecen en la pestaña **Integrados**, mientras que las acciones y los desencadenadores de los conectores administrados aparecen en la pestaña **Azure**.
 

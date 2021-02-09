@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029573"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493844"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -62,16 +62,19 @@ Para usar un [__destino de proceso__ de Azure Machine Learning](concept-compute-
 > * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster o la instancia de Proceso de Azure Machine Learning. 
 > * Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, asegúrese de que la comunicación de socket web no esté deshabilitada. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
 > * Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms` con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
+> * La subred que se usa para implementar la instancia o el clúster de proceso no se debe delegar a ningún otro servicio como ACI.
+> * Las directivas de punto de conexión de servicio de red virtual no funcionan para las cuentas de almacenamiento del sistema de la instancia o el clúster de proceso.
+
     
 > [!TIP]
 > El clúster o la instancia de proceso de Machine Learning asigna automáticamente recursos de red adicionales __al grupo de recursos que contiene la red virtual__. Para cada clúster o instancia de proceso, el servicio asigna los recursos siguientes:
 > 
 > * Un grupo de seguridad de red
-> * Una dirección IP pública
+> * Una dirección IP pública. Si tiene una directiva de Azure que prohíbe la creación de la dirección IP pública, se producirá un error en la implementación del clúster o de las instancias.
 > * Un equilibrador de carga
 > 
 > En el caso de los clústeres, estos recursos se eliminan (y se vuelven a crear) cada vez que el clúster se reduce verticalmente hasta quedarse sin ningún nodo. Sin embargo, para una instancia, los recursos se retienen hasta que esta se elimina completamente (los recursos no se eliminan con la detención). 
-> Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción.
+> Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si el grupo de recursos de red virtual está bloqueado, se producirá un error en la eliminación de la instancia o el clúster de proceso. No se puede eliminar el equilibrador de carga hasta que se elimine la instancia o el clúster de proceso.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Puertos necesarios

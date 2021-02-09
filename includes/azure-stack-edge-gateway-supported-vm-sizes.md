@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 9ea5fb26a52c967c5296f1a83976e748c86c9e18
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763696"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475054"
 ---
-El tamaño de la máquina virtual determina la cantidad de recursos de proceso, como memoria, CPU y GPU, que están disponibles para la máquina virtual. Las máquinas virtuales deben crearse con un tamaño de máquina virtual adecuado para la carga de trabajo. Aunque todas las máquinas se ejecutarán en el mismo hardware, los tamaños de máquina tienen límites diferentes para el acceso al disco, lo que puede ayudarle a administrar el acceso total al disco en todas las máquinas virtuales. Si esta aumenta, también se puede cambiar el tamaño de las máquinas virtuales existentes.
+El tamaño de la máquina virtual determina la cantidad de recursos de proceso (como memoria, CPU y GPU) que están disponibles para la máquina virtual. Debe crear máquinas virtuales con un tamaño adecuado para la carga de trabajo. Aunque todas las máquinas se ejecutarán en el mismo hardware, los tamaños de máquina tienen límites diferentes para el acceso al disco, lo que puede ayudarle a administrar el acceso total al disco en todas las máquinas virtuales. Si una carga de trabajo aumenta, también se puede cambiar el tamaño de una máquina virtual existente.
 
 Se admiten las siguientes máquinas virtuales para la creación en un dispositivo de Azure Stack Edge.
 
@@ -40,7 +40,7 @@ Se admiten las siguientes máquinas virtuales para la creación en un dispositiv
 |**Standard_DS13_v2**|8   |56  |112|32000 |1000 |16 |8 |
 
 
-Para obtener más información, vaya a los [tamaños de VM de uso general de la serie Dv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+Para obtener más información, vea [Series Dv2 y Dsv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### <a name="ncast4_v3-series-preview"></a>NCasT4_v3-series (versión preliminar)
 
@@ -51,7 +51,7 @@ Estos tamaños se admiten en las máquinas virtuales de GPU incluidas en el disp
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1000|1 |16  |8 |
 
-Para obtener más información, vaya a los [tamaños de máquinas virtuales optimizadas para GPU de NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
+Para más información, consulte [Serie NCasT4_v3](../articles/virtual-machines/nct4-v3-series.md).
 
 ### <a name="f-series"></a>Serie F
 
@@ -70,5 +70,5 @@ Estas series están optimizadas para cargas de trabajo de cálculo y se ejecutan
 | Standard_F8s | 8 | 16 |32 |1000| 32 |  8 |
 | Standard_F16s | 16 | 32 |64 |1000| 64 |  8 |
 
-Para obtener más información, vaya a los [tamaños de máquina virtual optimizados para proceso de Fsv2-series](../articles/virtual-machines/fsv2-series.md).
+Para obtener más información, vea [Serie Fsv2](../articles/virtual-machines/fsv2-series.md).
 

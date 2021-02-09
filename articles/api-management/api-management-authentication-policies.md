@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071292"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492610"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -67,7 +67,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** todos los ámbitos
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticación Básica
- Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](./api-management-howto-mutual-certificates.md) y se identifica mediante su huella digital.
+ Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar en API Management](./api-management-howto-mutual-certificates.md) primero y se identifica mediante su huella digital o id. de certificado (nombre del recurso). 
+
+> [!CAUTION]
+> Si el certificado hace referencia a un certificado almacenado en Azure Key Vault, se identifica mediante el id. de certificado. Cuando se gira un certificado de Key Vault, su huella digital en API Management cambiará, por lo que la directiva no resolverá el nuevo certificado si se identifica mediante la huella digital.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -77,18 +80,17 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ### <a name="examples"></a>Ejemplos
 
-En este ejemplo, el certificado de cliente se identifica mediante su huella digital:
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-En este ejemplo, el certificado de cliente se identifica mediante el nombre de recurso:
+En este ejemplo, el certificado de cliente se identifica mediante el id. de certificado:
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+En este ejemplo, el certificado de cliente se identifica mediante su huella digital:
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 En este ejemplo, el certificado de cliente se establece en la directiva en lugar de recuperarlo del almacén de certificados integrado:
 
 ```xml

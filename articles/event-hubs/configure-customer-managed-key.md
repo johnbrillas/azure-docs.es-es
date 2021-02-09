@@ -2,24 +2,20 @@
 title: Configuración de su propia clave para cifrar datos en reposo de Azure Event Hubs
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 095def84c5ab5e4dac7802027468b67eefb3161f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 02/01/2021
+ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625388"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430686"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
-Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
-
-## <a name="overview"></a>Información general
-Azure Event Hubs ahora admite la opción de cifrado de datos en reposo con claves administradas por Microsoft o claves administradas por el cliente (Bring Your Own Key – BYOK). Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar datos en reposo de Azure Event Hubs.
-
-La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
+Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). El servicio de Event Hubs usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
 
 > [!NOTE]
-> La funcionalidad BYOK es compatible con los clústeres [dedicados de un solo inquilino de Event Hubs](event-hubs-dedicated-overview.md). No se puede habilitar para espacios de nombres de Event Hubs estándar.
+> - La funcionalidad BYOK es compatible con los clústeres [dedicados de un solo inquilino de Event Hubs](event-hubs-dedicated-overview.md). No se puede habilitar para espacios de nombres de Event Hubs estándar.
+> - El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene centros de eventos, se producirá un error en la operación de cifrado.
 
 Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -62,7 +58,7 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
     1. Ahora puede seleccionar esta clave para asociarla con el espacio de nombres de Event Hubs para el cifrado en la lista desplegable. 
 
         ![Selección de clave del almacén de claves](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. Rellene los detalles de la clave y haga clic en **Seleccionar**. Esto habilitará el cifrado de datos en reposo en el espacio de nombres con una clave administrada por el cliente. 
+    1. Rellene los detalles de la clave y haga clic en **Seleccionar**. Esto habilitará el cifrado de la clave administrada por Microsoft con su clave (clave administrada por el cliente). 
 
 
 ## <a name="rotate-your-encryption-keys"></a>Rotación de las claves de cifrado
@@ -74,7 +70,7 @@ Al revocar el acceso a las claves de cifrado, no se purgan los datos de Event Hu
 Una vez revocada la clave de cifrado, el servicio Event Hubs en el espacio de nombres cifrado dejará de ser operativo. Si el acceso a la clave está habilitado o si se ha restaurado la clave eliminada, el servicio Event Hubs seleccionará la clave para que pueda acceder a los datos desde el espacio de nombres de Event Hubs cifrado.
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos 
-La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones cuando se cifra un espacio de nombres con claves administradas por el cliente. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Habilitación de registros de usuario
 Siga estos pasos para habilitar registros para las claves administradas por el cliente.

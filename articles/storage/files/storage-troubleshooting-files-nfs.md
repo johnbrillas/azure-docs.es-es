@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878500"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430669"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Solución de problemas de recursos compartidos de archivos NFS de Azure
 
@@ -67,7 +67,6 @@ NFS solo está disponible en las cuentas de almacenamiento con la siguiente conf
 
 - Nivel: Prémium
 - Tipo de cuenta: FileStorage
-- Redundancia: LRS
 - Regiones: [lista de las regiones admitidas](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solución
@@ -150,6 +149,17 @@ El protocolo NFS se comunica con su servidor a través del puerto 2049; asegúr
 #### <a name="solution"></a>Solución
 
 Compruebe que el puerto 2049 está abierto en el cliente mediante la ejecución del siguiente comando: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. Si el puerto no está abierto, ábralo.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (list files) muestra resultados incorrectos o incoherentes
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Causa: Incoherencia entre valores almacenados en caché y valores de metadatos de archivo de servidor cuando el identificador de archivo está abierto
+A veces, el comando "list files" muestra un tamaño distinto de cero según lo esperado y, en su lugar, en los comandos list files siguientes muestra un tamaño de cero o una marca de tiempo muy antigua. Se trata de un problema conocido debido al almacenamiento en caché incoherente de los valores de metadatos de archivo mientras el archivo está abierto. Para resolver el problema, puede usar una de las siguientes soluciones alternativas:
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Alternativa 1: Para obtener el tamaño de archivo, use wc -c en lugar de ls -l
+El uso de wc -c siempre recuperará el valor más reciente del servidor y no tendrá ninguna incoherencia.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>Alternativa 2: Use la marca de montaje "noac"
+Vuelva a montar el sistema de archivos mediante la marca "noac" con el comando mount. De esta forma, siempre obtendrá todos los valores de metadatos del servidor. Puede haber cierta sobrecarga de rendimiento secundaria para todas las operaciones de metadatos si se usa esta solución alternativa.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

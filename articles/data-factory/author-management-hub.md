@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486138"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429011"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de administración de Azure Data Factory
 
@@ -40,7 +40,11 @@ Un entorno de ejecución de integración es la infraestructura de proceso que Az
 
 ### <a name="git-configuration"></a>Configuración de Git
 
-Vea y edite la configuración del repositorio de Git configurada en el centro de administración. Para más información, consulte [Control de código fuente en Azure Data Factory](source-control.md).
+Puede ver o editar toda la información relacionada con Git en los valores de configuración de Git en la central de administración. 
+
+La última información de confirmación publicada también se muestra y puede ayudar a comprender la confirmación precisa, que se publicó o implementó por última vez en entornos. También puede ser útil cuando se realizan revisiones en producción.
+
+Para más información, consulte [Control de código fuente en Azure Data Factory](source-control.md).
 
 ![Administración del repositorio de Git](media/author-management-hub/management-hub-git.png)
 

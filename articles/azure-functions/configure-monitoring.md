@@ -4,12 +4,12 @@ description: Aprenda a conectar la aplicación de funciones a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684715"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493760"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Configuración de la supervisión para Azure Functions
 
@@ -228,6 +228,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
+
+Con el registro del controlador de escala habilitado, ahora puede [consultar los registros del controlador de escala](analyze-telemetry-data.md#query-scale-controller-logs). 
 
 ## <a name="enable-application-insights-integration"></a>Habilitación de la integración de Application Insights
 

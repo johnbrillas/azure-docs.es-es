@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685602"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493827"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -120,7 +120,7 @@ Para orígenes de datos en la nube:
 
 ## <a name="service-principal-authentication"></a>Autenticación de la entidad de servicio
 
-Cuando se especifica como un origen de datos del *proveedor*, Azure Analysis Services admite la autenticación de entidad de servicio de Azure Active Directory[MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) para los orígenes de datos de Azure SQL Database y Azure Synapse.
+Cuando se especifica como un origen de datos del *proveedor*, Azure Analysis Services admite la autenticación de entidad de servicio de Azure Active Directory [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) para los orígenes de datos de Azure SQL Database y Azure Synapse.
 
 `
 Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>Credenciales de OAuth
 
-En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior con el modo en memoria, Azure SQL Database, Azure Synapse, Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante Power Query.
+En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior con el modo *en memoria*, Azure SQL Database, Azure Synapse, Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Para generar tokens válidos, establezca las credenciales mediante Power Query. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. 
+> [!NOTE]
+> No se admite la actualización de tokens administrados para orígenes de datos a los que se accede a través de una puerta de enlace. Por ejemplo, se tiene acceso a uno o varios orígenes de datos de consulta de mashup a través de una puerta de enlace o la propiedad [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) está establecida en **true**. 
 
 El modo de consulta directa no es compatible con las credenciales de OAuth.
 

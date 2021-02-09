@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533417"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430737"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una instancia de SAP Business Warehouse (BW) con Open Hub. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -38,7 +39,7 @@ Puede copiar los datos desde SAP Business Warehouse con Open Hub en cualquier al
 
 Concretamente, este conector de Open Hub para SAP Business Warehouse admite:
 
-- SAP Business Warehouse **versión 7.01 o posteriores (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015)** . Este conector no admite SAP BW4/HANA.
+- SAP Business Warehouse **versión 7.01 o posteriores (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015)** . Este conector no admite SAP BW/4HANA.
 - Copiar datos con la tabla local del destino Open Hub que, de forma subyacente, puede ser DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copiar datos con la autenticación básica.
 - Conexión a un servidor de aplicaciones SAP o a un servidor de mensajes SAP.
@@ -59,7 +60,7 @@ El conector Open Hub para ADF SAP BW ofrece dos propiedades opcionales: `exclude
 - **excludeLastRequestId**: Si desea excluir los registros de la última solicitud. El valor predeterminado es true. 
 - **baseRequestId**: El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud mayor que el valor de esta propiedad. 
 
-En general, la extracción de InfoProviders de SAP a Azure Data Factory (ADF) consta de 2 pasos: 
+En general, la extracción de InfoProviders de SAP a Azure Data Factory (ADF) consta de dos pasos: 
 
 1. **Proceso de transferencia de datos (DTP) de SAP BW**: en este paso se copian los datos desde InfoProvider para SAP BW a una tabla de Open Hub para SAP BW. 
 

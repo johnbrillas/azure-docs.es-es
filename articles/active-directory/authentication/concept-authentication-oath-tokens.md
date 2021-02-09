@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 02/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d04075b415bace4104a58e8221d764355d3318d0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744285"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475005"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticación en Azure Active Directory: tokens OATH
 
@@ -37,25 +37,25 @@ Los tokens de hardware TOTP de OATH suelen incluir una clave secreta, o valor de
 
 Los tokens de hardware TOTP de OATH programables que se pueden reinicializar también se pueden configurar con Azure AD en el flujo de configuración de los tokens de software.
 
-Los tokens de hardware OATH se admiten como parte de una versión preliminar pública. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Los tokens de hardware OATH se admiten como parte de una versión preliminar pública. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Carga de tokens OATH en la hoja de tokens OATH de MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de valores separados por comas (CSV), incluidos los valores de UPN, número de serie, clave secreta, intervalo de tiempo, fabricante y modelo, como se muestra en el ejemplo siguiente.
+Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de valores separados por comas (CSV), incluidos los valores de UPN, número de serie, clave secreta, intervalo de tiempo, fabricante y modelo, como se muestra en el ejemplo siguiente:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
-```
+```  
 
 > [!NOTE]
-> Asegúrese de incluir la fila de encabezado en el archivo CSV.
+> Asegúrese de incluir la fila de encabezado en el archivo CSV. Si un UPN tiene una comilla simple, debe aplicar el escape con otra comilla simple. Por ejemplo, si el UPN es my’user@domain.com, cámbielo a my’’user@domain.com al cargar el archivo.
 
 Una vez formateado correctamente como archivo CSV, un administrador puede iniciar sesión en Azure Portal e ir a **Azure Active Directory > Seguridad > MFA > Tokens OATH** y cargar el archivo CSV resultante.
 
-En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Seleccione el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, puede descargar un archivo CSV que enumere los errores para poder resolverlos. Los nombres de campo del archivo CSV descargado son diferentes de los de la versión cargada.
+En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Seleccione el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, puede descargar un archivo CSV que enumere los errores para poder resolverlos. Los nombres de campo del archivo CSV descargado son diferentes de los de la versión cargada.  
 
-Una vez solucionados los errores, para activar cada clave, el administrador puede seleccionar **Activar** para el token y escribir la OTP que se muestra en el token.
+Una vez solucionados los errores, para activar cada clave, el administrador puede seleccionar **Activar** para el token y escribir la OTP que se muestra en el token. Puede activar un máximo de 200 tokens OATH cada 5 minutos. 
 
 Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OATH o aplicaciones de autenticación, como la aplicación Microsoft Authenticator, configurada para utilizarse en cualquier momento.
 

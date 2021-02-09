@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814302"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474853"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Aptitud cognitiva de extracción de documentos
 
@@ -37,7 +37,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Entradas | Valores permitidos | Descripción |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Se establece en `default` para la extracción de documentos desde archivos que no son de texto puro o JSON. Se establece en `text` para mejorar el rendimiento en los archivos de texto sin formato. Se establece en `json` para extraer contenido estructurado de los archivos JSON. Si `parsingMode` no se define explícitamente, se establecerá en `default`. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Se establece en `contentAndMetadata` para extraer todos los metadatos y el contenido textual de cada archivo. Se establece en `allMetadata` para extraer solo los [metadatos específicos del tipo de contenido](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por ejemplo, los metadatos únicos de los archivos .png). Si `dataToExtract` no se define explícitamente, se establecerá en `contentAndMetadata`. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Se establece en `contentAndMetadata` para extraer todos los metadatos y el contenido textual de cada archivo. Se establece en `allMetadata` para extraer solo las [propiedades de metadatos del tipo de contenido](search-blob-metadata-properties.md) (por ejemplo, los metadatos únicos de los archivos .png). Si `dataToExtract` no se define explícitamente, se establecerá en `contentAndMetadata`. |
 | `configuration` | Véase a continuación. | Diccionario de parámetros opcionales que ajustan el modo en que se realiza la extracción de documentos. Consulta la tabla siguiente para obtener descripciones de las propiedades de configuración admitidas. |
 
 | Parámetro de configuración   | Valores permitidos | Descripción |

@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222877"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493726"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Actualización de direcciones IP públicas
 
-Las direcciones IP públicas de Azure se crean con una SKU (de nivel básico o estándar) que determina los aspectos de su funcionalidad (como el método de asignación, el uso entre zonas de disponibilidad y los recursos a los que se pueden asociar). 
+Las direcciones IP públicas de Azure se crean con una SKU (de nivel básico o estándar) que determina los aspectos de su funcionalidad (como el método de asignación, la compatibilidad de características y los recursos a los que se pueden asociar). 
 
 En este artículo se revisan los siguientes escenarios:
-* Actualización de una dirección IP pública con una SKU de nivel básico a estándar (mediante el portal, PowerShell o la CLI)
+* Actualización de una dirección IP pública con una SKU de nivel básico a estándar (mediante PowerShell o la CLI)
 * Migración de una dirección IP reservada de Azure clásico a una dirección IP pública con una SKU de nivel básico de Azure Resource Manager
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Actualización de la dirección IP pública con una SKU de nivel básico a estándar

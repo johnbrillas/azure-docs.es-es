@@ -3,12 +3,12 @@ title: 'Conceptos: interconectividad de red'
 description: Conozca los aspectos clave y los casos de uso de redes e interconectividad en Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575765"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475427"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceptos de interconectividad y redes de Azure VMware Solution
 
@@ -53,15 +53,16 @@ En el diagrama siguiente se muestra la interconectividad local a nube privada, q
 * Cross-vCenter vMotion frecuente/poco frecuente
 * Acceso de administración desde los entornos locales a la nube privada de Azure VMware Solution
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Conectividad de red virtual básica a nube privada" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Red virtual y conectividad de nube privada local completa" border="false":::
 
-Para una interconectividad total a la nube privada, habilite ExpressRoute Global Reach y solicite una clave de autorización y un identificador de emparejamiento privado de Global Reach en Azure Portal. La clave de autorización y el identificador de emparejamiento se usan para establecer Global Reach entre un circuito ExpressRoute de la suscripción y el circuito ExpressRoute de la nueva nube privada. Una vez vinculados, los dos circuitos ExpressRoute enrutan el tráfico de red entre los entornos locales a la nube privada.  Vea el [tutorial para crear un emparejamiento de ExpressRoute Global Reach con una nube privada](tutorial-expressroute-global-reach-private-cloud.md) para conocer los procedimientos necesarios para solicitar y usar la clave de autorización y el identificador de emparejamiento.
-
-
+Para una interconectividad total a la nube privada, habilite ExpressRoute Global Reach y solicite una clave de autorización y un identificador de emparejamiento privado de Global Reach en Azure Portal. La clave de autorización y el identificador de emparejamiento se usan para establecer Global Reach entre un circuito ExpressRoute de la suscripción y el circuito ExpressRoute de la nueva nube privada. Una vez vinculados, los dos circuitos ExpressRoute enrutan el tráfico de red entre los entornos locales a la nube privada.  Para conocer los procedimientos necesarios para solicitar y usar la clave de autorización y el identificador de emparejamiento, vea el [tutorial para crear un emparejamiento de ExpressRoute Global Reach con una nube privada](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Pasos siguientes 
-Información sobre los [conceptos de almacenamiento en la nube privada](concepts-storage.md)
 
+Ahora que ha tratado estos conceptos de red e interconectividad, puede que quiera obtener información sobre:
+
+- [Conceptos de almacenamiento de Azure VMware Solution](concepts-storage.md).
+- [Conceptos de identidad en Azure VMware Solution](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d6a8276de9674266415604e8654034f129da8f50
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757481"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430954"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de compatibilidad de Azure Disk Backup (en versión preliminar)
 
@@ -22,7 +22,7 @@ Puede usar [Azure Backup](./backup-overview.md) para proteger los discos de Azur
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Centro-oeste de EE. UU., Este de EE. UU. 2, Centro de Corea del Sur, Sur de Corea del Sur, Japón Occidental, Norte de Emiratos Árabes Unidos. 
+Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Oeste de EE. UU., Centro-oeste de EE. UU., Este de EE. UU  2, Centro de Canadá, Oeste de Reino Unido, Centro de Australia, Centro de Corea del Sur, Sur de Corea del Sur, Japón Occidental, Este de Asia, Norte de Emiratos Árabes Unidos, Sur de Brasil, Centro de la India. 
 
 Se anunciarán más regiones cuando estén disponibles.
 
@@ -65,6 +65,8 @@ Se anunciarán más regiones cuando estén disponibles.
 - Managed Disks permite cambiar el nivel de rendimiento en la implementación o después sin cambiar el tamaño del disco. La solución Azure Disk Backup admite los cambios del nivel de rendimiento en el disco de origen del que se está haciendo la copia de seguridad. Durante la restauración, el nivel de rendimiento del disco restaurado será el mismo que el del disco de origen en el momento de la copia de seguridad. Siga la documentación [aquí](../virtual-machines/disks-performance-tiers-portal.md) para cambiar el nivel de rendimiento del disco después de la operación de restauración.
 
 - La compatibilidad de las instancias de [Private Link](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) con discos administrados permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Azure Disk Backup admite la copia de seguridad de discos que tienen habilitados los puntos de conexión privados. Esto no incluye los datos de la copia de seguridad ni las instantáneas que sean accesibles a través del punto de conexión privado.
+
+- Durante la versión preliminar, no puede deshabilitar la copia de seguridad, por lo que la opción **Stop backup and retain backup data** (Detener copia de seguridad y retener datos de copia de seguridad) no se admite. Puede eliminar una instancia de copia de seguridad, que no solo detendrá la copia de seguridad, sino que también eliminará todos los datos de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733950"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429473"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -217,7 +217,7 @@ Compruebe uno o varios de los siguientes síntomas antes de desencadenar la oper
 
   - Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual.
   - Apagado de la máquina virtual, por lo que no se pueden realizar copias de seguridad.
-  - Problemas de red.
+  - [Problemas de red](#usererrorvminternetconnectivityissue)
 
    ![Repetición del registro de máquinas virtuales](./media/backup-azure-sql-database/re-register-vm.png)
 
