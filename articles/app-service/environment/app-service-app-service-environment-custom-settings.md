@@ -1,18 +1,18 @@
 ---
 title: Configuración personalizada
 description: Configure los valores que se aplican a todo el entorno de Azure App Service. Aprenda a hacerlo con plantillas de Azure Resource Manager.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713285"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226395"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
@@ -61,7 +61,7 @@ Por ejemplo, si un entorno de App Service tiene cuatro front-ends, tardará apro
 
 ## <a name="enable-internal-encryption"></a>Habilitación del cifrado interno
 
-App Service Environment funciona como sistema de caja negra en el que no se pueden ver los componentes internos ni la comunicación dentro del sistema. Para permitir mayor capacidad de proceso, no se habilita el cifrado de forma predeterminada entre los componentes internos. El sistema es seguro, ya que no se puede acceder al tráfico ni supervisarlo de manera alguna. En cambo, si tiene un requisito de cumplimiento normativo que requiera un cifrado completo de la ruta de acceso a los datos de un extremo a otro, existe una manera de habilitarlo con clusterSetting.  
+App Service Environment funciona como sistema de caja negra en el que no se pueden ver los componentes internos ni la comunicación dentro del sistema. Para permitir mayor capacidad de proceso, no se habilita el cifrado de forma predeterminada entre los componentes internos. El sistema es seguro, ya que no se puede acceder al tráfico ni supervisarlo. Si hay alguna medida de cumplimiento normativo que requiera el cifrado completo de toda la ruta de acceso a los datos, una forma de hacerlo es con clusterSetting.  
 
 ```json
 "clusterSettings": [
@@ -71,7 +71,7 @@ App Service Environment funciona como sistema de caja negra en el que no se pued
     }
 ],
 ```
-Esta función cifrará el tráfico de red interno en el ASE entre los servidores front-end y los trabajos, y también el archivo de paginación y los discos de trabajo. La habilitación de clusterSetting de InternalEncryption puede afectar al rendimiento del sistema. Al realizar el cambio para habilitar InternalEncryption, ASE tendrá un estado inestable hasta que se propague el cambio totalmente. La propagación completa del cambio puede tardar unas horas en completarse, en función de cuántas instancias tenga en ASE. Es muy recomendable no habilitar esto en ASE si este se encuentra en uso. Si es necesaria la hablitación en un ASE en uso, lo mejor es desviar el tráfico a un entorno de copia de seguridad hasta que se complete la operación. 
+Si InternalEncryption se establece en True, se cifrará el tráfico de red interno del ASE entre los servidores front-end y los trabajos, así como el archivo de paginación y los discos de trabajo. La habilitación de clusterSetting de InternalEncryption puede afectar al rendimiento del sistema. Al realizar el cambio para habilitar InternalEncryption, ASE tendrá un estado inestable hasta que se propague el cambio totalmente. La propagación completa del cambio puede tardar unas horas en completarse, en función de cuántas instancias tenga en ASE. Le recomendamos encarecidamente que no habilite InternalEncryption en un ASE si este se encuentra en uso. Si necesita habilitar InternalEncryption en un ASE que se esté utilizando activamente, lo mejor es desviar el tráfico a un entorno de copia de seguridad hasta que se complete la operación. 
 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Deshabilitación de TLS 1.0 y TLS 1.1
@@ -92,13 +92,13 @@ Si desea deshabilitar todos los tráfico de TLS 1.0 y TLS 1.1 entrante de todas 
 El nombre de la configuración dice 1.0, pero cuando se configura, se deshabilitan tanto TLS 1.0 como TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Cambio del orden del conjunto de aplicaciones de cifrado TLS
-Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings** , como se muestra a continuación. La lista de conjuntos de cifrado disponibles se puede recuperar de este [artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+El ASE permite cambiar el conjunto de cifrado predeterminado por otro. El conjunto predeterminado de cifrado es el mismo conjunto que se usa en el servicio multiinquilino. Si se modifican los conjuntos de cifrado, toda la implementación de App Service se verá afectada, por lo que solo puede hacerse en los ASE de un solo inquilino. Los ASE requieren dos conjuntos de cifrado: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 y TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Si desea utilizar el ASE con el conjunto de cifrado más seguro y el conjunto de cifrado más liviano, use solo los dos cifrados requeridos. Si desea configurar el ASE para que solo utilice los cifrados requeridos, modifique **clusterSettings** tal y como se muestra a continuación. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148103"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985927"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Selección de la ubicación de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 La arquitectura puede representarse como:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Representación lógica de 4 nodos agrupados en un clúster de Kubernetes":::
 
 El clúster de Kubernetes hospeda un controlador de datos de Azure Arc y un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Este grupo de servidores está compuesto por tres instancias de PostgreSQL: un coordinador y dos trabajos.
 
@@ -60,30 +60,30 @@ Lo que genera el siguiente resultado:
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          9h
-postgres01-1         3/3     Running   0          9h
-postgres01-2         3/3     Running   0          9h
+postgres01c-0         3/3     Running   0          9h
+postgres01w-0         3/3     Running   0          9h
+postgres01w-1         3/3     Running   0          9h
 ```
 Cada uno de esos pods hospeda una instancia de PostgreSQL. Juntos forman un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc:
 
 ```output
 Pod name        Role in the server group
-postgres01-0  Coordinator
-postgres01-1    Worker
-postgres01-2    Worker
+postgres01c-0 Coordinator
+postgres01w-0   Worker
+postgres01w-1   Worker
 ```
 
 ## <a name="placement"></a>Selección de ubicación
 Echemos un vistazo a cómo Kubernetes coloca los pods del grupo de servidores. Describa cada pod e identifique en qué nodo físico del clúster de Kubernetes se coloca. Por ejemplo, para el coordinador, ejecute el siguiente comando:
 
 ```console
-kubectl describe pod postgres01-0 -n arc3
+kubectl describe pod postgres01c-0 -n arc3
 ```
 
 Lo que genera el siguiente resultado:
 
 ```output
-Name:         postgres01-0
+Name:         postgres01c-0
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -101,7 +101,7 @@ Al ejecutar este comando para cada uno de los pods, se resume la selección de u
 Además, observe, en la descripción de los pods, los nombres de los contenedores que cada pod hospeda. Por ejemplo, para el segundo trabajo, ejecute el siguiente comando:
 
 ```console
-kubectl describe pod postgres01-2 -n arc3
+kubectl describe pod postgres01w-1 -n arc3
 ```
 
 Lo que genera el siguiente resultado:
@@ -129,7 +129,7 @@ Cada pod que forma parte del grupo de servidores de Hiperescala de PostgreSQL ha
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 pods, cada uno colocado en nodos independientes":::
 
 Esto significa que, en este momento, cada instancia de PostgreSQL que constituye el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc se hospeda en un host físico específico dentro del contenedor de Kubernetes. Esta es la mejor configuración para ayudar a sacar el máximo rendimiento del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc, ya que cada rol (coordinador y trabajos) usa los recursos de cada nodo físico. Estos recursos no se comparten entre varios roles de PostgreSQL.
 
@@ -172,23 +172,23 @@ kubectl get pods -n arc3
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          11h
-postgres01-1         3/3     Running   0          11h
-postgres01-2         3/3     Running   0          11h
-postgres01-3         3/3     Running   0          5m2s
+postgres01c-0         3/3     Running   0          11h
+postgres01w-0         3/3     Running   0          11h
+postgres01w-1         3/3     Running   0          11h
+postgres01w-2         3/3     Running   0          5m2s
 ```
 
 Y describa el nuevo pod para identificar en qué nodos físicos del clúster de Kubernetes está hospedado.
 Ejecute el comando:
 
 ```console
-kubectl describe pod postgres01-3 -n arc3
+kubectl describe pod postgres01w-2 -n arc3
 ```
 
 Para identificar el nombre del nodo de hospedaje:
 
 ```output
-Name:         postgres01-3
+Name:         postgres01w-2
 Namespace:    arc3
 Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
@@ -203,11 +203,24 @@ La selección de la ubicación de las instancias de PostgreSQL en los nodos fís
 |Trabajo|postgres01-2|aks-agentpool-42715708-vmss000003
 |Trabajo|postgres01-3|aks-agentpool-42715708-vmss000000
 
-Y observe que el pod del nuevo trabajo (postgres01-3) se ha colocado en el mismo nodo que el coordinador. 
+Y observe que el pod del nuevo trabajo (postgres01w-2) se ha colocado en el mismo nodo que el coordinador. 
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal" del controlador que vigila la disponibilidad del controlador de datos.|aks-agentpool-42715708-vmss000000
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Cuarto pod en el mismo nodo que el coordinador":::
+
+¿Por qué el nuevo trabajador o pod no se coloca en el nodo físico que queda del clúster Kubernetes, aks-agentpool-42715708-vmss000003?
+
+El motivo es que el último nodo físico del clúster de Kubernetes hospeda en realidad varios pods que hospedan componentes adicionales necesarios para ejecutar los servicios de datos habilitados para Azure Arc. Kubernetes evaluó que el mejor candidato, en el momento de la programación, para hospedar el trabajo adicional, es el nodo físico aks-agentpool-42715708-vmss000000. 
+
+Si se usan los mismos comandos que antes; vemos lo que hospeda cada nodo físico:
+
+|Otros nombres de pods\* |Uso|Nodo físico de Kubernetes que hospeda los pods
+|----|----|----
+|bootstrapper-jh48b|Se trata de un servicio que controla las solicitudes entrantes para crear, editar y eliminar recursos personalizados, como instancias administradas de SQL, grupos de servidores de hiperescala de PostgreSQL y controladores de datos.|aks-agentpool-42715708-vmss000003
+|control-gwmbs||aks-agentpool-42715708-vmss000002
+|controldb-0|Este es el almacén de datos del controlador que se usa para almacenar la configuración y el estado del controlador de datos.|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|Este es el servicio "Watch Dog" del controlador que vigila la disponibilidad del controlador de datos.|aks-agentpool-42715708-vmss000000
 |logsdb-0|Esta instancia de búsqueda elástica que se usa para almacenar todos los registros recopilados en todos los pods de Arc Data Services. Elasticsearch, recibe datos del contenedor `Fluentbit` de cada pod|aks-agentpool-42715708-vmss000003
 |logsui-5fzv5|Esta instancia de Kibana se basa en la base de datos de búsqueda elástica para presentar una GUI de Log Analytics.|aks-agentpool-42715708-vmss000003
 |metricsdb-0|Esta instancia de InfluxDB se usa para almacenar todas las métricas recopiladas en todos los pods de Arc Data Services. InfluxDB, recibe datos del contenedor `Telegraf` de cada pod|aks-agentpool-42715708-vmss000000
@@ -222,7 +235,7 @@ La arquitectura tiene el siguiente aspecto:
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Todos los pods del espacio de nombres en varios nodos":::
 
 Esto significa que los nodos de coordinador (pod 1) del grupo de servidores de Hiperescala de Postgres habilitada para Azure Arc comparten los mismos recursos físicos que el tercer nodo de trabajo (pod 4) del grupo de servidores. Esto es aceptable, ya que el nodo de coordinación suele usar muy pocos recursos en comparación con los que usa un nodo de trabajo. De ahí, se puede deducir que debe elegir cuidadosamente:
 - el tamaño del clúster de Kubernetes y las características de cada uno de sus nodos físicos (memoria, núcleo virtual)
@@ -246,16 +259,16 @@ Vamos a agregar un quinto nodo al clúster de AKS:
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Diseño de Azure Portal antes":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Diseño de Azure Portal después":::
     :::column-end:::
 :::row-end:::
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Diseño lógico en el clúster de Kubernetes después de la actualización":::
 
 Echemos un vistazo a qué pods del espacio de nombres del controlador de datos de Arc se hospedan en el nuevo nodo físico AKS mediante la ejecución del comando:
 
@@ -265,7 +278,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 Y vamos a actualizar la representación de la arquitectura de nuestro sistema:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Todos los pods del diagrama lógico del clúster":::
 
 Podemos observar que el nuevo nodo físico del clúster de Kubernetes hospeda solo el pod de métricas necesario para los servicios de datos de Azure Arc. Observe que, en este ejemplo, nos centramos solo en el espacio de nombres del controlador de datos de Arc, por lo que no se representan los demás pods.
 
@@ -305,42 +318,42 @@ kubectl get pods -n arc3
 
 NAME                 READY   STATUS    RESTARTS   AGE
 …
-postgres01-0         3/3     Running   0          13h
-postgres01-1         3/3     Running   0          13h
-postgres01-2         3/3     Running   0          13h
-postgres01-3         3/3     Running   0          179m
-postgres01-4         3/3     Running   0          3m13s
+postgres01c-0         3/3     Running   0          13h
+postgres01w-0         3/3     Running   0          13h
+postgres01w-1         3/3     Running   0          13h
+postgres01w-2         3/3     Running   0          179m
+postgres01w-3         3/3     Running   0          3m13s
 ```
 
 La forma del grupo de servidores es ahora:
 
 |Rol de grupo de servidor|Pod de grupo de servidor
 |----|-----
-|Coordinador|postgres01-0
-|Trabajo|postgres01-1
-|Trabajo|postgres01-2
-|Trabajo|postgres01-3
-|Trabajo|postgres01-4
+|Coordinador|postgres01c-0
+|Trabajo|postgres01w-0
+|Trabajo|postgres01w-1
+|Trabajo|postgres01w-2
+|Trabajo|postgres01w-3
 
-Vamos a describir el pod postgres01-4 para identificar en qué nodo físico se hospeda:
+Vamos a describir el pod postgres01w-3 para identificar en qué nodo físico se hospeda:
 
 ```console
-kubectl describe pod postgres01-4 -n arc3
+kubectl describe pod postgres01w-3 -n arc3
 ```
 
 Observe en qué pod se ejecuta:
 
 |Rol de grupo de servidor|Pod de grupo de servidor| Pod
 |----|-----|------
-|Coordinador|postgres01-0|aks-agentpool-42715708-vmss000000
-|Trabajo|postgres01-1|aks-agentpool-42715708-vmss000002
-|Trabajo|postgres01-2|aks-agentpool-42715708-vmss000003
-|Trabajo|postgres01-3|aks-agentpool-42715708-vmss000000
-|Trabajo|postgres01-4|aks-agentpool-42715708-vmss000004
+|Coordinador|postgres01c-0|aks-agentpool-42715708-vmss000000
+|Trabajo|postgres01w-0|aks-agentpool-42715708-vmss000002
+|Trabajo|postgres01w-1|aks-agentpool-42715708-vmss000003
+|Trabajo|postgres01w-2|aks-agentpool-42715708-vmss000000
+|Trabajo|postgres01w-3|aks-agentpool-42715708-vmss000004
 
 La arquitectura tiene el siguiente aspecto:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Clúster de AKS de 4 nodos en Azure Portal":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes programa el pod más reciente en el nodo con menor uso":::
 
 Kubernetes programó el nuevo pod de PostgreSQL en el nodo físico menos cargado del clúster de Kubernetes.
 

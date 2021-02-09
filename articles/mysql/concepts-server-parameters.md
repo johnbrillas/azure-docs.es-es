@@ -1,17 +1,17 @@
 ---
 title: 'Parámetros del servidor: Azure Database for MySQL'
 description: En este tema se proporcionan instrucciones para configurar parámetros del servidor en Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376781"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951317"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -117,7 +117,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|262 144|128|268435455|
 |De uso general|4|262 144|128|536870912|
 |De uso general|8|262 144|128|1073741824|
@@ -135,7 +135,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
 |Básico|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|2|100|10|100|
 |De uso general|2|300|10|600|
 |De uso general|4|625|10|1250|
 |De uso general|8|1250|10|2.500|
@@ -166,7 +166,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|16384|268435455|
 |De uso general|4|16777216|16384|536870912|
 |De uso general|8|16777216|16384|1073741824|
@@ -191,7 +191,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|0|0|16777216|
 |De uso general|4|0|0|33554432|
 |De uso general|8|0|0|67108864|
@@ -229,7 +229,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|524 288|32 768|4 194 304|
 |De uso general|4|524 288|32 768|8388608|
 |De uso general|8|524 288|32 768|16777216|
@@ -249,7 +249,7 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |**Plan de tarifa**|**Núcleos virtuales**|**Valor predeterminado (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
 |Básico|1|No se puede configurar en el nivel Básico|N/D|N/D|
-|Básica|2|No se puede configurar en el nivel Básico|N/D|N/D|
+|Básico|2|No se puede configurar en el nivel Básico|N/D|N/D|
 |De uso general|2|16777216|1024|67108864|
 |De uso general|4|16777216|1024|134217728|
 |De uso general|8|16777216|1024|268435456|
@@ -261,6 +261,18 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 |Memoria optimizada|8|16777216|1024|536870912|
 |Memoria optimizada|16|16777216|1024|1073741824|
 |Memoria optimizada|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Preparación del grupo de búferes de InnoDB
+Después de reiniciar el servidor de Azure Database for MySQL, las páginas de datos que residen en el disco se cargan cuando se consultan las tablas. Esto da lugar a una mayor latencia y un rendimiento más lento para la primera ejecución de las consultas. Esta situación puede no ser aceptable para cargas de trabajo sensibles a la latencia. El uso de la preparación del grupo de búferes de InnoDB acorta el período de preparación mediante la recarga de las páginas del disco que estaban en el grupo de búferes antes del reinicio, en lugar de esperar a que las operaciones DML o SELECT accedan a las filas correspondientes.
+
+Puede reducir el período de preparación después de reiniciar el servidor de Azure Database for MySQL, lo que representa una ventaja de rendimiento mediante la configuración de los [parámetros del servidor del grupo de búferes de InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB guarda un porcentaje de las páginas usadas más recientemente para cada grupo de búferes al cerrar el servidor y restaura estas páginas al iniciar el servidor.
+
+También es importante tener en cuenta que el rendimiento mejorado se produce a costa del tiempo de inicio más largo para el servidor. Cuando este parámetro está habilitado, se espera que el tiempo de inicio y reinicio del servidor aumente en función de las IOPS aprovisionadas en dicho servidor. Se recomienda probar y supervisar el tiempo de reinicio para garantizar que el rendimiento de inicio y reinicio es aceptable, ya que el servidor no está disponible durante ese tiempo. No se recomienda usar este parámetro cuando el aprovisionamiento de IOPS es inferior a 1000 IOPS (o en otras palabras, cuando el almacenamiento aprovisionado es inferior a 335 GB.
+
+Para guardar el estado del grupo de búferes al cerrar el servidor, establezca el parámetro de servidor `innodb_buffer_pool_dump_at_shutdown` en `ON`. Del mismo modo, establezca el parámetro de servidor `innodb_buffer_pool_load_at_startup` en `ON` para restaurar el estado del grupo de búferes al iniciar el servidor. Puede controlar el impacto en el inicio o reinicio si reduce y ajusta el valor del parámetro de servidor `innodb_buffer_pool_dump_pct`. De forma predeterminada, este parámetro se establece en `25`.
+
+> [!Note]
+> Los parámetros de preparación del grupo de búferes de InnoDB solo se admiten en servidores de almacenamiento de uso general con un almacenamiento de hasta 16 TB. Obtenga más información sobre las [opciones de almacenamiento de Azure Database for MySQL aquí](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 

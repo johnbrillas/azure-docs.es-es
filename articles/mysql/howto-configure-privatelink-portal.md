@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998573"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221033"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
 
@@ -223,6 +223,8 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Si el acceso público está deshabilitado en la configuración del firewall en un servidor único de Azure Database for MySQL. Estas pruebas de ping y telnet se realizarán correctamente con independencia de la configuración del firewall. Dichas pruebas garantizarán la conectividad de red.
 
 3. Pruebe la conexión de vínculo privado para el servidor MySQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar la operación.
 

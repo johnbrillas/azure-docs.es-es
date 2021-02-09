@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563739"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428190"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
 
@@ -133,9 +133,6 @@ Los centros de Azure Virtual WAN interconectan todos los puntos de conexión de 
 
 **Ilustración 5: Centro virtual protegido con Azure Firewall**
 
-> [!NOTE]
-> Actualmente no se admite el tráfico entre centros con el firewall. El tráfico entre centros se desplazará directamente por Azure Firewall en cada centro.
-
 Azure Firewall a la WAN virtual admite las siguientes rutas de conectividad de tránsito seguro global. Las letras entre paréntesis hacen referencia a la figura 5.
 
 * Tránsito seguro de red virtual a red virtual (e)
@@ -152,6 +149,23 @@ El tránsito de red virtual a Internet permite que las redes virtuales se conect
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Servicio de seguridad de sucursal a Internet o a terceros (i)
 El tránsito de rama a Internet permite que las ramas se conecten a Internet a través de Azure Firewall en el centro de conectividad de WAN virtual. El tráfico de Internet a través de servicios de seguridad admitidos de terceros no fluye a través de Azure Firewall. Puede configurar la ruta de acceso de rama a Internet a través de un servicio de seguridad admitido de terceros mediante Azure Firewall Manager. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Tránsito protegido de sucursal a sucursal entre regiones (f)
+
+Las sucursales se pueden conectar a un centro virtual protegido con Azure Firewall mediante circuitos ExpressRoute o conexiones de VPN de sitio a sitio. Puede conectar las sucursales al centro de Virtual WAN que se encuentra en la región más cercana a la sucursal.
+
+Esta opción permite que las empresas usen la red troncal de Azure para conectar las sucursales. Sin embargo, aunque esta funcionalidad esté disponible, debe ponderar los beneficios de conectar las sucursales a través de Azure Virtual WAN en comparación con usar una WAN privada.  
+
+> [!NOTE]
+> Actualmente no se admite el procesamiento de tráfico entre centros a través de un firewall. El tráfico entre los centros se enrutará a la sucursal adecuada en el centro virtual protegido; sin embargo, el tráfico omitirá el Azure Firewall en cada centro.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Tránsito protegido de sucursal a red virtual (g)
+
+El tránsito protegido de sucursal a red virtual permite que las sucursales se comuniquen con las redes virtuales de la misma región que el centro WAN virtual, así como con otra red virtual conectada a otro centro WAN virtual en otra región.
+
+> [!NOTE]
+> Actualmente no se admite el tráfico entre centros con el firewall. El tráfico entre centros se desplazará directamente por Azure Firewall en cada centro.  Azure Firewall en el centro protegido procesará el tráfico a través de una conexión destinada a una red virtual en la misma región.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Cómo habilitar la ruta predeterminada (0.0.0.0/0) en un centro virtual protegido
 

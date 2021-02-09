@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740812"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090797"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -40,7 +40,7 @@ La seguridad del acceso con privilegios requiere que se realicen cambios en:
 Proteja el acceso con privilegios de manera que se administre y se notifique en los servicios de Microsoft que le interesan. Si tiene cuentas administrativas locales, consulte la guía para el acceso con privilegios a entornos locales e híbridos en Active Directory en [Protección del acceso con privilegios](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> Las directrices de este artículo hacen referencia principalmente a las características de Azure Active Directory que se incluyen en los planes P1 y P2 de Azure Active Directory Premium. Azure Active Directory Premium P2 se incluye en los conjuntos EMS E5 y Microsoft 365 E5. En esta guía se da por supuesto que la organización ya ha adquirido licencias de Azure AD Premium P2 para los usuarios. Si no es así, es posible que algunas de las instrucciones no sean válidas para la organización. Además, en este artículo, el término administrador global tiene el mismo significado que "administrador de la empresa" o "administrador de inquilinos".
+> Las directrices de este artículo hacen referencia principalmente a las características de Azure Active Directory que se incluyen en los planes P1 y P2 de Azure Active Directory Premium. Azure Active Directory Premium P2 se incluye en los conjuntos EMS E5 y Microsoft 365 E5. En esta guía se da por supuesto que la organización ya ha adquirido licencias de Azure AD Premium P2 para los usuarios. Si no es así, es posible que algunas de las instrucciones no sean válidas para la organización. Además, en este artículo, el término Administrador global tiene el mismo significado que "administrador de la empresa" o "Administrador de inquilinos".
 
 ## <a name="develop-a-roadmap"></a>Desarrollo de una hoja de ruta
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management se incluye en Azure AD Premium P2 o EMS 
 
 Después de activar Azure AD Privileged Identity Management:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que sea un administrador global de la organización de producción de Azure AD.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que sea un Administrador global de la organización de producción de Azure AD.
 
 2. Para seleccionar la organización de Azure AD en la que desea usar Privileged Identity Management, seleccione el nombre de usuario en la esquina superior derecha de Azure Portal.
 
@@ -93,7 +93,7 @@ Después de activar Azure AD Privileged Identity Management, puede ver los usua
 * Administrador de Exchange
 * Administrador de SharePoint
 
-Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comience por el rol de administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
+Si no dispone de Azure AD Privileged Identity Management en la organización, puede usar la [API de PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comience por el rol Administrador global, ya que un administrador global tiene los mismos permisos en todos los servicios en la nube a los que la organización se ha suscrito. Estos permisos se conceden independientemente de dónde se hayan asignado: en el centro de administración de Microsoft 365, en Azure Portal o en el módulo de Azure AD para Microsoft PowerShell.
 
 Quite las cuentas que ya no sean necesarias en esos roles. A continuación, clasifique las restantes que están asignadas a roles de administrador:
 
@@ -110,7 +110,7 @@ Es posible que un usuario quede bloqueado de su rol accidentalmente. Por ejemplo
 
 Las cuentas de acceso de emergencia ayudan a restringir el acceso con privilegios en una organización de Azure AD. Estas cuentas tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Asegúrese de que controla y reduce el uso de la cuenta de emergencia solo al momento en el que sea necesario.
 
-Evalúe las cuentas que están asignadas al rol de administrador global o que son aptas para él. Si no ve ninguna cuenta que se use solo en la nube con el dominio \*.onmicrosoft.com (para el acceso de emergencia "excepcional"), créela. Para más información, consulte [Administración de cuentas administrativas de acceso de emergencia en Azure AD](security-emergency-access.md).
+Evalúe las cuentas que están asignadas al rol Administrador global o que son aptas para él. Si no ve ninguna cuenta que se use solo en la nube con el dominio \*.onmicrosoft.com (para el acceso de emergencia "excepcional"), créela. Para más información, consulte [Administración de cuentas administrativas de acceso de emergencia en Azure AD](security-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados
 
@@ -143,13 +143,14 @@ El aumento de las directivas "Bring your own device" (BYOD) y del trabajo desde 
 
 Si los administradores globales iniciales reutilizaron sus credenciales de cuenta de Microsoft existentes cuando comenzaron a usar Azure AD, reemplace las cuentas de Microsoft por cuentas individuales basadas en la nube o sincronizadas.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Asegúrese de que haya cuentas de usuario independientes y reenvío de correo electrónico para las cuentas de administrador globales
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Asegúrese de que haya cuentas de usuario independientes y de que se lleve a cabo el reenvío de correos electrónicos para las cuentas de administrador globales
 
 Los atacantes cibernéticos normalmente suplantan cuentas de correo electrónico personales, un riesgo que hace que las direcciones de correo electrónico personales no sean aceptables como cuentas de administrador global. Para ayudar a separar los riesgos de Internet de los privilegios administrativos, cree cuentas dedicadas para cada usuario con privilegios administrativos.
 
 * Asegúrese de crear cuentas independientes para los usuarios que van a realizar tareas de administrador global.
 * Asegúrese de que los administradores globales no abran mensajes de correo electrónico accidentalmente ni ejecuten programas con sus cuentas de administrador.
-* Asegúrese de que el correo electrónico de dichas cuentas se reenvía a un buzón de trabajo.
+* Asegúrese de que el correo electrónico de dichas cuentas se reenvía a un buzón activo.
+* Las cuentas de administrador global (y otros grupos con privilegios) deben ser cuentas solo en la nube sin vínculos a Active Directory local.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Asegúrese de que las contraseñas de las cuentas administrativas han cambiado recientemente
 

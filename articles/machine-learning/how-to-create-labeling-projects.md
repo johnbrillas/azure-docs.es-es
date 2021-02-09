@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059847"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097546"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -24,7 +24,7 @@ Aprenda a crear y ejecutar proyectos de etiquetado de datos para etiquetar los d
 ## <a name="data-labeling-capabilities"></a>Funcionalidades del etiquetado de datos
 
 > [!Important]
-> Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
+> Las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
 
 El etiquetado de datos de Azure Machine Learning es una ubicación central para crear, administrar y supervisar proyectos de etiquetado:
  - Coordine los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. 
@@ -53,6 +53,11 @@ Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecua
 * Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a una imagen.
 * Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
 * Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
+* Elija un proyecto de tipo **Segmentación de instancias (polígono) (versión preliminar)** cuando desee asignar una etiqueta y dibujar un polígono alrededor de cada objeto dentro de una imagen.
+
+> [!IMPORTANT]
+> La segmentación de instancias (polígono) está en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Seleccione **Siguiente** cuando esté listo para continuar.
 
@@ -141,6 +146,7 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 La página **Etiquetado asistido por ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
+
 Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
 * Agrupación en clústeres
 * Etiquetado previo
@@ -150,7 +156,7 @@ El número exacto de imágenes con etiqueta necesarias para iniciar el etiquetad
 Como las etiquetas finales se siguen basando en la entrada del etiquetador, a veces esta tecnología se denomina etiquetado *con intervención humana*.
 
 > [!NOTE]
-> El etiquetado de datos asistido mediante ML no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
+> El etiquetado de datos asistido mediante ML no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una [red virtual](how-to-network-security-overview.md). Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual.
 
 ### <a name="clustering"></a>Agrupación en clústeres
 

@@ -1,14 +1,14 @@
 ---
 title: Aplicaciones de representación
 description: Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
-ms.date: 09/19/2019
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d4eefa287575d68acccb2697e1d262c7e48dab62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4eeb87c866858f2f1733b81e3e2154f4521e94bc
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234416"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430035"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación de Batch
 
@@ -18,7 +18,7 @@ Si procede, hay licencias de pago por uso disponibles para las aplicaciones de r
 
 Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con Windows y con Linux.
 
-## <a name="applications-on-centos-7-rendering-images"></a>Aplicaciones en imágenes de representación de CentOS 7
+## <a name="applications-on-centos-7-rendering-image"></a>Aplicaciones en imágenes de representación de CentOS 7
 
 La lista siguiente se aplica a las imágenes de representación de CentOS 7.6, versión 1.1.6.
 
@@ -33,7 +33,26 @@ La lista siguiente se aplica a las imágenes de representación de CentOS 7.6, v
 * Blender (2.68)
 * Blender (2.8)
 
-## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Aplicaciones en las imágenes de representación más recientes de Windows Server 2016
+## <a name="applications-on-latest-windows-server-rendering-image"></a>Aplicaciones en la imagen de representación más reciente de Windows Server
+
+La lista siguiente se aplica a la imagen de representación de Windows Server, versión 1.5.0.
+
+* Autodesk Maya I/O 2020 Actualización 4.4
+* Autodesk 3ds Max I/O 2021 Update 3
+* Autodesk Arnold para Maya 2020 (Arnold versión 6.1.0.1) MtoA-4.1.1.1-2020
+* Autodesk Arnold para 3ds Max 2021 (versión de Arnold 6.1.0.1) MAXtoA-4.2.2.20-2021
+* Chaos Group V-Ray para Maya 2020 (versión 5.00.21)
+* Chaos Group V-Ray para 3ds Max 2021 (versión 5.00.05)
+* Blender (2.79)
+* Blender (2.80)
+* AZ 10
+
+> [!IMPORTANT]
+> Para ejecutar V-Ray con Maya fuera de las [plantillas de extensión de Azure Batch](https://github.com/Azure/batch-extension-templates), inicie `vrayses.exe` antes de ejecutar la representación. Para iniciar el archivo vrayses.exe fuera de las plantillas, puede usar el siguiente comando `%MAYA_2020%\vray\bin\vrayses.exe"`.
+>
+> Para ver un ejemplo, consulte la tarea de inicio de la [plantilla de Maya y V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) en GitHub.
+
+## <a name="applications-on-previous-windows-server-rendering-images"></a>Aplicaciones en imágenes de representación de Windows Server
 
 La lista siguiente se aplica a las imágenes de representación de Windows Server 2016, versión 1.3.8.
 
@@ -58,13 +77,6 @@ La lista siguiente se aplica a las imágenes de representación de Windows Serv
 * Blender (2.79)
 * Blender (2.80)
 * AZ 10
-
-> [!IMPORTANT]
-> Para ejecutar V-Ray con Maya fuera de las [plantillas de extensión de Azure Batch](https://github.com/Azure/batch-extension-templates), inicie `vrayses.exe` antes de ejecutar la representación. Para iniciar el archivo vrayses.exe fuera de las plantillas, puede usar el siguiente comando `%MAYA_2017%\vray\bin\vrayses.exe"`.
->
-> Para ver un ejemplo, consulte la tarea de inicio de la [plantilla de Maya y V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) en GitHub.
-
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Aplicaciones en imágenes de representación de Windows Server 2016
 
 La lista siguiente se aplica a las imágenes de representación de Windows Server 2016, versión 1.3.7.
 

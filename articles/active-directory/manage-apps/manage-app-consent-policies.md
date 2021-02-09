@@ -3,7 +3,7 @@ title: Administración de directivas de consentimiento de aplicaciones en Azure�
 description: Obtenga información sobre cómo administrar las directivas de consentimiento de aplicaciones integradas y personalizadas para controlar el momento en que se puede conceder ese consentimiento.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 68ff89191a4e9b11c2d84ec016090f76b8ea11b7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032786"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258123"
 ---
 # <a name="manage-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 
@@ -152,4 +152,4 @@ Para obtener más información:
 * [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
-* [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD en Microsoft Q&A](https://docs.microsoft.com/answers/products/)

@@ -3,14 +3,14 @@ title: Información general del Centro de copias de seguridad
 description: En este artículo se proporciona información general sobre el Centro de copias de seguridad para Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893616"
 ---
-# <a name="overview-of-backup-center"></a>Información general del Centro de copias de seguridad
+# <a name="overview-of-backup-center-preview"></a>Información general del Centro de copias de seguridad (versión preliminar)
 
 El Centro de copias de seguridad proporciona una **experiencia única de administración unificada** en Azure para que las empresas controlen, supervisen, operen y analicen las copias de seguridad a gran escala. Como tal, es coherente con las experiencias de administración nativas de Azure.
 
@@ -22,7 +22,7 @@ Entre algunas de las ventajas principales del Centro de copias de seguridad se i
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* El Centro de copias de seguridad se admite actualmente para copias de seguridad de VM de Azure y copias de seguridad de Servidor de Azure Database for PostgreSQL.
+* El Centro de copias de seguridad admite actualmente copias de seguridad de máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, Azure Files y servidor de Azure Database for PostgreSQL.
 * Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para obtener una lista detallada de escenarios admitidos y no admitidos.
 
 ## <a name="get-started"></a>Introducción

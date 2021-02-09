@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680846"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537363"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Devolución de Azure Data Box
 
@@ -172,9 +172,27 @@ Si es necesario, puede ponerse en contacto con el soporte técnico de Quantium S
 
 Si encuentra algún problema, envíe un correo electrónico a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) y proporcione el nombre del trabajo en el encabezado del asunto y el problema encontrado.
 
+## <a name="united-arab-emirates"></a>[Emiratos Árabes Unidos](#tab/in-uae)
+
+1. Conserve la caja original utilizada para devolver el dispositivo.
+2. Asegúrese de que la copia de datos en el dispositivo se ha completado y que el paso **Preparación para el envío** se ha realizado correctamente.
+3. Anote el número de referencia de la página **Preparación para el envío** de la interfaz de usuario web local del dispositivo.
+4. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
+6. Empaquete el dispositivo para el envío de devolución en la caja original.
+7. Envíe por correo electrónico las [operaciones de Azure Data Box](mailto:adbops@microsoft.com) para obtener un identificador que se utilizará para identificar el paquete cuando vuelva a recibirse en el centro de datos.
+8. Anote este identificador en la etiqueta de envío impresa, junto a la dirección de devolución para que esté claramente visible.  
+9. Vaya a [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Schedule a Pickup** para programar una recogida en línea.
+   - Escriba el número de referencia de la página **Preparación para el envío** de la interfaz de usuario web local del dispositivo en el campo de número del albarán.
+   - La programación de las recogidas se acepta desde las 9:00 am a las 2:00 pm seis días a la semana (excepto viernes y festivos públicos).
+   - Las solicitudes de recogida deben efectuarse al menos 90 minutos antes de la hora de cierre del cliente.
+10. Si tiene algún problema con la herramienta de reserva de DHL, puede ponerse en contacto con DHL mediante cualquiera de estos métodos:
+    - Llame al 04-2924545.
+    - Si surge algún problema, envíe un correo electrónico a [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) con los detalles y mencione el número del albarán en el asunto.
+    - Llame al servicio de atención al cliente de DHL al 600 567567.
+
 ## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box en Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
+Si usa Data Box en Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Oeste de Europa o Australia, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Una vez que este paso se complete correctamente, anote el código de autorización que se muestra en la página Preparación para el envío de la interfaz de usuario web local de Data Box.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
@@ -209,5 +227,3 @@ Avance al siguiente artículo para obtener información sobre cómo administrar 
 
 > [!div class="nextstepaction"]
 > [Administrar Data Box a través de Azure Portal](./data-box-portal-admin.md)
-
-

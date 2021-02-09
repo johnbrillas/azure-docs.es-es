@@ -5,29 +5,30 @@ author: dbakevlar
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 12/17/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 542ad18b18e3fc024e3a26792abfedb1e17727c9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.reviewer: tigorman
+ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882338"
+ms.locfileid: "98890771"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
 ## <a name="assumptions"></a>Supuestos
 
 - Planea la migración de una base de datos Oracle del entorno local a Azure.
-- Tiene el [paquete de diagnósticos](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para la instancia de Oracle Database que quiere migrar
-- Conoce las diversas métricas de los informes de AWR de Oracle.
+- Tiene el [paquete de diagnósticos](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) o el [repositorio automático de carga de trabajo](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) (AWR) para la instancia de Oracle Database que quiere migrar.
+- Conoce las diversas métricas de Oracle.
 - Tiene conocimientos básicos sobre el rendimiento de la aplicación y el uso de la plataforma.
 
 ## <a name="goals"></a>Objetivos
 
 - Entender cómo optimizar la implementación de Oracle en Azure.
 - Explorar las opciones de optimización del rendimiento de la base de datos de Oracle en el entorno de Azure.
+- Tener expectativas claras entre los límites de la optimización física a través de la arquitectura y las ventajas o la optimización lógica del código de la base de datos (SQL) y el diseño general de la base de datos.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>Diferencias entre una implementación local y la implementación en Azure 
 
@@ -52,8 +53,9 @@ En la tabla siguiente se enumeran algunas de las diferencias entre una implement
 
 ### <a name="requirements"></a>Requisitos
 
-- Determinar el tamaño de la base de datos y la tasa de crecimiento.
-- Determinar los requisitos de IOPS, que pueden calcularse en función de los informes de AWR de Oracle o de otras herramientas de supervisión de red.
+- Determine el uso real de la CPU, ya que la licencia de Oracle se basa en el núcleo: el ajuste de tamaño de las necesidades de vCPU puede ser un ejercicio esencial para el ahorro de costos. 
+- Determine el tamaño de la base de datos, el almacenamiento de copia de seguridad y la tasa de crecimiento.
+- Determine los requisitos de E/S, que puede calcular en función de los informes de Oracle STATSPACK y AWR o de las herramientas de supervisión de almacenamiento de nivel de sistema operativo.
 
 ## <a name="configuration-options"></a>Opciones de configuración
 
@@ -66,33 +68,44 @@ Hay cuatro áreas posibles que se pueden ajustar para mejorar el rendimiento en 
 
 ### <a name="generate-an-awr-report"></a>Generar un informe de AWR
 
-Si tiene una base de datos de Oracle y está planeando migrar a Azure, tiene varias opciones. Si tiene el [paquete de diagnósticos](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) para sus instancias de Oracle, puede ejecutar el informe de AWR de Oracle para obtener las métricas (IOPS, Mbps, GiBs, etc.). A continuación, elija la máquina virtual en función de las métricas recopiladas. También puede ponerse en contacto con el equipo de infraestructura para obtener información similar.
+Si tiene una base de datos de Oracle Enterprise Edition y está planeando migrar a Azure, tiene varias opciones. Si tiene el [paquete de diagnósticos](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) para sus instancias de Oracle, puede ejecutar el informe de AWR de Oracle para obtener las métricas (IOPS, Mbps, GiBs, etc.). En el caso de las bases de datos sin la licencia del paquete de diagnósticos o de una base de datos Standard Edition, se pueden recopilar las mismas métricas importantes con un informe de Statspack después de recopilar instantáneas manuales.  La diferencia principal entre estos dos métodos de creación de informes es que AWR se recopila automáticamente y proporciona más información sobre la base de datos que la opción de creación de informes predecesora de Statspack.
 
-Puede considerar la posibilidad de ejecutar el informe de AWR durante la carga de trabajo normal y máxima, para poder comparar ambas. En función de estos informes, puede ajustar el tamaño de las máquinas virtuales según la carga de trabajo media o máxima.
+Puede considerar la posibilidad de ejecutar el informe de AWR durante la carga de trabajo normal y máxima, para poder comparar ambas. Para recopilar la carga de trabajo más precisa, considere la posibilidad de usar un informe de ventana extendida de una semana, en comparación con una ejecución de 24 horas, y tenga en cuenta que AWR proporciona promedios como parte de sus cálculos en el informe.  En el caso de una migración del centro de datos, se recomienda recopilar informes para el ajuste de tamaño en los sistemas de producción y calcular las copias de base de datos restantes utilizadas para las pruebas de usuario, las pruebas, el desarrollo, etc. por porcentajes (UAT igual a producción, prueba y desarrollo 50 % del tamaño de la producción, etc.).
 
-A continuación, se muestra un ejemplo de cómo generar un informe de AWR (genere sus informes de AWR con Oracle Enterprise Manager, si su instalación actual lo tiene disponible):
+De forma predeterminada, el repositorio de AWR conserva 8 días de datos y toma instantáneas en intervalos de una hora.  Para ejecutar un informe de AWR desde la línea de comandos, se puede realizar lo siguiente desde un terminal:
 
 ```bash
 $ sqlplus / as sysdba
-SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
-SQL> @?/rdbms/admin/awrrpt.sql
+SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 ```
 
 ### <a name="key-metrics"></a>Métricas clave
 
+El informe le pedirá la siguiente información:
+- Tipo de informe: HTML o TEXT (HTML en 12.1 y proporciona más información que el formato TEXT).
+- El número de días de las instantáneas que se van a mostrar (en intervalos de una hora, un informe de una semana tendría 168 valores distintos en los identificadores de instantánea).
+- SnapshotID inicial de la ventana de informe.
+- SnapshotId final de la ventana de informe.
+- Nombre del informe que va a crear el script de AWR.
+
+Si ejecuta el comando AWR en un clúster de aplicaciones real (RAC), el informe de la línea de comandos es awrgrpt.sql en lugar de awrrpt.sql.  El informe "g" creará un informe para todos los nodos de la base de datos RAC en un solo informe y tendrá que ejecutar uno en cada nodo RAC.
+
 Estas son las métricas que puede obtener del informe de AWR:
 
-- Número total de núcleos
-- Velocidad del reloj de la CPU
+- Nombre de la base de datos, nombre de la instancia y nombre del host
+- Versión de base de datos (compatibilidad con Oracle)
+- Núcleos de CPU
+- SGA/PGA (y asesores para informarle de si está subdimensionado)
 - Memoria total en GB
-- Uso de CPU
-- Velocidad de transferencia de datos máxima
-- Frecuencia de cambios de E/S (lectura/escritura)
-- Velocidad de los registros de rehacer (Mbps)
+- % ocupación de la CPU
+- CPU DE BD
+- IOPS (lectura y escritura)
+- Mbps (lectura/escritura)
 - Capacidad de proceso de la red
 - Tasa de latencia de red (baja/alta)
-- Tamaño de la base de datos en GB
-- Bytes recibidos a través de SQL*Net desde/hacia el cliente
+- Principales eventos de espera 
+- Configuración de parámetros para la base de datos
+- Es RAC de base de datos, Exadata, con características o configuraciones avanzadas.
 
 ### <a name="virtual-machine-size"></a>Tamaño de la máquina virtual
 
@@ -146,25 +159,19 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 
 - *Discos de sistema operativo predeterminados*: estos tipos de disco ofrecen datos persistentes y almacenamiento en caché. Estos discos están optimizados para el acceso del sistema operativo en tiempo de inicio y no están diseñados para cargas de trabajo transaccionales o de almacenamiento de datos (analíticas).
 
-- *Discos no administrados*: con estos tipos de disco, administra las cuentas de almacenamiento que almacenan los archivos de disco duro virtual (VHD) que se corresponden con los discos de la máquina virtual. Los archivos VHD se almacenan como blobs de páginas en las cuentas de Azure Storage.
-
-- *Managed Disks*: Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (Premium o Standard) y el tamaño de disco que necesite. Azure crea y administra el disco en su nombre.
-
-- *Discos de Premium Storage*: estos tipos de disco son más adecuados para las cargas de trabajo de producción. Premium Storage admite discos de máquina virtual que se pueden conectar a series específicas de máquina virtual, como las series DS, DSv2, GS y F. El disco Premium tiene diferentes tamaños entre los que puede elegir, desde 32 GB a 4,096 GB. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM.
-
-Cuando se crea un nuevo disco administrado desde el portal, puede elegir el **Tipo de cuenta** para el tipo de disco que quiere usar. Es importante saber que en el menú desplegable no se muestran todos los discos disponibles. Después de elegir un tamaño de máquina virtual determinado, el menú muestra solo las SKU de Premium Storage disponibles que se basan en ese tamaño de máquina virtual.
+- *Managed Disks*: Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (a menudo SSD prémium para cargas de trabajo de Oracle) y el tamaño del disco que necesita. Azure crea y administra el disco en su nombre.  El disco administrado SSD prémium solo está disponible para la serie de máquinas virtuales optimizadas para memoria y específicamente diseñadas. Después de elegir un tamaño de máquina virtual determinado, el menú muestra solo las SKU de Premium Storage disponibles que se basan en ese tamaño de máquina virtual.
 
 ![Captura de pantalla de la página de disco administrado](./media/oracle-design/premium_disk01.png)
 
 Una vez configurado el almacenamiento en una máquina virtual, tal vez le interese realizar una prueba de carga en los discos antes de crear una base de datos. Puede ser útil conocer la velocidad de E/S en términos de latencia y rendimiento para ayudarle a determinar si las máquinas virtuales admiten el rendimiento esperado con objetivos de latencia.
 
-Existen diversas herramientas para realizar pruebas de carga de aplicaciones, como Oracle Orion, Sysbench y Fio.
+Existen diversas herramientas para realizar pruebas de carga de aplicaciones, como Oracle Orion, SLOB y Fio.
 
-Vuelva a ejecutar la prueba de carga después de implementar una base de datos de Oracle. Inicie las cargas de trabajo normales y máximas y los resultados mostrarán la línea de base de su entorno.
+Vuelva a ejecutar la prueba de carga después de implementar una base de datos de Oracle. Inicie las cargas de trabajo normales y máximas y los resultados mostrarán la línea de base de su entorno.  Sea realista en la prueba de carga de trabajo: no tiene sentido ejecutar una carga de trabajo que no se parece en nada a lo que se ejecutará en la máquina virtual en realidad.
 
-Puede ser más importante determinar el tamaño del almacenamiento en función de la tasa de E/S por segundo, en vez de según el tamaño de almacenamiento. Por ejemplo, si los IOPS necesarios son 5000, pero solo necesita 200 GB, puede elegir el disco Premium P30 aunque se ofrece con más de 200 GB de almacenamiento.
+Como Oracle es una base de datos intensiva en E/S para muchos, es muy importante dimensionar el almacenamiento en función de la tasa de IOPS en lugar del tamaño del almacenamiento. Por ejemplo, si los IOPS necesarios son 5000, pero solo necesita 200 GB, puede elegir el disco Premium P30 aunque se ofrece con más de 200 GB de almacenamiento.
 
-La tasa de IOPS puede obtenerse de los informes de AWR. Viene determinado por el registro de recuperación, las lecturas físicas y la velocidad de escritura.
+La tasa de IOPS puede obtenerse de los informes de AWR. Viene determinado por el registro de recuperación, las lecturas físicas y la velocidad de escritura.  Compruebe siempre que la serie de máquinas virtuales elegida tiene la capacidad de controlar también la demanda de E/S de la carga de trabajo.  Si la VM tiene un límite de E/S más bajo que el almacenamiento, el límite máximo lo establecerá la VM.
 
 ![Captura de pantalla de la página del informe de AWR](./media/oracle-design/awr_report.png)
 
@@ -176,34 +183,28 @@ Una vez que se haya hecho una idea de los requisitos de E/S, puede elegir la com
 **Recomendaciones**
 
 - Para el espacio de tabla de datos, reparta la carga de trabajo de E/S entre varios discos mediante el almacenamiento administrado u Oracle ASM.
-- Agregue más discos de datos a medida que aumente el tamaño del bloque de E/S, para las operaciones intensivas de lectura y escritura.
-- Aumente el tamaño de bloque para procesos secuenciales de gran tamaño.
-- Use la compresión de datos para reducir la E/S (para datos e índices).
-- Separe los registros de rehacer, sistema, temporales y de deshacer TS en discos de datos independientes.
+- Use la compresión avanzada de Oracle para reducir la E/S (para datos e índices).
+- Separe los registros de rehacer y los espacios de tabla temporales y de deshacer en discos de datos independientes.
 - No colocar ningún archivo de aplicación en el disco predeterminado del sistema operativo (/dev/sda). Estos discos están optimizados para un tiempo de arranque rápido de la máquina virtual y podría no proporcionar un buen rendimiento para la aplicación.
 - Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](../../how-to-enable-write-accelerator.md) en el disco de registros de fase de puesta al día.
+- Considere la posibilidad de mover los registros de rehacer con una latencia alta a un disco Ultra.
 
 ### <a name="disk-cache-settings"></a>Configuración de la caché de disco
 
-Existen tres opciones para el almacenamiento en caché de host:
+Hay tres opciones para el almacenamiento en caché de host, pero para una base de datos Oracle, solo se recomienda el almacenamiento en caché de solo lectura para una carga de trabajo de base de datos.  La opción de lectura y escritura puede introducir vulnerabilidades significativas en un archivo de datos, donde el objetivo de la escritura de una base de datos es registrarla en el archivo de datos, no almacenar en caché la información.
 
-- *ReadOnly*: todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se guardan de modo permanente directamente en Azure Blob Storage.
-
-- *ReadWrite*: se trata de un algoritmo de "lectura anticipada". Las lecturas y las escrituras se almacenan en caché para lecturas futuras. Si no son escrituras a través, se guardan primero en la caché local. También proporciona la menor latencia de disco para cargas de trabajo ligeras. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
-
-- *Ninguno* (deshabilitado): con esta opción, puede omitir la memoria caché. Todos los datos se transfieren al disco y se guardan en Azure Storage. Este método proporciona la mayor velocidad de E/S para cargas de trabajo intensivas de E/S. También debe tener en cuenta el "costo de transacción".
+A diferencia de un sistema de archivos o una aplicación, para una base de datos, la recomendación para el almacenamiento en caché de host es *solo lectura*: todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se seguirán escribiendo en el disco.
 
 **Recomendaciones**
 
-Para maximizar el rendimiento, se recomienda comenzar con la opción **Ninguno** para el almacenamiento en caché de host. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones **Solo lectura** o **Ninguno**. Actualice el archivo/etc/fstab con el UUID en los discos.
+Para maximizar el rendimiento, se recomienda comenzar con **solo lectura** para el almacenamiento en caché del host siempre que sea posible. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones de **solo lectura**. Actualice el archivo/etc/fstab con el UUID en los discos.
 
 ![Captura de pantalla de la página del disco administrado que muestra las opciones Solo lectura y Ninguno.](./media/oracle-design/premium_disk02.png)
 
-- En los discos del sistema operativo, use el almacenamiento en caché predeterminado **Lectura y escritura**.
-- En el caso de SYSTEM, TEMP y UNDO, use la opción **Ninguno** para el almacenamiento en caché.
-- Para los datos, utilice **Ninguno** para el almacenamiento en caché. Pero si la base de datos es de solo lectura o de lectura intensiva, use el almacenamiento en caché de **Solo lectura**.
+- En el caso de los discos de sistema operativo, use el almacenamiento en caché de **lectura/escritura** predeterminado y SSD prémium para máquinas virtuales de carga de trabajo.  Asegúrese también de que el volumen usado para el intercambio también esté en una SSD prémium.
+- En el caso de todos los archivos DATAFILES, use **solo lectura** para el almacenamiento en caché. El almacenamiento en caché de solo lectura solo está disponible para el disco administrado prémium, P30 y versiones posteriores.  Existe un límite de un volumen de 4095 GiB que se puede usar con el almacenamiento en caché de solo lectura.  Cualquier asignación mayor deshabilitará el almacenamiento en caché de host de forma predeterminada.
 
-Una vez que se haya guardado la configuración del disco de datos, no se puede cambiar la configuración de la caché de host, a menos que se desmonte la unidad en el nivel de sistema operativo y se vuelva a montar después de cambiarla.
+Si las cargas de trabajo varían considerablemente entre el día y la noche, y la carga de trabajo de E/S puede admitirlo, la SSD prémium P1-P20 con ráfagas puede proporcionar el rendimiento necesario durante las cargas por lotes de la noche o las demandas de E/S limitadas.  
 
 ## <a name="security"></a>Seguridad
 

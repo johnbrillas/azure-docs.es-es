@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842570"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054066"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo de automatización periódicos basados en programación con Azure Logic Apps
 
@@ -43,6 +43,8 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Para obtener el tiempo de desplazamiento para una ruta, necesita una clave de acceso para la API de Mapas de Bing. Para obtener esta clave, siga los pasos sobre [cómo obtener una clave de Mapas de Bing](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
+* Si la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall debe permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps o por el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
+
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure. En la página principal de Azure, seleccione **Crear un recurso**.
@@ -70,7 +72,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
    Azure abre el panel de selección de plantillas de aplicaciones lógicas, que muestra un vídeo de introducción, los desencadenadores usados frecuentemente y los patrones de plantillas de aplicaciones lógicas.
 
-1. Desplácese hacia abajo más allá del vídeo y de los desencadenadores frecuentes hasta la sección **Plantillas**y seleccione **Aplicación lógica en blanco**.
+1. Desplácese hacia abajo más allá del vídeo y de los desencadenadores frecuentes hasta la sección **Plantillas** y seleccione **Aplicación lógica en blanco**.
 
    ![Captura de pantalla que muestra el panel de selección de plantilla de aplicaciones lógicas con la opción "Aplicación lógica en blanco" seleccionada.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
 

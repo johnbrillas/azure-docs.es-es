@@ -1,17 +1,17 @@
 ---
 title: Información general de alta disponibilidad con redundancia de zona con el servidor flexible de Azure Database for MySQL
 description: Información sobre los conceptos de alta disponibilidad con redundancia de zona con el servidor flexible de Azure Database for MySQL
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241191"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097124"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -48,7 +48,7 @@ Estas son algunas ventajas de usar la característica de alta disponibilidad con
 -   La réplica en espera se implementará en una configuración de máquina virtual exacta a la del servidor principal, como núcleos virtuales, almacenamiento, configuración de red (VNET, firewall), etc.
 -   Se puede quitar la réplica en espera si se deshabilita la alta disponibilidad.
 -   Las copias de seguridad automáticas se basan en instantáneas, se realizan desde el servidor de bases de datos principal y se almacenan en un almacenamiento con redundancia de zona.
--   Si hay un evento de conmutación por error, se aprovisiona una nueva réplica en espera en la zona de disponibilidad principal original.
+-   En caso de conmutación por error, el servidor flexible de Azure Database for MySQL realizará automáticamente la conmutación por error en la réplica en espera si está habilitada la alta disponibilidad. La configuración de alta disponibilidad supervisará el servidor principal y lo volverá a poner en línea.
 -   Los clientes siempre se conectan al servidor de bases de datos principal.
 -   Si hay un bloqueo de base de datos o un error de nodo, primero se intentará el reinicio en el mismo nodo. Si se produce un error, se desencadena la conmutación automática por error.
 -   Capacidad de reiniciar el servidor para seleccionar cualquier cambio de parámetro de servidor estático.

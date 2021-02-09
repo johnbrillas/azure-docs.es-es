@@ -1,5 +1,5 @@
 ---
-title: 'Uso de la CLI para escalar unidades reservadas de multimedia (MRU): Azure | Microsoft Docs'
+title: Escalado de unidades reservadas de multimedia (MRU) con CLI
 description: En este tema se muestra cómo usar la CLI para escalar el procesamiento multimedia con Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617152"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955892"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Escalado de unidades reservadas de multimedia
 

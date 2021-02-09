@@ -1,24 +1,9 @@
 ---
-title: Transmisión de contenido con la integración de CDN
-titleSuffix: Azure Media Services
-description: Obtenga información sobre la transmisión de contenido con la integración de CDN, así como la captura previa y la característica Origin-Assist CDN-Prefetch.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001378"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obligatorios. Vea más información en aka.ms/skyeye/meta.
+título: Transmisión de contenido con la integración de CDN: Descripción de Azure Media Services: Obtenga información sobre la transmisión de contenido con la integración de CDN, así como la captura previa y la característica Origin-Assist CDN-Prefetch.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Transmisión de contenido con la integración de CDN
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

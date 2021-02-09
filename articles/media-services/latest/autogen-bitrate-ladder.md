@@ -1,5 +1,5 @@
 ---
-title: Codificar vídeos con Standard Encoder en Media Services - Azure | Microsoft Docs
+title: Codificación de vídeos con Standard Encoder en Media Services
 description: En este tema se muestra cómo usar Standard Encoder en Media Services para codificar un vídeo de entrada con una escala de velocidad de bits generada automáticamente según la velocidad de bits y la resolución de entrada.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 05accd69f1868b8b0e0f6dbd4fb5c21ee843ec5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b973d17e10f3dbb75f5208d9003b4f8118b37c7
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891410"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificación con una escala de velocidad de bits generada automáticamente
 

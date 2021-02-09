@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752744"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226495"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y flujo de concesión implícita
 
@@ -44,7 +44,7 @@ En el diagrama siguiente se muestra el aspecto que tiene el flujo implícito de 
 Al principio, para iniciar la sesión del usuario en la aplicación, puede enviar una solicitud de autenticación [OpenID Connect](v2-protocols-oidc.md) y obtener un `id_token` de la Plataforma de identidad de Microsoft.
 
 > [!IMPORTANT]
-> Para solicitar con éxito un token de identificador y un token de acceso, el registro de aplicación en la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) tiene que tener habilitado el flujo de concesión implícita correspondiente, para ello, seleccione **Tokens de identificador** y **Tokens de acceso** en la sección **Concesión implícita**. Si no está habilitado, se devolverá un error `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client (El valor proporcionado para el parámetro de entrada “response_type” no se admite para este cliente). Expected value is 'code'** ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"").
+> Para solicitar con éxito un token de identificador y un token de acceso, el registro de aplicación de la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) debe tener habilitado el flujo de concesión implícita correspondiente; para ello, hay que seleccionar **ID tokens** (Tokens de identificador) y **access tokens** (Tokens de acceso) en la sección **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos). Si no está habilitado, se devolverá un error `unsupported_response`: `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only

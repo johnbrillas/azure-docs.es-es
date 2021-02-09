@@ -107,26 +107,15 @@
       href: ./workloads/mainframe-rehosting/overview.md
     - name: Bases de datos
       items:
-        - name: MySQL en SUSE
-          href: ./linux/mysql-on-opensuse.md
         - name: MongoDB
           items:
-            - name: Linux
-              href: ./linux/install-mongodb.md
             - name: Windows
               href: ./windows/install-mongodb.md
-        - name: PostgreSQL
-          href: ./linux/postgresql-install.md
         - name: MS SQL en Linux
           href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: Informática de alto rendimiento (HPC)
       href: /azure/architecture/topics/high-performance-computing/
     - name: Contenedores
-      items:
-        - name: Uso de Docker Machine
-          href: ./linux/docker-machine.md
-        - name: Uso de Docker Compose
-          href: ./linux/docker-compose-quickstart.md
     - name: Visual Studio
       href: ./windows/using-visual-studio-vm.md
 - name: Instancias
@@ -979,10 +968,18 @@
       href: disks-scalability-targets.md
     - name: Copia de seguridad y protección de datos
       items:
-        - name: Copia de seguridad y recuperación ante desastres para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Habilitación de instantáneas incrementales
           href: disks-incremental-snapshots.md
+        - name: Azure Disk Backup
+          items:
+            - name: Información general
+              href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+            - name: Configuración de Azure Disk Backup
+              href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+            - name: Restauración de discos con Azure Disk Backup
+              href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+        - name: Copia de seguridad y recuperación ante desastres para discos
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 'Instantánea de un disco: CLI'
           href: ./linux/snapshot-copy-managed-disk.md
         - name: 'Instantánea de un disco: PowerShell'
@@ -1281,8 +1278,6 @@
       href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
     - name: Supervisión de máquinas virtuales
       items:
-        - name: Linux
-          href: ./linux/tutorial-monitor.md
         - name: Windows
           href: ./windows/tutorial-monitor.md
     - name: Agentes

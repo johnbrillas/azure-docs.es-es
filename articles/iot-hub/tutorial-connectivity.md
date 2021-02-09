@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 060ed8bfc424fcb9dab8fc12faf5e3822fa86a31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621450"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538776"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hubs
 
@@ -66,15 +66,15 @@ Un dispositivo debe autenticarse con el centro antes de poder intercambiar datos
 
 Inicie sesión en el portal y desplácese hasta su centro de IoT. A continuación, vaya a la herramienta **Dispositivos IoT**:
 
-![Herramienta Dispositivos IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Herramienta Dispositivos IoT":::
 
-Para registrar un nuevo dispositivo, haga clic en **+ Agregar**, establezca **Id. de dispositivo** en **MyTestDevice** y haga clic en **Guardar**:
+Para registrar un nuevo dispositivo, haga clic en **+ Nuevo**, establezca **Id. de dispositivo** en **MyTestDevice** y haga clic en **Guardar**.
 
-![Adición de un nuevo dispositivo](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Adición de un nuevo dispositivo":::
 
-Para recuperar la cadena de conexión de **MyTestDevice**, haga clic en ella en la lista de dispositivos y, a continuación, copie el valor de **Cadena de conexión: clave principal**. La cadena de conexión incluye la *clave de acceso compartido* del dispositivo.
+Para recuperar la cadena de conexión de **MyTestDevice**, haga clic en ella en la lista de dispositivos y, a continuación, copie el valor de **Cadena de conexión principal**. La cadena de conexión incluye la *clave de acceso compartido* del dispositivo.
 
-![Recuperación de la cadena de conexión del dispositivo](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Recuperación de la cadena de conexión del dispositivo":::
 
 Para simular el envío de telemetría de **MyTestDevice** a su centro de IoT, ejecute la aplicación de dispositivo simulado de Node.js que descargó anteriormente.
 
@@ -176,7 +176,7 @@ Después de que se conecta un dispositivo, normalmente intenta enviar telemetrí
 En primer lugar, recupere la cadena de conexión actual del dispositivo simulado mediante el siguiente comando:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 Para ejecutar un dispositivo simulado que envía mensajes, vaya hasta la carpeta **iot-hub\Tutorials\ConnectivityTests** en el código descargado.

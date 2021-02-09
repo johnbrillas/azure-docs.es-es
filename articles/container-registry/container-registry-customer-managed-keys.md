@@ -4,12 +4,12 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620463"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062735"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -566,21 +566,31 @@ Después de completar los pasos anteriores, gire la clave a una nueva en el alma
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-### <a name="removing-user-assigned-identity"></a>Eliminación de una identidad asignada por el usuario
+### <a name="removing-managed-identity"></a>Eliminación de una identidad administrada
 
-Si intenta quitar una identidad asignada por el usuario de un registro que se usa para el cifrado, es posible que vea un mensaje de error similar al siguiente:
+
+Si intenta quitar una identidad asignada por el usuario o una asignada por el sistema de un registro que se usa para configurar el cifrado, es posible que vea un mensaje de error similar al siguiente:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Tampoco podrá cambiar (girar) la clave de cifrado. Si se produce este problema, reasigne primero la identidad con el GUID que se muestra en el mensaje de error. Por ejemplo:
+Tampoco podrá cambiar (girar) la clave de cifrado. Los pasos de resolución dependen del tipo de identidad que se usa para el cifrado.
+
+**Identidad asignada por el usuario**
+
+Si se produce este problema con una identidad asignada por el usuario, reasigne primero la identidad con el GUID que se muestra en el mensaje de error. Por ejemplo:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Después, tras cambiar la clave y asignar otra identidad, puede quitar la identidad asignada por el usuario original.
+
+**Identidad asignada por el sistema**
+
+Si se produce este problema con una identidad asignada por el sistema, [cree una incidencia de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) para solicitar ayuda para restaurar la identidad.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

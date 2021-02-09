@@ -3,14 +3,14 @@ title: Funcionalidades de representación
 description: Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicaciones y cargas de trabajo de representación. Batch incluye características específicas para admitir cargas de trabajo de representación.
 author: mscurrell
 ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234280"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429809"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -32,7 +32,7 @@ La mayoría de las aplicaciones de representación requerirán licencias obtenid
 
 Una imagen de VM de representación de Azure Marketplace puede especificarse en la configuración del grupo si solo deben usarse las aplicaciones instaladas previamente.
 
-Hay una imagen de Windows 2016 y una imagen de CentOS.  En [Azure Marketplace](https://azuremarketplace.microsoft.com), las imágenes de VM pueden encontrarse buscando "representación por lotes".
+Hay una imagen de Windows y una imagen de CentOS.  En [Azure Marketplace](https://azuremarketplace.microsoft.com), las imágenes de VM pueden encontrarse buscando "representación por lotes".
 
 Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de representación de la CLI de Azure](./tutorial-rendering-cli.md).  Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
 
@@ -70,13 +70,10 @@ Para poder crear la línea de comandos para las tareas de representación, se de
 
 |Application|Archivo ejecutable de aplicación|Variable de entorno|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Chaos Group V-Ray Standalone|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
-|Arnold 2018 command line|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Chaos Group V-Ray Standalone|vray.exe|VRAY_4.10.03_EXEC|
+|Línea de comandos de Arnold 2020|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## <a name="azure-vm-families"></a>Familias de VM de Azure

@@ -3,7 +3,7 @@ title: 'Tutorial: Implementación de una aplicación de Django de Python con Pos
 description: Cree una aplicación web de Python con una base de datos de PostgreSQL e impleméntela en Azure. En el tutorial se usa el marco de Django, y la aplicación se hospeda en Azure App Service en Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 05bdbd6c9d5dc3862c3191e4564a79e7a44bc0b8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898596"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494062"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -39,7 +39,7 @@ También puede usar la [versión de Azure Portal de este tutorial](/azure/develo
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o una versión posterior</a>.
-1. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.0.80 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
+1. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.18.0 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
 
 Abra una ventana del terminal y compruebe que la versión de Python es la 3.6 o superior:
 
@@ -63,11 +63,13 @@ py -3 --version
 
 ---
 
-Compruebe que la versión de la CLI de Azure es la 2.0.80 o posterior:
+Compruebe que la versión de la CLI de Azure es la 2.18.0 o posterior:
 
 ```azurecli
 az --version
 ```
+
+Si necesita actualizar, pruebe el comando `az upgrade` (requiere la versión 2.11 o superior), o consulte <a href="/cli/azure/install-azure-cli" target="_blank">Instalación de la CLI de Azure</a>.
 
 Después, inicie sesión en Azure mediante la CLI:
 
@@ -229,7 +231,7 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
 
     Reemplace `<app-name>` por el nombre usado anteriormente en el comando `az webapp up`.
 
-    En macOS y Linux, puede conectarse alternativamente una sesión SSH mediante el comando de [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh).
+    Puede conectarse alternativamente a una sesión SSH mediante el comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh). En Windows, este comando requiere la CLI de Azure 2.18.0 o posterior.
 
     Si no puede conectarse a la sesión SSH, significa que no se pudo iniciar la propia aplicación. [Compruebe los registros de diagnóstico](#6-stream-diagnostic-logs) para más información. Por ejemplo, si no ha creado la configuración de la aplicación necesaria en la sección anterior, los registros indicarán `KeyError: 'DBNAME'`.
 
@@ -239,8 +241,11 @@ Las migraciones de bases de datos de Django aseguran que el esquema de la base d
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -398,6 +403,7 @@ Abra una sesión de SSH de nuevo en el explorador. Para ello, vaya a `https://<a
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip instal -r requirements.txt
 python manage.py migrate
 ```
 

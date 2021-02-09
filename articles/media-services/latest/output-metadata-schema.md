@@ -1,5 +1,5 @@
 ---
-title: Esquema de metadatos de salida de Azure Media Services | Microsoft Docs
+title: Esquema de metadatos de salida de Azure Media Services
 description: En este artículo se proporciona información general sobre el esquema de metadatos de salida de Azure Media Services v3.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336418"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895210"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 

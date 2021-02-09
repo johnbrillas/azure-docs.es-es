@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223642"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919976"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Crear una VM Windows con redes aceleradas mediante Azure PowerShell
 
@@ -61,11 +61,9 @@ Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
 
-Las redes aceleradas son compatibles con la mayoría de los tamaños de instancia de uso general y optimizados para procesos con dos o más CPU virtuales (vCPU).  Estas series admitidas son: Dv2/DSv2 y F/Fs.
+Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU. En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. 
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de VM con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
-
-Para obtener más información sobre instancias de VM, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La compatibilidad con Accelerated Networking se puede encontrar en la documentación de los [tamaños de máquina virtual](../virtual-machines/sizes.md) individuales. 
 
 ### <a name="custom-images"></a>Imágenes personalizadas
 

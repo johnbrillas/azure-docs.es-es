@@ -6,16 +6,16 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 07b0dd38b616525728c264bd315c5cb8ddcaa79a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093526"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072058"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceptos de red de Red Hat OpenShift en Azure (ARO)
 
-En esta guía se describe una introducción a las redes en clústeres de Red Hat OpenShift en Azure en OpenShift 4, junto con un diagrama y una lista de puntos de conexión importantes. Para más información sobre los conceptos básicos de las redes de OpenShift, consulte [Documentación de redes de Red Hat OpenShift en Azure 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+En esta guía se describe una introducción a las redes en clústeres de Red Hat OpenShift en Azure en OpenShift 4, junto con un diagrama y una lista de puntos de conexión importantes. Para más información sobre los conceptos básicos de las redes de OpenShift, consulte [Documentación de redes de Red Hat OpenShift en Azure 4](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
 ![Diagrama de redes de Red Hat OpenShift en Azure 4](./media/concepts-networking/aro4-networking-diagram.png)
 
@@ -64,19 +64,22 @@ En la lista siguiente se describen los componentes de redes más importantes de 
 
 ## <a name="networking-basics-in-openshift"></a>Aspectos básicos de las redes en OpenShift
 
-Las redes definidas por software [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) de OpenShift se usan para configurar una red de superposición mediante Open vSwitch [(OVS)](https://www.openvswitch.org/), una implementación de OpenFlow basada en la especificación de la interfaz de red del contenedor (CNI). SDN admite distintos complementos: la directiva de red es el complemento que se usa en Red Hat OpenShift en Azure 4. SDN administra toda la comunicación de red, por lo que no se necesitan rutas adicionales en las redes virtuales para lograr la comunicación entre pod y pod.
+Las redes definidas por software [(SDN)](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/about-openshift-sdn.html) de OpenShift se usan para configurar una red de superposición mediante Open vSwitch [(OVS)](https://www.openvswitch.org/), una implementación de OpenFlow basada en la especificación de la interfaz de red del contenedor (CNI). SDN admite distintos complementos: la directiva de red es el complemento que se usa en Red Hat OpenShift en Azure 4. SDN administra toda la comunicación de red, por lo que no se necesitan rutas adicionales en las redes virtuales para lograr la comunicación entre pod y pod.
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Redes para Red Hat OpenShift en Azure
 
-Las siguientes características de redes son específicas de Red Hat OpenShift en Azure:
+Las siguientes características de redes son específicas de Red Hat OpenShift en Azure:  
 * Los usuarios pueden crear su clúster de ARO en una red virtual existente o crear una red virtual al crear su clúster de ARO.
 * Se pueden configurar los CIDR de la red de servicio y los pods.
 * Los nodos y los maestros se encuentran en subredes diferentes.
 * Las subredes de la red virtual de los nodos y los maestros deben ser /27 como mínimo.
-* El CIDR de lo pods debe tener un tamaño mínimo de /18 (la red de los pods tiene direcciones IP no enrutables y solo se usa dentro de SDN de OpenShift).
+* El CIDR del pod predeterminado es 10.128.0.0/14.
+* El CIDR del servicio predeterminado es 172.30.0.0/16.
+* Los CIDR de la red del servicio y el pod no deben solaparse con otros intervalos de direcciones que se utilicen en la red ni estar en el mismo intervalo de direcciones IP de la red virtual del clúster.
+* El CIDR del pod debe tener un tamaño mínimo de /18. (La red del pod tiene direcciones IP no enrutables y solo se usa dentro del SDN de OpenShift).
 * Cada nodo está asignado a una subred /23 (512 direcciones IP) para los pods. Este valor no puede modificarse.
 * No se puede conectar un pod a varias redes.
-* No se puede configurar una dirección IP estática de salida. (Esta es una característica de OpenShift. Para más información, consulte [Configuración de direcciones IP de salida](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
+* No se puede configurar una dirección IP estática de salida. (Esta es una característica de OpenShift. Para más información, consulte [Configuración de direcciones IP de salida](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)).
 
 ## <a name="network-settings"></a>Configuración de red
 
@@ -95,7 +98,7 @@ Los grupos de seguridad de red se crean en el grupo de recursos del nodo, que es
 Con un servidor de API visible públicamente, no puede crear grupos de seguridad de red y asignarlos a las NIC.
 
 ## <a name="domain-forwarding"></a>Reenvío de dominios
-Red Hat OpenShift en Azure usa CoreDNS. Se puede configurar el reenvío de dominios. No puede traer su propio sistema DNS a las redes virtuales. Para más información, consulte la documentación sobre [Uso del reenvío de DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
+Red Hat OpenShift en Azure usa CoreDNS. Se puede configurar el reenvío de dominios. No puede traer su propio sistema DNS a las redes virtuales. Para más información, consulte la documentación sobre [Uso del reenvío de DNS](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
 ## <a name="whats-new-in-openshift-45"></a>Novedades de OpenShift 4.5
 

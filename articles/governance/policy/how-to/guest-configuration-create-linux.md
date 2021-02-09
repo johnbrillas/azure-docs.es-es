@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 9d9a66ddad5bd3511d5372f62558af35cfcb5616
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755878"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226614"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -204,7 +204,17 @@ El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-El siguiente paso consiste en publicar el archivo en Azure Blob Storage.  El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
+El siguiente paso consiste en publicar el archivo en Azure Blob Storage. El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
+
+Parámetros del cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Ruta de acceso**: Ubicación del paquete que se va a publicar.
+- **ResourceGroupName**: Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento.
+- **StorageAccountName**: Nombre de la cuenta de almacenamiento donde se debe publicar el paquete.
+- **StorageContainerName** (valor predeterminado: *guestconfiguration*): Nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
+- **Force**: Permite sobrescribir el paquete existente en la cuenta de almacenamiento con el mismo nombre.
+
+En el ejemplo siguiente se publica el paquete en un contenedor de almacenamiento denominado "guestconfiguration".
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -281,6 +291,27 @@ describe file(attr_path) do
 end
 ```
 
+Agregue la propiedad **AttributesYmlContent** a la configuración con cualquier cadena como valor.
+El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
+
+```powershell
+Configuration AuditFilePathExists
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node AuditFilePathExists
+    {
+        ChefInSpecResource 'Audit Linux path exists'
+        {
+            Name = 'linux-path'
+            AttributesYmlContent = "fromParameter"
+        }
+    }
+}
+```
+
+Vuelva a compilar el archivo MOF con los ejemplos proporcionados en este documento.
+
 Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parámetros**. Este parámetro toma una tabla hash que incluye todos los detalles sobre cada parámetro y crea automáticamente todas las secciones necesarias de los archivos que se usan para crear cada definición de Azure Policy.
 
 En el ejemplo siguiente se crea una definición de directiva para auditar una ruta de acceso de archivo, donde el usuario proporciona la ruta de acceso en el momento de asignación de la directiva.
@@ -290,10 +321,10 @@ $PolicyParameterInfo = @(
     @{
         Name = 'FilePath'                             # Policy parameter name (mandatory)
         DisplayName = 'File path.'                    # Policy parameter display name (mandatory)
-        Description = "File path to be audited."      # Policy parameter description (optional)
-        ResourceType = "ChefInSpecResource"           # Configuration resource type (mandatory)
+        Description = 'File path to be audited.'      # Policy parameter description (optional)
+        ResourceType = 'ChefInSpecResource'           # Configuration resource type (mandatory)
         ResourceId = 'Audit Linux path exists'        # Configuration resource property name (mandatory)
-        ResourcePropertyName = "AttributesYmlContent" # Configuration resource property name (mandatory)
+        ResourcePropertyName = 'AttributesYmlContent' # Configuration resource property name (mandatory)
         DefaultValue = '/tmp'                         # Policy parameter default value (optional)
     }
 )
@@ -306,26 +337,10 @@ New-GuestConfigurationPolicy
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
     -Parameter $PolicyParameterInfo `
+    -Platform 'Linux' `
     -Version 1.0.0
 ```
 
-En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según sea necesario. El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
-
-```powershell
-Configuration AuditFilePathExists
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node AuditFilePathExists
-    {
-        ChefInSpecResource 'Audit Linux path exists'
-        {
-            Name = 'linux-path'
-            AttributesYmlContent = "path: /tmp"
-        }
-    }
-}
-```
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 

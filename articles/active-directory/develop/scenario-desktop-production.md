@@ -1,5 +1,6 @@
 ---
-title: 'Paso a producción de una aplicación de escritorio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+title: Paso a producción de las API web de llamada a aplicaciones de escritorio | Azure
+titleSuffix: Microsoft identity platform
 description: Aprenda a pasar a producción una aplicación de escritorio que llama a las API web.
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629789"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226362"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicación de escritorio que llama a las API web: Paso a producción
 
@@ -29,16 +30,16 @@ En los distintos flujos, ha aprendido a administrar los errores para los flujos 
 ## <a name="have-the-user-consent-upfront-for-several-resources"></a>Consentimiento del usuario por adelantado para varios recursos
 
 > [!NOTE]
-> La plataforma de identidad de Microsoft permite obtener el consentimiento para varios recursos, pero no así Azure Active Directory (Azure AD) B2C. Azure AD B2C solo admite el consentimiento del administrador, no el consentimiento del usuario.
+> La plataforma de identidad de Microsoft permite obtener el consentimiento para varios recursos, pero no así Azure Active Directory (Azure AD) B2C. Azure AD B2C solo admite el consentimiento del administrador, no el consentimiento del usuario.
 
-El punto de conexión de la plataforma de identidad de Microsoft (v2.0) no le permitirá obtener un token para varios recursos a la vez. El parámetro `scopes` puede contener ámbitos para un único recurso. Asegúrese de que el usuario da su consentimiento con anterioridad a varios recursos mediante el parámetro `extraScopesToConsent`.
+No puede obtener un token para varios recursos a la vez con la plataforma de identidad de Microsoft. El parámetro `scopes` puede contener ámbitos para un único recurso. Asegúrese de que el usuario da su consentimiento con anterioridad a varios recursos mediante el parámetro `extraScopesToConsent`.
 
 Por ejemplo, podría tener dos recursos, y cada uno de ellos podría tener dos ámbitos:
 
 - `https://mytenant.onmicrosoft.com/customerapi` con los ámbitos `customer.read` y `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` con los ámbitos `vendor.read` y `vendor.write`
 
-En este ejemplo, usaría el modificador `.WithAdditionalPromptToConsent`, que tiene el parámetro `extraScopesToConsent`.
+En este ejemplo, usaría el modificador `.WithExtraScopesToConsent`, que tiene el parámetro `extraScopesToConsent`.
 
 Por ejemplo:
 
@@ -105,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 En el caso de los usuarios de cuentas personales de Microsoft, el comportamiento previsto consiste en volver a solicitar el consentimiento en cada llamada de cliente nativo (aplicación de escritorio o móvil) para autorizarla. La identidad del cliente nativo es inherentemente insegura, todo lo contrario a la identidad de una aplicación cliente confidencial, que intercambia un secreto con la plataforma de identidad de Microsoft para demostrar su identidad. La plataforma de identidad de Microsoft eligió mitigar esta inseguridad para servicios del consumidor pidiendo al usuario su consentimiento cada vez que se autoriza la aplicación.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+Para probar ejemplos adicionales, consulte [Aplicaciones de escritorio y móviles de cliente público](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+
+
+

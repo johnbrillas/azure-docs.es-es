@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609061"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985893"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
+> - Para restaurar un grupo de servidores en un grupo de servidores independiente (como la restauración a un momento dado), debe configurar el grupo de servidores para usar PVC con el modo de acceso ReadWriteMany. Es necesario hacerlo en la creación del grupo de servidores. Esto no se puede cambiar después de crearlo. Para obtener más detalles, lea:
+>    - [Esta sección sobre la copia de seguridad y restauración](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Esta sección sobre las limitaciones de Hiperescala de PostgreSQL habilitada para Azure Arc](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **Hay otros parámetros de línea de comandos disponibles.  Para ver la lista completa de opciones, ejecute `azdata arc postgres server create --help`.**
-> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
+
 > - La unidad aceptada por los parámetros --volume-size-* es una cantidad de recursos Kubernetes (es suficiente con un entero seguido de uno de estos valores SI (T, G, M, K, m), o bien sus equivalentes elevados a la potencia de dos (Ti, Gi, Mi, Ki)).
 > - Los nombres deben tener una longitud de 12 caracteres o menos, y ajustarse a las convenciones de nomenclatura de DNS.
 > - Se le pedirá que escriba la contraseña del usuario administrativo estándar _postgres_.  Puede omitir el mensaje interactivo si establece la variable de entorno de sesión `AZDATA_PASSWORD` antes de ejecutar el comando create.

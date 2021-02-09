@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: justinha
-ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619740"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491172"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 
@@ -106,7 +106,7 @@ Cualquier cuenta de usuario que forme parte del dominio administrado puede unirs
 No. No se le conceden privilegios administrativos en el dominio administrado. Los privilegios *Administrador de dominio* y *Administrador de organización* no estarán disponibles dentro del dominio. A los miembros de los grupos de administradores de dominio o administradores de organización dentro del directorio local de Active Directory tampoco se les concederán privilegios de administrador de dominio o de organización en el dominio administrado.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>¿Puedo modificar pertenencias a grupos mediante LDAP u otras herramientas administrativas de AD en dominios administrados?
-Los usuarios y grupos que se sincronizan desde Azure Active Directory con Azure AD Domain Services no se pueden modificar porque su origen es Azure Active Directory. Cualquier grupo o usuario que se origine en el dominio administrado se puede modificar.
+Los usuarios y grupos que se sincronizan desde Azure Active Directory con Azure AD Domain Services no se pueden modificar porque su origen es Azure Active Directory. Esto incluye mover usuarios o grupos de la unidad organizativa administrada AADDC Users a una unidad organizativa personalizada. Cualquier grupo o usuario que se origine en el dominio administrado se puede modificar.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>¿Cuánto tardan los cambios realizados en el directorio de Azure AD en estar visibles en mi dominio administrado?
 Los cambios realizados en el directorio de Azure AD mediante la interfaz de usuario de Azure AD o PowerShell se sincronizan automáticamente con el dominio administrado. Este proceso de sincronización se ejecuta en segundo plano. No hay ningún período de tiempo definido para que esta sincronización complete todos los cambios en el objeto.

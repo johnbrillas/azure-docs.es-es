@@ -7,33 +7,45 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/06/2020
-ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358803"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063220"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Programación de indizadores de Azure Cognitive Search
 
-Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Se pueden ejecutar a petición mediante el portal, la API REST o el SDK de .NET. También se puede configurar un indexador para que se ejecute periódicamente según una programación.
+Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Después, puede volver a ejecutarlos a petición mediante Azure Portal, [Ejecutar indizador (REST)](/rest/api/searchservice/run-indexer) o un SDK de Azure. También puede configurar un indexador para que se ejecute según una programación. Estas son algunas situaciones en las que resulta útil programar el indexador:
 
-Estas son algunas situaciones en las que resulta útil programar el indexador:
-
-* Los datos de origen cambiarán con el tiempo, y desea que los indizadores de Azure Cognitive Search procesen automáticamente los datos modificados.
-* El índice se rellenará desde varios orígenes de datos y desea asegurarse de que los indexadores se ejecutan a horas distintas para reducir los conflictos.
+* Los datos de origen cambiarán con el tiempo, y desea que el indexador de búsqueda procese automáticamente el archivo delta.
 * Los datos de origen son muy grandes y desea expandir el procesamiento del indexador a lo largo del tiempo. Para más información acerca de la indexación de grandes volúmenes de datos, consulte [Indexación de grandes conjuntos de datos en Azure Cognitive Search](search-howto-large-index.md).
+* Un índice de búsqueda se rellenará desde varios orígenes de datos y quiere que los indexadores se ejecuten a horas distintas para reducir los conflictos.
 
-El programador es una característica integrada de Azure Cognitive Search. No se puede usar un programador externo para controlar los indexadores de búsqueda.
+De manera visual, una programación podría ser similar a la siguiente: a partir del 1 de enero y en ejecución cada 50 minutos.
 
-## <a name="define-schedule-properties"></a>Definición de las propiedades de la programación
+```json
+{
+    "dataSourceName" : "myazuresqldatasource",
+    "targetIndexName" : "target index name",
+    "schedule" : { "interval" : "PT50M", "startTime" : "2021-01-01T00:00:00Z" }
+}
+```
 
-Una programación de un indexador tiene dos propiedades:
-* **Intervalo**, que define el tiempo que pasa entre las ejecuciones programadas del indexador. El intervalo más pequeño que se permite es 5 minutos, mientras que el mayor es 24 horas.
-* **Hora de inicio (UTC)** , que indica la primera hora a el que se debe ejecutar el indexador.
+> [!NOTE]
+> El programador es una característica integrada de Azure Cognitive Search. No se admiten programadores externos.
 
-La programación se puede especificar la primera vez que se crear el indexador, o bien se pueden actualizar las propiedades del indexador más adelante. Las programaciones del indexador se pueden establecer mediante el [portal](#portal), la [API REST](#restApi), o el [SDK de .NET](#dotNetSdk).
+## <a name="schedule-property"></a>Propiedad schedule
+
+La programación forma parte de la definición del indexador. Si la propiedad **schedule** se omite, el indexador se ejecutará una sola vez inmediatamente después de su creación. Si agrega una propiedad **schedule**, especificará dos elementos.
+
+| Propiedad | Descripción |
+|----------|-------------|
+|**Intervalo** | (Obligatorio) Se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indexador. El intervalo más breve que se permite es 5 minutos, mientras que el mayor es 1440 minutos (24 horas). Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. <br/><br/>Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.|
+| **Hora de inicio (UTC)** | (Opcional) Indica cuándo deben comenzar las ejecuciones programadas. Si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programa como si el indexador se hubiera ejecutado continuamente desde el valor de **starTime**.<br/><br/>Ejemplos: `2021-01-01T00:00:00Z` a partir de la medianoche del 1 de enero, `2021-01-05T22:28:00Z` a partir de las 10:28 p.m. del 5 de enero.|
+
+## <a name="scheduling-behavior"></a>Comportamiento de la programación
 
 Solo se puede ejecutar a la vez una ejecución de un indexador. Si se está ejecutando un indexador cuando está programada su próxima ejecución, esta se pospone hasta la próxima hora programada.
 
@@ -44,29 +56,11 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que se configura una prog
 * La tercera ejecución está programada para empezar a 10:00 A. M. UTC, pero en ese momento todavía se está ejecutando la ejecución anterior. Luego esta ejecución programada se omite. La siguiente ejecución del indexador no se iniciará hasta las 11:00 A. M. UTC.
 
 > [!NOTE]
-> Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indexador se bloqueara en un punto determinado, puede realizar una ejecución a petición del indexador y, si avanza correctamente, el indexador volverá a su intervalo de programación establecido.
+> Si un indexador se establece según una programación determinada pero se produce repetidamente un error en el mismo documento cada vez, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta el intervalo máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente. Si cree que corrigió el problema subyacente, puede ejecutar el indexador de manera manual y, si la indexación se realiza correctamente, el indexador volverá a su programación normal.
 
-<a name="portal"></a>
+## <a name="schedule-using-rest"></a>Programación mediante REST
 
-## <a name="schedule-in-the-portal"></a>Programación en el portal
-
-El Asistente para importar datos del portal le permite definir la programación de un indexador en tiempo de creación. El valor de la programación predeterminada es **Cada hora**, lo que significa que el indexador se ejecuta una vez después de que se crea y se vuelve a ejecutar posteriormente cada hora.
-
-El valor de la programación se puede cambiar a **Una vez** si no desea que el indexador se vuelva a ejecutar automáticamente o a **Diariamente** para que se ejecute una vez al día. Establézcalo en **Personalizado** si desea especificar otro intervalo o una hora de inicio futura concreta.
-
-Si la programación se establece en **Personalizado**, los campos le permiten especificar el **intervalo** y la **hora de inicio (UTC)** . El menor intervalo de tiempo que se permite es 5 minutos, mientras que el mayor es 1440 minutos (24 horas).
-
-   ![Establecimiento de la programación del indizador en el Asistente para importar datos](media/search-howto-schedule-indexers/schedule-import-data.png "Establecimiento de la programación del indizador en el Asistente para importar datos")
-
-Una vez creado un indexador, puede cambiar la configuración de la programación mediante el panel de edición del indexador. Los campos de Programación son los mismos que los del Asistente para importar datos.
-
-   ![Establecimiento de la programación en el panel de edición del indizador](media/search-howto-schedule-indexers/schedule-edit.png "Establecimiento de la programación en el panel de edición del indizador")
-
-<a name="restApi"></a>
-
-## <a name="schedule-using-rest-apis"></a>Programación mediante las API REST
-
-La programación de un indexador se puede definir mediante la API REST. Para ello, incluya la propiedad **schedule** al crear o actualizar el indexador. El ejemplo siguiente muestra una solicitud PUT para actualizar un indexador existente:
+Especifique la propiedad **schedule** al crear o actualizar el indexador.
 
 ```http
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
@@ -76,23 +70,13 @@ La programación de un indexador se puede definir mediante la API REST. Para ell
     {
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
     }
 ```
 
-El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+## <a name="schedule-using-net"></a>Programación mediante .NET
 
-El valor **startTime** opcional indica cuándo deben comenzar las ejecuciones programadas. Si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programa como si el indexador se hubiera ejecutado continuamente desde el valor de **starTime**.
-
-También puede ejecutar un indexador a petición en cualquier momento mediante la llamada Run Indexer. Para más información acerca de cómo ejecutar los indizadores y establecer las programaciones del indexador, consulte [Run Indexer](/rest/api/searchservice/run-indexer) (Ejecución del indexador), [Get Indexer](/rest/api/searchservice/get-indexer) (Obtención del indexador) y [Update Indexer](/rest/api/searchservice/update-indexer) (Actualización del indexador) en la referencia de la API REST.
-
-<a name="dotNetSdk"></a>
-
-## <a name="schedule-using-the-net-sdk"></a>Programación mediante el SDK de .NET
-
-La programación de un indizador se puede definir mediante el SDK de .NET de Azure Cognitive Search. Para ello, incluya la propiedad **Schedule** al crear o actualizar cualquier indexador.
-
-En el siguiente ejemplo de C# se crea un indexador de base de datos de Azure SQL, para lo que se usa un origen de datos y un índice predefinidos, y se establece su programación para que se ejecute una vez al día a partir de este momento:
+En el ejemplo de C# siguiente se crea un indexador de base de datos de Azure SQL, para lo que se usa un origen de datos y un índice predefinidos, y se establece su programación para que se ejecute una vez al día a partir de este momento:
 
 ```csharp
 var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
@@ -109,15 +93,11 @@ var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.
 await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
+La programación se define mediante la clase [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule), al crear o actualizar un indexador mediante [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). El constructor **IndexingSchedule** requiere que se especifique un parámetro **Interval** mediante un objeto **TimeSpan**. Como se indicó anteriormente, el valor de intervalo más pequeño que se permite es 5 minutos, mientras que el mayor es 24 horas. El segundo parámetro **StartTime**, que se especifica como un objeto **DateTimeOffset**, es opcional.
 
-Si la propiedad **Schedule** se omite, el indexador se ejecutará una sola vez inmediatamente después de su creación.
+## <a name="next-steps"></a>Pasos siguientes
 
-El parámetro **StartTime** se puede establecer en un momento del pasado. En ese caso, la primera ejecución se programa como si el indexador se hubiera ejecutado continuamente desde el valor de **StartTime**.
+En el caso de los indexadores que se ejecutan según una programación, puede supervisar las operaciones recuperando el estado del servicio de búsqueda, o bien obtener información detallada habilitando el registro de diagnóstico.
 
-Para definir la programación se usa la clase [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule). El constructor **IndexingSchedule** requiere que se especifique un parámetro **Interval** mediante un objeto **TimeSpan**. El valor de intervalo más pequeño que se permite es 5 minutos, mientras que el mayor es 24 horas. El segundo parámetro **StartTime**, que se especifica como un objeto **DateTimeOffset**, es opcional.
-
-El SDK de .NET le permite controlar las operaciones del indexador mediante [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
-
-Puede ejecutar un indexador a petición en cualquier momento mediante uno de los métodos [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) o [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync).
-
-Para más información acerca de la creación, actualización y ejecución de indexadores, consulte [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
+* [Supervisión del estado del indexador de búsqueda](search-howto-monitor-indexers.md)
+* [Recopilación y análisis de datos de registro](search-monitor-logs.md)

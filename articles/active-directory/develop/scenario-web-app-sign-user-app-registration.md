@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756270"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937884"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
 
-En este artículo se explican los detalles del registro de la aplicación para una aplicación web que inicia la sesión de los usuarios.
+En este artículo se explican los pasos del registro de la aplicación para una aplicación web que inicia la sesión de los usuarios.
 
 Para registrar la aplicación, puede usar lo siguiente:
 
-- Los [inicios rápidos de aplicación web](#register-an-app-by-using-the-quickstarts). Además de ser una excelente primera experiencia con la creación de una aplicación, las guías de inicio rápido de Azure Portal incluyen un botón denominado **Hacer este cambio por mí**. Puede usar este botón para establecer las propiedades que necesita, incluso para una aplicación existente. Deberá adaptar los valores de estas propiedades a su propio caso. En concreto, la dirección URL de la API web para la aplicación probablemente será diferente de la URL propuesta de forma predeterminada, lo cual afectará también al URI de cierre de sesión.
+- Los [inicios rápidos de aplicación web](#register-an-app-by-using-the-quickstarts). Además de ser una excelente primera experiencia con la creación de una aplicación, las guías de inicio rápido de Azure Portal incluyen un botón denominado **Hacer este cambio por mí**. Puede usar este botón para establecer las propiedades que necesita, incluso para una aplicación existente. Adapte los valores de estas propiedades a su propio caso. En concreto, la dirección URL de la API web para la aplicación probablemente será diferente de la URL propuesta de forma predeterminada, lo cual afectará también al URI de cierre de sesión.
 - Azure Portal para [registrar la aplicación manualmente](#register-an-app-by-using-the-azure-portal).
 - PowerShell y herramientas de línea de comandos.
 
@@ -56,8 +56,8 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
    1. Seleccione **Registrar**.
 1. En **Administrar**, seleccione **Autenticación** y, a continuación, agregue la siguiente información:
    1. En la sección **Web**, agregue `https://localhost:44321/signin-oidc` como **URI de redirección**.
-   1. Agregue `https://localhost:44321/signout-oidc` como **URL de cierre de sesión**.
-   1. En **Concesión implícita**, seleccione **Tokens de identificador**.
+   1. En **Dirección URL de cierre de sesión del canal frontal**, escriba `https://localhost:44321/signout-oidc`.
+   1. En **Flujos de concesión implícita e híbridos**, seleccione **Tokens de id.**
    1. Seleccione **Guardar**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
    1. Escriba el **Nombre** de la aplicación, por ejemplo `MailApp-openidconnect-v2`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
-   1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **https://localhost:44326/** .
+   1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba un **URI de redireccionamiento** de `https://localhost:44326/`.
    1. Seleccione **Registrar** para crear la aplicación.
 1. En **Administrar**, seleccione **Autenticación**.
-1. En la sección **Concesión implícita** , seleccione **Tokens de id**. Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
+1. En la sección **Flujos de concesión implícita e híbridos**, seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
 1. Seleccione **Guardar**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 1. Seleccione **Web**.
 1. En **URI de redirección**, escriba el mismo host y número de puerto, seguido de `/msal4jsample/secure/aad` para la página de inicio de sesión. 
 1. Seleccione **Configurar**.
-1. En la sección **Web**, use el host y el número de puerto, seguidos de **/msal4jsample/graph/me** como **URI de redirección** para la página de información del usuario.
+1. En la sección **Web**, use el host y el número de puerto, seguidos de `/msal4jsample/graph/me` como **URI de redirección** para la página de información del usuario.
 De forma predeterminada, en el ejemplo se usa:
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. Seleccione **Guardar**.
 1. En **Administrar**, seleccione **Certificados y secretos**.
@@ -100,7 +100,7 @@ De forma predeterminada, en el ejemplo se usa:
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
    1. Escriba el **Nombre** de la aplicación, por ejemplo `python-webapp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
    1. Cambie **Supported account types** (Tipos de cuenta compatibles) por **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
-   1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **http://localhost:5000/getAToken** .
+   1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: `http://localhost:5000/getAToken` .
    1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
 1. En **Administrar**, seleccione **Certificados y secretos**.

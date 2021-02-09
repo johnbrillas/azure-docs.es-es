@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697697"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428307"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -64,6 +64,31 @@ Si ya se ha procesado un elemento de la cola, permita que la función sea no ope
 
 Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
+## <a name="function-organization-best-practices"></a>Procedimientos recomendados de la organización de funciones
+
+Como parte de la solución, puede desarrollar y publicar varias funciones. Estas funciones suelen combinarse en una única aplicación de funciones, pero también se pueden ejecutar en aplicaciones de funciones independientes. En los planes de hospedaje Premium y dedicado (App Service), varias aplicaciones de funciones también pueden compartir los mismos recursos al ejecutarse en el mismo plan. La forma de agrupar las funciones y las aplicaciones de funciones puede afectar al rendimiento, el escalado, la configuración, la implementación y la seguridad de la solución global. No hay reglas que se apliquen a todos los escenarios, por lo que debe tener en cuenta la información de esta sección al planear y desarrollar las funciones.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organización de funciones para rendimiento y escalado
+
+Cada función que se crea tiene una superficie de memoria. Aunque esta superficie suele ser pequeña, tener demasiadas funciones en una aplicación de funciones puede dar lugar a un inicio más lento de la aplicación en nuevas instancias. También significa que el uso de memoria general de la aplicación de funciones puede ser mayor. Es difícil decir cuántas funciones deben estar en una única aplicación, lo que depende de la carga de trabajo concreta. Sin embargo, si la función almacena una gran cantidad de datos en la memoria, considere la posibilidad de tener menos funciones en una única aplicación.
+
+Si ejecuta varias aplicaciones de funciones en un plan Premium único o en un plan dedicado (App Service), todas estas aplicaciones se escalan juntas. Si tiene una aplicación de funciones que tiene un requisito de memoria mucho mayor que las demás, usa una cantidad desproporcionada de recursos de memoria en cada instancia en la que se implementa la aplicación. Dado que esto podría dejar menos memoria disponible para las demás aplicaciones en cada instancia, es posible que quiera ejecutar una aplicación de funciones que use mucha memoria, como esta, en su propio plan de hospedaje independiente.
+
+> [!NOTE]
+> Al usar el [Plan de consumo](./functions-scale.md), se recomienda colocar siempre cada aplicación en su propio plan, ya que las aplicaciones se escalan de forma independiente de todos modos.
+
+Considere si quiere agrupar funciones con distintos perfiles de carga. Por ejemplo, si tiene una función que procesa muchos miles de mensajes de cola, y otra a la que solo se llama ocasionalmente, pero tiene requisitos de memoria elevados, es posible que quiera implementarlas en aplicaciones de funciones independientes para que obtengan sus propios conjuntos de recursos y se escalen de forma independiente entre sí.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organización de funciones para configuración e implementación
+
+Las aplicaciones de funciones tienen un archivo `host.json`, que se usa para configurar el comportamiento avanzado de los desencadenadores de funciones y Azure Functions Runtime. Los cambios en el archivo `host.json` se aplican a todas las funciones de la aplicación. Si tiene algunas funciones que necesitan configuraciones personalizadas, considere la posibilidad de moverlas a su propia aplicación de funciones.
+
+Todas las funciones de un proyecto local se implementan juntas como conjunto de archivos en la aplicación de funciones en Azure. Es posible que tenga que implementar funciones individuales por separado o usar características como [ranuras de implementación](./functions-deployment-slots.md) para algunas funciones y no para otras. En tales casos, debe implementar estas funciones (en proyectos de código independientes) en diferentes aplicaciones de funciones.
+
+### <a name="organize-functions-by-privilege"></a>Organización de funciones por privilegio 
+
+Las cadenas de conexión y otras credenciales almacenadas en la configuración de la aplicación proporcionan a todas las funciones de la aplicación de funciones el mismo conjunto de permisos en el recurso asociado. Considere la posibilidad de minimizar el número de funciones con acceso a credenciales específicas moviendo las funciones que no las utilizan a una aplicación de funciones independiente. Siempre puede usar técnicas como el [encadenamiento de funciones](/learn/modules/chain-azure-functions-data-using-bindings/) para pasar datos entre funciones de diferentes aplicaciones de funciones.  
+
 ## <a name="scalability-best-practices"></a>Procedimientos recomendados de escalabilidad
 
 Hay una serie de factores que afectan a cómo se escalan las instancias de la aplicación de función. Se proporcionan más detalles en la documentación sobre [escalado de funciones](functions-scale.md).  A continuación se indican algunos procedimientos recomendados para garantizar una escalabilidad óptima de una aplicación de función.
@@ -112,7 +137,7 @@ Para las funciones de C#, puede cambiar el tipo a una matriz fuertemente tipada.
 
 El archivo `host.json` de la aplicación de función permite la configuración de comportamientos del sistema de tiempo de ejecución y de desencadenadores del host.  Además de los comportamientos del procesamiento por lotes, puede administrar la simultaneidad para varios desencadenadores. Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan.
 
-La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a diez instancias, las dos funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
+La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a 10 instancias, las diez funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
 
 En el [artículo de configuración de host.json](functions-host-json.md) hay otras opciones de configuración de host.
 

@@ -3,14 +3,14 @@ title: Gobernanza del estado de copia de seguridad mediante el Centro de copias 
 description: Aprenda a gobernar el entorno de Azure para asegurarse de que, desde la perspectiva de la copia de seguridad, todos los recursos son compatibles con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173810"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893853"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Gobernanza del estado de copia de seguridad mediante el Centro de copias de seguridad
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Gobernanza del estado de copia de seguridad mediante el Centro de copias de seguridad (versión preliminar)
 
 El Centro de copias de seguridad le ayuda a regular el entorno de Azure para garantizar que todos los recursos son compatibles desde la perspectiva de la copia de seguridad. A continuación, se muestran algunas de las funcionalidades de gobernanza del Centro de copias de seguridad:
 
@@ -43,6 +43,11 @@ Al hacer clic en el elemento de menú Cumplimiento de copias de seguridad, verá
 Al seleccionar el elemento de menú **Protectable Datasources** (Orígenes de datos que se pueden proteger), podrá ver todos los orígenes de datos que no se han configurado para la copia de seguridad. Puede filtrar la lista por suscripción, grupo de recursos, ubicación, tipo y etiquetas del origen de datos. Cuando haya identificado un origen de datos del que necesite hacer una copia de seguridad, puede hacer clic con el botón derecho en el elemento de cuadrícula correspondiente y seleccionar **Copia de seguridad** para configurar la copia de seguridad del recurso.
 
 ![Menú de orígenes de datos que se pueden proteger](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> Si selecciona **SQL en Azure VM** como el tipo de origen de datos, la vista de **orígenes de datos que se pueden proteger** muestra la lista de todas las máquinas virtuales de la galería que no tienen ninguna base de datos de SQL configurada para la copia de seguridad.
+> Si selecciona **Azure Storage (Azure Files)** como el tipo de origen de datos, la vista de **orígenes de datos que se pueden proteger** muestra la lista de todas las cuentas de almacenamiento (que admiten recursos compartidos de archivos) que no tienen recursos compartidos de archivos configurados para la copia de seguridad.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

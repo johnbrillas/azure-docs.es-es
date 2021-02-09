@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322541"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257413"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
@@ -41,8 +41,8 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en Azure Portal
 
 > [!NOTE]
-> Si se trata de problemas relativos a la facturación o la suscripción, debe usar el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
-> 
+> * Si se trata de problemas relativos a la facturación o la suscripción, debe usar el [Centro de administración de Microsoft 365](https://admin.microsoft.com).  
+> * Si usa Azure AD B2C, abra una incidencia de soporte técnico y cambie primero a un inquilino de Azure AD que tenga asociada una suscripción de Azure. Normalmente, se trata del inquilino del empleado o del inquilino predeterminado que se creó cuando se registró para una suscripción de Azure. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
    
@@ -74,7 +74,7 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en el Centro de administración de Microsoft 365
 
 > [!NOTE]
-> En el [Centro de administración de Microsoft 365](https://admin.microsoft.com) solo se ofrece soporte técnico de Azure AD para administradores. 
+> En el [Centro de administración de Microsoft 365](https://admin.microsoft.com) solo se ofrece soporte técnico de Azure AD para administradores.
 
 1. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que tenga una licencia de Enterprise Mobility + Security (EMS).
 

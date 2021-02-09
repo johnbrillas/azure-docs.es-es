@@ -3,16 +3,16 @@ title: 'Participación de asociados de venta conjunta: marketplace comercial de 
 description: El programa de venta conjunta del Centro de partners de Microsoft para asociados puede ayudarlo a llegar a una gran base de clientes y generar ventas nuevas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880294"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063086"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -22,7 +22,7 @@ El programa de venta conjunta está disponible para el **software compilado de s
 
 - Las ofertas **listas para la venta conjunta** se exponen a los vendedores de campo de Microsoft. Al trabajar con los vendedores de Microsoft, el programa de venta conjunta le ayuda a llegar a una amplia comunidad de clientes administrados por Microsoft para colaborar en oportunidades de ventas que aceleran el crecimiento de su negocio.
 
-    ![Diagrama que muestra cómo se produce la venta conjunta cuando se comparten, aceptan y ganan clientes potenciales en comparación con clientes administrados por Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagrama que muestra cómo se produce la venta conjunta cuando se comparten, aceptan y ganan clientes potenciales en comparación con clientes administrados por Microsoft.":::
 
 - Las ofertas IP de **venta conjunta con incentivos** pueden obtener incentivos para los vendedores de campo de Microsoft cuando se venden en colaboración con los equipos de ventas de Microsoft, además de las ventajas del marketplace que se enumeran a continuación.</li></ul>
 
@@ -63,7 +63,7 @@ Comience el recorrido de venta conjunta directamente en el Centro de partners a 
 
 1. En el menú de la izquierda, seleccione **Venta conjunta con Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="En esta imagen se muestra la ubicación de la pestaña Venta conjunta con Microsoft.":::
+    [![En esta imagen se muestra la ubicación de la pestaña Venta conjunta con Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Proporcione detalles de anuncios básicos para ayudar a los vendedores de Microsoft a ordenar y descubrir rápidamente su oferta en la sección **Anuncio**. (*Obligatorio: todos los campos*).
 
@@ -71,29 +71,20 @@ Comience el recorrido de venta conjunta directamente en el Centro de partners a 
 
 1. Proporcione los detalles sobre la oferta y cargue la documentación y los materiales en la sección **Documentos**. Los vendedores de Microsoft usarán esta información para recomendar y vender la oferta. *(Obligatorio: localizador único de solución u oferta y presentación de la solución u oferta. Necesario para alcanzar el estado de incentivos de la venta conjunta de direcciones IP de Azure: Diagrama de arquitectura de referencia).*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="En esta imagen se muestra la sección Documentos en la pestaña Venta conjunta.":::
+    [![En esta imagen se muestra la sección Documentos en la pestaña Venta conjunta.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Cargue la información de contacto de ventas en la sección **Contactos**. Los vendedores de Microsoft pueden comunicarse con estos contactos para solicitar información adicional sobre la oferta. (*Obligatorio: un contacto para cada geografía en la que está disponible la oferta*).
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="En esta imagen se muestra la sección Contactos en la pestaña Venta conjunta.":::
+    [![En esta imagen se muestra la sección Contactos en la pestaña Venta conjunta.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Guarde el borrador antes de continuar.
 1. Una vez que haya completado todas las secciones necesarias de la oferta, puede enviarla para su revisión y publicación. En la esquina superior derecha, seleccione **Revisar y publicar**. Revise los detalles de la oferta y, a continuación, seleccione **Publicar**.
-1. Después de asegurarse de que cumple los [criterios del estado de venta conjunta que quiere conseguir](#co-sell-publishing-steps-and-requirements), siga las instrucciones siguientes para designar su oferta de venta conjunta:
-    1. **Si tiene un administrador de partners de Microsoft (por ejemplo, PDM):** póngase en contacto con su administrador de partners para solicitar asistencia. Ellos le guiarán en el proceso de nominación para el estado de Listo para la venta conjunta y de venta conjunta de direcciones IP de Azure o venta conjunta de aplicaciones empresariales con incentivos (si es aplicable).
-
-    1. **Si no tiene un administrador de partners de Microsoft (por ejemplo, PDM):** [realice su propia nominación con Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Seleccione "Becoming co-sell ready" (Convertirse en Listo para la venta conjunta) en la lista desplegable "Desired CED Services" (Servicios de CED deseados):
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagen muestra la lista desplegable de CED para solicitar una revisión de venta conjunta.":::
-
-    CED se pondrá en contacto con usted para completar el proceso.
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulta del estado de la venta conjunta de su oferta
 
 En el caso de las ofertas con la [opción de venta conjunta en el marketplace comercial](commercial-marketplace-co-sell.md), puede ver el estado actual de la oferta en la página de información general de la oferta:
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="En esta imagen se muestra el estado actual de la venta conjunta de ofertas":::.
-
+[![En esta imagen se muestra el estado actual de la venta conjunta de ofertas.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

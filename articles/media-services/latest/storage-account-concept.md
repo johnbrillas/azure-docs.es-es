@@ -1,24 +1,9 @@
 ---
-title: Cuentas de almacenamiento de Azure
-titleSuffix: Azure Media Services
-description: Obtenga información sobre cómo crear una cuenta de almacenamiento de Azure para usarla con Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882253"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obligatorios. Vea más información en aka.ms/skyeye/meta.
+título: Cuentas de Azure Storage: Descripción de Azure Media Services: Obtenga información sobre cómo crear una cuenta de almacenamiento de Azure para usarla con Azure Media Services.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 01/29/2021 ms.author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -34,7 +19,7 @@ Se recomienda usar GPv2 para que pueda sacar provecho de las últimas caracterí
 > [!NOTE]
 > Solo el nivel de acceso frecuente se admite para su uso con Azure Media Services, aunque los demás niveles de acceso se pueden usar para reducir los costos de almacenamiento del contenido que no se usa activamente.
 
-Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial.
+Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial.
 
 ## <a name="assets-in-a-storage-account"></a>Recursos de una cuenta de almacenamiento
 
@@ -49,14 +34,15 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 |Opción de cifrado|Descripción|Media Services v3|
 |---|---|---|
-|Cifrado de almacenamiento en Media Services| Cifrado AES-256, clave administrada por Media Services |No compatible.<sup>(1)</sup>|
+|Cifrado de almacenamiento en Media Services| Cifrado AES-256, clave administrada por Media Services |No compatible.<sup>1</sup>|
 |[Storage Service Encryption para datos en reposo](../../storage/common/storage-service-encryption.md)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible.|
 |[Cifrado en el lado de cliente de almacenamiento](../../storage/common/storage-client-side-encryption.md)|Cifrado en el lado cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault.|No compatible.|
 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2, lo que significa que la versión 3 funciona con los recursos cifrados de almacenamiento existentes, pero no permite la creación de nuevos.
 
-## <a name="double-encryption"></a>Cifrado doble
-Media Services admite el cifrado doble.  Para más información sobre el cifrado doble, consulte [Cifrado doble de Azure](../../security/fundamentals/double-encryption.md).
+## <a name="storage-account-double-encryption"></a>Cifrado doble de la cuenta de almacenamiento
+
+Las cuentas de almacenamiento admiten el cifrado doble, pero la segunda capa debe estar habilitada explícitamente. Consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Errores de cuentas de almacenamiento
 
@@ -68,10 +54,6 @@ Los siguientes son los principales escenarios que darían lugar a una cuenta de 
 |---|---|
 |La cuenta de Media Services o las cuentas de almacenamiento asociadas se han migrado para separar las suscripciones. |Migre las cuentas de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción. |
 |La cuenta de Media Services usa una cuenta de almacenamiento asociada en una suscripción diferente ya que se trata de una cuenta en la que anteriormente esto se admitía. Todas las cuentas antiguas de Media Services se convirtieron en cuentas basadas en Azure Resource Manager modernas y tendrán el estado Desconectado. |Migre la cuenta de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción.|
-
-## <a name="azure-storage-firewall"></a>Firewall de Azure Storage
-
-Azure Media Services no admite cuentas de almacenamiento con el firewall de Azure Storage o [puntos de conexión privados](../../storage/common/storage-network-security.md) habilitados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

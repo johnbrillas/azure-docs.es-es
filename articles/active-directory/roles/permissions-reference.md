@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879484"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428781"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
 Con Azure Active Directory (Azure AD), puede designar administradores limitados que administren tareas de identidad en roles con menos privilegios. Los administradores se pueden asignar para realizar tareas como agregar usuarios o cambiarlos, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario y administrar nombres de dominio. Los [permisos de usuario predeterminados](../fundamentals/users-default-permissions.md) solo se pueden cambiar en la configuración de usuario de Azure AD.
 
-## <a name="limit-use-of-global-administrator"></a>Limitación del uso de administrador global
+## <a name="limit-use-of-global-administrator"></a>Limitación del uso de Administrador global
 
-Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De forma predeterminada, cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol Administradores globales. Cuando se agrega una suscripción a un inquilino existente, no se le asigna el rol Administrador global. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
+Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De forma predeterminada, cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol Administradores globales. Cuando se agrega una suscripción a un inquilino existente, no se le asigna el rol Administrador global. Solo los Administradores globales y los administradores que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
 
 Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de cinco personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
 
@@ -35,7 +35,7 @@ Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de ci
 
 Si buscar el rol que necesita en una lista de muchos roles le resulta frustrante, Azure AD puede mostrarle subconjuntos de roles según las categorías de rol. Revise nuestro nuevo filtro **Tipo** para [Roles y administradores de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrarle solo los roles del tipo seleccionado.
 
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Ahora existe un rol que no existía cuando asignó el rol Administrador global.
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Ahora existe un rol que no existía cuando asignó el rol Administrador global
 
 Es posible que uno o varios roles se hayan agregado a Azure AD que proporcionan permisos más específicos que no eran opción cuando elevó algunos usuarios al rol Administrador global. Con el tiempo, se implementan roles adicionales que realizan tareas que antes solo podía realizar el rol Administrador global. Los puede ver reflejados en los [Roles disponibles](#available-roles) siguientes.
 
@@ -59,7 +59,7 @@ los usuarios con este rol pueden crear y administrar todos los aspectos de las a
 Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos de aplicación relacionados con Microsoft Graph API.
 
 > [!IMPORTANT]
-> Esta excepción significa que puede seguir dando su consentimiento a los permisos para _otras_ aplicaciones (por ejemplo, aplicaciones no de Microsoft o de terceros que haya registrado), pero no a los permisos propios de Azure AD. Estos permisos se pueden seguir _solicitando_ como parte del registro de la aplicación, pero para _concederlos_ (es decir, dar su consentimiento a ellos) es necesario ser un administrador de Azure AD. Esto significa que un usuario malintencionado no puede elevar fácilmente sus permisos. Por ejemplo, no podría crear y dar su consentimiento a una aplicación que pueda escribir en todo el directorio y a través de los permisos de esa aplicación elevar sus permisos para convertirse en administrador global.
+> Esta excepción significa que puede seguir dando su consentimiento a los permisos para _otras_ aplicaciones (por ejemplo, aplicaciones no de Microsoft o de terceros que haya registrado), pero no a los permisos propios de Azure AD. Estos permisos se pueden seguir _solicitando_ como parte del registro de la aplicación, pero para _concederlos_ (es decir, dar su consentimiento a ellos) es necesario ser un administrador de Azure AD. Esto significa que un usuario malintencionado no puede elevar fácilmente sus permisos. Por ejemplo, no podría crear y dar su consentimiento a una aplicación que pueda escribir en todo el directorio y a través de los permisos de esa aplicación elevar sus permisos para convertirse en Administrador global.
 >
 >Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a un recurso, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones, se le concede la capacidad de suplantar la identidad de la aplicación.
 
@@ -69,13 +69,7 @@ los usuarios con este rol pueden crear registros de aplicaciones cuando la opci�
 
 ### <a name="authentication-administrator"></a>[Administrador de autenticación](#authentication-administrator-permissions)
 
-Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña de algunos usuarios y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación pueden exigir que los usuarios que no son administradores o que tienen asignados algunos roles vuelvan a registrase con las credenciales existentes que no sean la contraseña (por ejemplo, MFA o FIDO) y también pueden revocar la opción **recordar MFA en el dispositivo**, que solicita MFA en el siguiente inicio de sesión. Estas acciones solo se aplican a usuarios que no sean administradores o que tengan asignados uno o varios de los roles siguientes:
-
-* Administrador de autenticación
-* Lectores de directorios
-* Invitador de usuarios
-* Lector del Centro de mensajes
-* Lector de informes
+Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña de algunos usuarios y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación pueden exigir que los usuarios que no son administradores o que tienen asignados algunos roles vuelvan a registrase con las credenciales existentes que no sean la contraseña (por ejemplo, MFA o FIDO) y también pueden revocar la opción **recordar MFA en el dispositivo**, que solicita MFA en el siguiente inicio de sesión. El hecho de que un administrador de autenticación pueda restablecer la contraseña de un usuario depende del rol que tenga asignado el usuario. Para obtener una lista de los roles para los que un administrador de autenticación puede restablecer contraseñas, consulte [Permisos de restablecimiento de contraseña](#password-reset-permissions).
 
 El rol [Administrador de autenticación con privilegios](#privileged-authentication-administrator) tiene permiso para obligar a registrarse de nuevo y a realizar la autenticación multifactor de todos los usuarios.
 
@@ -166,7 +160,7 @@ los usuarios con este rol tienen la capacidad de administrar la configuración d
 
 ### <a name="customer-lockbox-access-approver"></a>[Aprobador del acceso a la Caja de seguridad del cliente](#customer-lockbox-access-approver-permissions)
 
-Administra las [solicitudes de la Caja de seguridad del cliente](/office365/admin/manage/customer-lockbox-requests) de la organización. Reciben notificaciones por correo electrónico para las solicitudes de la Caja de seguridad del cliente y pueden aprobar y rechazar solicitudes del centro de administración de Microsoft 365. También pueden activar o desactivar la característica de la Caja de seguridad del cliente. Recuerde que solo los administradores globales pueden restablecer las contraseñas de las personas asignadas a este rol.
+Administra las [solicitudes de la Caja de seguridad del cliente](/office365/admin/manage/customer-lockbox-requests) de la organización. Reciben notificaciones por correo electrónico para las solicitudes de la Caja de seguridad del cliente y pueden aprobar y rechazar solicitudes del centro de administración de Microsoft 365. También pueden activar o desactivar la característica de la Caja de seguridad del cliente. Solo los Administradores globales pueden restablecer las contraseñas de las personas asignadas a este rol.
 
 ### <a name="desktop-analytics-administrator"></a>[Administrador de Análisis de escritorio](#desktop-analytics-administrator-permissions)
 
@@ -222,18 +216,13 @@ Este administrador administra la federación entre las organizaciones de Azure 
 * Organizaciones de Azure AD para empleados y asociados: La adición de una federación (por ejemplo, con Gmail) afectará inmediatamente a todas las invitaciones de invitado que no se hayan canjeado aún. Consulte [Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B](../external-identities/google-federation.md).
 * Organizaciones de Azure Active Directory B2C: la adición de una federación (por ejemplo, con Facebook o con otra organización de Azure AD) no afecta inmediatamente a los flujos de usuario final hasta que se agrega el proveedor de identidades como una opción de un flujo de usuario (lo que se conoce también como directiva integrada). Consulte [Configuración de una cuenta Microsoft como proveedor de identidades](../../active-directory-b2c/identity-provider-microsoft-account.md) para ver un ejemplo.  Para cambiar los flujos de usuario, se requiere el rol limitado de "Administrador de flujos de usuario B2C".
 
-### <a name="global-administrator--company-administrator"></a>[Administrador global/administrador de empresa](#company-administrator-permissions)
+### <a name="global-administrator"></a>[Administrador global](#global-administrator-permissions)
 
-Los usuarios con este rol tienen acceso a todas las características administrativas en Azure Active Directory, así como también a los servicios que usan las identidades de Azure Active Directory, como el Centro de seguridad de Microsoft 365, el Centro de cumplimiento de Microsoft 365, Exchange Online, SharePoint Online y Skype Empresarial Online. Además, los administradores globales pueden [elevar el acceso](../../role-based-access-control/elevate-access-global-admin.md) para administrar todas las suscripciones y los grupos de administración de Azure. Esto les permite tener acceso completo a todos los recursos de Azure mediante el inquilino de Azure AD correspondiente. La persona que se suscribe a la cuenta de Azure AD se convierte en administrador global. Puede haber más de un administrador global en su empresa. Los administradores globales pueden restablecer la contraseña de todos los usuarios y de todos los demás administradores.
-
-> [!NOTE]
-> En Microsoft Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de la compañía". Es "administrador Global" en [Azure Portal](https://portal.azure.com).
->
->
+Los usuarios con este rol tienen acceso a todas las características administrativas en Azure Active Directory, así como también a los servicios que usan las identidades de Azure Active Directory, como el Centro de seguridad de Microsoft 365, el Centro de cumplimiento de Microsoft 365, Exchange Online, SharePoint Online y Skype Empresarial Online. Además, los Administradores globales pueden [elevar el acceso](../../role-based-access-control/elevate-access-global-admin.md) para administrar todas las suscripciones y los grupos de administración de Azure. Esto les permite tener acceso completo a todos los recursos de Azure mediante el inquilino de Azure AD correspondiente. La persona que se registra en la organización de Azure AD se convierte en Administrador global. Puede haber más de un Administrador global en su empresa. Los Administradores globales pueden restablecer la contraseña de todos los usuarios y de todos los demás administradores.
 
 ### <a name="global-reader"></a>[Lector global](#global-reader-permissions)
 
-Los usuarios de este rol pueden leer la configuración y la información administrativa en los servicios de Microsoft 365, pero no pueden llevar a cabo acciones de administración. El rol del lector global es la contrapartida de solo lectura del administrador global. Asigne un lector global en lugar de un administrador global para planeamiento, auditoría o investigación. Use el rol de lector global en combinación con otros roles de administrador limitados, como el de administrador de Exchange, para facilitar que se lleve a cabo el trabajo sin asignar el rol de administrador global. El rol de lector global funciona con el Centro de administración de Microsoft 365, el Centro de administración de Exchange, el Centro de administración de SharePoint, el Centro de administración de Teams, el Centro de seguridad, el Centro de cumplimiento, el Centro de administración de Azure AD y el Centro de administración de la administración de dispositivos.
+Los usuarios de este rol pueden leer la configuración y la información administrativa en los servicios de Microsoft 365, pero no pueden llevar a cabo acciones de administración. El rol Lector global es la contrapartida de solo lectura del Administrador global. Asigne un Lector global en lugar de un Administrador global para planeamiento, auditoría o investigación. Use el rol de lector global en combinación con otros roles de administrador limitados, como el de administrador de Exchange, para facilitar que se lleve a cabo el trabajo sin asignar el rol de administrador global. El rol de lector global funciona con el Centro de administración de Microsoft 365, el Centro de administración de Exchange, el Centro de administración de SharePoint, el Centro de administración de Teams, el Centro de seguridad, el Centro de cumplimiento, el Centro de administración de Azure AD y el Centro de administración de la administración de dispositivos.
 
 > [!NOTE]
 > Actualmente, el rol de lector global tiene algunas limitaciones:
@@ -258,14 +247,7 @@ los usuarios con este rol pueden administrar las invitaciones de usuarios invita
 
 ### <a name="helpdesk-administrator"></a>[Administrador del departamento de soporte técnico](#helpdesk-administrator-permissions)
 
-los usuarios con este rol pueden cambiar contraseñas, invalidar tokens de actualización, administrar solicitudes de servicio y supervisar el estado del servicio. Si invalida un token de actualización, obligará al usuario a iniciar sesión de nuevo. Los administradores del departamento de soporte técnico pueden restablecer las contraseñas e invalidar los tokens de actualización de otros usuarios que no sean administradores o asignar los siguientes roles solamente:
-
-* Lectores de directorios
-* Invitador de usuarios
-* Administrador del departamento de soporte técnico
-* Lector del Centro de mensajes
-* Administrador de contraseñas
-* Lector de informes
+los usuarios con este rol pueden cambiar contraseñas, invalidar tokens de actualización, administrar solicitudes de servicio y supervisar el estado del servicio. Si invalida un token de actualización, obligará al usuario a iniciar sesión de nuevo. El hecho de que un Administrador de del departamento de soporte técnico pueda restablecer la contraseña de un usuario e invalidar los tokens de actualización depende del rol que tenga asignado el usuario. Para obtener una lista de los roles para los que un Administrador del departamento de soporte técnico puede restablecer contraseñas e invalidar tokens de actualización, consulte [Permisos de restablecimiento de contraseña](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
@@ -276,7 +258,7 @@ los usuarios con este rol pueden cambiar contraseñas, invalidar tokens de actua
 >- Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
 >- Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
 
-Delegar permisos administrativos en subconjuntos de usuarios y aplicar directivas a uno de estos subconjuntos es posible con [Unidades administrativas (ahora en versión preliminar pública)](administrative-units.md).
+Delegar permisos administrativos en subconjuntos de usuarios y aplicar directivas a uno de estos subconjuntos es posible con [Unidades administrativas](administrative-units.md).
 
 Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Portal](https://portal.azure.com/). El nombre "Administrador del departamento de soporte técnico" ahora coincide en Azure AD PowerShell y Microsoft Graph API.
 
@@ -321,13 +303,13 @@ No debe usarse. Este rol se asigna automáticamente al servicio desde el comerci
 
 El rol de usuario de comercio moderno concede a ciertos usuarios permiso para acceder al centro de administración de Microsoft 365 y ver las entradas de navegación izquierda para **Inicio**, **Facturación** y **Soporte**. El contenido disponible en estas áreas se controla mediante [roles específicos de comercio](../../cost-management-billing/manage/understand-mca-roles.md) asignados a los usuarios para administrar los productos que han comprado para ellos mismos o para su organización. Esto puede incluir tareas como el pago de facturas o el acceso a cuentas de facturación y perfiles de facturación. 
 
-Normalmente, los usuarios con el rol de usuario de comercio moderno tienen permisos administrativos en otros sistemas de adquisición de Microsoft, pero no tienen roles de administrador global o de administrador de facturación usados para acceder al centro de administración. 
+Normalmente, los usuarios con el rol Usuario de comercio moderno tienen permisos administrativos en otros sistemas de adquisición de Microsoft, pero no tienen roles de Administrador global o de Administrador de facturación usados para acceder al centro de administración. 
 
 **¿Cuándo se asigna el rol de usuario de comercio moderno?**
 
 * **Compra de autoservicio en el centro de administración de Microsoft 365**: la compra de autoservicio proporciona a los usuarios la oportunidad de probar nuevos productos comprando o suscribiéndose ellos mismos. Estos productos se administran en el centro de administración. A los usuarios que realizan una compra de autoservicio se les asigna un rol en el sistema de comercio y el rol de usuario de comercio moderno para que puedan administrar sus compras en el centro de administración. Los administradores pueden bloquear las compras de autoservicio (para Power BI, Power Apps, Power Automatic) mediante [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para más información, consulte [preguntas más frecuentes sobre compras de autoservicio](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
-* **Compras de Marketplace comercial de Microsoft**: similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol de usuario de comercio moderno si no tiene el rol administrador global o administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Propuestas de Microsoft**: una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de administrador global o administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol de usuario de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio.
+* **Compras del marketplace comercial de Microsoft**: similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol Usuario de comercio moderno si no tiene el rol Administrador global ni Administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Propuestas de Microsoft**: una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de Administrador global o Administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol Usuario de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio.
 * **Roles específicos de comercio**: a algunos usuarios se les asignan roles específicos de comercio. Si un usuario no es un administrador global o de facturación, obtiene el rol de usuario de comercio moderno para que pueda acceder al centro de administración.  
 
 Si el rol de usuario de comercio moderno no está asignado a un usuario, pierde el acceso al centro de administración de Microsoft 365. Si estuvieran administrando cualquier producto, ya sea por sí mismos o para su organización, no podrán administrarlos. Esto puede incluir la asignación de licencias, el cambio de métodos de pago, el pago de facturas u otras tareas para administrar las suscripciones.
@@ -349,11 +331,7 @@ No debe usarse. Este rol está en desuso y se quitará de Azure AD en el futuro.
 
 ### <a name="password-administrator"></a>[Administrador de contraseñas](#password-administrator-permissions)
 
-los usuarios con este rol tienen una capacidad limitada para administrar las contraseñas. Este rol no concede la capacidad de administrar solicitudes de servicio ni supervisar el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas de otros usuarios que no son administradores o que solo son miembros de los roles siguientes:
-
-* Lectores de directorios
-* Invitador de usuarios
-* Administrador de contraseñas
+los usuarios con este rol tienen una capacidad limitada para administrar las contraseñas. Este rol no concede la capacidad de administrar solicitudes de servicio ni supervisar el estado del servicio. El hecho de que un Administrador de contraseñas pueda restablecer la contraseña de un usuario depende del rol que tenga asignado el usuario. Para obtener una lista de los roles para los que un Administrador de contraseñas puede restablecer contraseñas, consulte [Permisos de restablecimiento de contraseña](#password-reset-permissions).
 
 ### <a name="power-bi-administrator"></a>[Administrador de Power BI](#power-bi-service-administrator-permissions)
 
@@ -376,13 +354,7 @@ Los usuarios con este rol pueden registrar impresoras y administrar el estado de
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de autenticación con privilegios](#privileged-authentication-administrator-permissions)
 
-los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña para todos los usuarios, incluidos los administradores globales, y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación con privilegios pueden obligar a los usuarios a que vuelvan a registrarse con las credenciales existentes que no sean la contraseña (por ejemplo, MFA, FIDO) y revocar la opción "recordar MFA en el dispositivo", por lo que se solicitará MFA en el siguiente inicio de sesión de todos los usuarios. El rol [Administrador de autenticación](#authentication-administrator) puede obligar a volver a registrarse y a realizar la autenticación multifactor solo a los usuarios que no sean administradores y a los usuarios asignados a los siguientes roles de Azure AD:
-
-* Administrador de autenticación
-* Lectores de directorios
-* Invitador de usuarios
-* Lector del Centro de mensajes
-* Lector de informes
+Los usuarios con este rol pueden establecer o restablecer credenciales sin contraseña para todos los usuarios, incluidos los Administradores globales, y pueden actualizar las contraseñas de todos los usuarios. Los administradores de autenticación con privilegios pueden obligar a los usuarios a que vuelvan a registrarse con las credenciales existentes que no sean la contraseña (por ejemplo, MFA, FIDO) y revocar la opción "recordar MFA en el dispositivo", por lo que se solicitará MFA en el siguiente inicio de sesión de todos los usuarios.
 
 ### <a name="privileged-role-administrator"></a>[Administrador de roles con privilegios](#privileged-role-administrator-permissions)
 
@@ -505,11 +477,12 @@ Los usuarios con este rol pueden acceder a los datos agregados de nivel de inqui
 
 Los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (vea la tabla) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. El usuario con este rol no tiene los permisos para administrar MFA. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
 
-| **Permiso** | **Puede hacer** |
+| Permiso de administrador de usuarios | Notas |
 | --- | --- |
-|Permisos globales|<p>Creación de usuarios y grupos</p><p>Crear y administrar vistas de usuario</p><p>Administrar incidencias de soporte técnico de Office<p>Actualización de directivas de expiración de contraseñas|
-| <p>En todos los usuarios, incluidos todos los administradores</p>|<p>Administrar licencias</p><p>Administrar todas las propiedades de usuario, excepto el nombre principal de usuario</p>
-| Solo en los usuarios que no son administradores o en cualquiera de los siguientes roles de administrador limitados:<ul><li>Lectores de directorios<li>Administrador de grupos<li>Invitador de usuarios<li>Administrador del departamento de soporte técnico<li>Lector del Centro de mensajes<li>Administrador de contraseñas<li>Lector de informes<li>Administrador de usuarios|<p>Eliminar y restaurar</p><p>Deshabilitar y habilitar</p><p>Invalidar tokens de actualización</p><p>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario</p><p>Restablecimiento de contraseña</p><p>Actualizar las claves de dispositivo (FIDO)</p>|
+| Creación de usuarios y grupos<br/>Crear y administrar vistas de usuario<br/>Administrar incidencias de soporte técnico de Office<br/>Actualización de directivas de expiración de contraseñas |  |
+| Administrar licencias<br/>Administrar todas las propiedades de usuario, excepto el nombre principal de usuario | Se aplica a todos los usuarios, incluidos todos los administradores |
+| Eliminar y restaurar<br/>Deshabilitar y habilitar<br/>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario<br/>Actualizar las claves de dispositivo (FIDO) | Se aplica a los usuarios que no son administradores ni tienen ninguno de los siguientes roles:<ul><li>Administrador del departamento de soporte técnico</li><li>Usuario sin rol</li><li>Administrador de usuarios</li></ul> |
+| Invalidar tokens de actualización<br/>Restablecimiento de contraseña | Para obtener una lista de los roles para los que un Administrador de usuarios puede restablecer contraseñas e invalidar tokens de actualización, consulte [Permisos de restablecimiento de contraseña](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
@@ -577,6 +550,7 @@ Puede crear y administrar todos los aspectos de los registros de aplicaciones y 
 | microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 
 ### <a name="application-developer-permissions"></a>Permisos de desarrollador de la aplicación
 
@@ -652,6 +626,7 @@ Puede administrar todos los aspectos del servicio Azure Information Protection.
 | microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Permisos de administrador de conjuntos de claves B2C con IEF
 
@@ -730,6 +705,7 @@ Puede crear y administrar todos los aspectos de los registros de aplicaciones y 
 | microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Permisos de administrador del dispositivo en la nube
 
@@ -747,9 +723,9 @@ Acceso total para administrar los dispositivos de Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health para Microsoft 365. |
 
-### <a name="company-administrator-permissions"></a>Permisos de administrador de empresa
+### <a name="global-administrator-permissions"></a>Permisos de Administrador global
 
-Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft que usan identidades de Azure AD. Este rol también se conoce como el rol de administrador global. 
+Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft que usan identidades de Azure AD.
 
 > [!NOTE]
 > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
@@ -1749,10 +1725,12 @@ Crea y administra los eventos de seguridad.
 | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Permite leer y configurar Microsoft Cloud App Security. |
 | microsoft.directory/identityProtection/allProperties/read | Lee todos los recursos en microsoft.aad.identityProtection. |
 | microsoft.directory/privilegedIdentityManagement/allProperties/read | Lee todos los recursos de microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 | microsoft.intune/allEntities/allTasks | Administra todos los aspectos de Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Lee y configura el Centro de seguridad y cumplimiento. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lee y configura Advanced Threat Protection para Windows Defender. |
+
 
 ### <a name="security-reader-permissions"></a>Permisos de lector de seguridad
 
@@ -2067,6 +2045,31 @@ Soporte técnico de asociado de nivel 2 | No se muestra porque no debe usarse | 
 Usuario invitado restringido | No se muestra porque no se puede usar | N/D
 Usuario | No se muestra porque no se puede usar | N/D
 Combinación de dispositivos de área de trabajo | Obsoleto | [Documentación de roles en desuso](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Permisos de restablecimiento de contraseña
+
+Los encabezados de las columnas representan los roles que pueden restablecer contraseñas. Las filas de la tabla contienen los roles para los que se puede restablecer la contraseña.
+
+Se puede restablecer la contraseña | Administrador de autenticación | Administrador del departamento de soporte técnico | Administrador de contraseñas | Administrador de usuarios | Administrador de autenticación con privilegios | Administrador global
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Administrador de autenticación | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Lectores de directorios | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador global | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Administrador de grupos | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Invitado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Invitador de usuarios | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador del departamento de soporte técnico | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Lector del Centro de mensajes | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de contraseñas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de autenticación con privilegios | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Administrador de roles con privilegios | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Lector de informes | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Invitado restringido | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usuario (sin rol de administrador) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de usuarios | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Lector de informes de resumen de uso | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Un Administrador global no puede quitar su propia asignación de Administrador global. Esto es para evitar una situación en la que una organización no tenga ningún Administrador global.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

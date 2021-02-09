@@ -1,5 +1,5 @@
 ---
-title: Configuración de streaming de PlayReady sin conexión con Azure Media Services v3
+title: Configuración de streaming de PlayReady sin conexión
 description: En este artículo, se muestra cómo configurar la cuenta de Azure Media Services v3 para transmitir por streaming PlayReady para Windows 10 sin conexión.
 services: media-services
 keywords: DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19c930915de20d7f3a8938570e074458b32a8efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea3d895970c6a18286d719471a693f774efaa387
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955244"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming de PlayReady sin conexión para Windows 10 con Media Services v3
 
@@ -38,7 +38,7 @@ Azure Media Services admite la descarga o reproducción sin conexión con protec
 
 En esta sección, se proporciona información sobre la reproducción del modo sin conexión, especialmente por estos motivos:
 
-* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
+* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada.  Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
 * Como se informó en la conferencia de accionistas de Netflix del tercer trimestre de 2016, la descarga de contenido es una “característica muy solicitada” y, según afirma Reed Hastings (consejero delegado de Netflix), “están estudiando su implementación”.
 * Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país o una región. Si un usuario necesita viajar al extranjero y quiere ver contenido, se necesita la descarga sin conexión.
  

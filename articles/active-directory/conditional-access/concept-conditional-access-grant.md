@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219953"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938389"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -121,7 +121,9 @@ En la directiva de acceso condicional, puede requerir que una [directiva de prot
 
 Con el fin de aprovechar este control de concesión, el acceso condicional requiere que el dispositivo esté registrado en Azure Active Directory, lo que requiere el uso de una aplicación de agente. La aplicación de agente puede ser Microsoft Authenticator para iOS o el portal de empresa de Microsoft para dispositivos Android. Si no hay ninguna aplicación de agente instalada en el dispositivo cuando el usuario intenta autenticarse, será redirigido a la tienda de aplicaciones para que instale la aplicación de agente.
 
-Esta configuración se aplica a las aplicaciones cliente siguientes:
+Se requiere que las aplicaciones tengan el **SDK de Intune** con el **seguro de directivas** implementado y cumplan otros requisitos para admitir esta configuración. Los desarrolladores que implementan aplicaciones con el SDK de Intune pueden encontrar más información en la documentación del SDK sobre estos requisitos.
+
+Se ha confirmado que las siguientes aplicaciones cliente admiten esta configuración:
 
 - Microsoft Cortana
 - Microsoft Edge

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973718"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895295"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
  
@@ -37,6 +37,7 @@ Para poder bloquear la autenticación heredada en su directorio, primero debe en
 1. Filtre por **Aplicación cliente** y marque todas las opciones de **Legacy Authentication Clients** (Clientes de autenticación heredados) que se presentan.
 1. Filtre por **Estado** > **Correcto**. 
 1. Expanda el intervalo de fechas si es necesario con el filtro **Fecha**.
+1. Si ha activado la [versión preliminar de nuevos informes de actividad de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md), repita los pasos anteriores también en la pestaña de **inicios de sesión de usuario (no interactivos)** .
 
 Al filtrar solo se mostrarán los intentos de inicio de sesión correctos que se realizaron con los protocolos seleccionados de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. La columna Aplicación cliente o el campo Aplicación cliente de la pestaña Información básica indicará el protocolo de autenticación heredado que se usó, después de seleccionar una fila de datos individual. Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se les confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional o habilite la directiva de base de referencia: bloqueo de la autenticación heredada solo para estos usuarios.
 

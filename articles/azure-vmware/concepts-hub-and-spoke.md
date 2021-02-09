@@ -3,12 +3,12 @@ title: 'Concepto: integración de una implementación de Azure VMware Solution e
 description: Obtenga información sobre cómo integrar una implementación de Azure VMware Solution en una arquitectura en estrella tipo hub-and-spoke en Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901392"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062752"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integración de Azure VMware Solution en una arquitectura en estrella tipo hub-and-spoke
 
@@ -76,7 +76,7 @@ Dado que una puerta de enlace de ExpressRoute no proporciona enrutamiento transi
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Flujo de tráfico de Azure VMware Solution a la red virtual de concentrador" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-Puede encontrar más detalles sobre los conceptos de conectividad y redes de Azure VMware Solution en la [documentación del producto de Azure VMware Solution](./concepts-networking.md).
+Para más información sobre los conceptos de redes y conectividad de Azure VMware Solution, consulte la [documentación del producto de Azure VMware Solution](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentación de tráfico
 
@@ -103,7 +103,7 @@ Un segundo nivel de segmentación del tráfico que usa los grupos de seguridad d
 
 Se ha probado Azure Application Gateway V1 y V2 con aplicaciones web que se ejecutan en máquinas virtuales de Azure VMware Solution como grupo de back-end. Application Gateway es actualmente el único método admitido para exponer las aplicaciones web que se ejecutan en máquinas virtuales de Azure Application Gateway a Internet. También puede exponer las aplicaciones a los usuarios internos de forma segura.
 
-Revise el artículo específico de Azure VMware Solution sobre [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) para obtener los detalles y los requisitos.
+Para más información, consulte el artículo específico de Azure VMware Solution sobre [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Segundo nivel de segmentación del tráfico con los grupos de seguridad de red" border="false":::
 

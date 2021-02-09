@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c766c78705a1c1e40a9385360d35ac06a3db3a5d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736278"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252245"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: Azure PowerShell
 
@@ -49,14 +49,14 @@ Ahora, en el shell local, cree un HDD estándar vacío para la carga mediante la
 Reemplace `<yourdiskname>`, `<yourresourcegroupname>` y `<yourregion>`; luego, ejecute los siguientes comandos:
 
 > [!TIP]
-> Si va a crear un disco del sistema operativo, agregue -HyperVGeneration "<yourGeneration>" a `New-AzDiskConfig`.
+> Si va a crear un disco del sistema operativo, agregue `-HyperVGeneration '<yourGeneration>'` a `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
 Si desea cargar un disco SSD prémium o un disco SSD estándar, reemplace **Standard_LRS** por **Premium_LRS** o **StandardSSD_LRS**. Todavía no se admiten los discos Ultra.

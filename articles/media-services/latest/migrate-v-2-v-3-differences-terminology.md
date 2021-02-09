@@ -1,5 +1,5 @@
 ---
-title: Terminología y cambios de entidad entre Azure Media Services v2 y v3 | Microsoft Docs
+title: Terminología y cambios de entidad de Media Services v3
 description: En este artículo se describen las diferencias de terminología entre Azure Media Services v2 y v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f657b853298cf0065da931835ea56ef2e0e0fe7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689566"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953706"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminología y cambios de entidad entre Azure Media Services v2 y v3
 

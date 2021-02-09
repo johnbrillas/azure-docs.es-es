@@ -3,7 +3,7 @@ title: Configuración del consentimiento de los usuarios finales a las aplicacio
 description: Aprenda a administrar cómo y cuándo los usuarios pueden dar consentimiento a las aplicaciones que tendrán acceso a los datos de su organización.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6dd95dafbd079e79247110ee227121483dc372e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033619"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259311"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
@@ -48,7 +48,7 @@ Al elegir las directivas de consentimiento de aplicaciones que se aplican a todo
 
 Para configurar el consentimiento del usuario en Azure Portal:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator).
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios**.
 1. En **Consentimiento del usuario para las aplicaciones**, seleccione la configuración de consentimiento que desee establecer para todos los usuarios.
 1. Haga clic en **Guardar** para guardar la configuración.
@@ -185,4 +185,4 @@ Para obtener más información:
 * [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
-* [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD en Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

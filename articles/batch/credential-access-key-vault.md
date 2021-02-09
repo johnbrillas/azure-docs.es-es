@@ -1,17 +1,17 @@
 ---
-title: Acceso seguro a Key Vault con Batch
+title: Uso de certificados y acceso seguro a Azure Key Vault con Batch
 description: Obtenga información sobre cómo tener acceso mediante programación a las credenciales de Key Vault mediante Azure Batch.
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b8b3d2655e79862c068aa48c29c7e89b7df85482
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: eaaeaa05caca7897eb649b56504b643038f08d53
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350694"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260136"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Acceso seguro a Key Vault con Batch
+# <a name="use-certificates-and-securely-access-azure-key-vault-with-batch"></a>Uso de certificados y acceso seguro a Azure Key Vault con Batch
 
 En este artículo, aprenderá a configurar nodos de Batch para acceder de forma segura a las credenciales almacenadas en [Azure Key Vault](../key-vault/general/overview.md). No tiene sentido poner las credenciales de administrador en Key Vault y, a continuación, codificar de forma rígida las credenciales para tener acceso a Key Vault desde un script. La solución consiste en usar un certificado que conceda a los nodos de Batch acceso a Key Vault.
 

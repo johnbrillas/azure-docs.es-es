@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202953"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951249"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutorial: Uso de las API REST
 
@@ -92,7 +92,7 @@ Para configurar Azure Purview para que confíe en la nueva entidad de servicio:
 
 1. En **Assign access to** (Asignar acceso a), deje el valor predeterminado, **User, group, or service principal** (Usuario, grupo o entidad de servicio).
 
-1. En **Select** (Seleccionar), escriba el nombre del usuario, grupo de Azure Active Directory o entidad de servicio que desee asignar y haga clic en su nombre en el panel de resultados.
+1. En **Select** (Seleccionar), escriba el nombre de la entidad de servicio creada anteriormente que desee asignar y haga clic en su nombre en el panel de resultados.
 
 1. Haga clic en **Guardar**.
 

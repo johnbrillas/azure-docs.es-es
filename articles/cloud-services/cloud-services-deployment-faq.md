@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742223"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896484"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services (clásico): Preguntas más frecuentes (P+F)
 
@@ -52,7 +52,7 @@ La implementación de un servicio en la nube puede producir un error si los recu
 
 También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal = > Suscripciones = > \<appropriate subscription> = > "Uso + cuota".
 
-También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Consulte [API de uso de recursos de Azure (versión preliminar)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Vea [Información general sobre las API de consumo de Azure](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>¿Cómo se cambia el tamaño de una máquina virtual de servicio en la nube sin volver a implementarlo?
 No se puede cambiar el tamaño de una máquina virtual de servicio en la nube implementado sin volver a implementarlo. El tamaño de la máquina virtual está integrado en el CSDEF, que solo se actualiza con una nueva implementación.

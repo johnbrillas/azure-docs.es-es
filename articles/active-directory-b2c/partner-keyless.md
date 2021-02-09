@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702962"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090373"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Keyless con Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Para configurar un proveedor de identidades, siga estos pasos:
    |Propiedad | Value |
    |:-----| :-----------|
    | Nombre   | Keyless |
-   | URL de metadatos | Inserte el URI de la aplicación de autenticación de Keyless, seguido de la ruta de acceso específica, como https://keyless.auth/.well-known/openid-configuration. |
+   | URL de metadatos | Inserte el URI de la aplicación de autenticación de Keyless, seguido de la ruta de acceso específica, como "https://keyless.auth/.well-known/openid-configuration". |
    | Secreto del cliente | Secreto asociado a la instancia de autenticación de Keyless, no es el mismo que el configurado anteriormente. Inserte una cadena compleja de su elección. Este secreto se usará más adelante en la configuración del contenedor de Keyless.|
    | Id. de cliente | Id. del cliente. Este id. se usará más adelante en la configuración del contenedor de Keyless.|
    | Ámbito | openid |

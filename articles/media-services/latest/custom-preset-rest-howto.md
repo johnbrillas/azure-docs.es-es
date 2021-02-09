@@ -1,5 +1,5 @@
 ---
-title: 'Codificación de una transformación personalizada mediante Media Services v3 REST: Azure | Microsoft Docs'
+title: Codificación de una transformación personalizada con REST
 description: En este tema se muestra cómo usar Azure Media Services v3 para codificar una transformación personalizada con REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c0416e2787bc69465e18a71f6b9912f7571c24d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295638"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956096"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Cómo codificar con una transformación personalizada: REST
 

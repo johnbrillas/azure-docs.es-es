@@ -3,12 +3,12 @@ title: Protección de máquinas virtuales de Azure VMware Solution con la integr
 description: Obtenga información sobre cómo proteger las máquinas virtuales de Azure VMware Solution con las herramientas de seguridad nativas de Azure desde un solo panel en Azure Security Center.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937345"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061471"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center
 
@@ -45,7 +45,7 @@ Puede configurar el área de trabajo de Log Analytics con Azure Sentinel para de
 
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 
-Necesitará un área de trabajo de Log Analytics para recopilar datos de varios orígenes. Vea los pasos de [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md). 
+Necesitará un área de trabajo de Log Analytics para recopilar datos de varios orígenes. Para más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implementación de Security Center y configuración de máquinas virtuales de Azure VMware Solution
 

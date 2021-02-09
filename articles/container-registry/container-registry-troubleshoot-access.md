@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351800"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052168"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -40,6 +40,8 @@ Puede encontrarse con uno o varios de los siguientes:
 Ejecute el comando [az acr check-helth](/cli/azure/acr#az-acr-check-health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique ciertos problemas de configuración o conectividad de la red. 
 
 Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). Si se notifican errores, revise la [referencia de error](container-registry-health-error-reference.md) y las siguientes secciones para ver las soluciones recomendadas.
+
+Si tiene problemas al usar el Registro con Azure Kubernetes Service, ejecute el comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que se puede acceder al Registro desde el clúster de AKS.
 
 > [!NOTE]
 > Algunos síntomas de conectividad de red también pueden producirse cuando hay problemas con la autenticación o la autorización del registro. Consulte [Solución de problemas de inicio de sesión del registro](container-registry-troubleshoot-login.md).

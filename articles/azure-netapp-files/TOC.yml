@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: ¿Qué es la herramienta Azure Application Consistent Snapshot?
       href: azacsnap-introduction.md
+    - name: Qué significa cambiar a la cuota máxima de volumen
+      href: volume-hard-quota-guidelines.md
 - name: Guías paso a paso
   items:
     - name: Registro en Azure NetApp Files

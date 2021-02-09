@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232784"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919636"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -30,7 +30,7 @@ El vídeo siguiente ofrece una introducción rápida a las directivas de los té
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Para otros vídeos, vea:
+Para obtener más vídeos, consulte:
 - [Implementación de una directiva de los términos de uso de Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Lanzamiento de una directiva de los términos de uso de Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -226,7 +226,7 @@ Algunos de los detalles de las directivas de los términos de uso se pueden edit
     - (Versión preliminar) Puede **actualizar un documento de condiciones de uso ya existente**.
     - Puede agregar un idioma a un documento de condiciones de uso ya existente.
 
-   Si hay otras opciones de configuración que quiere cambiar, como documento PDF, requerir que los usuarios concedan su consentimiento en todos los dispositivos, expirar consentimientos, duración antes de solicitar que se acepten los términos de nuevo o la directiva de acceso condicional, debe crear una directiva de los términos de uso.
+   Si hay otras opciones de configuración que quiere cambiar, como documento PDF, requerir que los usuarios concedan su consentimiento en todos los dispositivos, expirar autorizaciones, duración antes de solicitar que se acepten los términos de nuevo o directiva de acceso condicional, debe crear una nueva instancia de términos de uso.
 
     ![Edición que muestra diferentes opciones de idioma ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Algunos de los detalles de las directivas de los términos de uso se pueden edit
 7.  Una vez que haya cargado el nuevo PDF y elegido volver a aceptar, haga clic en Agregar en la parte inferior del panel.
 8.  Ahora verá la versión más reciente en la columna Documento.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Visualización de versiones anteriores de las condiciones de uso
+## <a name="view-previous-versions-of-a-tou"></a>Visualización de versiones anteriores de los términos de uso
 
 1.  Inicie sesión en Azure y vaya a **Términos de uso** en https://aka.ms/catou.
 2.  Seleccione la directiva de los términos de uso de la que desea ver un historial de versiones.
@@ -269,9 +269,9 @@ Algunos de los detalles de las directivas de los términos de uso se pueden edit
 5.  Como alternativa, puede seleccionar una versión específica de la lista desplegable **Versión** para ver quién ha aceptado esa versión específica.
 
 
-## <a name="add-a-terms-of-use-language"></a>Agregar un idioma a los términos de uso
+## <a name="add-a-tou-language"></a>Adición de un idioma de términos de uso
 
-El siguiente procedimiento describe cómo agregar un idioma a los términos de uso.
+El siguiente procedimiento describe cómo agregar un idioma de términos de uso.
 
 1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
 1. Seleccione la directiva de los términos de uso que quiere editar.
@@ -344,9 +344,13 @@ Puede eliminar las directivas de los términos de uso anteriores mediante el pro
 
    Ahora no debería ver la directiva de los términos de uso.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Usuarios eliminados y términos de uso activos
+## <a name="user-acceptance-record-deletion"></a>Eliminación de registros de aceptación del usuario
 
-De forma predeterminada, un usuario eliminado está en estado eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario. Después de 30 días, ese usuario se eliminará definitivamente. Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](../fundamentals/active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo. Una vez que un usuario se ha eliminado permanentemente, los sucesivos datos sobre ese usuario se eliminarán de la directiva de los términos de uso activa. La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
+Los registros de aceptación del usuario se eliminan:
+
+- Cuando el administrador elimina explícitamente los términos de uso. Cuando esto sucede, también se eliminan todos los registros de aceptación asociados a esos términos de uso específicos.
+- Cuando el inquilino pierde su licencia de Azure Active Directory Premium.
+- Cuando se elimina el inquilino.
 
 ## <a name="policy-changes"></a>Cambios de directiva
 

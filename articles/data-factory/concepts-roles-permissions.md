@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498598"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053778"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -56,6 +56,12 @@ Los permisos para Azure Repos y GitHub son independientes de los permisos de Dat
 
 > [!IMPORTANT]
 > La implementación de plantillas de Resource Manager con el rol **Colaborador de Data Factory** no eleva sus permisos. Por ejemplo, si implementa una plantilla que crea una máquina virtual de Azure y no tiene permiso para crear máquinas virtuales, la implementación falla con un error de autorización.
+
+> [!IMPORTANT]
+> Se necesita el permiso **Microsoft.DataFactory/factories/write** en ambos modos dentro del contexto de publicación.
+
+- Este permiso solo es necesario en modo activo cuando el cliente modifica los parámetros globales.
+- Este permiso siempre es necesario en el modo Git, ya que cada vez que el cliente realiza una publicación, el objeto de fábrica con el último identificación de confirmación se actualiza.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Escenarios personalizados y roles personalizados
 

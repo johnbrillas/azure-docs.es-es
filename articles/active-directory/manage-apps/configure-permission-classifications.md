@@ -3,7 +3,7 @@ title: Configuración de las clasificaciones de permisos con Azure AD
 description: Obtenga información acerca de cómo administrar las clasificaciones de permisos delegados.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b2d851f0f4476cd4b24b6ba30c237f9a42252726
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033211"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255262"
 ---
 # <a name="configure-permission-classifications"></a>Configuración de las clasificaciones de los permisos
 
@@ -34,7 +34,7 @@ Actualmente, solo se admite la clasificación de permisos de "bajo impacto". Sol
 
 Siga estos pasos para clasificar los permisos mediante Azure Portal:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Clasificaciones de permisos**.
 1. Elija **Agregar permisos** para clasificar otro permiso como "bajo impacto".
 1. Seleccione la API y, después, seleccione los permisos delegados.
@@ -126,4 +126,4 @@ Para obtener más información:
 * [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
-* [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD en Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

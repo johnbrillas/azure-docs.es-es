@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726687"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052420"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creación de un volumen de protocolo dual (NFSv3 y SMB) para Azure NetApp Files
 
@@ -51,6 +51,7 @@ Azure NetApp Files admite la creación de volúmenes con NFS (NFSv3 y NFSv4.1), 
     | `Unix`    | NFS   | Bits del modo NFSv3   | UNIX  | NFS y Windows   |
     | `Ntfs`    | Windows   | ACL de NTFS     | NTFS  |NFS y Windows|
 * Los usuarios de UNIX que monten el volumen de estilo de seguridad NTFS mediante NFS se autenticarán como el usuario Windows `root` para `root` de UNIX y `pcuser` para todos los demás usuarios. Asegúrese de que estas cuentas de usuario existen en Active Directory antes de montar el volumen al usar NFS. 
+* Si tiene topologías grandes y usa el estilo de seguridad `Unix` con un volumen de protocolo dual o LDAP con grupos extendidos, es posible que Azure NetApp Files no pueda acceder a todos los servidores de las topologías.  Si se produce esta situación, póngase en contacto con su equipo de cuentas para obtener ayuda.  <!-- NFSAAS-15123 --> 
 * No es necesario un certificado de CA raíz del servidor para crear un volumen de protocolo dual. Solo es necesario si está habilitado LDAP sobre TLS.
 
 

@@ -3,19 +3,17 @@ title: Asignaciones de campos en indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure asignaciones de campos en un indexador para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358939"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430452"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -28,7 +26,7 @@ Algunas situaciones donde las asignaciones de campos son útiles:
 * El origen de datos tiene un campo llamado `_id`, pero Azure Cognitive Search no permite los nombres de campo que empiezan por un carácter de subrayado. Una asignación de campo permite cambiar el nombre de un campo de forma eficaz.
 * Desea rellenar varios campos en el índice con datos del mismo origen de datos. Por ejemplo, puede querer aplicar diferentes analizadores a esos campos.
 * Desea rellenar un campo de índice con los datos de más de un origen de datos, y cada origen de datos usa nombres de campo diferentes.
-* Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación** , incluidas las funciones de codificación y descodificación Base64.
+* Necesita codificar o descodificar sus datos con Base64. Las asignaciones de campos admiten varias **funciones de asignación**, incluidas las funciones de codificación y descodificación Base64.
 
 > [!NOTE]
 > Las asignaciones de campos en los indexadores son una manera sencilla de asignar campos de datos a campos de índice, con cierta capacidad para la conversión de datos ligeros. Los datos más complejos pueden requerir un procesamiento previo para transformarlos en un formato que favorezca la indexación. Una opción que se puede considerar es [Azure Data Factory](../data-factory/index.yml).
@@ -44,16 +42,15 @@ Una asignación de campos consta de tres partes:
 Las asignaciones de campos se agregan a la matriz `fieldMappings` de la definición del indexador.
 
 > [!NOTE]
-> Si no se agregan asignaciones de campo, los indizadores asumen que los campos de origen de datos deben asignarse a campos de índice con el mismo nombre. Al agregar una asignación de campos, se quitan estas asignaciones de campos predeterminadas para el campo de origen y de destino. Algunos indizadores, como [el indizador de Blob Storage](search-howto-indexing-azure-blob-storage.md), agregan asignaciones de campos predeterminadas para el campo clave del índice.
+> Si no se agregan asignaciones de campo, los indizadores asumen que los campos de origen de datos deben asignarse a campos de índice con el mismo nombre. Al agregar una asignación de campos, se quitan estas asignaciones de campos predeterminadas para el campo de origen y de destino. Algunos indexadores, como [el indexador de Blob Storage](search-howto-indexing-azure-blob-storage.md), agregan asignaciones de campos predeterminadas para el campo clave del índice.
 
-## <a name="map-fields-using-the-rest-api"></a>Asignación de campos usando la API de REST
+## <a name="map-fields-using-rest"></a>Asignación de campos mediante REST
 
 Puede agregar asignaciones de campos al crear un indexador con la solicitud API para [crear un indexador](/rest/api/searchservice/create-Indexer). Puede administrar las asignaciones de campos de un indexador existente con la solicitud API para [actualizar un indexador](/rest/api/searchservice/update-indexer).
 
 Por ejemplo, aquí se describe cómo asignar un campo de origen a un campo de destino con un nombre diferente:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -77,9 +74,8 @@ Se puede hacer referencia a un campo de origen en varias asignaciones de campos.
 > [!NOTE]
 > Azure Cognitive Search usa una comparación que no distingue mayúsculas de minúsculas para resolver los nombres de campo y función de las asignaciones de campos. Esto es práctico (no es necesario que el uso de mayúsculas y minúsculas sea correcto en todo momento), pero se traduce en que su índice u origen de datos no puede tener campos que difieran únicamente en mayúsculas y minúsculas.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Asignación de campos usando el SDK de .NET
+## <a name="map-fields-using-net"></a>Asignación de campos mediante .NET
 
 Las asignaciones de campos en el SDK de .NET se definen con la clase [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), que tiene las propiedades `SourceFieldName` y `TargetFieldName` y una referencia a `MappingFunction` opcional.
 

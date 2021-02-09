@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201059"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986046"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
@@ -169,7 +169,7 @@ Para más información, consulte [Grupos de seguridad de red](../virtual-network
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Paso 4: Detección de las conexiones de emparejamiento
 
-1. Navegue hasta el icono de información general de Network Performance Monitor, vaya a la página **Todos los recursos** y haga clic en el área de trabajo de NPM que se encuentra en la lista blanca.
+1. Navegue hasta el icono de información general de Network Performance Monitor, vaya a la página **Todos los recursos** y haga clic en el área de trabajo de NPM que se encuentra en la lista de permitidos.
 
    ![área de trabajo de Network Performance Monitor](./media/how-to-npm/npm.png)
 2. Haga clic en el icono de introducción de **Network Performance Monitor** para que aparezca el panel. El panel contiene una página de ExpressRoute, que muestra que ExpressRoute está en un estado "no configurado". Haga clic en **Configuración de características** para abrir la página de configuración de Network Performance Monitor.

@@ -3,19 +3,19 @@ title: Referencia de la integración de Azure Active Directory y Workday
 description: Información técnica detallada sobre el aprovisionamiento controlado por recursos humanos de Workday
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570149"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255991"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Integración del aprovisionamiento de Azure Active Directory con Workday
 
@@ -43,7 +43,7 @@ Para proteger aún más la conectividad entre el servicio de aprovisionamiento d
 1. Copie todos los intervalos de direcciones IP que aparecen en el elemento *addressPrefixes* y use el intervalo para crear una lista de direcciones IP.
 1. Inicie sesión en el portal de administración de Workday. 
 1. Acceda a la tarea **Mantener intervalos IP** para crear un nuevo intervalo de direcciones IP para los centros de datos de Azure. Especifique los intervalos IP (mediante la notación CIDR) como una lista separada por comas.  
-1. Acceda a la tarea **Administrar directivas de autenticación** para crear una nueva directiva de autenticación. En la directiva de autenticación, use la **lista de permitidos de autenticación** para especificar el intervalo IP de Azure AD y el grupo de seguridad a los que se permitirá el acceso desde este intervalo IP. Guarde los cambios. 
+1. Acceda a la tarea **Administrar directivas de autenticación** para crear una nueva directiva de autenticación. En la directiva de autenticación, use la lista de permitidos de autenticación para especificar el intervalo IP de Azure AD y el grupo de seguridad a los que se permitirá el acceso desde este intervalo IP. Guarde los cambios. 
 1. Acceda a la tarea **Activar todos los cambios de directivas de autenticación pendientes** para confirmar los cambios.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Limitación del acceso a los datos de trabajadores de Workday mediante grupos de seguridad restringidos
@@ -348,7 +348,7 @@ Si alguna de las consultas anteriores devuelve un contrato con fecha futura, se 
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Recuperación de atributos de datos de trabajadores
+## <a name="retrieving-worker-data-attributes"></a>Recuperación de atributos de datos de trabajadores
 
 *Get_Workers* API puede devolver conjuntos de datos diferentes asociados a un trabajador. Según las [expresiones de XPATH API](workday-attribute-reference.md) configuradas en el esquema de aprovisionamiento, el servicio de aprovisionamiento de Azure AD determina qué conjuntos de datos se van a recuperar de Workday. En consecuencia, las marcas de *Response_Group* se establecen en la solicitud *Get_Workers*. 
 
@@ -402,6 +402,9 @@ En la tabla siguiente se proporcionan instrucciones sobre la configuración de l
 | 44 | Datos de evaluación de capacidades               | No                  | wd:Worker\_Data/wd:Talent\_Assessment\_Data                                   |
 | 45 | Datos de cuentas de usuario                    | No                  | wd:Worker\_Data/wd:User\_Account\_Data                                        |
 | 46 | Datos de documentos del trabajador                 | No                  | wd:Worker\_Data/wd:Worker\_Document\_Data                                     |
+
+>[!NOTE]
+>Cada entidad de Workday que se enumera en la tabla está protegida por una **directiva de seguridad de dominio** en Workday. Si no puede recuperar ningún atributo asociado a la entidad después de establecer la XPATH adecuada, consulte con el administrador de Workday para asegurarse de que la directiva de seguridad de dominio adecuada esté configurada para el usuario del sistema de integración asociado a la aplicación de aprovisionamiento. Por ejemplo, para recuperar *Datos de aptitudes*, se necesita acceso *Get* en el dominio de Workday *Datos del trabajador: aptitudes y experiencia*. 
 
 Estos son algunos ejemplos sobre cómo puede ampliar la integración con Workday para que cumpla requisitos específicos. 
 

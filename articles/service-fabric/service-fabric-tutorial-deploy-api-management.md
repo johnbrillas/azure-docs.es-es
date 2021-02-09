@@ -4,12 +4,12 @@ description: Aprenda a usar rápidamente Azure API Management y a enrutar el tr�
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b89204e2df5c8e79200b780de38d06b1a93c1fa3
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f1ae658ac4944f8d39dc11769669d32958fd14f4
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702198"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491289"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -293,6 +293,8 @@ az group delete --name $ResourceGroupName
 
 Obtenga más información acerca de cómo usar [API Management](../api-management/import-and-publish.md).
 
+También puede usar [Azure Portal](../api-management/how-to-configure-service-fabric-backend.md) para crear y administrar back-ends de Service Fabric para API Management.
+
 [azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
@@ -303,7 +305,6 @@ Obtenga más información acerca de cómo usar [API Management](../api-managemen
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.jsonn
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

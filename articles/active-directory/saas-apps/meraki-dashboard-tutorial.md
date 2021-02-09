@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735171"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493928"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Meraki Dashboard
 
@@ -103,7 +103,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Edición del certificado de firma de SAML](common/edit-certificate.png)
 
-1. En la sección **Certificado de firma de SAML**, copie el valor de **Huella digital** y guárdelo en el equipo.
+1. En la sección **Certificado de firma de SAML**, copie el valor de **Huella digital** y guárdelo en el equipo. Este valor debe convertirse para que incluya dos puntos para que el panel de Meraki lo entienda. Por ejemplo, si la huella digital de Azure es `C2569F50A4AAEDBB8E` deberá cambiarla a `C2:56:9F:50:A4:AA:ED:BB:8E` para usarla más adelante en el panel de Meraki.
 
     ![Copia del valor de la huella digital](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 
     ![Agregación de un IdP de SAML en Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Pegue el valor de **Thumprint** (Huella digital), que ha copiado de Azure Portal en **X.590 cert SHA1 fingerprint** (Huella digital de SHA1 de certificado X.590). A continuación, haga clic en **Save**(Guardar). Después de guardar, se mostrará la dirección URL del consumidor. Copie el valor de Consumer URL (URL de cliente) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Configuración básica de SAML** en Azure Portal.
+1. Pegue el valor de **huella digital** convertido, que ha copiado de Azure Portal y convertido al formato especificado, tal y como se menciona en el paso 9 de la sección anterior, en el cuadro de texto **Huella digital de SHA1 de certificado X.590**. A continuación, haga clic en **Save**(Guardar). Después de guardar, se mostrará la dirección URL del consumidor. Copie el valor de Consumer URL (URL de cliente) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Configuración básica de SAML** en Azure Portal.
 
     ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 

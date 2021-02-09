@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012791"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223396"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conexión de ServiceNow al Conector de Administración de servicios de TI
 
@@ -29,10 +29,11 @@ Para obtener información acerca de cómo instalar ITSMC, consulte [Adición del
 
 ### <a name="oauth-setup"></a>Configuración de OAuth
 
-Entre las versiones admitidas de ServiceNow se incluyen Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki y Ginebra.
+Entre las versiones admitidas de ServiceNow se incluyen París, Orlando, Nueva York, Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki y Ginebra.
 
 Los administradores de ServiceNow deben generar un id. de cliente y un secreto de cliente para su instancia de ServiceNow. Consulte la siguiente información según sea necesario:
 
+- [Configuración de OAuth para París](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Nueva York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configuración de OAuth para Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -122,10 +123,10 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
    | --- | --- |
    | **Nombre de la conexión**   | Escriba un nombre para la instancia de ServiceNow que quiere conectar con ITSMC. Usará este nombre más adelante en Log Analytics cuando configure los elementos de trabajo de ITSM y vea el análisis de registros. |
    | **Tipo de asociado**   | Seleccione **ServiceNow**. |
-   | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. La dirección URL debe apuntar a una versión de SaaS compatible con el sufijo *.servicenow.com*.|
+   | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. La dirección URL debe apuntar a una versión de SaaS compatible con el sufijo *.servicenow.com* (por ejemplo, https://XXXXX.service-now.com/) ).|
    | **Nombre de usuario**   | Escriba el nombre de usuario de integración que ha creado en la aplicación de ServiceNow para que admita la conexión con ITSMC.|
    | **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación. No se almacenan en ningún lugar dentro del servicio ITSMC.  |
-   | **Id. de cliente**   | Escriba el id. de cliente que quiere utilizar para la autenticación de OAuth2 y que ha generado anteriormente. Para obtener más información sobre la generación de un id. de cliente y un secreto, consulte [Configuración de OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **Id. de cliente**   | Escriba el id. de cliente que quiere utilizar para la autenticación de OAuth2 y que ha generado anteriormente. Para obtener más información sobre la generación de un id. de cliente y un secreto, consulte [Configuración de OAuth](https://old.wiki/index.php/OAuth_Setup). |
    | **Secreto de cliente**   | Escriba el secreto de cliente generado para este identificador.   |
    | **Ámbito de sincronización de datos (en días)** | Escriba el número de días pasados de los que quiere los datos. El límite es de 120 días. |
    | **Elementos de trabajo para sincronizar**   | Seleccione los elementos de trabajo de ServiceNow que quiere sincronizar con Azure Log Analytics mediante ITSMC. Los valores seleccionados se importan en Log Analytics. Las opciones son incidentes y solicitudes de cambio.|

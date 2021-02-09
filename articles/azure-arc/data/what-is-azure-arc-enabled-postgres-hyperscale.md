@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 10f21067f48155a394ac20337d77e3e82aae64d8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607514"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985944"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>¿Qué es Hiperescala de PostgreSQL habilitada para Azure Arc?
 
@@ -48,13 +48,13 @@ Este es el factor de forma de hiperescala del motor de base de datos de Postgres
 Este es el factor de forma de hiperescala del motor de base de datos de Postgres disponible con los servicios de datos habilitados para Azure Arc. También cuenta con tecnología de la extensión Citus, que habilita la experiencia de la hiperescala. En este factor de forma, los clientes proporcionan la infraestructura que hospeda los sistemas y los operan.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- **Crear**
-   > **¿Solo desea realizar algunas pruebas? ¿No tiene un clúster de Kubernetes disponible? Le proporcionamos un espacio aislado:**  
-   > Empiece a trabajar rápidamente con [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) en Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o en una máquina virtual de Azure.
+- **Pruébelo.** Empiece a trabajar rápidamente con el [Inicio rápido de Azure Arc](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) en Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o en una máquina virtual de Azure. 
 
-   - **Crear:**
-      - [Instalación de las herramientas de cliente](install-client-tools.md).
-      - [Creación del controlador de datos de Azure Arc](create-data-controller.md) (requiere primero la instalación de las herramientas de cliente).
-      - [Creación de un grupo de servidores de Hiperescala de Azure Database for PostgreSQL en Azure Arc](create-postgresql-hyperscale-server-group.md) (requiere primero la creación de un controlador de datos de Azure Arc).
-- [**Más información sobre los servicios de datos habilitados para Azure Arc**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services).
-- [**Más información sobre Azure Arc**](https://aka.ms/azurearc).
+- **Cree el suyo propio.** Siga estos pasos para crear en su propio clúster de Kubernetes: 
+   1. [Instalación de las herramientas de cliente](install-client-tools.md)
+   2. [Creación del controlador de datos de Azure Arc](create-data-controller.md)
+   3. [Creación de un grupo de servidores Hiperescala de Azure Database for PostgreSQL en Azure Arc](create-postgresql-hyperscale-server-group.md) 
+
+- **Learn**
+   - [Más información sobre los servicios de datos habilitados para Azure Arc](https://azure.microsoft.com/services/azure-arc/hybrid-data-services).
+   - [Obtenga información sobre Azure Arc](https://aka.ms/azurearc).

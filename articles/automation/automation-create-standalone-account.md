@@ -3,14 +3,14 @@ title: Creación de una cuenta independiente de Azure Automation
 description: En este artículo se indica cómo crear una cuenta de Azure Automation independiente y una cuenta de ejecución clásica.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855395a305624bb2df96d183dc2bcac45f8e6b3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714652"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051471"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -74,7 +74,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
    > [!NOTE]
    > Si prefiere no crear la cuenta de ejecución y selecciona **No** en **Crear cuenta de ejecución de Azure**, aparecerá un mensaje en el panel Agregar cuenta de Automation. Aunque la cuenta se crea en Azure Portal, no tiene la identidad de autenticación correspondiente en la suscripción del modelo de implementación clásico ni en el servicio de directorio de suscripciones de Resource Manager. Por lo tanto, la cuenta de Automation no tiene acceso a los recursos en su suscripción. Esto evitará que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas con los recursos en dichos modelos de suscripción.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de pantalla de la solicitud &quot;No tiene permisos para crear una cuenta de ejecución en Azure Active Directory&quot;.":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de pantalla de la solicitud con el mensaje &quot;Ha decidido no crear una cuenta de ejecución&quot;.":::
    >
    > Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
    >
@@ -93,7 +93,7 @@ Una vez que se crea la cuenta de Automation, se también varios recursos automá
 
 ## <a name="create-a-classic-run-as-account"></a>Creación de una cuenta de ejecución clásica
 
-Las cuentas de ejecución clásicas ya no se crean de forma predeterminada al crear una cuenta de Azure Automation. Sin embargo, si necesita una cuenta de ejecución clásica:
+Las cuentas de ejecución clásicas no se crean de forma predeterminada al crear una cuenta de Azure Automation. Si necesita una cuenta de ejecución clásica para administrar los recursos clásicos de Azure, siga estos pasos:
 
 1. En la cuenta de Automation, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución**.
 2. Seleccione **Cuenta de ejecución de Azure clásico**.
@@ -104,5 +104,5 @@ Las cuentas de ejecución clásicas ya no se crean de forma predeterminada al cr
 * Para obtener más información sobre la creación de runbooks gráficos, vea [Creación de runbooks gráficos en Azure Automation](automation-graphical-authoring-intro.md).
 * Para empezar a trabajar con runbooks de PowerShell, vea [Tutorial: Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Tutorial: Creación de un runbook de flujo de trabajo de PowerShell](learn/automation-tutorial-runbook-textual.md).
-* Para empezar a trabajar con runbooks de Python 2, vea [Tutorial: Creación de un runbook de Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Para empezar a trabajar con runbooks de Python 3, vea [Tutorial: Creación de un runbook de Python 3](learn/automation-tutorial-runbook-textual-python-3.md).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation&preserve-view=true#automation).

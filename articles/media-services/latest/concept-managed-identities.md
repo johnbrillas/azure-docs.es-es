@@ -1,45 +1,40 @@
 ---
-title: Identidades administradas y almacenamiento de confianza con Media Services
-description: Media Services puede usarse con identidades administradas para habilitar el almacenamiento de confianza.
+title: Identidades administradas
+description: Media Services puede usarse con identidades administradas de Azure.
+keywords: ''
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 71a2b8f0734de80f71dbb2372f8600b464d6c606
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499363"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258446"
 ---
-# <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identidades administradas y almacenamiento de confianza con Media Services
+# <a name="managed-identities"></a>Identidades administradas
 
-Media Services puede usarse con [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para habilitar el almacenamiento de confianza. Al crear una cuenta de Media Services, debe asociarla a una cuenta de almacenamiento. Media Services puede acceder a esa cuenta de almacenamiento mediante la autenticación del sistema. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción y valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con Azure Resource Manager RBAC.
+Un desafío común para los desarrolladores es la administración de secretos y credenciales para proteger la comunicación entre distintos servicios. En Azure, las identidades administradas eliminan la necesidad de que los desarrolladores administren credenciales, al proporcionar una identidad para el recurso de Azure en Azure AD y usarla para obtener tokens de Azure Active Directory (Azure AD).
 
-## <a name="trusted-storage"></a>Almacenamiento de confianza
-
-No obstante, si quiere usar un firewall para proteger su cuenta de almacenamiento, debe emplear la autenticación de identidad administrada. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza.  Para más información acerca de los servicios de Microsoft de confianza, consulte [Configuración de redes virtuales y firewalls de Azure Storage](../../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-## <a name="media-services-managed-identity-scenarios"></a>Escenarios de identidad administrada de Media Services
-
-Actualmente hay dos escenarios en los que la identidad administrada se puede usar con Media Services:
+Actualmente hay dos escenarios en los que las identidades administradas se pueden usar con Media Services:
 
 - Usar la identidad administrada de la cuenta de Media Services para acceder a las cuentas de almacenamiento.
 
 - Usar la identidad administrada de la cuenta de Media Services para acceder a las claves de cliente de una instancia de Key Vault.
 
-En las dos secciones siguientes se describen las diferencias entre ambos escenarios.
+En las dos secciones siguientes se describen los pasos de los dos escenarios.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las cuentas de almacenamiento
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las cuentas de almacenamiento
 
 1. Cree una cuenta de Media Services con una identidad administrada.
 1. Conceda a la entidad de seguridad administrada acceso a una cuenta de almacenamiento de su propiedad.
-1. De este modo, Media Services podrá acceder a la cuenta de almacenamiento en su nombre mediante la identidad administrada.
+1. De este modo, Media Services puede acceder a la cuenta de almacenamiento en su nombre mediante la identidad administrada.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las claves de cliente de una instancia de Key Vault
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Uso de la identidad administrada de la cuenta de Media Services para acceder a las claves de cliente de una instancia de Key Vault
 
 1. Cree una cuenta de Media Services con una identidad administrada.
 1. Conceda acceso a la entidad de seguridad administrada a una instancia de Key Vault de su propiedad.

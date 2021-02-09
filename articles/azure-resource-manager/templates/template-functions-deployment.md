@@ -2,13 +2,13 @@
 title: 'Funciones de plantilla: implementación'
 description: Se describen las funciones que se pueden usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920507"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943470"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM
 
@@ -33,6 +33,7 @@ Devuelve información sobre la operación de implementación actual.
 
 Esta función devuelve el objeto pasado durante la implementación. Las propiedades del objeto devuelto difieren en función de si:
 
+* se implementa una plantilla o una especificación de plantilla.
 * se implementa una plantilla que es un archivo local o una plantilla que es un archivo remoto al que se accede a través de un identificador URI.
 * se implementa en un grupo de recursos o en uno de los otros ámbitos ([suscripción a Azure](deploy-to-subscription.md), [grupo de administración](deploy-to-management-group.md) o [inquilino](deploy-to-tenant.md)).
 
@@ -66,6 +67,31 @@ Al implementar una plantilla remota en un grupo de recursos; la función devuelv
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+Al implementar una especificación de plantilla en un grupo de recursos, la función devuelve el siguiente formato:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",

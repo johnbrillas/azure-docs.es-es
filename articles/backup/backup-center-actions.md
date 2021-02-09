@@ -3,14 +3,14 @@ title: Acciones con el Centro de copias de seguridad
 description: En este artículo se explica cómo realizar acciones con el Centro de copia de seguridad.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854433"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894582"
 ---
-# <a name="perform-actions-using-backup-center"></a>Acciones con el Centro de copias de seguridad
+# <a name="perform-actions-using-backup-center-preview"></a>Acciones con el Centro de copias de seguridad (versión preliminar)
 
 El Centro de copias de seguridad permite realizar acciones clave relacionadas con la copia de seguridad desde una interfaz central sin necesidad de ir a un almacén individual. Estas son algunas de las acciones que puede realizar desde el Centro de copias de seguridad:
 
@@ -23,26 +23,28 @@ El Centro de copias de seguridad permite realizar acciones clave relacionadas co
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* El Centro de copias de seguridad admite actualmente copias de seguridad de máquinas virtuales de Azure y de servidores de Azure Database for PostgreSQL.
+* El Centro de copias de seguridad admite actualmente copias de seguridad de máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, Azure Files y servidor de Azure Database for PostgreSQL.
 * Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para obtener una lista detallada de escenarios admitidos y no admitidos.
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 
+Si va a realizar una copia de seguridad de máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure o Azure Files, debe usar un almacén de Recovery Services. Si va a realizar una copia de seguridad del servidor de Azure Database for PostgreSQL, debe usar un almacén de Backup. 
+
 Siga las instrucciones siguientes que correspondan al tipo de origen de datos del que desee realizar una copia de seguridad.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Configuración de la copia de seguridad de máquinas virtuales de Azure
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Configuración de la copia de seguridad en un almacén de Recovery Services
 
 1. Vaya al Centro de copias de seguridad y seleccione **+ Copia de seguridad** en la parte superior de la pestaña **Información general**.
 
     ![Información general del Centro de copias de seguridad](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad (en este caso, máquina virtual de Azure).
+2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad.
 
     ![Seleccionar el origen de datos para configurar la copia de seguridad de la máquina virtual](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Elija un almacén de Recovery Services y seleccione **Continuar**. Esto le lleva al área de configuración de copias de seguridad, idéntica al área a la que se accede desde un almacén de Recovery Services. [Obtenga más información sobre cómo configurar la copia de seguridad de máquinas virtuales de Azure con un almacén de Recovery Services](tutorial-backup-vm-at-scale.md).
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Configuración de la copia de seguridad de servidores de Azure Database for PostgreSQL
+### <a name="configure-backup-to-a-backup-vault"></a>Configuración de la copia de seguridad en un almacén de Backup
 
 1. Vaya al Centro de copias de seguridad y seleccione **+ Copia de seguridad** en la parte superior de la pestaña **Información general**.
 2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad (en este caso, servidor de Azure Database for PostgreSQL).
@@ -55,19 +57,19 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos de
 
 Siga las instrucciones siguientes que correspondan al tipo de origen de datos que desee restaurar.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Si va a restaurar una máquina virtual de Azure
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Si restaura desde un almacén de Recovery Services
 
 1. Vaya al Centro de copias de seguridad y seleccione **Restauración** en la parte superior de la pestaña **Información general**.
 
     ![Información general del Centro de copias de seguridad para restaurar la máquina virtual](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Seleccione el tipo de origen de orígenes que desea restaurar (en este caso, máquina virtual de Azure).
+2. Seleccione el tipo de origen de datos que desea restaurar.
 
     ![Seleccionar el origen de datos de la restauración de la máquina virtual](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Elija una instancia de copia de seguridad y seleccione **Continuar**. Esto le lleva al área de configuración de restauraciones, idéntica al área a la que se accede desde un almacén de Recovery Services. [Obtenga más información sobre cómo restaurar máquinas virtuales de Azure con un almacén de Recovery Services](backup-azure-arm-restore-vms.md#before-you-start).
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Si va a restaurar un servidor de Azure Database for PostgreSQL
+### <a name="if-youre-restoring-from-a-backup-vault"></a>Si restaura desde un almacén de Backup
 
 1. Vaya al Centro de copias de seguridad y seleccione **Restauración** en la parte superior de la pestaña **Información general**.
 2. Seleccione el tipo de origen de datos que quiere restaurar (en este caso, servidor de Azure Database for PostgreSQL).
@@ -89,19 +91,19 @@ Puede crear un nuevo almacén; para ello, vaya al Centro de copias de seguridad 
 
 Siga las instrucciones siguientes que correspondan al tipo de origen de datos del que desee realizar una copia de seguridad.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Si va a realizar una copia de seguridad de una máquina virtual de Azure
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Si realiza una copia de seguridad en un almacén de Recovery Services
 
 1. Vaya al Centro de copias de seguridad y seleccione **+ Directiva** en la parte superior de la pestaña **Información general**.
 
     ![Información general del Centro de copias de seguridad para la directiva de copia de seguridad](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad (en este caso, máquina virtual de Azure).
+2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad.
 
     ![Seleccionar el origen de datos para la directiva de copia de seguridad de máquinas virtuales](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Elija un almacén de Recovery Services y seleccione **Continuar**. Esto le lleva al área de creación de directivas, idéntica al área a la que se accede desde un almacén de Recovery Services. [Obtenga más información sobre cómo crear una nueva directiva de copia de seguridad para máquinas virtuales de Azure con un almacén de Recovery Services](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Si va a realizar una copia de seguridad de un servidor de Azure Database for PostgreSQL
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>Si realiza una copia de seguridad en un almacén de Backup
 
 1. Vaya al Centro de copias de seguridad y seleccione **+ Directiva** en la parte superior de la pestaña **Información general**.
 2. Seleccione el tipo de origen de datos del que desea realizar la copia de seguridad (en este caso, servidor de Azure Database for PostgreSQL).

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256881"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222173"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Certificación de AppSource para Azure Active Directory
 
@@ -104,9 +104,9 @@ Para más información sobre la experiencia de evaluación de AppSource, vea [es
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Para la integración de Azure AD, se usa [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) con la comunidad para ofrecer soporte técnico.
+Para la integración en Azure AD, se usa [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) con la comunidad para ofrecer soporte técnico.
 
-Se recomienda muy especialmente que primero plantee sus preguntas sobre Stack Overflow y examine los problemas existentes para ver si algún usuario ha hecho esa pregunta antes. Asegúrese de que sus preguntas o comentarios se etiquetan con [`[azure-active-directory]` y `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Se recomienda muy especialmente que primero plantee sus preguntas en [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) y examine los problemas existentes para ver si algún usuario ha hecho esa pregunta antes. Asegúrese de que sus preguntas o comentarios se etiqueten con [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
 

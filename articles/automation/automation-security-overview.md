@@ -4,14 +4,14 @@ description: En este artículo se ofrece información general sobre la autentica
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2020
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766098"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255006"
 ---
 # <a name="automation-account-authentication-overview"></a>Introducción a la autenticación de cuentas de Automation
 
@@ -21,7 +21,9 @@ En este artículo se tratan los distintos escenarios de autenticación que se ad
 
 ## <a name="automation-account"></a>Cuenta de Automation
 
-Cuando inicia Azure Automation por primera vez, debe crear al menos una cuenta de Automation. Las cuentas de Automation le permiten aislar sus recursos, runbooks, activos y configuraciones de Automation de los recursos de otras cuentas. Puede usar cuentas de Automation para separar los recursos en entornos lógicos independientes. Por ejemplo, puede usar una cuenta para desarrollo, otra para producción y otra para su entorno local. Una cuenta de Azure Automation es diferente de su cuenta Microsoft o de las cuentas creadas en su suscripción de Azure. Para obtener una introducción a la creación de una cuenta de Automation, consulte [Creación de una cuenta independiente de Azure Automation](automation-quickstart-create-account.md).
+Cuando inicia Azure Automation por primera vez, debe crear al menos una cuenta de Automation. Las cuentas de Automation le permiten aislar sus recursos, runbooks, activos y configuraciones de Automation de los recursos de otras cuentas. Puede usar cuentas de Automation para separar los recursos en entornos lógicos independientes o responsabilidades delegadas. Por ejemplo, puede usar una cuenta para desarrollo, otra para producción y otra para su entorno local. O bien, puede dedicar una cuenta de Automation para administrar las actualizaciones del sistema operativo en todas las máquinas con [Update Management](update-management/overview.md). 
+
+Una cuenta de Azure Automation es diferente de su cuenta Microsoft o de las cuentas creadas en su suscripción de Azure. Para obtener una introducción a la creación de una cuenta de Automation, consulte [Creación de una cuenta independiente de Azure Automation](automation-quickstart-create-account.md).
 
 ## <a name="automation-resources"></a>Recursos de Automation
 
@@ -33,21 +35,21 @@ Todas las tareas que se crean en los recursos con Azure Resource Manager y los c
 
 Las cuentas de ejecución de Azure Automation proporcionan autenticación para administrar recursos de Azure Resource Manager o recursos implementados en el modelo de implementación clásica. Hay dos tipos de cuentas de ejecución en Azure Automation:
 
-* Cuenta de ejecución de Azure
-* Cuenta de ejecución de Azure clásico
+* Cuenta de ejecución de Azure: Le permite administrar los recursos de Azure en función del servicio de administración e implementación de Azure Resource Manager en Azure.
+* Cuenta de ejecución de Azure clásico: Le permite administrar recursos clásicos de Azure según el modelo de implementación clásica.
 
-Para más información sobre estos dos modelos de implementación, vea [Implementación de Resource Manager y clásica](../azure-resource-manager/management/deployment-models.md).
+Para obtener más información sobre los modelos de implementación clásico y de Azure Resource Manager, consulte [Implementación de Resource Manager e implementación clásica](../azure-resource-manager/management/deployment-models.md).
 
 >[!NOTE]
 >Las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción al programa CSP, no se crea la cuenta de ejecución de Azure clásico, sino la cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-### <a name="run-as-account"></a>cuenta de identificación
+Al crear una cuenta de Automation, la cuenta de ejecución se crea de manera predeterminada a la misma vez. Si decidió no crearla junto con la cuenta de Automation, se puede crear individualmente en otro momento. Una cuenta de ejecución de Azure clásico es opcional y se crea por separado si necesita administrar los recursos clásicos.
 
-La cuenta de ejecución de Azure administra los recursos de Azure en función del servicio de administración e implementación de Azure Resource Manager en Azure.
+### <a name="run-as-account"></a>Cuenta de ejecución
 
 Cuando crea una cuenta de ejecución, realiza las siguientes tareas:
 
-* Crea una aplicación de Azure AD con un certificado autofirmado, crea una cuenta de entidad servicio para la aplicación en Azure AD y asigna el rol [Colaborador](../role-based-access-control/built-in-roles.md#contributor) para esta cuenta en la suscripción actual. Puede cambiar la configuración de certificado a Propietario o a cualquier otro rol. Para más información, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
+* Crea una aplicación de Azure AD con un certificado autofirmado, crea una cuenta de entidad servicio para la aplicación en Azure AD y asigna el rol [Colaborador](../role-based-access-control/built-in-roles.md#contributor) para esta cuenta en la suscripción actual. Puede cambiar la configuración de certificado a [Lector](../role-based-access-control/built-in-roles.md#reader) o a cualquier otro rol. Para más información, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
 
 * Crea un recurso de certificado de Automation denominado `AzureRunAsCertificate` en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que se usa en la aplicación de Azure AD.
 
@@ -55,9 +57,10 @@ Cuando crea una cuenta de ejecución, realiza las siguientes tareas:
 
 ### <a name="azure-classic-run-as-account"></a>Cuenta de ejecución de Azure clásico
 
-La cuenta de ejecución de Azure clásico administra recursos clásicos de Azure según el modelo de implementación clásica. Debe ser coadministrador de la suscripción para crear o renovar este tipo de cuenta de ejecución.
+Al crear una cuenta de ejecución de Azure clásico, realiza las siguientes tareas:
 
-Al crear una cuenta de ejecución de Azure clásico, realiza las siguientes tareas.
+> [!NOTE]
+> Debe ser coadministrador de la suscripción para crear o renovar este tipo de cuenta de ejecución.
 
 * Crea un certificado de administración en la suscripción.
 
@@ -65,16 +68,44 @@ Al crear una cuenta de ejecución de Azure clásico, realiza las siguientes tare
 
 * Crea un recurso de conexión de Automation denominado `AzureClassicRunAsConnection` en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
 
->[!NOTE]
->Las cuentas de ejecución de Azure clásico ya no se crean de forma predeterminada a la vez que se crea una cuenta de Automation. Esta cuenta se crea individualmente siguiendo los pasos descritos en el artículo [Administración de la cuenta de ejecución](manage-runas-account.md#create-a-run-as-account-in-azure-portal).
-
 ## <a name="service-principal-for-run-as-account"></a>Entidad de servicio para la cuenta de ejecución
 
 La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure AD de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, tiene que conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Adición de permisos para acceder a la API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Permisos de las cuentas de ejecución
+
+En esta sección se definen los permisos para las cuentas de ejecución normales y las cuentas de ejecución clásicas.
+
+* Para crear o actualizar una cuenta de ejecución, un Administrador de aplicaciones en Azure Active Directory y un Propietario en la suscripción pueden completar todas las tareas.
+* Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol Coadministrador en el nivel de suscripción. Para más información sobre los permisos de suscripción clásicos, consulte [Administradores de la suscripción clásica de Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+
+En una situación en la que tenga separación de funciones, la siguiente tabla muestra una lista de las tareas, el cmdlet equivalente y los permisos necesarios:
+
+|Tarea|Cmdlet  |Permisos mínimos  |Donde se establecen los permisos|
+|---|---------|---------|---|
+|Crear una aplicación de Azure AD|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Rol de desarrollador de aplicaciones<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Inicio > Azure AD > Registros de aplicaciones |
+|Agregar una credencial a la aplicación.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Administrador de la aplicación o administrador global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Inicio > Azure AD > Registros de aplicaciones|
+|Crear y obtener una entidad de servicio de Azure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de la aplicación o administrador global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Inicio > Azure AD > Registros de aplicaciones|
+|Asignar u obtener el rol de Azure para la entidad de seguridad especificada|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrador de acceso de usuario o Propietario, o bien tener los permisos siguientes:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Suscripción](../role-based-access-control/role-assignments-portal.md)</br>Inicio > Suscripciones > \<subscription name\> Access Control (IAM)|
+|Crear o quitar un certificado de Automation|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Colaborador en el grupo de recursos         |Grupo de recursos de la cuenta de Automation|
+|Crear o quitar una conexión de Automation|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Colaborador en el grupo de recursos |Grupo de recursos de la cuenta de Automation|
+
+<sup>1</sup> Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si el registro de la aplicación está configurado en **No**, el usuario que realiza esta acción debe ser como se define en esta tabla.
+
+Si no es miembro de la instancia de Active Directory de la suscripción antes de que se le agregue al rol Administrador global de la suscripción, se le agregará como invitado. En este caso, recibirá una advertencia `You do not have permissions to create…` en la página **Agregar cuenta de Automation**.
+
+Para comprobar que se ha corregido la situación causante del mensaje de error:
+
+1. En el panel de Azure Active Directory de Azure Portal, seleccione **Usuarios y grupos**.
+2. Seleccione **Todos los usuarios**.
+3. Elija su nombre y, a continuación, seleccione **Perfil**.
+4. Asegúrese de que el valor del atributo **Tipo de usuario**  en el perfil de usuario no esté establecido en **Invitado**.
+
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
 El control de acceso basado en rol está disponible en Azure Resource Manager para conceder las acciones permitidas a una cuenta de usuario de Azure AD y a una cuenta de ejecución, y para autenticar la entidad de servicio. Para más información que le ayude a desarrollar su modelo de administración de permisos de Automation, consulte el [artículo Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
+
+Si tiene controles de seguridad estrictos para la asignación de permisos en los grupos de recursos, debe asignar la pertenencia a la cuenta de ejecución al rol **Colaborador** en el grupo de recursos.
 
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticación de Runbook con Hybrid Runbook Worker
 

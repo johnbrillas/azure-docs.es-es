@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358986"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260035"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guía de migración: SQL Server a SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -150,6 +150,18 @@ Después de comprobar que los datos son los mismos en el origen y en el destino,
 > [!IMPORTANT]
 > Para más información sobre los pasos específicos asociados con la realización de una operación de transición como parte de las migraciones con DMS, consulte [Realización de migración total](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
 
+## <a name="migration-recommendations"></a>Recomendaciones sobre migración
+
+Para acelerar la migración a Azure SQL Database, debe tener en cuenta las siguientes recomendaciones:
+
+|  | Contención de recursos | Recomendación |
+|--|--|--|
+| **Origen (normalmente local)** |El cuello de botella principal durante la migración en el origen es la E/S de datos y la latencia en el archivo de datos, que es necesario supervisar con cuidado.  |En función de la E/S de datos y la latencia del archivo de datos, y en función de si se trata de una máquina virtual o un servidor físico, tendrá que ponerse en contacto con el administrador de almacenamiento y explorar las opciones para mitigar el cuello de botella. |
+|**Destino (Azure SQL Database)**|El factor de limitación más importante es la velocidad de generación de registros y la latencia del archivo de registro. Con Azure SQL Database, puede obtener un máximo de 96 MB/s de velocidad de generación de registros. | Para acelerar la migración, escale verticalmente la base de datos SQL de destino a Crítico para la empresa Gen5 y 8 núcleos virtuales para obtener la velocidad de generación de registros máxima de 96 MB/s, y también conseguir una latencia baja para el archivo de registro. El nivel de servicio [Hiperescala](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) proporciona una velocidad de registro de 100 MB/s, independientemente del nivel de servicio elegido. |
+|**Network** |El ancho de banda de red necesario es igual a la velocidad de ingesta de registros máxima de 96 MB/s (768 Mb/s). |En función de la conectividad de red desde el centro de datos local a Azure, compruebe el ancho de banda de red (normalmente [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) para adaptarse a la velocidad de ingesta máxima de registros. |
+|**Máquina virtual usada para Data Migration Assistant (DMA)** |La CPU es el cuello de botella principal de la máquina virtual que ejecuta DMA. |Aspectos que se deben tener en cuenta para acelerar la migración de datos: </br>- VM de uso intensivo de procesos de Azure. </br>-Use al menos VM F8s_v2 (8 núcleos virtuales) para ejecutar DMA. </br>- Asegúrese de que la VM se ejecute en la misma región de Azure que el destino. |
+|**Azure Database Migration Service (DMS)** |Consideraciones sobre la contención de recursos de proceso y los objetos de bases de datos para DMS |Use 4 núcleos virtuales prémium. DMS se encarga automáticamente de los objetos de base de datos, como las claves externas, los desencadenadores, las restricciones y los índices que no son clústeres, y no necesita ninguna intervención manual.  |
+
 
 ## <a name="post-migration"></a>Después de la migración
 
@@ -185,7 +197,7 @@ Para más información, consulte el artículo sobre la [administración de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener una matriz de los servicios y las herramientas de Microsoft y de otros fabricantes que están disponibles para ayudarle en diversos escenarios de migración de datos y bases de datos, además de las tareas especializadas, consulte [Servicios y herramientas disponibles para escenarios de migración de datos](../../../dms/dms-tools-matrix.md).
+- Para obtener una matriz de los servicios y las herramientas de Microsoft y de otros fabricantes que están disponibles para ayudarlo en diversos escenarios de migración de datos y bases de datos, además de las tareas especializadas, consulte [Servicios y herramientas de migración de datos](../../../dms/dms-tools-matrix.md).
 
 - Para más información acerca de SQL Database, consulte:
     - [¿Qué es Azure SQL Database?](../../database/sql-database-paas-overview.md)

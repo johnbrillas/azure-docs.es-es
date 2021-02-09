@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 6367a3c3e6a946068498c92456ba42cd3c7c4bdd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 1606315b6b6cb4cff787a67e97e64baedc6c508e
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042628"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097107"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Series Ddv4 y Ddsv4
 
@@ -34,6 +34,8 @@ Los nuevos tamaños de máquinas virtuales Ddv4 incluyen almacenamiento SSD loca
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
@@ -63,6 +65,8 @@ Los nuevos tamaños de máquinas virtuales Ddsv4 incluyen almacenamiento SSD loc
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br> 
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | <sup>**</sup> Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |

@@ -1,5 +1,5 @@
 ---
-title: Tipos de LiveEvent en Azure Media Services | Microsoft Docs
+title: Tipos de LiveEvent en Azure Media Services
 description: 'En Azure Media Services, los objetos LiveEvent pueden ser de uno de estos dos tipos: *codificación en directo* y de *paso a través*. En este artículo se muestra una tabla detallada que compara los tipos de LiveEvent.'
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3126cbf4f9d87e9baa7267e309210b751a47069d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397311"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897805"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 

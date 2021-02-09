@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280430"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429583"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
 
@@ -102,7 +102,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado del centro 
 | `sncQop` | El nivel de calidad de protección de SNC a aplicar.<br/>Se aplica `sncMode` cuando está activado. <br/>Los valores permitidos son `1` (Autenticación), `2` (Integridad), `3` (Privacidad), `8` (valor predeterminado), `9` (Máximo). | No |
 | `connectVia` | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno de ejecución de integración autohospedado. |Sí |
 
-**Ejemplo 1: conectarse a un servidor de aplicaciones de SAP**
+### <a name="example-1-connect-to-an-sap-application-server"></a>Ejemplo 1: conectarse a un servidor de aplicaciones de SAP
 
 ```json
 {
@@ -294,6 +294,60 @@ En `rfcTableOptions`, puede usar los siguientes operadores de consulta SAP comun
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>Combinación de tablas de SAP
+
+Actualmente, el conector de SAP Table solo admite una tabla con el módulo de función predeterminado. Para obtener los datos combinados de varias tablas, puede aprovechar la propiedad [customRfcReadTableFunctionModule](#copy-activity-properties) en el conector de SAP Table después de los pasos siguientes:
+
+- [Escriba un módulo de función personalizado](#create-custom-function-module), que puede tomar una consulta como OPTIONS y aplicar su propia lógica para recuperar los datos.
+- En "Módulo de función personalizado", escriba el nombre del módulo de función personalizado.
+- En "Opciones de tabla RFC", especifique la instrucción de combinación de tablas que se va a incluir en el módulo de función como OPTIONS, como "`<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0".
+
+Aquí tiene un ejemplo:
+
+![Combinación de SAP Table](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>También puede considerar la posibilidad de que los datos combinados se agreguen en la VISTA, que es compatible con el conector de SAP Table.
+>También puede intentar extraer tablas relacionadas para incorporarlas a Azure (por ejemplo, Azure Storage o Azure SQL Database) y, después, usar Data Flow para continuar con la combinación o el filtro.
+
+## <a name="create-custom-function-module"></a>Creación de un módulo de función personalizado
+
+En el caso de SAP Table, actualmente se admite la propiedad [customRfcReadTableFunctionModule](#copy-activity-properties) en el origen de la copia, lo que le permite aprovechar su propia lógica y procesar los datos.
+
+A modo de guía rápida, estos son algunos requisitos para empezar a trabajar con el "módulo de función personalizado":
+
+- Definición:
+
+    ![Definición](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Exporte los datos a una de las tablas siguientes:
+
+    ![Tabla de exportación 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Tabla de exportación 2](./media/connector-sap-table/export-table-2.png)
+ 
+A continuación se ilustra cómo funciona el conector de SAP Table con el módulo de función personalizado:
+
+1. Cree una conexión con un servidor SAP a través de SAP NCO.
+
+1. Invoque "Módulo de función personalizado" con los parámetros establecidos como se indica a continuación:
+
+    - QUERY_TABLE: el nombre de la tabla que se establece en el conjunto de datos de ADF SAP Table; 
+    - Delimitador: el delimitador que se establece en el origen de ADF SAP Table; 
+    - ROWCOUNT/Opción/Campos: el recuento de filas/la opción agregada/los campos establecidos en el origen de ADF Table.
+
+1. Obtenga el resultado y analice los datos como se indica a continuación:
+
+    1. Analice el valor de la tabla Fields para obtener los esquemas.
+
+        ![Analice los valores de Fields](./media/connector-sap-table/parse-values.png)
+
+    1. Obtenga los valores de la tabla de salida para ver qué tabla contiene estos valores.
+
+        ![Obtener valores en la tabla de salida](./media/connector-sap-table/get-values.png)
+
+    1. Obtenga los valores de OUT_TABLE, analice los datos y escríbalos en el receptor.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>Asignaciones de tipos de datos para una tabla de SAP
 

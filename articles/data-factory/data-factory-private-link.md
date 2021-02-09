@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746376"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062195"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -48,7 +48,7 @@ Con la compatibilidad de Private Link para Azure Data Factory, puede:
 * Crear un punto de conexión privado en la red virtual.
 * Habilitar la conexión privada a una instancia de factoría de datos específica. 
 
-Las comunicaciones con el servicio Azure Data Factory pasan a través de Private Link y ayudan a ofrecer conectividad privada segura. No es necesario configurar el dominio y el puerto anteriores en la red virtual ni el firewall corporativo para proporcionar una manera más segura de proteger los recursos.  
+Las comunicaciones con el servicio Azure Data Factory pasan a través de Private Link y ayudan a ofrecer conectividad privada segura. 
 
 ![Diagrama de Private Link para la arquitectura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -63,11 +63,14 @@ La habilitación del servicio Private Link para cada uno de los canales de comun
    > [!NOTE]
    > Para las funcionalidades que no se admiten actualmente deberá configurar el dominio y el puerto previamente mencionados en la red virtual o el firewall corporativo. 
 
+   > [!NOTE]
+   > La conexión a Azure Data Factory a través de un punto de conexión privado solo es aplicable al entorno de ejecución de integración autohospedado en la factoría de datos. No se admite en Synapse.
+
 > [!WARNING]
 > Cuando cree un servicio vinculado, asegúrese de que las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán al habilitar Private Link en Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
-Al crear un punto de conexión privado, el registro del recurso CNAME de DNS de Data Factory se actualiza a un alias de un subdominio con el prefijo "privatelink". De forma predeterminada, también se crea una [zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview), que se corresponde con el subdominio "privatelink", con los registros de recursos A de DNS para los puntos de conexión privados.
+Al crear un punto de conexión privado, el registro del recurso CNAME de DNS de Data Factory se actualiza a un alias de un subdominio con el prefijo "privatelink". De forma predeterminada, también se crea una [zona DNS privada](../dns/private-dns-overview.md), que se corresponde con el subdominio "privatelink", con los registros de recursos A de DNS para los puntos de conexión privados.
 
 Cuando se resuelve la dirección URL del punto de conexión de la factoría de datos desde fuera de VNet con el punto de conexión privado, se resuelve en el punto de conexión público del servicio de factoría de datos. Cuando se resuelve desde la red virtual que hospeda el punto de conexión privado, la dirección URL del punto de conexión de almacenamiento se resuelve en la dirección IP del punto de conexión privado.
 
@@ -89,8 +92,8 @@ Los registros de recursos DNS para DataFactoryA, cuando se resuelvan en la insta
 Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de Data Factory en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configurar los registros A para "DataFactoryA.{region}.privatelink.datafactory.azure.net" con la dirección IP del punto de conexión privado.
 
 Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
-- [Resolución de nombres de recursos en redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuración de DNS para puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Resolución de nombres de recursos en redes virtuales de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuración de DNS para puntos de conexión privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configuración de Private Link para Azure Data Factory

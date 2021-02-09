@@ -1044,6 +1044,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Habilitación para un clúster de AKS existente
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Habilitación para AKS con Azure Policy
+              href: containers/container-insights-enable-aks-policy.md
             - name: Habilitación para un clúster habilitado para Arc
               href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Habilitar para un clúster híbrido

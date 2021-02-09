@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753005"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937837"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -222,19 +222,19 @@ Para más información, consulte la sección [Envío de una solicitud de cierre 
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante el registro de la aplicación, registrará un URI posterior al cierre de sesión. En este tutorial, ha registrado `https://localhost:44321/signout-oidc` en el campo **URL de cierre de sesión** de la sección **Configuración avanzada** de la página **Autenticación**. Para obtener información detallada, consulte [Registrar la aplicación webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante el registro de la aplicación, registrará una dirección URL de cierre de sesión del canal frontal. En este tutorial, ha registrado `https://localhost:44321/signout-oidc` en el campo **Dirección URL de cierre de sesión de canal frontal** de la página **Autenticación**. Para obtener información detallada, consulte [Registrar la aplicación webApp](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Durante el registro de la aplicación, registrará un URI posterior al cierre de sesión. En este tutorial, ha registrado `https://localhost:44308/Account/EndSession` en el campo **URL de cierre de sesión** de la sección **Configuración avanzada** de la página **Autenticación**. Para obtener información detallada, consulte [Registrar la aplicación webApp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Durante el registro de la aplicación, no es necesario registrar una dirección URL de cierre de sesión de canal frontal. Se volverá a llamar a la aplicación en su dirección URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Durante el registro de la aplicación, registrará un URI posterior al cierre de sesión. En este tutorial, ha registrado `http://localhost:8080/msal4jsample/sign_out` en el campo **URL de cierre de sesión** de la sección **Configuración avanzada** de la página **Autenticación**.
+En el registro de la aplicación no se necesita una dirección URL de cierre de sesión del canal frontal.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Durante el registro de la aplicación, no es necesario registrar una dirección URL de cierre de sesión adicional. Se volverá a llamar a la aplicación en su dirección URL principal.
+Durante el registro de la aplicación, no es necesario registrar una dirección URL de cierre de sesión de canal frontal. Se volverá a llamar a la aplicación en su dirección URL principal.
 
 ---
 
@@ -336,7 +336,7 @@ En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `A
 - Llama a `Signout()`, que permite que el middleware de OpenID Connect se ponga en contacto con el punto de conexión `logout` de la Plataforma de identidad de Microsoft. A continuación, el punto de conexión:
 
   - Borra la cookie de sesión del explorador.
-  - Vuelve a llamar a la dirección URL de cierre de sesión. De forma predeterminada, la dirección URL de cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página también se proporciona como parte de Microsoft.Identity.Web.
+  - Devuelve el URI de redireccionamiento posterior al cierre de sesión. De forma predeterminada, el URI de redireccionamiento posterior al cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página también se proporciona como parte de Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

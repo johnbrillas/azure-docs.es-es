@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955548"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Administración de procesos en Azure Stack Edge Pro con GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo se explica cómo administrar procesos en Azure Stack Edge Pro. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de proceso, y la interfaz de usuario web local para administrar los valores del proceso.
+En este artículo se describe cómo administrar el proceso a través del servicio IoT Edge en un dispositivo Azure Stack Edge Pro con GPU. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de IoT Edge, y la interfaz de usuario web local para administrar la configuración de la red.
 
 En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Administración de desencadenadores
-> * Administración de la configuración del proceso
+> * Administración de la configuración de IoT Edge
 
 
 ## <a name="manage-triggers"></a>Administración de desencadenadores
@@ -40,7 +40,7 @@ Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo
 
 Para crear un desencadenador, siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Edge compute > Trigger** (Proceso perimetral > Desencadenador). Seleccione **+ Agregar desencadenador** en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **IoT Edge**. Vaya a **Desencadenadores** y seleccione **+Agregar desencadenador** en la barra de comandos.
 
     ![Selección de Agregar desencadenador](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -82,32 +82,32 @@ Para eliminar un desencadenador, siga estos pasos en Azure Portal.
 
 La lista de desencadenadores se actualiza para reflejar la eliminación.
 
-## <a name="manage-compute-configuration"></a>Administración de la configuración del proceso
+## <a name="manage-iot-edge-configuration"></a>Administración de la configuración de IoT Edge
 
 Use Azure Portal para ver la configuración de proceso, quitar una configuración de proceso ya existente o actualizarla con el fin de sincronizar las claves de acceso del dispositivo IoT y el dispositivo IoT Edge de Azure Stack Edge Pro.
 
-### <a name="view-compute-configuration"></a>Vista de la configuración de proceso
+### <a name="view-iot-edge-configuration"></a>Visualización de la configuración de IoT Edge
 
-Para ver la configuración de proceso del dispositivo, siga estos pasos en Azure Portal.
+Para ver la configuración de IoT Edge para el dispositivo, siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Proceso perimetral > Módulos**. Seleccione **View compute** (Ver proceso) en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **IoT Edge**. Después de habilitar el servicio IoT Edge en el dispositivo, la página Información general indica que el servicio IoT Edge se está ejecutando correctamente.
 
     ![Seleccionar Ver proceso](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. Tome nota de la configuración de proceso del dispositivo. Cuando configuró el proceso, creó un recurso de IoT Hub. En ese recurso de IoT Hub, se configuró un dispositivo IoT y un dispositivo IoT Edge. Solo los módulos de Linux se admiten para ejecución en el dispositivo IoT Edge.
+2. Vaya a **Propiedades** para ver la configuración de IoT Edge en el dispositivo. Cuando configuró el proceso, creó un recurso de IoT Hub. En ese recurso de IoT Hub, se configuró un dispositivo IoT y un dispositivo IoT Edge. Solo los módulos de Linux se admiten para ejecución en el dispositivo IoT Edge.
 
     ![Ver configuración](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>Eliminación de la configuración de proceso
+### <a name="remove-iot-edge-service"></a>Eliminación del servicio IoT Edge
 
-Para quitar la configuración de proceso perimetral existente del dispositivo, siga estos pasos en Azure Portal.
+Para quitar la configuración de IoT Edge existente del dispositivo, siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Proceso perimetral > Empezar**. Seleccione **Remove compute** (Quitar proceso) en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **IoT Edge**. Vaya a **Información general** y seleccione **Quitar** en la barra de comandos.
 
     ![Seleccionar Quitar proceso](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. Si quita la configuración de proceso, deberá volver a configurar el dispositivo en caso de que nuevamente necesite usar el proceso. Cuando se le pida confirmación, seleccione **Sí**.
+2. Si quita el servicio IoT Edge, la acción es irreversible y no se puede deshacer. También se eliminarán los módulos y los desencadenadores que creó. Tendrá que volver a configurar el dispositivo en caso de que necesite volver a usar IoT Edge. Cuando se le pida confirmación, seleccione **Aceptar**.
 
     ![Seleccionar Eliminar proceso 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
@@ -121,7 +121,7 @@ Si las claves del dispositivo IoT y del dispositivo IoT Edge se han rotado, de
 
 Para sincronizar las claves de acceso del dispositivo, siga estos pasos en Azure Portal.
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Proceso perimetral > Comenzar**. Seleccione **Refresh configuration** (Actualizar configuración) en la barra de comandos.
+1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Proceso de IoT Edge**. Vaya a **Información general** y seleccione **Actualizar configuración** en la barra de comandos.
 
     ![Seleccionar Actualizar configuración](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 

@@ -3,20 +3,20 @@ title: Supervisión y funcionamiento de copias de seguridad con el Centro de cop
 description: En este artículo se explica cómo supervisar y usar las copias de seguridad a gran escala con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993656"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893785"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Supervisión y funcionamiento de copias de seguridad con el Centro de copias de seguridad
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Supervisión y funcionamiento de copias de seguridad con el Centro de copias de seguridad (versión preliminar)
 
 Como administrador de copias de seguridad, puede usar el Centro de copias de seguridad como un panel único para supervisar los trabajos y el inventario de copia de seguridad de manera diaria. También puede usar el Centro de copias de seguridad para realizar las operaciones habituales, como responder a solicitudes de copia de seguridad a petición, restaurar copias de seguridad, crear directivas de copia de seguridad, etc.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* El Centro de copias de seguridad admite actualmente copias de seguridad de máquinas virtuales de Azure y de servidores de Azure Database for PostgreSQL.
+* El Centro de copias de seguridad admite actualmente copias de seguridad de máquinas virtuales de Azure, SQL en máquinas virtuales de Azure, SAP HANA en máquinas virtuales de Azure, Azure Files y servidor de Azure Database for PostgreSQL.
 * Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para una lista detallada de los escenarios admitidos y no admitidos.
 
 ## <a name="backup-instances"></a>Instancias de copia de seguridad

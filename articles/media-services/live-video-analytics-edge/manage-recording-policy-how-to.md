@@ -3,12 +3,12 @@ title: 'Administración de la directiva de grabación: Azure'
 description: En este tema se explica cómo administrar la directiva de grabación.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011488"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224996"
 ---
 # <a name="manage-recording-policy"></a>Administración de la directiva de grabación
 
@@ -45,7 +45,7 @@ La regla anterior:
 * Especifica que, cuando la antigüedad de los blobs supera los 30 días, se mueven desde el [nivel de acceso frecuente al de acceso esporádico](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 * Indica que, cuando los blobs tengan más de 90 días, se eliminarán.
 
-Dado que Live Video Analytics archiva el vídeo en las unidades de tiempo especificadas, su recurso contendrá una serie de blobs, uno por segmento. Cuando la directiva de administración del ciclo de vida entre en vigor y elimine los blobs más antiguos, seguirá pudiendo acceder al resto de blobs y podrá reproducirlos mediante las API de Media Services. Para obtener más información, consulte el artículo [Reproducción de grabaciones](playback-recordings-how-to.md). 
+Al usar Live Video Analytics para grabar en un recurso, especifique una propiedad `segmentLength` que indique al módulo que agregue una duración mínima de vídeo (en segundos) antes de que se escriba en la nube. El recurso contendrá una serie de segmentos, cada uno con una marca de tiempo de creación que es `segmentLength` más reciente que la anterior. Cuando se inicia la directiva de administración del ciclo de vida, elimina los segmentos anteriores al umbral especificado. Sin embargo, seguirá pudiendo acceder y reproducir los segmentos restantes a través de las API de Media Services. Para obtener más información, consulte [Reproducción de grabaciones](playback-recordings-how-to.md). 
 
 ## <a name="limitations"></a>Limitaciones
 

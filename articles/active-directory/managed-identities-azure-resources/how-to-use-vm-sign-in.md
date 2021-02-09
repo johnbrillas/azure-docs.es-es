@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266330"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090967"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Uso de identidades administradas para recursos de Azure en una máquina virtual de Azure para el inicio de sesión 
 
@@ -90,12 +90,7 @@ Respuestas como las siguientes pueden indicar que la identidad administrada de V
 - PowerShell: *Invoke-WebRequest : No se puede conectar al servidor remoto*
 - CLI: *MSI: No se pudo recuperar un token de `http://localhost:50342/oauth2/token` con un error de "HTTPConnectionPool(host='localhost', port=50342)"* 
 
-Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure Portal](https://portal.azure.com) y:
-
-- Vaya a la página **Identidad** y asegúrese de que la opción **Asignado por el sistema** se haya definido como "Sí".
-- Vaya a la página **Extensiones** y asegúrese de que las identidades administradas para la extensión de recursos de Azure **(planeada para quedar en desuso en enero de 2019)** se haya implementado correctamente.
-
-Si alguna de las opciones no es correcta, puede que tenga que volver a implementar las identidades administradas para recursos de Azure en el recurso de nuevo o solucionar el error de implementación. Consulte [Configure Managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.
+Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure Portal](https://portal.azure.com), vaya a la página **Identidad** y compruebe que **Asignado por el sistema** esté establecido en "Sí".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

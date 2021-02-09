@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deb0c005b5ed7daf5b30bea8a65ee70d8b460c5
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837471"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491947"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -88,7 +88,7 @@ El valor predeterminado de Azure AD para la persistencia de la sesión del expl
 El acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia prémium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
-> Si utiliza la característica de [vigencia del token configurable](../develop/active-directory-configurable-token-lifetimes.md) actualmente en versión preliminar pública, tenga en cuenta que no se admite la creación de dos directivas diferentes para el mismo usuario o combinación de aplicaciones: una con esta característica y otra con la característica de vigencia del token configurable. Microsoft piensa retirar la característica de vigencia del token configurable para los tokens de sesión y actualización el 30 de enero de 2021 y reemplazarla por la característica de administración de sesiones de autenticación de acceso condicional.  
+> Si utiliza la característica de [vigencia del token configurable](../develop/active-directory-configurable-token-lifetimes.md) actualmente en versión preliminar pública, tenga en cuenta que no se admite la creación de dos directivas diferentes para el mismo usuario o combinación de aplicaciones: una con esta característica y otra con la característica de vigencia del token configurable. Microsoft ha retirado la característica de vigencia del token configurable para los tokens de sesión y actualización el 30 de enero de 2021 y la ha reemplazado por la característica de administración de sesiones de autenticación de acceso condicional.  
 >
 > Antes de habilitar la frecuencia de inicio de sesión, asegúrese de que cualquier otra configuración de reautenticación está deshabilitada en el inquilino. Si está habilitada la opción "Recordar MFA en dispositivos de confianza", asegúrese de deshabilitarla antes de usar la frecuencia de inicio de sesión, ya que el uso conjunto de estas dos configuraciones puede dar lugar a solicitudes inesperadas a los usuarios. Para más información sobre los mensajes de reautenticación y la duración de la sesión, consulte el artículo [Optimice los mensajes de reautenticación y comprenda la duración de la sesión para Azure AD Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

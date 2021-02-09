@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966673"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258547"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Uso de directivas de asignación personalizadas con Device Provisioning Service (DPS)
 
@@ -320,7 +320,7 @@ En esta sección, actualizará el ejemplo de aprovisionamiento denominado **prov
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne la tostadora al centro de IoT según la directiva de asignación personalizada.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -347,7 +347,7 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. En la función `main()`, busque la llamada a `Prov_Device_Register_Device()`. Justo antes de esa llamada, agregue las siguientes líneas de código que usan [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para pasar una carga de JSON personalizada durante el aprovisionamiento. Esto permite proporcionar más información a las funciones de asignación personalizadas. También se puede usar para pasar el tipo de dispositivo en lugar de examinar el identificador de registro.
+6. En la función `main()`, busque la llamada a `Prov_Device_Register_Device()`. Justo antes de esa llamada, agregue las siguientes líneas de código que usan [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para pasar una carga de JSON personalizada durante el aprovisionamiento. Esto permite proporcionar más información a las funciones de asignación personalizadas. También se puede usar para pasar el tipo de dispositivo en lugar de examinar el identificador de registro. Para más información sobre el envío y la recepción de cargas de datos personalizadas con DPS, consulte [Transferencia de una carga útil entre un dispositivo y DPS](how-to-send-additional-data.md).
 
     ```c
     // An example custom payload
@@ -475,7 +475,7 @@ Para eliminar el grupo de recursos por nombre:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 
-2. En el cuadro de texto **Filtrar por nombre...**, escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
+2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
 
 3. A la derecha del grupo de recursos de la lista de resultados, seleccione **...** y, a continuación, **Eliminar grupo de recursos**.
 

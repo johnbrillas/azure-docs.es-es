@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3422c8eff847ed699fb75854a5ae52b4e8a08a24
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737106"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090577"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Base de referencia de seguridad de Azure para Azure Managed Applications
 
@@ -161,7 +161,7 @@ Azure Advanced Threat Protection (AATP) es una solución de seguridad que puede
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Protección y limitación de usuarios con privilegios elevados
 
 **Guía**: Azure Managed Applications usa Azure Active Directory (Azure AD) para la identidad y el acceso. Los roles integrados más críticos de Azure AD son administrador global y administrador de roles con privilegios, ya que los usuarios que tengan asignados estos dos roles pueden delegar roles de administrador:
-- Administrador global/administrador de empresa: los usuarios con este rol tienen acceso a todas las características administrativas de Azure AD, así como a los servicios que utilizan identidades de Azure AD.
+- Administrador global: los usuarios con este rol tienen acceso a todas las características administrativas de Azure AD, así como a los servicios que utilizan identidades de Azure AD.
 - Administrador de roles con privilegios: los usuarios con este rol pueden administrar asignaciones de roles en Azure AD, y dentro de Azure AD Privileged Identity Management (PIM). Además, este rol permite administrar todos los aspectos de PIM y de las unidades administrativas.
 
 Nota: Si usa roles personalizados con determinados permisos con privilegios asignados, es posible que tenga otros roles críticos que deban administrarse. Además, puede que también quiera aplicar controles similares a la cuenta de administrador de recursos empresariales críticos.

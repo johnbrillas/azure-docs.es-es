@@ -4,20 +4,42 @@ description: Aprenda a interpretar los modelos de facturación aprovisionado y d
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632485"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226648"
 ---
-# <a name="understanding-azure-files-billing"></a>Descripción de la facturación de Azure Files
+# <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
 
-Los precios actuales de Azure Files pueden encontrarse en la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+Para obtener información sobre los precios de Azure Files, vea la [página de precios de Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Unidades de almacenamiento    
+Azure Files usa unidades de medida de base 2 para representar la capacidad de almacenamiento: KiB, MiB, GiB y TiB. El sistema operativo puede o no usar la misma unidad de medida o sistema de recuento.
+
+### <a name="windows"></a>Windows
+
+Tanto el sistema operativo Windows como Azure Files miden la capacidad de almacenamiento mediante el sistema de recuento de base 2, pero hay una diferencia al etiquetar las unidades. Azure Files etiqueta su capacidad de almacenamiento con unidades de medida de base 2, mientras que Windows etiqueta su capacidad de almacenamiento en unidades de medida de base 10. Al notificar la capacidad de almacenamiento, Windows no convierte su capacidad de almacenamiento de base 2 a base 10.
+
+|Acrónimo  |Definición  |Unidad  |Windows se muestra como  |
+|---------|---------|---------|---------|
+|KiB     |1024 bytes         |kibibyte         |KB (kilobyte)         |
+|MiB     |1024 KiB (1 048 576 bytes)         |mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1 073 741 824 bytes)         |gibibyte         |GB (gigabyte)         |
+|TiB     |1024 GiB (1 099 511 627 776 bytes)         |tebibyte         |TB (terabyte)         |
+
+### <a name="macos"></a>macOS
+
+Vea [Cómo se indica la capacidad de almacenamiento en iOS y macOS](https://support.apple.com/HT201402) en el sitio web de Apple para determinar qué sistema de recuento se usa.
+
+### <a name="linux"></a>Linux
+
+Cada sistema operativo o cada parte individual del software podrían usar un sistema de recuento diferente. Consulte su documentación para determinar cómo informan de la capacidad de almacenamiento.
 
 ## <a name="provisioned-model"></a>Modelo aprovisionado
 Azure Files usa un modelo aprovisionado para los recursos compartidos de archivos prémium. En un modelo de negocio aprovisionado, debe especificar de forma proactiva cuáles son los requisitos de almacenamiento del servicio Azure Files, en lugar de que se le aplique una factura basada en lo que usa. Esto es similar a la compra de hardware local, ya que cuando se aprovisiona un recurso compartido de archivos de Azure con una determinada cantidad de almacenamiento, se paga por ese almacenamiento independientemente de si se usa o no, de la misma manera que no se empiezan a pagar los costos de los soportes físicos locales al empezar a usar el espacio. A diferencia de la compra de soportes físicos locales, los recursos compartidos de archivos aprovisionados se pueden escalar o reducir verticalmente de forma dinámica en función de las características de rendimiento de almacenamiento y de E/S.

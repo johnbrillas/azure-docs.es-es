@@ -1,14 +1,14 @@
 ---
 title: Habilitación de la extensión de máquina virtual mediante la plantilla de Azure Resource Manager
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante una plantilla de Azure Resource Manager.
-ms.date: 11/06/2020
+ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: d5c7f5055f3e41a91fa00e1e3ad08e7686145b9e
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: cfba14ac30553178bd509d0b0e7ba9c60332d299
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353873"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493335"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitación de las extensiones de máquina virtual de Azure mediante la plantilla de ARM
 
@@ -698,6 +698,90 @@ Guarde el archivo de plantilla en el disco. Después, podrá instalar la extensi
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
+```
+
+## <a name="deploy-the-azure-defender-integrated-scanner"></a>Implementador del detector integrado de Azure Defender
+
+Para usar la extensión del detector integrado de Azure Defender, se proporciona el siguiente ejemplo, que puede ejecutarse en Windows y Linux. Si nunca ha usado el analizador integrado, consulte la[introducción a la evaluación de vulnerabilidades de Azure Defender](../../security-center/deploy-vulnerability-assessment-vm.md) para máquinas híbridas.
+
+### <a name="template-file-for-windows"></a>Archivo de plantilla para Windows
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+### <a name="template-file-for-linux"></a>Archivo de plantilla para Linux
+
+```json
+{
+  "properties": {
+    "mode": "Incremental",
+    "template": {
+      "contentVersion": "1.0.0.0",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "parameters": {
+        "vmName": {
+          "type": "string"
+        },
+        "apiVersionByEnv": {
+          "type": "string"
+        }
+      },
+      "resources": [
+        {
+          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
+          "apiVersion": "[parameters('apiVersionByEnv')]"
+        }
+      ]
+    },
+    "parameters": {
+      "vmName": {
+        "value": "resourceName"
+      },
+      "apiVersionByEnv": {
+        "value": "2015-06-01-preview"
+      }
+    }
+  }
+}
+```
+
+Guarde el archivo de plantilla en el disco. Después, podrá instalar la extensión en todas las máquinas conectadas dentro de un grupo de recursos con el siguiente comando.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

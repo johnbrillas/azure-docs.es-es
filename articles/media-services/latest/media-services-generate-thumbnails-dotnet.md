@@ -1,5 +1,5 @@
 ---
-title: Generación de miniaturas mediante Encoder Standard de Azure Media Services con .NET
+title: Generación de vistas en miniatura mediante .NET de Media Encoder Standard
 description: En este artículo se muestra cómo se usa .NET para codificar un recurso y generar miniaturas al mismo tiempo con Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 551574685ec9a2f9eb1ef569fbec7c9a104353ff
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512025"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955875"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Generación de miniaturas mediante Encoder Standard con .NET
 

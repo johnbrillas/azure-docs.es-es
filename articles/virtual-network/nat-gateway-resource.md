@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223387"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954671"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -339,6 +339,7 @@ Los puertos SNAT están disponibles para volver a usarlos con la misma direcció
 - NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
 - Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
 - NAT no puede abarcar varias redes virtuales.
+- La fragmentación de direcciones IP no se admite.
 
 ## <a name="suggestions"></a>Sugerencias
 

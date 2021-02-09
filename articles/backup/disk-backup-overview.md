@@ -3,12 +3,12 @@ title: Introducción a Azure Disk Backup
 description: Obtenga información sobre la solución Azure Disk Backup.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733037"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915515"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Introducción a Azure Disk Backup (en versión preliminar)
 
@@ -53,7 +53,7 @@ Considere la posibilidad de usar Azure Disk Backup en estos casos:
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Cómo funciona el proceso de restauración y de copia de seguridad
 
-- El primer paso para configurar la copia de seguridad de recursos compartidos de archivos de Azure es crear un [almacén de Backup](backup-vault-overview.md). El almacén proporciona una vista consolidada de las copias de seguridad configuradas en diferentes cargas de trabajo.
+- El primer paso para configurar la copia de seguridad de discos administrados de Azure es crear un [almacén de Backup](backup-vault-overview.md). El almacén proporciona una vista consolidada de las copias de seguridad configuradas en diferentes cargas de trabajo.
 
 - A continuación, cree una directiva de copia de seguridad que le permita configurar la frecuencia de las copias de seguridad y la duración de la retención.
 

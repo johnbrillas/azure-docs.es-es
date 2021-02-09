@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696098"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220911"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -28,26 +29,31 @@ La funcionalidad de replicación de Azure NetApp Files proporciona protección d
 > [!IMPORTANT]
 > La característica de replicación entre regiones se encuentra actualmente en versión preliminar pública. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 
-## <a name="supported-region-pairs"></a>Pares de regiones admitidas
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicación entre regiones compatibles
 
-La replicación de volúmenes de Azure NetApp Files está disponible actualmente en los siguientes pares de regiones fijas:  
+La replicación de volúmenes de Azure NetApp Files se admite entre varios no pares y [pares regionales de Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs). La replicación de volúmenes de Azure NetApp Files está disponible actualmente entre las siguientes regiones:  
 
-* Oeste de EE. UU. y Este de EE. UU.
-* Oeste de EE. UU. 2 y Este de EE. UU. 
-* Centro y Sur de EE. UU. y Centro de EE. UU. 
-* Centro y Sur de EE. UU. y Este de EE. UU.
-* Centro y Sur de EE. UU. y Este de EE. UU. 2 
-* Este de EE. UU. y Este de EE. UU. 2  
-* Este de EE. UU. 2 y Centro de EE. UU. 
+### <a name="azure-regional-pairs"></a>Pares regionales de Azure
+
+* Este de EE. UU. y Oeste de EE. UU.
+* Este de EE. UU. 2 y Centro de EE. UU.
 * Este de Australia y Sudeste de Australia
 * Centro de Canadá y Este de Canadá
-* Centro de la India y Sur de la India
+* Sur de la India y Centro de la India 
 * Centro-oeste de Alemania y Norte de Alemania
 * Japón Oriental y Japón Occidental
 * Norte de Europa y Oeste de Europa
-* Sudeste de Asia y Este de Australia
-* Sur de Reino Unido y Centro-oeste de Alemania
 * Sur de Reino Unido y Oeste de Reino Unido
+
+### <a name="azure-regional-non-pairs"></a>No pares regionales de Azure
+
+*   Oeste de EE. UU. 2 y Este de EE. UU.
+*   Centro y Sur de EE. UU. y Centro de EE. UU.
+*   Centro y Sur de EE. UU. y Este de EE. UU.
+*   Centro y Sur de EE. UU. y Este de EE. UU. 2
+*   Este de EE. UU. y Este de EE. UU. 2
+*   Este de Australia y Sudeste de Asia 
+*   Centro-oeste de Alemania y Sur de Reino Unido
 
 ## <a name="service-level-objectives"></a>Objetivos de nivel de servicio
 

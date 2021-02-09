@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517975"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938569"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Escenario: Enrutamiento del tráfico a través de NVA mediante una configuración personalizada
 
@@ -56,7 +56,10 @@ Hay tres patrones de conectividad distintos, lo que se traduce en tres tablas de
   * Propagación a tablas de enrutamiento: **RT_SHARED**
 * Ramas:
   * Tabla de enrutamiento asociada: **Valor predeterminado**
-  * Propagación a tablas de enrutamiento: **RT_SHARED** y **Predeterminada**
+  * Propagación a tablas de enrutamiento: **RT_SHARED** y **Predeterminado**
+
+> [!NOTE] 
+> Asegúrese de que las VNet de radios no se propagan a la etiqueta predeterminada. Esto garantiza que el tráfico de las ramas a las VNet de radios se reenviará a las NVA.
 
 Estas rutas estáticas garantizan que el tráfico hacia y desde la red virtual y la rama atraviesa la NVA en la red virtual de servicio (VNet 4):
 
@@ -82,9 +85,9 @@ Hay un centro, llamado **Centro 1**.
 
 * El **Concentrador 1** está conectado directamente a las VNet de NVA **VNet 4** y **VNet 5**.
 
-* Se espera que el tráfico entre las redes virtuales 1, 2 y 3, y las ramas pase por la **NVA VNet 4**  10.4.0.5.
+* Se espera que el tráfico entre las redes virtuales 1, 2 y 3, y las ramas pase por la **NVA VNet 4** 10.4.0.5.
 
-* Se espera que todo el tráfico vinculado a Internet desde las redes virtuales 1, 2 y 3 pase por la **NVA VNet 5**  10.5.0.5.
+* Se espera que todo el tráfico vinculado a Internet desde las redes virtuales 1, 2 y 3 pase por la **NVA VNet 5** 10.5.0.5.
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Diagrama de una arquitectura de red.":::
 
@@ -108,7 +111,7 @@ Para configurar el enrutamiento a través de NVA, estos son los pasos que debe t
 
    * **Asociación:** seleccione las VNet 1, 2 y 3. Esto hará que las conexiones de red virtual 1, 2 y 3 se asociarán a esta tabla de rutas y podrán aprender las rutas (estáticas y dinámicas mediante propagación) en esta tabla de rutas.
 
-   * **Propagación:** Las conexiones propagan las rutas a las tablas de rutas. La selección de las redes virtuales 1, 2 y 3 habilita la propagación de rutas desde estas redes virtuales hasta esta tabla de rutas. No es necesario propagar las rutas desde las conexiones de rama a **RT_V2B** , ya que el tráfico de la red virtual de rama pasa por la NVA en la red virtual 4.
+   * **Propagación:** Las conexiones propagan las rutas a las tablas de rutas. La selección de las redes virtuales 1, 2 y 3 habilita la propagación de rutas desde estas redes virtuales hasta esta tabla de rutas. No es necesario propagar las rutas desde las conexiones de rama a **RT_V2B**, ya que el tráfico de la red virtual de rama pasa por la NVA en la red virtual 4.
   
 1. Edite la tabla de rutas predeterminada, **DefaultRouteTable**.
 

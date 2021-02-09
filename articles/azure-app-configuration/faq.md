@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929572"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256482"
 ---
 # <a name="azure-app-configuration-faq"></a>Preguntas frecuentes de Azure App Configuration
 
@@ -105,7 +105,7 @@ No se puede degradar un almacén del nivel Estándar al nivel Gratis. Puede crea
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>¿Hay algún límite para el número de solicitudes que se realiza a App Configuration?
 
-Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel Estándar pueden experimentar una limitación temporal cuando la tasa de solicitudes supera las 20 000 solicitudes por hora.
+En App Configuration, al leer los valores de clave, los datos se paginarán, y cada solicitud podrá leer hasta 100 valores de clave. Al escribir los valores de clave, cada solicitud puede crear o actualizar un valor de clave. Esto se admite a través de la API REST, los SDK de App Configuration y los proveedores de configuración. Los almacenes de configuración del nivel Gratis están limitados a 1000 solicitudes al día. Los almacenes de configuración del nivel Estándar pueden experimentar una limitación temporal cuando la tasa de solicitudes supera las 20 000 solicitudes por hora.
 
 Cuando un almacén alcanza su límite, devolverá el código de estado HTTP 429 para todas las solicitudes realizadas hasta que expire el período de tiempo. El encabezado `retry-after-ms` de la respuesta proporciona un tiempo de espera sugerido (en milisegundos) antes de volver a intentar la solicitud.
 

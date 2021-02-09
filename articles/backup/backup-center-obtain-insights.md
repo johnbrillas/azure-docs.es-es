@@ -3,16 +3,16 @@ title: Obtención de conclusiones mediante el Centro de copias de seguridad
 description: Obtenga información sobre cómo analizar las tendencias históricas y sacar conclusiones más profundas sobre las copias de seguridad con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173760"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893700"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Obtención de conclusiones mediante el Centro de copias de seguridad
+# <a name="obtain-insights-using-backup-center-preview"></a>Obtención de conclusiones mediante el Centro de copias de seguridad (versión preliminar)
 
-Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup](configure-reports.md), que usa [Registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) y [Libros de Azure](../azure-monitor/platform/workbooks-overview.md). Informes de Backup ofrece las siguientes funcionalidades:
+Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup (versión preliminar)](configure-reports.md), que usa [Registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) y [Libros de Azure](../azure-monitor/platform/workbooks-overview.md). Informes de Backup ofrece las siguientes funcionalidades:
 
 - Asignación y previsión del almacenamiento en la nube consumido.
 
@@ -24,7 +24,7 @@ Para analizar las tendencias históricas y obtener información más detallada s
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-- Informes de Backup no está disponible actualmente para copias de seguridad del Servidor de Azure Database for PostgreSQL.
+- Informes de Backup (versión preliminar) no está disponible actualmente para copias de seguridad del servidor de Azure Database for PostgreSQL.
 
 - Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para obtener una lista detallada de escenarios admitidos y no admitidos.
 

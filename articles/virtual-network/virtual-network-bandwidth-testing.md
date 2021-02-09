@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 27cc55978582468c759603571bd8b0e69f29db5d
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221449"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226580"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Pruebas de ancho de banda y rendimiento (NTTTCP)
 
@@ -52,9 +52,9 @@ Parámetros de remitente: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
 #### <a name="get-ntttcp-onto-the-vms"></a>Obtenga NTTTCP en las máquinas virtuales.
 
-Descargue la versión más reciente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Descargue la versión más reciente: https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
 
-O búsquela si se ha migrado: <https://www.bing.com/search?q=ntttcp+download>\< (debe ser el primer resultado)
+O vea la página de nivel superior de GitHub: <https://github.com/microsoft/ntttcp>\
 
 Considere la colocar NTTTCP en una carpeta independiente, como c:\\tools.
 

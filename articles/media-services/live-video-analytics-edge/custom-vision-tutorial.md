@@ -4,12 +4,12 @@ description: Aprenda a usar Azure Custom Vision para crear un modelo en contened
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060526"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055371"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en vivo con Live Video Analytics en IoT Edge y Azure Custom Vision
 
@@ -51,7 +51,6 @@ Consulte los artículos siguientes antes de empezar:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Consulte los artículos siguientes antes de empezar:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Este módulo de Custom Vision solo admite arquitecturas **Intel x86 y amd64**. Compruebe la arquitectura del dispositivo perimetral antes de continuar.
+
 ## <a name="review-the-sample-video"></a>Revisión del vídeo de ejemplo
 
 En este tutorial se usa un archivo de [vídeo de inferencia de coches de juguete](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular streaming en vivo. Puede examinar el vídeo mediante una aplicación como [VLC Media Player](https://www.videolan.org/vlc/). Seleccione **Ctrl+N** y, después, pegue un vínculo al [vídeo de inferencia de coches de juguete](https://lvamedia.blob.core.windows.net/public/t2.mkv) para iniciar la reproducción. Cuando vea el vídeo, observe que, en el marcador de 36 segundos, aparece un camión de juguete. El modelo personalizado se ha entrenado para detectar este camión de juguete concreto. 
@@ -81,6 +84,9 @@ El nodo de extensión HTTP desempeña el rol de un proxy.  Se muestrean los foto
 Custom Vision (que en español significa "visión personalizada") permite crear, como su nombre indica, su propio detector o clasificador personalizado de objetos en la nube. Ofrece una interfaz sencilla, fácil de usar e intuitiva para crear modelos de Custom Vision que se pueden implementar en la nube o en el perímetro mediante contenedores.
 
 Para crear un detector de camiones de juguete, siga los pasos descritos en [Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Este módulo de Custom Vision solo admite arquitecturas **Intel x86 y amd64**. Compruebe la arquitectura del dispositivo perimetral antes de continuar.
 
 Notas adicionales:
  

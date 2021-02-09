@@ -1,24 +1,10 @@
 ---
-title: Puntos de conexión de streaming (origen)
-titleSuffix: Azure Media Services
-description: Obtenga información sobre los puntos de conexión de streaming (origen), un servicio dinámico de empaquetado y streaming que entrega contenido directamente a una aplicación de reproducción cliente o a una instancia de Content Delivery Network (CDN).
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882881"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obligatorios. Vea más información en aka.ms/skyeye/meta.
+título: Puntos de conexión de streaming (origen): Descripción de Azure Media Services: Obtenga información sobre los puntos de conexión de streaming (origen), un servicio dinámico de empaquetado y streaming que entrega contenido directamente a una aplicación de reproducción cliente o a una instancia de Content Delivery Network (CDN). services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 02/13/2020 ms.author: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
 En Microsoft Azure Media Services, un [punto de conexión de streaming](/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector. 

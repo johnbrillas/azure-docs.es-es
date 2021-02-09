@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618542"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256548"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -213,6 +213,12 @@ La habilitación de LDAP seguro para el dominio administrado tarda unos minutos.
 
 Algunos motivos habituales del error que el nombre de dominio sea incorrecto, que el algoritmo de cifrado del certificado no sea *TripleDES-SHA1* o que el certificado expire pronto o ya haya expirado. Puede volver a crear el certificado con parámetros válidos y, a continuación, habilitar LDAP seguro con este certificado actualizado.
 
+## <a name="change-an-expiring-certificate"></a>Cambio de un certificado que va a expirar
+
+1. Cree un certificado LDAP seguro de reemplazo; para ello, siga los pasos y [cree un certificado para LDAP seguro](#create-a-certificate-for-secure-ldap).
+1. Para aplicar el certificado de reemplazo a Azure AD DS, en el menú de la izquierda de Azure AD DS en Azure Portal, seleccione **LDAP seguro** y, a continuación, seleccione **Cambiar certificado**.
+1. Distribuya el certificado a los clientes que se conecten mediante LDAP seguro. 
+
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueo del acceso LDAP seguro a través de Internet
 
 Cuando se habilita el acceso LDAP seguro a través de Internet al dominio administrado, se crea una amenaza de seguridad. El dominio administrado es accesible desde Internet en el puerto TCP 636. Se recomienda restringir el acceso al dominio administrado a aquellas direcciones IP conocidas específicas del entorno. Se puede usar una regla de grupo de seguridad de red de Azure para limitar el acceso a LDAP seguro.
@@ -229,7 +235,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |
     | Source port ranges                | *            |
-    | Destination                       | Any          |
+    | Destination                       | Cualquiera          |
     | Intervalos de puertos de destino           | 636          |
     | Protocolo                          | TCP          |
     | Acción                            | Allow        |

@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013690"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222923"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Cosmos DB (SQL API) mediante Azure Data Factory
 
@@ -160,6 +160,7 @@ La sección **source** de la actividad de copia admite las siguientes propiedade
 | Query |Especifique la consulta de Azure Cosmos DB para leer datos.<br/><br/>Ejemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Si no se especifica, se ejecuta la instrucción SQL: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Lista preferida de regiones a las que se conectará cuando recupere los datos de Cosmos DB. | No |
 | pageSize | Número de documentos por página del resultado de la consulta. El valor predeterminado es "-1", que significa el uso del tamaño de página dinámica del servicio hasta 1000. | No |
+| detectDatetime | Determina si se debe detectar datetime a partir de los valores de cadena de los documentos. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
 
 Si utiliza el origen de tipo "DocumentDbCollectionSource", todavía se admite tal cual para la compatibilidad con versiones anteriores. Se recomienda utilizar el nuevo modelo en el futuro, que proporciona funcionalidades más enriquecidas para copiar datos de Cosmos DB.
 
@@ -217,7 +218,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 >Para importar documentos JSON tal cual, consulte la sección [Importar o exportar documentos JSON](#import-and-export-json-documents); para copiar de datos con formato tabular, consulte [Migración de la base de datos relacional a Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
 
 >[!TIP]
->Cosmos DB limita el tamaño de las solicitudes únicas a 2 MB. La fórmula es Tamaño de la solicitud = tamaño de documento único x tamaño de lote de escritura. Si aparece un error con el texto **"El tamaño de solicitud es demasiado grande."** , **reduzca el valor de `writeBatchSize`** en la configuración del receptor de copia.
+>Cosmos DB limita el tamaño de las solicitudes únicas a 2 MB. La fórmula es Tamaño de la solicitud = tamaño de documento único x tamaño de lote de escritura. Si aparece un error con el texto **"El tamaño de solicitud es demasiado grande."**, **reduzca el valor de `writeBatchSize`** en la configuración del receptor de copia.
 
 Si utiliza el origen de tipo "DocumentDbCollectionSink", todavía se admite tal cual para la compatibilidad con versiones anteriores. Se recomienda utilizar el nuevo modelo en el futuro, que proporciona funcionalidades más enriquecidas para copiar datos de Cosmos DB.
 
@@ -259,7 +260,7 @@ Para copiar datos de Azure Cosmos DB en un receptor tabular o inverso, consulte
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Al transformar datos en el flujo de datos de asignación, puede leer y escribir en colecciones de Cosmos DB. Para más información, consulte la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en los flujos de datos de asignación.
+Al transformar datos en el flujo de datos de asignación, puede leer y escribir en colecciones de Cosmos DB. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de Data Flow.
 
 ### <a name="source-transformation"></a>Transformación de origen
 
@@ -289,19 +290,22 @@ La configuración específica de Azure Comos DB está disponible en la pestaña
 
 La configuración específica de Azure Cosmos DB está disponible en la pestaña **Settings** (Configuración) de la transformación de receptor.
 
-**Update method** (Método de actualización): determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar las operaciones update, upsert o delete rows, se requiere una transformación de alteración de filas para etiquetar esas acciones. En el caso de las operaciones update, upsert y delete, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
+**Update method** (Método de actualización): determina qué operaciones se permiten en el destino de la base de datos. El valor predeterminado es permitir solamente las inserciones. Para realizar las operaciones update, upsert o delete rows, se requiere una transformación de alteración de filas para etiquetar esas acciones. En el caso de las actualizaciones, upserts y eliminaciones, se debe establecer una o varias columnas de clave para determinar la fila que se va a modificar.
 
 **Collection action** (Acción de colección): determina si se debe volver a crear la colección de destino antes de escribir.
 * None (Ninguno): no se realizará ninguna acción en la colección.
 * Recreate (Volver a crear): se quitará la colección y se volverá a crear.
 
-**Tamaño del lote**: controla el número de filas que se escriben en cada cubo. Los tamaños de lote más grandes mejoran la compresión y la optimización de memoria, pero podrían obtener excepciones de memoria al almacenar datos en caché.
+**Tamaño del lote**: Entero que representa el número de objetos que se escriben en la colección de Cosmos DB en cada lote. Normalmente alcanza con comenzar con el tamaño de lote predeterminado. Para optimizar aún más este valor, tenga en cuenta lo siguiente:
 
-**Partition Key** (Clave de partición): Escriba una cadena que represente la clave de partición de la colección. Ejemplo: ```/movies/title```
+- Cosmos DB limita el tamaño de las solicitudes únicas a 2 MB. La fórmula es "tamaño de la solicitud = tamaño de documento único * tamaño de lote". Si aparece un error con el texto "El tamaño de solicitud es demasiado grande", reduzca el valor del tamaño de lote.
+- Cuanto mayor sea el tamaño del lote, mejor será el rendimiento que podrá lograr ADF y, al mismo tiempo, se asegurará de asignar RU suficientes para permitir la carga de trabajo.
+
+**Clave de partición:** Escriba una cadena que represente la clave de partición de la colección. Ejemplo: ```/movies/title```
 
 **Throughput** (Capacidad de proceso): Establezca un valor opcional para el número de RU que desea aplicar a la colección de CosmosDB para cada ejecución de este flujo de datos. El mínimo es de 400.
 
-**Write throughput budget** (Presupuesto de capacidad de proceso de escritura): un entero que representa el número de RU que desea asignar al trabajo de Spark de ingesta en bloque. Este número no se considera en la capacidad de proceso total asignada a la colección.
+**Write throughput budget** (Presupuesto de capacidad de proceso de escritura): Entero que representa las RU que se quiere asignar a esta operación de escritura de Data Flow, del rendimiento total asignado a la colección.
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

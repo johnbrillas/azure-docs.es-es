@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462940"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934406"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -135,7 +135,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | Nombre de la oferta | Nombre de la oferta | Nombre de la oferta de Marketplace comercial. |
 | DeploymentMethod | Obsoleto | En desuso (es la misma definición que el tipo de oferta).
  |
-| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre puede ser diferente de la ciudad de la suscripción a Azure del cliente. |
+| Customer Company Name (Nombre de la empresa del cliente) | Customer Company Name (Nombre de la empresa del cliente) | Nombre de empresa proporcionado por el cliente. El nombre podría ser diferente del nombre de la suscripción a Azure del cliente. |
 | Fecha de uso | Fecha de uso | Fecha de generación de eventos de uso para recursos basados en el uso. |
 | IsMultisolution | Es multisolución | Indica si la oferta es un tipo de oferta multisolución. |
 | Cliente nuevo | Obsoleto | Obsoleto |

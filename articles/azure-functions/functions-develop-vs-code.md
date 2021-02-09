@@ -4,12 +4,12 @@ description: Aprenda a desarrollar y probar Azure Functions mediante la extensi�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936981"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493960"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -49,10 +49,55 @@ Antes de instalar y ejecutar la [extensión de Azure Functions][extensión de az
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Otros recursos que necesita, como una cuenta de Azure Storage, se crean en su suscripción cuando [publica con Visual Studio Code](#publish-to-azure).
+Otros recursos que necesita, como una cuenta de Azure Storage, se crean en su suscripción cuando [publica con Visual Studio Code](#publish-to-azure). 
 
-> [!IMPORTANT]
-> Puede desarrollar localmente funciones y publicarlas en Azure sin tener que iniciar y ejecutarlas localmente. Para ejecutar las funciones localmente, necesita cumplir algunos requisitos adicionales, como la descarga automática de Azure Functions Core Tools. Para más información, consulte [Requisitos adicionales para ejecutar un proyecto localmente](#additional-requirements-for-running-a-project-locally).
+### <a name="run-local-requirements"></a>Ejecución de requisitos locales
+
+Estos requisitos previos solo son necesarios para [ejecutar y depurar las funciones localmente](#run-functions-locally), pero no lo son para crear o publicar proyectos en Azure Functions.
+
+# <a name="c"></a>[C\#](#tab/csharp)
+
++ La versión 2.x de [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), o cualquier versión posterior. El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+
++ La [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para Visual Studio Code. 
+
++ [Herramientas de la CLI de .NET Core](/dotnet/core/tools/?tabs=netcore2x).  
+
+# <a name="java"></a>[Java](#tab/java)
+
++ La versión 2.x de [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), o cualquier versión posterior. El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+
++ [Depurador para la extensión de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+
++ Se recomienda [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). Para obtener información sobre otras versiones compatibles, consulte [Versiones de Java](functions-reference-java.md#java-versions).
+
++ [Maven 3 o versiones posteriores](https://maven.apache.org/)
+
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
++ La versión 2.x de [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), o cualquier versión posterior. El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+
++ Node.js [, las versiones Active LTS](https://nodejs.org/) y Maintenance LTS (se recomienda la 10.14.1). Use el comando `node --version` para comprobar la versión. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
++ La versión 2.x de [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), o cualquier versión posterior. El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+
++ Se recomienda [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows). Para obtener información sobre la versión, consulte [Versiones de PowerShell](functions-reference-powershell.md#powershell-versions).
+
++ [.NET Core 3.1 Runtime](https://www.microsoft.com/net/download) y [.NET Core 2.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)  
+
++ La [extensión de PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) para Visual Studio Code  
+
+# <a name="python"></a>[Python](#tab/python)
+
++ La versión 2.x de [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools), o cualquier versión posterior. El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+
++ [Python 3.x](https://www.python.org/downloads/). Para obtener información sobre la versión, consulte [Versiones de Python](functions-reference-python.md#python-version) por el runtime de Azure Functions.
+
++ [Extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code.
+
+---
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -65,8 +110,6 @@ La extensión de Functions le permite crear un proyecto de aplicación de funcio
     ![Creación de una función](./media/functions-develop-vs-code/create-function.png)
 
 1. Seleccione la carpeta para el proyecto de aplicación de funciones y, a continuación, **seleccione un lenguaje para el proyecto de función**.
-
-1. Si aún no ha instalado las herramientas principales, se le pedirá que **seleccione una versión** de estas para instalar. Elija la versión 2.x o una posterior. 
 
 1. Seleccione la plantilla de función del **desencadenador HTTP** o bien puede seleccionar **Omitir por ahora** para crear un proyecto sin una función. Siempre puede [agregar una función al proyecto](#add-a-function-to-your-project) en otro momento.
 
@@ -97,7 +140,11 @@ En función del lenguaje utilizado, se crean estos otros archivos:
 
 * [Archivo de biblioteca de clases HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa la función.
 
-En este momento, puede agregar enlaces de entrada y de salida a la función [incorporando un parámetro a una función de biblioteca de clases de C#](#add-input-and-output-bindings).
+# <a name="java"></a>[Java](#tab/java)
+
++ Un archivo pom.xml en la carpeta raíz que define el proyecto y los parámetros de implementación, lo que incluye las dependencias del proyecto y el [versión de Java](functions-reference-java.md#java-versions). El archivo pom.xml también contiene información sobre los recursos de Azure que se crean durante una implementación.   
+
++ Un [archivo Functions.java](functions-reference-java.md#triggers-and-annotations) en la ruta de acceso de src que implementa la función.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
@@ -105,21 +152,19 @@ En este momento, puede agregar enlaces de entrada y de salida a la función [inc
 
 * Carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-node.md#folder-structure) y el [archivo index.js](functions-reference-node.md#exporting-a-function), así como un archivo Node.js que contiene el código de la función.
 
-Llegado este punto, puede agregar enlaces de entrada y salida a la función [modificando el archivo function.json](#add-input-and-output-bindings).
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-<!-- # [PowerShell](#tab/powershell)
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+* Carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-powershell.md#folder-structure) y el archivo run.ps1, que contiene el código de función.
  
-# [Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
     
-* A project-level requirements.txt file that lists packages required by Functions.
+* Archivo requirements.txt de nivel de proyecto que muestra los paquetes que requiere Functions.
     
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-     -->
+* Carpeta HttpExample que contiene el [archivo de definición function.json](functions-reference-python.md#folder-structure) y el archivo \_\_init\_\_.py, que contiene el código de función.
+
 ---
 
-También puede [agregar una nueva función al proyecto](#add-a-function-to-your-project).
+Llegado este punto, se pueden [agregar enlaces de entrada y salida](#add-input-and-output-bindings) a la función. También puede [agregar una nueva función al proyecto](#add-a-function-to-your-project).
 
 ## <a name="install-binding-extensions"></a>Instalación de extensiones de enlace
 
@@ -133,7 +178,19 @@ Ejecute el comando [dotnet add package](/dotnet/core/tools/dotnet-add-package) e
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="python"></a>[Python](#tab/python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -149,15 +206,27 @@ Los resultados de esta acción dependen del lenguaje del proyecto:
 
 Un nuevo archivo de biblioteca de clases (. cs) de C# se agrega al proyecto.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Se agrega un nuevo archivo Java (.java) al proyecto.
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Se crea una nueva carpeta en el proyecto. La carpeta contiene un nuevo archivo function.json y el nuevo archivo de código de Python.
+
 ---
 
-## <a name="add-input-and-output-bindings"></a>Incorporación de enlaces de entrada y de salida
+## <a name="connect-to-services"></a><a name="add-input-and-output-bindings"></a>Conexión a los servicios
 
-Puede expandir la función mediante la adición de enlaces de entrada y de salida. El proceso para agregar enlaces depende del lenguaje del proyecto. Para más información acerca de los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
+Para conectar la función a otros servicios de Azure, agregue enlaces de entrada o salida. Los enlaces conectan la función a otros servicios sin que sea preciso escribir el código de conexión. El proceso para agregar enlaces depende del lenguaje del proyecto. Para más información acerca de los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
 
 Los ejemplos siguientes se conectan a una cola de almacenamiento denominada `outqueue`, en la que está establecida la cadena de conexión para la cuenta de almacenamiento en valor de aplicación `MyStorageConnection` en local.settings.json.
 
@@ -165,61 +234,69 @@ Los ejemplos siguientes se conectan a una cola de almacenamiento denominada `out
 
 Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
 
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-Este código requiere que agregue la siguiente instrucción `using`:
+El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. El siguiente código agrega un mensaje a la colección:
 
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="30-31":::
 
-El parámetro `msg` es de tipo `ICollector<T>`, que representa una colección de mensajes escritos en un enlace de salida cuando se completa la función. Agregue uno o varios mensajes a la colección. Estos mensajes se envían a la cola cuando se completa la función.
+ Los mensajes se envían a la cola cuando se completa la función.
 
-Para más información, consulte la documentación de [Enlace de salida de Queue Storage](functions-bindings-storage-queue-output.md).
+Para más información, consulte el artículo [Enlaces de salida de Azure Queue Storage para Azure Functions](functions-bindings-storage-queue-output.md?tabs=csharp). Para más información en general sobre qué enlaces se pueden agregar a una función, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
+
+# <a name="java"></a>[Java](#tab/java)
+
+Actualice el método de función para agregar el siguiente parámetro a la definición de método `Run`:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
+
+El parámetro `msg` es del tipo `OutputBinding<T>`, donde `T` es una cadena escrita en un enlace de salida cuando se completa la función. El código siguiente establece el mensaje en el enlace de salida:
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
+
+Este mensaje se envían a la cola cuando se completa la función.
+
+Para más información, consulte el artículo [Enlaces de salida de Azure Queue Storage para Azure Functions](functions-bindings-storage-queue-output.md?tabs=java). Para más información en general sobre qué enlaces se pueden agregar a una función, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=java). 
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code le permite agregar enlaces a su archivo function.json siguiendo un conjunto práctico de mensajes. Para crear un enlace, haga clic con el botón derecho (Ctrl + clic en macOS) en el **archivo function.json** de la carpeta de función y seleccione **Agregar enlace**:
-
-![Incorporación de un enlace a una función de JavaScript existente ](media/functions-develop-vs-code/function-add-binding.png)
-
-Los siguientes son mensajes de ejemplo para definir un nuevo enlace de salida de almacenamiento:
-
-| Prompt | Value | Descripción |
-| -------- | ----- | ----------- |
-| **Select binding direction** (Seleccionar dirección de enlace) | `out` | El enlace es un enlace de salida. |
-| **Select binding with direction** (Seleccionar enlace con dirección) | `Azure Queue Storage` | El enlace es un enlace de cola de Azure Storage. |
-| **The name used to identify this binding in your code** (Nombre identificativo del enlace en el código) | `msg` | Nombre que identifica el parámetro de enlace al que se hace referencia en el código. |
-| **The queue to which the message will be sent** (Cola donde se enviará el mensaje) | `outqueue` | El nombre de la cola en la que escribe el enlace. Cuando no existe *queueName*, el enlace lo crea durante el primer uso. |
-| **Seleccione la configuración en "local.settings.json"** | `MyStorageConnection` | El nombre de una configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento. El valor `AzureWebJobsStorage` contiene la cadena de conexión de la cuenta de almacenamiento que creó con la aplicación de función. |
-
-En este ejemplo, se agrega el siguiente enlace a la matriz `bindings` en el archivo function.json:
-
-```javascript
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "msg",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnection"
-}
-```
-
-También puede agregar la misma definición de enlace directamente a function.json.
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 En el código de función, se obtiene acceso al enlace `msg` desde el `context`, como en este ejemplo:
 
-```javascript
-context.bindings.msg = "Name passed to the function: " req.query.name;
-```
+:::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
-Para más información, consulte la referencia sobre [enlace de salida de Queue Storage](functions-bindings-storage-queue-output.md).
+Este mensaje se envían a la cola cuando se completa la función.
+
+Para más información, consulte el artículo [Enlaces de salida de Azure Queue Storage para Azure Functions](functions-bindings-storage-queue-output.md?tabs=javascript). Para más información en general sobre qué enlaces se pueden agregar a una función, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=javascript). 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+:::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
+
+Este mensaje se envían a la cola cuando se completa la función.
+
+Para más información, consulte el artículo [Enlaces de salida de Azure Queue Storage para Azure Functions](functions-bindings-storage-queue-output.md?tabs=powershell). Para más información en general sobre qué enlaces se pueden agregar a una función, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=powershell). 
+
+# <a name="python"></a>[Python](#tab/python)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+Actualice la definición de `Main` para agregar un parámetro de salida `msg: func.Out[func.QueueMessage]`, con el fin de que la definición sea similar a la del ejemplo siguiente:
+
+:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+El código siguiente agrega los datos de la cadena de la solicitud a la cola de salida:
+
+:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+Este mensaje se envían a la cola cuando se completa la función.
+
+Para más información, consulte el artículo [Enlaces de salida de Azure Queue Storage para Azure Functions](functions-bindings-storage-queue-output.md?tabs=python). Para más información en general sobre qué enlaces se pueden agregar a una función, consulte [Incorporación de enlaces a una función existente de Azure Functions](add-bindings-existing-function.md?tabs=python). 
 
 ---
-
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -227,7 +304,7 @@ Para más información, consulte la referencia sobre [enlace de salida de Queue 
 
 Visual Studio Code le permite publicar el proyecto de Functions directamente en Azure. En el proceso, puede crear una aplicación de función y los recursos relacionados en su suscripción de Azure. La aplicación de función proporciona un contexto de ejecución para sus funciones. El proyecto se empaqueta e implementa en la nueva aplicación de función en su suscripción de Azure.
 
-Al publicar desde Visual Studio Code en una nueva aplicación de funciones en Azure, se le ofrece una rápida ruta de acceso de creación de una aplicación de función y una ruta de acceso avanzada. 
+Al publicar desde Visual Studio Code en una nueva aplicación de funciones en Azure, se puede elegir una ruta de acceso de creación rápida de la aplicación de funciones mediante los valores predeterminados, o bien una ruta de acceso avanzada, donde se tiene más control sobre los recursos remotos que se crean. 
 
 Al publicar desde Visual Studio Code, aprovecha la tecnología de [implementación de Zip](functions-deployment-technologies.md#zip-deploy). 
 
@@ -241,9 +318,7 @@ Si desea proporcionar nombres explícitos a los recursos creados, debe elegir la
 
 Los pasos siguientes publican el proyecto en una nueva aplicación de funciones que se creó con opciones de creación avanzadas.
 
-1. En el área **Azure: Functions**, seleccione el icono de **implementación en Function App**.
-
-    ![Configuración de Function App](./media/functions-develop-vs-code/function-app-publish-project.png)
+1. En la paleta de comandos, escriba **Azure Functions: Deploy to function app** (Azure Functions: Implementar en la aplicación de funciones).
 
 1. Se le pedirá que **inicie sesión en Azure** si todavía no lo ha hecho. También puede **crear una cuenta de Azure gratis**. Después de iniciar sesión en el explorador, vuelva a Visual Studio Code.
 
@@ -263,18 +338,9 @@ Los pasos siguientes publican el proyecto en una nueva aplicación de funciones 
 
     Se muestra una notificación después de crear la aplicación de funciones y se aplica el paquete de implementación. Seleccione **View Output** (Ver salida) en esta notificación para ver la creación y los resultados de la implementación, incluidos los recursos de Azure que ha creado.
 
-## <a name="republish-project-files"></a>Volver a publicar los archivos de proyecto
+### <a name="get-the-url-of-an-http-triggered-function-in-azure"></a><a name="get-the-url-of-the-deployed-function"></a>Obtención de la dirección URL de una función desencadenada mediante HTTP en Azure
 
-Al configurar [implementación continua](functions-continuous-deployment.md), la aplicación de función en Azure se actualiza cada vez que se actualizan los archivos de origen en la ubicación de origen conectada. Aunque se recomienda la implementación continua, también puede volver a publicar las actualizaciones del archivo de proyecto desde Visual Studio Code.
-
-> [!IMPORTANT]
-> La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure.
-
-[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
-
-## <a name="get-the-url-of-the-deployed-function"></a>Obtención de la dirección URL de la función implementada
-
-Para llamar a una función desencadenada por HTTP, necesitará la dirección URL de la función cuando se implementa en la aplicación de funciones. Esta dirección URL incluye todas las [teclas de función](functions-bindings-http-webhook-trigger.md#authorization-keys) necesarias. Puede usar la extensión para obtener estas direcciones URL para las funciones implementadas.
+Para llamar a una función desencadenada por HTTP desde un cliente, necesitará la dirección URL de la función cuando se implementa en la aplicación de funciones. Esta dirección URL incluye todas las teclas de función necesarias. Puede usar la extensión para obtener estas direcciones URL para las funciones implementadas. Si solo desea ejecutar la función remota en Azure, [use la funcionalidad Execute function now](#run-functions-in-azure) de la extensión.
 
 1. Seleccione F1 para abrir la paleta de comandos, y busque y ejecute el comando **Azure Functions: Copy Function URL** (Copiar la dirección URL de la función).
 
@@ -282,28 +348,44 @@ Para llamar a una función desencadenada por HTTP, necesitará la dirección URL
 
 La dirección URL de la función se copia en el Portapapeles, junto con las claves necesarias pasadas mediante el parámetro de consulta `code`. Use una herramienta de HTTP para enviar las solicitudes POST, o un explorador para las solicitudes GET a la función remota.  
 
-## <a name="run-functions-locally"></a>Ejecución local de funciones
+Al obtener la dirección URL de las funciones en Azure, la extensión usa su cuenta de Azure para recuperar automáticamente las claves que necesita para iniciar la función. [Más información sobre las claves de acceso de las funciones](security-concepts.md#function-access-keys). El inicio de funciones no desencadenadas por HTTP requiere el uso de la clave de administración.
 
-La extensión Azure Functions le permite ejecutar un proyecto de funciones en el equipo de desarrollo local. El tiempo de ejecución local es el mismo tiempo de ejecución que hospeda la aplicación de funciones en Azure. La configuración local se lee desde el [archivo local.settings.json](#local-settings-file).
+## <a name="republish-project-files"></a>Volver a publicar los archivos de proyecto
 
-### <a name="additional-requirements-for-running-a-project-locally"></a>Requisitos adicionales para ejecutar un proyecto localmente
+Al configurar la [implementación continua](functions-continuous-deployment.md), la aplicación de funciones de Azure se actualiza cuando se actualizan los archivos de origen en la ubicación de origen conectada. Aunque se recomienda la implementación continua, también puede volver a publicar las actualizaciones del archivo de proyecto desde Visual Studio Code.
 
-Para ejecutar el proyecto de Functions localmente, tiene que cumplir estos requisitos adicionales:
+> [!IMPORTANT]
+> La publicación en una aplicación de función existente sobrescribe el contenido de esa aplicación en Azure.
 
-* Instale la versión 2.x o posteriores de [Azure Functions Core Tools](functions-run-local.md#v2). El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
-* Instale los requisitos específicos para el lenguaje elegido:
+## <a name="run-functions"></a>Ejecución de funciones
 
-    | Idioma | Requisito |
-    | -------- | --------- |
-    | **C#** | [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Herramientas de la CLI de .NET Core](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Depurador para la extensión de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 o versiones posteriores](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
+La extensión de Azure Functions permite ejecutar funciones individuales, ya sea en el proyecto del equipo de desarrollo local o en la suscripción de Azure. 
 
-    <sup>*</sup>Versiones Active LTS y Maintenance LTS (se recomiendan 8.11.1 y 10.14.1).
+En el caso de las funciones de desencadenador HTTP, la extensión llama al punto de conexión HTTP. En los restantes tipos de desencadenadores, llama a las API de administrador para iniciar la función. El cuerpo del mensaje de la solicitud enviada a la función depende del tipo de desencadenador. Si un desencadenador requiere datos de prueba, se le pedirá que escriba los datos en un formato JSON específico.
 
-### <a name="configure-the-project-to-run-locally"></a>Configuración del proyecto para que se ejecute localmente
+### <a name="run-functions-in-azure"></a>Ejecución de funciones en Azure
+
+Para ejecutar la función en Azure desde Visual Studio Code. 
+
+1. En la paleta de comandos, escriba **Azure Functions: Execute function now** y elija su suscripción de Azure. 
+
+1. Elija la aplicación de funciones existente de Azure en la lista. Si no ve la aplicación de funciones, asegúrese de que ha iniciado sesión en la suscripción correcta. 
+
+1. Elija en la lista la función que desea ejecutar y escriba el cuerpo del mensaje de la solicitud en **Enter request body** (Especificar cuerpo de la solicitud). Presione Entrar para enviar este mensaje de solicitud a la función. El texto predeterminado de **Enter request body** (Especificar cuerpo de la solicitud) debe indicar el formato del cuerpo. Si la aplicación de funciones no tiene funciones, se muestra un error de notificación con este error. 
+
+1. Cuando la función se ejecuta en Azure y devuelve una respuesta, se genera una notificación en Visual Studio Code.
+ 
+La función también se puede ejecutar desde el área **Azure: Functions**; para ello, haga clic con el botón derecho (Ctrl + clic en Mac) la función que desea ejecutar desde la aplicación de funciones en la suscripción de Azure y seleccione **Execute Function Now...** (Ejecutar función ahora).
+
+Al ejecutar funciones en Azure, la extensión usa su cuenta de Azure para recuperar automáticamente las claves que necesita para iniciar la función. [Más información sobre las claves de acceso de las funciones](security-concepts.md#function-access-keys). El inicio de funciones no desencadenadas por HTTP requiere el uso de la clave de administración.
+
+### <a name="run-functions-locally"></a>Ejecución local de funciones
+
+El tiempo de ejecución local es el mismo tiempo de ejecución que hospeda la aplicación de funciones en Azure. La configuración local se lee desde el [archivo local.settings.json](#local-settings-file). Para ejecutar el proyecto de Functions localmente, debe cumplir varios [requisitos adicionales](#run-local-requirements).
+
+#### <a name="configure-the-project-to-run-locally"></a>Configuración del proyecto para que se ejecute localmente
 
 El tiempo de ejecución de Functions usa una cuenta de Azure Storage internamente para todos los tipos de desencadenadores distintos de HTTP y webhooks. Por tanto, tiene que establecer la clave **Values.AzureWebJobsStorage** en una cadena de conexión de cuenta de Azure Storage válida.
 
@@ -319,15 +401,19 @@ Para establecer la cadena de conexión de cuenta de almacenamiento:
 
 Para más información, consulte [Archivo de configuración local](#local-settings-file).
 
-### <a name="debugging-functions-locally"></a>Depuración local de funciones  
+#### <a name="debug-functions-locally"></a><a name="debugging-functions-locally"></a>Depuración local de funciones  
 
 Para depurar las funciones, seleccione F5. Si aún no ha descargado [Core Tools][Azure Functions Core Tools], se le pedirá que lo haga. Una vez que Core Tools esté instalado y en ejecución, la salida se muestra en el Terminal. Esto equivale a ejecutar el comando `func host start` de Core Tools desde el terminal, pero con tareas de compilación adicionales y un depurador asociado.  
 
-Con el proyecto en ejecución, puede desencadenar las funciones como lo haría al implementar el proyecto en Azure. Cuando se ejecuta el proyecto en modo de depuración, los puntos de interrupción se alcanzan en Visual Studio Code tal como se esperaba.
+Con el proyecto en ejecución, puede usar la característica **Execute Function Now...** (Ejecutar función ahora) de la extensión para desencadenar las funciones como lo haría al implementar el proyecto en Azure. Con el proyecto ejecutándose en modo de depuración, los puntos de interrupción se alcanzan en Visual Studio Code tal como se esperaría. 
 
-La dirección URL de solicitud para los desencadenadores HTTP se muestra en la salida en el terminal. Las teclas de función para los desencadenadores HTTP no se utilizan cuando se ejecuta localmente. Para más información, consulte [Estrategias para probar el código en Azure Functions](functions-test-a-function.md).  
+1. En la paleta de comandos, escriba **Azure Functions: Execute function now** y elija **Local project** (Proyecto local). 
 
-Para más información, consulte [Uso de Azure Functions Core Tools][Azure Functions Core Tools].
+1. Elija en el proyecto la función que desea ejecutar y escriba el cuerpo del mensaje de la solicitud en **Enter request body** (Especificar cuerpo de la solicitud). Presione Entrar para enviar este mensaje de solicitud a la función. El texto predeterminado de **Enter request body** (Especificar cuerpo de la solicitud) debe indicar el formato del cuerpo. Si la aplicación de funciones no tiene funciones, se muestra un error de notificación con este error. 
+
+1. Cuando la función se ejecuta localmente y después de que se recibe una respuesta, se genera una notificación en Visual Studio Code. La información sobre la ejecución de la función se muestra en el panel **Terminal**.
+
+La ejecución local de funciones no requiere el uso de claves. 
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -341,10 +427,12 @@ Los valores de la configuración de la aplicación de funciones también se pued
 * [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 ## <a name="application-settings-in-azure"></a>Configuración de la aplicación en Azure
 
-La configuración en el archivo local.settings.json en el proyecto debe ser la misma que la configuración de la aplicación en la aplicación de funciones en Azure. Cualquier configuración que agregue en local.settings.json tiene que agregarse a la aplicación de funciones en Azure. Esta configuración no se carga automáticamente cuando publica el proyecto. Del mismo modo, cualquier configuración que se crea en la aplicación de funciones [en el portal](functions-how-to-use-azure-function-app-settings.md#settings) tiene que descargarse para el proyecto local.
+La configuración en el archivo local.settings.json en el proyecto debe ser la misma que la configuración de la aplicación en la aplicación de funciones en Azure. Todos los valores que agregue a local.settings.json también deben agregarse a la aplicación de funciones en Azure. Esta configuración no se carga automáticamente cuando publica el proyecto. Del mismo modo, cualquier configuración que se crea en la aplicación de funciones [en el portal](functions-how-to-use-azure-function-app-settings.md#settings) tiene que descargarse para el proyecto local.
 
 ### <a name="publish-application-settings"></a>Publicación de la configuración de la aplicación
 
@@ -424,7 +512,7 @@ La extensión de Azure Functions proporciona una interfaz gráfica útil en el �
 | **Download Remote Settings** (Descargar configuración remota) | Descarga la configuración de la aplicación de funciones elegida en Azure en el archivo local.settings.json. Si el archivo local está cifrado, se descifra, se actualiza y se cifra de nuevo. Si hay configuraciones con valores en conflicto en las dos ubicaciones, se le pedirá que elija cómo proceder. Asegúrese de guardar los cambios en el archivo local.settings.json antes de ejecutar este comando. |
 | **Edit Settings** (Editar configuración) | Cambia el valor de una configuración de aplicación de funciones existente en Azure. Este comando no afecta a la configuración en el archivo local.settings.json.  |
 | **Encrypt settings** (Cifrar configuración) | Cifra los elementos individuales de la matriz de `Values` en la [configuración local](#local-settings-file). En este archivo, `IsEncrypted` también se establece en `true`, lo que indica al tiempo de ejecución local que descifre la configuración antes de usarla. Cifre la configuración local para reducir el riesgo de pérdida de información valiosa. En Azure, las configuraciones de aplicación siempre se almacenan cifradas. |
-| **Execute Function Now** (Ejecutar la función ahora) | Inicia manualmente una [función desencadenada por temporizador](functions-bindings-timer.md) en Azure. Este comando se usa para realizar pruebas. Para más información acerca de cómo desencadenar funciones ajenas a HTTP en Azure, consulte [Ejecución manual de una función no desencadenada por HTTP](functions-manually-run-non-http.md). |
+| **Execute Function Now** (Ejecutar la función ahora) | Inicia manualmente una función mediante las API de administración. Este comando se usa para realizar pruebas, tanto localmente durante la depuración como con las funciones que se ejecutan en Azure. Al desencadenar una función en Azure, en primer lugar la extensión obtiene automáticamente una clave de administración, que se usa para llamar a las API de administración remota que inician las funciones en Azure. El cuerpo del mensaje enviado a la API depende del tipo de desencadenador. Los desencadenadores del temporizador no requieren que pase ningún dato. |
 | **Initialize Project for Use with VS Code** (Inicializar el proyecto para su uso con VS Code) | Agrega los archivos de proyecto de Visual Studio Code necesarios a un proyecto existente de Functions. Use este comando para trabajar con un proyecto creado mediante Core Tools. |
 | **Install of Update Azure Functions Core Tools** (Instalación de actualización de Azure Functions Core Tools) | Instala o actualiza [Azure Functions Core Tools], que se utilizan para ejecutar funciones localmente. |
 | **Redeploy** (Volver a implementar)  | Le permite volver a implementar archivos de proyecto desde un repositorio de Git conectado a una implementación específica de Azure. Para volver a publicar actualizaciones locales de Visual Studio Code, [vuelva a publicar el proyecto](#republish-project-files). |

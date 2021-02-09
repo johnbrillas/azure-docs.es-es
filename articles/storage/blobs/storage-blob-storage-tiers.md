@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165695"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928800"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -86,7 +86,7 @@ Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluy
 - Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede
 
 > [!NOTE]
-> El nivel de archivo no se admite en las cuentas de ZRS, GZRS o RA-GZRS.
+> El nivel de archivo no se admite en las cuentas de ZRS, GZRS o RA-GZRS. No se admite la migración de LRS a GRS si la cuenta de almacenamiento contiene blobs en el nivel de archivo.
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 

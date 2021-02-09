@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/07/2020
-ms.openlocfilehash: 102b1946021aff7f8ab5491ed70fbc6cf772e3a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1690b8d143b86e5caa691f5f8f479f715f57f0c8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842441"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054659"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo automatizados basados en aprobación mediante Azure Logic Apps
 
@@ -44,6 +44,8 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Una cuenta de correo electrónico de Office 365 Outlook o Outlook.com, que admita flujos de trabajo de aprobación. Este tutorial usa Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
+* Si la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall debe permitir el acceso para *ambas* direcciones IP, la [de entrada](logic-apps-limits-and-config.md#inbound) y la [de salida](logic-apps-limits-and-config.md#outbound), utilizadas por el servicio Logic Apps o por el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](logic-apps-limits-and-config.md#outbound) en la región de Azure de la aplicación lógica.
+
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure. En la página principal de Azure, seleccione **Crear un recurso**.
@@ -56,7 +58,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
    ![Captura de pantalla que muestra el panel de creación de aplicaciones lógicas y la información que se debe proporcionar para la nueva aplicación lógica.](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción de Azure. En este ejemplo se usa `Pay-As-You-Go`. |
    | **Grupos de recursos** | LA-MailingList-RG | El nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se crea un nuevo grupo de recursos llamado `LA-MailingList-RG`. |
@@ -71,7 +73,7 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
    Azure abre el panel de selección de plantillas de aplicaciones lógicas, que muestra un vídeo de introducción, los desencadenadores usados frecuentemente y los patrones de plantillas de aplicaciones lógicas.
 
-1. Desplácese hacia abajo más allá del vídeo y de los desencadenadores frecuentes hasta la sección **Plantillas**y seleccione **Aplicación lógica en blanco**.
+1. Desplácese hacia abajo más allá del vídeo y de los desencadenadores frecuentes hasta la sección **Plantillas** y seleccione **Aplicación lógica en blanco**.
 
    ![Captura de pantalla que muestra el panel de selección de plantilla de aplicaciones lógicas con la opción "Aplicación lógica en blanco" seleccionada.](./media/tutorial-process-mailing-list-subscriptions-workflow/select-logic-app-template.png)
 
@@ -130,7 +132,7 @@ Ahora que tiene un desencadenador, agregue una [acción](../logic-apps/logic-app
 
    ![Captura de pantalla que muestra las propiedades de "Send approval email" (Enviar correo electrónico de aprobación).](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **To** | <*approval-email-address*> | Dirección de correo electrónico del aprobador. Para realizar pruebas, puede usar su propia dirección de correo electrónico. En este ejemplo se usa la dirección de correo electrónico ficticia `sophiaowen@fabrikam.com`. |
    | **Subject** | `Approve member request for test-members-ML` | Un asunto de correo electrónico descriptivo |

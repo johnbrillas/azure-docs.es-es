@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222962"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919959"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creación de una máquina virtual Linux con Accelerated Networking con la CLI de Azure
 
@@ -56,11 +56,9 @@ Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
-Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: D/DSv2 y F/Fs
+Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU. En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. 
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
-
-Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La compatibilidad con Accelerated Networking se puede encontrar en la documentación de los [tamaños de máquina virtual](../virtual-machines/sizes.md) individuales. 
 
 ### <a name="custom-images"></a>Custom Images
 Si usa una imagen personalizada compatible con redes aceleradas, asegúrese de disponer de los controladores necesarios para trabajar con las NIC ConnectX-3 y ConnectX-4 Lx de Mellanox en Azure.

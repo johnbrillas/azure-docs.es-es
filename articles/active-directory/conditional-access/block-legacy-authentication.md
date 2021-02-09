@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 769460d5dab7311eb2940d101df6f4996a3ad355
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876586"
+ms.locfileid: "98892446"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -83,6 +83,7 @@ Para poder bloquear la autenticación heredada en su directorio, primero debe en
 1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
 1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
 1. **Agregar filtros** > **Aplicación cliente** > seleccione todos los protocolos de autenticación heredados. Seleccione fuera del cuadro de diálogo de filtrado para aplicar las selecciones y cierre el cuadro de diálogo.
+1. Si ha activado la [versión preliminar de nuevos informes de actividad de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md), repita los pasos anteriores también en la pestaña de **inicios de sesión de usuario (no interactivos)** .
 
 Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
 

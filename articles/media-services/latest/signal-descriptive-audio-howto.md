@@ -1,5 +1,5 @@
 ---
-title: Señalización de pistas descriptivas de audio con Azure Media Services v3 | Microsoft Docs
+title: Señalización de pistas descriptivas de audio con Azure Media Services v3
 description: Siga los pasos de este tutorial para cargar un archivo, codificar el vídeo, agregar pistas descriptivas de audio y transmitir en secuencias su contenido con Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bd2002e8f6f233361dd85cc08cfbd97ca23ed60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954519"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Señalización de pistas descriptivas de audio
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 2537167783f3e68c52c665dafa9378193852acb4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.date: 02/01/2021
+ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930422"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223104"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Database for PostgreSQL mediante Azure Data Factory
 
@@ -175,8 +175,9 @@ Para copiar datos en Azure Database for PostgreSQL, se admiten las siguientes pr
 |:--- |:--- |:--- |
 | type | La propiedad "type" del receptor de la actividad de copia debe establecerse en **AzurePostgreSQLSink**. | Sí |
 | preCopyScript | Especifique una consulta de SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Database for PostgreSQL en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | No |
-| writeBatchSize | Inserta datos en la tabla de Azure Database for PostgreSQL cuando el tamaño de búfer alcanza el valor de writeBatchSize.<br>El valor permitido es un entero que representa el número de filas. | No (el valor predeterminado es 10 000) |
-| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br>Los valores permitidos son las cadenas de intervalo de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No (el valor predeterminado es 00:00:30) |
+| writeMethod | El método usado para escribir datos en Azure Database for PostgreSQL.<br>Los valores permitidos son: **CopyCommand** (versión preliminar, que es más eficaz), **BulkInsert** (valor predeterminado). | No |
+| writeBatchSize | Número de filas cargadas en Azure Database for PostgreSQL por lote.<br>El valor permitido es un entero que representa el número de filas. | No (el valor predeterminado es 1 000 000) |
+| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br>Los valores permitidos son las cadenas de intervalo de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No (el valor predeterminado es 00:30:00) |
 
 **Ejemplo**:
 
@@ -204,7 +205,8 @@ Para copiar datos en Azure Database for PostgreSQL, se admiten las siguientes pr
             "sink": {
                 "type": "AzurePostgreSQLSink",
                 "preCopyScript": "<custom SQL script>",
-                "writeBatchSize": 100000
+                "writeMethod": "CopyCommand",
+                "writeBatchSize": 1000000
             }
         }
     }

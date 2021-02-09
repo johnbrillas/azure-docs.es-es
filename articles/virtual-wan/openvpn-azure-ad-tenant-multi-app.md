@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043435"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898094"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory (AD) para conexiones del protocolo P2S OpenVPN
 
@@ -135,7 +135,15 @@ Use este [vínculo](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
     ![Captura de pantalla que muestra la opción de diagnóstico de la selección en el menú.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
-2. En la página **Propiedades de conexión** , seleccione **Ejecutar diagnóstico**.
+2. En la página **Propiedades de conexión**, seleccione **Ejecutar diagnóstico**.
+
+    ![Captura de pantalla que muestra el botón Ejecutar diagnóstico para una conexión.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Inicie sesión con sus credenciales.
+
+    ![diagnóstico 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. Ver los resultados del diagnóstico.
 
     ![Captura de pantalla que muestra el botón Ejecutar diagnóstico para una conexión.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

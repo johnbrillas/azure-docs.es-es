@@ -3,7 +3,7 @@ title: Planeamiento de una implementación de aprovisionamiento automático de u
 description: Guía para planear y ejecutar aprovisionamiento automático de usuarios
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832631"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255770"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -322,7 +322,7 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 
 * [Manténgase al día con las novedades de Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Foro de Azure AD sobre el desbordamiento de pila](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Foro de Microsoft Q&A sobre Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración del aprovisionamiento automático de usuarios](../app-provisioning/configure-automatic-user-provisioning-portal.md)

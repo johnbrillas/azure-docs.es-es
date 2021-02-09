@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247904"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928038"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
 
@@ -21,11 +21,16 @@ Azure Service Fabric incluye características para la [copia de seguridad perió
 Las características de copia de seguridad a petición son útiles para capturar el estado de los servicios antes de cualquier operación desencadenada manualmente relacionada con el servicio o el entorno de este. Por ejemplo, si realiza un cambio en los binarios del servicio al actualizarlo o degradarlo. En tal caso, la copia de seguridad a petición puede ayudar a proteger los datos de daños causados por errores de código de las aplicaciones.
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
+- Instale el módulo Microsoft.ServiceFabric.PowerShell.Http (versión preliminar) para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Si la versión de PowerShellGet es inferior a la 1.6.0, deberá actualizar para agregar compatibilidad con la marca *-AllowPrerelease*:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 

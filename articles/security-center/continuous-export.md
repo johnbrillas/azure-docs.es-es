@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916798"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -25,6 +25,8 @@ La **exportación continua** le permite personalizar completamente *qué* se exp
 - Todos los hallazgos de gravedad media o superior de los exámenes de evaluación de vulnerabilidades de los servidores SQL Server se envíen a un área de trabajo de Log Analytics específica.
 - Se entreguen recomendaciones específicas a un centro de eventos o área de trabajo de Log Analytics cada vez que se generen. 
 - La puntuación segura para una suscripción se envía a un área de trabajo de Log Analytics cada vez que la puntuación de un control cambia en 0,01 o más. 
+
+Aunque la característica se denomina *continua*, también hay una opción para exportar instantáneas semanales de datos de cumplimiento normativo o de puntuación segura.
 
 En este artículo se describe cómo configurar la exportación continua a áreas de trabajo de Log Analytics o a Azure Event Hubs.
 
@@ -39,7 +41,7 @@ En este artículo se describe cómo configurar la exportación continua a áreas
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponible con carácter general|
+|Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|<ul><li>**Administrador de seguridad** o **Propietario** en el grupo de recursos.</li><li>Permisos de escritura para el recurso de destino.</li><li>Si utiliza las directivas "DeployIfNotExist" de Azure Policy que se describen a continuación, también necesitará permisos para asignar directivas.</li></ul>|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov, otros gobiernos<br>![Sí](./media/icons/yes-icon.png) China Gov (en el centro de eventos)|
@@ -78,6 +80,10 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
     Aquí verá las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
 
 1. Seleccione el tipo de datos que quiere exportar y elija los filtros que quiera de cada tipo (por ejemplo, exportar solo alertas de gravedad alta).
+1. Seleccione la frecuencia de exportación adecuada:
+    - **Streaming**: las evaluaciones se enviarán en tiempo real cuando se actualice el estado de mantenimiento de un recurso (si no se produce ninguna actualización, no se enviarán datos).
+    - **Instantáneas**: se enviará una instantánea del estado actual de todas las evaluaciones de cumplimiento normativo cada semana (se trata de una característica en versión preliminar para las instantáneas semanales de datos de cumplimiento normativo y puntuaciones seguras).
+
 1. Opcionalmente, si la selección incluye una de estas recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
     - Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL
     - Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)

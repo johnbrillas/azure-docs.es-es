@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737683"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946259"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
 
@@ -142,6 +142,8 @@ El equilibrador de carga entre regiones enruta el tráfico al equilibrador de ca
 * Las configuraciones de direcciones IP de front-end IPv6 entre regiones no se admiten. 
 
 * Un sondeo de estado no se puede configurar actualmente. Un sondeo de estado predeterminado recopila de forma automática información de disponibilidad sobre el equilibrador de carga regional cada 20 segundos. 
+
+* Azure Kubernetes Service (AKS) no se puede integrar actualmente con Load Balancer entre regiones. Se debe esperar una pérdida de conectividad al configurar una instancia de Load Balancer entre regiones delante de una instancia de Load Balancer pública implementada con AKS.
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 El equilibrador de carga entre regiones comparte el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) de la instancia de Standard Load Balancer.

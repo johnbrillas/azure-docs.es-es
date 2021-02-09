@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 512436c9d72e0318ec14bf7551a2fde76c6ef3d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 520eb25bcb138c96b24166816d3374255fb7c3b2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735919"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493995"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-notion"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Notion
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Notion admite SSO iniciado por **SP e IDP**.
 * Notion admite el aprovisionamiento de usuarios **Just-In-Time**.
 > [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar un área de trabajo de Notion en un inquilino.
 
 
 ## <a name="adding-notion-from-the-gallery"></a>Adición de Notion desde la galería
@@ -80,14 +80,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    En el cuadro de texto **Dirección URL de respuesta**, escriba la dirección URL con el siguiente patrón que puede obtener en **Configuración y miembros** > **Seguridad e identidad** > **Dirección URL de inicio de sesión único** en el área de trabajo de Notion: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la siguiente dirección URL: `https://www.notion.so/login`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Notion](mailto:team@makenotion.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. La aplicación Notion espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -102,7 +102,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | lastName | user.surname |
 
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación**. Vaya a las opciones **Configuración y miembros** > **Seguridad e identidad** del área de trabajo de **Notion** y pegue el valor que copió en el campo **Dirección URL de los metadatos de IDP**.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -132,7 +132,13 @@ En esta sección, va a permitir que B.Simon acceda a Notion mediante el inicio d
 
 ## <a name="configure-notion-sso"></a>Configuración del inicio de sesión único de Notion
 
-Para configurar el inicio de sesión único en **Notion**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Notion](mailto:team@makenotion.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Vaya a las opciones **Configuración y miembros** > **Seguridad e identidad** del área de trabajo de **Notion** y pegue el valor de **Dirección URL de metadatos de federación de aplicación** que copió en el campo **Dirección URL de los metadatos de IDP**.
+
+En la misma página de configuración, en **Email domains** (Dominios de correo electrónico) haga clic en **Póngase en contacto con el servicio de soporte técnico** para agregar los dominios de correo electrónico de su organización.
+
+Una vez que se hayan aprobado y agregado los dominios de correo electrónico, habilite el inicio de sesión único con SAML con el botón de alternancia **Habilitar SAML**.
+
+Una vez realizadas correctamente las pruebas, puede aplicar el inicio de sesión único con SAML mediante el botón de alternancia **Enforce SAML** (Aplicar SAML). Tenga en cuenta que los administradores del área de trabajo de Notion conservan la capacidad de iniciar sesión con el correo electrónico, pero todos los demás miembros tendrán que usar el inicio de sesión único con SAML para iniciar sesión en Notion.
 
 ### <a name="create-notion-test-user"></a>Creación de un usuario de prueba de Notion
 

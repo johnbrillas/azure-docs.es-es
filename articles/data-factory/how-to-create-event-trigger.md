@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: de416277de34e1c3717d581697f05c98c48d1959
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 495dda603a8ab8ce2983e010ea23856df5a094ef
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146014"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897129"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,14 +50,18 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
 1. Seleccione la cuenta de almacenamiento en la lista desplegable de suscripción de Azure o manualmente con el identificador de recurso de la cuenta de almacenamiento. Elija en qué contenedor quiere que se produzcan los eventos. La selección de contenedores es opcional, pero tenga en cuenta que si se seleccionan todos los contenedores el número de eventos puede resultar grande.
 
    > [!NOTE]
-   > Actualmente, el desencadenador de eventos solo es compatible con las cuentas de almacenamiento de Azure Data Lake Storage Gen2 y de la versión 2 de uso general. Debe tener como mínimo acceso de *Propietario* en la cuenta de almacenamiento.  Debido a una limitación de Azure Event Grid, Azure Data Factory solo admite un máximo de 500 desencadenadores de eventos por cuenta de almacenamiento.
+   > Actualmente, el desencadenador de eventos solo es compatible con las cuentas de almacenamiento de Azure Data Lake Storage Gen2 y de la versión 2 de uso general. Debido a una limitación de Azure Event Grid, Azure Data Factory solo admite un máximo de 500 desencadenadores de eventos por cuenta de almacenamiento.
+
+   > [!NOTE]
+   > Para crear y modificar un nuevo desencadenador de eventos, la cuenta de Azure que se usa para iniciar sesión en Data Factory debe tener al menos permiso de *propietario* en la cuenta de almacenamiento. No se requiere ningún permiso adicional: la entidad de servicio para Azure Data Factory _no_ necesita permisos especiales para la cuenta de Storage o Event Grid.
 
 1. Las propiedades **Blob path begins with** y **Blob path ends with** permiten especificar los contenedores, las carpetas y los nombres de blob en los que quiere recibir eventos. El desencadenador de eventos requiere que se defina al menos una de estas propiedades. Como se muestra en ejemplos que podrá encontrar en este mismo artículo, se pueden usar varios patrones para las propiedades **Blob path begins with** y **Blob path ends with**.
 
     * **Blob path begins with:** la ruta de acceso del blob debe comenzar con una ruta de acceso de carpeta. Entre los valores válidos se incluyen `2018/` y `2018/april/shoes.csv`. No se puede seleccionar este campo si no se ha seleccionado un contenedor.
     * **Blob path ends with:** la ruta de acceso del blob debe terminar con un nombre de archivo o una extensión. Entre los valores válidos se incluyen `shoes.csv` y `.csv`. El nombre de contenedor y carpeta es opcional, pero, cuando se especifica, deben estar separados por un segmento `/blobs/`. Por ejemplo, un contenedor denominado "Orders" puede tener un valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar una carpeta en cualquier contenedor, omita el carácter "/" inicial. Por ejemplo, `april/shoes.csv` desencadenará un evento en cualquier archivo denominado `shoes.csv` en la carpeta a denominada "April" en cualquier contenedor. 
+    * Nota: La ruta de acceso del blob **comienza con** y **termina con** es la única coincidencia de patrones permitida en el desencadenador de eventos. No se admiten otros tipos de coincidencia de caracteres comodín para el tipo de desencadenador.
 
-1. Seleccione si el desencadenador responderá a un evento **Blob creado** , **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
+1. Seleccione si el desencadenador responderá a un evento **Blob creado**, **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
 
     ![Configuración del desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
@@ -92,7 +96,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 En esta sección encontrará ejemplos de configuración de desencadenadores basados en eventos.
 
 > [!IMPORTANT]
-> Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo. En el caso de **blobPathBeginsWith** , la interfaz de usuario de Data Factory agregará automáticamente `/blobs/` entre la carpeta y el nombre del contenedor en el JSON del desencadenador.
+> Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo. En el caso de **blobPathBeginsWith**, la interfaz de usuario de Data Factory agregará automáticamente `/blobs/` entre la carpeta y el nombre del contenedor en el JSON del desencadenador.
 
 | Propiedad | Ejemplo | Descripción |
 |---|---|---|

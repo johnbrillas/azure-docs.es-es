@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37ba4f10365fca4292171c3bd2d9a3e7d00045bb
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311127"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985876"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configuración de una instancia de SQL Managed Instance habilitada para Azure Arc
 
@@ -60,13 +60,13 @@ Haga lo siguiente para cambiar alguna de esas opciones:
    traceflag0 = 1204
    ```
 
-1. Copie el archivo `mssql-custom.conf` en `/var/opt/mssql` en el contenedor `mssql-miaa` del pod `master-0`. Reemplace `<namespaceName>` por el nombre del clúster de macrodatos.
+1. Copie el archivo `mssql-custom.conf` en `/var/opt/mssql` en el contenedor `arc-sqlmi` del pod `master-0`. Reemplace `<namespaceName>` por el espacio de nombres en el que está implementada esta instancia.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. Reinicie la instancia de SQL Server.  Reemplace `<namespaceName>` por el nombre del clúster de macrodatos.
+1. Reinicie la instancia administrada de SQL.  Reemplace `<namespaceName>` por el espacio de nombres en el que está implementada esta instancia.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

@@ -2,26 +2,20 @@
 title: Configuración de su propia clave para cifrar datos en reposo de Azure Service Bus
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Service Bus.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631773"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928090"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
-Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
+Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
 
-## <a name="overview"></a>Información general
-Azure Service Bus ahora admite la opción de cifrado de datos en reposo con claves administradas por Microsoft o claves administradas por el cliente (Bring Your Own Key – BYOK). Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar datos en reposo de Azure Service Bus.
-
-La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
-
-> [!NOTE]
-> Hay algunas advertencias para la clave administrada por el cliente para el cifrado en el lado del servicio. 
->   * Esta característica se admite en el nivel [Premium de Azure Service Bus](service-bus-premium-messaging.md). No se puede habilitar para los espacios de nombres estándar de Service Bus.
->   * El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene colas o temas, se producirá un error en la operación de cifrado.
+Hay algunas advertencias para la clave administrada por el cliente para el cifrado en el lado del servicio. 
+- Esta característica se admite en el nivel [Premium de Azure Service Bus](service-bus-premium-messaging.md). No se puede habilitar para los espacios de nombres estándar de Service Bus.
+- El cifrado solo se puede habilitar para espacios de nombres nuevos o vacíos. Si el espacio de nombres contiene colas o temas, se producirá un error en la operación de cifrado.
 
 Puede usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
         > [!NOTE]
         > Para lograr redundancia, puede agregar hasta 3 claves. En caso de que una de las claves haya expirado o no sea accesible, se usarán las demás claves para el cifrado.
         
-    1. Rellene los detalles de la clave y haga clic en **Seleccionar**. Esto habilitará el cifrado de datos en reposo en el espacio de nombres con una clave administrada por el cliente. 
+    1. Rellene los detalles de la clave y haga clic en **Seleccionar**. Esto habilitará el cifrado de la clave administrada por Microsoft con su clave (clave administrada por el cliente). 
 
 
     > [!IMPORTANT]
-    > Si desea usar la clave administrada por el cliente junto con la recuperación ante desastres geográfica, revise la siguiente información: 
+    > Si desea usar la clave administrada por el cliente junto con la recuperación ante desastres geográfica, revise esta sección. 
     >
-    > Para habilitar el cifrado en reposo con la clave administrada por el cliente, se configura una [directiva de acceso](../key-vault/general/secure-your-key-vault.md) para la identidad administrada de Service Bus en el almacén de claves de Azure especificado. Esto garantiza el acceso controlado al almacén de claves de Azure desde el espacio de nombres de Azure Service Bus.
+    > Para habilitar el cifrado de la clave administrada por Microsoft con una clave administrada por el cliente, se configura una [directiva de acceso](../key-vault/general/secure-your-key-vault.md) para la identidad administrada de Service Bus en la instancia especificada de Azure Key Vault. Esto garantiza el acceso controlado al almacén de claves de Azure desde el espacio de nombres de Azure Service Bus.
     >
     > Debido a esto:
     > 

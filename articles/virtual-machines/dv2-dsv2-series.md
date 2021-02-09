@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 7a3d0236fc70757d7d9a98449bc4f6fdbf3d8bef
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635643"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092006"
 ---
 # <a name="dv2-and-dsv2-series"></a>Series Dv2 y DSv2
 
@@ -28,6 +28,8 @@ Los tamaños de la serie Dv2 se ejecutan en procesadores Intel® Xeon® Platinum
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/MBps de lectura/MBps de escritura | Discos de datos máx. | Rendimiento: E/S | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
@@ -48,6 +50,8 @@ Los tamaños de la serie DSv2 se ejecutan en procesadores Intel® Xeon® Platinu
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |

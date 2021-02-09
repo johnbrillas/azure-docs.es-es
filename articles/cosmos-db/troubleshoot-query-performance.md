@@ -4,16 +4,16 @@ description: Aprenda a identificar, diagnosticar y solucionar problemas de consu
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905118"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475733"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Consulte las secciones siguientes para entender las optimizaciones de consulta p
 - [Inclusión de las rutas de acceso necesarias en la directiva de indexación](#include-necessary-paths-in-the-indexing-policy)
 
 - [Conocimiento de las funciones del sistema que usan el índice](#understand-which-system-functions-use-the-index)
+
+- [Mejora de la ejecución de funciones del sistema de cadena.](#improve-string-system-function-execution)
 
 - [Conocimiento de las consultas agregadas que usan el índice](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,10 +200,11 @@ Puede agregar propiedades a la directiva de indexación en cualquier momento, si
 
 La mayoría de las funciones del sistema usan índices. Esta es una lista de funciones de cadena comunes que usan índices:
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, pero solo si el primer valor de num_expr es 0
+- StartsWith
+- Contains
+- RegexMatch
+- Left
+- Subcadena: pero solo si la primera instancia de num_expr es 0
 
 A continuación se indican algunas funciones del sistema comunes que no usa el índice y que debe cargar cada documento:
 
@@ -210,11 +213,21 @@ A continuación se indican algunas funciones del sistema comunes que no usa el �
 | UPPER/LOWER                             | En lugar de usar la función del sistema para normalizar los datos al realizar comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Una consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se convierte en ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Funciones matemáticas (sin agregados) | Si necesita calcular frecuentemente un valor en la consulta, considere la posibilidad de almacenarlo como propiedad en el documento JSON. |
 
-------
+### <a name="improve-string-system-function-execution"></a>Mejora de la ejecución de funciones del sistema de cadena
 
-Si una función del sistema usa índices y todavía tiene un cargo por RU elevado, puede intentar agregar `ORDER BY` a la consulta. En algunos casos, agregar `ORDER BY` puede mejorar el uso del índice de funciones del sistema, especialmente si la consulta es de larga duración o abarca varias páginas.
+En algunas funciones del sistema que usan índices, se puede mejorar la ejecución de consultas agregando una cláusula `ORDER BY` a la consulta. 
 
-Por ejemplo, considere la siguiente consulta con `CONTAINS`. `CONTAINS` debería usar un índice, pero supongamos que, después de agregar el índice pertinente, se observa aún un cargo por RU muy elevado al ejecutar la siguiente consulta:
+Más concretamente, las funciones del sistema cuya carga de RU aumenta al mismo tiempo que la cardinalidad de la propiedad pueden beneficiarse de tener `ORDER BY` en la consulta. Estas consultas realizan una exploración del índice, por lo el hecho de que los resultados de la consulta estén ordenados puede hacer que la consulta sea más eficaz.
+
+Esta optimización puede mejorar la ejecución de las siguientes funciones del sistema:
+
+- StartsWith (donde case-insensitive = true)
+- StringEquals (donde case-insensitive = true)
+- Contains
+- RegexMatch
+- EndsWith
+
+Por ejemplo, considere la siguiente consulta con `CONTAINS`. `CONTAINS` usará índices, pero a veces, incluso después de agregar el índice pertinente, es posible que siga apareciendo un cargo de RU muy alto al ejecutar la siguiente consulta.
 
 Consulta original:
 
@@ -224,13 +237,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Consulta actualizada con `ORDER BY`:
+La ejecución de la consulta se puede mejorar agregando `ORDER BY`:
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+La misma optimización puede ayudar en consultas con filtros adicionales. En este caso, es mejor agregar también propiedades con filtros de igualdad a la cláusula `ORDER BY`.
+
+Consulta original:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+La ejecución de la consulta se puede mejorar agregando `ORDER BY` y [un índice compuesto](index-policy.md#composite-indexes) para (c.name, c.town):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Conocimiento de las consultas agregadas que usan el índice

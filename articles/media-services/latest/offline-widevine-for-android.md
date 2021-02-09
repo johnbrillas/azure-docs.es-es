@@ -1,5 +1,5 @@
 ---
-title: Streaming Widevine para Android sin conexión con Azure Media Services v3
+title: Streaming de Widevine sin conexión para Android
 description: En este tema se muestra cómo configurar la cuenta de Azure Media Services v3 para el streaming sin conexión de contenido protegido de Widevine.
 services: media-services
 keywords: DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597081"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955214"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming de Widevine sin conexión para Android con Media Services v3
 

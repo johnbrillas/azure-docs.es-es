@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547158"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223464"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -44,11 +44,11 @@ Azure Backup puede realizar copias de seguridad de máquinas virtuales de Azure,
 
 ### <a name="limitations"></a>Limitaciones
 
-- Puede realizar una copia de seguridad de máquinas virtuales cifradas, y restaurarlas, dentro de la misma suscripción y región.
+- Puede realizar una copia de seguridad de VM cifradas con ADE, y restaurarlas, dentro de la misma suscripción y región.
 - Azure Backup admite máquinas virtuales cifradas con claves independientes. Actualmente no se admite ninguna clave que forme parte de un certificado usado para cifrar una máquina virtual.
-- Puede realizar una copia de seguridad de máquinas virtuales cifradas, y restaurarlas, dentro de la misma suscripción y región que el almacén de Backup de Recovery Services.
-- Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Deberá recuperar toda la máquina virtual para restaurar archivos y carpetas.
-- Al restaurar una máquina virtual, no puede usar la opción para [reemplazar la máquina virtual existente](backup-azure-arm-restore-vms.md#restore-options) en las máquinas virtuales cifradas. Esta opción solo se admite con discos administrados sin cifrar.
+- Puede realizar una copia de seguridad de VM cifradas con ADE, y restaurarlas, dentro de la misma suscripción y región que el almacén de Backup de Recovery Services.
+- Las VM cifradas con ADE no se pueden recuperar a nivel de archivo o carpeta. Deberá recuperar toda la máquina virtual para restaurar archivos y carpetas.
+- Al restaurar una VM, no puede usar la opción para [reemplazar la VM existente](backup-azure-arm-restore-vms.md#restore-options) en las VM cifradas con ADE. Esta opción solo se admite con discos administrados sin cifrar.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -125,6 +125,17 @@ Para establecer los permisos:
 
 1. En Azure Portal, seleccione **Todos los servicios** y busque **Almacenes de claves**.
 1. Seleccione el almacén de claves asociado a la máquina virtual cifrada que va a copiar.
+
+    >[!TIP]
+    >Para identificar el almacén de claves asociado a una VM, use el siguiente comando de PowerShell. Sustituya el nombre del grupo de recursos y el nombre de la VM:
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Busque el nombre del almacén de claves en esta línea:
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
 
     ![Agregar directiva de acceso](./media/backup-azure-vms-encryption/add-access-policy.png)

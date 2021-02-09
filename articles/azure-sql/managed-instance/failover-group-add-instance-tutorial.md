@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594001"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525728"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,10 +32,10 @@ Agregue instancias administradas de Azure SQL Managed Instance a un grupo de con
   > [!NOTE]
   > - Al completar este tutorial, asegúrese de configurar los recursos con los [requisitos previos para configurar grupos de conmutación por error para Instancia administrada de SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de Instancia administrada de SQL](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Las instancias administradas que participan en un grupo de conmutación por error requieren [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o dos puertas de enlace de VPN conectadas. No se admite el emparejamiento de VNet global. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
+  > - Las instancias administradas que participan en un grupo de conmutación por error requieren [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), emparejamiento de red virtual global o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 

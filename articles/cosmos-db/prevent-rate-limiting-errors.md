@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: gahllevy
-ms.openlocfilehash: 73c2aba3028f42621f241bd8f295e83e0ef96e68
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: e1ccf55d38a9a3a5a1d0a3622c90dd7b51e5e477
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540405"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258497"
 ---
 # <a name="prevent-rate-limiting-errors-for-azure-cosmos-db-api-for-mongodb-operations"></a>Evitación de errores de limitación de velocidad para las operaciones de Azure Cosmos DB API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -20,7 +20,6 @@ ms.locfileid: "98540405"
 Es posible que se produzcan errores en las operaciones de Azure Cosmos DB API para MongoDB de tipo de limitación de velocidad (16500/429) si superan el límite de rendimiento de una colección (RU). 
 
 Puede habilitar la característica de reintentos en el servidor (SSR) y dejar que el servidor vuelva a intentar realizar estas operaciones automáticamente. Las solicitudes se reintentan después de un breve período de tiempo para todas las colecciones de la cuenta. Esta característica es una alternativa práctica para controlar los errores de limitación de velocidad en la aplicación cliente.
-
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
@@ -36,6 +35,31 @@ Puede habilitar la característica de reintentos en el servidor (SSR) y dejar qu
 
 :::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-server-side-retry.png" alt-text="Captura de pantalla de la característica de reintentos en el servidor para Azure Cosmos DB API para MongoDB":::
 
+## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
+
+1. Compruebe si SSR ya está habilitado para su cuenta:
+```bash
+az cosmosdb show --name accountname --resource-group resourcegroupname
+```
+2. **Habilite** SSR para todas las colecciones de la cuenta de bases de datos. Este cambio puede tardar hasta 15 minutos en surtir efecto.
+```bash
+az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
+```
+El comando siguiente **deshabilitará** SSR para todas las colecciones de la cuenta de bases de datos. Este cambio puede tardar hasta 15 minutos en surtir efecto.
+```bash
+az cosmosdb update --name accountname --resource-group resourcegroupname --capabilities EnableMongo DisableRateLimitingResponses
+```
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+* ¿Cómo se reintentan las solicitudes?
+    * Las solicitudes se reintentan continuamente (una y otra vez) hasta que se alcanza un tiempo de espera de 60 segundos. Si se alcanza el tiempo de espera, el cliente recibirá una [excepción ExceededTimeLimit (50)](mongodb-troubleshoot.md).
+*  ¿Cómo puedo supervisar los efectos de SSR?
+    *  Puede ver los errores de limitación de velocidad (429) que se reintentan en el lado servidor en el panel Métricas de Cosmos DB. Tenga en cuenta que estos errores no van al cliente cuando SSR está habilitado, ya que se controlan y se reintentan en el lado servidor. 
+    *  Puede buscar entradas de registro que contengan "estimatedDelayFromRateLimitingInMilliseconds" en los [registros de recursos de Cosmos DB](cosmosdb-monitor-resource-logs.md).
+*  ¿Afectará SSR a mi nivel de coherencia?
+    *  SSR no afecta a la coherencia de una solicitud. Las solicitudes se reintentan en el lado servidor si tienen una frecuencia limitada (con un error 429). 
+*  ¿Afecta SSR a cualquier tipo de error que pueda recibir mi cliente?
+    *  No, SSR solo afecta a los errores de limitación de velocidad (429) al volver a intentar en el lado servidor. Esta característica evita que tenga que controlar los errores de limitación de velocidad en la aplicación cliente. Todos los [otros errores](mongodb-troubleshoot.md) irán al cliente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222996"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051879"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Preguntas frecuentes sobre Load Balancer
 
@@ -48,6 +48,10 @@ Mediante el comando nslookup, puede enviar una consulta DNS del nombre myip.open
  
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>¿Puedo agregar una máquina virtual del mismo conjunto de disponibilidad a diferentes grupos de back-end de una instancia de Load Balancer?
 No, no es posible.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>¿Cuál es el rendimiento máximo de datos que se puede lograr a través de una instancia de Azure Load Balancer?
+Dado que Azure LB es un equilibrador de carga de red de tránsito, el tipo de máquina virtual que se usa en el grupo de back-end dicta las limitaciones de rendimiento. Para obtener más información relacionada con el rendimiento de la red, consulte [Rendimiento de red de máquinas virtuales](../virtual-network/virtual-machine-network-throughput.md).
+
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>¿Cómo funcionan las conexiones a Azure Storage en la misma región?
 La conectividad saliente a través de los escenarios anteriores no es necesaria para conectarse al almacenamiento en la misma región que la máquina virtual. Si no quiere que pase esto, use grupos de seguridad de red (NSG) como se explicó anteriormente. Para la conectividad con el almacenamiento en otras regiones, se requiere conectividad de salida. Tenga en cuenta que, al conectarse al almacenamiento desde una máquina virtual en la misma región, la dirección IP de origen en los registros de diagnóstico de almacenamiento será una dirección de proveedor interna y no la dirección IP pública de la máquina virtual. Si desea restringir el acceso a la cuenta de almacenamiento a las máquinas virtuales de una o varias subredes de Virtual Network en la misma región, use [Virtual Network los puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) y no la dirección IP pública al configurar el firewall de la cuenta de almacenamiento. Una vez configurados los puntos de conexión de servicio, verá la dirección IP privada de su instancia de Virtual Network en los registros de diagnóstico de almacenamiento y no la dirección interna del proveedor.

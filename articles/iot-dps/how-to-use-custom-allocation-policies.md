@@ -3,17 +3,17 @@ title: Personalización de directivas de asignación con Azure IoT Hub Device Pr
 description: Uso de directivas de asignación personalizadas con Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2019
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571647"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919231"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -78,8 +78,11 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
 3. Use Azure Cloud Shell para crear el centro de IoT para la **división de tostadoras Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
 
-    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-toasters-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-toasters-` en el nombre del centro.
+    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-toasters-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. 
 
+    > [!CAUTION]
+    > El código de ejemplo de la función de Azure Functions para la directiva de asignación personalizada requiere la subcadena `-toasters-` en el nombre del centro. Asegúrese de usar un nombre que contenga la subcadena de tostadoras requerida.
+    
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
@@ -88,13 +91,35 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
 4. Use Azure Cloud Shell para crear el centro de IoT para la **división de bombas de calor Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este centro de IoT también se agregará a *contoso-us-resource-group*.
 
-    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-heatpumps-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-heatpumps-` en el nombre del centro.
+    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-heatpumps-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. 
+
+    > [!CAUTION]
+    > El código de ejemplo de la función de Azure Functions para la directiva de asignación personalizada requiere la subcadena `-heatpumps-` en el nombre del centro. Asegúrese de usar un nombre que contenga la subcadena de bombas de calor requerida.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
     Este comando puede tardar varios minutos en completarse.
+
+5. Los centros de IoT se deben vincular al recurso de DPS. 
+
+    Ejecute los dos comandos siguientes para obtener las cadenas de conexión para los centros que acaba de crear. Reemplace los nombres de los recursos del centro por los nombres elegidos en cada comando:
+
+    ```azurecli-interactive 
+    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
+    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```
+
+    Ejecute los comandos siguientes para vincular los concentradores al recurso de DPS. Reemplace el nombre del recurso de DPS por el nombre que eligió en cada comando:
+
+    ```azurecli-interactive 
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    ```
+
+
+
 
 ## <a name="create-the-custom-allocation-function"></a>Creación de la función de asignación personalizada
 
@@ -114,6 +139,8 @@ En esta sección, creará una función de Azure que implementa la directiva de a
 
     **Pila del entorno en tiempo de ejecución**: seleccione **.NET Core** en la lista desplegable.
 
+    **Versión**: Seleccione **3.1** en la lista desplegable.
+
     **Región**: seleccione la misma región que la del grupo de recursos. En este ejemplo se usa **West US**.
 
     > [!NOTE]
@@ -123,19 +150,15 @@ En esta sección, creará una función de Azure que implementa la directiva de a
 
 4. En la página **Resumen**, seleccione **Crear** para crear la aplicación de funciones. La implementación puede tardar varios minutos. Cuando finalice, seleccione **Ir al recurso**.
 
-5. En el panel izquierdo de la página **Información general** de la aplicación de funciones, seleccione **+** junto a **Funciones** para agregar una nueva función.
+5. En el panel izquierdo de la página **Información general** de la aplicación de funciones, seleccione **Funciones** y luego **+ Agregar** para agregar una nueva función.
 
-    ![Adición de una función a la aplicación de funciones](./media/how-to-use-custom-allocation-policies/create-function.png)
+6. En la página **Agregar función**, haga clic en **Desencadenador HTTP** y luego en el botón **Agregar**.
 
-6. En la página **Azure Functions para .NET: introducción**, en el paso **CHOOSE A DEPLOYMENT ENVIRONMENT** (Elija un entorno de implementación), seleccione el icono **En el portal** y, luego, seleccione **Continuar**.
+7. En la página siguiente, haga clic en **Código + prueba**. Esto le permite editar el código de la función denominada **HttpTrigger1**. Se debe abrir el archivo de código **run.csx** para su edición.
 
-    ![Selección del entorno de desarrollo del portal](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+8. Haga referencia a los paquetes NuGet necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes NuGet que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes NuGet mediante un archivo *function.proj*. En este paso, guardará y cargará un archivo *function.proj* para los ensamblados necesarios.  Para obtener más información, vea [Uso de paquetes NuGet con Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
-7. En la página siguiente, en el paso **Crear una función**, seleccione el icono **Webhook y API** y, luego, seleccione **Crear**. Se crea una función denominada **HttpTrigger1** y el portal muestra el contenido del archivo de código **run.csx**.
-
-8. Haga referencia a los paquetes NuGet necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes NuGet que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes NuGet mediante un archivo *function.host*. En este paso, guardará y cargará un archivo *function.host*.
-
-    1. Copie las siguientes líneas en su editor favorito y guarde el archivo en el equipo como *function.host*.
+    1. Copie las siguientes líneas en su editor favorito y guarde el archivo en el equipo como *function.proj*.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -143,21 +166,15 @@ En esta sección, creará una función de Azure que implementa la directiva de a
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
             </ItemGroup>  
         </Project>
         ```
 
-    2. En la función **HttpTrigger1**, expanda la pestaña **Ver archivos** en el lado derecho de la ventana.
+    2. Haga clic en el botón **Cargar** situado encima del editor de código para cargar el archivo *function.proj*. Después de cargar, seleccione el archivo en el editor de código con el cuadro desplegable para comprobar el contenido.
 
-        ![Apertura de los archivos de vista](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
-
-    3. Seleccione **Cargar**, busque el archivo **function.proj** y seleccione **Abrir** para cargar el archivo.
-
-        ![Selección del archivo de carga](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
-
-9. Reemplace el código de la función **HttpTrigger1** por el código siguiente y seleccione **Guardar**:
+9. Asegúrese de que *run.csx* para **HttpTrigger1** está seleccionado en el editor de código. Reemplace el código de la función **HttpTrigger1** por el código siguiente y seleccione **Guardar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -314,29 +331,15 @@ En esta sección, creará un grupo de inscripciones que use la directiva de asig
 
     **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Personalizado (use la función de Azure)**
 
+    **Suscripción**: seleccione la suscripción en la que ha creado la función de Azure Functions.
+
+    **Aplicación de funciones**: seleccione la aplicación de funciones por nombre. En este ejemplo se usó **contoso-function-app-1098**.
+
+    **Función**: seleccione la función **HttpTrigger1**.
+
     ![Adición de un grupo de inscripciones de asignación personalizado para la atestación de clave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. En **Agregar grupo de inscripciones**, seleccione **Vincular un nuevo centro de IoT** para vincular sus dos centros de IoT de división.
-
-    Ejecute este paso con sus dos centros de IoT de división.
-
-    **Suscripción**: si tiene varias suscripciones, elija aquella en la que ha creado los centros de IoT de división.
-
-    **Centro de IoT**: seleccione uno de los centros de división que ha creado.
-
-    **Directiva de acceso**: elija **iothubowner**.
-
-    ![Vinculación de los centros de IoT de división con el servicio de aprovisionamiento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
-5. En **Agregar grupo de inscripciones**, una vez que haya vinculado ambos centros de IoT de división, debe seleccionarlos para que sean el grupo de IoT Hub para el grupo de inscripciones, tal y como se muestra a continuación:
-
-    ![Creación del grupo de centros de división para la inscripción](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
-6. En **Agregar grupo de inscripciones**, desplácese hacia abajo hasta la sección **Seleccionar función de Azure** y seleccione la aplicación de funciones que creó en la sección anterior. Después, seleccione la función que ha creado y haga clic en Guardar para guardar el grupo de inscripción.
-
-    ![Seleccionar la función y guardar el grupo de inscripción](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-7. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal**. Primero debe guardar la inscripción para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para los dispositivos simulados más adelante.
+4. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal**. Primero debe guardar la inscripción para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para los dispositivos simulados más adelante.
 
 ## <a name="derive-unique-device-keys"></a>Derivación de las claves de dispositivo únicas
 
@@ -349,56 +352,59 @@ Para el ejemplo de este artículo, use los dos identificadores de registro de di
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-### <a name="linux-workstations"></a>Estaciones de trabajo de Linux
 
-Si usa una estación de trabajo de Linux, puede utilizar openssl para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
-
-1. Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
-
-    ```bash
-    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-    REG_ID1=breakroom499-contoso-tstrsd-007
-    REG_ID2=mainbuilding167-contoso-hpsd-088
-
-    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-    ```
-
-    ```bash
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
-
-### <a name="windows-based-workstations"></a>Estaciones de trabajo basadas en Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
 
-1. Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
+Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
 
-    ```powershell
-    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+```powershell
+$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-    $REG_ID1='breakroom499-contoso-tstrsd-007'
-    $REG_ID2='mainbuilding167-contoso-hpsd-088'
+$REG_ID1='breakroom499-contoso-tstrsd-007'
+$REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($key)
-    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-    $derivedkey1 = [Convert]::ToBase64String($sig1)
-    $derivedkey2 = [Convert]::ToBase64String($sig2)
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+$derivedkey1 = [Convert]::ToBase64String($sig1)
+$derivedkey2 = [Convert]::ToBase64String($sig2)
 
-    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-    ```
+echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+```
 
-    ```powershell
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
+```powershell
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Si usa una estación de trabajo de Linux, puede utilizar openssl para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
+
+Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
+
+```bash
+KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+
+REG_ID1=breakroom499-contoso-tstrsd-007
+REG_ID2=mainbuilding167-contoso-hpsd-088
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+
+echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+```
+
+```bash
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+---
 
 Los dispositivos simulados usarán las claves de dispositivo derivadas con cada Id. de registro para realizar la atestación de clave simétrica.
 

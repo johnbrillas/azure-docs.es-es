@@ -3,12 +3,12 @@ title: Administración del ciclo de vida de las máquinas virtuales de Azure VMw
 description: Aprenda a administrar todos los aspectos del ciclo de vida de las máquinas virtuales de Azure VMware Solution con herramientas nativas de Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326818"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062903"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
 
@@ -81,13 +81,13 @@ Azure Security Center no requiere implementación. Para obtener más informació
 
 Azure Arc amplía la administración de Azure a cualquier infraestructura, incluidos Azure VMware Solution, el entorno local u otras plataformas en la nube.
 
-- Vea [Conexión de máquinas híbridas a Azure a gran escala](../azure-arc/servers/onboard-service-principal.md) a fin de habilitar servidores habilitados para Azure Arc para varias máquinas virtuales Windows o Linux.
+- Para información sobre la habilitación de servidores habilitados para Azure Arc para varias máquinas virtuales Windows o Linux, vea [Conexión de máquinas híbridas a Azure a gran escala](../azure-arc/servers/onboard-service-principal.md).
 
 ### <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Incorporación de clústeres híbridos de Kubernetes con Kubernetes habilitado para Azure Arc
 
 Puede adjuntar un clúster de Kubernetes hospedado en el entorno de Azure VMware Solution mediante Kubernetes habilitado para Azure Arc. 
 
-- Vea [Creación de una entidad de servicio de incorporación habilitada para Azure Arc](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+- Para más información, consulte [Creación de una entidad de servicio de incorporación habilitada para Azure Arc](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ### <a name="deploy-the-log-analytics-agent"></a>Implementación del agente de Log Analytics
 

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ca01397959aa50c77218742320f8ced128876bad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: aea0a79d1ae27d987a6a30cfefe91e875f9a8382
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018685"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097513"
 ---
 # <a name="dv4-and-dsv4-series"></a>Series Dv4 y Dsv4
 
@@ -34,6 +34,8 @@ El almacenamiento en disco de datos remotos se factura de forma independiente a 
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |
@@ -56,6 +58,8 @@ Los tamaños de la serie Dsv4 se ejecutan en procesadores Intel&reg; Xeon&reg; P
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC|Ancho de banda de red esperado (Mbps) |

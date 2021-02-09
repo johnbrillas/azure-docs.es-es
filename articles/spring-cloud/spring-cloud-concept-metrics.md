@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755481"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051607"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -121,6 +121,7 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| Recuento de GC de generación 0  | gen-0-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 0 por segundo. |
 >| Recuento de GC de generación 1  | gen-1-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 1 por segundo. |
 >| Recuento de GC de generación 2  | gen-2-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 2 por segundo. |
+>| Tiempo en GC      | timein-gc      | Percent      | Porcentaje de tiempo en la recolección de elementos no utilizados desde la última recolección de elementos no utilizados. |
 >| Tamaño del montón de gen. 0 | gen-0-size     | Bytes        | Tamaño del montón de generación 0. |
 >| Tamaño del montón de gen. 1 | gen-1-size     | Bytes        | Tamaño del montón de la generación 1. |
 >| Tamaño del montón de gen. 2 | gen-2-size     | Bytes        | Tamaño del montón de generación 2. |

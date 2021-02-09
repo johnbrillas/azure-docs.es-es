@@ -1,7 +1,7 @@
 ---
 title: Novedades de Azure Active Directory de negocio a cliente (B2C)
 description: Documentación nueva y actualizada de Azure Active Directory de negocio a cliente (B2C).
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559734"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255176"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: Novedades
 
 Novedades de la documentación de Azure Active Directory B2C. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio B2C, consulte [Novedades de Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Enero de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Personalización de la interfaz de usuario en Azure Active Directory B2C](customize-ui.md)
+- [Restricciones y límites del servicio Azure Active Directory B2C](service-limits.md)
+- [Configuración del registro y el inicio de sesión con una cuenta de Azure AD B2C de otro inquilino de Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Configuración del proveedor de identidades de la cuenta local](identity-provider-local.md)
+- [Configuración de un flujo de inicio de sesión en Azure Active Directory B2C](add-sign-in-policy.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights](analytics-with-application-insights.md)
+- [TechnicalProfiles](technicalprofiles.md)
+- [Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C](customize-ui-with-html.md)
+- [Administrar Azure AD B2C con Microsoft Graph](microsoft-graph-operations.md)
+- [Incorporación de AD FS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C](identity-provider-adfs.md)
+- [Configuración del inicio de sesión con un proveedor de Salesforce SAML mediante el protocolo SAML en Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Tutorial: Registro de una aplicación web en Azure Active Directory B2C](tutorial-register-applications.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Amazon mediante Azure Active Directory B2C](identity-provider-amazon.md)
+- [Configuración del registro y el inicio de sesión con una cuenta de Azure AD B2C de otro inquilino de Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md)
+- [Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C](identity-provider-facebook.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de GitHub mediante Azure Active Directory B2C](identity-provider-github.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C](identity-provider-google.md)
+- [Configuración del registro y del inicio de sesión con una cuenta de ID.me mediante Azure Active Directory B2C](identity-provider-id-me.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de LinkedIn mediante Azure Active Directory B2C](identity-provider-linkedin.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C](identity-provider-microsoft-account.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de QQ mediante Azure Active Directory B2C](identity-provider-qq.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Salesforce mediante Azure Active Directory B2C](identity-provider-salesforce.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C](identity-provider-twitter.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de WeChat mediante Azure Active Directory B2C](identity-provider-wechat.md)
+- [Configuración de la suscripción y del inicio de sesión con una cuenta de Weibo mediante Azure Active Directory B2C](identity-provider-weibo.md)
+- [Información general sobre las directivas personalizadas de Azure AD B2C](custom-policy-trust-frameworks.md)
+
 
 ## <a name="december-2020"></a>Diciembre de 2020
 

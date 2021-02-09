@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 41ab057bdbf31667e45a73b2c5ded4993e716a66
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ac1147435bee60db0f3028289a83026e1f9c1c15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131566"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091687"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -27,7 +27,8 @@ Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [N
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
-Redes aceleradas: Compatible<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 Interconexión de NVIDIA NVLink: No compatible<br>
 <br>
 

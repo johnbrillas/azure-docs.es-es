@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504739"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491026"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Uso de valores con nombre en las directivas de Azure API Management
 
@@ -43,7 +43,7 @@ Se recomienda el uso de secretos de Key Vault, ya que esto ayuda a mejorar la se
 
 * Los secretos almacenados en almacenes de claves se pueden reutilizar entre servicios
 * Se pueden aplicar [directivas de acceso](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) pormenorizadas a los secretos
-* Los secretos actualizados en el almacén de claves se rotan automáticamente en API Management. Después de la actualización en el almacén de claves, un valor con nombre en API Management se actualiza en un plazo de 4 horas. 
+* Los secretos actualizados en el almacén de claves se rotan automáticamente en API Management. Después de la actualización en el almacén de claves, un valor con nombre en API Management se actualiza en un plazo de 4 horas. También puede actualizar manualmente el secreto mediante Azure Portal o a través de la API REST de administración.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Requisitos previos para la integración de un almacén de claves
 
@@ -58,25 +58,16 @@ Se recomienda el uso de secretos de Key Vault, ya que esto ayuda a mejorar la se
 
 Para usar el secreto del almacén de claves, [agregue o edite un valor con nombre](#add-or-edit-a-named-value) y especifique un tipo de **almacén de claves**. Seleccione el secreto del almacén de claves.
 
-> [!CAUTION]
-> Al usar un secreto del almacén de claves en API Management, tenga cuidado de no eliminar el secreto, el almacén de claves ni la identidad administrada que se usa para acceder al almacén de claves.
-
-Si el [firewall de Key Vault](../key-vault/general/network-security.md) está habilitado en el almacén de claves, los siguientes son requisitos adicionales para el uso de secretos del almacén de claves:
-
-* Para acceder al almacén de claves, debe usar la identidad administrada **asignada por el sistema** de la instancia de API Management.
-* En el firewall de Key Vault, establezca la opción **¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?**
-
-Si la instancia de API Management se ha implementado en una red virtual, configure también las siguientes opciones de red:
-* Habilite un [punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md) para Azure Key Vault en la subred de API Management.
-* Configure una regla de grupo de seguridad de red (NSG) para permitir el tráfico saliente a las [etiquetas de servicio](../virtual-network/service-tags-overview.md) AzureKeyVault y AzureActiveDirectory. 
-
-Para obtener más información, consulte los detalles de configuración de red en [Conexión a una red virtual](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Adición o edición de un valor con nombre
 
 ### <a name="add-a-key-vault-secret"></a>Adición de un secreto de almacén de claves
 
 Consulte [Requisitos previos para la integración de un almacén de claves](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Al usar un secreto del almacén de claves en API Management, tenga cuidado de no eliminar el secreto, el almacén de claves ni la identidad administrada que se usa para acceder al almacén de claves.
 
 1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com).
 1. En **API**, seleccione **Calores con nombre** >  **+Agregar**.

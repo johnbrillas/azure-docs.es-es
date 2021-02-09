@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046050"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430635"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -205,7 +205,11 @@ Una vez que el entorno de ejecución está instalado en el dispositivo, configur
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   También puede usar las líneas `always_reprovision_on_startup` o `dynamic_reprovisioning` para configurar el comportamiento de reaprovisionamiento del dispositivo. Si un dispositivo se establece para que se vuelva a aprovisionar en el inicio, siempre intentará aprovisionar con DPS primero y, a continuación, revertir a la copia de seguridad de aprovisionamiento si se produce un error. Si un dispositivo se establece para que se vuelva a aprovisionar dinámicamente, IoT Edge se reiniciará y volverá a aprovisionar si se detecta un evento de reaprovisionamiento. Para más información, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](../iot-dps/concepts-device-reprovision.md).
 
 1. Actualice los valores de `scope_id` y `registration_id` con la información de DPS y del dispositivo.
 

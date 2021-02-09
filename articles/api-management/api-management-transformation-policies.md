@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657250"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491763"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -214,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Las entidades de back-end pueden administrarse mediante [API](/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Las entidades de back-end pueden administrarse mediante [Azure Portal](how-to-configure-service-fabric-backend.md), la [API](/rest/api/apimanagement) de administración y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Ejemplo
 
@@ -269,7 +269,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |base-url|Nueva dirección URL base del servicio back-end.|`base-url` o `backend-id` deben estar presentes.|N/D|
-|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [API](/rest/api/apimanagement/2019-12-01/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
+|backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran mediante [Azure Portal](how-to-configure-service-fabric-backend.md), la [API](/rest/api/apimanagement) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|`base-url` o `backend-id` deben estar presentes.|N/D|
 |sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|No|N/D|
 |sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |No|N/D|
 |sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|No|N/D|

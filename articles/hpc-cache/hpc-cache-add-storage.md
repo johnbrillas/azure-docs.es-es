@@ -4,14 +4,14 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657183"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054372"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -165,19 +165,21 @@ Un destino de almacenamiento de NFS tiene una configuración diferente de un des
 
 Cuando cree un destino de almacenamiento que apunte a un sistema de almacenamiento NFS, deberá elegir el modelo de uso de ese destino. Este modelo determina cómo se almacenan los datos en caché.
 
+Los modelos de uso integrados permiten elegir cómo equilibrar la respuesta rápida con el riesgo de obtener datos obsoletos. Si desea optimizar la velocidad de lectura de los archivos, es posible que no le interese si los archivos de la memoria caché se comparan con los archivos de back-end. Por otro lado, si desea asegurarse de que los archivos estén siempre actualizados con el almacenamiento remoto, elija un modelo que realice comparaciones frecuentes.
+
 Hay tres opciones:
 
 * **Lectura de textos densos y poco frecuentes**: utilice esta opción si desea acelerar el acceso de lectura a archivos que son estáticos o que no se suelen modificar.
 
-  Esta opción almacena en caché los archivos que los clientes leen, pero pasa las escrituras por el almacenamiento de back-end inmediatamente. Los archivos almacenados en la memoria caché nunca se comparan con los archivos del volumen de almacenamiento NFS.
+  Esta opción almacena en caché los archivos que los clientes leen, pero pasa las escrituras por el almacenamiento de back-end inmediatamente. Los archivos almacenados en la memoria caché no se comparan automáticamente con los archivos del volumen de almacenamiento NFS. (Para más información, lea la nota siguiente sobre la comprobación de back-end).
 
-  No use esta opción si existe el riesgo de que un archivo se pueda modificar directamente en el sistema de almacenamiento sin escribirlo primero en la memoria caché. Si esto ocurre, la versión almacenada en caché del archivo nunca se actualizará con los cambios del back-end y el conjunto de datos puede volverse incoherente.
+  No use esta opción si existe el riesgo de que un archivo se pueda modificar directamente en el sistema de almacenamiento sin escribirlo primero en la memoria caché. Si esto sucede, la versión en caché del archivo no estará sincronizada con el archivo de back-end.
 
 * **Mayor que el 15 % de textos**: esta opción acelera el rendimiento de lectura y escritura. Al usar esta opción, todos los clientes deben acceder a los archivos mediante Azure HPC Cache en lugar de montar el almacenamiento de back-end directamente. Los archivos almacenados en caché tendrán cambios recientes que no se almacenan en el back-end.
 
-  En este modelo de uso, los archivos de la memoria caché no se comparan con los archivos del almacenamiento de back-end. Se supone que la versión en caché del archivo es más actual. Un archivo modificado en la memoria caché se escribe en el sistema de almacenamiento de back-end después de que esté en la memoria caché durante una hora sin cambios adicionales.
+  En este modelo de uso, los archivos de la caché solo se comparan con los archivos del almacenamiento de back-end cada ocho horas. Se supone que la versión en caché del archivo es más actual. Un archivo modificado en la memoria caché se escribe en el sistema de almacenamiento de back-end después de que esté en la memoria caché durante una hora sin cambios adicionales.
 
-* **Los clientes escriben en el destino NFS omitiendo la caché**: elija esta opción si algún cliente del flujo de trabajo escribe datos directamente en el sistema de almacenamiento sin escribir primero en la memoria caché. Los archivos que solicitan los clientes se almacenan en caché, pero los cambios que se realicen en esos archivos desde el cliente se devuelven al sistema de almacenamiento de back-end inmediatamente.
+* **Los clientes escriben en el destino NFS omitiendo la caché**: elija esta opción si algún cliente del flujo de trabajo escribe datos directamente en el sistema de almacenamiento sin escribir primero en la caché o si quiere optimizar la coherencia de los datos. Los archivos que solicitan los clientes se almacenan en caché, pero los cambios que se realicen en esos archivos desde el cliente se devuelven al sistema de almacenamiento de back-end inmediatamente.
 
   Con este modelo de uso, los archivos de la memoria caché se comparan con frecuencia con las versiones de back-end para determinar si hay actualizaciones. Esta comprobación permite cambiar los archivos fuera de la memoria caché al tiempo que se preserva la coherencia de los datos.
 
@@ -186,8 +188,11 @@ En esta tabla se resumen las diferencias de los modelos de uso:
 | Modelo de uso                   | Modo de almacenamiento en caché | Comprobación de back-end | Retraso máximo de reescritura |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Lectura de textos densos y poco frecuentes | Lectura         | Nunca                 | None                     |
-| Mayor que el 15 % de textos       | Lectura/escritura   | Nunca                 | 1 hora                   |
+| Mayor que el 15 % de textos       | Lectura/escritura   | 8 horas               | 1 hora                   |
 | Los clientes omiten la memoria caché      | Lectura         | 30 segundos            | None                     |
+
+> [!NOTE]
+> El valor de la **Comprobación de back-end** muestra cuándo la caché compara automáticamente sus archivos con los archivos de origen que están en el almacenamiento remoto. Sin embargo, puede forzar que Azure HPC Cache compare los archivos mediante una operación de directorio que incluye una solicitud readdirplus. Readdirplus es una API NFS estándar (también llamada lectura extendida) que devuelve metadatos de directorio, lo que hace que la caché compare y actualice los archivos.
 
 ### <a name="create-an-nfs-storage-target"></a>Creación de un destino de almacenamiento de NFS
 

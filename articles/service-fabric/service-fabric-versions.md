@@ -3,12 +3,12 @@ title: Actualización de la versión del clúster de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881557"
+ms.locfileid: "98918116"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Actualización de la versión del clúster de Azure Service Fabric
 
@@ -118,10 +118,12 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 7.1.458.* | 7.0.466.* |Versión 4.1 o anterior |31 de marzo de 2021 |
 | 7.1.459.* | 7.0.466.* |Versión 4.1 o anterior |31 de marzo de 2021 |
 | 7.1.503.* | 7.0.466.* |Versión 4.1 o anterior |31 de marzo de 2021 |
+| 7.1.510.* | 7.0.466.* |Versión 4.1 o anterior |31 de marzo de 2021 |
 | 7.2.413.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 | 7.2.432.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 | 7.2.433.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 | 7.2.445.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.2.452.* | 7.0.470.* |Versión 4.2 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -198,7 +200,9 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| 7.2 RTO | 7.2.413.9590 | No aplicable|
+| 7.1 CU10 | 7.1.510.9590 | N/D |
+| 7.2 RTO | 7.2.413.9590 | N/D |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7.2 CU3 | 7.2.433.9590 | No aplicable|
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
+| 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |

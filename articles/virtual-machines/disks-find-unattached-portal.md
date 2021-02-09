@@ -4,19 +4,19 @@ description: Cómo buscar discos administrados y no administrados (VHD o blobs e
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542745"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898162"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados: Azure Portal
 
-Cuando se elimina una máquina virtual (VM) en Azure, de forma predeterminada, no se elimina ningún disco asociado a la máquina virtual. Esto ayuda a evitar la pérdida de datos debido a la eliminación accidental de máquinas virtuales. Después de eliminar una máquina virtual, seguirá pagando por los discos no asociados. En este artículo se muestra cómo buscar y eliminar los discos no conectados mediante Azure Portal y reducir costos innecesarios.
+Cuando se elimina una máquina virtual (VM) en Azure, de forma predeterminada, no se elimina ningún disco asociado a la máquina virtual. Esto ayuda a evitar la pérdida de datos debido a la eliminación accidental de máquinas virtuales. Después de eliminar una máquina virtual, seguirá pagando por los discos no asociados. En este artículo se muestra cómo buscar y eliminar los discos no conectados mediante Azure Portal y reducir costos innecesarios. Las eliminaciones son permanentes, por lo que no podrá recuperar los datos una vez que elimine un disco.
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos administrados: Búsqueda y eliminación de discos no conectados
 
@@ -45,17 +45,17 @@ Si tiene discos no administrados que no están conectados a una máquina virtual
 
     Se le mostrará una lista de todos los discos no administrados. Cualquier disco que tenga " **-** " en la columna **Conectado a** es un disco no conectado.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de pantalla de una hoja de discos administrados individuales. Esta hoja mostrará Sin adjuntar en el estado del disco si no está conectado. Puede eliminar este disco si no necesita conservar los datos más tiempo.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Captura de pantalla de la hoja discos no administrados. Los discos de esta hoja que tienen - en la columna Conectado a no están conectados.":::
 
 1. Seleccione el disco no conectado que desea eliminar; se abrirá la hoja del disco.
 
 1. En la hoja del disco, puede confirmar que está desconectado, ya que **Conectado a** seguirá siendo **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de pantalla de una hoja de discos administrados individuales. Esta hoja mostrará Sin adjuntar en el estado del disco si no está conectado. Puede eliminar este disco si no necesita conservar los datos más tiempo.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Captura de pantalla de una hoja individual de un disco no administrado. Tendrá - como el valor Conectado a si no está conectado. Si ya no necesita los datos de este disco, puede eliminarlos.":::
 
 1. Seleccione **Eliminar**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de pantalla de una hoja de discos administrados individuales. Esta hoja mostrará Sin adjuntar en el estado del disco si no está conectado. Puede eliminar este disco si no necesita conservar los datos más tiempo.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Captura de pantalla de una hoja individual de un disco no administrado, con Eliminar resaltado.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

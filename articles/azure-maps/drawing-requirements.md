@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044788"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895278"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de paquetes de dibujos
 
@@ -106,7 +106,7 @@ Independientemente de cuántos dibujos de entidad haya en la capa exterior, el [
 * Los exteriores deben dibujarse como polígonos, polilíneas (cerradas), círculos o elipses (cerradas).
 * Los exteriores pueden superponerse, pero se disuelven en una geometría.
 * La característica de nivel resultante debe tener al menos 4 metros cuadrados.
-* La característica de nivel resultante no debe tener más de 400 metros cuadrados.
+* La característica de nivel resultante no debe tener más de 400 000 metros cuadrados.
 
 Si la capa contiene varias polilíneas superpuestas, estas se disuelven en una única característica de nivel. Como alternativa, si la capa contiene varias polilíneas que no se solapan, la característica de nivel resultante tiene una representación multipoligonal.
 

@@ -1,16 +1,16 @@
 ---
-title: Incorporación de enlaces a una función existente de Azure Functions
-description: Obtenga información sobre cómo incorporar enlaces a una función existente en el proyecto de Azure Functions.
+title: Conexión de funciones a otros servicios de Azure
+description: Obtenga información sobre cómo agregar enlaces que conecten otros servicios de Azure a una función existente en un proyecto de Azure Functions.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654073"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258208"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Incorporación de enlaces a una función existente de Azure Functions
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Conexión de funciones a servicios de Azure mediante enlaces
 
 Al crear una función, se agrega código del desencadenador específico del idioma en el proyecto desde un conjunto de plantillas de desencadenador. Si desea conectar la función a otros servicios mediante enlaces de entrada o salida, debe agregar definiciones de enlace específicas en la función. Para más información acerca de los enlaces, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
 

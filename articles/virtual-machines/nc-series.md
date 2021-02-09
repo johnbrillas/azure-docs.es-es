@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97b5d6bc6f19e07ea7c980b98c1e7986c59dc546
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 759ae69784e9e9e1c472ffa7f00ae07e28f9b37e
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585418"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091704"
 ---
 # <a name="nc-series"></a>Serie NC
 
@@ -23,6 +23,8 @@ Las máquinas virtuales de la serie NC funcionan con la tarjeta [NVIDIA Tesla K8
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): No compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 Interconexión de NVIDIA NVLink: No compatible<br>
 <br>
 

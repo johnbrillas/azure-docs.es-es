@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927913"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061965"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 
@@ -59,7 +59,7 @@ Para que un control de consulta use este origen de datos, utilice la lista despl
 
 ## <a name="azure-data-explorer"></a>Explorador de datos de Azure
 
-Los libros admiten ahora la consulta desde clústeres de [Azure Data Explorer](/azure/data-explorer/) con el poderoso lenguaje de consulta de [Kusto](/azure/kusto/query/index).   
+Los libros admiten ahora la consulta desde clústeres de [Azure Data Explorer](/azure/data-explorer/) con el poderoso lenguaje de consulta de [Kusto](/azure/kusto/query/index).
 
 ![Captura de pantalla de la ventana de consulta de Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Para que un control de consulta use este origen de datos, utilice la lista despl
 
 ![Captura de pantalla de la consulta de alertas que muestra las listas de filtros de estado.](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Change Analysis (versión preliminar)
+
+Para realizar un control de consulta con [Application Change Analysis](../app/change-analysis.md) como el origen de datos, use el menú desplegable *Origen de datos*, elija *Change Analysis (versión preliminar)* y seleccione un recurso único. Se pueden mostrar los cambios hasta los últimos 14 días. El menú desplegable *Nivel* se puede usar para filtrar entre los cambios de tipo "Important" (Importante), "Normal" (Normal) y "Noisy" (Ruidoso), y este menú desplegable admite parámetros de libro de tipo [desplegable](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de un libro con Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Combinación de datos de orígenes distintos
+
+A menudo, es necesario reunir datos de distintos orígenes que mejoran la experiencia de la información. Un ejemplo es el aumento de la información de alerta activa con datos de métricas relacionados. Esto permite a los usuarios ver no solo el efecto (una alerta activa), sino también las posibles causas (por ejemplo, un uso elevado de la CPU). El dominio de supervisión tiene muchos orígenes de datos que se pueden correlacionar, que a menudo son críticos para el flujo de trabajo de evaluación de prioridades y diagnóstico.
+
+Los libros no solo permiten la consulta de orígenes de datos diferentes, sino que también proporciona controles sencillos que permiten combinar o unir los datos para proporcionar información enriquecida. La forma de lograrlo es el control `merge`.
+
+En el ejemplo siguiente se combinan datos de alertas con los datos de rendimiento de la máquina virtual de análisis de registros para obtener una cuadrícula de información enriquecida.
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de un libro con un control de combinación que combina datos de alertas y de análisis de registros](./media/workbooks-data-sources/merge-control.png)
+
+Los libros admiten una variedad de combinaciones:
+
+* Combinación única interna
+* Combinación interna completa
+* Combinación externa completa
+* Combinación externa izquierda
+* Combinación externa derecha
+* Semicombinación izquierda
+* Semicombinación derecha
+* Anticombinación izquierda
+* Anticombinación derecha
+* Unión
+* Tabla duplicada
+
 ## <a name="json"></a>JSON
 
 El proveedor JSON permite crear un resultado de la consulta a partir de contenido de JSON estático. Normalmente se usa en parámetros para crear parámetros de lista desplegable de valores estáticos. Los objetos o las matrices JSON simples se convertirán automáticamente en filas y columnas de la cuadrícula.  Para comportamientos más específicos, puede usar la pestaña Resultados y la configuración JSONPath para configurar columnas.
+
+Este proveedor admite [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="alerts-preview"></a>Alertas (versión preliminar)
 
@@ -102,10 +136,12 @@ Los libros permiten obtener datos desde cualquier origen externo. Si los datos r
 
 Para que un control de consulta use este origen de datos, utilice la lista desplegable _Origen de datos_ para elegir _Punto de conexión personalizado_. Proporcione los parámetros adecuados como `Http method`, `url`, `headers`, `url parameters` o `body`. Asegúrese de que el origen de datos admita [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS); de lo contrario, se producirá un error en la solicitud.
 
-Para evitar la realización automática de llamadas a hosts que no son de confianza cuando se usan plantillas, el usuario debe marcar los hosts utilizados como de confianza. Para ello, haga clic en el botón _Agregar como de confianza_ o agréguelo como un host de confianza en la configuración del libro. Esta configuración se guardará en los exploradores que admiten IndexDb con roles de trabajo. [Aquí](https://caniuse.com/#feat=indexeddb) hay más información.
+Para evitar la realización automática de llamadas a hosts que no son de confianza cuando se usan plantillas, el usuario debe marcar los hosts utilizados como de confianza. Para ello, haga clic en el botón _Agregar como de confianza_ o agréguelo como un host de confianza en la configuración del libro. Esta configuración se guardará en los [exploradores que admiten IndexDb con roles de trabajo](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > No escriba ningún secreto en ninguno de los campos (`headers`, `parameters`, `body`, `url`), ya que estarán visibles para todos los usuarios del libro.
+
+Este proveedor admite [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

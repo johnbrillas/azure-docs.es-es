@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
-ms.openlocfilehash: bdbab0e032764d07119402686051d391376cb913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a2a41a8005e8bd0fbc313c9a177d54df6dac5e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843660"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627170"
 ---
 # <a name="exporting-de-identified-data-preview"></a>Exportación de datos sin identificación (versión preliminar)
 
@@ -22,6 +22,9 @@ ms.locfileid: "91843660"
 También se puede usar el comando $export para exportar datos sin identificación desde el servidor de FHIR. Usa el motor de anonimización de [Herramientas de FHIR para la anonimización](https://github.com/microsoft/FHIR-Tools-for-Anonymization) y toma los detalles de configuración de anonimización en los parámetros de la consulta. Puede crear su propio archivo de configuración de anonimización o usar el [archivo de configuración de ejemplo](https://github.com/microsoft/FHIR-Tools-for-Anonymization#sample-configuration-file-for-hipaa-safe-harbor-method) para el método Safe Harbor de HIPAA como punto de partida. 
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
+
+> [!Note] 
+> En este momento, Azure API for FHIR solo admite la exportación sin identificación en el nivel de sistema ($export).
 
 |Parámetro de consulta            | Ejemplo |Opcionalidad| Descripción|
 |---------------------------|---------|-----------|------------|

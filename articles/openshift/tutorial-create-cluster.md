@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675716"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072242"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -82,17 +82,17 @@ Al ejecutar el comando `az aro create`, puede especificar un dominio personaliza
 Si proporciona un dominio personalizado para el clúster, tenga en cuenta los siguientes puntos:
 
 * Después de crear el clúster, debe crear dos registros de DNS A en el servidor DNS para el `--domain` especificado:
-    * **API** : apunta a la dirección IP del servidor de API.
-    * **\*.apps** : apunta a la dirección IP de entrada.
+    * **API**: apunta a la dirección IP del servidor de API.
+    * **\*.apps**: apunta a la dirección IP de entrada.
     * Para recuperar estos valores, ejecute el comando siguiente después de la creación del clúster: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
 
 * La consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* De forma predeterminada, OpenShift usa certificados autofirmados para todas las rutas creadas en los dominios personalizados `*.apps.example.com`.  Si decide usar DNS personalizado después de conectarse al clúster, tendrá que seguir la documentación de OpenShift para [configurar una entidad de certificación personalizada para el controlador de entrada](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) y una [entidad de certificación personalizada para el servidor de API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* De forma predeterminada, OpenShift usa certificados autofirmados para todas las rutas creadas en los dominios personalizados `*.apps.example.com`.  Si decide usar DNS personalizado después de conectarse al clúster, tendrá que seguir la documentación de OpenShift para [configurar una entidad de certificación personalizada para el controlador de entrada](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) y una [entidad de certificación personalizada para el servidor de API](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creación de una red virtual que contenga dos subredes vacías
 
-A continuación, creará una red virtual que contenga dos subredes vacías.
+A continuación, creará una red virtual que contenga dos subredes vacías. Si ya tiene una red virtual adaptada a sus necesidades, puede omitir este paso.
 
 1. **Establezca las siguientes variables en el entorno de shell en el que se ejecutarán los comandos `az`.**
 
@@ -131,7 +131,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
 
 2. **Cree una red virtual.**
 
-   Los clústeres de Red Hat OpenShift en Azure que ejecutan OpenShift 4 requieren una red virtual con dos subredes vacías, una para los nodos maestros y otra para los nodos de trabajo.
+   Los clústeres de Red Hat OpenShift en Azure que ejecutan OpenShift 4 requieren una red virtual con dos subredes vacías, una para los nodos maestros y otra para los nodos de trabajo. Puede crear una red virtual para ello o usar una ya existente.
 
    Cree una red virtual en el mismo grupo de recursos que creó anteriormente:
 

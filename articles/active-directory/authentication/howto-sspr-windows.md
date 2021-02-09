@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741497"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491392"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory en la pantalla de inicio de sesión de Windows
 
@@ -40,7 +40,7 @@ Las siguientes limitaciones se aplican al uso de SSPR desde la pantalla de inici
 - Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización. Esto significa que los dispositivos deben estar en la red interna de la organización o en una VPN con acceso de red a un controlador de dominio local.
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Se sabe que los valores siguientes interfieren con la capacidad de usar y restablecer contraseñas en dispositivos con Windows 10:
-    - Si en versiones de Windows 10 anteriores a la 1909 la directiva requiere Ctrl+Alt+Supr, no funcionará **Restablecer contraseña**.
+    - Si la directiva requiere que se presione Ctrl+Alt+Supr en Windows 10, **Restablecer contraseña** no funcionará.
     - Si las notificaciones de la pantalla de bloqueo están desactivadas, tampoco funcionará **Restablecer contraseña**.
     - *HideFastUserSwitching* está establecido en habilitado o 1.
     - *DontDisplayLastUserName* está establecido en habilitado o 1.
@@ -51,6 +51,10 @@ Las siguientes limitaciones se aplican al uso de SSPR desde la pantalla de inici
     - Inicio de sesión interactivo: No requiere CTRL + ALT + SUPR = Deshabilitado
     - *DisableLockScreenAppNotifications* = 1 o Habilitado
     - La SKU de Windows no es Home o Professional Edition.
+
+> [!NOTE]
+> Estas limitaciones también se aplican al restablecimiento del PIN de Windows Hello para empresas desde la pantalla de bloqueo del dispositivo.
+>
 
 ## <a name="windows-10-password-reset"></a>Restablecimiento de contraseña de Windows 10
 

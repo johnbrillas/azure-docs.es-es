@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905181"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575453"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitación del registro de diagnóstico en Azure API for FHIR
 
@@ -35,9 +35,9 @@ En este artículo aprenderá a habilitar el registro de diagnóstico en Azure AP
     2. **Transmitir a un centro de eventos** para la ingesta en un servicio de terceros o una solución de análisis personalizado. Tendrá que crear un espacio de nombres de centro de eventos y una directiva de centro de eventos para poder configurar este paso.
     3. **Transmitir al área de trabajo de Log Analytics** en Azure Monitor. Tendrá que crear el área de trabajo de Log Analytics para poder seleccionar esta opción.
 
-6. Seleccione **AuditLogs** y las métricas que quiera capturar. Si usa el Conector de Azure IoT para FHIR, asegúrese de seleccionar las métricas **Errors, Traffic, and Latency** (Errores, tráfico y latencia). 
+6. Seleccione **AuditLogs** y/o **AllMetrics**. Las métricas incluyen el nombre del servicio, la disponibilidad, el tamaño de los datos, la latencia total, las solicitudes totales, los errores totales y la marca de tiempo.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Configuración de diagnóstico de FHIR de Azure. Seleccione AuditLogs y/o AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Seleccione **Guardar**.
 

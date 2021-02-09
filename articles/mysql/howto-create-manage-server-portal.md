@@ -1,21 +1,25 @@
 ---
 title: Administración de servidores mediante Azure Portal en Azure Database for MySQL
 description: Aprenda a administrar un servidor de Azure Database for MySQL desde Azure Portal.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541460"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897992"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MySQL mediante Azure Portal
 
 En este artículo se muestra cómo administrar los servidores de Azure Database for MySQL. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
+
+> [!NOTE]
+> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+>
 
 ## <a name="sign-in"></a>Iniciar sesión
 
@@ -83,6 +87,13 @@ La contraseña del rol de administrador se puede cambiar en Azure Portal.
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de pantalla de Azure Portal para restablecer la contraseña y guardarla en Azure Database for MySQL":::
 
 3. Seleccione **Aceptar** para guardar la nueva contraseña.
+ 
+
+> [!IMPORTANT]
+> Al restablecer la contraseña de administrador del servidor, se restablecerán automáticamente los privilegios de administrador del servidor a los valores predeterminados. Considere la posibilidad de restablecer la contraseña del administrador del servidor si ha revocado accidentalmente uno o varios de los privilegios de administrador del servidor.
+   
+> [!NOTE]
+> De forma predeterminada, el usuario administrador del servidor tiene los siguientes privilegios: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT y TRIGGER
 
 ## <a name="delete-a-server"></a>Eliminación de un servidor
 

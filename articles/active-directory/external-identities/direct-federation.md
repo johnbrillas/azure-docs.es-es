@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860633"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257192"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 
@@ -78,7 +78,8 @@ Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [a
 Cuando se establece la federación directa con una organización asociada, tiene prioridad sobre la autenticación con código de acceso de un solo uso por correo electrónico para los nuevos usuarios invitados de esa organización. Si un usuario invitado ha canjeado una invitación mediante la autenticación de código de acceso de un solo uso antes de configurar la federación directa, seguirá utilizando la autenticación de código de acceso de un solo uso. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>¿La federación directa se ocupa de los problemas de inicio de sesión debido a un inquilinato parcialmente sincronizado?
 No, la característica del [código de acceso de un solo uso por correo electrónico](one-time-passcode.md) se debe usar en este escenario. Un "inquilinato parcialmente sincronizado" se refiere a un inquilino de Azure AD asociado en el que las identidades de usuario locales no están completamente sincronizadas con la nube. Un invitado cuya identidad aún no existe en la nube pero que intenta canjear su invitación de B2B no podrá iniciar sesión. La característica del código de acceso de un solo uso permitiría a este invitado iniciar sesión. La función de federación directa aborda escenarios en los que el invitado tiene su propia cuenta de organización administrada por el proveedor de identidades, pero la organización no tiene ninguna presencia de Azure AD.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Una vez configurada la federación directa con una organización, ¿es necesario enviar cada invitado y canjear una invitación individual?
+La configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Para actualizar el método de autenticación de un usuario invitado, puede eliminar la cuenta de usuario invitado de su directorio y volverle a invitar.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Paso 1: Configuración del proveedor de identidades de la organización del asociado
 En primer lugar, la organización asociada debe configurar el proveedor de identidades con las notificaciones necesarias y las veracidades de los usuarios de confianza. 
 

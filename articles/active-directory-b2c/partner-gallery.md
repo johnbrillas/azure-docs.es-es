@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703214"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893393"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ Para la seguridad, Microsoft se asocia con los siguientes ISV.
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
 | ![Captura de pantalla de un logotipo de Arkose Labs](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) es un proveedor de soluciones de prevención de fraudes que ayuda a las organizaciones a protegerse contra ataques de bots, ataques de adquisición de cuentas y aperturas de cuentas fraudulentas. |
+| ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
 | ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
 | ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |
 

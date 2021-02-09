@@ -1,17 +1,17 @@
 ---
-title: Direcciones IP que emplean Application Insights y Log Analytics | Microsoft Docs
+title: Direcciones IP usadas por Azure Monitor
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: eb0739cb44b9f67258069a574ed0bedb95eac5a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/27/2020
+ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625189"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220809"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
-El servicio [Azure Application Insights](./app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
+# <a name="ip-addresses-used-by-azure-monitor"></a>Direcciones IP usadas por Azure Monitor
+[Azure Monitor](../overview.md) usa varias direcciones IP. Azure Monitor se compone de métricas básicas de la plataforma y de registros, además de Log Analytics y Application Insights. Quizás deba conocer estas direcciones si la aplicación o la infraestructura que está supervisando se hospedan detrás de un firewall.
 
 > [!NOTE]
 > Aunque estas direcciones son estáticas, es posible que tengamos que cambiarlas de vez en cuando. Todo el tráfico de Application Insights representa el tráfico saliente a excepción de la supervisión de la disponibilidad y los webhooks, que requieren reglas de firewall de entrada.
@@ -27,7 +27,7 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 
 | Propósito | URL | IP | Puertos |
 | --- | --- | --- | --- |
-| Telemetría |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0 | 443 |
+| Telemetría |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
 | Secuencia de métricas en directo | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
@@ -243,9 +243,33 @@ Nota: El dominio *.loganalytics.io pertenece al equipo de Log Analytics.
 
 ## <a name="action-group-webhooks"></a>Webhooks de grupo de acciones
 
-| Propósito | IP | Puertos
-| --- | --- | --- |
-| Alertas | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
+Puede consultar la lista de direcciones IP que usan los grupos de acciones mediante el [comando Get-AzNetworkServiceTag de PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag).
+
+### <a name="action-groups-service-tag"></a>Etiqueta de servicio de grupos de acciones
+La administración de cambios en las direcciones IP de origen pueden llevar bastante tiempo. El uso de **etiquetas de servicio** elimina la necesidad de actualizar la configuración. Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra las direcciones IP y actualiza automáticamente la etiqueta de servicio a medida que cambian las direcciones, lo que elimina la necesidad de actualizar las reglas de seguridad de red para un grupo de acciones.
+
+1. En Azure Portal, en Servicios de Azure, busque *Grupo de seguridad de red*.
+2. Haga clic en **Agregar** y cree un grupo de seguridad de red.
+
+   1. Agregue el nombre del grupo de recursos y escriba los *detalles de la instancia*.
+   1. Haga clic en **Revisar y crear** y, a continuación, en *Crear*.
+   
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Ejemplo de creación de un grupo de seguridad de red"border="true":::.
+
+3. Vaya a Grupo de recursos y haga clic en el *grupo de seguridad de red* que ha creado.
+
+    1. Seleccione *Reglas de seguridad de entrada*.
+    1. Haga clic en **Agregar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
+
+4. Se abrirá una nueva ventana en el panel derecho.
+    1.  Seleccione Origen: **Etiqueta de servicio**
+    1.  Etiqueta de servicio de origen: **ActionGroup**
+    1.  Haga clic en **Agregar**.
+    
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
+
 
 ## <a name="profiler"></a>Generador de perfiles
 

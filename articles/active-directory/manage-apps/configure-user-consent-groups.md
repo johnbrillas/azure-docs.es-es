@@ -3,7 +3,7 @@ title: Configuración del consentimiento de los propietarios de grupos para que 
 description: Aprenda a administrar la forma en que los propietarios de grupos y equipos pueden dar permiso a las aplicaciones para que obtengan acceso a los datos del grupo o del equipo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d14e4808d5bec03dff9406f37e63ee4c76e601f8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cd1eb98fca9fe25b6672863c02b8a78e57063e5a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033228"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259328"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo
 
@@ -31,7 +31,7 @@ Puede configurar qué usuarios pueden dar su consentimiento a las aplicaciones p
 
 Siga estos pasos para administrar el consentimiento del propietario del grupo para que las aplicaciones puedan obtener acceso a los datos del grupo:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator).
 2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios**.
 3. En **Consentimiento del propietario del grupo para las aplicaciones que acceden a los datos**, seleccione la opción que desea habilitar.
 4. Haga clic en **Guardar** para guardar la configuración.
@@ -124,4 +124,4 @@ Para obtener más información:
 * [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obtener ayuda o encontrar respuestas a sus preguntas:
-* [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD en Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

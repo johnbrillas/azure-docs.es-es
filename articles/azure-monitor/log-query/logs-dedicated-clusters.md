@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609951"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954756"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -25,9 +25,6 @@ Las funcionalidades que requieren clústeres dedicados son las siguientes:
 - **[Varias áreas de trabajo](../log-query/cross-workspace-query.md)** : si un cliente usa más de un área de trabajo para producción, puede que tenga sentido usar un clúster dedicado. Las consultas entre áreas de trabajo se ejecutarán más rápido si todas las áreas de trabajo están en el mismo clúster. Puede ser más rentable también usar un clúster dedicado, ya que los niveles de reserva de capacidad asignados tienen en cuenta toda la ingesta del clúster y se aplican a todas sus áreas de trabajo, incluso si algunas de ellas son pequeñas y no son válidas para el descuento de la reserva de capacidad.
 
 Los clústeres dedicados requieren que los clientes confirmen el uso de una capacidad de al menos 1 TB de ingesta de datos al día. La migración a un clúster dedicado es sencilla. No se produce ninguna pérdida de datos ni interrupción del servicio. 
-
-> [!IMPORTANT]
-> Los clústeres dedicados están aprobados y son totalmente compatibles con las implementaciones de producción. Sin embargo, debido a las restricciones de capacidad temporales, se exige el registro previo para usar esta característica. Use sus contactos de Microsoft para proporcionar los identificadores de las suscripciones.
 
 ## <a name="management"></a>Administración 
 
@@ -84,10 +81,12 @@ Deben especificarse las siguientes propiedades:
 
 Después de crear el recurso *cluster*, puede editar propiedades adicionales, como *sku*, *keyVaultProperties o *billingType*. Vea más detalles a continuación.
 
+Puede tener hasta dos clústeres activos por suscripción por región. Si se elimina el clúster, se sigue reservando durante catorce días. Puede tener hasta cuatro clústeres reservados por suscripción por región (activos o eliminados recientemente).
+
 > [!WARNING]
 > La creación del clúster desencadena la asignación y el aprovisionamiento de recursos. Esta operación puede tardar hasta una hora en completarse. Se recomienda ejecutarla de forma asincrónica.
 
-La cuenta de usuario que crea los clústeres debe tener el permiso de creación de recursos de Azure estándar, `Microsoft.Resources/deployments/*`, y el permiso de escritura de clúster `(Microsoft.OperationalInsights/clusters/write)`.
+La cuenta de usuario que crea los clústeres debe tener el permiso de creación de recursos de Azure estándar (`Microsoft.Resources/deployments/*`) y el permiso de escritura de clúster (`Microsoft.OperationalInsights/clusters/write`) teniendo en sus asignaciones de roles esta acción específica, `Microsoft.OperationalInsights/*` o `*/write`.
 
 ### <a name="create"></a>Crear 
 
@@ -506,7 +505,9 @@ Use la llamada de REST siguiente para eliminar un clúster:
 
 ## <a name="limits-and-constraints"></a>Límites y restricciones
 
-- El número máximo de clústeres por región y suscripción es 2.
+- El número máximo de clústeres activos por región y suscripción es 2.
+
+- El número máximo de clústeres reservados (activos o eliminados recientemente) por región y suscripción es 4. 
 
 - El número máximo de áreas de trabajo vinculadas al clúster es 1000.
 

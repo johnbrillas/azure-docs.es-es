@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060374"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096972"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -63,11 +63,7 @@ Azure habilita el botón **Enviar** una vez etiquetadas todas las imágenes de l
 
 Una vez que haya enviado etiquetas para los datos con los que está trabajando, Azure actualizará la página con un nuevo conjunto de imágenes de la cola de trabajo.
 
-### <a name="assisted-machine-learning-preview"></a>Aprendizaje automático automatizado (versión preliminar) 
-
-> [!IMPORTANT]
-> El aprendizaje automático asistido se encuentra actualmente en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Aprendizaje automático asistido
 
 Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
 
@@ -75,7 +71,14 @@ Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmo
 
 * Más adelante puede ver **Tasks prelabeled** (Tareas preetiquetadas) junto al nombre del proyecto.  Luego aparecerán imágenes con una etiqueta sugerida que proviene de un modelo de clasificación de aprendizaje automático. Ninguno de los modelos de Machine Learning tiene una precisión del 100 %. Aunque solo usamos imágenes para las que el modelo sea seguro, existe la posibilidad de que estas etiquetas no estén preetiquetadas correctamente.  Cuando vea estas etiquetas, corrija las incorrectas antes de enviar la página.  
 
-* En el caso de los modelos de detección de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
+* En el caso de los modelos de identificación de objetos, puede ver que los cuadros de límite y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página.
+
+* En el caso de los modelos de segmentación, puede ver que los polígonos y las etiquetas ya están presentes.  Corrija los que sean incorrectos antes de enviar la página. 
+
+    > [!IMPORTANT]
+    > Las características indicadas con "(versión preliminar)" se encuentran en versión preliminar pública.   
+    > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
 

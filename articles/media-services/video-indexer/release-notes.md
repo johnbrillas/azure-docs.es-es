@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120094"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427672"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -30,7 +30,23 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Corrección de errores
 * Funciones obsoletas
 
-##  <a name="december-2020"></a>Diciembre de 2020
+## <a name="january-2021"></a>Enero de 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer se ha implementado en la nube US Government 
+
+Ahora puede crear una cuenta de pago de Video Indexer en la nube de US Government en las regiones Virginia y Arizona. La oferta de evaluación gratuita de Video Indexer no está disponible en la región mencionada. Para obtener más información, vaya a la documentación de Video Indexer. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer implementado en la región India central 
+
+Ya puede crear una cuenta de pago de Video Indexer en la región India central. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Nuevo modo oscuro para la experiencia del sitio web de Video Indexer
+
+La experiencia del sitio web de Video Indexer ahora está disponible en modo oscuro. Para habilitar el modo oscuro, abra el panel de configuración y active la opción **Modo oscuro**. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Configuración del modo oscuro":::
+
+## <a name="december-2020"></a>Diciembre de 2020
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer se ha implementado en las regiones Oeste de Suiza y Norte de Suiza
 

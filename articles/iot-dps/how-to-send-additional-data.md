@@ -7,14 +7,14 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d94bc2fde63090d66da7e98cc239386d958e6bb2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a3ee7f3fca3fff1cd401f26489b01fb9cc4e09c5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950971"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259526"
 ---
-# <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Transferencia de una carga útil entre un dispositivo y DPS
+# <a name="how-to-transfer-payloads-between-devices-and-dps"></a>Transferencia de cargas útiles entre dispositivos y DPS
 A veces, DPS necesita más datos de los dispositivos a fin de aprovisionarlos adecuadamente en la instancia correcta de IoT Hub, y el dispositivo necesita proporcionar los datos. A la inversa, DPS puede devolver datos al dispositivo para facilitar la lógica del cliente. 
 
 ## <a name="when-to-use-it"></a>Cuándo se debe usar

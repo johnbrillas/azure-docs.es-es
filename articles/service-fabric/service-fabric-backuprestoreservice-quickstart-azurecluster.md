@@ -3,12 +3,12 @@ title: Restauración y copia de seguridad periódicas de Azure Service Fabric
 description: Use la característica de copia de seguridad periódica y restauración de Service Fabric para habilitar la copia de seguridad periódica de los datos de su aplicación.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 18d10b365cb2e4f4b4e3592233d5f467714bd5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538677"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927982"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Restauración y copia de seguridad periódicas en un clúster de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -48,11 +48,16 @@ Service Fabric proporciona un conjunto de API para lograr la siguiente funcional
 * Se requiere el certificado X.509 para el cifrado de secretos a fin de conectarse al almacenamiento y almacenar las copias de seguridad. Consulte este [artículo](service-fabric-cluster-creation-via-arm.md) para saber cómo obtener o crear un certificado X.509.
 * Aplicación con estado de confianza de Service Fabric compilada con la versión 3.0 del SDK de Service Fabric o una versión posterior. En el caso de las aplicaciones destinadas a .NET Core 2.0, la aplicación debe compilarse con la versión 3.1 del SDK de Service Fabric o una versión posterior.
 * Cree una cuenta de Azure Storage para almacenar las copias de seguridad de la aplicación.
-* Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
+* Instale el módulo Microsoft.ServiceFabric.PowerShell.Http (versión preliminar) para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Si la versión de PowerShellGet es inferior a la 1.6.0, deberá actualizar para agregar compatibilidad con la marca *-AllowPrerelease*:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 

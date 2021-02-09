@@ -1,5 +1,5 @@
 ---
-title: Codificación de una transformación personalizada mediante Media Services v3 con .NET - Azure | Microsoft Docs
+title: Codificación de una transformación personalizada .NET
 description: En este tema se explica cómo usar Azure Media Services v3 para codificar una transformación personalizada mediante .NET.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b5bb505df3cad7856e0b08f04949c2e56ccec1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295621"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954283"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Procedimiento de codificación con una transformación personalizada - .NET
 

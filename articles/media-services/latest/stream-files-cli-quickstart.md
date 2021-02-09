@@ -1,5 +1,5 @@
 ---
-title: Transmisión de archivos de vídeo con Azure Media Services y la CLI de Azure
+title: Streaming de archivos de vídeo con la CLI de Azure Media Services
 description: Siga los pasos de este tutorial para usar la CLI de Azure para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c78205d7e2b41628de9e8b92c9fa5506e82158cb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268798"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954502"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión en secuencias del vídeo: CLI de Azure
 

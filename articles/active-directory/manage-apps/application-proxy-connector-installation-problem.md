@@ -3,20 +3,20 @@ title: Problema al instalar el conector de agente del proxy de aplicación
 description: Cómo solucionar los problemas que se produzcan al instalar el conector del agente de Application Proxy para Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0f76f03883746b6f4b87bb817f8adde850ed28b3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657336"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253671"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -24,7 +24,7 @@ El conector de Application Proxy de Microsoft Azure Active Directory es un compo
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Áreas problemáticas generales con la instalación del conector
 
-Cuando se produce un error en la instalación de un conector, la causa principal suele pertenecer a una de las áreas siguientes:
+Cuando se produce un error en la instalación de un conector, la causa principal suele pertenecer a una de las áreas siguientes. **Como precursor de cualquier solución de problemas, asegúrese de reiniciar el conector.**
 
 1.  **Conectividad**: para completar una instalación correcta, el nuevo conector necesita registrarse y establecer propiedades de confianza futuras. Para ello, se conecta al servicio en la nube de Application Proxy de Azure Active Directory.
 

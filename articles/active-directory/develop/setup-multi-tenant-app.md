@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: a075cfa921a17d47cbef84f1e7e8ec8e306c38d5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9564727cfe59f243fd1096c93d7eadf1d830be9e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063032"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052556"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Configuración de una nueva aplicación multiinquilino
 
@@ -29,4 +29,4 @@ Esta es una lista de temas recomendados para obtener más información sobre las
 - Para más detalles, aprenda [cómo se configura una aplicación multiinquilino y se codifica completamente](./howto-convert-app-to-be-multi-tenant.md), incluida la forma de realizar el registro, el uso del punto de conexión "común", la implementación del consentimiento de "usuario" y "administrador" y la implementación de otros escenarios más avanzados de varios niveles
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Microsoft Q&A para Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639116"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221217"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Descripción de la conectividad de red de Windows Virtual Desktop
 
@@ -50,7 +50,7 @@ La secuencia de la conexión cliente se describe a continuación:
 
 ## <a name="connection-security"></a>Seguridad de conexión
 
-TLS 1.2 se usa para todas las conexiones iniciadas desde los clientes y hosts de sesión a los componentes de la infraestructura de Windows Virtual Desktop.
+TLS 1.2 se usa para todas las conexiones iniciadas desde los clientes y hosts de sesión a los componentes de la infraestructura de Windows Virtual Desktop. Windows Virtual Desktop usa los mismos cifrados TLS 1.2 que [Azure Front Door](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Es importante asegurarse de que tanto los equipos cliente como los hosts de sesión pueden utilizar estos cifrados.
 Para el transporte de conexión inversa, tanto el cliente como el host de sesión se conectan a la puerta de enlace de Windows Virtual Desktop. Después de establecer la conexión TCP, el cliente o el host de sesión validan el certificado de la puerta de enlace de Windows Virtual Desktop.
 Después de establecer el transporte base, el RDP establece una conexión TLS anidada entre el cliente y el host de sesión mediante los certificados del host de sesión. De forma predeterminada, el certificado usado para el cifrado RDP lo genera automáticamente el sistema operativo durante la implementación. Si lo desea, los clientes pueden implementar certificados administrados centralmente emitidos por la entidad de certificación de empresa. Para más información sobre los certificados de configuración, consulte la [documentación de Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

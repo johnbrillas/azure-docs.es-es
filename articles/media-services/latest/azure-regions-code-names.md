@@ -1,5 +1,5 @@
 ---
-title: Nubes y regiones en las que Azure Media Services v3 está disponible
+title: Nubes y regiones para Azure Media Services v3
 description: En este artículo se tratan las direcciones URL que se usan para los puntos de conexión y el código de las regiones.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319634"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954334"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Nombres de código y puntos de conexión regionales
 

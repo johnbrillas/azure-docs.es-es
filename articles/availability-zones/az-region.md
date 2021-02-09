@@ -1,18 +1,19 @@
 ---
 title: Servicios de Azure compatibles con Availability Zones
 description: Para crear aplicaciones altamente disponibles y resistentes en Azure, las zonas de disponibilidad proporcionan ubicaciones físicamente separadas que puede utilizar para ejecutar sus recursos.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874615"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226631"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -46,19 +47,19 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 ## <a name="azure-regions-with-availability-zones"></a>Regiones de Azure con Availability Zones
 
 
-| América           | Europa         | Alemania              | África              | Asia Pacífico   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Centro de Canadá     | Centro de Francia | Centro-oeste de Alemania | Norte de Sudáfrica* | Japón Oriental     |
-| Centro de EE. UU.         | Norte de Europa   |                      |                     | Sudeste de Asia |
-| Este de EE. UU.            | Sur de Reino Unido       |                      |                     | Este de Australia |
-| Este de EE. UU. 2          | Oeste de Europa    |                      |                     |                |
-| Centro y Sur de EE. UU. |                |                      |                     |                |
-| US Gov Virginia* |                |                      |                     |                |
-| Oeste de EE. UU. 2        |                |                      |                     |                |
+| América           | Europa               | África              | Asia Pacífico   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Centro de Canadá     | Centro de Francia       | Norte de Sudáfrica* | Japón Oriental     |
+| Centro de EE. UU.         | Centro-oeste de Alemania |                     | Sudeste de Asia |
+| Este de EE. UU.            | Norte de Europa         |                     | Este de Australia |
+| Este de EE. UU. 2          | Sur de Reino Unido             |                     |                |
+| Centro y Sur de EE. UU. | Oeste de Europa          |                     |                |
+| US Gov Virginia* |                      |                     |                |
+| Oeste de EE. UU. 2        |                      |                     |                |
 
 
-Para obtener más información sobre la compatibilidad de Availability Zones y los servicios disponibles en estas regiones, póngase en contacto con el representante de ventas o de clientes de Microsoft. Para las próximas regiones que van a admitir Availability Zones, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Para obtener más información sobre la compatibilidad de Availability Zones y los servicios disponibles en estas regiones, póngase en contacto con el representante de ventas o de clientes de Microsoft. Para las próximas regiones que van a admitir Availability Zones, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Servicios de Azure compatibles con Availability Zones

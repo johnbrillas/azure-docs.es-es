@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786724"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919551"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,13 +42,13 @@ Siga estos pasos para compilar los archivos JAR y empezar a trabajar con el proy
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
 
-3. Para compilar el proyecto de ejemplo, en el directorio _./sample_ , ejecute el siguiente comando:
+3. Para compilar el proyecto de ejemplo, en el directorio _./sample_, ejecute el siguiente comando:
 
     ```
     mvn install
     ```
 
-4. Para iniciar el proyecto de ejemplo, en el directorio _./sample_ , ejecute el siguiente comando:
+4. Para iniciar el proyecto de ejemplo, en el directorio _./sample_, ejecute el siguiente comando:
 
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
@@ -85,13 +85,15 @@ Para descargar y ejecutar el ejemplo, siga estos pasos:
 
 1. Descargue el [ejemplo Herramientas de Elastic DB Tools para Azure SQL: Introducción](https://github.com/Azure/elastic-db-tools). Descomprima el ejemplo en una ubicación de su elección.
 
-2. Para crear un proyecto, abra la solución *ElasticScaleStarterKit.sln* desde el directorio *C#* .
+2. Para crear un proyecto, abra la solución *ElasticDatabaseTools.sln* desde el directorio *elastic-db-tools-master*. 
 
-3. En la solución del proyecto de ejemplo, abra el archivo *app.config* . A continuación, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
+3. Establezca el proyecto *ElasticScaleStarterKit* como proyecto de inicio.
 
-4. Compile y ejecute la aplicación. Cuando se le pida, permita que Visual Studio restaure los paquetes NuGet de la solución. Esta acción descarga la versión más reciente de la biblioteca de cliente de Elastic Database desde NuGet.
+4. En el proyecto *ElasticScaleStarterKit*, abra el archivo *App.config*. A continuación, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
 
-5. Para obtener más información sobre las funcionalidades de la biblioteca de cliente, experimente con las diferentes opciones. Anote los pasos que la aplicación lleva a cabo en la salida de la consola y explore el código que hay detrás a su antojo.
+5. Compile y ejecute la aplicación. Cuando se le pida, permita que Visual Studio restaure los paquetes NuGet de la solución. Esta acción descarga la versión más reciente de la biblioteca de cliente de Elastic Database desde NuGet.
+
+6. Para obtener más información sobre las funcionalidades de la biblioteca de cliente, experimente con las diferentes opciones. Anote los pasos que la aplicación lleva a cabo en la salida de la consola y explore el código que hay detrás a su antojo.
 
    ![Progreso][4]
 
@@ -102,19 +104,19 @@ Felicidades. Ha creado y ejecutado correctamente su primera aplicación con part
 
 ## <a name="key-pieces-of-the-code-sample"></a>Piezas clave del ejemplo de código
 
-* **Administración de particiones y mapas de particiones** : el código ilustra cómo trabajar con particiones, rangos y asignaciones en el archivo *ShardManagementUtils.cs* . Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).  
+* **Administración de particiones y mapas de particiones**: el código ilustra cómo trabajar con particiones, rangos y asignaciones en el archivo *ShardManagementUtils.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).  
 
-* **Enrutamiento dependiente de los datos** : el enrutamiento de transacciones a la partición correcta se muestra en el archivo *DataDependentRoutingSample.cs* . Para más información, vea [Enrutamiento dependiente de los datos](https://go.microsoft.com/?linkid=9862596).
+* **Enrutamiento dependiente de los datos**: el enrutamiento de transacciones a la partición correcta se muestra en el archivo *DataDependentRoutingSample.cs*. Para más información, vea [Enrutamiento dependiente de los datos](https://go.microsoft.com/?linkid=9862596).
 
-* **Consultas a través de particiones múltiples** : las consultas a través de particiones se ilustran en el archivo *MultiShardQuerySample.cs* . Para más información, vea [Consultas a través de particiones múltiples](https://go.microsoft.com/?linkid=9862597).
+* **Consultas a través de particiones múltiples**: las consultas a través de particiones se ilustran en el archivo *MultiShardQuerySample.cs*. Para más información, vea [Consultas a través de particiones múltiples](https://go.microsoft.com/?linkid=9862597).
 
-* **Incorporación de particiones vacías** : la incorporación iterativa de nuevas particiones vacías se realiza mediante código en el archivo *CreateShardSample.cs* . Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).
+* **Incorporación de particiones vacías**: la incorporación iterativa de nuevas particiones vacías se realiza mediante código en el archivo *CreateShardSample.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).
 
 ## <a name="other-elastic-scale-operations"></a>Otras operaciones de escalado elástico
 
-* **División de una partición existente** : la funcionalidad de dividir particiones se proporciona mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
+* **División de una partición existente**: la funcionalidad de dividir particiones se proporciona mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
 
-* **Combinación de particiones existentes** : las combinaciones de particiones también se realizan mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
+* **Combinación de particiones existentes**: las combinaciones de particiones también se realizan mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Coste
 

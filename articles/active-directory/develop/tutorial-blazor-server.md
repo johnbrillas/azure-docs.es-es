@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: b67d75ac99f247659723ac0b5a90fd32ebf627e3
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569885"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226023"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Creación de una aplicación Blazor Server que usa la plataforma de identidad de Microsoft para la autenticación
 
@@ -40,7 +40,7 @@ Todas las aplicaciones que utilizan Azure Active Directory (Azure AD) para la au
 - Para la opción **Tipos de cuenta admitidos**, seleccione **Solo las cuentas de este directorio organizativo**.
 - Deje la lista desplegable **URI de redirección** establecida en **web** y escriba `https://localhost:5001/signin-oidc`. El puerto predeterminado de una aplicación que se ejecuta en Kestrel es 5001. Si la aplicación está disponible en un puerto diferente, especifique el número de puerto en lugar de `5001`.
 
-En **Autenticación** > **Concesión implícita**, seleccione las casillas de **Tokens de acceso** y **Tokens de identificador** y, a continuación, selecciona el botón **Guardar**.
+En **Administrar**, seleccione **Autenticación** > **Implicit grant and hybrid flows** (Concesión implícita y flujos híbridos). Seleccione **Tokens de acceso** y **Tokens de identificador** y, a continuación, seleccione **Guardar**.
 
 Por último, dado que la aplicación llama a una API protegida (en este caso, Microsoft Graph), necesita un secreto de cliente para comprobar su identidad cuando solicita un token de acceso para llamar a esa API.
 

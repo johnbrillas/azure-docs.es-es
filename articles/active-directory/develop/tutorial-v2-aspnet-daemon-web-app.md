@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937826"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226192"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Creación de un demonio multiinquilino que usa la plataforma de identidad de Microsoft
 
@@ -45,7 +45,7 @@ La aplicación se compila como una aplicación ASP.NET MVC. Usa el middleware de
 
 El componente "demonio" de este ejemplo es un controlador de API `SyncController.cs`. Cuando se llama al controlador, se extrae de Microsoft Graph una lista de usuarios del inquilino de Azure Active Directory del cliente (Azure AD). `SyncController.cs` se desencadena mediante una llamada AJAX en la aplicación web. Dicha aplicación usa la [biblioteca de autenticación de Microsoft (MSAL) para .NET](msal-overview.md) para adquirir un token de acceso para Microsoft Graph.
 
-Dado que la aplicación es una aplicación multiinquilino para clientes empresariales de Microsoft, debe proporcionar a los clientes una forma de "registrar" la aplicación o "conectarla" a los datos de la empresa. Durante el flujo de conexión, el administrador de una empresa concede primero los *permisos de aplicación* directamente a la aplicación, de forma que pueda acceder a los datos de la empresa de manera no interactiva, sin la presencia de los usuarios que han iniciado la sesión. La mayoría de la lógica de este ejemplo muestra cómo lograr este flujo de conexión mediante el punto de conexión de [consentimiento del administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plataforma de identidad.
+Dado que la aplicación es una aplicación multiinquilino para clientes empresariales de Microsoft, debe proporcionar a los clientes una forma de "registrar" la aplicación o "conectarla" a los datos de la empresa. Durante el flujo de conexión, el administrador global concede primero los *permisos directamente a la aplicación*. De este modo, la aplicación puede acceder a los datos de la empresa sin necesidad de utilizar recursos interactivos ni la presencia de un usuario con la sesión iniciada. La mayoría de la lógica de este ejemplo muestra cómo lograr este flujo de conexión mediante el punto de conexión de [consentimiento del administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plataforma de identidad.
 
 ![En el diagrama se muestra la aplicación UserSync con tres elementos locales que se conectan a Azure, con la autenticación de punto inicial que adquiere un token de forma interactiva para conectarse a Azure AD, AccountController que obtiene el consentimiento de administrador para conectarse a Azure AD y SyncController que lee al usuario para conectarse a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
@@ -110,7 +110,7 @@ Si no desea usar la automatización, siga los pasos que se describen en las secc
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
 1. En **Administrar**, seleccione **Autenticación**.
 1. Establezca la **dirección URL de cierre de sesión del canal frontal** en `https://localhost:44316/Account/EndSession`.
-1. En la sección **Concesión implícita**, seleccione **Tokens de acceso** y **Tokens de id.** . Para este ejemplo es necesario habilitar el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario y llamar a una API.
+1. En la sección **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos), seleccione **Tokens de acceso** y **Tokens de id**. Para este ejemplo es necesario habilitar el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md) para iniciar la sesión del usuario y llamar a una API.
 1. Seleccione **Guardar**.
 1. En **Administrar**, seleccione **Certificados y secretos**.
 1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente**. 
@@ -237,9 +237,9 @@ Cuando ya no lo necesite, elimine el objeto de aplicación que creó en el paso 
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obtener soporte técnico de la comunidad.
-Primero plantee sus preguntas en Stack Overflow y examine los problemas existentes para ver si algún usuario ha hecho esa pregunta antes.
-Asegúrese de que sus preguntas o comentarios se etiquetan con "adal," "msal" y "dotnet".
+Utilice [Microsoft Q&A](https://docs.microsoft.com/answers/products/) para recibir ayuda de la comunidad.
+Primero plantee sus preguntas en [Microsoft Q&A](https://docs.microsoft.com/answers/products/) y examine los problemas existentes para ver si algún usuario ha hecho esa pregunta antes.
+No olvide etiquetar las preguntas o comentarios con "azure-ad-adal-deprecation", "azure-ad-msal" y "dotnet-standard".
 
 Si encuentra un error en el ejemplo, abra una incidencia en la [sección de incidencias de GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 

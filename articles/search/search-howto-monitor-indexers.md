@@ -5,67 +5,40 @@ description: Supervise el estado, el progreso y los resultados de los indizadore
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.date: 01/28/2021
+ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372836"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063262"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Supervisión del estado y los resultados del indizador de Azure Cognitive Search
 
-Azure Cognitive Search proporciona información sobre el estado y la supervisión de las ejecuciones actuales e históricas de todos los indizadores.
+Puede supervisar el procesamiento del indexador en Azure Portal o mediante programación a través de llamadas REST o un SDK de Azure. Además del estado sobre el indexador mismo, puede revisar las horas de inicio y finalización, así como los errores y advertencias detallados de una ejecución determinada.
 
-La supervisión de los indizadores es útil si quiere:
+## <a name="monitor-using-azure-portal"></a>Supervisión mediante Azure Portal
 
-* Llevar un seguimiento del progreso de un indizador durante una ejecución en curso.
-* Revisar los resultados de una ejecución en curso o anterior del indizador.
-* Identificar errores del indizador de nivel superior, así como errores o advertencias sobre documentos individuales que se están indexando.
-
-## <a name="get-status-and-history"></a>Obtención del estado e historial
-
-Puede acceder a la información de supervisión del indizador de varias maneras, incluidas las siguientes:
-
-* En [Azure Portal](#portal)
-* Mediante la [API de REST](#restapi)
-* Mediante el [SDK de .NET](#dotnetsdk)
-
-La información disponible sobre la supervisión del indizador incluye todo lo siguiente (aunque los formatos de los datos difieren en función del método de acceso usado):
-
-* Información de estado sobre el propio indizador.
-* Información sobre la última ejecución del indizador, incluido su estado, la hora de inicio y finalización, y errores y advertencias detallados.
-* Una lista de ejecuciones históricas del indizador y sus estados, resultados, errores y advertencias.
-
-Los indizadores que procesan grandes volúmenes de datos pueden tardar mucho en ejecutarse. Por ejemplo, los indizadores que tratan millones de documentos de origen pueden ejecutarse durante 24 horas y, después, reiniciarse casi de inmediato. El estado de los indizadores de gran volumen podría indicar siempre **En curso** en el portal. Incluso cuando se está ejecutando un indizador, los detalles sobre el progreso actual y las ejecuciones anteriores están disponibles.
-
-<a name="portal"></a>
-
-## <a name="monitor-using-the-portal"></a>Supervisión del uso del portal
-
-Puede consultar el estado actual de todos los indizadores en la lista **Indizadores**, en la página de información general del servicio de búsqueda.
+Puede consultar el estado actual de todos los indexadores en la página de información general del servicio de búsqueda. Las páginas del portal se actualizan cada pocos minutos, por lo que no verá evidencia de que una ejecución de indexador nueva se ejecute de inmediato.
 
    ![Lista de indizadores](media/search-monitor-indexers/indexers-list.png "Lista de indizadores")
 
-Cuando se está ejecutando un indizador, el estado de la lista es **En curso** y el valor **Documentos correctos** indica el número de documentos procesados hasta el momento. El portal puede tardar unos minutos en actualizar los valores de estado del indizador y el número de documentos.
+| Estado | Descripción |
+|--------|-------------|
+| **En curso** | Indica la ejecución activa. El portal entregará información parcial. A medida que avanza la indexación, puede ver que el valor **Documentos correctos** aumenta en respuesta. Los indizadores que procesan grandes volúmenes de datos pueden tardar mucho en ejecutarse. Por ejemplo, los indizadores que tratan millones de documentos de origen pueden ejecutarse durante 24 horas y, después, reiniciarse casi de inmediato. El estado de los indizadores de gran volumen podría indicar siempre **En curso** en el portal. Incluso cuando se está ejecutando un indizador, los detalles sobre el progreso actual y las ejecuciones anteriores están disponibles. |
+| **Success** | Indica que la ejecución se completó correctamente. Una ejecución del indizador puede ser correcta incluso si los documentos individuales tienen errores, siempre y cuando el número de errores sea inferior al valor **Máx. de elementos con error** del indizador. |
+| **Erróneo** | El número de errores superó el valor **Máx. de elementos con error** y la indexación se detuvo. |
+| **Reset** | Se restableció el estado de seguimiento de cambios internos del indexador. El indexador se ejecutará en su totalidad, actualizando todos los documentos, no solo aquellos con marcas de tiempo más recientes. |
 
-Los indizadores cuya última ejecución haya sido correcta mostrarán el estado **Correcto**. Una ejecución del indizador puede ser correcta incluso si los documentos individuales tienen errores, siempre y cuando el número de errores sea inferior al valor **Máx. de elementos con error** del indizador.
-
-Si la última ejecución finaliza con un error, se muestra el estado **Erróneo**. El estado **Restablecer** indica que se ha restablecido el estado de seguimiento de cambios del indizador.
-
-Haga clic en un indizador de la lista para ver más detalles sobre sus ejecuciones actuales y recientes.
+Puede hacer clic en un indexador de la lista para ver más detalles sobre sus ejecuciones actuales y recientes.
 
    ![Historial de ejecución y resumen del indizador](media/search-monitor-indexers/indexer-summary.png "Historial de ejecución y resumen del indizador")
 
 En el gráfico **Resumen del indizador** se muestra el número de documentos procesados en las ejecuciones más recientes.
 
-En la lista **Detalles de la ejecución** aparecen como máximo los 50 resultados de las ejecuciones más recientes.
-
-Haga clic en un resultado de la lista para ver los detalles de una ejecución en concreto. Se incluyen las horas de inicio y finalización, así como los errores y las advertencias que se han producido.
+En la lista **Detalles de la ejecución** aparecen como máximo los 50 resultados de las ejecuciones más recientes. Haga clic en un resultado de la lista para ver los detalles de una ejecución en concreto. Se incluyen las horas de inicio y finalización, así como los errores y las advertencias que se han producido.
 
    ![Detalles de ejecución del indizador](media/search-monitor-indexers/indexer-execution.png "Detalles de ejecución del indizador")
 
@@ -73,13 +46,11 @@ Si se produjeron problemas específicos del documento durante la ejecución, se 
 
    ![Detalles del indizador con errores](media/search-monitor-indexers/indexer-execution-error.png "Detalles del indizador con errores")
 
-Las advertencias son comunes con algunos tipos de indizadores y no siempre indican un problema. Por ejemplo, los indizadores que usan Cognitive Services pueden notificar advertencias cuando las imágenes o los archivos PDF no contienen texto para procesar.
+Las advertencias son comunes con algunos tipos de indizadores y no siempre indican un problema. Por ejemplo, los indizadores que usan Cognitive Services pueden notificar advertencias cuando las imágenes o los archivos PDF no contienen texto para procesar. 
 
 Para obtener más información sobre cómo investigar los errores y las advertencias del indizador, vea [Solución de problemas comunes con el indizador en Azure Search](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## <a name="monitor-using-rest-apis"></a>Supervisión mediante las API REST
+## <a name="monitor-using-get-indexer-status-rest-api"></a>Supervisión mediante Obtener estado del indexador (API REST)
 
 Puede recuperar el estado y el historial de ejecución de un indizador con el [comando Obtener estado del indizador](/rest/api/searchservice/get-indexer-status):
 
@@ -126,11 +97,9 @@ Cada ejecución del indizador también tiene su propio estado, que indica si la 
 
 Cuando se restablece un indizador para actualizar su estado de seguimiento de cambios, se agrega una entrada independiente en el historial de ejecución con el estado **Restablecer**.
 
-Para obtener más información sobre los códigos de estado y los datos de supervisión del indizador, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+Para más detalles sobre los códigos de estado y los datos de supervisión del indexador, consulte [Obtención del estado del indexador](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## <a name="monitor-using-the-net-sdk"></a>Supervisión mediante el SDK de .NET
+## <a name="monitor-using-net"></a>Supervisión mediante .NET
 
 Con el SDK de .NET de Azure Cognitive Search, en el siguiente ejemplo de C# se escribe información sobre el estado de un indizador y los resultados de su ejecución más reciente, o en curso, en la consola.
 

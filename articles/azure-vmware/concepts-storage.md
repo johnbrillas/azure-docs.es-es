@@ -3,12 +3,12 @@ title: Conceptos sobre almacenamiento
 description: Obtenga información sobre las funcionalidades de almacenamiento principales en las nubes privadas de Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289245"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062802"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceptos de almacenamiento de Azure VMware Solution
 
@@ -32,7 +32,7 @@ Los almacenes de datos de vSAN usan el cifrado de datos en reposo de forma prede
 
 ## <a name="scaling"></a>Ampliación
 
-La capacidad nativa de almacenamiento de un clúster se escala mediante la adición de hosts al clúster. En el caso de los clústeres que usan hosts HE, la capacidad sin procesar en todo el clúster aumenta 15,4 TB con cada host adicional. La capacidad sin procesar de los clústeres que se crean con hosts GP aumenta 7,7 TB con cada host adicional. En ambos tipos de clústeres, los hosts tardan unos 10 minutos en agregarse a un clúster. Para obtener instrucciones sobre el escalado de clústeres, consulte el [tutorial sobre escalado de nubes privadas][tutorial-scale-private-cloud].
+La capacidad nativa de almacenamiento de un clúster se escala mediante la adición de hosts al clúster. En el caso de los clústeres que usan hosts HE, la capacidad sin procesar en todo el clúster aumenta 15,4 TB con cada host adicional. La capacidad sin procesar de los clústeres que se crean con hosts GP aumenta 7,7 TB con cada host adicional. En ambos tipos de clústeres, los hosts tardan unos 10 minutos en agregarse a un clúster. Para instrucciones sobre el escalado de clústeres, consulte el [tutorial sobre escalado de nubes privadas][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Integración del almacenamiento de Azure
 

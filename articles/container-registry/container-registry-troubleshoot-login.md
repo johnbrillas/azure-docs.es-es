@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379509"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052085"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -39,6 +39,8 @@ Puede encontrarse con uno o varios de los siguientes:
 Ejecute el comando [az acr check-helth](/cli/azure/acr#az-acr-check-health) para tener más información sobre el estado del entorno y el acceso opcional a un registro de destino. Por ejemplo, diagnostique errores de configuración de Docker o problemas de inicio de sesión de Azure Active Directory. 
 
 Puede encontrar ejemplos de comandos en [Comprobación del mantenimiento de un registro de contenedor de Azure](container-registry-check-health.md). Si se notifican errores, revise la [referencia de error](container-registry-health-error-reference.md) y las siguientes secciones para ver las soluciones recomendadas.
+
+Si tiene problemas al usar el Registro con Azure Kubernetes Service, ejecute el comando [az aks check-acr](/cli/azure/aks#az_aks_check_acr) para validar que se puede acceder al Registro desde el clúster de AKS.
 
 > [!NOTE]
 > Algunos errores de autenticación o autorización también pueden producirse si hay configuraciones de firewall o de red que impiden el acceso al registro. Consulte [Solución de problemas de red con el registro](container-registry-troubleshoot-access.md).
@@ -79,7 +81,7 @@ Compruebe la validez de las credenciales que usa para su escenario o que le prop
 * Si usa una entidad de servicio de Active Directory, asegúrese de utilizar las credenciales correctas en el inquilino de Active Directory:
   * Nombre de usuario: identificador de aplicación de la entidad de servicio (también denominado *identificador de cliente*)
   * Contraseña: contraseña de la entidad de servicio (también denominada *secreto de cliente*)
-* Si usa un servicio de Azure, como Azure Kubernetes Service o Azure DevOps, para acceder al registro, confirme la configuración del registro del servicio.
+* Si usa un servicio de Azure, como Azure Kubernetes Service o Azure DevOps, para acceder al registro, confirme la configuración del registro del servicio. 
 * Si ejecutó `az acr login` con la opción `--expose-token`, que habilita el inicio de sesión del registro sin usar el demonio de Docker, asegúrese de autenticarse con el nombre de usuario `00000000-0000-0000-0000-000000000000`.
 * Si el registro está configurado para el [acceso de extracción anónimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), las credenciales de Docker existentes almacenadas desde un inicio de sesión de Docker anterior pueden impedir el acceso anónimo. Ejecute `docker logout` antes de intentar realizar una operación de extracción anónima en el registro.
 

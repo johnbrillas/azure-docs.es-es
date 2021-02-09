@@ -3,12 +3,12 @@ title: Implementación de recursos en grupos de recursos
 description: Se describe cómo implementar recursos en una plantilla de Azure Resource Manager. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186233"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491561"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementaciones de grupos de recursos con plantillas de Resource Manager
 
@@ -128,9 +128,9 @@ Para ver una plantilla de ejemplo, consulte [Creación de un grupo de recursos](
 
 ### <a name="scope-to-tenant"></a>Ámbito del inquilino
 
-Puede crear recursos en el inquilino al establecer `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
+Para crear recursos en el inquilino, establezca `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
 
-Puede usar una implementación anidada con los valores de `scope` y `location` establecidos.
+Para usar una implementación anidada, establezca `scope` y `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Para más información, consulte [Grupo de administración](deploy-to-management
 
 ## <a name="deploy-to-target-resource-group"></a>Implementación en el grupo de recursos de destino
 
-Para implementar recursos en el grupo de recursos de destino, defina esos recursos en la sección **resources** de la plantilla. La plantilla siguiente crea una cuenta de almacenamiento en el grupo de recursos que se especifica en la operación de implementación.
+Para implementar recursos en el grupo de recursos de destino, defina esos recursos en la sección `resources` de la plantilla. La plantilla siguiente crea una cuenta de almacenamiento en el grupo de recursos que se especifica en la operación de implementación.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

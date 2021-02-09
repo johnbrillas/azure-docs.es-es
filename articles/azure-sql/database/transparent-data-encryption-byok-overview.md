@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
-ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/01/2021
+ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325203"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223447"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -185,11 +185,9 @@ Una consideración adicional para los archivos de registro: las copias de seguri
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Alta disponibilidad con TDE administrado por el cliente
 
-Incluso en los casos en los que no hay ninguna redundancia geográfica configurada para el servidor, se recomienda encarecidamente configurar el servidor para usar dos almacenes de claves distintos en dos regiones diferentes con el mismo material de clave. Esto puede realizarse mediante la creación de un protector de TDE que use el almacén de claves ubicado en la misma región que el servidor y la clonación de la clave en un almacén de claves de otra región de Azure, para que el servidor tenga acceso a un segundo almacén de claves por si el almacén de claves principal experimenta una interrupción mientras la base de datos se está ejecutando.
+Incluso en los casos en los que no hay ninguna redundancia geográfica configurada para el servidor, se recomienda encarecidamente configurar el servidor para usar dos almacenes de claves distintos en dos regiones diferentes con el mismo material de clave. La clave del almacén de claves secundario en la otra región no se debe marcar como protector de TDE, no está admitido. Solo en el caso de que se produzca una interrupción en el almacén de claves principal, el sistema pasará automáticamente a la otra clave vinculada con la misma huella digital en el almacén de claves secundario, si existe. Tenga en cuenta que este cambio no se realizará si se han revocado los derechos de acceso y no se puede acceder al protector de TDE, o si se ha eliminado la clave o el almacén de claves, ya que esto podría indicar que el cliente quiere restringir el acceso del servidor a la clave de forma intencionada. Proporcionar el mismo material de clave a dos almacenes de claves en diferentes regiones puede realizarse mediante la creación de la clave fuera del almacén de claves y su importación a ambos almacenes de claves. 
 
-Use el cmdlet Backup-AzKeyVaultKey para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet Restore-AzKeyVaultKey y especifique un almacén de claves en la segunda región para clonar la clave. También puede usar Azure Portal para hacer una copia de seguridad de la clave y restaurarla. La clave del almacén de claves secundario en la otra región no se debe marcar como protector de TDE, no está admitido.
-
-Solo en el caso de que se produzca una interrupción en el almacén de claves principal, el sistema pasará automáticamente a la otra clave vinculada con la misma huella digital en el almacén de claves secundario, si existe. Tenga en cuenta que este cambio no se realizará si se han revocado los derechos de acceso y no se puede acceder al protector de TDE, o si se ha eliminado la clave o el almacén de claves, ya que esto podría indicar que el cliente quiere restringir el acceso del servidor a la clave de forma intencionada.
+Como alternativa, se puede lograr generando la clave con el almacén de claves principal coubicada en la misma región que el servidor y clonando la clave en un almacén de claves en otra región de Azure. Use el cmdlet [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) y especifique un almacén de claves en la segunda región para clonar la clave. También puede usar Azure Portal para hacer una copia de seguridad de la clave y restaurarla. Solo se permite la operación de copia de seguridad o restauración de claves entre almacenes de claves dentro de la misma suscripción de Azure y [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Alta disponibilidad de un solo servidor](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

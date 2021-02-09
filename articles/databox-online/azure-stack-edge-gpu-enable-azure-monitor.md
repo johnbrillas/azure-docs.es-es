@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465536"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493919"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de Azure Monitor en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -241,3 +241,4 @@ Siga estos pasos para habilitar la información de contenedor en el área de tra
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre la [Supervisión de las cargas de trabajo de Kubernetes a través del panel de Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Aprenda a [administrar las notificaciones de alertas de eventos de dispositivos](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

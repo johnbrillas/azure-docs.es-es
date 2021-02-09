@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756122"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090228"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -48,7 +48,7 @@ Debe consultar el registro de la aplicación y actualizar el URI de redirección
 
 ## <a name="request-an-authorization-code"></a>Solicitud de un código de autorización
 
-El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . En esta solicitud, el cliente solicita los permisos `openid`, `offline_access` y `https://graph.microsoft.com/mail.read ` del usuario.  Algunos permisos están restringidos para los administradores; por ejemplo, la escritura de datos en el directorio de una organización mediante `Directory.ReadWrite.All`. Si la aplicación solicita acceso a uno de estos permisos desde un usuario de la organización, el usuario recibe un mensaje de error que indica que no está autorizado para dar el consentimiento a los permisos de la aplicación. Para solicitar acceso a los ámbitos restringidos para el administrador, debe solicitarlos directamente a un administrador de la compañía.  Para más información, consulte [Permisos restringidos para el administrador](v2-permissions-and-consent.md#admin-restricted-permissions).
+El flujo del código de autorización comienza con el cliente dirigiendo al usuario al punto de conexión `/authorize` . En esta solicitud, el cliente solicita los permisos `openid`, `offline_access` y `https://graph.microsoft.com/mail.read ` del usuario.  Algunos permisos están restringidos para los administradores; por ejemplo, la escritura de datos en el directorio de una organización mediante `Directory.ReadWrite.All`. Si la aplicación solicita acceso a uno de estos permisos desde un usuario de la organización, el usuario recibe un mensaje de error que indica que no está autorizado para dar el consentimiento a los permisos de la aplicación. Para solicitar acceso a los ámbitos restringidos para el administrador, debe solicitarlos directamente a un administrador global.  Para más información, consulte [Permisos restringidos para el administrador](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632789"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221061"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub AE
 
@@ -71,7 +71,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **GitHub AE**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -93,11 +93,19 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![imagen](common/default-attributes.png)
 
-1. Además de lo anterior, la aplicación GitHub AE espera obtener algunos atributos más, que se muestran en la respuesta SAML a continuación. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
-    
-    | Nombre |  Atributo de origen|
-    | ----------- | --------- |
-    | administrator | true |
+1. Edite **Atributos y notificaciones de usuario**.
+
+1. Haga clic en **Agregar nueva notificación** y escriba el nombre como **administrador** en el cuadro de texto.
+
+1. Expanda **Condiciones de la notificación** y seleccione **Miembros** en **Tipo de usuario**.
+
+1. Haga clic en **Seleccionar grupos** y busque el **grupo** en el que desee incluir esta notificación, donde sus miembros deben ser administradores de GHAE.
+
+1. Seleccione **Atributo** para **Origen** y escriba **true** para **Valor**. 
+
+10. Haga clic en **Save**(Guardar).
+
+    ![administración de notificaciones](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > Para ver las instrucciones sobre cómo agregar una notificación, consulte el [vínculo](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).

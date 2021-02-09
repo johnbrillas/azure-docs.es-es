@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340060"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063203"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Establecimiento de conexiones del indexador a través de un punto de conexión privado
 
@@ -27,11 +27,11 @@ El método de conexión de este indexador está sujeto a los dos requisitos sigu
 
 ## <a name="shared-private-link-resources-management-apis"></a>API de administración de recursos de vínculo privado compartido
 
-Los puntos de conexión privados de recursos protegidos que se crean a través de las API de Azure Cognitive Search se conocen como *recursos de vínculo privado compartido* . Eso se debe a que "comparte" el acceso a un recurso, como una cuenta de almacenamiento, que se ha integrado en el [servicio Azure Private Link](https://azure.microsoft.com/services/private-link/).
+Los puntos de conexión privados de recursos protegidos que se crean a través de las API de Azure Cognitive Search se conocen como *recursos de vínculo privado compartido*. Eso se debe a que "comparte" el acceso a un recurso, como una cuenta de almacenamiento, que se ha integrado en el [servicio Azure Private Link](https://azure.microsoft.com/services/private-link/).
 
 A través de su API REST de administración, Azure Cognitive Search proporciona una operación [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) que puede usar para configurar el acceso desde un indexador de Azure Cognitive Search.
 
-Puede crear conexiones de punto de conexión privado solo a algunos recursos mediante la versión preliminar de Search Management API (versión *2020-08-01-preview* o posterior), que se designa como *versión preliminar previa* en la tabla siguiente. Los recursos sin una designación *versión preliminar* se pueden crear con la versión de la API en versión preliminar o disponible con carácter general ( *2020-08-01* o posterior).
+Puede crear conexiones de punto de conexión privado solo a algunos recursos mediante la versión preliminar de Search Management API (versión *2020-08-01-preview* o posterior), que se designa como *versión preliminar previa* en la tabla siguiente. Los recursos sin una designación *versión preliminar* se pueden crear con la versión de la API en versión preliminar o disponible con carácter general (*2020-08-01* o posterior).
 
 En la siguiente tabla se enumeran los recursos de Azure para los que puede crear puntos de conexión privados de salida desde Azure Cognitive Search. Para crear un recurso compartido de vínculo privado, escriba los valores de **Id. de grupo** exactamente como están escritos en la API. Los valores distinguen mayúsculas de minúsculas.
 
@@ -47,14 +47,14 @@ En la siguiente tabla se enumeran los recursos de Azure para los que puede crear
 
 También puede consultar los recursos de Azure para los que se admiten conexiones de punto de conexión privado de salida mediante la [lista de API compatibles](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-En el resto de este artículo se usa una mezcla de [ARMClient](https://github.com/projectkudu/ARMClient) y [Postman](https://www.postman.com/) API para mostrar las llamadas a la API REST.
+En el resto de este artículo, se usa una combinación de la [CLI de Azure](https://docs.microsoft.com/cli/azure/) (o [ARMClient](https://github.com/projectkudu/ARMClient), si lo prefiere) y [Postman](https://www.postman.com/) (o cualquier otro cliente HTTP como [curl](https://curl.se/), si lo prefiere) para demostrar las llamadas API REST.
 
 > [!NOTE]
 > Los ejemplos de este artículo se basan en los siguientes supuestos:
-> * El nombre del servicio de búsqueda es _contoso-search_ , que existe en el grupo de recursos _contoso_ de una suscripción con el identificador _00000000-0000-0000-0000-000000000000_ . 
-> * El identificador de recurso de este servicio de búsqueda es _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_ .
+> * El nombre del servicio de búsqueda es _contoso-search_, que existe en el grupo de recursos _contoso_ de una suscripción con el identificador _00000000-0000-0000-0000-000000000000_. 
+> * El identificador de recurso de este servicio de búsqueda es _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_.
 
-En el resto de los ejemplos se muestra cómo se puede configurar el servicio _contoso-search_ para que sus indexadores puedan acceder a los datos de la cuenta de almacenamiento seguro _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_ .
+En el resto de los ejemplos se muestra cómo se puede configurar el servicio _contoso-search_ para que sus indexadores puedan acceder a los datos de la cuenta de almacenamiento seguro _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_.
 
 ## <a name="secure-your-storage-account"></a>Protección de una cuenta de almacenamiento
 
@@ -69,11 +69,15 @@ Puede configurar la cuenta de almacenamiento para [permitir el acceso solo desde
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Paso 1: Crear un recurso de vínculo privado compartido a la cuenta de almacenamiento
 
-Para solicitar a Azure Cognitive Search que cree una conexión de punto de conexión privado de salida con la cuenta de almacenamiento, realice la siguiente llamada a la API: 
+Para solicitar a Azure Cognitive Search que cree una conexión de punto de conexión privado de salida con la cuenta de almacenamiento, realice la llamada siguiente a la API, por ejemplo, con la [CLI de Azure](https://docs.microsoft.com/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+O bien, si prefiere usar [ARMClient](https://github.com/projectkudu/ARMClient):
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
-El contenido del archivo *create-pe.json* , que representa el cuerpo de la solicitud a la API, es el siguiente:
+El contenido del archivo *create-pe.json*, que representa el cuerpo de la solicitud a la API, es el siguiente:
 
 ```json
 {
@@ -98,7 +102,11 @@ Como en todas las operaciones asincrónicas de Azure, la llamada a `PUT` devuelv
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-Este identificador URI se puede sondear periódicamente para obtener el estado de la operación. Antes de continuar, se recomienda esperar a que el estado de la operación del recurso de vínculo privado compartido alcance un estado del terminal (es decir, el estado de la operación es *correcto* ).
+Este identificador URI se puede sondear periódicamente para obtener el estado de la operación. Antes de continuar, se recomienda esperar a que el estado de la operación del recurso de vínculo privado compartido alcance un estado del terminal (es decir, el estado de la operación es *correcto*).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+O bien, con ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -119,7 +127,7 @@ Este identificador URI se puede sondear periódicamente para obtener el estado d
 
    ![Captura de pantalla de Azure Portal en la que se muestra el panel "Conexiones de punto de conexión privado".](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Seleccione el punto de conexión privado que Azure Cognitive Search ha creado. En la columna **Punto de conexión privado** , identifique la conexión del punto de conexión privado con el nombre que se especifica en la API anterior, seleccione **Aprobar** y escriba un mensaje adecuado. El contenido del mensaje no es significativo. 
+1. Seleccione el punto de conexión privado que Azure Cognitive Search ha creado. En la columna **Punto de conexión privado**, identifique la conexión del punto de conexión privado con el nombre que se especifica en la API anterior, seleccione **Aprobar** y escriba un mensaje adecuado. El contenido del mensaje no es significativo. 
 
    Asegúrese de que la conexión del punto de conexión privado aparece como se muestra en la siguiente captura de pantalla. El estado puede tardar entre uno y dos minutos en actualizarse en el portal.
 
@@ -130,6 +138,10 @@ Cuando se aprueba la solicitud de conexión de punto de conexión privado, el tr
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Paso 2b: Consultar el estado del recurso de vínculo privado compartido
 
 Para confirmar que el recurso de vínculo privado compartido se ha actualizado después de la aprobación, obtenga su estado mediante [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+O bien, con ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -173,7 +185,7 @@ Si el valor `properties.provisioningState` del recurso es `Succeeded` y el valor
 ## <a name="troubleshooting"></a>Solución de problemas
 
 - Si se produce un error al crear un indexador con el mensaje "Las credenciales del origen de datos no son válidas", significa que el estado de la conexión del punto de conexión privado aún no es *Approved* o que la conexión no es funcional. Para solucionar el problema: 
-  * Obtenga el estado del recurso de vínculo privado compartido mediante [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get). Si el estado es *Approved* , compruebe el valor `properties.provisioningState` del recurso. Si el estado es `Incomplete`, significa que no se pudieron configurar algunas de las dependencias subyacentes del recurso. Una nueva emisión de la solicitud de `PUT` para volver a crear el recurso de vínculo privado compartido debería corregir el problema. Es posible que haya que volver a aprobarla. Vuelva a comprobar el estado del recurso para asegurarse de que se ha corregido el problema.
+  * Obtenga el estado del recurso de vínculo privado compartido mediante [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get). Si el estado es *Approved*, compruebe el valor `properties.provisioningState` del recurso. Si el estado es `Incomplete`, significa que no se pudieron configurar algunas de las dependencias subyacentes del recurso. Una nueva emisión de la solicitud de `PUT` para volver a crear el recurso de vínculo privado compartido debería corregir el problema. Es posible que haya que volver a aprobarla. Vuelva a comprobar el estado del recurso para asegurarse de que se ha corregido el problema.
 
 - Si crea el indexador sin establecer su propiedad `executionEnvironment`, el proceso podría finalizar correctamente, pero su historial mostrará que sus ejecuciones no son correctas. Para solucionar el problema:
    * [Actualice el indexador](/rest/api/searchservice/update-indexer) para especificar el entorno de ejecución.

@@ -2,19 +2,15 @@
 title: Solución de problemas de la característica Start/Stop VMs during off-hours de Azure Automation
 description: En este artículo se explica cómo solucionar y resolver los problemas que surgen durante el uso de la característica Start/Stop VMs during off-hours.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187156"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053591"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solución de problemas de la característica Start/Stop VMs during off-hours
 
@@ -113,7 +109,7 @@ Revise la siguiente lista de posibles resoluciones:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verifique que su [cuenta de ejecución](../manage-runas-account.md) tiene los permisos adecuados para las VM que intenta iniciar o detener. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Puede recuperar este valor si va a la cuenta de Automation en Azure Portal. Seleccione **Cuentas de ejecución** en **Configuración de la cuenta** y seleccione la cuenta de ejecución adecuada.
+* Verifique que su [cuenta de ejecución](../automation-security-overview.md#run-as-accounts) tiene los permisos adecuados para las VM que intenta iniciar o detener. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Puede recuperar este valor si va a la cuenta de Automation en Azure Portal. Seleccione **Cuentas de ejecución** en **Configuración de la cuenta** y seleccione la cuenta de ejecución adecuada.
 
 * Las VM no pueden iniciarse o detenerse en caso de que se hayan excluido de forma explícita. Las VM excluidas se definen en la variable `External_ExcludeVMNames` en la cuenta de Automation en la que está implementada la característica. En el ejemplo siguiente se muestra cómo consultar ese valor con PowerShell.
 
@@ -205,7 +201,7 @@ Este problema puede deberse a una cuenta de ejecución mal configurada o expirad
 
 Para comprobar si la cuenta de ejecución está configurada correctamente, vaya a la cuenta de Automation en Azure Portal y seleccione **Cuentas de ejecución** en **Configuración de la cuenta**. Si una cuenta de ejecución se ha configurado incorrectamente o ha expirado, el estado muestra la condición.
 
-Si la cuenta de ejecución está mal configurada, elimínela y vuelva a crearla. Para más información, consulte [Administración de cuentas de ejecución en Azure Automation](../manage-runas-account.md).
+Si la cuenta de ejecución está mal configurada, elimínela y vuelva a crearla. Para más información, consulte [Cuentas de ejecución de Azure Automation](../automation-security-overview.md#run-as-accounts).
 
 Si expiró el certificado de la cuenta de ejecución, siga los pasos de [Renovación de certificado autofirmado](../manage-runas-account.md#cert-renewal) para renovarlo.
 

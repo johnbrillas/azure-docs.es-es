@@ -1,5 +1,5 @@
 ---
-title: Reacción ante eventos de Azure Media Services | Microsoft Docs
+title: Reacción a eventos de Azure Media Services
 description: En este artículo se describe cómo usar Azure Event Grid para suscribirse a eventos de Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ef6a920e9334c6e98b18d1db1abf39136c6f4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d4479914ffee6cf667a5f6db2fd665baf2b857c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289161"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895652"
 ---
 # <a name="handling-event-grid-events"></a>Control de eventos de Event Grid
 

@@ -4,7 +4,7 @@ description: Se tratan las consideraciones de seguridad al utilizar el Proxy de 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3c98bce0be2b456220815a359aae1ee697f3ca2c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649575"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254972"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -108,7 +108,7 @@ El conector usa un certificado de cliente para autenticarse en el servicio de Pr
 Los siguientes eventos de flujo ocurren cuando el conector se configura en primer lugar:
 
 1. El registro del conector en el servicio se produce en el marco de la instalación del conector. Se solicita a los usuarios que escriban sus credenciales de administrador de Azure AD.  A continuación, el token obtenido con esta autenticación se presenta al servicio Azure AD Application Proxy.
-2. El servicio Application Proxy evalúa el token. Comprueba si el usuario es un administrador de empresa en el inquilino.  Si el usuario no es un administrador, el proceso se termina.
+2. El servicio Application Proxy evalúa el token. Comprueba si el usuario es Administrador global en el inquilino.  Si el usuario no es un administrador, el proceso se termina.
 3. El conector genera una solicitud de certificado de cliente y la pasa, junto con el token, al servicio Application Proxy. A su vez, el servicio comprueba el token y firma la solicitud de certificado de cliente.
 4. El conector usa el certificado de cliente para la comunicación posterior con el servicio de Proxy de aplicación.
 5. El conector realiza una extracción inicial de los datos de configuración del sistema desde el servicio usando su certificado de cliente y ya está listo para aceptar solicitudes.

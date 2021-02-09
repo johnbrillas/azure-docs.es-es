@@ -1,5 +1,5 @@
 ---
-title: Generación de miniaturas mediante Encoder Standard de Azure Media Services con REST
+title: Generación de vistas en miniatura mediante REST de Media Encoder Standard
 description: En este artículo se muestra cómo se usa REST para codificar un recurso y generar miniaturas al mismo tiempo con Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ec2782297f2659341c9fa7e87ce15d3dbceb022c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4456a65f422c23da73f36dd74680fbb598db186
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019569"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955841"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Generación de miniaturas mediante Encoder Standard con REST
 

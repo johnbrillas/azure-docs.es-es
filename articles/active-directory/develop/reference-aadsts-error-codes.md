@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169280"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428038"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -95,6 +95,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS50000 | TokenIssuanceError: hay un problema con el servicio de inicio de sesión. Abra un [vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema. |
 | AADSTS50001 | InvalidResource: el recurso está deshabilitado o no existe. Compruebe el código de la aplicación para asegurarse de que ha especificado la URL exacta del recurso al que está intentando acceder.  |
 | AADSTS50002 | NotAllowedTenant: no se pudo iniciar sesión debido a un acceso de proxy restringido en el inquilino. Si se trata de su propia directiva de inquilino, puede cambiar la configuración restringida del inquilino para corregir este problema. |
+| AADSTS500021 | Se denegó el acceso al inquilino "{tenant}". AADSTS500021 indica que la característica de restricción de inquilino está configurada y que el usuario está intentando acceder a un inquilino que no está en la lista de inquilinos permitidos especificados en el encabezado `Restrict-Access-To-Tenant`. Para obtener más información, consulte [Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
 | AADSTS50003 | MissingSigningKey: no se pudo iniciar sesión debido a que falta la clave de firma o el certificado. Esto se puede deber a que no había ninguna clave de firma configurada en la aplicación. Consulte las resoluciones que se describen en [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Si siguen los problemas, póngase en contacto con el propietario o el administrador de la aplicación. |
 | AADSTS50005 | DevicePolicyError: el usuario intentó iniciar sesión en un dispositivo desde una plataforma que no es compatible mediante una directiva de acceso condicional. |
 | AADSTS50006 | InvalidSignature: no se pudo comprobar la firma debido a una firma no válida. |

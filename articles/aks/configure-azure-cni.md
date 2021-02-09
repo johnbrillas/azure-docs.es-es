@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000579"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062224"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -63,7 +63,7 @@ El número máximo de pods por nodo en un clúster de AKS es 250. El número má
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Sí (hasta 250) |
 | Plantilla de Resource Manager | 110 | 30 | Sí (hasta 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 110 (configurados en la pestaña Grupos de nodos) | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo: nuevos clústeres
 
@@ -96,6 +96,8 @@ Cuando crea un clúster de AKS, los parámetros siguientes son configurables par
 **Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*. Para información acerca de límites y cuotas para Azure Virtual Network, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*. Para la conectividad híbrida, el intervalo de direcciones no debe solaparse con ninguna otra red virtual de su entorno.
+
+**Complemento de red de Azure**: cuando se usa el complemento de red de Azure, no se puede acceder al servicio Load Balancer interno con "externalTrafficPolicy=Local" desde VM con una dirección IP en clusterCIDR que no pertenezca al clúster de AKS.
 
 **Intervalo de direcciones de servicio de Kubernetes**: conjunto de direcciones IP virtuales que Kubernetes asigna a [servicios][services] internos del clúster. Puede usar cualquier intervalo de direcciones privado que cumpla los requisitos siguientes:
 

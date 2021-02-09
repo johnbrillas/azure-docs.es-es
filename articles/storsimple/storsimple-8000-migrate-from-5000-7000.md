@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398193"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428173"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000
 
@@ -150,4 +150,4 @@ Realice los pasos siguientes para instalar la herramienta de migración de StorS
   
 
 ## <a name="next-steps"></a>Pasos siguientes
-Descargue las instrucciones paso a paso sobre cómo [migrar datos desde un dispositivo StorSimple de la serie 5000-7000 a un dispositivo de la serie 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).
+Descargue las instrucciones paso a paso sobre cómo [migrar datos desde un dispositivo StorSimple de la serie 5000-7000 a un dispositivo de la serie 8000](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf).

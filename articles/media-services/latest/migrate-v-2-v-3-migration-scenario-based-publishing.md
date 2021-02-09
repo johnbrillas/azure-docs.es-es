@@ -1,5 +1,5 @@
 ---
-title: Guía de migración basada en escenarios de empaquetado y entrega | Microsoft Docs
+title: Guía de migración de empaquetado y entrega
 description: En este artículo se proporcionan instrucciones basadas en escenarios de empaquetado y entrega que le ayudarán a migrar de Azure Media Services v2 a v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 74437a4adee9e2853f7b932316d57e406b7d00be
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689552"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928190"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de empaquetado y entrega
 

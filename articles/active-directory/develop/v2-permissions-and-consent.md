@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756058"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090194"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
 
@@ -164,7 +164,7 @@ Si la aplicación solicita permisos de aplicación y un administrador los conced
 
 Después de usar el punto de conexión de consentimiento del administrador para conceder el consentimiento del administrador, ya ha terminado. No es necesarios que los usuarios realicen ninguna acción adicional. Una vez concedido el consentimiento del administrador, los usuarios pueden obtener un token de acceso mediante un flujo de autenticación típico. El token de acceso resultante tiene los permisos consentidos.
 
-Cuando un administrador de empresa usa la aplicación y se dirige al punto de conexión de autorización, la Plataforma de identidad de Microsoft detecta el rol de usuario. Pregunta si el administrador de empresa desea dar su consentimiento en nombre de todo el inquilino para los permisos solicitados. En su lugar, podría usar un punto de conexión de consentimiento del administrador dedicado para solicitar proactivamente a un administrador que conceda permiso en nombre de todo el inquilino. Este punto de conexión también es necesario para solicitar permisos de aplicación. No se pueden solicitar permisos de aplicación mediante el punto de conexión de autorización.
+Cuando un administrador global usa la aplicación y se dirige al punto de conexión de autorización, la Plataforma de identidad de Microsoft detecta el rol de usuario. Pregunta si el administrador global desea dar su consentimiento en nombre de todo el inquilino para los permisos solicitados. En su lugar, podría usar un punto de conexión de consentimiento del administrador dedicado para solicitar proactivamente a un administrador que conceda permiso en nombre de todo el inquilino. Este punto de conexión también es necesario para solicitar permisos de aplicación. No se pueden solicitar permisos de aplicación mediante el punto de conexión de autorización.
 
 Si sigue estos pasos, la aplicación puede recopilar los permisos para todos los usuarios de un inquilino, incluso en los ámbitos restringidos para los administradores. Esta operación tiene privilegios elevados. Use la operación solo si es necesario para su escenario.
 

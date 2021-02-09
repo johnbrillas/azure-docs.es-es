@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 01/27/2021
+ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806877"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220860"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -92,7 +92,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | automationAccounts | resource group | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
+> | automationAccounts | grupo de recursos y región <br>(consulte la nota a continuación) | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra y termine con un carácter alfanumérico. |
 > | automationAccounts/certificates | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio.  |
 > | automationAccounts/connections | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
 > | automationAccounts/credentials | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
@@ -101,6 +101,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | automationAccounts/variables | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
 > | automationAccounts/watchers | cuenta de Automation | 1-63 |  Caracteres alfanuméricos, de subrayado y guiones.<br><br>Comience con una letra. |
 > | automationAccounts/webhooks | cuenta de Automation | 1-128 | No puede usar:<br> `<>*%&:\?.+/` <br><br>No puede terminar con un espacio. |
+
+> [!NOTE]
+> Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos. Es posible que los nombres de las cuentas de Automation eliminadas no estén disponibles de inmediato.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 

@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013600"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054100"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -29,6 +29,8 @@ Los permisos de los roles incluyen:
 Cuando crea un proyecto de modelo tabular, crea roles y agrega usuarios o grupos a esos roles mediante el Administrador de roles de Visual Studio con los proyectos de Analysis Services. Cuando se implementa en un servidor, utilice SQL Server Management Studio (SSMS), [cmdlets de PowerShell para Analysis Services](/analysis-services/powershell/analysis-services-powershell-reference) o [Tabular Model Scripting Language](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para agregar o quitar roles y miembros usuarios.
 
 Al agregar un **grupo de seguridad**, use `obj:groupid@tenantid`.
+
+Al agregar una **entidad de servicio** use `app:appid@tenantid`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para agregar o administrar roles y usuarios en Visual Studio  
   

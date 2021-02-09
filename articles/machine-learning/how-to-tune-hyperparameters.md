@@ -2,24 +2,23 @@
 title: Ajuste de hiperparámetros de un modelo
 titleSuffix: Azure Machine Learning
 description: Automatice el ajuste de los hiperparámetros de sus modelos de aprendizaje profundo o aprendizaje automático mediante Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133868"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430362"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Ajuste de hiperparámetros de un modelo con Azure Machine Learning
-
 
 Automatice el ajuste eficaz de hiperparámetros con [paquetes HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) de Azure Machine Learning. Obtenga información sobre cómo completar los pasos necesarios para ajustar los hiperparámetros con el [SDK de Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualización de las ejecuciones de ajuste de hiperparámetros
 
+Puede visualizar las ejecuciones de ajuste de hiperparámetros en Estudio de Azure Machine Learning, o bien puede usar un widget de Notebook.
+
+### <a name="studio"></a>Estudio
+
+Puede visualizar todas las ejecuciones de ajuste de hiperparámetros en [Estudio de Azure Machine Learning](https://ml.azure.com). Para más información sobre cómo ver un experimento en el portal, consulte [Visualización de registros de ejecución en Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Gráfico de métricas**: esta visualización realiza un seguimiento de las métricas registradas para cada ejecución secundaria de Hyperdrive durante el ajuste de hiperparámetros. Cada línea representa una ejecución secundaria y cada punto mide el valor de la métrica principal en esa iteración del tiempo de ejecución.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Gráfico de métricas del ajuste de hiperparámetros":::
+
+- **Gráfico de coordenadas paralelas**: esta visualización muestra la correlación entre el rendimiento de la métrica principal y los valores de los hiperparámetros individuales. El gráfico es interactivo a través del movimiento de los ejes (haga clic y arrastre por la etiqueta del eje) y mediante el resalte de los valores en un solo eje (haga clic y arrastre verticalmente a lo largo de un solo eje para resaltar un intervalo de valores deseados).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Gráfico de coordenadas paralelas de ajuste de hiperparámetros":::
+
+- **Gráfico de dispersión bidimensional**: esta visualización muestra la correlación entre dos hiperparámetros individuales, junto con el valor de la métrica principal asociada.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Gráfico de dispersión bidimensional de ajuste de hiperparámetros":::
+
+- **Gráfico de dispersión tridimensional**: esta visualización es la misma que en la de dos dimensiones, pero permite tres dimensiones de hiperparámetros de correlación con el valor de la métrica principal. También puede hacer clic y arrastrar para reorientar el gráfico, con el fin de ver diferentes correlaciones en un espacio tridimensional.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Gráfico de dispersión tridimensional de ajuste de hiperparámetros":::
+
+### <a name="notebook-widget"></a>Widget del cuaderno
+
 Use el [widget del cuaderno](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar el progreso de las series de entrenamiento. El siguiente fragmento de código visualiza todas las ejecuciones de ajuste de hiperparámetros en un solo lugar, un Jupyter Notebook:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 En este código se muestra una tabla con detalles sobre las series de entrenamientos de cada una de las configuraciones de hiperparámetros.
 
-![tabla de ajuste de hiperparámetros](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabla de ajuste de hiperparámetros":::
 
-También puede visualizar el rendimiento de cada una de las ejecuciones a medida que progresa el entrenamiento. 
-
-![trazado de ajuste de hiperparámetros](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Puede identificar visualmente la correlación entre el rendimiento y los valores de hiperparámetros individuales mediante un trazado de coordenadas paralelas. 
-
-[![coordenadas paralelas de ajuste de hiperparámetros](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Puede visualizar todas las series de ajuste de hiperparámetros en el portal web de Azure. Para obtener más información sobre cómo ver un experimento en el portal web, vea [cómo realizar el seguimiento de experimentos](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+También puede visualizar el rendimiento de cada una de las ejecuciones a medida que progresa el entrenamiento.
 
 ## <a name="find-the-best-model"></a>Identificación del mejor modelo
 

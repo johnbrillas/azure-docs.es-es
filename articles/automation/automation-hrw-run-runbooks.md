@@ -3,14 +3,14 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en otro proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301531"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220980"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -22,7 +22,7 @@ Cuando cree un runbook para que se ejecute en una instancia de Hybrid Runbook Wo
 
 Azure Automation controla los trabajos en Hybrid Runbook Worker de forma diferente a los trabajos que se ejecutan en espacios aislados de Azure. Si tiene un runbook de larga ejecución, asegúrese de que sea resistente a posibles reinicios. Para obtener detalles del comportamiento del trabajo, consulte [Trabajos de Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta del **sistema** local en Windows o en la cuenta **nxautomation** en Linux. En el caso de Linux, compruebe que la cuenta **nxautomation** tiene acceso a la ubicación en la que se almacenan los módulos del runbook. Cuando use el cmdlet [Install-Module](/powershell/module/powershellget/install-module), asegúrese de especificar AllUsers para el parámetro `Scope` a fin de asegurarse de que la cuenta **nxautomation** tiene acceso. Para obtener más información sobre PowerShell en Linux, consulte [Problemas conocidos de PowerShell en plataformas que no son de Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
+Los trabajos de instancias de Hybrid Runbook Worker se ejecutan en la cuenta del **sistema** local en Windows o en la cuenta **nxautomation** en Linux. En el caso de Linux, compruebe que la cuenta **nxautomation** tiene acceso a la ubicación en la que se almacenan los módulos del runbook. Cuando use el cmdlet [Install-Module](/powershell/module/powershellget/install-module), asegúrese de especificar AllUsers para el parámetro `Scope` a fin de asegurarse de que la cuenta **nxautomation** tiene acceso. Para obtener más información sobre PowerShell en Linux, consulte [Problemas conocidos de PowerShell en plataformas que no son de Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Configuración de permisos de runbooks
 
@@ -94,6 +94,10 @@ Utilice el procedimiento siguiente para especificar una cuenta de ejecución par
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Instalación del certificado de cuentas de ejecución
 
 Como parte del proceso de compilación automatizado para la implementación de recursos en Azure, es posible que necesite acceder a los sistemas locales para admitir una tarea o un conjunto de pasos de la secuencia de implementación. Para proporcionar la autenticación en Azure mediante la cuenta de ejecución, debe instalar el certificado de la cuenta de ejecución.
+
+>[!NOTE]
+>Actualmente, este runbook de PowerShell no se ejecuta en máquinas Linux. Se ejecuta solo en máquinas Windows.
+>
 
 El siguiente runbook de PowerShell, llamado **Export-RunAsCertificateToHybridWorker**, exporta el certificado de ejecución de la cuenta de Azure Automation. El runbook descarga e importa el certificado en el almacén de certificados del equipo local en una instancia de Hybrid Runbook Worker que está conectada a la misma cuenta. Una vez que completa dicho paso, el runbook comprueba que el rol de trabajo se puede autenticar correctamente en Azure con la cuenta de ejecución.
 
@@ -327,4 +331,4 @@ Para ayudar a solucionar problemas con los runbooks que se ejecutan en un trabaj
 
 * Si los runbooks no finalizan correctamente, revise la guía de solución de problemas sobre [errores de ejecución de un runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](/powershell/scripting/overview).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

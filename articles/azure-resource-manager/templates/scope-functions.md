@@ -3,12 +3,12 @@ title: Funciones de plantilla en implementaciones con ámbito
 description: Se describe cómo se resuelven las funciones de plantilla en implementaciones con ámbito. El ámbito puede ser un inquilino, grupos de administración, suscripciones y grupos de recursos.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681356"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492100"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Funciones de plantilla de Resource Manager en ámbitos de implementación
 
@@ -40,15 +40,15 @@ Al realizar la implementación en distintos ámbitos, hay algunos aspectos impor
 * Use la función [extensionResourceId()](template-functions-resource.md#extensionresourceid) con los recursos que se implementan como extensiones del grupo de administración. Las definiciones de directivas personalizadas que se implementan en un grupo de administración son extensiones del grupo de administración.
 
   Para obtener el identificador de recurso de una definición de directiva personalizada en el nivel de grupo de administración, use:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Use la función [tenantResourceId](template-functions-resource.md#tenantresourceid) para obtener el identificador de un recurso implementado en el inquilino. Las definiciones de directivas integradas son recursos del nivel de inquilino. Al asignar una directiva integrada en el nivel de grupo de administración, use la función tenantResourceId.
+* Use la función [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obtener el identificador de un recurso implementado en el inquilino. Las definiciones de directivas integradas son recursos del nivel de inquilino. Al asignar una directiva integrada en el nivel de grupo de administración, use la función tenantResourceId.
 
   Para obtener el identificador de recurso de una definición de directiva integrada, utilice:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -140,4 +140,4 @@ El resultado del ejemplo anterior es:
 
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](common-deployment-errors.md).
-* Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla privada con el token de SAS](secure-template-with-sas-token.md).
+* Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](secure-template-with-sas-token.md).

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678464"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254281"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Solución de problemas del grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
 
@@ -76,6 +76,7 @@ En este artículo se enumeran los problemas comunes de un grupo de SQL dedicado 
 | Tipos de datos de SQL Database no admitidos   | Consulte [Tipos de datos no admitidos](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
 | Limitaciones de procedimientos almacenados          | Consulte [Limitaciones de procedimientos almacenados](sql-data-warehouse-develop-stored-procedures.md#limitations) para conocer algunas de las limitaciones de los procedimientos almacenados. |
 | Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF.  Consulte [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para comprobar la sintaxis que se admite. |
+| sp_rename (versión preliminar) para las columnas no funciona en esquemas fuera de *dbo*. | Se trata de una limitación actual de [sp_rename (versión preliminar) para columnas](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de Synapse.  Se puede cambiar el nombre de las columnas de los objetos que no forman parte del esquema *dbo* a través de CTAS a una nueva tabla. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

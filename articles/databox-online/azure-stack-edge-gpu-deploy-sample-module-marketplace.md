@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760066"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062518"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Implementación de un módulo IoT habilitado para GPU desde Azure Marketplace en un dispositivo Azure Stack Edge Pro con GPU
 
@@ -53,7 +53,7 @@ Antes de comenzar, asegúrese de que tiene:
 
     ![Obtención del módulo de ejemplo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
-4. Seleccione  **Continuar** para confirmar las condiciones de uso y la directiva de privacidad del proveedor. 
+4. Seleccione **Continuar** para confirmar las condiciones de uso y la directiva de privacidad del proveedor. 
 
     ![Obtención del módulo de ejemplo 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
@@ -63,13 +63,11 @@ Antes de comenzar, asegúrese de que tiene:
 
 6. Escriba el nombre del servicio IoT Hub que creó al configurar el dispositivo Azure Stack Edge Pro. Para encontrar el nombre de servicio IoT Hub, vaya al recurso de Azure Stack Edge asociado con el dispositivo en Azure Portal. 
 
-    1. En las opciones de menú del panel izquierdo, vaya a **Proceso perimetral > Introducción**. 
-
-    1. En el icono **Configurar el proceso perimetral**, seleccione **Ver configuración**. 
+    1. En las opciones de menú del panel izquierdo, vaya a **Edge services (Servicios perimetrales) > IoT Edge**. 
 
         ![Vista de la configuración de proceso](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. En la hoja **Configuración del proceso perimetral**:
+    1. Vaya a **Propiedades**. 
 
         1. Tome nota del nombre del servicio IoT Hub que creó al configurar el proceso en el dispositivo Azure Stack Edge Pro.
         2. Anote el nombre del dispositivo IoT Edge que se creó al configurar el proceso. Este nombre se usará en el paso posterior.
@@ -78,16 +76,16 @@ Antes de comenzar, asegúrese de que tiene:
 
 10. Elija **Implementar en un dispositivo**.
 
-11. Escriba el nombre del dispositivo IoT Edge o seleccione  **Buscar dispositivo** para buscar entre los dispositivos registrados en el centro.
+11. Escriba el nombre del dispositivo de IoT Edge o seleccione **Buscar dispositivo** para buscar entre los dispositivos registrados en el centro.
 
     ![Búsqueda del dispositivo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/find-device-1.png)
 
-12. Seleccione  **Crear** para continuar el proceso estándar de configurar un manifiesto de implementación, lo que incluye agregar otros módulos si lo desea. Los detalles del nuevo módulo, como el URI de la imagen, las opciones de creación y las propiedades deseadas están predefinidas pero se pueden cambiar.
+12. Seleccione **Crear** para continuar el proceso estándar de configurar un manifiesto de implementación, lo que incluye agregar otros módulos si lo desea. Los detalles del nuevo módulo, como el URI de la imagen, las opciones de creación y las propiedades deseadas están predefinidas pero se pueden cambiar.
 
     ![Haga clic en Crear](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/target-devices-iot-edge-module-1.png)
 
 
-13. Compruebe que el módulo está implementado en su instancia de IoT Hub en Azure Portal. Seleccione el dispositivo, luego  **Establecer módulos** y el módulo debe aparecer en la sección  **Módulos IoT Edge** .
+13. Compruebe que el módulo está implementado en su instancia de IoT Hub en Azure Portal. Seleccione el dispositivo, elija **Establecer módulos**; el módulo debe aparecer en la sección **Módulos de IoT Edge**.
 
     ![Seleccionar Crear 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 

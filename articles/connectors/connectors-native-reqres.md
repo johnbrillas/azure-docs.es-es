@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920825"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063019"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -216,7 +216,7 @@ Al usar el desencadenador de solicitud para administrar las solicitudes entrante
 > Si una acción de respuesta incluye estos encabezados, Logic Apps quita estos encabezados del mensaje de respuesta generado sin mostrar ninguna advertencia o error:
 >
 > * `Allow`
-> * `Content-*` con estas excepciones: `Content-Disposition`, `Content-Encoding` y `Content-Type`
+> * Encabezados `Content-*`, excepto para `Content-Disposition`, `Content-Encoding` y `Content-Type` cuando usa operaciones POST y PUT, pero no se incluyen para las operaciones GET
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 12630e5e4b332d875a75c59d2fdafecd23be0b17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/29/2020
+ms.openlocfilehash: 8071b0fb08f6456b4eb59a3dae875ab0c90ab64d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005476"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223512"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carga de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -126,7 +126,7 @@ En este artículo se muestra cómo usar la herramienta Copiar datos de Data Fact
 
     b. En la página **New Linked Service** (Nuevo servicio vinculado), seleccione su cuenta de almacenamiento y seleccione **Crear** para implementar el servicio vinculado.
 
-    c. En la sección **Advanced settings** (Configuración avanzada), anule la selección de la opción **Use type default** (Usar valor predeterminado de type) y seleccione **Next** (Siguiente).
+    c. Anule la selección de la opción **Use type default** (Usar tipo predeterminado) y luego seleccione **Siguiente**.
 
     ![Configurar PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 

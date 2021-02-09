@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 537a301ef2c3ba1bb5ed34d92c8784655c79d97f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500689"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097479"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
@@ -32,6 +32,8 @@ Las máquinas virtuales de la serie Ev3 cuentan con la tecnología Hyper-Threadi
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): No compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Ancho de banda de red/NIC máx. |
@@ -62,6 +64,8 @@ Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Thread
 [Migración en vivo](maintenance-and-updates.md): Compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): Compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 <br>
 
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS/Mbps (tamaño de caché en GiB) | Rendimiento de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>3</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps |  Rendimiento del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>3</sup>| Nº máx. de NIC/ancho de banda de red esperado (Mbps) |

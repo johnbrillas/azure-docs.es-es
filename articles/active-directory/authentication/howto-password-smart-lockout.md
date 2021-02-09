@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741735"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255380"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protección de las cuentas de usuario frente a ataques con el bloqueo inteligente de Azure Active Directory
 
@@ -89,6 +89,8 @@ Para comprobar o modificar los valores de bloqueo inteligente para su organizaci
 Cuando se desencadena el umbral de bloqueo inteligente, aparecerá el siguiente mensaje mientras la cuenta está bloqueada:
 
 *Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo y, si sigue teniendo problemas, póngase en contacto con su administrador.*
+
+Al probar el bloqueo inteligente, las solicitudes de inicio de sesión pueden ser controladas por distintos centros de datos debido a la naturaleza de distribución geográfica y de equilibrio de carga del servicio de autenticación de Azure AD. En ese escenario, dado que cada centro de datos de Azure AD hace un seguimiento de manera independiente, se puede tardar más que el número de intentos de bloqueo definido para producir un bloqueo. Un usuario tiene cierto número de intentos incorrectos (*threshold_limit * datacenter_count*), si el usuario visita cada centro de datos antes e que ocurra el bloqueo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

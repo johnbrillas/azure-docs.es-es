@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: 3d6e9d1d66425655f0db5751a28746b6a6a31c86
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 06837ab0f4685787f8d2615e81d0405fdb8ec711
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631790"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062566"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Acceso a Microsoft Graph desde una aplicación protegida como aplicación
 
@@ -125,9 +125,9 @@ Para obtener una credencial de token que el código pueda usar para autorizar so
 
 Para ver este código como parte de una aplicación de ejemplo, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-### <a name="install-the-microsoftgraph-client-library-package"></a>Instalación del paquete de la biblioteca cliente Microsoft.Graph
+### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Instalación del paquete de la biblioteca cliente Microsoft.Identity.Web.MicrosoftGraph
 
-Instale el [paquete NuGet Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) en el proyecto mediante la interfaz de la línea de comandos de .NET Core o la consola del administrador de paquetes de Visual Studio.
+Instale el [paquete NuGet Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) en el proyecto utilizando la interfaz de la línea de comandos de .NET Core o la consola del administrador de paquetes de Visual Studio.
 
 # <a name="command-line"></a>[Línea de comandos](#tab/command-line)
 
@@ -136,7 +136,7 @@ Abra una línea de comandos y cambie al directorio que contiene el archivo del p
 Ejecute los comandos de instalación.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 # <a name="package-manager"></a>[Administrador de paquetes](#tab/package-manager)
@@ -145,7 +145,7 @@ Abra el proyecto o la solución en Visual Studio y abra la consola mediante **H
 
 Ejecute los comandos de instalación.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 ---

@@ -3,14 +3,14 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2565fa1183635c10e45b247f723788b6fe371c14
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325254"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897282"
 ---
-# <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
+# <a name="configure-azure-backup-reports-preview"></a>Configuración de informes de Azure Backup (versión preliminar)
 
 Un requisito común para los administradores de copias de seguridad es obtener conclusiones sobre las copias de seguridad, en función de datos que abarcan un largo período de tiempo. Entre los casos de uso de esta solución se incluyen:
 

@@ -3,12 +3,12 @@ title: 'Notas de la versión de Live Video Analytics on IoT Edge: Azure'
 description: En este tema se proporcionan las notas de la versión sobre las mejoras, las versiones, las correcciones de errores y los problemas conocidos de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f130b93b8d799c371a640f2b29c22c0d77834cba
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629783"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954402"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notas de la versión de Live Video Analytics on IoT Edge
 
@@ -48,7 +48,7 @@ Esta versión es la versión preliminar pública actualizada de Live Video Analy
 ```
 ### <a name="module-updates"></a>Actualizaciones del módulo
 * Se ha agregado compatibilidad con el uso de más de un procesador de extensión HTTP y un procesador de extensión gRPC por topología de grafos.
-* Se ha agregado compatibilidad para la administración del espacio en disco para los nodos receptores.
+* Se ha agregado compatibilidad para la [administración del espacio en disco para los nodos receptores](upgrading-lva-module.md#disk-space-management-with-sink-nodes).
 * El nodo `MediaGraphGrpcExtension` ahora admite la propiedad [extensionConfiguration](grpc-extension-protocol.md) para usar varios modelos de IA en un único servidor gRPC.
 * Se ha agregado compatibilidad con la recopilación de métricas del módulo Live Video Analytics en el [formato Prometheus](https://prometheus.io/docs/practices/naming/). Obtenga más información sobre cómo [recopilar métricas y visualizarlas en Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
 * Se ha agregado la posibilidad de filtrar la selección de salida. Puede pasar **solo audio**, **solo vídeo** o **audio y vídeo** con la ayuda de `outputSelectors` a cualquier nodo de grafo. 
@@ -56,7 +56,7 @@ Esta versión es la versión preliminar pública actualizada de Live Video Analy
     * La administración de la velocidad de fotogramas ahora está disponible en los nodos mismos del procesador de extensión de grafos.
 
 ### <a name="visual-studio-code-extension"></a>Extensión de Visual Studio Code
-* Se publicó [Live Video Analytics en IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge), una extensión de Visual Studio Code para ayudarle a administrar grafos multimedia de LVA. Esta extensión funciona con el **módulo LVA 2.0** y ofrece la edición y administración de grafos multimedia con una interfaz gráfica muy elegante y fácil de usar.
+* Se publicó [Live Video Analytics en IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge), una extensión de Visual Studio Code para ayudarle a administrar grafos multimedia de LVA. Esta extensión funciona con el **módulo LVA 2.0** y ofrece la edición y administración de grafos multimedia con una interfaz gráfica elegante y fácil de usar.
 ## <a name="september-22-2020"></a>22 de septiembre de 2020
 
 La etiqueta de esta versión para la actualización de septiembre de 2020 del módulo es:
@@ -93,9 +93,9 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="module-updates"></a>Actualizaciones del módulo
 
-* Ahora puede obtener un alto rendimiento de la transferencia de contenido de datos entre Live Video Analytics en IoT Edge y su extensión personalizada mediante el marco de gRPC. Consulte [aquí](analyze-live-video-use-your-grpc-model-quickstart.md) para empezar.
+* Ahora puede obtener un alto rendimiento de la transferencia de contenido de datos entre Live Video Analytics en IoT Edge y su extensión personalizada mediante el marco de gRPC. Consulte el [inicio rápido](analyze-live-video-use-your-grpc-model-quickstart.md) para comenzar.
 * Implementación regional más amplia de Live Video Analytics y solo se ha actualizado el servicio en la nube.  
-* Live Video Analytics ahora está disponible en otras 25 regiones de todo el mundo. A continuación, se muestra la [lista](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) de todas las regiones disponibles.  
+* Live Video Analytics ahora está disponible en 25 regiones más de todo el mundo. A continuación, se muestra la [lista](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) de todas las regiones disponibles.  
 * La [configuración](https://aka.ms/lva-edge/setup-resources-for-samples) de los inicios rápidos se actualizó también con compatibilidad con regiones nuevas.
     * No hay ninguna llamada a la acción para ningún usuario que ya haya configurado los recursos.
 
@@ -118,7 +118,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 
 ### <a name="module-updates"></a>Actualizaciones del módulo
 
-* Ahora puede crear topologías de grafos que tengan un nodo receptor de recursos, así como un nodo receptor de archivos de nivel inferior de un nodo procesador de puerta de señal. Consulte [aquí](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) para ver un ejemplo.
+* Ahora puede crear topologías de grafos que tengan un nodo receptor de recursos y un nodo receptor de archivos de nivel inferior de un nodo procesador de puerta de señal. Consulte [la topología](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) para obtener un ejemplo.
 
 ### <a name="bug-fixes"></a>Corrección de errores
 

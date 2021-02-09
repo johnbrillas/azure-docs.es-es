@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo ver y consultar los datos de telem
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937304"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493777"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Análisis de la telemetría de Azure Functions en Application Insights 
 
@@ -77,18 +77,18 @@ Elija **Registros** para explorar o consultar eventos registrados.
 
 Este es un ejemplo de consulta que muestra la distribución de solicitudes por trabajador durante los últimos 30 minutos.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 Las tablas que están disponibles se muestran en la pestaña **Esquema** de la izquierda. Encontrará los datos generados por las invocaciones de función en las tablas siguientes:
 
 | Tabla | Descripción |
 | ----- | ----------- |
-| **traces** | Registros creados por el tiempo de ejecución y por el código de la función. |
+| **traces** | Registros que crea el runtime, el controlador de escala y seguimientos del código de función. |
 | **requests** | Una solicitud por cada invocación de función. |
 | **exceptions** | Cualquier excepción que produzca el tiempo de ejecución. |
 | **customMetrics** | Recuento de invocaciones correctas y erróneas, tasa de éxito y duración. |
@@ -99,12 +99,38 @@ El resto de las tablas son para pruebas de disponibilidad, y telemetría de expl
 
 Dentro de cada tabla, algunos de los datos específicos de Functions están en un campo `customDimensions`.  Por ejemplo, la consulta siguiente recupera todos los seguimientos que tienen el nivel de registro `Error`.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 El tiempo de ejecución proporciona los campos `customDimensions.LogLevel` y `customDimensions.Category`. Puede proporcionar campos adicionales en los registros que escriba en el código de función. Para obtener un ejemplo en C# , vea [Registro estructurado](functions-dotnet-class-library.md#structured-logging) en la guía del desarrollador de la biblioteca de clases .Net.
+
+## <a name="query-scale-controller-logs"></a>Consulta de registros del controlador de escala
+
+_Esta característica se encuentra en su versión preliminar._
+
+Después de habilitar tanto el [registro del controlador de escala](configure-monitoring.md#configure-scale-controller-logs) como la [integración de Application Insights](configure-monitoring.md#enable-application-insights-integration), puede usar la búsqueda de registros de Application Insights para consultar los registros del controlador de escala emitidos. Los registros del controlador de escala se guardan en la colección `traces` de la categoría **ScaleControllerLogs**.
+
+La siguiente consulta se puede usar para buscar en todos los registros del controlador de escala la aplicación de funciones actual dentro del período especificado:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+La siguiente consulta se expande en la consulta anterior para mostrar cómo obtener únicamente aquellos registros que indican un cambio en la escala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Métricas específicas del plan de consumo
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755310"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428156"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
@@ -77,16 +77,14 @@ Para obtener un ejemplo, consulte [Creación de una directiva para inicio de ses
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Directivas de vigencia para los tokens de actualización y los tokens de sesión
 
-Las directivas de vigencia del token se pueden establecer para los tokens de actualización y los tokens de sesión.
+Las directivas de vigencia del token no se pueden establecer para los tokens de actualización y los tokens de sesión.
 
 > [!IMPORTANT]
-> A partir de mayo de 2020, los nuevos inquilinos no pueden configurar la vigencia de los tokens de actualización ni de sesión.  Los inquilinos con configuración existente pueden modificar las directivas de tokens de actualización y de sesión hasta el 30 de enero de 2021.   Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después de la retirada, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.
->
-> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Si no quiere usar el acceso condicional después de la fecha de retirada, los tokens de actualización y de sesión se establecerán en la [configuración predeterminada](#configurable-token-lifetime-properties-after-the-retirement) en esa fecha y ya no podrá cambiar su vigencia.
+> A partir del 30 de enero de 2021, no puede configurar la vigencia de los tokens de actualización ni de sesión. Azure Active Directory ya no respeta la configuración de los tokens de actualización y de sesión en las directivas existentes.  Los nuevos tokens emitidos después de que los tokens existentes hayan expirado ahora se establecen en la [configuración predeterminada](#configurable-token-lifetime-properties-after-the-retirement). Después de la retirada de la configuración de los tokens de actualización y de sesión, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.
 >
 > La duración del token existente no se cambiará. Una vez expirado, se emitirá un nuevo token basado en el valor predeterminado.
+>
+> Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Información sobre la retirada":::
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 3ec94543a53e3e5b7709801de8f4cf1dde3fc3d9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805220"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428122"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configuración de las directivas de vigencia de tokens (versión preliminar)
 Puede especificar la duración de un token de acceso, SAML o identificador emitido por la plataforma de Microsoft Identity. La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización. Para obtener más información, lea [Vigencias de tokens configurables](active-directory-configurable-token-lifetimes.md).
@@ -38,7 +38,7 @@ Para comenzar, realice uno de los pasos siguientes:
 1. Para ver todas las directivas creadas en la organización, ejecute el cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Los resultados con valores de propiedad definidos que difieren de los valores predeterminados mencionados anteriormente se encuentran en el ámbito de la retirada.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Para ver qué aplicaciones y entidades de servicio están vinculadas a una directiva específica que identificó, ejecute el siguiente cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) reemplazando **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** con cualquiera de los identificadores de directiva. A continuación, puede decidir si desea configurar la frecuencia de inicio de sesión de acceso condicional o mantener los valores predeterminados de Azure AD.
@@ -85,11 +85,11 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
 
 ## <a name="create-token-lifetime-policies-for-refresh-and-session-tokens"></a>Creación de directivas de vigencia del token para tokens de actualización y de sesión
 > [!IMPORTANT]
-> A partir de mayo de 2020, los nuevos inquilinos no pueden configurar la vigencia de los tokens de actualización ni de sesión.  Los inquilinos con una configuración existente pueden modificar las directivas de token de actualización y de sesión hasta el 30 de enero de 2021.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después de la retirada, todavía podrá configurar la vigencia de los tokens de acceso, SAML e identificador.
+> A partir del 30 de enero de 2021, no puede configurar la vigencia de los tokens de actualización ni de sesión. Azure Active Directory ya no respeta la configuración de los tokens de actualización y de sesión en las directivas existentes.  Los nuevos tokens emitidos después de que los tokens existentes hayan expirado ahora se establecen en la [configuración predeterminada](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement). Después de la retirada de la configuración de los tokens de actualización y de sesión, todavía podrá configurar la vigencia de los tokens de acceso, SAML y de identificador.
+>
+> La duración del token existente no se cambiará. Una vez expirado, se emitirá un nuevo token basado en el valor predeterminado.
 >
 > Si necesita seguir definiendo el período de tiempo antes de que se pida al usuario que vuelva a iniciar sesión, configure la frecuencia de inicio de sesión en el acceso condicional. Para obtener más información sobre el acceso condicional, consulte [Configuración de la administración de las sesiones de autenticación con el acceso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Si no desea usar el acceso condicional después de la fecha de retirada, los tokens de actualización y de sesión se establecerán en la [configuración predeterminada](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) en esa fecha y ya no podrá cambiar su vigencia.
 
 ### <a name="manage-an-organizations-default-policy"></a>Administrar una directiva predeterminada de una organización
 En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesión con menos frecuencia en toda su organización. Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella.

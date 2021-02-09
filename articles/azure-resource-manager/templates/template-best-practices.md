@@ -3,12 +3,12 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager (plantillas de ARM). Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696353"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258004"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -276,6 +276,8 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](templ
 
    > [!NOTE]
    > Para garantizar que los secretos se cifran cuando se transmiten como parámetros a máquinas virtuales y extensiones, use la propiedad `protectedSettings` de las extensiones pertinentes.
+
+* Especifique valores explícitos para las propiedades que tienen valores predeterminados que podrían cambiar con el tiempo. Por ejemplo, si va a implementar un clúster de AKS, puede especificar u omitir la propiedad `kubernetesVersion`. Si no la especifica, [el clúster toma como valor predeterminado la versión secundaria N-1 y la revisión más reciente](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). Al implementar el clúster mediante una plantilla de ARM, este comportamiento predeterminado podría no ser el esperado. Volver a implementar la plantilla puede dar lugar a que el clúster se actualice a una nueva versión de Kubernetes de forma inesperada. En su lugar, considere la posibilidad de especificar un número de versión explícito y cambiarlo manualmente cuando esté listo para actualizar el clúster.
 
 ## <a name="use-test-toolkit"></a>Uso del kit de herramientas para pruebas
 

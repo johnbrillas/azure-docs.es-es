@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756416"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226345"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -47,7 +47,7 @@ Siga estos pasos para agregar un URI de redirección para una aplicación que us
 1. En Azure Portal, seleccione el registro de la aplicación que creó anteriormente en [Creación del registro de aplicaciones](#create-the-app-registration).
 1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma**.
 1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
-1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md). **NO** seleccione ninguna de las casillas en **Concesión implícita**.
+1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md). **NO** seleccione ninguna de las casillas en **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos).
 1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
 
 Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al configurar el URI de redirección con el icono **Aplicación de página única** en el panel **Agregar una plataforma**, el registro de aplicación se configura para admitir el flujo de código de autorización con PKCE y CORS.
@@ -62,7 +62,7 @@ Siga estos pasos para agregar un URI de redirección para una aplicación de pá
 1. En **Administrar**, seleccione **Autenticación** > **Agregar una plataforma**.
 1. En **Aplicaciones web**, seleccione el icono **Aplicación de página única**.
 1. En **URI de redirección**, escriba un [URI de redirección](reply-url.md).
-1. Habilite el **Flujo implícito**:
+1. Habilite **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos):
     - Si los usuarios pueden iniciar sesión en la aplicación, seleccione **Tokens de id.**
     - Si la aplicación también necesita llamar a una API web protegida, seleccione **Tokens de acceso**. Para obtener más información sobre estos tipos de token, consulte [Tokens de id.](id-tokens.md) y [Tokens de acceso](access-tokens.md).
 1. Seleccione **Configurar** para terminar de agregar el URI de redirección.

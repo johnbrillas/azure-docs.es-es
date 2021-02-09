@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ba3005b1ec36e4b2406084368a3aabd778c17716
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449428"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896196"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge Pro con GPU mediante Windows PowerShell
 
@@ -424,6 +424,116 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 [10.100.10.10]: PS>
 ```
+
+### <a name="change-memory-processor-limits-for-kubernetes-worker-node"></a>Cambio de límites de memoria o procesador para el nodo de trabajo de Kubernetes
+
+Para cambiar los límites de memoria o procesador para el nodo de trabajo de Kubernetes, siga estos pasos:
+
+1. [Conexión a la interfaz de PowerShell del dispositivo](#connect-to-the-powershell-interface).
+1. Para obtener los recursos actuales para el nodo de trabajo y las opciones de rol, ejecute el siguiente comando:
+
+    `Get-AzureDataBoxEdgeRole`
+
+    Esta es una salida de ejemplo. Tenga en cuenta los valores de `Name` y `Compute` en la sección `Resources`. `MemoryInBytes` y `ProcessorCount` indican los valores asignados actualmente de memoria y número de procesadores para el nodo de trabajo de Kubernetes.  
+
+    ```powershell
+    [10.100.10.10]: PS>Get-AzureDataBoxEdgeRole
+    ImageDetail                : Name:mcr.microsoft.com/azureiotedge-agent
+                                 Tag:1.0
+                                 PlatformType:Linux
+    EdgeDeviceConnectionString :
+    IotDeviceConnectionString  :
+    HubHostName                : ase-srp-007.azure-devices.net
+    IotDeviceId                : srp-007-storagegateway
+    EdgeDeviceId               : srp-007-edge
+    Version                    :
+    Id                         : 6ebeff9f-84c5-49a7-890c-f5e05520a506
+    Name                       : IotRole
+    Type                       : IOT
+    Resources                  : Compute:
+                                 MemoryInBytes:34359738368
+                                 ProcessorCount:12
+                                 VMProfile:
+    
+                                 Storage:
+                                 EndpointMap:
+                                 EndpointId:c0721210-23c2-4d16-bca6-c80e171a0781
+                                 TargetPath:mysmbedgecloudshare1
+                                 Name:mysmbedgecloudshare1
+                                 Protocol:SMB
+    
+                                 EndpointId:6557c3b6-d3c5-4f94-aaa0-6b7313ab5c74
+                                 TargetPath:mysmbedgelocalshare
+                                 Name:mysmbedgelocalshare
+                                 Protocol:SMB
+                                 RootFileSystemStorageSizeInBytes:0
+    
+    HostPlatform               : KubernetesCluster
+    State                      : Created
+    PlatformType               : Linux
+    HostPlatformInstanceId     : 994632cb-853e-41c5-a9cd-05b36ddbb190
+    IsHostPlatformOwner        : True
+    IsCreated                  : True    
+    [10.100.10.10]: PS>
+    ```
+    
+1. Para cambiar los valores de memoria y procesadores del nodo de trabajo, ejecute el siguiente comando:
+
+    Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <n.º de núcleos>
+
+    Esta es una salida de ejemplo. 
+    
+    ```powershell
+    [10.100.10.10]: PS>Set-AzureDataBoxEdgeRoleCompute -Name IotRole -MemoryInBytes 32GB -ProcessorCount 16
+    
+    ImageDetail                : Name:mcr.microsoft.com/azureiotedge-agent
+                                 Tag:1.0
+                                 PlatformType:Linux
+    
+    EdgeDeviceConnectionString :
+    IotDeviceConnectionString  :
+    HubHostName                : ase-srp-007.azure-devices.net
+    IotDeviceId                : srp-007-storagegateway
+    EdgeDeviceId               : srp-007-edge
+    Version                    :
+    Id                         : 6ebeff9f-84c5-49a7-890c-f5e05520a506
+    Name                       : IotRole
+    Type                       : IOT
+    Resources                  : Compute:
+                                 MemoryInBytes:34359738368
+                                 ProcessorCount:16
+                                 VMProfile:
+    
+                                 Storage:
+                                 EndpointMap:
+                                 EndpointId:c0721210-23c2-4d16-bca6-c80e171a0781
+                                 TargetPath:mysmbedgecloudshare1
+                                 Name:mysmbedgecloudshare1
+                                 Protocol:SMB
+    
+                                 EndpointId:6557c3b6-d3c5-4f94-aaa0-6b7313ab5c74
+                                 TargetPath:mysmbedgelocalshare
+                                 Name:mysmbedgelocalshare
+                                 Protocol:SMB
+    
+                                 RootFileSystemStorageSizeInBytes:0
+    
+    HostPlatform               : KubernetesCluster
+    State                      : Created
+    PlatformType               : Linux
+    HostPlatformInstanceId     : 994632cb-853e-41c5-a9cd-05b36ddbb190
+    IsHostPlatformOwner        : True
+    IsCreated                  : True
+    
+    [10.100.10.10]: PS>    
+    ```
+
+Al cambiar el uso de la memoria y el procesador, siga estas instrucciones.
+
+- La memoria predeterminada es el 25 % de la especificación del dispositivo.
+- El número de procesadores predeterminado es el 30 % de la especificación del dispositivo.
+- Al cambiar los valores de memoria y cantidad de procesadores, se recomienda que varíe los valores entre el 15 % y el 65 % de la memoria del dispositivo y el número de procesadores. 
+- Se recomienda un límite superior del 65 % para que haya suficientes recursos para los componentes del sistema. 
 
 ## <a name="connect-to-bmc"></a>Conexión al BMC
 

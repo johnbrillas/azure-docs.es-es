@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567632"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937603"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -176,7 +176,7 @@ Si ha habilitado el punto de conexión V2 y necesita revertirlo, siga estos pas
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
  
 **¿Cuándo se convertirá el nuevo punto de conexión en el valor predeterminado para las actualizaciones y las nuevas instalaciones?**   
-</br>Prevemos publicar la posibilidad de descargar una versión nueva de AADConnect en enero de 2021. Esta versión usará el punto de conexión v2 de forma predeterminada y habilitará los grupos de sincronización mayores de 50 KB sin necesidad de realizar ninguna configuración adicional. Esta versión se publicará posteriormente para la actualización automática a servidores válidos.
+</br>Prevemos publicar la posibilidad de descargar una versión nueva de AADConnect en febrero de 2021. Esta versión usará el punto de conexión v2 de forma predeterminada y habilitará los grupos de sincronización mayores de 50 KB sin necesidad de realizar ninguna configuración adicional. Esta versión se publicará posteriormente para la actualización automática a servidores válidos.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

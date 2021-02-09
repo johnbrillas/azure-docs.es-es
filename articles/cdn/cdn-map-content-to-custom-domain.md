@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331228"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537752"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adición de un dominio personalizado al punto de conexión
 
@@ -163,6 +163,10 @@ Para crear un registro CNAME para un dominio personalizado:
 
 Una vez que haya registrado un dominio personalizado, puede agregarlo a su punto de conexión de CDN. 
 
+
+---
+# <a name="azure-portal"></a>[**Azure Portal**](#tab/azure-portal)
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya al perfil de CDN que contenga el punto de conexión que desea asignar a un dominio personalizado.
     
 2. En la página **Perfil de CDN**, seleccione el punto de conexión de CDN que se va a asociar con el dominio personalizado.
@@ -189,7 +193,43 @@ Una vez que haya registrado un dominio personalizado, puede agregarlo a su punto
     - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
     - En los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, la propagación se completa normalmente en 10 minutos.   
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
+1. Inicie sesión en Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) para asignar el dominio personalizado al punto de conexión de CDN. 
+
+    * Reemplace **myendpoint8675.azureedge.net** por la dirección URL del punto de conexión.
+    * Reemplace **myendpoint8675** por el nombre del punto de conexión de la red CDN.
+    * Reemplace **www.contoso.com** por el nombre de dominio personalizado.
+    * Reemplace **myCDN** por el nombre del perfil de CDN.
+    * Reemplace **myResourceGroupCDN** por el nombre del grupo de recursos.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Azure comprueba que el registro CNAME existe para el nombre de dominio personalizado que ha especificado. Si el registro CNAME es correcto, el dominio personalizado se valida. 
+
+   Puede tardar algún tiempo la propagación de la nueva configuración de dominio personalizado a todos los nodos perimetrales de la red CDN: 
+
+- En los perfiles de **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en 10 minutos. 
+- En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
+- En los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, la propagación se completa normalmente en 10 minutos.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>Comprobación del dominio personalizado
 
 Después de haber completado el registro del dominio personalizado, compruebe que hace referencia a su punto de conexión de CDN.
@@ -200,6 +240,9 @@ Después de haber completado el registro del dominio personalizado, compruebe qu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
+---
+# <a name="azure-portal"></a>[**Azure Portal**](#tab/azure-portal-cleanup)
+
 Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga estos pasos para quitar el dominio personalizado:
  
 1. En el perfil de CDN, seleccione el punto de conexión con el dominio personalizado que desee quitar.
@@ -208,6 +251,29 @@ Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga
 
    El dominio personalizado se desasocia del punto de conexión.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+Si desea dejar de asociar el punto de conexión a un dominio personalizado, siga estos pasos para quitar el dominio personalizado:
+
+1. Use [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) para quitar el dominio personalizado del punto de conexión:
+
+    * Reemplace **myendpoint8675** por el nombre del punto de conexión de la red CDN.
+    * Reemplace **www.contoso.com** por el nombre de dominio personalizado.
+    * Reemplace **myCDN** por el nombre del perfil de CDN.
+    * Reemplace **myResourceGroupCDN** por el nombre del grupo de recursos.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a:

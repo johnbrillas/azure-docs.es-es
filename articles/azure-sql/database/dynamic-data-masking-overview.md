@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787695"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918101"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ Azure SQL Database, Instancia administrada de Azure SQL y Azure Synapse Analytic
 
 El enmascaramiento de datos dinámicos ayuda a impedir el acceso no autorizado a datos confidenciales permitiendo a los usuarios designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de protección de datos que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
 
-Por ejemplo, un representante de servicio de un centro de llamadas podría identificar a los autores de las llamadas a partir de varios dígitos de su dirección de correo electrónico, pero esa es una información que no debería exponerse por completo al representante del servicio. Se puede definir una regla de enmascaramiento que oculte toda la dirección de correo electrónico en el conjunto de resultados de cualquier consulta. Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos personales, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
+Por ejemplo, un representante de servicios de un centro de llamadas podría identificar al autor de la llamada mediante la confirmación de varios caracteres de su dirección de correo electrónico, pero la dirección de correo electrónico completa no debe revelarse a tal representante. Se puede definir una regla de enmascaramiento que oculte toda la dirección de correo electrónico en el conjunto de resultados de cualquier consulta. Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos personales, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos del enmascaramiento dinámico de datos
 

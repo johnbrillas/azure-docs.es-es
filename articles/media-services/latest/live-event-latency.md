@@ -1,5 +1,5 @@
 ---
-title: Configuración de latencia baja de LiveEvent en Azure Media Services | Microsoft Docs
+title: Configuración de latencia baja de LiveEvent en Azure Media Services
 description: En este tema se proporciona información general sobre la configuración de latencia baja de LiveEvent y se muestra cómo establecer una latencia baja.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 114efe668fba47e9d83741b8fa45e1f396725198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023b0f4d7f0367882e0a5bb2be89c485c18bc03c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291524"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897839"
 ---
 # <a name="live-event-low-latency-settings"></a>Configuración de latencia baja en eventos en directo
 

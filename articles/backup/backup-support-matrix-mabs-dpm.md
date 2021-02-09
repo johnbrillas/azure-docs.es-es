@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276966"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986063"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -111,13 +111,18 @@ Puede implementar MABS en una máquina virtual de Azure Stack para poder adminis
 
 ### <a name="url-access"></a>acceso URL
 
-El servidor DPM/MABS también necesita acceder a estas direcciones URL:
+El servidor DPM/MABS también necesita acceder a estas direcciones URL y direcciones IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Direcciones IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 
@@ -125,11 +130,16 @@ Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute c
 
 Con el emparejamiento público: asegúrese de tener acceso a los siguientes dominios y direcciones:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Direcciones IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Con el emparejamiento de Microsoft, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:
 

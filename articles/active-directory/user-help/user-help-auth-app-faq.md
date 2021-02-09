@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881085"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226529"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
@@ -67,7 +67,11 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : ¿Qué datos almacena Authenticator en mi nombre y cómo puedo eliminarlo?
 
-**R.** : La aplicación Authenticator recopila tres tipos de información:<ul><li>Información de la cuenta que proporciona al momento de añadirla. Estos datos se pueden quitar mediante la eliminación de la cuenta.</li><li>Datos de registro de diagnóstico que solo están en la aplicación hasta que seleccione la opción **Enviar registros** a Microsoft a través del menú de **Ayuda** de la aplicación. Estos registros pueden contener datos personales, como direcciones de correo electrónico, direcciones de servidor o direcciones IP. También pueden contener datos de dispositivo, como el nombre del dispositivo y la versión del sistema operativo. Los datos personales recopilados se limitan a la información necesaria para ayudar a solucionar problemas de la aplicación. Puede examinar estos archivos de registro en la aplicación en cualquier momento para ver la información que se recopila. Si envía los archivos de registro, los ingenieros de la aplicación de autenticación los usarán solo para solucionar los problemas notificados por los clientes.</li><li>Datos de uso no personalmente identificables, como "se ha iniciado el flujo de adición de cuenta/la cuenta se ha añadido correctamente" o "notificación aprobada". Estos datos son una parte integral de nuestras decisiones de ingeniería. Su uso nos ayuda a determinar dónde podemos mejorar las aplicaciones de forma que sea importante para usted. Verá una notificación de esta recopilación de datos cuando use la aplicación por primera vez. Le informa de que se puede desactivar en la página **Configuración** de la aplicación. Puede activar o desactivar esta opción en cualquier momento.</li></ul>
+**R.** : La aplicación Authenticator recopila tres tipos de información:
+
+- Información de la cuenta que proporciona al momento de añadirla. Estos datos se pueden quitar mediante la eliminación de la cuenta.
+- Datos de registro de diagnóstico que solo están en la aplicación hasta que seleccione **Enviar comentarios** en el menú superior de la aplicación para enviar los registros a Microsoft. Estos registros pueden contener datos personales, como direcciones de correo electrónico, direcciones de servidor o direcciones IP. También pueden contener datos de dispositivo, como el nombre del dispositivo y la versión del sistema operativo. Los datos personales recopilados se limitan a la información necesaria para ayudar a solucionar problemas de la aplicación. Puede examinar estos archivos de registro en la aplicación en cualquier momento para ver la información que se recopila. Si envía los archivos de registro, los ingenieros de la aplicación de autenticación los usarán solo para solucionar los problemas notificados por los clientes.
+- Datos de uso no personalmente identificables, como "se ha iniciado el flujo de adición de cuenta/la cuenta se ha añadido correctamente" o "notificación aprobada". Estos datos son una parte integral de nuestras decisiones de ingeniería. Su uso nos ayuda a determinar dónde podemos mejorar las aplicaciones de forma que sea importante para usted. Verá una notificación de esta recopilación de datos cuando use la aplicación por primera vez. Le informa de que se puede desactivar en la página  **Configuración** de la aplicación. Puede activar o desactivar esta opción en cualquier momento.
 
 ### <a name="codes-in-the-app"></a>Códigos en la aplicación
 
@@ -102,7 +106,7 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : ¿Por qué solo recibo notificaciones cuando la aplicación está abierta? Cuando la aplicación está cerrada, no recibo notificaciones.
 
-**R.** : Si está recibiendo notificaciones, pero no una alerta, incluso con el timbre activado, debe comprobar la configuración de la aplicación. Asegúrese de que la aplicación está activada para usar sonido o vibrar cuando se reciben notificaciones. Si no recibe notificaciones, debe comprobar las siguientes condiciones:<ul><li>¿El teléfono se encuentra en modo silencioso o no molestar? Estos modos pueden impedir que las aplicaciones envíen notificaciones.</li><li>¿Puede obtener notificaciones de otras aplicaciones? De lo contrario, puede haber un problema con las conexiones de red en su teléfono o el canal de notificaciones de Android o Apple. Puede intentar resolver las conexiones de red a través de la configuración del teléfono. Es posible que tenga que comunicarse con el proveedor de servicios para obtener ayuda con el canal de notificaciones de Android o Apple.</li><li>¿Puede obtener notificaciones para algunas cuentas en la aplicación, pero para otras? Si es así, quite la cuenta problemática de la aplicación, agréguela de nuevo permitiendo notificaciones y vea si esto soluciona el problema.</li></ul>Si ha probado todos estos pasos y sigue teniendo problemas, es recomendable que envíe todos los archivos de registro para su diagnóstico. Abra la aplicación, vaya a **Ayuda** y seleccione **Enviar registros**. Después, vaya al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e indíquenos cuál es el problema y qué pasos ha probado.
+**R.** : Si está recibiendo notificaciones, pero no una alerta, incluso con el timbre activado, debe comprobar la configuración de la aplicación. Asegúrese de que la aplicación está activada para usar sonido o vibrar cuando se reciben notificaciones. Si no recibe notificaciones, debe comprobar las siguientes condiciones:<ul><li>¿El teléfono se encuentra en modo silencioso o no molestar? Estos modos pueden impedir que las aplicaciones envíen notificaciones.</li><li>¿Puede obtener notificaciones de otras aplicaciones? De lo contrario, puede haber un problema con las conexiones de red en su teléfono o el canal de notificaciones de Android o Apple. Puede intentar resolver las conexiones de red a través de la configuración del teléfono. Es posible que tenga que comunicarse con el proveedor de servicios para obtener ayuda con el canal de notificaciones de Android o Apple.</li><li>¿Puede obtener notificaciones para algunas cuentas en la aplicación, pero para otras? Si es así, quite la cuenta problemática de la aplicación, agréguela de nuevo permitiendo notificaciones y vea si esto soluciona el problema.</li></ul>Si ha probado todos estos pasos y sigue teniendo problemas, es recomendable que envíe todos los archivos de registro para su diagnóstico. Abra la aplicación, vaya al menú de nivel superior de la aplicación y, a continuación, seleccione  **Enviar comentarios**. Después, vaya al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e indique a Microsoft cuál es el problema y qué pasos ha probado.
 
 ### <a name="switch-to-push-notifications"></a>Cambio a notificaciones push
 
@@ -204,13 +208,13 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **P.** : Mi aplicación complementaria de Apple Watch se ha bloqueado. ¿Puedo enviar mis registros de bloqueo para que pueda investigar?
 
-**R.** : Primero debe asegurarse de que ha optado por compartir su análisis con nosotros. Si es un usuario de TestFlight, ya está registrado. En caso contrario, puede ir a **Configuración > Privacidad > Análisis** y seleccione las opciones **Share iPhone & Watch analytics** (Compartir análisis de iPhone y Watch) y **Share with App Developers** (Compartir con los desarrolladores de aplicaciones).<br>Después de registrarse, puede intentar reproducir el bloqueo para que los registros de bloqueo se nos envíen automáticamente para realizar la investigación. Pero, si no se puede reproducir el bloqueo, puede copiar manualmente los archivos de registro y enviárnoslos.<ol><li>Abra la aplicación Watch en su teléfono, vaya a **Configuración > General** y haga clic en **Copy Watch Analytics** (Copiar análisis de Watch).</li><li>Busque el bloqueo correspondiente en **Configuración > Privacidad > Análisis > Análisis de datos** y copie manualmente todo el texto.</li><li>Abra Authenticator en su teléfono y pegue el texto copiado en el cuadro de texto **Share with App Developers** (Compartir con los desarrolladores de aplicaciones) en la página **Enviar registros**.</li></ol>
+**R.** : Primero debe asegurarse de que ha optado por compartir su análisis con nosotros. Si es un usuario de TestFlight, ya está registrado. En caso contrario, puede ir a **Configuración > Privacidad > Análisis** y seleccione las opciones **Share iPhone & Watch analytics** (Compartir análisis de iPhone y Watch) y **Share with App Developers** (Compartir con los desarrolladores de aplicaciones).<br>Después de registrarse, puede intentar reproducir el bloqueo para que los registros de bloqueo se nos envíen automáticamente para realizar la investigación. Pero, si no se puede reproducir el bloqueo, puede copiar manualmente los archivos de registro y enviárnoslos.<ol><li>Abra la aplicación Watch en su teléfono, vaya a **Configuración > General** y haga clic en **Copy Watch Analytics** (Copiar análisis de Watch).</li><li>Busque el bloqueo correspondiente en **Configuración > Privacidad > Análisis > Análisis de datos** y copie manualmente todo el texto.</li><li>Abra Authenticator en el teléfono y pegue el texto copiado en el cuadro  **Describe the issue you are facing** (Describa el problema que tiene) en **¿Tiene problemas?** en la página  **Enviar comentarios**. </li></ol>
 
-## <a name="autofill-for-consumers"></a>Autorrellenar para los consumidores
+## <a name="autofill-with-authenticator"></a>Autorrellenar con Authenticator
 
-**P.** : ¿Qué es Autorrellenar en Authenticator?
+**P.** : ¿Qué es Autorrellenar con Authenticator?
 
-**R.** : La aplicación Authenticator ahora almacena y autorrellena de forma segura las contraseñas en las aplicaciones y los sitios web que visita desde el teléfono. Puede usar Autorrellenar para sincronizar y autorrellenar las contraseñas en los dispositivos iOS y Android. Después de configurar la aplicación Authenticator como proveedor de autorrellenar en el teléfono, ofrece la opción de guardar las contraseñas al escribirlas en una página de inicio de sesión de sitio o aplicación. Las contraseñas se guardan como parte de la [cuenta de Microsoft](https://account.microsoft.com/account) y también están disponibles al iniciar sesión en Microsoft Edge con la cuenta de Microsoft.
+**R.** : La aplicación Authenticator ahora almacena y autorrellena de forma segura las contraseñas en las aplicaciones y los sitios web que visita desde el teléfono. Puede usar Autorrellenar para sincronizar y autorrellenar las contraseñas en los dispositivos iOS y Android. Después de configurar la aplicación Authenticator como proveedor de autorrellenar en el teléfono, ofrece la opción de guardar las contraseñas al escribirlas en un sitio o en la página de inicio de sesión de una aplicación. Las contraseñas se guardan como parte de la [cuenta personal de Microsoft](https://account.microsoft.com/account) y también están disponibles al iniciar sesión en Microsoft Edge con la cuenta personal de Microsoft.
 
 **P.** : ¿Qué información puede autorrellenar Authenticator?
 
@@ -221,23 +225,22 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 **R.** : Siga estos pasos:
 
 1. Abra la aplicación Authenticator.
-1. En **Configuración** en **Beta**, active **Autorrellenar**.
 1. En la pestaña **Contraseñas** de Authenticator, seleccione **Iniciar sesión con Microsoft** e inicie sesión con [su cuenta de Microsoft](https://account.microsoft.com/account). Actualmente, esta característica solo admite cuentas de Microsoft y aún no admite cuentas profesionales o educativas.
 
 **P.** : Cómo hacer que Authenticator sea el proveedor de autorrellenar predeterminado en el teléfono?
 
 **R.** : Siga estos pasos:
 
-1. Abra **Configuración** de Authenticator y en **Beta**, active **Autorrellenar**.
-1. En la pestaña **Contraseñas** dentro de la aplicación, inicie sesión con [su cuenta de Microsoft](https://account.microsoft.com/account).
+1. Abra la aplicación Authenticator.
+1. En la pestaña **Contraseñas** de la aplicación, seleccione **Iniciar sesión con Microsoft** e inicie sesión con [su cuenta de Microsoft](https://account.microsoft.com/account).
 1. Realice una de las siguientes acciones:
 
    - En iOS, en **Configuración**, seleccione **How to turn on Autofill** (Cómo activar Autorrellenar) de la sección de configuración de Autorrellenar para obtener información sobre cómo establecer Authenticator como el proveedor predeterminado de Autorrellenar.
-   - En Android, en **Configuración**, seleccione **Set as Autofill provider** (Establecer como proveedor de Autorrellenar) en la sección de configuración de Autorrellenar para establecer Authenticator como el proveedor predeterminado de Autorrellenar.
+   - En Android, en **Configuración**, seleccione **Set as Autofill provider** (Establecer como proveedor de Autorrellenar) en la sección de configuración de Autorrellenar.
 
-**P.** : ¿Qué ocurre si el conmutador **Autorrellenar** está atenuado en Configuración?
+**P.** : ¿Qué ocurre si **Autorrellenar** no está disponible en Configuración?
 
-**R.** : Autorrellenar se encuentra actualmente en versión beta y aún no se ha habilitado para todas las organizaciones o tipos de cuenta. Si el conmutador **Autorrellenar** de **Configuración** está atenuado, es probable que esté usando la aplicación Authenticator con su cuenta profesional. Puede usar esta característica en un dispositivo en el que no se haya agregado su cuenta profesional. Si su organización trabaja con Microsoft, el conmutador **Autorrellenar** estará habilitado, incluso si se agrega una cuenta profesional a Authenticator.
+**R.** : Si Autorrellenar no está disponible en Authenticator, puede deberse a que Autorrellenar no se ha permitido todavía para su organización o tipo de cuenta. Puede usar esta característica en un dispositivo en el que no se haya agregado su cuenta profesional o educativa. Para obtener más información sobre cómo permitir Autorrellenar para su organización, consulte [Autorrellenar para los administradores de TI](#autofill-for-it-admins).
 
 **P.** : ¿Cómo detengo la sincronización de contraseñas?
 
@@ -247,20 +250,16 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
 
 **R.** : La aplicación Authenticator ya proporciona un alto nivel de seguridad para la administración de cuentas y la autenticación multifactor, y el mismo alto estándar de seguridad se extiende a la administración de las contraseñas.
 
-- **La aplicación Authenticator necesita una autenticación sólida**: Iniciar sesión en Authenticator requiere un segundo factor. Esto significa que no se puede tener acceso a las contraseñas dentro de la aplicación Authenticator, aunque alguien tenga la contraseña de la cuenta de Microsoft.
-- **Los datos de Autorrellenar se protegen mediante biometría y un código de acceso**: Para poder autorrellenar las contraseñas en una aplicación o un sitio, Authenticator requiere la biometría o el código de acceso del dispositivo. Esto garantiza que incluso si alguien más tiene acceso a su dispositivo, no podrá rellenar ni ver la contraseña, ya que no podrá proporcionar la biometría o el PIN del dispositivo. Además, un usuario no puede abrir la página de contraseñas a menos que proporcione la biometría o el PIN, aunque desactive el Bloqueo de aplicación en la configuración de la aplicación.
-- **Contraseñas cifradas en el dispositivo**: Las contraseñas se cifran en el dispositivo, y las claves de cifrado y descifrado nunca se almacenan y siempre se generan sobre la marcha. Las contraseñas solo se descifran cuando el usuario quiere, es decir, al autorrellenar o cuando el usuario quiere ver la contraseña, y ambas requieren la biometría o el PIN.
-- **Seguridad de la nube y la red**: Las contraseñas en la nube se cifran y descifran solo cuando llegan al dispositivo. Las contraseñas se sincronizan a través de una conexión HTTPS protegida por SSL, lo que garantiza que ningún atacante pueda interceptar datos confidenciales cuando se estén sincronizando. También nos aseguramos de comprobar la integridad de los datos que se sincronizan a través de la red mediante funciones hash criptográficas (en concreto, el código de autenticación de mensajes basado en hash).
+- **La aplicación Authenticator necesita una autenticación sólida**: Iniciar sesión en Authenticator requiere un segundo factor. Esto significa que las contraseñas dentro de la aplicación Authenticator están protegidas, aunque alguien tenga la contraseña de la cuenta de Microsoft.
+- **Los datos de Autorrellenar se protegen mediante biometría y un código de acceso**: Para poder autorrellenar las contraseñas en una aplicación o un sitio, Authenticator requiere la biometría o el código de acceso del dispositivo. Esto ayuda a agregar seguridad adicional, incluso si alguien más tiene acceso a su dispositivo, no podrá rellenar ni ver la contraseña, ya que no podrá proporcionar la biometría ni el PIN del dispositivo. Asimismo, un usuario no puede abrir la página de contraseñas a menos que proporcione la biometría o el PIN, aunque desactive el Bloqueo de aplicación en la configuración de la aplicación.
+- **Contraseñas cifradas en el dispositivo**: Las contraseñas se cifran en el dispositivo, y las claves de cifrado y descifrado nunca se almacenan y siempre se generan según sea necesario. Las contraseñas solo se descifran cuando el usuario quiere, es decir, al autorrellenar o cuando el usuario quiere ver la contraseña, y ambas requieren la biometría o el PIN.
+- **Seguridad de la nube y la red**: Las contraseñas en la nube se cifran y descifran solo cuando llegan al dispositivo. Las contraseñas se sincronizan a través de una conexión HTTPS protegida por SSL, lo que ayuda a evitar que un atacante pueda interceptar datos confidenciales cuando se estén sincronizando. También nos aseguramos de comprobar la integridad de los datos que se sincronizan a través de la red mediante funciones hash criptográficas (en concreto, el código de autenticación de mensajes basado en hash).
 
 ## <a name="autofill-for-it-admins"></a>Autorrellenar para los administradores de TI
 
 **P.** : ¿Podrán mis empleados o alumnos usar Autorrellenar contraseñas en la aplicación Authenticator?
 
-**R.** : No. La característica Autorrellenar está actualmente en versión beta y aún no se ha habilitado para todas las organizaciones o tipos de cuenta. Si su empleado o alumno ha agregado su cuenta profesional o educativa a la aplicación Microsoft Authenticator, Autorrellenar contraseñas no estará accesible para ellos. La única excepción a esta restricción es que el empleado o el alumno agregue su cuenta profesional o educativa a la autenticación multifactor basada en la nube de Microsoft como una [cuenta externa o de terceros](user-help-auth-app-add-non-ms-account.md).
-
-**P.** : ¿Puedo hacer que la característica Autorrellenar esté disponible para mis empleados (o estudiantes)?
-
-**R.** : Sí. Para que la característica esté disponible para los empleados o alumnos, puede agregar la empresa o escuela a una lista de permitidos. Póngase en contacto con el soporte técnico o con el contacto de Microsoft para su adición a la lista de permitidos. Además, si es administrador de TI de su organización, también puede rellenar un formulario para expresar su interés en unirse, en [Adición de empresa a la lista de permitidos para Autorrellenar en Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
+**R.** : Sí, Autorrellenar ahora funciona para la mayoría de los usuarios empresariales, incluso cuando se agrega una cuenta profesional o educativa a la aplicación Authenticator. Puede rellenar un formulario para configurar (permitir o denegar) Autorrellenar para su organización y [enviarlo al equipo de Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **P.** : ¿Se sincronizarán automáticamente las contraseñas de la cuenta profesional o educativa de mis usuarios?
 
@@ -268,7 +267,7 @@ La aplicación Microsoft Authenticator reemplaza a la aplicación Azure Authenti
   
 **P.** : ¿Puedo agregar solo determinados usuarios de mi organización a la lista de permitidos para Autorrellenar?
 
-**R.** : No. Las empresas solo pueden habilitar Autorrellenar contraseñas para todos los empleados o para ninguno de ellos, en este momento. Expandiremos estos controles gradualmente.
+**R.** : No. Las empresas solo pueden habilitar Autorrellenar contraseñas para todos los empleados o para ninguno de ellos, en este momento.
 
 **P.** : ¿Qué ocurre si mi empleado o alumno tiene varias cuentas profesionales o educativas? Por ejemplo, mi empleado tiene cuentas de varias empresas o escuelas en Microsoft Authenticator.
 

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear y configurar almacenes de Rec
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387741"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915733"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -46,9 +46,9 @@ La opción **Restauración entre regiones (CRR)** permite restaurar datos en una
 
 Admite los orígenes de datos siguientes:
 
-- Máquinas virtuales de Azure
-- Bases de datos SQL hospedadas en máquinas virtuales de Azure
-- Bases de datos de SAP HANA hospedadas en máquinas virtuales de Azure
+- Máquinas virtuales de Azure (disponibilidad general)
+- Bases de datos SQL hospedadas en máquinas virtuales de Azure (versión preliminar)
+- Bases de datos de SAP HANA hospedadas en máquinas virtuales de Azure (versión preliminar)
 
 Usar Restauración entre regiones le permite hacer lo siguiente:
 
@@ -65,11 +65,12 @@ Como este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones
 >Antes de empezar:
 >
 >- Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
->- La característica Restauración entre regiones (CRR) ahora se muestra como vista previa en todas las regiones públicas de Azure.
+>- La característica de restauración entre regiones (CRR) para máquinas virtuales de Azure ahora está disponible con carácter general en todas las regiones públicas de Azure.
+>- La restauración entre regiones de bases de datos de SQL y SAP HANA está en versión preliminar en todas las regiones públicas de Azure.
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
 >- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
 >- Actualmente, CRR para máquinas virtuales de Azure solo se admite para las máquinas virtuales de Azure Resource Manager. No se admitirán las máquinas virtuales de Azure clásicas.  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
->- Una vez que la protección se inicia por primera vez, actualmente no se puede revertir la restauración entre regiones a GRS o LRS.
+>- Una vez que la protección se inicia por primera vez, **actualmente no se puede revertir** la restauración entre regiones a GRS o LRS.
 
 ### <a name="configure-cross-region-restore"></a>Configuración de la restauración entre regiones
 

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111027"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225165"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -40,7 +40,9 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 1. Seleccione **Flujos de usuario**.
 1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup*.
 1. Seleccione **Propiedades**.
-1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **[Condicional](conditional-access-user-flow.md) (recomendado)** . Para Condicional, cree una [directiva de acceso condicional](conditional-access-identity-protection-setup.md) y especifique las aplicaciones a las que desea que se aplique. 
+1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **Condicional (recomendado)** .
+  > [!NOTE]
+  > Si selecciona **Condicional (recomendado)** , también tendrá que [agregar una directiva de acceso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
 1. Seleccione Guardar. MFA ahora está habilitado para este flujo de usuario.
 
 Puede usar **Ejecutar flujo de usuario** para comprobar la experiencia. Considere el siguiente escenario:

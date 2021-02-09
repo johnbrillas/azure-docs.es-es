@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724023"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428680"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -363,14 +363,7 @@ Sí. Consulte [Configuración de un DNS personalizado para Azure SQL Managed Ins
 
 **¿Puedo actualizar el DNS?**
 
-Actualmente, no proporcionamos ninguna característica para actualizar la configuración del servidor DNS para la instancia administrada de SQL.
-
-La configuración de DNS se actualiza:
-
-- Cuando expira la concesión de DHCP.
-- Al actualizar la plataforma.
-
-Como alternativa, cambie SQL Managed Instance a la versión de 4 núcleos virtuales y vuelva a actualizarla posteriormente. Esto tiene el efecto secundario de actualizar la configuración de DNS.
+Sí. Consulte [Sincronización de la configuración de servidores DNS de red virtual en el clúster virtual de SQL Managed Instance](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="change-time-zone"></a>Cambio de la zona horaria
 

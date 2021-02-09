@@ -4,23 +4,20 @@ description: Este tema describe los pasos para configurar un nombre de dominio p
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506815"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491038"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
+# <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Configuración de un nombre de dominio personalizado para una puerta de enlace autohospedada
 
-Al aprovisionar una [puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md) no se le asigna un nombre de host y se debe hacer referencia a ella mediante su dirección IP. En este artículo se muestra cómo asignar un nombre DNS personalizado existente (también conocido como nombre de host) a una puerta de enlace autohospedada.
+Al aprovisionar una [puerta de enlace de Azure API Management autohospedada](self-hosted-gateway-overview.md) no se le asigna un nombre de host y se debe hacer referencia a ella por su dirección IP. En este artículo se muestra cómo asignar un nombre DNS personalizado existente (también conocido como nombre de host) a una puerta de enlace autohospedada.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,18 +31,16 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 - Una puerta de enlace autohospedada. Para obtener más información, consulte [cómo aprovisionar una puerta de enlace autohospedada](api-management-howto-provision-self-hosted-gateway.md)
 -   Nombre de dominio personalizado que propiedad de su organización o suyo. En este tema no se dan instrucciones para adquirir un nombre de dominio personalizado.
 -   Un registro DNS hospedado en un servidor DNS que asigna el nombre de dominio personalizado a la dirección IP de la puerta de enlace autohospedada. En este tema no se dan instrucciones para hospedar un registro DNS.
--   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio. De este modo, API Management puede exponer de forma segura direcciones URL mediante TLS.
+-   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio (esto permite que la instancia de API Management exponga de forma segura direcciones URL sobre TLS).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Incorporación de un certificado de dominio personalizado a su servicio de API Management
 
-1. Seleccione **Certificados** en **Seguridad**.
-2. Seleccione **+Agregar**.
-3. Escriba un nombre de recurso para el certificado en el campo **ID.**
-4. Seleccione el archivo que contiene el certificado (.PFX). Para ello, seleccione el campo de **Certificado** o el icono de carpeta adyacente.
-5. Escriba la contraseña del certificado en el campo de **Contraseña**.
-6. Seleccione **Crear** para agregar el certificado a su servicio de API Management.
+Agregue un certificado de dominio personalizado (.PFX) a una instancia de API Management o haga referencia a un certificado almacenado en Azure Key Vault. Siga los pasos que se proporcionan en el artículo [Protección de servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
+
+> [!NOTE]
+> Se recomienda usar un certificado del almacén de claves para el dominio de la puerta de enlace autohospedada.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado para la puerta de enlace autohospedada
 

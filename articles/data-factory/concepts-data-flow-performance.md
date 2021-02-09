@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858593"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222956"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -161,7 +161,7 @@ Azure SQL Database tiene una opción única de creación de particiones denomina
 
 #### <a name="isolation-level"></a>Nivel de aislamiento
 
-El nivel de aislamiento de la lectura en un sistema de origen de Azure SQL afecta al rendimiento. La opción "Read uncommitted" (Lectura no confirmada) proporcionará el rendimiento más rápido y evitará bloqueos de base de datos. Para obtener más información acerca de los niveles de aislamiento de SQL, consulte [Descripción de los niveles de aislamiento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+El nivel de aislamiento de la lectura en un sistema de origen de Azure SQL afecta al rendimiento. La opción "Read uncommitted" (Lectura no confirmada) proporcionará el rendimiento más rápido y evitará bloqueos de base de datos. Para obtener más información acerca de los niveles de aislamiento de SQL, consulte [Descripción de los niveles de aislamiento](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lectura mediante consulta
 
@@ -208,7 +208,7 @@ En los flujos de datos de asignación, ambos se pueden ejecutar de forma nativa 
 ![Deshabilitación de índices](media/data-flow/disable-indexes-sql.png "Deshabilitación de índices")
 
 > [!WARNING]
-> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, consulte las [restricciones que conlleva deshabilitar los índices](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
+> Cuando se deshabilitan los índices, el flujo de datos toma de hecho el control sobre una base de datos y es poco probable que las consultas se realicen correctamente en este caso. Como resultado, se desencadenan muchos trabajos ETL en medio de la noche para evitar este conflicto. Para obtener más información, consulte las [restricciones que conlleva deshabilitar los índices](/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Escalado vertical de la base de datos
 
@@ -216,7 +216,7 @@ Programe un cambio de tamaño del origen y el receptor de Azure SQL DB y Azure
 
 ### <a name="azure-synapse-analytics-sinks"></a>Receptores de Azure Synapse Analytics
 
-Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esto permite que ADF escriba mediante el [comando Copy de SQL](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql), que carga los datos de forma eficaz y masiva. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar Staging.
+Al escribir en Azure Synapse Analytics, asegúrese de que la opción **Enable staging**  (Habilitar almacenamiento provisional) esté establecida en true. Esto permite que ADF escriba mediante el [comando Copy de SQL](/sql/t-sql/statements/copy-into-transact-sql), que carga los datos de forma eficaz y masiva. Tendrá que hacer referencia a una cuenta de Azure Data Lake Storage gen2 o de Azure Blob Storage para el almacenamiento provisional de los datos al usar Staging.
 
 Además de Staging, en Azure Synapse Analytics se aplican los mismos procedimientos recomendados que en Azure SQL Database.
 
@@ -244,7 +244,7 @@ Si una columna corresponde a la forma en la que desea generar los datos, puede s
 
 Al escribir en CosmosDB, la modificación de la capacidad de proceso y del tamaño del lote durante la ejecución del flujo de datos pueden mejorar el rendimiento. Estos cambios solo surten efecto durante la ejecución de la actividad de flujo de datos y volverán a la configuración original de la colección tras la conclusión. 
 
-**Batch size** (Tamaño de lote): calcule el tamaño de fila aproximado de los datos y asegúrese de que el tamaño de fila * tamaño de lote es inferior a dos millones. Si lo es, aumente el tamaño del lote para obtener un mejor rendimiento
+**Batch size** (Tamaño de lote): Normalmente alcanza con comenzar con el tamaño de lote predeterminado. Para optimizar aún más este valor, calcule el tamaño de objeto aproximado de los datos y asegúrese de que el tamaño del objeto multiplicado por el tamaño de lote sea menor que 2 MB. Si lo es, puede aumentar el tamaño del lote para obtener un mejor rendimiento
 
 **Throughput** (Capacidad de proceso): establezca aquí un valor de rendimiento mayor aquí para que los documentos escriban más rápidamente en CosmosDB. Tenga en cuenta que los costos de RU son mayores cuando aumenta el valor de capacidad de proceso.
 

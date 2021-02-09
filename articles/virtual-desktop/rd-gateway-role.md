@@ -3,19 +3,24 @@ title: 'Implementación del rol Puerta de enlace de Escritorio remoto en Windows
 description: Procedimiento para implementar el rol Puerta de enlace de Escritorio remoto en Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798031"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220826"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Implementación del rol Puerta de enlace de Escritorio remoto en Windows Virtual Desktop
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Implementación del rol Puerta de enlace de Escritorio remoto en Windows Virtual Desktop (versión preliminar)
 
-En este artículo se explica cómo implementar los servidores de puerta de enlace de Escritorio remoto en su entorno. Puedes instalar los roles de servidor en equipos físicos o máquinas virtuales, en función de si estás creando un entorno local, basado en la nube o híbrido.
+> [!IMPORTANT]
+> Esta característica actualmente está en su versión preliminar pública.
+> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+En este artículo se explica cómo usar el rol Puerta de enlace de Escritorio remoto (versión preliminar) para implementar los servidores de puerta de enlace de Escritorio remoto en su entorno. Puede instalar los roles de servidor en máquinas físicas o en máquinas virtuales, en función de si está creando un entorno local, basado en la nube o híbrido.
 
 ## <a name="install-the-rd-gateway-role"></a>Instalación del rol Puerta de enlace de escritorio remoto
 

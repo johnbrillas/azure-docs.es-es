@@ -3,12 +3,12 @@ title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184023"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491616"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementaciones de grupos de administración con plantillas de Resource Manager
 
@@ -112,7 +112,7 @@ Para obtener información más detallada sobre los comandos de implementación y
 
 En el caso de las implementaciones de nivel de grupo de administración, debe proporcionar una ubicación para la implementación. La ubicación de la implementación es independiente de la ubicación de los recursos que se implementan. La ubicación de implementación especifica dónde se almacenarán los datos de la implementación. Las implementaciones de [suscripción](deploy-to-subscription.md) e [inquilino](deploy-to-tenant.md) también requieren una ubicación. En las implementaciones de [grupo de recursos](deploy-to-resource-group.md), la ubicación del grupo de recursos se usa para almacenar los datos de implementación.
 
-Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
+Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada _azuredeploy.json_, se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Por ejemplo, si crea una implementación de grupo de administración con el nombre **deployment1** en **centralus**, no podrá crear otra implementación con el nombre **deployment1**, sino una ubicación de **westus**. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
 
@@ -164,9 +164,9 @@ Para usar la implementación de un grupo de administración para crear un grupo 
 
 ### <a name="scope-to-tenant"></a>Ámbito del inquilino
 
-Puede crear recursos en el inquilino al establecer `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
+Para crear recursos en el inquilino, establezca `scope` en `/`. El usuario que implementa la plantilla debe tener el [acceso necesario para realizar implementaciones en el inquilino](deploy-to-tenant.md#required-access).
 
-Puede usar una implementación anidada con los valores de `scope` y `location` establecidos.
+Para usar una implementación anidada, establezca `scope` y `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 

@@ -1,18 +1,18 @@
 ---
 title: Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados
 description: Obtenga información acerca de cómo asociar el identificador de asociado para recibir créditos obtenidos por el asociado en los recursos de cliente que se administran a través de Azure Lighthouse.
-ms.date: 10/30/2020
+ms.date: 01/28/2021
 ms.topic: how-to
-ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080284"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985978"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados 
 
-Si es miembro de [Microsoft Partner Network](https://partner.microsoft.com/), puede vincular su identificador de asociado con las credenciales utilizadas para administrar los recursos de cliente delegados. El vínculo de administrador del asociado (PAL) permite a Microsoft identificar y reconocer a los asociados que impulsan el éxito de los clientes de Azure. Este vínculo también permite a los asociados de [CSP (proveedor de soluciones en la nube)](/partner-center/csp-overview) recibir [crédito obtenido por asociados de los servicios administrados (PEC)](/partner-center/partner-earned-credit) para los clientes que han [firmado el contrato de cliente de Microsoft (MCA)](/partner-center/confirm-customer-agreement) y se encuentran [ en el plan de Azure](/partner-center/azure-plan-get-started).
+Si es miembro de [Microsoft Partner Network](https://partner.microsoft.com/), puede vincular su identificador de asociado con las credenciales utilizadas para administrar los recursos de cliente delegados, lo que permite a Microsoft identificar y reconocer asociados que impulsan el éxito de los clientes de Azure. Este vínculo también permite a los asociados de [CSP (proveedor de soluciones en la nube)](/partner-center/csp-overview) recibir [crédito obtenido por asociados de los servicios administrados (PEC)](/partner-center/partner-earned-credit) para los clientes que han [firmado el contrato de cliente de Microsoft (MCA)](/partner-center/confirm-customer-agreement) y se encuentran [ en el plan de Azure](/partner-center/azure-plan-get-started).
 
 Si [incorpora clientes con ofertas de servicio administrados en Azure Marketplace](publish-managed-services-offers.md), el vínculo se realiza automáticamente, con el identificador de MPN asociado a la cuenta del Centro de partners usada para publicar las ofertas. No es necesario realizar ninguna otra acción para realizar el seguimiento del impacto de estos clientes.
 
@@ -30,7 +30,7 @@ Para simplificar, se recomienda crear una cuenta de entidad de servicio en el in
 
 Siguiendo estos pasos, todos los inquilinos de cliente que administre se asociarán con su identificador de asociado. No es necesario que la cuenta "Provider Automation Account" autentique o realice ninguna acción en el inquilino del cliente.
 
-:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama que muestra el proceso PAL con Azure Lighthouse.":::
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagrama que muestra el proceso de vinculación de identificador de asociado con Azure Lighthouse.":::
 
 ## <a name="add-your-partner-id-to-previously-onboarded-customers"></a>Adición del identificador de asociado a los clientes incorporados anteriormente
 

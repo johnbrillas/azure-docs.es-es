@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178626"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225823"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -84,7 +84,7 @@ Para habilitar la aplicación MSAL.js para nubes soberanas:
 1. En la página **Información general**, anote el valor de **Id. de aplicación (cliente)** para su uso posterior.
     Este tutorial requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). 
 1. En **Administrar**, seleccione **Autenticación**.
-1. En **Concesión implícita**, seleccione **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son obligatorios, ya que esta aplicación tiene que iniciar la sesión de los usuarios y llamar a una API.
+1. En **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos), seleccione **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son obligatorios, ya que esta aplicación tiene que iniciar la sesión de los usuarios y llamar a una API.
 1. Seleccione **Guardar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Paso 2:  Configuración de un proyecto o servidor web

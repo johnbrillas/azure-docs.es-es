@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/28/2019
-ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 11/30/2020
+ms.openlocfilehash: ec19396d782bf34e85001892159c0ce785487f09
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008980"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918896"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conexión de Configuration Manager con Azure Monitor
 Puede conectar el entorno de Microsoft Endpoint Configuration Manager con Azure Monitor para sincronizar los datos de recopilación del dispositivo y hacer referencia a estas recopilaciones en Azure Monitor y Azure Automation.  
+
+> [!IMPORTANT]
+> A partir de la versión 2010 de Configuration Manager, esta característica está en desuso.<!-- 8269855 --> Para más información, vea [Características en desuso y eliminadas de Configuration Manager](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

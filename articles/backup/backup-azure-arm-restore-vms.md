@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a82e8031f118f48f7c19cfc283c1be13d5d6f89d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56bd41aaa607a3bc0f319f46ce5d0c3f8c78d27a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757600"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919616"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -25,6 +25,7 @@ En Azure Backup, se puede restaurar una máquina virtual de varias formas.
 **Restaurar disco** | Restaura un disco de máquina virtual, que luego se puede usar para crear una máquina virtual.<br/><br/> Azure Backup proporciona una plantilla para ayudar a personalizar y crear una máquina virtual. <br/><br> El trabajo de restauración genera una plantilla que puede descargar y usar para especificar la configuración de una máquina virtual personalizada y crear una máquina virtual.<br/><br/> Los discos se copian en el grupo de recursos que especifique.<br/><br/> Como alternativa, puede conectar el disco a una máquina virtual existente o crear una máquina virtual mediante PowerShell.<br/><br/> Esta opción es útil si desea personalizar la máquina virtual, agregar la configuración que no existía en el momento de la copia de seguridad o agregar valores que deben configurarse mediante la plantilla o PowerShell.
 **Reemplazar el existente** | Puede restaurar un disco y usarlo para reemplazar un disco en la máquina virtual existente.<br/><br/> La máquina virtual actual debe existir. Si se ha eliminado, esta opción no se puede usar.<br/><br/> Azure Backup toma una instantánea de la máquina virtual existente antes de reemplazar el disco, y la almacena en la ubicación de almacenamiento provisional especificada. Los discos existentes conectados a la máquina virtual se reemplazan por el punto de restauración seleccionado.<br/><br/> La instantánea se copia en el almacén y se conserva de acuerdo con la directiva de retención. <br/><br/> Después de la operación de reemplazo de disco, el disco original se conserva en el grupo de recursos. Puede optar por eliminar manualmente los discos originales si no son necesarios. <br/><br/>El reemplazo de los existentes se admite para máquinas virtuales administradas sin cifrar, incluidas las máquinas virtuales [creadas con imágenes personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). No se admite para máquinas virtuales clásicas.<br/><br/> Si el punto de restauración tiene más o menos discos que la máquina virtual actual, el número de discos del punto de restauración solo reflejará la configuración de la máquina virtual.<br><br> También se admite el reemplazo de instancias existentes para las máquinas virtuales con recursos vinculados, como [identidades administradas asignadas por el usuario](../active-directory/managed-identities-azure-resources/overview.md) o [Key Vault](../key-vault/general/overview.md).
 **Entre regiones (región secundaria)** | La restauración entre regiones puede usarse para restaurar VM de Azure en la región secundaria, que es una [región emparejada de Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).<br><br> Puede restaurar todas las VM de Azure del punto de recuperación seleccionado si la copia de seguridad se realiza en la región secundaria.<br><br> Durante la copia de seguridad, las instantáneas no se replican en la región secundaria. Solo se replican los datos almacenados en el almacén. Por lo tanto, las restauraciones de regiones secundarias se producen solo en el [nivel del almacén](about-azure-vm-restore.md#concepts). El tiempo de restauración de la región secundaria será casi el mismo que el tiempo de restauración en el nivel del almacén de la región primaria.  <br><br> Esta característica está disponible para las opciones siguientes:<br> <li> [Crear una máquina virtual](#create-a-vm) <br> <li> [Restaurar discos](#restore-disks) <br><br> Actualmente no se admite la opción [Reemplazar los discos existentes](#replace-existing-disks).<br><br> Permisos<br> La operación de restauración en la región secundaria pueden llevarla a cabo los administradores de copias de seguridad y los administradores de aplicaciones.
+**Restauración entre zonas** | La restauración entre zonas se puede usar para restaurar [máquinas virtuales ancladas de la zona de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) en cualquier [zona de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview) de la misma región. <br> <br> Puede restaurar todas las máquinas virtuales ancladas de la zona de Azure para el punto de recuperación seleccionado, del que se realizó una copia de seguridad después de la publicación de esta característica, a la zona de su elección. De forma predeterminada, se restaurará en la misma zona en la que se hizo la copia de seguridad. <br> <br> Esto se puede usar durante escenarios de recuperación ante desastres si la zona anclada de la máquina virtual deja de estar disponible.
 
 > [!NOTE]
 > También puede recuperar archivos y carpetas específicos en una máquina virtual de Azure. [Más información](backup-azure-restore-files-from-vm.md).
@@ -138,7 +139,7 @@ Como una de las [opciones de restauración](#restore-options), puede reemplazar 
 
 Restauración entre regiones (CRR), una de las [opciones de restauración](#restore-options), permite restaurar VM de Azure en una región secundaria, que es una región emparejada de Azure.
 
-Para incorporar la característica durante la versión preliminar, lea la [sección Antes de comenzar](./backup-create-rs-vault.md#set-cross-region-restore).
+Para empezar a usar la característica, lea la [sección Antes de empezar](./backup-create-rs-vault.md#set-cross-region-restore).
 
 Para ver si la opción CRR está habilitada, siga las instrucciones de [Configuración de la restauración entre regiones](backup-create-rs-vault.md#configure-cross-region-restore).
 
@@ -160,6 +161,8 @@ Si la opción CRR está habilitada, puede ver los elementos de copia de segurida
 
 La experiencia del usuario de restauración de la región secundaria será similar a la de restauración de la región primaria. Al configurar los detalles en el panel Restaurar configuración para configurar la restauración, se le pedirá que proporcione solo los parámetros de la región secundaria.
 
+Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) está activa hasta 12 horas a partir de la región primaria, aunque la replicación del [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) es de 15 minutos.
+
 ![Elegir la VM que se va a restaurar](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Seleccionar punto de restauración](./media/backup-azure-arm-restore-vms/sec-rp.png)
@@ -176,6 +179,14 @@ La experiencia del usuario de restauración de la región secundaria será simil
 >- Una vez que se desencadena la restauración y se ha iniciado la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
 >- La característica de restauración entre regiones restaura las máquinas virtuales de Azure habilitadas para CMK (claves administradas por el cliente), que no tienen una copia de seguridad en un almacén de Recovery Services habilitado para CMK, como máquinas virtuales no habilitadas para CMK en la región secundaria.
 >- Los roles de Azure necesarios para restaurar en la región secundaria son los mismos que los de la región primaria.
+
+## <a name="cross-zonal-restore"></a>Restauración entre zonas
+
+La restauración entre zonas se puede usar para restaurar [máquinas virtuales ancladas de la zona de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) en cualquier [zona de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview) de la misma región.
+
+En el proceso de restauración, verá la opción **Zona de disponibilidad.** Verá la zona predeterminada en primer lugar. Para elegir otra zona, elija el número de la zona de su elección. Elija una zona diferente si la zona de disponibilidad predeterminada no está disponible debido a una interrupción o por cualquier otro motivo.
+
+![Elección de zona de disponibilidad](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
 

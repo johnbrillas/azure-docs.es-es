@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976510"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492253"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
 Los paquetes de diseño de página se actualizan periódicamente para incluir correcciones y mejoras en sus elementos de la página. El registro de cambios siguiente especifica los cambios introducidos en cada versión.
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autoafirmada (selfasserted)
+
+**2.1.2**
+- Se ha corregido el problema de codificación de la localización para idiomas como el español y el francés.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
 - Versión inicial
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de registro de inicio de sesión unificado con el vínculo de restablecimiento de contraseña (unifiedssp)
+
+**2.1.2**
+- Se ha corregido el problema de codificación de la localización para idiomas como el español y el francés.
+- Permite que el vínculo "contraseña olvidada" se use como intercambio de notificaciones como IDP social.
 
 **2.1.1**
 - Se ha agregado una UXString `heading` además de `intro` para que se muestre en la página como un título. Está oculta de forma predeterminada.

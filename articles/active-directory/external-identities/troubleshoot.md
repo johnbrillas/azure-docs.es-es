@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe34de0fa7847a23d9335dcdb0a38a33e006fdc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355212"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090644"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 
@@ -92,7 +92,7 @@ Un usuario con una cuenta de invitado no puede iniciar sesión y recibe el mensa
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-El usuario tiene una cuenta de usuario de Azure y es un inquilino viral no administrado o que se ha abandonado. Además, no hay administradores globales o de la empresa en el inquilino.
+El usuario tiene una cuenta de usuario de Azure y es un inquilino viral no administrado o que se ha abandonado. Además, no hay administradores globales en el inquilino.
 
 Para resolver este problema, debe asumir el inquilino abandonado. Consulte [Adquisición de un directorio no administrado como administrador en Azure Active Directory](../enterprise-users/domains-admin-takeover.md). También debe tener acceso al DNS accesible desde Internet para el sufijo de dominio en cuestión con el fin de proporcionar pruebas directas de que controla el espacio de nombres. Después de que el inquilino se devuelva a un estado administrado, hable con el cliente para ver si abandonar a los usuarios y al nombre de dominio comprobado es la mejor opción para su organización.
 

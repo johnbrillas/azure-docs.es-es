@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985865"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089298"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -124,7 +124,7 @@ Para establecer el administrador de Azure AD:
     ![seleccione active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Debe ser "Administrador de empresa" o "Administrador global" para realizar esta tarea.
+    > Para realizar esta tarea, debe ser "administrador global".
 
 1. En la página **Agregar administrador**, busque y seleccione el usuario o el grupo de AD, y elija **Seleccionar**. Se muestran todos los miembros y grupos de Active Directory; no se admiten las entradas atenuadas como administradores de Azure AD. Consulte [Características y limitaciones de Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 

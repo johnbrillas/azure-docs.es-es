@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: efc4f6293623278314df3ac55b2fecae2e28f7d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968356"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220001"
 ---
 # <a name="ibm-workloads-on-azure"></a>Cargas de trabajo de IBM en Azure
 
@@ -41,4 +41,4 @@ Un amplio ecosistema de asociados está disponible para ayudarle a migrar sistem
 - [Mitos y verdades del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Instalación del entorno de desarrollo y pruebas de IBM zD&T en Azure](./install-ibm-z-environment.md)
 - [Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1](./demo.md) (Configuración de una instancia de Application Developers Controlled Distribution (ADCD) en IBM zD&T v1)
-- [IBM DB2 pureScale en Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale en Azure](ibm-db2-purescale-azure.md)
