@@ -7,61 +7,65 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 09a9ca2ad1b1f1e5578ecc5d35a85c81b32a5b1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 01/27/2021
+ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511753"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955027"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Ejemplos de código de JavaScript para Azure Cognitive Search
 
-Obtenga información sobre los ejemplos de código de JavaScript que muestran las características y la funcionalidad de Azure Cognitive Search. Los repositorios principales son los siguientes:
+Obtenga información sobre los ejemplos de código de JavaScript que muestran la funcionalidad y el flujo de trabajo de una solución de Azure Cognitive Search. En estos ejemplos se usa la [**biblioteca cliente de Azure Cognitive Search**](/javascript/api/overview/azure/search-documents-readme) para el [**SDK de Azure para JavaScript**](/azure/developer/javascript/), que puede explorar por medio de los vínculos siguientes.
 
-| Repositorio | Descripción |
-|------------|-------------|
-| [azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Ejemplos generados por el equipo del SDK de Azure incluidos en la biblioteca cliente Azure.Search.Documents del SDK. También puede revisar [pruebas unitarias](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) de la biblioteca cliente para ver cómo se denominan las distintas API. |
-| [Azure-Samples/azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Ejemplos de código que acompañan a artículos paso a paso, incluido [Inicio rápido: Creación de un índice de búsqueda en JavaScript](search-get-started-javascript.md).|
+| Destino | Vínculo |
+|--------|------|
+| Descarga del paquete | [www.npmjs.com/package/@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) |
+| Referencia de API | [@azure/search-documents](/javascript/api/@azure/search-documents/)  |
+| Casos de prueba de la API | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) |
+| Código fuente | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents)  |
 
-> [!Tip]
-> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+## <a name="sdk-samples"></a>Ejemplos del SDK
 
-## <a name="javascript-sdk-samples"></a>Ejemplos del SDK de JavaScript
+Los ejemplos de código del equipo de desarrollo del SDK de Azure muestran el uso de la API. Puede encontrar estos ejemplos en [**azure-sdk-for-js/tree/master/sdk/search/search-documents/samples**](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples) en GitHub.
 
-El SDK de Azure para Java incluye numerosos ejemplos y una [página de introducción](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/README.md#getting-started) que abarca la instalación del paquete, la configuración del cliente y la solución de problemas. La página también describe las siguientes categorías de ejemplos, que se enumeran aquí para su comodidad.
+### <a name="javascript-sdk-samples"></a>Ejemplos del SDK de JavaScript
 
 | Ejemplos | Descripción |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexes) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar [índices de búsqueda](search-what-is-an-index.md). Esta categoría de ejemplos también incluye un ejemplo de estadísticas de servicio. |
 | [dataSourceConnections (para indizadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/dataSourceConnections) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar orígenes de datos de indizadores, necesarios para la indización basada en indizadores de [orígenes de datos de Azure compatibles](search-indexer-overview.md#supported-data-sources). |
-| [Indizadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Muestra cómo crear, actualizar, obtener, restablecer y eliminar [indizadores](search-indexer-overview.md).|
+| [Indizadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Muestra cómo crear, actualizar, obtener, enumerar y eliminar [indizadores](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Muestra cómo crear, actualizar, obtener, enumerar y eliminar [conjuntos de aptitudes](cognitive-search-working-with-skillsets.md) que son indizadores adjuntos, y que realizan el enriquecimiento basado en IA durante la indexación. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar [asignaciones de sinónimos](search-synonyms.md).  |
 | [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Muestra la ejecución de consultas en un índice público de solo lectura hospedado por Microsoft.  |
 
-## <a name="typescript-samples"></a>Ejemplos de TypeScript
-
-El SDK también proporciona ejemplos de TypeScript, que se enumeran aquí para mayor comodidad.
+### <a name="typescript-samples"></a>Ejemplos de TypeScript
 
 | Ejemplos | Descripción |
 |---------|-------------|
 | [índices](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexes) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar [índices de búsqueda](search-what-is-an-index.md). Esta categoría de ejemplos también incluye un ejemplo de estadísticas de servicio. |
 | [dataSourceConnections (para indizadores)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/dataSourceConnections) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar orígenes de datos de indizadores, necesarios para la indización basada en indizadores de [orígenes de datos de Azure compatibles](search-indexer-overview.md#supported-data-sources). |
-| [Indizadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Muestra cómo crear, actualizar, obtener, restablecer y eliminar [indizadores](search-indexer-overview.md).|
+| [Indizadores](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Muestra cómo crear, actualizar, obtener, enumerar y eliminar [indizadores](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Muestra cómo crear, actualizar, obtener, enumerar y eliminar [conjuntos de aptitudes](cognitive-search-working-with-skillsets.md) que son indizadores adjuntos, y que realizan el enriquecimiento basado en IA durante la indexación. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Muestra cómo crear, actualizar, obtener, enumerar y eliminar [asignaciones de sinónimos](search-synonyms.md).  |
 | [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Muestra la ejecución de consultas en un índice público de solo lectura hospedado por Microsoft.  |
 
-## <a name="documentation-samples"></a>Documentación y ejemplos
+## <a name="doc-samples"></a>Ejemplos de documentación
 
-Los ejemplos siguientes tienen un artículo asociado en [Documentación de Azure Cognitive Search](./index.yml).
+Los ejemplos de código del equipo de Cognitive Search muestran características y flujos de trabajo. En tutoriales, inicios rápidos y artículos de procedimientos se hace referencia a muchos de estos ejemplos. Puede encontrar estos ejemplos en [**Azure-Samples/azure-search-javascript-samples**](https://github.com/Azure-Samples/azure-search-javascript-samples) en GitHub.
 
-| Ejemplos | Descripción | 
-|---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código fuente de [Inicio rápido: Creación de un índice de búsqueda en JavaScript](search-get-started-javascript.md).  |
+| Ejemplos | Artículo |
+|---------|---------|
+| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código fuente de [Inicio rápido: Creación de un índice de búsqueda en JavaScript](search-get-started-javascript.md). En este artículo se habla del flujo de trabajo básico para crear, cargar y consultar un índice de búsqueda con datos de ejemplo. |
 
-## <a name="standalone-samples"></a>Ejemplos independientes
+> [!Tip]
+> Pruebe el [Explorador de ejemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para buscar ejemplos de código de Microsoft en Github, filtrados por producto, servicio y lenguaje.
+
+## <a name="other-samples"></a>Otros ejemplos
+
+Los siguientes ejemplos también los publicó el equipo de Cognitive Search, pero no se hace referencia a ellos en la documentación. Los archivos Léame asociados proporcionan instrucciones de uso.
 
 | Ejemplos | Descripción |
 |---------|-------------|

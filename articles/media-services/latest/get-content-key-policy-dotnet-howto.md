@@ -1,5 +1,5 @@
 ---
-title: Obtención de una clave de firma de una directiva mediante .NET de Azure Media Services v3
+title: 'Obtención de una clave de firma de una directiva: .NET'
 description: En este tema se muestra cómo obtener una clave de firma de la directiva existente mediante el SDK de .NET de Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1436561f7c82446038c231fadec3bd62c94d4ff9
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427071"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955112"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtención de una clave de firma de la directiva existente
 
@@ -39,7 +39,7 @@ El ejemplo de ContentKeyPolicy con secretos se encuentra en la carpeta [EncryptW
 
 ## <a name="get-contentkeypolicy-with-secrets"></a>Obtención de ContentKeyPolicy con secretos 
 
-Para obtener la clave, use **GetPolicyPropertiesWithSecretsAsync** , tal y como se muestra en el ejemplo siguiente.
+Para obtener la clave, use **GetPolicyPropertiesWithSecretsAsync**, tal y como se muestra en el ejemplo siguiente.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 

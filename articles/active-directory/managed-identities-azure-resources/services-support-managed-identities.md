@@ -4,19 +4,19 @@ description: Lista de servicios que admiten identidades administradas para recur
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 520d572478074a86c9b5cececacd34d7cd41539d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880800"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071620"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -113,6 +113,14 @@ Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilida
 | Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 
+### <a name="azure-communication-services"></a>Azure Communication Services
+
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
+| Asignado por el usuario | ![Disponible][check] | No disponible | No disponible | No disponible |
+
+
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
@@ -158,6 +166,17 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### <a name="azure-digital-twins"></a>Azure Digital Twins
+
+Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Asignado por el sistema | ![Disponible][check] | No disponible | No disponible | No disponible |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Digital Twins (en las regiones donde esté disponible):
+
+- [Azure Portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
@@ -383,6 +402,15 @@ Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 | Azure Government | `https://database.usgovcloudapi.net/` | ![Disponible][check] |
 | Azure Alemania | `https://database.cloudapi.de/` | ![Disponible][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Disponible][check] |
+
+### <a name="azure-data-explorer"></a>Explorador de datos de Azure
+
+| Nube | Id. de recurso | Estado |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.<region>.kusto.windows.net` | ![Disponible][check] |
+| Azure Government | `https://<account>.<region>.kusto.usgovcloudapi.net` | ![Disponible][check] |
+| Azure Alemania | `https://<account>.<region>.kusto.cloudapi.de` | ![Disponible][check] |
+| Azure China 21Vianet | `https://<account>.<region>.kusto.chinacloudapi.cn` | ![Disponible][check] |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 

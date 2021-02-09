@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9cc5e5107784d447640ef0ae77d412885b1e5668
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f05c3247ecdd77fe4cf02db70c7ba4b2c534f959
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185779"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055355"
 ---
 # <a name="update-azure-powershell-modules"></a>Actualización de módulos de Azure PowerShell
 
@@ -23,7 +23,7 @@ Los módulos de PowerShell más comunes se proporcionan de forma predeterminada 
 
 Para evitar que incidan en los runbooks y los procesos que automatizan, asegúrese de probarlos y validarlos cuando realice actualizaciones. Si no tiene una cuenta de Automation dedicada pensada para este propósito, considere la posibilidad de crear una para que pueda probar muchos escenarios diferentes durante el desarrollo de los runbooks. Estas pruebas deben incluir cambios iterativos, por ejemplo, la actualización de los módulos de PowerShell.
 
-Asegúrese de que la cuenta de Automation tiene una [credencial de cuenta de ejecución de Azure](manage-runas-account.md) creada.
+Asegúrese de que la cuenta de Automation tiene una [cuenta de ejecución de Azure](automation-security-overview.md#run-as-accounts) creada.
 
 Si desarrolla sus scripts de forma local, se recomienda tener localmente las mismas versiones del módulo que tiene en la cuenta de Automation al realizar pruebas, a fin de asegurarse de que obtendrá los mismos resultados. Una vez validados los resultados y aplicados los cambios necesarios, puede mover los cambios a producción.
 
@@ -38,7 +38,7 @@ El runbook **Update-AutomationAzureModulesForAccount** admite de forma predeterm
 
 ## <a name="use-update-runbook-code-as-a-regular-powershell-script"></a>Uso del código de runbook de actualización como script de PowerShell normal
 
-Puede usar el código de runbook como script de PowerShell normal en lugar de un runbook. Para ello, inicie sesión en Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) primero y, después, pase `-Login $false` al script.
+Puede usar el código de runbook como script de PowerShell normal en lugar de un runbook. Para ello, inicie sesión en Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) primero y, después, pase `-Login $false` al script.
 
 ## <a name="use-the-update-runbook-on-sovereign-clouds"></a>Uso del runbook de actualización en nubes soberanas
 

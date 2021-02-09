@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726522"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054761"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -380,27 +380,42 @@ Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas 
 Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuración del firewall: Direcciones IP y etiquetas de servicio
 
-Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y salientes dependen de la región en la que se encuentra la aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Algunas llamadas de [Power Automate](/power-automate/getting-started), como las solicitudes **HTTP** y **HTTP + OpenAPI**, van directamente por el servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP que utiliza Power Automate, consulte [Límites y configuración en Power Automate.](/flow/limits-and-config#ip-address-configuration)
+Cuando la aplicación lógica necesita comunicarse a través de un firewall que limite el tráfico a direcciones IP específicas, ese firewall deberá permitir el acceso para *ambas* direcciones IP, la [de entrada](#inbound) y la [de salida](#outbound), que usa el servicio Logic Apps o el entorno de ejecución en la región de Azure donde se encuentra la aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP.
 
-> [!TIP]
-> Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar [etiquetas de servicio](../virtual-network/service-tags-overview.md), en lugar de especificar las direcciones IP de Logic Apps para cada región (se describe más adelante en esta sección).
-> Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps:
->
-> * **LogicAppsManagement**: representa los prefijos de la dirección IP entrante para el servicio Logic Apps.
-> * **LogicApps**: representa los prefijos de la dirección IP saliente para el servicio Logic Apps.
+Por ejemplo, para admitir llamadas que las aplicaciones lógicas de la región Oeste de EE. UU. envían o reciben a través de desencadenadores y acciones integrados, como el [desencadenador o acción HTTP](../connectors/connectors-native-http.md), el firewall debe permitir el acceso para *todas*  las direcciones IP de entrada del servicio Logic Apps *y* las direcciones IP de salida que existen en la región Oeste de EE. UU.
 
-* En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/apis-list.md#managed-api-connectors), por ejemplo, Azure Storage, SQL Server, Office 365 Outlook, etc.
+Si la aplicación lógica también usa [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](#outbound) en la región de Azure de la aplicación lógica. Además, si usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](#outbound) de conectores administrados* correspondientes.
 
-* Para admitir las llamadas que las aplicaciones lógicas realizan directamente con solicitudes [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y HTTP de otro tipo, configure el firewall con todas las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región.
+Para obtener más información sobre cómo configurar las opciones de comunicación en la puerta de enlace, consulte los siguientes temas:
 
-* Para admitir las llamadas que realizan los [conectores administrados](../connectors/apis-list.md#managed-api-connectors), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región.
+* [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-communication)
+* [Configuración de los valores del proxy para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-proxy)
 
-* A fin de habilitar la comunicación para las aplicaciones lógicas que se ejecutan en un entorno de servicio de integración (ISE), asegúrese de [abrir estos puertos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* Si sus aplicaciones lógicas tienen problemas de acceso a cuentas de almacenamiento de Azure que usan [firewalls y reglas de firewall](../storage/common/storage-network-security.md), dispone de [diversas opciones para habilitar el acceso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### <a name="firewall-ip-configuration-considerations"></a>Consideraciones sobre la configuración de la IP de firewall
+
+Antes de configurar el firewall con direcciones IP, revise estas consideraciones:
+
+* Si está usando [Power Automate](/power-automate/getting-started), algunas acciones como **HTTP** y **HTTP + OpenAPI** pasan directamente por el servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP que usa Power Automate, consulte [Límites y configuración para Power Automate](/flow/limits-and-config#ip-address-configuration).
+
+* En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/apis-list.md#managed-api-connectors), como Azure Storage, SQL Server, Office 365 Outlook, etc.
+
+* Si sus aplicaciones lógicas se ejecutan en un [entorno de servicio de integración (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), asegúrese de [abrir estos puertos también](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Para ayudarle a simplificar las reglas de seguridad que quiere crear, también puede usar [etiquetas de servicio](../virtual-network/service-tags-overview.md), en lugar de especificar prefijos de dirección IP para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps:
+
+  * **LogicAppsManagement**: representa los prefijos de la dirección IP entrante para el servicio Logic Apps.
+
+  * **LogicApps**: representa los prefijos de la dirección IP saliente para el servicio Logic Apps.
+
+  * **AzureConnectors**: representa los prefijos de dirección IP que se usan para los conectores administrados que realizan devoluciones de llamada de webhook entrantes al servicio de Logic Apps y a las llamadas salientes a sus servicios respectivos, como Azure Storage o Azure Event Hubs.
+
+* Si sus aplicaciones lógicas tienen problemas de acceso a cuentas de almacenamiento de Azure que usan [firewalls y reglas de firewall](../storage/common/storage-network-security.md), dispone de [otras tantas opciones para habilitar el acceso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Por ejemplo, las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que usen reglas de firewall y que se encuentren en la misma región. Sin embargo, si permite las [direcciones IP de salida para los conectores administrados de la región](../logic-apps/logic-apps-limits-and-config.md#outbound), las aplicaciones lógicas pueden acceder a las cuentas de almacenamiento de una región diferente excepto cuando se usan los conectores de Azure Table Storage o de Azure Queue Storage. Para acceder a Table Storage o Queue Storage, puede usar el desencadenador HTTP y las acciones en su lugar. Para otras opciones, consulte [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls) (Acceso a cuentas de almacenamiento detrás de firewalls).
 
@@ -411,9 +426,7 @@ Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y sali
 En esta sección se enumeran las direcciones IP entrantes solo para el servicio Azure Logic Apps. Si tiene Azure Government, consulte [Azure Government: direcciones IP entrantes](#azure-government-inbound).
 
 > [!TIP]
-> Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, en lugar de especificar prefijos de dirección IP entrante de Logic Apps para cada región.
-> En el caso de los conectores administrados, puede usar opcionalmente la etiqueta de servicio **AzureConnectors**, en lugar de especificar prefijos de direcciones IP de conectores administrados de entrada para cada región.
-> Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.
+> Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, en lugar de especificar prefijos de dirección IP entrante de Logic Apps para cada región. Opcionalmente, también puede usar la etiqueta de servicio **AzureConnectors** para los conectores administrados que realizan devoluciones de llamada de webhook de entrada al servicio de Logic Apps, en lugar de especificar prefijos de direcciones IP de conectores administrados de entrada para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 En esta sección se enumeran las direcciones IP salientes para el servicio Azure Logic Apps y los conectores administrados. Si tiene Azure Government, consulte [Azure Government: direcciones IP salientes](#azure-government-outbound).
 
 > [!TIP]
-> Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicApps**, en lugar de especificar prefijos de dirección IP salientes de Logic Apps para cada región.
-> Esta etiqueta funciona en las regiones en las que está disponible el servicio Logic Apps. 
+> Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicApps**, en lugar de especificar prefijos de dirección IP salientes de Logic Apps para cada región. Opcionalmente, también puede usar la etiqueta de servicio **AzureConnectors** para los conectores administrados que realizan llamadas de salida a los servicios correspondientes, como Azure Storage o Azure Event Hubs, en lugar de especificar prefijos de direcciones IP de conectores administrados de salida para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.
 
 <a name="multi-tenant-outbound"></a>
 

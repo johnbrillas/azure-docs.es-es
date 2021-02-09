@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9224d02e36dbca96d3e54946330d3135ff811829
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590773"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071671"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervisión de Azure Blob Storage
 
@@ -44,7 +44,7 @@ Las secciones siguientes complementan este artículo mediante la descripción de
 
 Azure Blob Storage recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
 
-Vea [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md) para obtener información detallada sobre las métricas y las métricas de registros que crea Azure Blob Storage.
+Consulte la [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md) para obtener información detallada sobre las métricas y las métricas de registros que crea Azure Blob Storage.
 
 Las métricas y registros de Azure Monitor solo admiten cuentas de almacenamiento de Azure Resource Manager. Azure Monitor no admite cuentas de almacenamiento clásicas. Si desea usar las métricas o registros en una cuenta de almacenamiento clásica, es preciso migrar a una cuenta de almacenamiento de Azure Resource Manager. Consulte [Migración a Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
@@ -284,7 +284,7 @@ Las métricas de Azure Blob Storage están en estos espacios de nombres:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
-Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo que incluye Azure Blob Storage, vea [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Para obtener una lista de todas las métricas compatibles de Azure Monitor, lo que incluye Azure Blob Storage, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 
 ### <a name="accessing-metrics"></a>Acceso a métricas
@@ -483,7 +483,7 @@ N/D
 
 Puede acceder a los registros de los recursos como blob en una cuenta de almacenamiento, como datos de eventos o a través de consultas de Log Analytics.
 
-Para una referencia detallada de los campos que aparecen en dichos registros, vea [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
+Para una referencia detallada de los campos que aparecen en dichos registros, consulte [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
 
 > [!NOTE]
 > Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
@@ -601,6 +601,6 @@ No. Azure Compute admite las métricas en discos. Para obtener más información
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una referencia de los registros y las métricas creados por Azure Blob Storage, vea [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
+- Para ver una referencia de los registros y las métricas creados por Azure Blob Storage, consulte [Referencia de datos de supervisión de Azure Blob Storage](monitor-blob-storage-reference.md).
 - Para obtener más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Para obtener más información sobre la migración de métricas, consulte [Migración de las métricas de Azure Storage](../common/storage-metrics-migration.md).

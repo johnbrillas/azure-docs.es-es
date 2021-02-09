@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078840"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053914"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -112,7 +112,7 @@ Los registros disponibles para el agente de Log Analytics y la cuenta **nxautoma
 
 ## <a name="runbook-permissions"></a>Permisos de runbooks
 
-Un runbook necesita permisos para la autenticación en Azure a través de credenciales. Consulte [Administración de cuentas de ejecución de Azure Automation](manage-runas-account.md).
+Un runbook necesita permisos para la autenticación en Azure a través de credenciales. Consulte [Introducción a la autenticación de Azure Automation](automation-security-overview.md).
 
 ## <a name="modules"></a>Módulos
 
@@ -137,8 +137,9 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Status | Descripción |
+| Estado | Descripción |
 |:--- |:--- |
+| En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |
 | Con error |Un runbook de flujo de trabajo de PowerShell o gráfico no se pudo compilar. Un runbook de PowerShell no se pudo iniciar o el trabajo generó una excepción. Consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md).|
 | Error, esperando recursos |Se produjo un error en el trabajo porque ha alcanzado el límite de [distribución equilibrada](#fair-share) tres veces y se ha iniciado en el mismo punto de control o en el inicio del runbook cada vez. |

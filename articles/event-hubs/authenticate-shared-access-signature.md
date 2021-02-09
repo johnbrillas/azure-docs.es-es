@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo autenticar el acceso a recursos 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510097"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986502"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -203,7 +203,7 @@ Por ejemplo, para definir reglas de autorización cuyo ámbito sea solo enviar o
 
 
 > [!NOTE]
-> Aunque no se recomienda, es posible equipar a los dispositivos con tokens que concedan acceso directo a un centro de eventos o espacio de nombres. Cualquier dispositivo que contenga un token de ese tipo puede enviar mensajes directamente a ese centro de eventos. Además, el dispositivo no puede estar en la lista negra que impide el envío a ese centro de eventos.
+> Aunque no se recomienda, es posible equipar a los dispositivos con tokens que concedan acceso directo a un centro de eventos o espacio de nombres. Cualquier dispositivo que contenga un token de ese tipo puede enviar mensajes directamente a ese centro de eventos. Además, el dispositivo no puede estar en la lista de bloqueados que impide el envío a ese centro de eventos.
 > 
 > Siempre se recomienda proporcionar ámbitos específicos y pormenorizados.
 

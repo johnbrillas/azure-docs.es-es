@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201559"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055202"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Desacoplamiento de un disco de datos de una máquina virtual de Windows
 
@@ -53,11 +53,13 @@ También puede quitar un disco de datos *en caliente*, pero asegúrese de que no
 1. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 1. Seleccione la máquina virtual que tiene el disco de datos que quiere desasociar.
 1. En **Configuración**, seleccione **Discos**.
-1. En el panel **Discos**, en el extremo derecho del disco de datos que quiere desasociar, haga clic en el botón Eliminar **X**.
+1. En el panel **Discos**, en el extremo derecho del disco de datos que quiere desasociar, haga clic en el botón **X Desasociar**.
 1. Seleccione **Guardar** en la parte superior de la página para guardar los cambios.
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea reutilizar el disco de datos, basta con que lo [conecte a otra máquina virtual](attach-managed-disk-portal.md)
+Si desea reutilizar el disco de datos, basta con que lo [conecte a otra máquina virtual](attach-managed-disk-portal.md).
+
+Si quiere eliminar el disco para que ya no se generen costos de almacenamiento, consulte [Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados: Azure Portal](../disks-find-unattached-portal.md).

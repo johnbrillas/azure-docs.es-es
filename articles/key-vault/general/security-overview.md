@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937539"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071579"
 ---
-# <a name="azure-key-vault-security-overview"></a>Introducción a la seguridad de Azure Key Vault
+# <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
 Puede usar Azure Key Vault para proteger las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas en la nube. Cuando almacena datos confidenciales y críticos para la empresa, debe tomar medidas para maximizar la seguridad de los almacenes y de los datos almacenados en estos.
 
-En este artículo se proporciona información general sobre las características de seguridad y los procedimientos recomendados en Azure Key Vault. Para obtener una lista completa de las recomendaciones, en función del [punto de referencia de seguridad de Azure](../../security/benchmarks/introduction.md), consulte la [base de referencia de seguridad de Azure Key Vault](security-baseline.md).
+En este artículo se proporciona información general sobre las características de seguridad y los procedimientos recomendados en Azure Key Vault. 
 
-## <a name="general-guidance"></a>Instrucciones generales
-
-Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (desarrollo, preproducción y producción). Esto ayuda a no compartir secretos entre los entornos y, también, a reducir la amenaza en el caso de infracción.
+> [!NOTE]
+> Para obtener una lista completa de las recomendaciones de seguridad de Azure Key Vault, consulte la [línea de base de seguridad de Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Seguridad de red
 
@@ -109,20 +108,9 @@ La protección frente a la eliminación temporal y la purga de Azure Key Vault p
 
 También, debe hacer copias de seguridad del almacén periódicamente, cuando actualice, elimine o cree objetos dentro de él.  
 
-Comandos de copia de seguridad de Azure PowerShell:
-
-* [Copia de seguridad de certificado](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Copia de seguridad de clave](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Copia de seguridad de secreto](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Comandos de copia de seguridad de la CLI de Azure
-
-* [Copia de seguridad de certificado](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Copia de seguridad de clave](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Copia de seguridad de secreto](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Línea de base de seguridad de Azure Key Vault](security-baseline.md)
+- [Procedimientos recomendados de Azure Key Vault](security-baseline.md)
 - [Puntos de conexión de servicio de red virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC de Azure: roles integrados](../../role-based-access-control/built-in-roles.md)

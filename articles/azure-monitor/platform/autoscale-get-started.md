@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 9bbd4da77d2892064906dc7ae272bcc770b6bdc4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694923"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055287"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -115,36 +115,9 @@ Siempre se puede volver al escalado automático; para ello, haga clic en **Enabl
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Enrutamiento del tráfico a instancias en buen estado (App Service)
 
-Al escalar horizontalmente a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico únicamente a las que estén en buen estado. Para ello, abra el portal de App Service y, luego, seleccione **Comprobación de estado** en **Supervisión**. Seleccione **Habilitar** y proporcione una ruta de acceso válida a una dirección URL en la aplicación, por ejemplo, `/health` o `/api/health`. Haga clic en **Save**(Guardar).
+<a id="health-check-path"></a>
 
-Para habilitar la característica con plantillas de ARM, establezca la propiedad `healthcheckpath` del recurso `Microsoft.Web/sites` en la ruta de acceso de comprobación de estado del sitio, por ejemplo: `"/api/health/"`. Para deshabilitar la característica, vuelva a establecer la propiedad en la cadena vacía `""`.
-
-### <a name="health-check-path"></a>Ruta de acceso de comprobación de estado
-
-La ruta de acceso debe responder en un minuto con un código de estado entre 200 y 299 (ambos incluidos). Si la ruta de acceso no responde en un minuto, o devuelve un código de estado fuera del intervalo, la instancia se considera "incorrecta". App Service no sigue los redireccionamientos 30x (301, 302, 307, etc.) en la ruta de acceso de comprobación de estado: estos códigos de estado se consideran **incorrectos**. La comprobación de estado se integra con las características de autenticación y autorización de App Service; el sistema alcanza el punto de conexión aunque estén habilitadas estas características de seguridad. Si usa un sistema de autenticación propio, la ruta de comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene HTTP **S**-Only habilitado, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
-
-La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente esencial, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
-
-#### <a name="security"></a>Seguridad 
-
-A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los requisitos de seguridad de las API expuestas. Para proteger el punto de conexión de HealthCheck, primero debe usar características como [restricciones de IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule) o una red virtual para restringir el acceso a la aplicación. Puede proteger el punto de conexión de HealthCheck requiriendo que `User-Agent` de la solicitud entrante coincida con `ReadyForRequest/1.0`. El agente de usuario no se puede suplantar porque la solicitud ya estaba protegida por las características de seguridad anteriores.
-
-### <a name="behavior"></a>Comportamiento
-
-Cuando se proporciona la ruta de acceso de comprobación de estado, App Service hace ping a la ruta de acceso en todas las instancias. Si después de cinco pings no se recibe un código de respuesta correcto, esa instancia se considera "incorrecta". Las instancias incorrectas se excluirán de la rotación del equilibrador de carga si se escala horizontalmente a 2 o más instancias y se usa el [nivel básico](../../app-service/overview-hosting-plans.md) o superior. Puede configurar el número necesario de pings con errores con la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXPINGFAILURES`. Esta configuración de aplicación se puede establecer en cualquier número entero entre 2 y 10. Por ejemplo, si se establece en `2`, las instancias se quitarán del equilibrador de carga después de dos ping con errores. Además, al escalar vertical u horizontalmente, App Service hace ping a la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas para las solicitudes antes de que se agreguen al equilibrador de carga.
-
-> [!NOTE]
-> Recuerde que el plan de App Service se debe escalar horizontalmente a dos o más instancias y ser de **nivel básico o superior** para que se produzca la exclusión del equilibrador de carga. Si solo tiene una instancia, no se quitará del equilibrador de carga aunque sea incorrecta. 
-
-Además, se hace ping a la ruta de acceso de la comprobación de estado cuando se agregan o se reinician las instancias como, por ejemplo, durante las operaciones de escalado horizontal, los reinicios manuales o la implementación de código a través del sitio del SCM. Si se produce un error en la comprobación de estado durante estas operaciones, las instancias con errores no se agregarán al equilibrador de carga. Esto evita que estas operaciones afecten negativamente a la disponibilidad de la aplicación.
-
-Al usar la comprobación de estado, el resto de instancias en buen estado pueden experimentar un aumento de la carga. Para evitar saturarlas, se excluyen no más de la mitad de las instancias. Por ejemplo, si un plan de App Service se escala horizontalmente a cuatro instancias y tres de ellas están en mal estado, hasta dos se pueden excluir de la rotación del equilibrador de carga. Las otras dos instancias (una en buen estado y otra en mal estado) siguen recibiendo solicitudes. En el peor de los escenarios, cuando todas las instancias están en estado incorrecto, no se excluirá ninguna. Si desea invalidar este comportamiento, puede establecer la configuración de aplicación `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` en un valor entre `0` y `100`. Si se establece en un valor mayor, se eliminarán más instancias incorrectas (el valor predeterminado es 50).
-
-Si se produce un error durante la comprobación de estado de todas las aplicaciones de una instancia durante una hora, la instancia se reemplazará. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
-
-### <a name="monitoring"></a>Supervisión
-
-Después de proporcionar la ruta de acceso de comprobación de estado de la aplicación, puede supervisar el estado del sitio mediante Azure Monitor. En la hoja **Comprobación de estado** del portal, haga clic en **Métricas** en la barra de herramientas superior. Se abre una nueva hoja donde puede ver el estado de mantenimiento histórico del sitio y crear una regla de alerta. Para obtener más información sobre la supervisión de sitios, [vea la guía sobre Azure Monitor](../../app-service/web-sites-monitor.md).
+Cuando escala horizontalmente una aplicación web de Azure a varias instancias, App Service puede realizar comprobaciones de estado en ellas para enrutar el tráfico a las que estén en buen estado. Para obtener más información, consulte [este artículo sobre la comprobación de estado de App Service](../../app-service/monitor-instances-health-check.md).
 
 ## <a name="moving-autoscale-to-a-different-region"></a>Traslado del escalado automático a una región diferente
 En esta sección se describe cómo trasladar el escalado automático de Azure a otra región de la misma suscripción y grupo de recursos. Puede usar la API REST para cambiar la configuración de escalado automático.

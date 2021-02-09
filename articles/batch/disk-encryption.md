@@ -3,21 +3,26 @@ title: Creación de un grupo con el cifrado de disco habilitado
 description: Aprenda a usar la configuración del cifrado de disco para cifrar los nodos con una clave administrada por la plataforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 01/27/2021
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350677"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055321"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creación de un grupo con el cifrado de disco habilitado
 
-Al crear un grupo de Azure Batch con la configuración de la máquina virtual, puede cifrar los nodos de proceso del grupo con una clave administrada por la plataforma especificando la configuración del cifrado de disco.
+Al crear un grupo de Azure Batch con la [configuración de la máquina virtual](nodes-and-pools.md#virtual-machine-configuration), puede cifrar los nodos de proceso del grupo con una clave administrada por la plataforma especificando la configuración del cifrado de disco.
 
 En este artículo se explica cómo crear un grupo de Batch con el cifrado de discos habilitado.
+
+> [!IMPORTANT]
+> La compatibilidad con el cifrado en el host mediante una clave administrada por la plataforma en Azure Batch se encuentra actualmente en versión preliminar pública para las regiones este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia y US Gov Arizona.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>¿Por qué usar un grupo con la configuración de cifrado de disco?
 
@@ -29,12 +34,10 @@ Batch aplicará una de estas tecnologías de cifrado de discos en nodos de proce
 - [Cifrado en el host con una clave administrada por la plataforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
-> [!IMPORTANT]
-> La compatibilidad con el cifrado en el host mediante una clave administrada por la plataforma en Azure Batch se encuentra actualmente en versión preliminar pública para las regiones este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia y US Gov Arizona.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 No podrá especificar qué método de cifrado se aplicará a los nodos del grupo. En su lugar, debe proporcionar los discos de destino que quiere cifrar en sus nodos y Batch puede elegir el método de cifrado adecuado, asegurándose de que los discos especificados se cifren en el nodo de proceso.
+
+> [!IMPORTANT]
+> Si va a crear el grupo con una [imagen personalizada](batch-sig-images.md), puede habilitar el cifrado de disco solo si usa máquinas virtuales Windows.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -61,11 +64,14 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
 ### <a name="batch-rest-api"></a>REST de Batch
 
 URL de la API REST:
+
 ```
 POST {batchURL}/pools?api-version=2020-03-01.11.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
+
 Cuerpo de la solicitud:
+
 ```
 "pool": {
     "id": "pool2",

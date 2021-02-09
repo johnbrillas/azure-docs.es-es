@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883119"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054861"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solución de problemas de conectividad SMTP saliente en Azure
 
@@ -27,7 +27,7 @@ Este cambio de comportamiento solo se aplica a suscripciones e implementaciones 
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado para el envío de correo electrónico
 
-Se recomienda usar servicios de retransmisión SMTP autenticados para enviar correo electrónico desde máquinas virtuales de Azure o desde Azure App Service. (Estos servicios de retransmisión se suelen conectar a través de los puertos TCP 587 o 443, pero admiten otros puertos). Estos servicios se usan para mantener la reputación de IP o dominio y minimizar la posibilidad de que proveedores de correo electrónico de terceros rechacen el mensaje. [SendGrid](https://sendgrid.com/partners/azure/) es un servicio de retransmisión SMTP, pero hay otros. También puede tener un servicio de retransmisión SMTP seguro que se ejecute de manera local que pueda usar.
+Se recomienda usar servicios de retransmisión SMTP autenticados para enviar correo electrónico desde máquinas virtuales de Azure o desde Azure App Service. (Estos servicios de retransmisión se suelen conectar a través del puerto TCP 587, pero se admiten otros puertos). Estos servicios se usan para mantener la reputación de IP o dominio y minimizar la posibilidad de que proveedores de correo electrónico de terceros rechacen el mensaje. [SendGrid](https://sendgrid.com/partners/azure/) es un servicio de retransmisión SMTP, pero hay otros. También puede tener un servicio de retransmisión SMTP seguro que se ejecute de manera local que pueda usar.
 
 El uso de estos servicios de entrega de correo electrónico no está restringido en Azure, independientemente del tipo de suscripción.
 

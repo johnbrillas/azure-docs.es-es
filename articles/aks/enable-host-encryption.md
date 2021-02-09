@@ -3,13 +3,13 @@ title: Habilitación del cifrado basado en host en Azure Kubernetes Service (AKS
 description: Aprenda a configurar un cifrado basado en host en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/27/2021
+ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787831"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071857"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Cifrado basado en host en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -25,37 +25,7 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Asegúrese de que tiene instalada la `aks-preview` extensión de la CLI v 0.4.55 o superior.
-- Asegúrese de que tiene habilitada la marca de características `EnableEncryptionAtHostPreview` bajo `Microsoft.ContainerService`.
-
-Para poder usar el cifrado en el host para las máquinas virtuales o los conjuntos de escalado de máquinas virtuales, debe habilitar la característica en la suscripción. Envíe un correo electrónico a encryptionAtHost@microsoft.com con los identificadores de suscripción para que la característica se habilite para sus suscripciones.
-
-### <a name="register-encryptionathost--preview-features"></a>Registro de las características en versión preliminar de `EncryptionAtHost`
-
-> [!IMPORTANT]
-> Debe enviar un correo electrónico a encryptionAtHost@microsoft.com con los identificadores de suscripción para que la característica se habilite para los recursos de proceso. No puede habilitarla usted mismo para esos recursos. Puede habilitarla en el servicio de contenedor.
-
-Para crear un clúster de AKS que usa el cifrado basado en host, debe habilitar las marcas de características `EnableEncryptionAtHostPreview` y `EncryptionAtHost` en su suscripción.
-
-Registro de `EncryptionAtHost` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando todo esté listo, actualice el registro de los proveedores de recursos `Microsoft.ContainerService` y `Microsoft.Compute` con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+- Asegúrese de que tiene instalada la extensión de la CLI `aks-preview` versión v0.4.73 o posterior.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
@@ -77,23 +47,23 @@ az extension update --name aks-preview
 
 ## <a name="use-host-based-encryption-on-new-clusters-preview"></a>Uso del cifrado basado en host en clústeres nuevos (versión preliminar)
 
-Configure los nodos de agente de clúster para usar el cifrado basado en host cuando se cree el clúster. Use la marca `--aks-custom-headers` para establecer el encabezado `EnableEncryptionAtHost`.
+Configure los nodos de agente de clúster para usar el cifrado basado en host cuando se cree el clúster. 
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Si desea crear clústeres sin el cifrado basado en host, puede omitir el parámetro `--aks-custom-headers` personalizado para hacerlo.
+Si quiere crear clústeres sin el cifrado basado en host, puede omitir el parámetro `--enable-encryption-at-host` para hacerlo.
 
 ## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>Uso del cifrado basado en host en clústeres existentes (versión preliminar)
 
-Puede habilitar el cifrado basado en host en clústeres existentes agregando un nuevo grupo de nodos al clúster. Configure un grupo de nodos nuevo para usar el cifrado basado en host mediante la marca `--aks-custom-headers`.
+Puede habilitar el cifrado basado en host en clústeres existentes agregando un nuevo grupo de nodos al clúster. Configure un grupo de nodos nuevo para usar el cifrado basado en host mediante el parámetro `--enable-encryption-at-host`.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-Si desea crear grupos de nodos nuevos sin la característica de cifrado basada en host, puede hacerlo omitiendo el parámetro `--aks-custom-headers` personalizado.
+Si quiere crear grupos de nodos nuevos sin la característica de cifrado basado en host, puede hacerlo omitiendo el parámetro `--enable-encryption-at-host`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

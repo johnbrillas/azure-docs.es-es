@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210990"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920382"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
@@ -38,7 +38,7 @@ Una integración con las notificaciones de Service Health y el monitor de compro
 A todos los eventos de mantenimiento, con la excepción de DWC400c y los niveles más bajos, les precede una notificación con 24 horas de adelanto.
 
 > [!NOTE]
-> En caso de que sea necesario implementar una actualización donde el tiempo es fundamental, los tiempos de las notificaciones avanzadas pueden reducirse significativamente.
+> En caso de que sea necesario implementar una actualización donde el tiempo es fundamental, los tiempos de las notificaciones avanzadas pueden reducirse significativamente. Esto puede suceder fuera de una ventana de mantenimiento identificada debido a la naturaleza crítica de la actualización.
 
 Si recibió una notificación anticipada relativa a la realización de mantenimiento, pero el mantenimiento no puede realizarse durante el período de la notificación, recibirá una notificación de cancelación. Después se reanudará el mantenimiento durante el siguiente período de mantenimiento programado.
 

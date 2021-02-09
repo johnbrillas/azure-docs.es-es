@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740608"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071277"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 
 En este artículo se describe cómo usar los permisos concedidos por roles personalizados de Azure Active Directory (Azure AD) para satisfacer las necesidades de administración de aplicaciones. En Azure AD puede delegar los permisos de creación y administración de aplicaciones de las siguientes maneras:
 
-- [Restricción de quién puede crear aplicaciones](#restrict-who-can-create-applications) y administración de las aplicaciones que crean. De forma predeterminada, en Azure AD, todos los usuarios pueden registrar registros de aplicación y administrar todos los aspectos de las aplicaciones que crean. Esto se puede restringir para permitir que solo los usuarios seleccionados tengan permiso.
+- [Restricción de quién puede crear aplicaciones](#restrict-who-can-create-applications) y administración de las aplicaciones que crean. De manera predeterminada, en Azure AD, todos los usuarios pueden registrar aplicaciones y administrar todos los aspectos de las aplicaciones que crean. Esto se puede restringir para permitir que solo los usuarios seleccionados tengan permiso.
 - [Asignación de uno o varios propietarios a una aplicación](#assign-application-owners). Esta es una manera sencilla de conceder a alguien la posibilidad de administrar todos los aspectos de la configuración de Azure AD de una aplicación específica.
 - [Asignación de un rol administrativo integrado](#assign-built-in-application-admin-roles) que conceda acceso para administrar la configuración de todas las aplicaciones en Azure AD. Esta es la manera recomendada de conceder a los expertos de TI acceso para administrar amplios permisos de configuración de aplicaciones sin conceder acceso para administrar otras partes de Azure AD no relacionadas con la configuración de aplicaciones.
 - [Creación de un rol](#create-and-assign-a-custom-role-preview) personalizado que defina permisos muy específicos y asignación a alguien en el ámbito de una sola aplicación como propietario limitado o en el ámbito de directorio (todas las aplicaciones) como administrador limitado.
@@ -34,7 +34,7 @@ Es importante considerar la posibilidad de conceder acceso mediante uno de los m
 
 ## <a name="restrict-who-can-create-applications"></a>Restricción de quién puede crear aplicaciones
 
-De forma predeterminada, en Azure AD, todos los usuarios pueden registrar registros de aplicación y administrar todos los aspectos de las aplicaciones que crean. Todos los usuarios tienen también la posibilidad de dar consentimiento a las aplicaciones para acceder a los datos de la empresa en su nombre. Puede decidir conceder de manera selectiva esos permisos estableciendo los modificadores globales en "No" y agregando los usuarios seleccionados al rol Desarrollador de aplicaciones.
+De manera predeterminada, en Azure AD, todos los usuarios pueden registrar aplicaciones y administrar todos los aspectos de las aplicaciones que crean. Todos los usuarios tienen también la posibilidad de dar consentimiento a las aplicaciones para acceder a los datos de la empresa en su nombre. Puede decidir conceder de manera selectiva esos permisos estableciendo los modificadores globales en "No" y agregando los usuarios seleccionados al rol Desarrollador de aplicaciones.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Deshabilitar la capacidad predeterminada de crear registros de aplicación o dar consentimiento a las aplicaciones
 

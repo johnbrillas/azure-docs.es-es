@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migración, aro, openshift, red hat
-ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9bfc924581d5dbe33c7c2683a0f6083cb2abc23
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469752"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071042"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migración de Red Hat OpenShift en Azure 3.11 a Red Hat OpenShift en Azure 4
 
@@ -75,11 +75,11 @@ az aro create \
 
 Para que los usuarios interactúen con Red Hat OpenShift en Azure, primero deben autenticarse en el clúster. El nivel de autenticación identifica al usuario asociado a las solicitudes a la API de Red Hat OpenShift en Azure. A continuación, el nivel de autorización usa información sobre el usuario solicitante para determinar si se permite la solicitud.
 
-Al crearse un clúster de Red Hat OpenShift en Azure 4, se crea un usuario administrativo temporal. [Conéctese al clúster](tutorial-connect-cluster.md), agregue usuarios y grupos, y [configure los permisos adecuados](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) para ambos.
+Al crearse un clúster de Red Hat OpenShift en Azure 4, se crea un usuario administrativo temporal. [Conéctese al clúster](tutorial-connect-cluster.md), agregue usuarios y grupos, y [configure los permisos adecuados](https://docs.openshift.com/container-platform/4.6/authentication/understanding-authentication.html) para ambos.
 
 ### <a name="networking"></a>Redes
 
-Red Hat OpenShift en Azure 4 usa algunos operadores diferentes para configurar la red en el clúster: el [operador de red de clústeres](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), el [operador DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html) y el [operador de entrada](https://docs.openshift.com/aro/4/networking/ingress-operator.html). Para obtener más información sobre cómo configurar las redes en un clúster de Red Hat OpenShift en Azure 4, consulte el [diagrama de redes](concepts-networking.md) y la [descripción de las mismas](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+Red Hat OpenShift en Azure 4 usa algunos operadores diferentes para configurar la red en el clúster: el [operador de red de clústeres](https://docs.openshift.com/container-platform/4.6/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), el [operador DNS](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html) y el [operador de entrada](https://docs.openshift.com/container-platform/4.6/networking/ingress-operator.html). Para obtener más información sobre cómo configurar las redes en un clúster de Red Hat OpenShift en Azure 4, consulte el [diagrama de redes](concepts-networking.md) y la [descripción de las mismas](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
 ### <a name="storage"></a>Storage
 Red Hat OpenShift en Azure 4 admite los siguientes complementos de PersistentVolume:
@@ -98,13 +98,13 @@ Para obtener información sobre la configuración de estos tipos de almacenamien
 
 ### <a name="registry"></a>Registro
 
-Red Hat OpenShift en Azure 4 puede compilar imágenes a partir del código fuente, implementarlas y administrar su ciclo de vida. Para habilitar esto, Red Hat OpenShift en Azure 4 proporciona un [registro de imágenes de contenedor integrado e interno](https://docs.openshift.com/aro/4/registry/registry-options.html) que se puede implementar en su entorno de Red Hat OpenShift en Azure para administrar las imágenes de forma local.
+Red Hat OpenShift en Azure 4 puede compilar imágenes a partir del código fuente, implementarlas y administrar su ciclo de vida. Para habilitar esto, Red Hat OpenShift en Azure 4 proporciona un [registro de imágenes de contenedor integrado e interno](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) que se puede implementar en su entorno de Red Hat OpenShift en Azure para administrar las imágenes de forma local.
 
-Si usa registros externos como [Azure Container Registry](../container-registry/index.yml), [registros de Red Hat Quay](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options) o un [registro de Red Hat habilitado para la autenticación](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), siga los pasos para proporcionar credenciales al clúster con el fin de que este tenga acceso a los repositorios.
+Si usa registros externos como [Azure Container Registry](../container-registry/index.yml), [registros de Red Hat Quay](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options) o un [registro de Red Hat habilitado para la autenticación](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), siga los pasos para proporcionar credenciales al clúster con el fin de que este tenga acceso a los repositorios.
 
 ### <a name="monitoring"></a>Supervisión
 
-Red Hat OpenShift en Azure incluye una pila de supervisión preconfigurada, preinstalada y de auto-actualización que se basa en el proyecto de código abierto Prometheus y su ecosistema de mayor amplitud. Proporciona la supervisión de componentes del clúster e incluye un conjunto de alertas para notificar inmediatamente al administrador de clústeres de cualquier problema que pueda producirse y un conjunto de paneles de Grafana. La pila de supervisión de clústeres solo se admite para la supervisión de clústeres de Red Hat OpenShift en Azure. Para obtener más información, consulte la [supervisión de clústeres para Red Hat OpenShift en Azure](https://docs.openshift.com/aro/4/monitoring/cluster_monitoring/about-cluster-monitoring.html).
+Red Hat OpenShift en Azure incluye una pila de supervisión preconfigurada, preinstalada y de auto-actualización que se basa en el proyecto de código abierto Prometheus y su ecosistema de mayor amplitud. Proporciona la supervisión de componentes del clúster e incluye un conjunto de alertas para notificar inmediatamente al administrador de clústeres de cualquier problema que pueda producirse y un conjunto de paneles de Grafana. La pila de supervisión de clústeres solo se admite para la supervisión de clústeres de Red Hat OpenShift en Azure. Para obtener más información, consulte la [supervisión de clústeres para Red Hat OpenShift en Azure](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html).
 
 Si ha usado [Azure Monitor para contenedores para Red Hat OpenShift en Azure 3.11](../azure-monitor/insights/container-insights-azure-redhat-setup.md), también puede habilitar Azure Monitor para contenedores para [Red Hat OpenShift en Azure 4](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) y seguir utilizando la misma área de trabajo de Log Analytics.
 
@@ -127,4 +127,4 @@ az openshift delete --name $CLUSTER_NAME
                     [--yes]
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte la documentación de Red Hat OpenShift en Azure que proporciona Red Hat [aquí](https://docs.openshift.com/aro/4/welcome/index.html).
+Consulte la documentación de Red Hat OpenShift [aquí](https://docs.openshift.com/container-platform/4.6/welcome/index.html)

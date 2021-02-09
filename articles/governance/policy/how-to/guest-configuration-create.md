@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881793"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070651"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 El siguiente paso consiste en publicar el archivo en Azure Blob Storage. El comando `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
+
+Parámetros del cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Ruta de acceso**: Ubicación del paquete que se va a publicar.
+- **ResourceGroupName**: Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento.
+- **StorageAccountName**: Nombre de la cuenta de almacenamiento donde se debe publicar el paquete.
+- **StorageContainerName** (valor predeterminado: *guestconfiguration*) nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
+- **Force**: Permite sobrescribir el paquete existente en la cuenta de almacenamiento con el mismo nombre.
+
+En el ejemplo siguiente se publica el paquete en un contenedor de almacenamiento denominado "guestconfiguration".
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

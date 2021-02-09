@@ -1,33 +1,33 @@
 ---
-title: Personalizar la interfaz del usuario
+title: Personalización de la interfaz de usuario con plantillas HTML
 titleSuffix: Azure AD B2C
-description: Obtenga información acerca de cómo personalizar la interfaz de usuario en las aplicaciones que usan Azure Active Directory B2C.
+description: Obtenga información acerca de cómo personalizar la interfaz de usuario con plantillas HTML en las aplicaciones que usan Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058674"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050556"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 La personalización de marca y la personalización de la interfaz de usuario que Azure Active Directory B2C (Azure AD B2C) muestra a los clientes ayuda a proporcionar una experiencia de usuario sin problemas en la aplicación. Estas experiencias incluyen las opciones de registro, inicio de sesión, edición de perfiles y restablecimiento de contraseñas. En este artículo se presentan los métodos de personalización de la interfaz de usuario (UI). 
 
 > [!TIP]
-> Si solo quiere modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa](company-branding.md).
+> Si solo quiere modificar el logotipo del banner, la imagen de fondo y el color de fondo de las páginas de flujo de usuario, puede probar la característica [Personalización de marca de empresa](customize-ui.md).
 
 ## <a name="custom-html-and-css-overview"></a>Información general sobre HTML y CSS personalizados
 
@@ -387,7 +387,15 @@ Para usar el ejemplo:
 1. Ahora modifique la directiva, que apunta al archivo HTML, como se mencionó anteriormente.
 1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos \*.html.
 
+## <a name="use-company-branding-assets-in-custom-html"></a>Uso de recursos de personalización de marca de empresa en HTML personalizado
+
+Para usar los recursos de [personalización de marca de la empresa](customize-ui.md#configure-company-branding) en un HTML personalizado, agregue las siguientes etiquetas fuera de la etiqueta `<div id="api">`. El origen de la imagen se reemplaza con el de la imagen de fondo y el logotipo del banner.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo habilitar el [código JavaScript de cliente](javascript-and-page-layout.md).
-

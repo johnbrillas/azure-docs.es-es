@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322519"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054778"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -138,9 +138,15 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 1. Ahora [cree el recurso de Azure para la instalación de la puerta de enlace](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Comprobación o ajuste de la configuración de comunicación
 
-La puerta de enlace de datos local depende de [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad de la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase por un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de puerta de enlace y a Azure Service Bus Messaging. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
+La puerta de enlace de datos local depende de [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad de la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase por un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de puerta de enlace y a Azure Service Bus Messaging. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar.
+
+Un escenario de ejemplo es el uso de conectores personalizados que acceden a recursos locales mediante el recurso de puerta de enlace de datos local en Azure. Si también tiene un firewall que limita el tráfico a direcciones IP específicas, debe configurar la instalación de la puerta de enlace para permitir el acceso a las *[direcciones IP de salida](logic-apps-limits-and-config.md#outbound) de los conectores administrados* correspondientes. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP.
+
+Para más información, consulte los temas siguientes:
 
 * [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-communication)
 * [Configuración de los valores del proxy para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-proxy)

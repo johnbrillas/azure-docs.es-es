@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756685"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986630"
 ---
 # <a name="manage-security-policies"></a>Administrar directivas de seguridad
 
@@ -54,7 +54,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
 
-   ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Página de directiva de seguridad de Security Center" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
@@ -102,7 +102,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
 
-   ![administración de directivas](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Inicio del proceso de administración de directivas en Azure Security Center":::
 
 2. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
 
@@ -111,7 +111,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 1. Seleccione **Ver directiva efectiva**.
 
-   ![visualización de directiva](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Apertura de la directiva efectiva asignada a su suscripción":::
 
 1. Seleccione la directiva asignada.
 
@@ -126,10 +126,8 @@ Para más información sobre las recomendaciones, consulte [Administración de l
    > [!NOTE]
    > Los cambios de deshabilitación de directiva pueden tardar hasta 12 horas en surtir efecto.
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se explicaban las directivas de seguridad. Para obtener más información relacionada, consulte los siguientes artículos:
+En esta página se explicaron las directivas de seguridad. Para obtener información relacionada, consulte las páginas siguientes:
 
 - [Obtenga información sobre cómo establecer directivas con PowerShell](../governance/policy/assign-policy-powershell.md) -. 
 - [Obtenga información sobre cómo editar una directiva de seguridad en Azure Policy](../governance/policy/tutorials/create-and-manage.md) -. 

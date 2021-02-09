@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754137"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986826"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -45,7 +45,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 
 **Requisito** | **VMware** 
 --- | ---
-**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
+**Permisos** | Para acceder a la aplicación web del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor de la aplicación.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).<br/>- **Agente de recuperación de datos (DRA)** : organiza la replicación de VM y coordina la comunicación entre las máquinas replicadas y Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.<br/>- **Puerta de enlace**: Envía los datos replicados a Azure. Solo se usa al replicar máquinas virtuales de VMware en Azure mediante la migración sin agentes.
 **Implementación admitida** | Impleméntelo como máquina virtual de VMware mediante la plantilla de OVA.<br/><br/> Impleméntelo como máquina física o máquina virtual de VMware mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
@@ -65,7 +65,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
+**Permisos** | Para acceder a la aplicación web del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor de la aplicación.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes:<br/><br/>- **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 **Implementación admitida** | Impleméntelo como máquina virtual de Hyper-V mediante una plantilla de VHD.<br/><br/> Impleméntelo como máquina física o máquina virtual de Hyper-V mediante el script de instalación de PowerShell.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
@@ -82,7 +82,7 @@ _ *Requisitos de Hyper-V** | Si se implementa el dispositivo con la plantilla de
 
 **Requisito** | **Físico** 
 --- | ---
-**Permisos** | Para acceder a la aplicación web del dispositivo de forma local o remota, debe ser un administrador de dominio o un administrador local en la máquina del dispositivo.
+**Permisos** | Para acceder a la aplicación web del dispositivo de manera local o remota, debe tener una cuenta de usuario local o de dominio con privilegios administrativos en el servidor de la aplicación.
 **Componentes del dispositivo** | El dispositivo tiene los componentes siguientes: <br/><br/> - **Aplicación de administración**: una aplicación web para la entrada del usuario durante la implementación del dispositivo. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/> - **Agente de detección**: un agente que reúne los datos de configuración de la máquina. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Agente recopilador**: un agente que recopila datos de rendimiento. Se usa a la hora de evaluar las máquinas para su migración a Azure.<br/>- **Servicio de actualización automática**: actualiza los componentes del dispositivo (se ejecuta cada 24 horas).
 **Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell. El script está disponible para su descarga desde el portal.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 

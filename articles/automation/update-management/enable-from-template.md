@@ -1,18 +1,16 @@
 ---
-title: Habilitación de Update Management mediante una plantilla de Azure Resource Manager | Microsoft Docs
+title: Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 description: En este artículo se indica cómo usar una plantilla de Azure Resource Manager para habilitar Update Management.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183241"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050338"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 
@@ -29,7 +27,7 @@ La plantilla no automatiza la habilitación de Update Management en una o varias
 Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. Con esta plantilla se crea correctamente el vínculo y se implementa Update Management.
 
 >[!NOTE]
->No se admite la creación de una cuenta de ejecución de Automation cuando se usa una plantilla de ARM. Para crear una cuenta de ejecución manualmente desde el portal o con PowerShell, consulte [Administración de cuentas de ejecución](../manage-runas-account.md).
+>No se admite la creación de una cuenta de ejecución de Automation cuando se usa una plantilla de ARM. Para crear una cuenta de ejecución manualmente desde el portal o mediante PowerShell, consulte cómo [crear una cuenta de ejecución](../create-run-as-account.md).
 
 Después de completar estos pasos, debe [Configurar las opciones de diagnóstico](../automation-manage-send-joblogs-log-analytics.md) para que la cuenta de Automation envíe el estado del trabajo de runbook y los flujos de trabajo al área de trabajo de Log Analytics vinculada.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683002"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055083"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Administración del correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
 
@@ -92,13 +92,15 @@ Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una op
 
 ## <a name="connect-using-other-accounts"></a>Conexión con otras cuentas
 
-Si intenta conectarse a Outlook con una cuenta diferente de aquella con la que ha iniciado sesión actualmente en Azure, es posible que obtenga errores de [inicio de sesión único (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md). Este problema se produce cuando inicia sesión en Azure Portal con una cuenta, pero usa otra para crear la conexión. El Diseñador de aplicación lógica espera usar la cuenta con la que se inició sesión en Azure. Para resolver este problema, tiene estas opciones:
+Si intenta conectarse a Outlook con una cuenta diferente de aquella con la que ha iniciado sesión actualmente en Azure, es posible que obtenga errores de [inicio de sesión único (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md). Este problema se produce cuando inicia sesión en Azure Portal con una cuenta, pero usa otra para crear la conexión. El diseñador espera que use la cuenta con la que se inició sesión en Azure Portal. Para resolver este problema, tiene estas opciones:
 
-* Configure la otra cuenta como **colaborador** del grupo de recursos de la aplicación lógica.
+* Configure la otra cuenta con el rol **Colaborador** del grupo de recursos de la aplicación lógica.
 
-  1. En el menú del grupo de recursos de la aplicación lógica, haga clic en **Control de acceso (IAM)** . Configure la otra cuenta con el rol **Colaborador**. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+  1. En el menú del grupo de recursos de la aplicación lógica, haga clic en **Control de acceso (IAM)** . Configure la otra cuenta con el rol **Colaborador**. 
+  
+     Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-  1. Si ha iniciado sesión en Azure Portal con su cuenta profesional o educativa, cierre la sesión y vuelva a iniciarla con su otra cuenta. Ahora puede crear una conexión a Outlook mediante la otra cuenta.
+  1. Después de configurar este rol, inicie sesión en Azure Portal con la cuenta que ahora tiene permisos de Colaborador. Ahora puede usar esta cuenta para crear la conexión a Outlook.
 
 * Configure la otra cuenta para que su cuenta profesional o educativa tenga permisos para "enviar como".
 

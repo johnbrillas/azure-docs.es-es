@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: secreto de extracción, aro, openshift, red hat
-ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294754"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071093"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Adición o actualización del secreto de extracción de Red Hat en un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -231,6 +231,6 @@ Si no ve los operadores certificados y los operadores de Red Hat, espere unos mi
 Para asegurarse de que el secreto de extracción se ha actualizado y funciona correctamente, abra OperatorHub y compruebe si hay algún operador de Red Hat verificado. Por ejemplo, compruebe si el operador OpenShift Container Storage está disponible y vea si tiene permisos para instalar.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre los secretos de extracción de Red Hat, consulte [Using image pull secrets](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html).
+Para obtener más información sobre los secretos de extracción de Red Hat, consulte [Using image pull secrets](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html).
 
-Para obtener más información acerca de Red Hat OpenShift 4, consulte [Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
+Para obtener más información acerca de Red Hat OpenShift 4, consulte la [documentación de Red Hat OpenShift Container Platform](https://docs.openshift.com/container-platform/4.6/welcome/index.html).

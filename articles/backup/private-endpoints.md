@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629721"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054879"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -32,7 +32,7 @@ Este artículo le ayudará a comprender el proceso de creación de puntos de con
 
 Aunque los puntos de conexión privados están habilitados para el almacén, solo se usan para la copia de seguridad y restauración de las cargas de trabajo de SQL y SAP HANA en una máquina virtual de Azure y en las copias de seguridad del agente de MARS. También puede usar el almacén para realizar copias de seguridad de otras cargas de trabajo (si bien no requerirán los puntos de conexión privados). Además de la copia de seguridad de las cargas de trabajo de SQL y SAP HANA y de las copias de seguridad mediante el agente de MARS, los puntos de conexión privados también se usan para realizar la recuperación de archivos para la copia de seguridad de máquinas virtuales de Azure. Para más información, vea la tabla siguiente:
 
-| Copia de seguridad de cargas de trabajo en máquinas virtuales de Azure (SQL, SAP HANA), copia de seguridad mediante el agente de MARS | Se recomienda el uso de puntos de conexión privados para permitir copias de seguridad y restauración sin necesidad de incluir en una lista las direcciones IP o FQDN permitidas para Azure Backup o Azure Storage de las redes virtuales. |
+| Copia de seguridad de cargas de trabajo en máquinas virtuales de Azure (SQL, SAP HANA), copia de seguridad mediante el agente de MARS | Se recomienda el uso de puntos de conexión privados para permitir la creación y restauración de copias de seguridad sin necesidad de incluir en una lista de permitidos las direcciones IP o FQDN para Azure Backup o Azure Storage de las redes virtuales. En ese escenario, asegúrese de que las máquinas virtuales que hospedan las bases de datos SQL pueden comunicarse con direcciones IP o FQDN de Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Copia de seguridad de la máquina virtual de Azure**                                         | La copia de seguridad de la máquina virtual no requiere que permita el acceso a direcciones IP o FQDN. Por lo tanto, no requiere puntos de conexión privados para la copia de seguridad y restauración de discos.  <br><br>   Sin embargo, la recuperación de archivos desde un almacén que contiene puntos de conexión privados se restringe a redes virtuales que contienen un punto de conexión privado para el almacén. <br><br>    Al usar discos no administrados de la ACL, asegúrese de que la cuenta de almacenamiento que contiene los discos permite el acceso a **servicios de Microsoft de confianza** si forma parte de la ACL. |
 | **Copia de seguridad de Azure Files**                                      | Las copias de seguridad de Azure Files se almacenan en la cuenta de almacenamiento local. Por lo tanto, no requiere puntos de conexión privados para la copia de seguridad y restauración. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Crear zonas DNS para los servidores DNS personalizados
 
-Debe crear tres zonas DNS privadas y vincularlas a la red virtual.
+Debe crear tres zonas DNS privadas y vincularlas a la red virtual. Tenga en cuenta que, a diferencia de los blobs y colas, las direcciones URL públicas del servicio de copia de seguridad no se registran en el DNS público de Azure para la redirección a las zonas DNS de Private Link. 
 
 | **Zona**                                                     | **Servicio** |
 | ------------------------------------------------------------ | ----------- |
