@@ -713,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Conexión remota a máquina virtual de nodo de clúster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Actualización de nodos de clúster para usar discos administrados
-                  href: upgrade-managed-disks.md
         - name: Clústeres independientes
           items:
             - name: Crear

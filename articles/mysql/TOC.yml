@@ -1,6 +1,7 @@
 - name: Documentación sobre Base de datos MySQL en Azure
   href: index.yml
 - name: Información general
+  expanded: true
   items:
     - name: ¿Qué es Azure DB para MySQL?
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: Servidor único
-  expanded: true
   items:
     - name: Documentación de un servidor único
       href: single-server/index.yml
@@ -97,7 +97,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -179,7 +179,7 @@
           href: concepts-security.md
         - name: Línea de base de seguridad
           href: security-baseline.md
-        - name: Autenticación
+        - name: Authentication
           items:
             - name: Autenticación de Azure AD
               href: concepts-azure-ad-authentication.md
@@ -387,7 +387,7 @@
           displayName: application
         - name: Procedimientos recomendados operativos
           href: concept-operation-excellence-best-practices.md
-    - name: Solucionar problemas
+    - name: Solución de problemas
       items:
         - name: Solución de problemas del rendimiento de las consultas
           href: howto-troubleshoot-query-performance.md
@@ -445,7 +445,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -474,7 +474,7 @@
           href: flexible-server/concepts-limitations.md
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
