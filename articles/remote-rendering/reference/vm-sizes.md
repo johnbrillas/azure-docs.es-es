@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988052"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594407"
 ---
 # <a name="server-sizes"></a>Tamaños de servidor
 
@@ -30,26 +30,35 @@ Cuando el representador de un tamaño de servidor Standard alcanza esta limitaci
 El tipo deseado de configuración del servidor tiene que especificarse en el momento de la inicialización de la sesión de representación. No se puede cambiar en una sesión en ejecución. Los ejemplos de código siguientes muestran el lugar en el que debe especificarse el tamaño del servidor:
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 Para los [scripts de PowerShell de ejemplo](../samples/powershell-example-scripts.md), el tamaño de servidor deseado debe especificarse dentro del archivo `arrconfig.json`:
@@ -77,7 +86,7 @@ En consecuencia, es posible escribir una aplicación que se destina al tamaño `
 
 Hay dos maneras de determinar el número de polígonos de un modelo o una escena que contribuyan al límite del presupuesto del tamaño de configuración `standard`:
 * En la conversión del modelo, recupere el [archivo JSON de salida de la conversión](../how-tos/conversion/get-information.md) y compruebe la entrada `numFaces` en la [sección *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
-* Si la aplicación está tratando con contenido dinámico, el número de polígonos representados se puede consultar dinámicamente durante el tiempo de ejecución. Use una [consulta de evaluación de rendimiento](../overview/features/performance-queries.md#performance-assessment-queries) y busque el miembro `polygonsRendered` en la estructura `FrameStatistics`. El campo `polygonsRendered` se establecerá en `bad` cuando el representador alcance la limitación de polígono. El fondo de tablero de ajedrez siempre se atenúa con algún retraso para garantizar que se pueda realizar la acción del usuario después de esta consulta asincrónica. La acción del usuario puede consistir, por ejemplo, en ocultar o eliminar instancias de modelo.
+* Si la aplicación está tratando con contenido dinámico, el número de polígonos representados se puede consultar dinámicamente durante el tiempo de ejecución. Use una [consulta de evaluación de rendimiento](../overview/features/performance-queries.md#performance-assessment-queries) y busque el miembro `polygonsRendered` en la estructura `FrameStatistics`. El campo `PolygonsRendered` se establecerá en `bad` cuando el representador alcance la limitación de polígono. El fondo de tablero de ajedrez siempre se atenúa con algún retraso para garantizar que se pueda realizar la acción del usuario después de esta consulta asincrónica. La acción del usuario puede consistir, por ejemplo, en ocultar o eliminar instancias de modelo.
 
 ## <a name="pricing"></a>Precios
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: ee8d838ba315c2e261a61699948b71a710341165
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346365"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988036"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -141,7 +141,7 @@ Por ejemplo, puede tener dos preguntas y respuestas independientes con las sigui
 Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`* . Como alternativa, intente diferenciarlas claramente con consultas como *"dónde está el estacionamiento"* y *"dónde está el cajero automático"* , evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento.
 
 ## <a name="collaborate"></a>Colaborar
-QnA Maker permite a los usuarios [colaborar](../index.yml) en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.
+QnA Maker permite a los usuarios colaborar en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.
 
 
 

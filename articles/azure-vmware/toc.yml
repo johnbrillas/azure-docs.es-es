@@ -107,7 +107,7 @@
         - name: Abrir una solicitud de soporte técnico para los errores de implementación
           href: fix-deployment-provisioning-failures.md
     - name: Preguntas más frecuentes
-      href: faq.md
+      href: faq.yml
 - name: Referencia
   items:
     - name: Azure CLI

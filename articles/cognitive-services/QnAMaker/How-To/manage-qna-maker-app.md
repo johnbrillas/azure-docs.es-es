@@ -5,21 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 9c042d044f5ceba5a64d6bd7dfefa34bbc69b107
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353211"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987938"
 ---
 # <a name="manage-qna-maker-app"></a>Administración de una aplicación de QnA Maker
 
 QnA Maker permite colaborar con distintos autores y editores de contenido, ya que ofrece una funcionalidad para restringir el acceso de los colaboradores según el rol del colaborador.
 Obtenga más información sobre los [conceptos de autenticación de colaboradores en QnA Maker](../Concepts/role-based-access-control.md).
-
-También es posible mejorar la calidad de la base de conocimiento al sugerir preguntas alternativas a través del [aprendizaje activo](../Concepts/active-learning-suggestions.md). Los envíos de usuarios se tienen en cuenta y aparecen como sugerencias en la lista de preguntas alternativas. Tiene la flexibilidad de agregar esas sugerencias como preguntas alternativas o rechazarlas.
-
-La base de conocimiento no cambia automáticamente. Debe aceptar las sugerencias para que cualquier cambio surta efecto. Estas sugerencias agregan preguntas, pero no cambian ni quitan preguntas existentes.
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Adición del control de acceso basado en roles de Azure (Azure RBAC)
 
@@ -70,49 +66,6 @@ Cuando la persona con quien comparte el servicio QnA Maker inicia sesión en el 
 Cuando esa persona selecciona una knowledge base, su rol actual en ese recurso de QnA Maker es visible junto al nombre de la knowledge base.
 
 :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Captura de pantalla de knowledge base en modo de edición con el nombre de rol entre paréntesis junto al nombre de la knowledge base en la esquina superior izquierda de la página web.":::
-
-## <a name="upgrade-runtime-version-to-use-active-learning"></a>Actualización de la versión en tiempo de ejecución para usar el aprendizaje activo
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
-El aprendizaje activo se admite en el tiempo de ejecución versión 4.4.0 y superior. Si la base de conocimiento se creó en una versión anterior, [actualice el tiempo de ejecución](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para usar esta característica.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
-
-En QnA Maker administrado (versión preliminar), como el runtime se hospeda en el propio servicio QnA Maker, no es necesario actualizarlo de forma manual.
-
----
-
-## <a name="turn-on-active-learning-for-alternate-questions"></a>Activación del aprendizaje activo para preguntas alternativas
-
-# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
-
-El aprendizaje activo está desactivado de forma predeterminada. Actívelo para ver preguntas sugeridas. Una vez activado el aprendizaje activo, deberá enviar información desde la aplicación cliente a QnA Maker. Para obtener más información, consulte [Flujo arquitectónico para usar GenerateAnswer y Train API desde un bot](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot).
-
-1. Seleccione **Publicar** para publicar la base de conocimiento. Las consultas de aprendizaje activo se recopilan solo desde el punto de conexión de predicción de GenerateAnswer API. Las consultas en el panel de prueba del portal de QnA Maker no afectarán al aprendizaje activo.
-
-1. Para activar el aprendizaje activo en el portal de QnA Maker, vaya a la esquina superior derecha, seleccione su **Nombre** y vaya a [**Configuración del servicio**](https://www.qnamaker.ai/UserSettings).
-
-    ![Active las preguntas sugeridas alternativas de aprendizaje activo desde la página Configuración del servicio. Seleccione su nombre de usuario en el menú superior derecho y seleccione Continuación del servicio.](../media/improve-knowledge-base/Endpoint-Keys.png)
-
-
-1. Busque el servicio QnA Maker, y active **Aprendizaje activo**.
-
-    > [!div class="mx-imgBorder"]
-    > [![En la página Configuración del servicio, active la característica Aprendizaje activo. Si no es capaz de activar o desactivar la característica, deberá actualizar el servicio.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
-    > [!Note]
-    > La versión exacta de la imagen anterior se muestra solo como un ejemplo. Su versión puede ser diferente.
-    Una vez que **Aprendizaje activo** está habilitado, la base de conocimiento sugiere nuevas preguntas a intervalos regulares según las preguntas enviadas por el usuario. Para deshabilitar **Aprendizaje activo**, vuelva a cambiar la configuración.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
-
-De forma predeterminada, el aprendizaje activo está **en funcionamiento** en QnA Maker administrado (versión preliminar). Para ver las preguntas alternativas sugeridas, [use las opciones de vista](../How-To/improve-knowledge-base.md#view-suggested-questions) en la página de edición.
-
----
-
-## <a name="review-suggested-alternate-questions"></a>Revisión de preguntas alternativas sugeridas
-
-[Revise las preguntas sugeridas alternativas](improve-knowledge-base.md) en la página **Editar** de cada base de conocimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945080"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988161"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
@@ -236,6 +236,10 @@ En el caso de procesos automatizados, como las canalizaciones de CI/CD, puede au
 
 1. Obtenga un token de Azure Resource Manager en [este sitio web](https://resources.azure.com/api/token?plaintext=true). Este token expira, por lo que debe usarlo de inmediato. La solicitud devuelve un token de Azure Resource Manager.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Captura de pantalla que muestra el sitio web para solicitar un token de Azure Resource Manager.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use el token para solicitar los recursos de entorno de ejecución de LUIS en distintas suscripciones. Use la [API Get LUIS Azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a la que su cuenta de usuario tiene acceso.

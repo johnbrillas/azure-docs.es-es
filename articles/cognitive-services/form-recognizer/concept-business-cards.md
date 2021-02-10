@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131139"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585099"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer 
 
@@ -35,7 +35,7 @@ La API de tarjeta de presentación pregenerada extrae campos clave de las tarjet
 |:-----|:----|:----|:----|
 | ContactNames | matriz de objetos | Nombre de contacto extraído de la tarjeta de presentación | [{ "FirstName": "John", "LastName": "Doe" }] |
 | FirstName | string | Nombre (de nacimiento) del contacto | "John" | 
-| LastName | string | Apellidos del contacto |   "Doe" | 
+| LastName | string | Apellidos del contacto |     "Doe" | 
 | CompanyNames | Matriz de cadenas | Nombre de la empresa extraído de la tarjeta de presentación | ["Contoso"] | 
 | Departments | Matriz de cadenas | Departamento u organización del contacto | ["R&D"] | 
 | JobTitles | Matriz de cadenas | Puesto mostrado del contacto | ["Software Engineer"] | 
@@ -45,7 +45,7 @@ La API de tarjeta de presentación pregenerada extrae campos clave de las tarjet
 | MobilePhones | matriz de números de teléfono | Número de teléfono móvil extraído de la tarjeta de presentación | ["+19876543210"] |
 | Faxes | matriz de números de teléfono | Número de fax extraído de la tarjeta de presentación | ["+19876543211"] |
 | WorkPhones | matriz de números de teléfono | Número de teléfono en el trabajo extraído de la tarjeta de presentación | ["+19876543231"] |
-| OtherPhones    | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+19876543233"] |
+| OtherPhones     | matriz de números de teléfono | Otros números de teléfono extraídos de la tarjeta de presentación | ["+19876543233"] |
 
 
 La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.  

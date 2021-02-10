@@ -222,7 +222,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -250,7 +250,7 @@
               href: search-blob-metadata-properties.md
         - name: Azure Tables
           href: search-howto-indexing-azure-tables.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: search-howto-index-cosmosdb.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
@@ -530,6 +530,8 @@
   items:
     - name: Soporte técnico de la comunidad de Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Información destacada de asociados
+      href: resource-partners-knowledge-mining.md
     - name: Actualizaciones de Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Foro de comentarios (UserVoice)
@@ -554,8 +556,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Curso para desarrolladores (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Soluciones de socios
-      href: resource-partners-knowledge-mining.md
     - name: Preguntas más frecuentes
       href: search-faq-frequently-asked-questions.md
     - name: Precios

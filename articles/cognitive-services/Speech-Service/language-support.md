@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 83d7263d430ed9dc8f2f61711fc4c1339ba03810
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 118ab33c8d8ce46559957236daa21ba494655e69
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662937"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526286"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -392,10 +392,30 @@ Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuracion
 
 ### <a name="customization"></a>Personalización
 
-La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR` y `zh-CN`. Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
+Voz personalizada está disponible en el nivel estándar y neuronal. Los idiomas admitidos son diferentes para estos dos niveles. 
+
+| Idioma | Configuración regional | Estándar | Neuronal |
+|--|--|--|--|
+| Chino (mandarín, simplificado) | `zh-CN` | Sí | Sí |
+| Chino (mandarín, simplificado), inglés bilingüe | `zh-CN` bilingüe | Sí | Sí |
+| Inglés (Australia) | `en-AU` | No | Sí |
+| Inglés (India) | `en-IN` | Sí | Sí |
+| Inglés (Reino Unido) | `en-GB` | Sí | Sí |
+| Spanish (Traditional Sort) - Spain | `en-US` | Sí | Sí |
+| Francés (Canadá) | `fr-CA` | No | Sí |
+| Francés (Francia) | `fr-FR` | Sí | Sí |
+| Alemán (Alemania) | `de-DE` | Sí | Sí |
+| Italiano (Italia) | `it-IT` | Sí | Sí |
+| Japonés (Japón) | `ja-JP` | No | Sí |
+| Coreano (Corea) | `ko-KR` | No | Sí |
+| Portugués (Brasil) | `pt-BR` | Sí | Sí |
+| Español (México) | `es-MX` | Sí | Sí |
+| Español (España) | `es-ES` | No | Sí |
+
+Seleccione la configuración regional adecuada que coincida con los datos de entrenamiento que tiene para entrenar un modelo de voz personalizado. Por ejemplo, si los datos de grabación que tienen que hablar en inglés con acento británico, seleccione `en-GB`.
 
 > [!NOTE]
-> No se admite el entrenamiento de modelos bilingües en la funcionalidad de voz personalizada, excepto en el caso de chino-inglés bilingüe. Seleccione la opción de chino-inglés bilingüe si quiere entrenar una voz china que pueda hablar también inglés. El entrenamiento de la voz de todas las configuraciones regionales se inicia con un conjunto de datos de más de 2000 expresiones, excepto en el caso de `en-US` y `zh-CN`, que puede comenzar con cualquier tamaño de datos de entrenamiento.
+> No se admite el entrenamiento de modelos bilingües en la funcionalidad de voz personalizada, excepto en el caso de chino-inglés bilingüe. Seleccione la opción de chino-inglés bilingüe si quiere entrenar una voz china que pueda hablar también inglés. El entrenamiento de modelos de chino-inglés bilingüe con el método estándar está disponible únicamente en Norte de Europa y Centro y norte de EE. UU. El entrenamiento de Voz neuronal personalizada está disponible en Sur de Reino Unido y Este de EE. UU.
 
 ## <a name="speech-translation"></a>Traducción de voz
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351714"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557693"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edición de pares de QnA en la base de conocimiento
 
@@ -20,7 +20,26 @@ Los pares de QnA se agregan desde un origen de datos, como un archivo o una dire
 
 <a name="add-an-editorial-qna-set"></a>
 
+## <a name="question-and-answer-pairs"></a>Pares de preguntas y respuestas
+
+Una base de conocimiento consta de pares de pregunta y respuesta (PyR).  Cada par contiene una respuesta, además de toda la información asociada a dicha _respuesta_. Una respuesta se parece un poco a una fila de base de datos o una instancia de estructura de datos. La configuración **obligatoria** en un par de pregunta y respuesta (PyR) son:
+
+* una **pregunta**: texto de una consulta de usuario que se usa para que el aprendizaje automático de QnA Maker lo alinee con el texto de las preguntas de usuarios formuladas de forma distinta, pero con la misma respuesta.
+* la **respuesta**: respuesta del par que se devuelve cuando una consulta de usuario coincide con la pregunta asociada.
+
+Cada par se representa mediante un **id.**
+
+La configuración **opcional** de un par incluye:
+
+* **Formas alternativas de la pregunta**: esto ayuda a que QnA Maker devuelva la respuesta correcta para una variedad más amplia de estructuras de preguntas.
+* **Metadatos**: los metadatos son etiquetas asociadas a un par de QnA y se representan como pares de clave-valor. Las etiquetas de metadatos se usan para filtrar los pares de QnA y limitar el conjunto sobre el que se realiza la coincidencia de la consulta.
+* **Avisos multiturno**, que se usan para continuar una conversación de varios turnos.
+
+![Bases de conocimiento de QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
+
 ## <a name="add-an-editorial-qna-pair"></a>Adición de un par de QnA editorial
+
+Si no tiene contenido creado previamente para rellenar la base de conocimiento, puede redactar y agregar pares de QnA en el portal de QnA Maker.
 
 1. Inicie sesión en el [portal de QnA](https://www.qnamaker.ai/) y, luego, seleccione la base de conocimiento en la que quiere agregar el par de QnA.
 1. En la página **EDIT** (EDITAR) de la base de conocimiento, seleccione **Add QnA pair** (Agregar par de QnA) para agregar un nuevo par de QnA.
@@ -129,6 +148,14 @@ Seleccione periódicamente **Save and train** (Guardar y entrenar) después de r
 La [edición de texto enriquecido](#add-an-editorial-qna-set) de las respuestas le permite, como autor, usar una barra de herramientas de formato para seleccionar y dar formato al texto rápidamente.
 
 [Markdown](../reference-markdown-format.md) es una mejor herramienta cuando se necesita generar contenido automáticamente para crear bases de conocimiento que se van a importar como parte de una canalización de CI/CD o para [pruebas por lotes](../index.yml).
+
+## <a name="editing-your-knowledge-base-locally"></a>Edición de la base de conocimiento localmente
+
+Una vez que se crea una base de conocimiento, es recomendable realizar modificaciones en el texto de dicha base en el [portal de QnA Maker](https://qnamaker.ai), en lugar de exportar y volver a importar a través de archivos locales. Sin embargo, puede haber ocasiones en las que necesite editar una base de conocimiento localmente.
+
+Exporte la base de conocimiento desde la página **Configuración** y luego edite dicha base con Microsoft Excel. Si decide utilizar otra aplicación para editar el archivo exportado, la aplicación puede introducir errores de sintaxis porque no es totalmente compatible con TSV. Por lo general, los archivos TSV de Microsoft Excel no introducen errores de formato.
+
+Cuando termine de realizar las modificaciones, vuelva a importar el archivo TSV desde la página **Configuración**. Esto reemplazará completamente la base de conocimiento actual por la base de conocimiento importada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

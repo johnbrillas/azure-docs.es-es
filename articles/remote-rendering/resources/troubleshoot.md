@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722239"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593340"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -191,9 +191,9 @@ Dentro del paquete NuGet de C++, hay un archivo `microsoft.azure.remoterendering
 
 En caso de que parezca que los objetos representados se mueven con movimientos de cabeza, es posible que experimente problemas de *reproyección de fases con demora* (LSR). Consulte la sección sobre la [reproyección de fases con demora](../overview/features/late-stage-reprojection.md) para obtener instrucciones sobre cómo enfocar esta situación.
 
-Otra causa de los hologramas inestables (hologramas con tambaleo, deformación, vibración o saltos) puede ser una conectividad de red deficiente, en particular, un ancho de banda de red insuficiente o una latencia demasiado alta. Un buen indicador de la calidad de la conexión de red es el valor de [estadísticas de rendimiento](../overview/features/performance-queries.md)`ARRServiceStats.VideoFramesReused`. Los fotogramas reutilizados indican situaciones en las que un fotograma de vídeo antiguo necesitaba reutilizarse en el lado cliente porque no había ningún nuevo fotograma de vídeo disponible (por ejemplo, debido a la pérdida de paquetes o a variaciones en la latencia de red). Si `ARRServiceStats.VideoFramesReused` suele ser mayor que cero, significa que hay un problema de red.
+Otra causa de los hologramas inestables (hologramas con tambaleo, deformación, vibración o saltos) puede ser una conectividad de red deficiente, en particular, un ancho de banda de red insuficiente o una latencia demasiado alta. Un buen indicador de la calidad de la conexión de red es el valor de [estadísticas de rendimiento](../overview/features/performance-queries.md)`ServiceStatistics.VideoFramesReused`. Los fotogramas reutilizados indican situaciones en las que un fotograma de vídeo antiguo necesitaba reutilizarse en el lado cliente porque no había ningún nuevo fotograma de vídeo disponible (por ejemplo, debido a la pérdida de paquetes o a variaciones en la latencia de red). Si `ServiceStatistics.VideoFramesReused` suele ser mayor que cero, significa que hay un problema de red.
 
-Otro valor que se debe examinar es `ARRServiceStats.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si se ven valores más altos, podría significar que está conectado a un centro de datos que está demasiado lejos.
+Otro valor que se debe examinar es `ServiceStatistics.LatencyPoseToReceiveAvg`. Debe estar siempre por debajo de 100 ms. Si se ven valores más altos, podría significar que está conectado a un centro de datos que está demasiado lejos.
 
 Para obtener una lista de posibles mitigaciones, consulte las [instrucciones sobre la conectividad de red](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

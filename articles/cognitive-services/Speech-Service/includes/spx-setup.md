@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427464"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579822"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -19,7 +19,7 @@ ms.locfileid: "99427464"
 Siga estos pasos para instalar la CLI de Voz en Windows:
 
 1. En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
-1. Instale [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Instale [.NET Core 3.1](/dotnet/core/install/linux).
 2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -41,7 +41,7 @@ Si se genera la salida a un archivo, un editor de texto como el Bloc de notas o 
 
 Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 
-1. Instale [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Instale [.NET Core 3.1](/dotnet/core/install/linux).
 2. Para instalar la CLI de Voz para que use NuGet, escriba este comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`

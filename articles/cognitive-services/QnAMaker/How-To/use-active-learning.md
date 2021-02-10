@@ -5,23 +5,136 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 1ac5e32b454cfc1adafb1f54b01d2a1a302908a4
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: ffc1a0a401de634c1932b9653f231b377c4f154e
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600442"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591929"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Uso del aprendizaje activo para mejorar la base de conocimiento
+# <a name="active-learning"></a>Aprendizaje activo
 
-El [aprendizaje activo](../Concepts/active-learning-suggestions.md) le permite mejorar la calidad de la base de conocimiento, ya que sugiere preguntas alternativas. Los envíos por el usuario se tienen en cuenta y se muestran como sugerencias en la lista de preguntas alternativas. Tiene la flexibilidad de agregar esas sugerencias como preguntas alternativas o rechazarlas.
+La característica _Sugerencias de aprendizaje activo_ le permiten mejorar la calidad de la base de conocimiento al sugerir preguntas alternativas, en función de los envíos del usuario, para el par de preguntas y respuestas. Usted revisa las sugerencias, ya sea al agregarlas a preguntas existentes o rechazarlas.
 
 La base de conocimiento no cambia automáticamente. Debe aceptar las sugerencias para que cualquier cambio surta efecto. Estas sugerencias agregan preguntas, pero no cambian ni quitan preguntas existentes.
 
+## <a name="what-is-active-learning"></a>¿Qué es el aprendizaje activo?
+
+QnA Maker aprende las nuevas variaciones de las preguntas con comentarios implícitos y explícitos.
+
+* [Comentarios implícitos:](#how-qna-makers-implicit-feedback-works) el clasificador entiende cuando la pregunta de un usuario tiene varias respuestas con puntuaciones muy similares y lo considera un comentario. No es necesario hacer nada para que esto ocurra.
+* [Comentarios explícitos:](#how-you-give-explicit-feedback-with-the-train-api) cuando se devuelven desde la base de conocimiento varias respuestas con poca variación en las puntuaciones, la aplicación cliente le pregunta al usuario cuál es la pregunta correcta. Los comentarios explícitos del usuario se envían a QnA Maker con la [API Train](../How-To/improve-knowledge-base.md#train-api).
+
+Ambos métodos proporcionan al clasificador consultas similares que se agrupan en clústeres.
+
+## <a name="how-active-learning-works"></a>Cómo funciona el aprendizaje activo
+
+El aprendizaje activo se desencadena en función de las puntuaciones de las mejores respuestas devueltas por QnA Maker. Si las diferencias de puntuación entre los pares de QnA que coinciden con la consulta se encuentran dentro de un intervalo pequeño, la consulta se considera una posible sugerencia (como una pregunta alternativa) para cada uno de los pares de QnA posibles. Una vez que acepta la pregunta sugerida para un par específico de QnA, se rechaza para los otros pares. Debe recordar, guardar y entrenar, después de aceptar las sugerencias.
+
+El aprendizaje activo ofrece las mejores sugerencias posibles en los casos donde los puntos de conexión reciben una cantidad razonable y una variedad de consultas de uso. Cuando 5 o más consultas similares se agrupan en clústeres, cada 30 minutos, QnA Maker sugiere las preguntas basadas en el usuario al diseñador de la base de conocimiento para que las acepte o rechace. Todas las sugerencias se agrupan en clústeres por similitud, y las sugerencias principales para preguntas alternativas se muestran según la frecuencia de las consultas en particular por los usuarios finales.
+
+Una vez que se sugieren preguntas en el portal de QnA Maker, deberá revisar y aceptar o rechazar las sugerencias. No hay ninguna API para administrar las sugerencias.
+
+## <a name="how-qna-makers-implicit-feedback-works"></a>Cómo funcionan los comentarios implícitos de QnA Maker
+
+Los comentarios implícitos de QnA Maker usan un algoritmo para determinar la proximidad de la puntuación y, después, hacen sugerencias de aprendizaje activo. El algoritmo para determinar la proximidad no es un cálculo sencillo. Los intervalos en el ejemplo siguiente no están diseñados para ser fijos, pero deben usarse como guía para comprender el impacto del algoritmo únicamente.
+
+Cuando la puntuación de una pregunta tiene una confianza alta, por ejemplo, un 80 %, el intervalo de puntuaciones que se considera para el aprendizaje activo es amplio, dentro del 10 % aproximadamente. A medida que la puntuación de confianza se reduce, por ejemplo, un 40 %, el intervalo de puntuaciones también disminuye aproximadamente dentro del 4 %.
+
+En la respuesta JSON siguiente de una consulta a generateAnswer de QnA Maker, las puntuaciones de A, B y C son cercanas y se podrían considerar como sugerencias.
+
+```json
+{
+  "activeLearningEnabled": true,
+  "answers": [
+    {
+      "questions": [
+        "Q1"
+      ],
+      "answer": "A1",
+      "score": 80,
+      "id": 15,
+      "source": "Editorial",
+      "metadata": [
+        {
+          "name": "topic",
+          "value": "value"
+        }
+      ]
+    },
+    {
+      "questions": [
+        "Q2"
+      ],
+      "answer": "A2",
+      "score": 78,
+      "id": 16,
+      "source": "Editorial",
+      "metadata": [
+        {
+          "name": "topic",
+          "value": "value"
+        }
+      ]
+    },
+    {
+      "questions": [
+        "Q3"
+      ],
+      "answer": "A3",
+      "score": 75,
+      "id": 17,
+      "source": "Editorial",
+      "metadata": [
+        {
+          "name": "topic",
+          "value": "value"
+        }
+      ]
+    },
+    {
+      "questions": [
+        "Q4"
+      ],
+      "answer": "A4",
+      "score": 50,
+      "id": 18,
+      "source": "Editorial",
+      "metadata": [
+        {
+          "name": "topic",
+          "value": "value"
+        }
+      ]
+    }
+  ]
+}
+```
+
+QnA Maker no sabrá qué respuesta es la mejor respuesta. Use la lista de sugerencias del portal de QnA Maker para seleccionar la mejor respuesta y entrenar nuevamente.
+
+
+## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Cómo proporcionar comentarios explícitos con Train API
+
+QnA Maker necesita comentarios explícitos sobre cuál de las respuestas era la mejor. La forma de determinar la mejor respuesta depende de usted y puede incluir:
+
+* Comentarios del usuario, seleccione una de las respuestas.
+* Lógica de negocios, como determinar un intervalo de puntuación aceptable.
+* Una combinación de los comentarios del usuario y la lógica de negocios.
+
+Use [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) para enviar la respuesta correcta a QnA Maker, después de que el usuario la seleccione.
 
 ## <a name="upgrade-runtime-version-to-use-active-learning"></a>Actualización de la versión en tiempo de ejecución para usar el aprendizaje activo
 
+# <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/v1)
+
 El aprendizaje activo se admite en el tiempo de ejecución versión 4.4.0 y superior. Si la base de conocimiento se creó en una versión anterior, [actualice el tiempo de ejecución](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para usar esta característica.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
+
+En QnA Maker administrado (versión preliminar), como el runtime se hospeda en el propio servicio QnA Maker, no es necesario actualizarlo de forma manual.
+
+---
 
 ## <a name="turn-on-active-learning-for-alternate-questions"></a>Activación del aprendizaje activo para preguntas alternativas
 
