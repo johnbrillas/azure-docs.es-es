@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537836"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806246"
 ---
 # <a name="test-through-simulations"></a>Pruebas mediante simulaciones
 
@@ -63,7 +63,7 @@ Cuando el recurso esté siendo atacado, debería ver que el valor cambia de **0*
 
 ### <a name="breakingpoint-cloud-api-script"></a>Script de API de BreakingPoint Cloud
 
-Este [script de API](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) puede usarse para automatizar las pruebas de DDoS ejecutándolo una vez o usando CRON para programar pruebas regulares. Es útil para validar que el registro está configurado correctamente y que los procedimientos de detección y respuesta son efectivos. Los scripts requieren un sistema operativo Linux (probado con Ubuntu 18.04 LTS) y Python 3. Instale los requisitos previos y el cliente de API mediante el script incluido o mediante la documentación del sitio web de [BreakingPoint Cloud](http://breakingpoint.cloud/).
+Este [script de API](https://aka.ms/ddosbreakingpoint) puede usarse para automatizar las pruebas de DDoS ejecutándolo una vez o usando CRON para programar pruebas regulares. Es útil para validar que el registro está configurado correctamente y que los procedimientos de detección y respuesta son efectivos. Los scripts requieren un sistema operativo Linux (probado con Ubuntu 18.04 LTS) y Python 3. Instale los requisitos previos y el cliente de API mediante el script incluido o mediante la documentación del sitio web de [BreakingPoint Cloud](http://breakingpoint.cloud/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

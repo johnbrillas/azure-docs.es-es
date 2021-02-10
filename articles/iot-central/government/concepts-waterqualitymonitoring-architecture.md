@@ -4,15 +4,15 @@ description: Conozca los conceptos de una solución de supervisión de la calida
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 229074ad97e6d066a358da19bbbd43158fe1d6fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3dad4aea56586444bd54ac47c0462232913e173f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586727"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831610"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Arquitectura de referencia de supervisión de calidad del agua 
 Las soluciones de supervisión de la calidad del agua se pueden crear con la plantilla de aplicación de **Azure IoT Central** como una aplicación de IoT de inicio rápido. En este artículo se proporciona una guía de arquitectura de referencia de alto nivel sobre la creación de una solución de un extremo a otro. 

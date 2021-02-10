@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999270"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626111"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configuración de un laboratorio para clases de ingeniería con SOLIDWORKS
 
@@ -57,7 +57,7 @@ Use las opciones de la tabla siguiente al configurar un laboratorio educativo. P
 > El tamaño de máquina virtual de **GPU pequeña (visualización)** está configurado para permitir una experiencia de gráficos de alto rendimiento.  Para obtener más información sobre este tamaño de máquina virtual, consulte el artículo sobre la [configuración de un laboratorio con GPU](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> No olvide [emparejar la red virtual](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) de la cuenta de laboratorio a la red virtual del servidor de licencias **antes** de crear el laboratorio.
+> No olvide [emparejar la red virtual](./how-to-connect-peer-virtual-network.md) de la cuenta de laboratorio a la red virtual del servidor de licencias **antes** de crear el laboratorio.
 
 ## <a name="template-virtual-machine-configuration"></a>Configuración de plantilla de máquina virtual
 

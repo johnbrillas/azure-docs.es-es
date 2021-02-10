@@ -4,15 +4,13 @@ ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647226091c3e15a19bf8262c23e62d95018488b3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87336909"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831214"
 ---
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
 Si planea leer artículos de IoT Plug and Play adicionales, puede conservar los recursos que usó en este artículo y reutilizarlos. De lo contrario, puede eliminar los recursos que creó para este artículo a fin de evitar cargos adicionales.
 
 Puede eliminar el centro y el dispositivo registrado a la vez si elimina todo el grupo de recursos con el siguiente comando de la CLI de Azure. No use este comando si estos recursos comparten un grupo de recursos con otros recursos que desee conservar.

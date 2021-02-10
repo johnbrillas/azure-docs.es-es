@@ -3,7 +3,7 @@ title: Visualización y configuración de alertas de DDoS Protection para Azure 
 description: Aprenda a visualizar y configurar alertas de DDoS Protection para Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915154"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832528"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Visualización y configuración de alertas de protección contra DDoS
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- Antes realizar los pasos de este tutorial, primero debe crear un [plan de Azure DDoS Protection Standard](manage-ddos-protection.md) y DDoS Protection Standard debe estar habilitado en una red virtual.
+- Antes realizar los pasos de este tutorial, primero debe crear un [plan de protección de Azure DDoS Standard](manage-ddos-protection.md) y DDoS Protection Standard debe estar habilitado en una red virtual.
 - DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluidas las instancias de Azure Load Balancer donde las máquinas virtuales de back-end se encuentran en la red virtual), excepto para entornos de Azure App Service. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
 
 ## <a name="configure-alerts-through-azure-monitor"></a>Configurar alertas mediante Azure Monitor
@@ -41,13 +41,14 @@ En este tutorial, aprenderá a:
 Con estas plantillas, podrá configurar alertas para todas las direcciones IP públicas en las que haya habilitado el registro de diagnóstico. Por lo tanto, para poder usar estas plantillas de alerta, primero necesitará un área de trabajo de Log Analytics con la configuración de diagnóstico habilitada. Consulte [Visualización y configuración del registro de diagnósticos de DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Regla de alerta de Azure Monitor
-Esta [regla de alertas de Azure Monitor](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) ejecutará una consulta simple para detectar cuándo se está produciendo una mitigación de DDoS activa. Esto es indicativo de un posible ataque. Los grupos de acciones se pueden usar para invocar acciones como resultado de la alerta.
+
+Esta [regla de alertas de Azure Monitor](https://aka.ms/DDOSmitigationstatus) ejecutará una consulta simple para detectar cuándo se está produciendo una mitigación de DDoS activa. Esto es indicativo de un posible ataque. Los grupos de acciones se pueden usar para invocar acciones como resultado de la alerta.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Regla de alerta de Azure Monitor con la aplicación lógica
 
-En esta [plantilla](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) se implementan los componentes necesarios de una alerta de mitigación de DDoS enriquecida. Regla de alerta, grupo de acciones y aplicación lógica de Azure Monitor. El resultado del proceso es una alerta por correo electrónico con detalles sobre la dirección IP víctima del ataque, incluida información sobre el recurso asociado a la dirección IP. El propietario del recurso se agrega como destinatario del correo electrónico, junto con el equipo de seguridad. También se realiza una prueba de disponibilidad de la aplicación básica y los resultados se incluyen en la alerta por correo electrónico.
+En esta [plantilla](https://aka.ms/ddosalert) se implementan los componentes necesarios de una alerta de mitigación de DDoS enriquecida. Regla de alerta, grupo de acciones y aplicación lógica de Azure Monitor. El resultado del proceso es una alerta por correo electrónico con detalles sobre la dirección IP víctima del ataque, incluida información sobre el recurso asociado a la dirección IP. El propietario del recurso se agrega como destinatario del correo electrónico, junto con el equipo de seguridad. También se realiza una prueba de disponibilidad de la aplicación básica y los resultados se incluyen en la alerta por correo electrónico.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 

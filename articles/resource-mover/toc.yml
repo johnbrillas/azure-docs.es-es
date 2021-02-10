@@ -12,6 +12,8 @@
   items:
     - name: Traslado de máquinas virtuales de Azure a otra región
       href: tutorial-move-region-virtual-machines.md
+    - name: Traslado de máquinas virtuales de Azure cifradas a otra región
+      href: tutorial-move-region-encrypted-virtual-machines.md
     - name: Traslado de recursos de SQL a otra región
       href: tutorial-move-region-sql.md
 - name: Conceptos

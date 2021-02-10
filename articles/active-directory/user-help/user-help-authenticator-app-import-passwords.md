@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b0d7eeeb840a3efc560c20310b38bee93a038795
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ecc6580148dfba92077336a26ff9160fbe88eb2c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056953"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806162"
 ---
 # <a name="import-passwords-into-the-microsoft-authenticator-app"></a>Importación de contraseñas en la aplicación Microsoft Authenticator
 
@@ -39,21 +39,21 @@ Los usuarios de Google Chrome en móviles Android y Apple pueden importar sus co
 
 1. Pulse el ![menú de puntos suspensivos de Google Chrome](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) en la parte superior derecha de los teléfonos Android o en la parte inferior derecha de los dispositivos iOS y, a continuación, pulse en **Configuración**.
 
-   &nbsp; | &nbsp;
+   Plataforma | Vínculo
    ---------- | --------
    Android | ![Ubicación del menú Configuración de Google Chrome](./media/user-help-authenticator-app-import-passwords/android-settings-menu.png)
    iOS | ![Icono del menú Configuración de Google Chrome](./media/user-help-authenticator-app-import-passwords/apple-settings-menu.png)
 
 1. En **Configuración**, abra **Contraseñas**.
 
-   &nbsp; | &nbsp;
+   Plataforma | Vínculo
    ---------- | --------
    Android | ![Ubicación del comando Contraseñas en Chrome para Android](./media/user-help-authenticator-app-import-passwords/android-passwords-location.png)
    iOS | ![Ubicación del comando Contraseñas en Chrome para Apple](./media/user-help-authenticator-app-import-passwords/apple-passwords-location.png)
 
 1. En los dispositivos Android, pulse el ![menú de puntos suspensivos de Google Chrome](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) en la parte superior derecha, o pulse en la parte inferior derecha de los dispositivos iOS y, a continuación, pulse en **Exportar contraseñas**.
 
-   &nbsp; | &nbsp;
+   Plataforma | Vínculo
    ---------- | --------
    Android | ![Ubicación de Exportar contraseñas en Chrome para Android](./media/user-help-authenticator-app-import-passwords/android-export-passwords-location.png)
    iOS | ![Ubicación de Exportar contraseñas en Chrome para Apple](./media/user-help-authenticator-app-import-passwords/apple-export-passwords-location.png)
@@ -62,7 +62,7 @@ Los usuarios de Google Chrome en móviles Android y Apple pueden importar sus co
 
 1. Una vez exportadas las contraseñas, Chrome le pedirá que elija la aplicación en la que las importará. Seleccione **Authenticator** para iniciar la importación de contraseñas. Se le informará sobre el estado de la importación cuando haya finalizado.
 
-   &nbsp; | &nbsp;
+   Plataforma | Vínculo
    ---------- | --------
    Android | ![Ubicación de Importar contraseñas en Chrome para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
    iOS | ![Ubicación de Importar contraseñas en Chrome para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -105,7 +105,7 @@ Firefox permite la exportación de contraseñas solo desde el explorador de escr
 
       1. Transfiera el archivo CSV que exportó al teléfono Android o iOS mediante un método seguro de su preferencia y, a continuación, descárguelo. A continuación, comparta el archivo CSV con la aplicación Authenticator para iniciar la importación.
 
-         &nbsp; | &nbsp;
+         Plataforma | Vínculo
          ---------- | --------
          Android | ![Ubicación de Importar contraseñas en Chrome para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Ubicación de Importar contraseñas en Chrome para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -134,7 +134,7 @@ LastPass solo admite la exportación de contraseñas desde un explorador de escr
 
       1. Transfiera el archivo CSV que exportó al smartphone mediante un método seguro de su preferencia y, a continuación, descárguelo. Después, comparta el archivo CSV con la aplicación Authenticator para iniciar la importación.
 
-         &nbsp; | &nbsp;
+         Plataforma | Vínculo
          ---------- | --------
          Android | ![Ubicación de Importar contraseñas en LastPass para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Ubicación de Importar contraseñas en LastPass para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -153,7 +153,7 @@ Bitwarden solo admite la exportación de contraseñas desde un explorador de esc
 
       1. Transfiera el archivo CSV que exportó al smartphone mediante un método seguro de su preferencia y, a continuación, descárguelo. Después, comparta el archivo CSV con la aplicación Authenticator para iniciar la importación.
 
-         &nbsp; | &nbsp;
+         Plataforma | Vínculo
          ---------- | --------
          Android | ![Ubicación de Importar contraseñas en Bitwarden para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Ubicación de Importar contraseñas en Bitwarden para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -186,7 +186,7 @@ RoboForm permite la exportación de contraseñas solo desde su aplicación de es
 
       1. Transfiera el archivo CSV que exportó al smartphone mediante un método seguro de su preferencia y, a continuación, descárguelo. Después, comparta el archivo CSV con la aplicación Authenticator para iniciar la importación.
 
-         &nbsp; | &nbsp;
+         Plataforma | Vínculo
          ---------- | --------
          Android | ![Ubicación de Import passwords en RoboForm para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Ubicación de Import passwords en RoboForm para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -209,7 +209,7 @@ Si los pasos para importar contraseñas de su gestor de contraseñas no se muest
 
       1. Transfiera el archivo CSV que exportó al smartphone mediante un método seguro de su preferencia y, a continuación, descárguelo. Después, comparta el archivo CSV con la aplicación Authenticator para iniciar la importación.
 
-         &nbsp; | &nbsp;
+         Plataforma | Vínculo
          ---------- | --------
          Android | ![Ubicación de Importar contraseñas desde CSV para Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Ubicación de Importar contraseñas desde CSV para Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)

@@ -4,14 +4,14 @@ description: Inserción y extracción de artefactos de Open Container Initiative
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485010"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988228"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 
@@ -46,7 +46,7 @@ Para leer la contraseña desde Stdin, use `--password-stdin`.
 
 [Inicie sesión](/cli/azure/authenticate-azure-cli) en la CLI de Azure con su identidad para insertar y extraer artefactos del registro de contenedor.
 
-A continuación, use el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) de la CLI de Azure para acceder al registro. Por ejemplo, para autenticarse en un registro llamado *myregistry*:
+A continuación, use el comando [az acr login](/cli/azure/acr#az-acr-login) de la CLI de Azure para acceder al registro. Por ejemplo, para autenticarse en un registro llamado *myregistry*:
 
 ```azurecli
 az login
@@ -61,12 +61,12 @@ az acr login --name myregistry
 Cree un archivo de texto en un directorio de trabajo local con algún texto de ejemplo. Por ejemplo, en el shell de Bash:
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 Use el comando `oras push` para insertar este archivo de texto en el registro. En el ejemplo siguiente se inserta el archivo de texto de ejemplo en el repositorio `samples/artifact`. El registro se identifica con el nombre de registro completo *myregistry.azurecr.io* (todo en minúsculas). El artefacto se etiqueta `1.0`. El artefacto tiene un tipo no definido de forma predeterminada, identificado por la cadena del *tipo de medio* que sigue al nombre de archivo `artifact.txt`. Consulte [Artefactos de OCI](https://github.com/opencontainers/artifacts) para tipos adicionales. 
 
-**Linux**
+**Linux o macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -137,7 +137,7 @@ Compruebe que la extracción se realizó correctamente:
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## <a name="remove-the-artifact-optional"></a>Eliminación del artefacto (opcional)
@@ -157,7 +157,7 @@ El código fuente y los archivos binarios para compilar una imagen de contenedor
 Por ejemplo, cree un Dockerfile de una línea:
 
 ```bash
-echo "FROM hello-world" > hello-world.dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
 Inicie sesión en el registro de contenedor de destino.
@@ -170,14 +170,15 @@ az acr login --name myregistry
 Cree e inserte un nuevo artefacto de OCI en el registro de destino mediante el comando `oras push`. En este ejemplo se establece el tipo de medio predeterminado para el artefacto.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
 Ejecute el comando [az acr build](/cli/azure/acr#az-acr-build) para compilar la imagen de Hola mundo con el nuevo artefacto como contexto de compilación:
 
 ```azurecli
-az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world:1.0
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

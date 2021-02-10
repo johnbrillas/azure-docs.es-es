@@ -3,12 +3,12 @@ title: Autenticación con una identidad administrada
 description: Proporcione acceso a las imágenes en el registro de contenedor privado mediante una identidad de Azure administrada que haya asignado el usuario o el sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253469"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987753"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
 
@@ -53,7 +53,7 @@ En este artículo, se supone que tiene la imagen de contenedor `aci-helloworld:v
 
 ## <a name="create-a-docker-enabled-vm"></a>Creación de una máquina virtual con funcionalidad Docker
 
-Cree una máquina virtual de Ubuntu con funcionalidad Docker. También deberá instalar la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en la máquina virtual. Si ya tiene una máquina virtual de Azure, omita el paso para crear la máquina virtual.
+Cree una máquina virtual de Ubuntu con funcionalidad Docker. También deberá instalar la [CLI de Azure](/cli/azure/install-azure-cli) en la máquina virtual. Si ya tiene una máquina virtual de Azure, omita el paso para crear la máquina virtual.
 
 Implemente una máquina virtual de Ubuntu predeterminada con [az vm create][az-vm-create]. En el ejemplo siguiente, se crea una máquina virtual llamada *myDockerVM* en el grupo de recursos existente llamado *myResourceGroup*:
 
@@ -86,7 +86,7 @@ sudo apt install docker.io -y
 Después de la instalación, ejecute el siguiente comando para comprobar que Docker se ejecute correctamente en la máquina virtual:
 
 ```bash
-sudo docker run -it hello-world
+sudo docker run -it mcr.microsoft.com/hello-world
 ```
 
 Salida:
@@ -99,7 +99,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 
-Siga los pasos del artículo [Instalación de la CLI de Azure con apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) para instalar la CLI de Azure en la máquina virtual de Ubuntu. Para este artículo, asegúrese de instalar la versión 2.0.55 o una versión posterior.
+Siga los pasos del artículo [Instalación de la CLI de Azure con apt](/cli/azure/install-azure-cli-apt) para instalar la CLI de Azure en la máquina virtual de Ubuntu. Para este artículo, asegúrese de instalar la versión 2.0.55 o una versión posterior.
 
 Salga de la sesión SSH.
 
@@ -107,7 +107,7 @@ Salga de la sesión SSH.
 
 ### <a name="create-an-identity"></a>Creación de una identidad
 
-Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create). Puede usar el mismo grupo de recursos que usó anteriormente para crear el registro de contenedor o la máquina virtual, o usar uno diferente.
+Cree una identidad en la suscripción con el comando [az identity create](/cli/azure/identit#az-identity-create). Puede usar el mismo grupo de recursos que usó anteriormente para crear el registro de contenedor o la máquina virtual, o usar uno diferente.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId

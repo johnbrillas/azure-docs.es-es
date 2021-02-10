@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728098"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979579"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extracción de configuraciones a App Configuration con Azure Pipelines
 
@@ -60,7 +60,7 @@ Asigne el rol de App Configuration adecuado a la conexión de servicio que se va
 
 En esta sección se explicará cómo usar la tarea Azure App Configuration en una canalización de compilación de Azure DevOps.
 
-1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. Para obtener documentación sobre la canalización de compilación, consulte [Creación de su primera canalización](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. Para obtener documentación sobre la canalización de compilación, consulte [Creación de su primera canalización](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
       - Si va a crear una nueva canalización de compilación, haga clic en **Nueva canalización** y seleccione el repositorio para la canalización. Seleccione **Mostrar el asistente** en el lado derecho de la canalización y busque la tarea **Azure App Configuration**.
       - Si utiliza una canalización de compilación existente, seleccione **Editar** para editar la canalización. En la pestaña **Tareas**, busque la tarea **Azure App Configuration**.
 1. Configure los parámetros necesarios para que la tarea extraiga los pares clave-valor del almacén de App Configuration. Las descripciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
@@ -73,10 +73,10 @@ En esta sección se explicará cómo usar la tarea Azure App Configuration en un
 
 En esta sección se explicará cómo usar la tarea Azure App Configuration en las canalizaciones de versión de Azure DevOps.
 
-1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. Para obtener documentación sobre la canalización de versión, consulte [Canalizaciones de versión](/azure/devops/pipelines/release?view=azure-devops).
+1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. Para obtener documentación sobre la canalización de versión, consulte [Canalizaciones de versión](/azure/devops/pipelines/release).
 1. Elija una canalización de versión existente. Si no tiene una, seleccione **Nueva canalización** para crear una.
 1. Seleccione el botón **Editar** en la esquina superior derecha para editar la canalización de versión.
-1. Elija la **Fase** para agregar la tarea. Para más información acerca de las fases, consulte [Incorporación de fases, dependencias y condiciones](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Elija la **Fase** para agregar la tarea. Para más información acerca de las fases, consulte [Incorporación de fases, dependencias y condiciones](/azure/devops/pipelines/release/environments).
 1. Haga clic en **+** para "Ejecutar en el agente" y, a continuación, agregue la tarea **Azure App Configuration** en la pestaña **Agregar tareas**.
 1. Configure los parámetros necesarios dentro de la tarea para extraer los pares clave-valor del almacén de App Configuration. Las descripciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
       - Establezca el parámetro **Suscripción de Azure** en el nombre de la conexión de servicio creada en un paso anterior.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746111"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592762"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -24,7 +24,7 @@ De forma predeterminada, Application Gateway sondea los servidores back-end para
 
 ### <a name="how-to-check-backend-health"></a>Comprobación del estado del servidor back-end
 
-Para comprobar el mantenimiento del grupo back-end, puede usar la página **Estado del back-end** en Azure Portal. O bien, puede utilizar [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), la [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) o una [API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
+Para comprobar el mantenimiento del grupo back-end, puede usar la página **Estado del back-end** en Azure Portal. O bien, puede utilizar [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), la [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) o una [API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 El estado recuperado por cualquiera de estos métodos puede ser uno de los siguientes:
 
@@ -119,7 +119,7 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 
 1.  Si usa el DNS predeterminado de Azure, compruebe con el registrador de nombres de dominio que se haya realizado correctamente una asignación apropiada de registro de dirección D o CNAME.
 
-1.  Si el dominio es privado o interno, intente resolverlo desde una máquina virtual de la misma red virtual. Si puede resolverlo, reinicie Application Gateway y vuelva a comprobarlo. Para reiniciar Application Gateway, debe [detenerlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [iniciarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) mediante los comandos de PowerShell descritos en estos servicios vinculados.
+1.  Si el dominio es privado o interno, intente resolverlo desde una máquina virtual de la misma red virtual. Si puede resolverlo, reinicie Application Gateway y vuelva a comprobarlo. Para reiniciar Application Gateway, debe [detenerlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [iniciarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway) mediante los comandos de PowerShell descritos en estos servicios vinculados.
 
 #### <a name="tcp-connect-error"></a>Error de conexión TCP
 

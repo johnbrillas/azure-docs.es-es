@@ -3,18 +3,18 @@ title: Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cos
 description: Use características como registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB cuando use el SDK de .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683111"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831253"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,6 +67,7 @@ Cuando se produce un error de E/S, el SDK de Cosmos DB tratará de volver a int
 |----------|-------------|
 | 400 | Solicitud incorrecta (depende del mensaje de error)| 
 | 401 | [No autorizado](troubleshoot-unauthorized.md) | 
+| 403 | [Prohibido](troubleshoot-forbidden.md) |
 | 404 | [No se encuentra el recurso](troubleshoot-not-found.md) |
 | 408 | [Se ha agotado el tiempo de espera para la solicitud](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Un error de conflicto se produce cuando un recurso existente ha tomado el identificador proporcionado para un recurso en una operación de escritura. Use otro identificador para que el recurso resuelva este problema, ya que el identificador debe ser único en todos los documentos con el mismo valor de clave de partición. |

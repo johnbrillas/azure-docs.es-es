@@ -5,6 +5,7 @@
     - name: Creación de soluciones de comercio minorista con Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Tutoriales
+  expanded: true
   items:
     - name: 'Análisis en el almacén: finalización de la compra'
       items:

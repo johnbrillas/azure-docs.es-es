@@ -5,6 +5,7 @@
     - name: Creación de soluciones de energía con Azure IoT Central
       href: overview-iot-central-energy.md
 - name: Tutoriales
+  expanded: true
   items:
     - name: Creación de una aplicación de supervisión de medidores inteligentes
       href: tutorial-smart-meter-app.md

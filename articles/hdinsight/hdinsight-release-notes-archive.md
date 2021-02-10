@@ -4,19 +4,47 @@ description: Notas de la versión archivadas de Azure HDInsight. Obtenga sugeren
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/07/2020
-ms.openlocfilehash: 8e6f27c378a6cea8fffbdcda58c4fc3bb865e51e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/08/2021
+ms.openlocfilehash: 902b13c947cb005189e23dee943867100809564e
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932167"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988557"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
 ## <a name="summary"></a>Resumen
 
 Azure HDInsight es uno de los servicios más populares entre los clientes de empresa para el análisis de código abierto de Apache Hadoop y Apache Spark en Azure.
+
+## <a name="release-date-11182020"></a>Fecha de lanzamiento: 18/11/2020
+
+Esta versión se aplica a HDInsight 3.6 y HDInsight 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
+
+### <a name="new-features"></a>Nuevas características
+#### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>Rotación de claves automática para el cifrado de claves administradas por el cliente en reposo
+A partir de esta versión, los clientes pueden usar las direcciones URL de clave de cifrado sin versión de Azure Key Vault para el cifrado de clave administrado por el cliente en reposo. HDInsight rotará automáticamente las claves a medida que expiren o se reemplacen por versiones nuevas. Consulte más detalles [aquí](./disk-encryption.md).
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Posibilidad de seleccionar diferentes tamaños de máquina virtual de Zookeeper para Spark, Hadoop y Machine Learning Services
+Anteriormente, HDInsight no admitía la personalización del tamaño de nodo de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. De manera predeterminada, serán tamaños de máquina virtual A2_v2 o A2, que se proporcionan de forma gratuita. A partir de esta versión, puede seleccionar el tamaño de máquina virtual de Zookeeper que sea más adecuado para su escenario. Se cobrarán los nodos de Zookeeper con un tamaño de máquina virtual que no sea A2_v2 o A2. Las máquinas virtuales A2_v2 y A2 todavía se proporcionan de forma gratuita.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movimiento a conjuntos de escalado de máquinas virtuales
+Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, el servicio se migrará gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
+
+### <a name="deprecation"></a>Desuso
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Desuso del clúster de Machine Learning de HDInsight 3.6
+El soporte técnico del tipo de clúster de servicios de Machine Learning de HDInsight 3.6 finalizará el 31 de diciembre de 2020. A partir de entonces, los clientes no podrán crear clústeres de servicios de Machine Learning de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Compruebe la expiración del soporte técnico de las versiones y los tipos de clúster de HDInsight [aquí](./hdinsight-component-versioning.md#available-versions).
+
+#### <a name="disabled-vm-sizes"></a>Tamaños de máquina virtual deshabilitados
+A partir del 16 de noviembre de 2020, HDInsight impide que los nuevos clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Esta medida no afectará a los clientes existentes que hayan usado estos tamaños de máquina virtual en los últimos tres meses. A partir del 9 de enero de 2021, HDInsight impedirá que todos los clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Los clústeres existentes se ejecutarán tal cual. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
+
+### <a name="behavior-changes"></a>Cambios de comportamiento
+#### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Incorporación de comprobaciones de las reglas de NSG antes de la operación de escalado
+HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) en la operación de escalado. Esta misma validación se realiza durante el escalado de clústeres, así como durante su creación. Gracias a estas pruebas, se pueden evitar errores imprevisibles. Si no se superan correctamente, se producirán errores en el escalado. Para más información acerca de cómo configurar correctamente los NSG y las UDR, consulte este artículo sobre las [direcciones IP de administración de HDInsight](./hdinsight-management-ip-addresses.md).
+
+### <a name="component-version-change"></a>Cambio de versión de componentes
+No hay cambio de versión de componentes para esta versión. En [este documento](./hdinsight-component-versioning.md) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
 
 ## <a name="release-date-11092020"></a>Fecha de lanzamiento: 09/11/2020
 
@@ -595,11 +623,11 @@ Las nuevas actualizaciones y capacidades se dividen en las siguientes categoría
 
     b.  [**Nuevas características en Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Actualización de R Server 9.1 a Machine Learning Services 9.3**: con esta versión, se proporciona a los científicos de datos y a los ingenieros lo mejor del código abierto, optimizado con innovaciones en los algoritmos y la facilidad de la operacionalización, todo ello disponible en el lenguaje que prefieran y con la velocidad de Apache Spark. Esta versión va más allá de las funcionalidades que se ofrecen en R Server, ya que añade compatibilidad con Python, lo que ha provocado el cambio del nombre del clúster de R Server a ML Services. 
+*  ***Actualización de R Server 9.1 a Machine Learning Services 9.3***: con esta versión, se proporciona a los científicos de datos y a los ingenieros lo mejor del código abierto, mejorado con innovaciones en los algoritmos y la facilidad de la operacionalización, todo ello disponible en el lenguaje que prefieran con la velocidad de Apache Spark. Esta versión va más allá de las funcionalidades que se ofrecen en R Server, ya que añade compatibilidad con Python, lo que ha provocado el cambio del nombre del clúster de R Server a ML Services. 
 
-***Compatibilidad con Azure Data Lake Storage Gen2**: HDInsight admitirá  la versión preliminar de Azure Data Lake Storage Gen2. En las regiones disponibles, los clientes podrán elegir una cuenta de ADLS Gen2 como almacén principal o secundario para sus clústeres de HDInsight.
+*  ***Compatibilidad con Azure Data Lake Storage Gen2***: HDInsight admitirá el lanzamiento de la versión preliminar de Azure Data Lake Storage Gen2. En las regiones disponibles, los clientes podrán elegir una cuenta de ADLS Gen2 como almacén principal o secundario para sus clústeres de HDInsight.
 
-***Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)** : (versión preliminar) los [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
+*  ***Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)***: (versión preliminar) los [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
 
 ### <a name="component-versions"></a>Versiones de componentes
 
@@ -797,7 +825,7 @@ En esta versión se proporciona HBase 1.1.2 y las siguientes revisiones de Apach
 
 Esta versión proporciona Hive 1.2.1 y Hive 2.1.0, además de las revisiones siguientes:
 
-*Revisiones de Apache de Hive 1.2.1:* *
+**Revisiones de Apache de Hive 1.2.1:**
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors\#UnionConvertor realiza una conversión con errores.
 

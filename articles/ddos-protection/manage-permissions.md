@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813877"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806263"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Administración de planes de DDoS Protection: permisos y restricciones
 
@@ -43,7 +43,7 @@ Para habilitar la protección contra DDoS para una red virtual, su cuenta tambi�
 
 En la mayoría de las organizaciones, no es necesario crear más de un plan. Un plan no puede moverse entre suscripciones. Si desea cambiar la suscripción en que se encuentra un plan, debe eliminar el plan existente y crear uno nuevo.
 
-En el caso de los clientes que tienen varias suscripciones y que desean asegurarse de que se implementa un plan único para el control de costos, puede usar Azure Policy para [restringir la creación de planes de Azure DDoS Protection Standard](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Esta directiva bloqueará la creación de los planes de DDoS, a menos que la suscripción se haya marcado previamente como una excepción. Esta directiva también muestra una lista de todas las suscripciones que tienen un plan de DDoS implementado pero no deberían y las marca como un incumplimiento.
+En el caso de los clientes que tienen varias suscripciones y que desean asegurarse de que se implementa un plan único para el control de costos, puede usar Azure Policy para [restringir la creación de planes de Azure DDoS Protection Standard](https://aka.ms/ddosrestrictplan). Esta directiva bloqueará la creación de los planes de DDoS, a menos que la suscripción se haya marcado previamente como una excepción. Esta directiva también muestra una lista de todas las suscripciones que tienen un plan de DDoS implementado pero no deberían y las marca como un incumplimiento.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6ced30e8c8c5eb60eea3806d9c8080df7c2a12d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072805"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979596"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Uso de identidades administradas para Azure App Configuration
 
@@ -99,7 +99,7 @@ Los pasos siguientes le guiarán en la creación de una identidad asignada por e
 
 ## <a name="removing-an-identity"></a>Eliminación una identidad
 
-Una identidad asignada por el sistema se puede eliminar; para ello, deshabilite la característica mediante el comando [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) de la CLI de Azure. Las identidades asignadas por el usuario se pueden quitar individualmente. Al quitar una identidad asignada por el sistema de esta manera también se eliminará de AAD. Las identidades asignadas por el sistema también se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
+Una identidad asignada por el sistema se puede eliminar; para ello, deshabilite la característica mediante el comando [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) de la CLI de Azure. Las identidades asignadas por el usuario se pueden quitar individualmente. Al quitar una identidad asignada por el sistema de esta manera también se eliminará de AAD. Las identidades asignadas por el sistema también se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

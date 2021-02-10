@@ -5,12 +5,12 @@ description: En este artículo se describen los dos niveles de cifrado disponibl
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927323"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988609"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Cifrado doble de datos en reposo en Azure HDInsight
 
@@ -116,7 +116,7 @@ HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de
 
 Ya está listo para crear un clúster de HDInsight. Las claves administradas por el cliente solo pueden aplicarse a los clústeres nuevos durante la creación del clúster. No se puede quitar el cifrado de los clústeres de las claves administradas por el cliente, y no se pueden agregar claves administradas por el cliente a los clústeres existentes.
 
-A partir de la [versión de noviembre de 2020](hdinsight-release-notes.md#release-date-11182020), HDInsight admite la creación de clústeres mediante el uso de identificadores URI con versión y sin versión. Si crea el clúster con un URI de clave sin versión, el clúster de HDInsight intentará realizar la rotación automática de claves cuando se actualice la clave en Azure Key Vault. Si crea el clúster con un URI de clave con versión, tendrá que realizar una rotación de clave manual, como se describe en [Rotación de la clave de cifrado](#rotating-the-encryption-key).
+A partir de la versión de noviembre de 2020, HDInsight admite la creación de clústeres mediante el uso de identificadores URI con versión y sin versión. Si crea el clúster con un URI de clave sin versión, el clúster de HDInsight intentará realizar la rotación automática de claves cuando se actualice la clave en Azure Key Vault. Si crea el clúster con un URI de clave con versión, tendrá que realizar una rotación de clave manual, como se describe en [Rotación de la clave de cifrado](#rotating-the-encryption-key).
 
 En el caso de los clústeres creados antes de la versión de noviembre de 2020, tendrá que realizar la rotación de claves manualmente con el URI de la clave con versión.
 

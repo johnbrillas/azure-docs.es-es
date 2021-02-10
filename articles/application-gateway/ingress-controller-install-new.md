@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693657"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593746"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Cómo instalar un controlador de entrada de Application Gateway (AGIC) con una nueva instancia de Application Gateway
 
@@ -30,7 +30,7 @@ Como alternativa, inicie Cloud Shell desde Azure Portal mediante el siguiente ic
 
 Su instancia de [Azure Cloud Shell](https://shell.azure.com/) ya tiene todas las herramientas necesarias. Si decide usar otro entorno, asegúrese de que estén instaladas las herramientas siguientes de línea de comandos:
 
-* `az` - CLI de Azure: [instrucciones de instalación](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` - CLI de Azure: [instrucciones de instalación](/cli/azure/install-azure-cli)
 * `kubectl` - Herramienta de línea de comandos de Kubernetes: [instrucciones de instalación](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` - Administrador de paquetes de Kubernetes: [instrucciones de instalación](https://github.com/helm/helm/releases/latest)
 * `jq` - Procesador JSON de línea de comandos: [instrucciones de instalación](https://stedolan.github.io/jq/download/)

@@ -5,6 +5,7 @@
     - name: Creación de soluciones gubernamentales con Azure IoT Central
       href: overview-iot-central-government.md
 - name: Tutoriales
+  expanded: true
   items:
     - name: Creación de una aplicación de administración de residuos conectada
       href: tutorial-connected-waste-management.md

@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934296"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807621"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarea de DevOps del servicio Azure Image Builder
 
@@ -156,10 +156,10 @@ En los ejemplos siguientes se explica cómo funciona:
 
    Puede hacer referencia a varios scripts o agregar más comandos, por ejemplo:
 
-       ```PowerShell
-       & 'c:\buildArtifacts\webapp\webconfig.ps1'
-       & 'c:\buildArtifacts\webapp\installAgent.ps1'
-       ```
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux: en los sistemas Linux, los artefactos de compilación se colocan en el directorio `/tmp`. Sin embargo, en muchos sistemas operativos Linux, al reiniciar, se elimina el contenido del directorio /tmp. Si desea que los artefactos existan en la imagen, debe crear otro directorio y copiarlos.  Por ejemplo:
 
     ```bash

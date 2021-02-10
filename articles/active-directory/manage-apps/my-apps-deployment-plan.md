@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258293"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830726"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planeamiento de la configuración de Aplicaciones de Azure Active Directory
 
 > [!NOTE]
-> Este artículo va dirigido a aquellos profesionales de TI que necesitan planear la configuración del portal Aplicaciones de su organización. Para obtener información sobre la forma en que los usuarios finales pueden utilizar Aplicaciones y las colecciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+> Este artículo va dirigido a aquellos profesionales de TI que necesitan planear la configuración del portal Aplicaciones de su organización. 
 >
 > **Para ver la documentación para el usuario final, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md)** .
 
