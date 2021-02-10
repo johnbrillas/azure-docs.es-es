@@ -2,14 +2,14 @@
 title: Seguimiento y diagnóstico de un extremo a otro de Azure Service Bus | Microsoft Docs
 description: Información general del diagnóstico y el seguimiento de un extremo a otro del cliente de Service Bus (cliente a través de todos los servicios implicados en el procesamiento).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601257"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539220"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 En este ejemplo, el agente de escucha registra la duración, el resultado, el identificador único y la hora de inicio de cada operación de Service Bus.
 
 ### <a name="events"></a>Eventos
-En cada operación se envían dos eventos: "Start" y "Stop". Lo más probablemente es que solo le interesen los eventos "Stop". Estos, igual que sucede con las propiedades de actividad, proporcionan el resultado de la operación, la hora de inicio y la duración.
-
-La carga del evento proporciona un agente de escucha con el contexto de la operación y replica los parámetros de entrada de la API y el valor devuelto. Asimismo, la carga del evento "Stop" tiene todas las propiedades de carga del evento "Start", por lo que puede hacer caso omiso de este último.
-
-Cada evento "Stop" tiene la propiedad `Status` y la operación asincrónica `TaskStatus` con la que se completó, pero también se ha omitido en la tabla siguiente para simplificar el trabajo.
-
 Todos los eventos tendrán las propiedades siguientes que se ajustan a la especificación de telemetría abierta: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md.
 
 - `message_bus.destination`: ruta de acceso a la cola, el tema o la suscripción.

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511287"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576623"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -140,7 +140,7 @@ En las [pruebas de vulnerabilidades](https://cloudblogs.microsoft.com/microsofts
 
 La revisión de la superficie expuesta a ataques después de completar el código ayuda a garantizar que se hayan tomado en cuenta los cambios al diseño o implementación de una aplicación o sistema. Ayuda a garantizar que los nuevos vectores de ataque que se crearon como resultado de los cambios, incluidos los modelos de amenazas, se revisen y mitiguen.
 
-Puede crear una imagen de la superficie expuesta a ataques si realiza un examen de la aplicación. Microsoft ofrece una herramienta de análisis de la superficie expuesta a ataques denominada [Analizador de superficie expuesta a ataques](https://www.microsoft.com/download/details.aspx?id=24487). Puede elegir entre muchas herramientas y servicios de análisis dinámicos comerciales para pruebas y vulnerabilidades, incluidas[OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) y [w3af](http://w3af.sourceforge.net/). Estas herramientas de examen rastrean la aplicación y asignan los elementos de la aplicación que son accesibles a través de la web. También puede buscar en Azure Marketplace otras [herramientas de desarrollo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) similares.
+Puede crear una imagen de la superficie expuesta a ataques si realiza un examen de la aplicación. Microsoft ofrece una herramienta de análisis de la superficie expuesta a ataques denominada [Analizador de superficie expuesta a ataques](https://www.microsoft.com/download/details.aspx?id=58105). Puede elegir entre muchas herramientas y servicios de análisis dinámicos comerciales para pruebas y vulnerabilidades, incluidas[OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) y [w3af](http://w3af.sourceforge.net/). Estas herramientas de examen rastrean la aplicación y asignan los elementos de la aplicación que son accesibles a través de la web. También puede buscar en Azure Marketplace otras [herramientas de desarrollo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) similares.
 
 ### <a name="perform-security-penetration-testing"></a>Realizar pruebas de penetración de seguridad
 

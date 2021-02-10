@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017566"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525778"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnóstico y solución de problemas de excepciones recurso de Azure Cosmos DB no encontrado
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ Espere a que la indexación se actualice o cambie la directiva de indexación.
 Se eliminó la base de datos o el contenedor donde se encuentra el elemento.
 
 #### <a name="solution"></a>Solución:
-1. [Restaure](./online-backup-and-restore.md#request-data-restore-from-a-backup) el recurso primario o vuelva a crearlo.
+1. [Restaure](./configure-periodic-backup-restore.md#request-restore) el recurso primario o vuelva a crearlo.
 1. Cree un nuevo recurso para reemplazar el recurso eliminado.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Los nombres de contenedor o colección distinguen en mayúsculas y minúsculas

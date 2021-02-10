@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932804"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573252"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configuración de un firewall de dirección IP para Azure Cognitive Search
 
@@ -31,7 +31,7 @@ Para establecer la directiva de control de acceso de direcciones IP en Azure Po
 Azure Portal proporciona la capacidad para especificar direcciones IP e intervalos de direcciones IP en formato CIDR. Un ejemplo de notación CIDR es 8.8.8.0/24, que representa las direcciones IP que van de 8.8.8.0 a 8.8.8.255.
 
 > [!NOTE]
-> Después de habilitar la directiva de control de acceso de direcciones IP en el servicio de Azure Cognitive Search, se rechazan todas las solicitudes al plano de datos desde máquinas que estén fuera de la lista permitida de rangos de direcciones IP. Cuando se configuran las reglas de IP, algunas características de Azure Portal se deshabilitan. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes.
+> Después de habilitar la directiva de control de acceso de direcciones IP en el servicio de Azure Cognitive Search, se rechazan todas las solicitudes al plano de datos desde máquinas que estén fuera de la lista permitida de rangos de direcciones IP. Cuando se configuran las reglas de IP, algunas características de Azure Portal se deshabilitan. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes. Como alternativa al portal, puede usar la [extensión de VS Code](https://aka.ms/vscode-search) para interactuar con los distintos componentes del servicio.
 
 ### <a name="requests-from-your-current-ip"></a>Solicitudes desde la dirección IP actual
 

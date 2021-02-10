@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792467"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575235"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
 ![Error de la comprobación de estado][2]
 
-En este artículo se usa la comprobación de estado en Azure Portal para supervisar las instancias de App Service. La comprobación de estado aumenta la disponibilidad de la aplicación, ya que quita las instancias incorrectas. El [plan de App Service](/overview-hosting-plans) debe escalarse a dos o más instancias para usar la comprobación de estado. La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente crítico, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
+En este artículo se usa la comprobación de estado en Azure Portal para supervisar las instancias de App Service. La comprobación de estado aumenta la disponibilidad de la aplicación, ya que quita las instancias incorrectas. El [plan de App Service](/azure/app-service/overview-hosting-plans) debe escalarse a dos o más instancias para usar la comprobación de estado. La ruta de acceso de comprobación de estado debe comprobar los componentes críticos de la aplicación. Por ejemplo, si la aplicación depende de una base de datos y de un sistema de mensajería, el punto de conexión de comprobación de estado debe conectarse a esos componentes. Si la aplicación no se puede conectar a un componente crítico, la ruta de acceso debe devolver un código de respuesta de nivel 500 para indicar que la aplicación tiene un estado incorrecto.
 
 ## <a name="what-app-service-does-with-health-checks"></a>Lo que hace App Service con las comprobaciones de estado
 

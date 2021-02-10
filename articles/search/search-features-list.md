@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951390"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538914"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Características de Azure Cognitive Search
 
@@ -33,7 +33,7 @@ Azure Cognitive Search proporciona un motor de búsqueda de texto completo, un a
 |-------------------|----------|
 |Procesamiento de IA durante la indexación | El [**enriquecimiento con inteligencia artificial**](cognitive-search-concept-intro.md) para el análisis de texto e imágenes se puede aplicar a una canalización de indexación para extraer información de texto a partir de contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. Además, puede [integrar aptitudes creadas de Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
 | Almacenamiento de contenido enriquecido para su análisis y consumo en escenarios que no son de búsqueda | El [**almacén de conocimiento**](knowledge-store-concept-intro.md) es una salida alternativa de una canalización de indexación. En lugar de enviar términos con token a un índice, puede enviar documentos enriquecidos creados por la canalización de indexación a un almacén de conocimiento, residentes en Azure Blob Storage o en el almacenamiento de tablas, en función de la configuración. Los almacenes de conocimiento se crean a partir de la indexación basada en IA (conjuntos de aptitudes). El propósito de un almacén de conocimiento es admitir el análisis o el procesamiento posteriores. Puede adjuntar un almacén de conocimiento, con nueva información y estructuras, a un proceso de aprendizaje automático o conectarse desde Power BI para explorar los datos.<br/><br/> |
-| Contenido almacenado en caché | El [**enriquecimiento incremental (versión preliminar)** ](cognitive-search-incremental-indexing-conceptual.md) limita el procesamiento a solo los documentos que se modifican mediante ediciones específicas de la canalización, y utiliza el contenido almacenado en caché para las partes de la canalización que no cambian. |
+| Contenido almacenado en caché | El [**enriquecimiento incremental (versión preliminar)**](cognitive-search-incremental-indexing-conceptual.md) limita el procesamiento a solo los documentos que se modifican mediante ediciones específicas de la canalización, y utiliza el contenido almacenado en caché para las partes de la canalización que no cambian. |
 
 ## <a name="query-and-user-experience"></a>Consulta y experiencia del usuario
 
@@ -49,7 +49,7 @@ Azure Cognitive Search proporciona un motor de búsqueda de texto completo, un a
 
 | Categoría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Características |
 |-------------------|----------|
-| Cifrado de datos | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. <br/><br/>Las [**claves de cifrado administradas por el cliente**](search-security-manage-encryption-keys.md) que se crean y administran en Azure Key Vault se pueden usar para el cifrado complementario de índices y mapas de sinónimos. En el caso de los servicios creados después del 1 de agosto de 2020, el cifrado de CMK se extiende a los datos de los discos temporales, para el cifrado doble completo del contenido indizado.|
+| Cifrado de datos | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encryption) está integrado en la capa de almacenamiento interno y es irrevocable. <br/><br/>Las [**claves de cifrado administradas por el cliente**](search-security-manage-encryption-keys.md) que se crean y administran en Azure Key Vault se pueden usar para el cifrado complementario de índices y mapas de sinónimos. En el caso de los servicios creados después del 1 de agosto de 2020, el cifrado de CMK se extiende a los datos de los discos temporales, para el cifrado doble completo del contenido indizado.|
 | Endpoint Protection | Las [**reglas de IP para la compatibilidad con el firewall de entrada**](service-configure-firewall.md) permite configurar intervalos IP en los que el servicio de búsqueda aceptará solicitudes.<br/><br/>[**Cree un punto de conexión privado**](service-create-private-endpoint.md) mediante Azure Private Link para forzar todas las solicitudes a través de una red virtual. |
 | Seguridad de salida (indizadores) | El [**acceso a los datos a través de puntos de conexión privados**](search-indexer-howto-access-private.md) permite que un indexador se conecte a los recursos de Azure que están protegidos a través de Azure Private Link.<br/><br/>El [**acceso a los datos mediante una identidad de confianza**](search-howto-managed-identities-data-sources.md) significa que las cadenas de conexión a orígenes de datos externos pueden omitir nombres de usuario y contraseñas. Cuando un indexador se conecta al origen de datos, el recurso permite la conexión si el servicio de búsqueda se registró previamente como un servicio de confianza. |
 

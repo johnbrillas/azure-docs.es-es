@@ -4,12 +4,12 @@ description: En este artículo se muestra cómo usar Azure AD en Azure Automati
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894667"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576810"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uso de Azure AD para autenticarse en Azure
 
@@ -50,7 +50,7 @@ Antes de instalar los módulos de Azure AD en el equipo, haga lo siguiente:
 
 1. Asegúrese de que la característica Microsoft .NET Framework 3.5.x está habilitada en el equipo. Probablemente el equipo tiene instalada una versión más reciente, pero se puede habilitar o deshabilitar la compatibilidad con versiones anteriores de .NET Framework. 
 
-2. Instale la versión de 64 bits del [Ayudante para el inicio de sesión de Microsoft Online Services](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Instale la versión de 64 bits del [Ayudante para el inicio de sesión de Microsoft Online Services](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Ejecute Windows PowerShell como administrador para crear un símbolo del sistema de Windows PowerShell con privilegios elevados.
 

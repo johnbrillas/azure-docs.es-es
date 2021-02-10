@@ -5,16 +5,16 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914446"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508936"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Cumplimiento de los requisitos de migración exigidos con WANdisco LiveData Platform para Azure (versión preliminar)
 
@@ -34,7 +34,9 @@ A diferencia de la migración de datos _sin conexión_ mediante la [copia de inf
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Características clave de WANdisco LiveData Platform para Azure
 
-[WANdisco LiveData Platform para Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) usa un motor de consenso único que es compatible con redes de áreas extensas, para así poder lograr la coherencia de los datos y realizar la replicación de los mismos a escala mientras que las aplicaciones pueden continuar modificando esos datos en la replicación.  
+[WANdisco LiveData Platform para Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) usa un motor de consenso único que es compatible con redes de áreas extensas, para así poder lograr la coherencia de los datos y realizar la replicación de los mismos a escala mientras que las aplicaciones pueden continuar modificando esos datos en la replicación. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 Entre las principales características de la plataforma se incluyen las siguientes:
 
@@ -86,7 +88,9 @@ Las migraciones a gran escala de los lagos de datos locales a Azure necesitan qu
 Mantenga la coherencia de los datos en los clústeres de Hadoop locales y en Azure Storage con LiveData Plane para Azure después realizar la migración inicial:
 
 1. Aprovisione LiveData Plane para Azure de forma local y en Azure, empezando por Azure Portal. No es necesario que haga ningún cambio en la aplicación.
+
 2. Configure las reglas de replicación que cubren las ubicaciones de datos de las cuales quiera mantener la coherencia; por ejemplo, `/user/contoso/sales/region/WA`.
+
 3. Ejecute aplicaciones que obtengan acceso y modifiquen los datos de cualquier ubicación como si fueran un sistema de archivos compatible con Hadoop, según sea necesario.
 
 LiveData Plane para Azure mantiene la coherencia de los datos sin sobrecargar de forma significativa el rendimiento de la aplicación o el funcionamiento del clúster. Modifique o ingiera los datos mientras todos los cambios se replican de forma coherente.
@@ -99,7 +103,7 @@ LiveData Plane para Azure mantiene la coherencia de los datos sin sobrecargar de
 
 - Pruebe LiveData Migrator sin necesidad de tener un clúster de Hadoop local mediante el [espacio aislado HDFS](https://docs.wandisco.com/live-data-platform/docs/create-sandbox-intro/).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
 - [LiveData Migrator para Azure en Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=Overview)
 

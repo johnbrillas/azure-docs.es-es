@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147753"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576589"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -74,11 +74,11 @@ Normalmente implementa un sitio con la marca `customErrors` en el archivo Web.co
 
 **Se produjo un error:**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Captura de pantalla que muestra un ejemplo de un error genérico que se está produciendo en un explorador web.":::
 
 **El sitio web no puede mostrar la página**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="La captura de pantalla que muestra un sitio web no puede mostrar el error de página en un explorador web.":::
 
 Con frecuencia, la manera más fácil de encontrar la causa de un error es habilitar los mensajes detallados de error, una acción que se explica en la primera de las capturas de pantalla anteriores. Eso requiere un cambio en el archivo Web.config implementado. Puede editar el archivo *Web.config* en el proyecto y volver a implementar el proyecto, o bien crear una [transformación de Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e implementar una compilación de depuración, pero hay una forma más rápida: en el **Explorador de soluciones** puede ver y editar archivos en la aplicación remota utilizando directamente la característica de *vista remota*.
 
@@ -139,7 +139,7 @@ En esta sección se muestra cómo realizar una depuración remota mediante el pr
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación y luego haga clic en **Asociar depurador**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Captura de pantalla de la ventana de Explorador de servidores que muestra una aplicación seleccionada y, a continuación, clic en Asociar depurador.":::
 
     El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación en un período de 48 horas. Al iniciar la depuración de nuevo en el mismo período, no hay ningún retraso.
 
@@ -192,7 +192,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 8. Haga clic en **Adjuntar el depurador**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Captura de pantalla de Explorador de servidores que muestra ContosoAdsWebJob seleccionado en el menú desplegable y Asociar depurador seleccionado.":::
 
     El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación en un período de 48 horas. Al iniciar la depuración de nuevo en el mismo período, no hay ningún retraso.
 
@@ -340,11 +340,11 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 1. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, luego, presione ENTRAR (la dirección URL es similar a `http://localhost:53370/trace.axd`).
 1. En la página **Seguimiento de la aplicación**, haga clic en **Ver detalles** en la primera línea (no en la línea BrowserLink).
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Captura de pantalla de la página Seguimiento de la aplicación en un explorador web que muestra Ver detalles en la primera línea.":::
 
     Aparece la página **Detalles de la solicitud** y en la sección **Información de seguimiento**, podrá ver el resultado de las instrucciones de seguimiento que agregó al método `Index`.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Captura de pantalla de la página Detalles de la solicitud en un explorador web que muestra un mensaje resaltado en la sección Información de seguimiento.":::
 
     De manera predeterminada, `trace.axd` solo está disponible localmente. Si desea que esté disponible desde una aplicación remota, puede agregar `localOnly="false"` al elemento `trace` en el archivo *Web.config*, tal como aparece en el siguiente ejemplo:
 
@@ -361,16 +361,40 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
     Después de que Visual Studio publica su actualización, se abre una ventana del explorador en su página principal (suponiendo que no desactivó **Dirección URL de destino** en la pestaña **Conexión**).
 3. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Captura de pantalla de Explorador de servidores después de hacer clic con el botón derecho en la aplicación, con Ver registros de streaming seleccionado en una nueva ventana.":::
 
     La ventana **Resultados** muestra que está conectado al servicio de streaming de registros y agrega una línea de notificación cada minuto que pasa sin un registro para mostrar.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web." y forzarle a esperar hasta que vuelva a ocurrir. Permitir el diagnóstico en Azure le permite comenzar inmediatamente a capturar información sobre el error sin reciclar el dominio de aplicación.
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Captura de pantalla de la ventana de salida que muestra un ejemplo de una conexión a un servicio de streaming de registros con líneas de notificación.":::
+
+4. En la ventana del explorador que muestra la página principal de su aplicación, haga clic en **Contact**.
+
+    En unos pocos segundos, el resultado del seguimiento en el nivel de error que agregó al método `Contact` aparecerá en la ventana **Resultados**.
+
+    ![Seguimiento de errores en la ventana Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
+
+    Visual Studio muestra solo seguimientos en el nivel de errores porque es el valor predeterminado cuando habilita el servicio de supervisión de registros. Cuando crea una aplicación de App Service, todos los registros están deshabilitados de manera predeterminada, tal como vio cuando abrió anteriormente la página de configuración:
+
+    ![Registro de aplicación desactivado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
+
+    Sin embargo, cuando selecciona **Ver registros de streaming**, Visual Studio cambia automáticamente **Registro de la aplicación (sistema de archivos)** a **Error**, lo que significa que los registros de errores se notifican. Para ver todos los registros de seguimiento, puede cambiar esta configuración a **Detallado**. Cuando selecciona un nivel de gravedad inferior al error, también se notifican todos los registros para niveles de gravedad más altos. Por lo tanto, cuando selecciona detallado, también verá registros de errores, advertencias e información.  
+
+5. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación y después haga clic en **Ver configuración** como hizo antes.
+6. Cambie **Registro de la aplicación (sistema de archivos)** a **Detallado** y haga clic en **Guardar**.
+
+    ![Definir el nivel de seguimiento como Verbose](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
+7. En la ventana del explorador que ahora muestra su página **Contacto**, haga clic en **Inicio**, en **Información** y, a continuación, haga clic en **Contacto**.
+
+    En unos pocos segundos, la ventana **Resultados** mostrará todos los resultados del seguimiento.
+
+    ![Resultados detallados del seguimiento](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
+
+    En esta sección, aprendió a habilitar y deshabilitar el registro mediante la configuración de la aplicación. También puede habilitar y deshabilitar escuchas de seguimiento si modifica el archivo Web.config. Pero modificar el archivo Web.config hace que el dominio de la aplicación se recicle, mientras que habilitar el registro a través de la aplicación no provoca eso. Si el problema tarda mucho en reproducirse, o bien es intermitente, reciclar el dominio de la aplicación podría "arreglarlo" y forzarle a esperar hasta que vuelva a ocurrir. Permitir el diagnóstico en Azure le permite comenzar inmediatamente a capturar información sobre el error sin reciclar el dominio de aplicación.
 
 ### <a name="output-window-features"></a>Características de la ventana de salida
 La pestaña **Registros de Microsoft Azure** de la ventana **Resultados** tiene varios botones y un cuadro de texto:
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Captura de pantalla que muestra los botones y el cuadro de texto de la pestaña Registros de Microsoft Azure en la ventana de salida.":::
 
 Estos elementos realizan las siguientes funciones:
 
@@ -434,18 +458,18 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 1. En la ventana **Resultados**, haga clic en **Descargar registros de streaming**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Captura de pantalla de la ventana de salida que muestra el botón Descargar registros de streaming resaltado.":::
 
     El Explorador de archivos abrirá la carpeta *Descargas* con el archivo descargado seleccionado.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Captura de pantalla de la carpeta Descargas en el Explorador de archivos con un archivo descargado seleccionado.":::
 
 2. Extraiga el archivo *.zip* y verá la siguiente estructura de carpetas:
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Captura de pantalla que muestra un error de servidor en la aplicación '/' en un explorador web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Captura de pantalla de la estructura de carpetas del archivo. zip una vez extraído el archivo.":::
 
    * Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
-   * Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+   * Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](https://www.iis.net/downloads/community/2010/04/log-parser-22) para ver y manipular estos archivos.
    * Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
 
      (La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).  
@@ -654,7 +678,7 @@ Además, no es necesario realizar un seguimiento de ASP.NET o de `System.Diagnos
 ### <a name="analyzing-web-server-logs"></a>Análisis de registros de servidor web
 Para obtener más información acerca del análisis de registros de servidor web, consulte los siguientes recursos:
 
-* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.iis.net/downloads/community/2010/04/log-parser-22)<br/>
   Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.

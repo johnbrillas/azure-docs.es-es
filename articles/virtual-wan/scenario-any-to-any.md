@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955282"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525795"
 ---
 # <a name="scenario-any-to-any"></a>Escenario: Universal
 
-Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario universal, cualquier radio puede comunicarse con otro radio. Cuando existen varios centros, el enrutamiento de centro a centro (también conocido como hub-to-hub o interhub) está habilitado de forma predeterminada en Virtual WAN Estándar. Puede crear esta configuración mediante diferentes métodos, como Azure Portal o una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md). 
+Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En un escenario universal, cualquier radio puede comunicarse con otro radio. Cuando existen varios centros, el enrutamiento de centro a centro (también conocido como hub-to-hub o interhub) está habilitado de forma predeterminada en Virtual WAN Estándar. Puede crear esta configuración mediante diferentes métodos, como Azure Portal o una [plantilla de inicio rápido de Azure](quickstart-any-to-any-template.md). Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Diseño
 

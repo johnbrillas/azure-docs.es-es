@@ -3,14 +3,14 @@ title: Uso de Azure AD en Azure Kubernetes Service
 description: Aprenda a usar Azure AD en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/26/2020
-ms.author: thomasge
-ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 02/1/2021
+ms.author: miwithro
+ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684192"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550006"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -46,7 +46,6 @@ kubelogin --version
 ```
 
 Siga [estas instrucciones](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para otros sistemas operativos.
-
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -188,6 +187,50 @@ Si quiere acceder al clúster, siga los pasos que se indican [aquí][access-clus
 
 Hay algunos escenarios no interactivos, como las canalizaciones de integración continua, que no están disponibles actualmente con kubectl. Puede usar [`kubelogin`](https://github.com/Azure/kubelogin) para acceder al clúster con el inicio de sesión no interactivo de la entidad de servicio.
 
+## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Uso de acceso condicional con Azure AD y AKS
+
+Al integrar Azure AD con el clúster de AKS, también puede usar el [acceso condicional][aad-conditional-access] para controlar el acceso al clúster.
+
+> [!NOTE]
+> El acceso condicional de Azure AD es una capacidad de Azure AD Premium.
+
+Para crear una directiva de acceso condicional de ejemplo para usarla con AKS, complete los siguientes pasos:
+
+1. En la parte superior de Azure Portal, busque y seleccione Azure Active Directory.
+1. En el menú de Azure Active Directory del lado izquierdo, seleccione *Aplicaciones empresariales*.
+1. En el menú de aplicaciones empresariales del lado izquierdo, seleccione *Acceso condicional*.
+1. En el menú de acceso condicional del lado izquierdo, seleccione *Directivas* y después *Nueva directiva*.
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Incorporación de una directiva de acceso condicional":::
+1. Escriba un nombre para la directiva, como *aks-policy*.
+1. Haga clic en *Usuarios y grupos* y, luego, debajo de *Incluir* seleccione *Seleccionar usuarios y grupos*. Elija los usuarios y grupos en los que quiere aplicar la directiva. En este ejemplo, elija el mismo grupo de Azure AD que tiene acceso de administración al clúster.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Selección de usuarios o grupos para aplicar la directiva de acceso condicional":::
+1. Seleccione *Aplicaciones en la nube o acciones* y, después, debajo de *Incluir*, escoja *Seleccionar aplicaciones*. Busque *Azure Kubernetes Service* y seleccione *Azure Kubernetes Service AAD Server*.
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Selección de Azure Kubernetes Service AD Server para aplicar la directiva de acceso condicional":::
+1. En *Controles de acceso*, seleccione *Conceder*. Seleccione *Conceder acceso* y después *Requerir que el dispositivo esté marcado como compatible*.
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Selección para permitir solo los dispositivos compatibles con la directiva de acceso condicional":::
+1. En *Habilitar directiva*, seleccione *Activar* y, después, *Crear*.
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Habilitación de la directiva de acceso condicional":::
+
+Obtenga las credenciales de usuario para acceder al clúster, por ejemplo:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Siga las instrucciones para iniciar sesión.
+
+Use el comando `kubectl get nodes` para ver los nodos del clúster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Siga las instrucciones para iniciar sesión de nuevo. Observe que hay un mensaje de error que indica que inició sesión correctamente, pero el administrador requiere que el dispositivo que solicita acceso esté administrado por su instancia de Azure AD para acceder al recurso.
+
+En Azure Portal, vaya a Azure Active Directory, seleccione *Aplicaciones empresariales* y, después, en *Actividad* seleccione *Inicios de sesión*. Observe que hay una entrada en la parte superior con un valor de *Estado* de *Error* y un *Acceso condicional* *Correcto*. Seleccione la entrada y, a continuación, seleccione *Acceso condicional* en *Detalles*. Observe que se muestra su directiva de acceso condicional.
+
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Error en la entrada de inicio de sesión debido a la directiva de acceso condicional":::
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre la [integración de Azure RBAC para la autorización de Kubernetes][azure-rbac-integration].
@@ -202,6 +245,7 @@ Hay algunos escenarios no interactivos, como las canalizaciones de integración 
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

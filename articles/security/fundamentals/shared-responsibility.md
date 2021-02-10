@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518148"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548956"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidad compartida en la nube
 
@@ -50,4 +50,4 @@ En el diagrama siguiente se muestra un enfoque tradicional, en el que no se pued
 En el enfoque habilitado para la nube, también puede aprovechar las funcionalidades de seguridad basadas en la nube para conseguir mayor eficacia y usar la inteligencia en la nube para mejorar la detección de amenazas y el tiempo de respuesta. Con la transferencia de responsabilidades al proveedor de nube, las organizaciones pueden obtener más cobertura de seguridad, lo que les permite reasignar recursos de seguridad y presupuestos a otras prioridades empresariales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre la división de la responsabilidad entre usted y Microsoft en una implementación SaaS, PaaS e IaaS, consulte [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) (Responsabilidades compartidas de la informática en la nube).
+Para más información sobre la división de la responsabilidad entre usted y Microsoft en una implementación SaaS, PaaS e IaaS, consulte [Shared responsibilities for cloud computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/) (Responsabilidades compartidas de la informática en la nube).

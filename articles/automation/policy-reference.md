@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para Azure Automation
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Automation. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 35e728adf4d858dd6bdbbe76735d3706cf4235e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 775bc106336fd9e11719b9885ddfd250750fecae
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220792"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558089"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Definiciones integradas de Azure Policy para Azure Automation
 

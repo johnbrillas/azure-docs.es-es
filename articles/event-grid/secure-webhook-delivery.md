@@ -2,13 +2,13 @@
 title: Protección de la entrega de webhooks con Azure AD en Azure Event Grid
 description: Describe cómo enviar eventos a puntos de conexión HTTPS protegidos por Azure Active Directory mediante Azure Event Grid
 ms.topic: how-to
-ms.date: 10/05/2020
-ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 02/03/2021
+ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371671"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549159"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicación de eventos en puntos de conexión protegidos por Azure Active Directory
 
@@ -58,7 +58,7 @@ if ($eventGridSP -match "Microsoft.EventGrid")
 ```
 
 ### <a name="create-a-role-for-your-application"></a>Cree un rol para la aplicación   
-Ejecute el siguiente script para crear un rol para la aplicación Azure AD. En este ejemplo, el nombre del rol es: **AzureEventGridSecureWebhook** . Modifique el valor `$myTenantId` del script de PowerShell para usar el id. de inquilino de Azure AD y `$myAzureADApplicationObjectId` con el id. de objeto de la aplicación Azure AD.
+Ejecute el siguiente script para crear un rol para la aplicación Azure AD. En este ejemplo, el nombre del rol es: **AzureEventGridSecureWebhook**. Modifique el valor `$myTenantId` del script de PowerShell para usar el id. de inquilino de Azure AD y `$myAzureADApplicationObjectId` con el id. de objeto de la aplicación Azure AD.
 
 ```PowerShell
 # This is your Azure AD Application's ObjectId. 
@@ -92,6 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
+    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 } else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")

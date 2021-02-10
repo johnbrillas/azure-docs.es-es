@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788356"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525405"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,7 +62,7 @@ Restaure una base de datos existente en la misma Instancia administrada de SQL 
 
     ![Restauración de una base de datos mediante Azure Portal](./media/point-in-time-restore/restore-database-to-mi.png)
 
-4. En la página **Restaurar** , seleccione el punto relativo a fecha y hora al que quiere restaurar la base de datos.
+4. En la página **Restaurar**, seleccione el punto relativo a fecha y hora al que quiere restaurar la base de datos.
 5. Seleccione **Confirmar** para restaurar la base de datos. Esta acción inicia el proceso de restauración, que crea una base de datos y la rellena con datos de la base de datos original en el momento especificado. Para más información sobre el tiempo de recuperación, consulte [Tiempo de recuperación](../database/recovery-using-backups.md#recovery-time).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -139,7 +139,7 @@ La restauración de una base de datos eliminada solo se puede realizar mediante 
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar una base de datos administrada con Azure Portal, abra la página de información general de la Instancia administrada de SQL y seleccione **Bases de datos eliminadas** . Seleccione la base de datos eliminada que quiere restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados de la copia de seguridad.
+Para recuperar una base de datos administrada con Azure Portal, abra la página de información general de la Instancia administrada de SQL y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que quiere restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados de la copia de seguridad.
 
   ![Captura de pantalla de restaurar base de datos de instancia de Azure SQL eliminada](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Para restaurar la base de datos en otra Instancia administrada de SQL, especifi
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -211,7 +211,7 @@ Use uno de los métodos siguientes para conectarse a su base de datos de la Inst
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En Azure Portal, seleccione la base de datos de la Instancia administrada de SQL y elija **Eliminar** .
+En Azure Portal, seleccione la base de datos de la Instancia administrada de SQL y elija **Eliminar**.
 
    ![Eliminación de una base de datos mediante Azure Portal](./media/point-in-time-restore/delete-database-from-mi.png)
 

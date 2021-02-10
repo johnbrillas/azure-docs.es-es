@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897163"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576285"
 ---
 # <a name="create-a-video-indexer-account"></a>Creación de una cuenta de Video Indexer
 
@@ -195,7 +195,7 @@ Para automatizar la creación de la cuenta hay un proceso de dos pasos:
 1. Use Azure Resource Manager para crear una cuenta de Azure Media Services y una aplicación de Azure AD.
 
     Consulte un ejemplo de la [plantilla de creación de cuentas de Media Services](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Llame a [Create-Account con la aplicación de Media Services y Azure AD](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Llame a [Create-Account con la aplicación de Media Services y Azure AD](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## <a name="video-indexer-in-azure-government"></a>Video Indexer en Azure Government
 
@@ -222,7 +222,7 @@ Para crear una cuenta de pago a través del portal de Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Creación de una nueva cuenta a través de la API en Azure Government
 
-Para crear una cuenta de pago en Azure Government, siga las instrucciones de [Creación de cuenta de pago](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Este punto de conexión de API solo incluye regiones de la nube de Government.
+Para crear una cuenta de pago en Azure Government, siga las instrucciones de [Creación de cuenta de pago](/azure/media-services/video-indexer/connect-to-azure). Este punto de conexión de API solo incluye regiones de la nube de Government.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitaciones de Video Indexer en Azure Government
 
