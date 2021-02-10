@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896518"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008169"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solución de incidencias en la implementación de características
 
@@ -148,7 +148,7 @@ Quite los recursos de las siguientes características del área de trabajo si la
 Una vez que quite los recursos de las características, podrá desvincular el área de trabajo. Es importante limpiar los artefactos existentes de esas características en el área de trabajo y la cuenta de Automation:
 
 * En Update Management, quite las **implementaciones de actualización (programaciones)** de la cuenta de Automation.
-* Para la solución Start/Stop VMs during off-hours, quite los bloqueos de los componentes de la característica de la cuenta de Automation en **Configuración** > **Bloqueos**. Para obtener más información, consulte [Eliminación de la característica](../automation-solution-vm-management.md#remove-the-feature).
+* Para la solución Start/Stop VMs during off-hours, quite los bloqueos de los componentes de la característica de la cuenta de Automation en **Configuración** > **Bloqueos**. Para obtener más información, consulte [Eliminación de la característica](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Errores de Log Analytics para la extensión de Windows
 

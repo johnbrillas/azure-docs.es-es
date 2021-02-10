@@ -259,6 +259,8 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Especificación DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: 'Obtenga información sobre: Desarrollo con Azure Digital Twins'
+      href: /learn/paths/develop-azure-digital-twins/
     - name: Vídeos de Channel 9
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Testimonios de clientes

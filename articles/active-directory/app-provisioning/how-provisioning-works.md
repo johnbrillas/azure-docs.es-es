@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256346"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988968"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -43,7 +43,7 @@ Para solicitar un conector de aprovisionamiento automático de Azure AD para una
 
 ## <a name="authorization"></a>Authorization
 
-Se requieren credenciales para que Azure AD se conecte a la API de administración de usuarios de la aplicación. Cuando configure el aprovisionamiento automático de usuarios para una aplicación, deberá especificar credenciales válidas. En el caso de las aplicaciones de la galería, puede encontrar los tipos de credenciales y los requisitos para la aplicación al consultar el tutorial de la aplicación. En el caso de las aplicaciones que no son de la galería, puede consultar la documentación de [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) para saber más sobre los tipos de credenciales y sus requisitos. En Azure Portal, podrá probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
+Se requieren credenciales para que Azure AD se conecte a la API de administración de usuarios de la aplicación. Cuando configure el aprovisionamiento automático de usuarios para una aplicación, deberá especificar credenciales válidas. En el caso de las aplicaciones de la galería, puede encontrar los tipos de credenciales y los requisitos para la aplicación al consultar el tutorial de la aplicación. En el caso de las aplicaciones que no son de la galería, puede consultar la documentación de [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) para saber más sobre los tipos de credenciales y sus requisitos. En Azure Portal, podrá probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
 
 ## <a name="mapping-attributes"></a>Asignación de atributos
 
