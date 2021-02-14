@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 39750465008be586c58d9da309ffe435b2030c59
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e9201f41c9552b6a60f9ccd8eacda60ac46f89eb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397024"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591642"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Restringir el tráfico web mediante la CLI de Azure
 
@@ -48,8 +48,8 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Crea una red virtual. |
 | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subred en una red virtual. |
-| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
-| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Crear una puerta de enlace de aplicaciones. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | Crear una puerta de enlace de aplicaciones. |
 | [az vmss create](/cli/azure/vmss#az-vmss-create) | Crea un conjunto de escalado de máquinas virtuales. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de almacenamiento. |
 | [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Crea una cuenta de almacenamiento. |

@@ -22,9 +22,15 @@
     - name: 'Creación de un grupo de administración: .NET'
       displayName: hierarchy
       href: ./create-management-group-dotnet.md
+    - name: 'Creación de un grupo de administración: Go'
+      displayName: hierarchy
+      href: ./create-management-group-go.md
     - name: 'Creación de un grupo de administración: JavaScript'
       displayName: hierarchy
       href: ./create-management-group-javascript.md
+    - name: 'Creación de un grupo de administración: Python'
+      displayName: hierarchy
+      href: ./create-management-group-python.md
     - name: 'Creación de un grupo de administración: REST'
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
@@ -42,14 +48,18 @@
       href: ./how-to/protect-resource-hierarchy.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/account/management-group
     - name: Azure PowerShell
       href: /powershell/module/az.resources/#resources
     - name: SDK de Azure para .NET
       href: /dotnet/api/overview/azure/managementgroups
+    - name: SDK de Azure para Go
+      href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups'
     - name: SDK de Azure para JavaScript
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - name: SDK de Azure para Python
+      href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - name: REST
       href: /rest/api/resources/managementgroups
     - name: Plantillas de Resource Manager

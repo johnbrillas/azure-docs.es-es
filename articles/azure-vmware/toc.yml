@@ -32,6 +32,8 @@
       href: tutorial-deploy-vmware-hcx.md
     - name: 8 - Escalado de una nube privada
       href: tutorial-scale-private-cloud.md
+    - name: 9 - Eliminación de una nube privada
+      href: tutorial-delete-private-cloud.md
 - name: Conceptos
   items:
     - name: Nubes privadas y clústeres
@@ -110,7 +112,7 @@
       href: faq.yml
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
