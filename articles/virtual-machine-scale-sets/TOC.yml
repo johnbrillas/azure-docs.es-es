@@ -25,25 +25,25 @@
   items:
     - name: 1 - Creación y administración de un conjunto de escalado
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-create-and-manage-cli.md
         - name: Azure PowerShell
           href: tutorial-create-and-manage-powershell.md
     - name: 2 - Uso de discos de datos
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-use-disks-cli.md
         - name: Azure PowerShell
           href: tutorial-use-disks-powershell.md
     - name: 3 - Uso de una imagen de máquina virtual personalizada
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-use-custom-image-cli.md
         - name: Azure PowerShell
           href: tutorial-use-custom-image-powershell.md
     - name: 4 - Implementación de aplicaciones en un conjunto de escalado
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Uso de hosts dedicados (versión preliminar)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: Uso de hosts dedicados
           items:
+            - name: Información general
+              href: ../virtual-machines/dedicated-hosts.md
             - name: CLI
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

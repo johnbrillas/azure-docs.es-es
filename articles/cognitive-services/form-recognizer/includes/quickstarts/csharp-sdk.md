@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 93282e79321f8999ddf8c737ebcb5ea76fbf6e02
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e85a6ad4619897a6c655874b43e6a6b1a7723d3a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947824"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584639"
 ---
 > [!IMPORTANT]
 > Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas.
 
 [Documentación de referencia](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 * El [IDE de Visual Studio](https://visualstudio.microsoft.com/vs/) o la versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -112,7 +112,7 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 
 `FormRecognizerClient` proporciona operaciones para:
 
- - Reconocimiento de los campos de formulario y del contenido, mediante el uso de modelos personalizados entrenados para reconocer los formularios personalizados.  Estos valores se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Análisis de formularios personalizados](#analyze-forms-with-a-custom-model).
+ - Reconocimiento de los campos de formulario y del contenido, mediante el uso de modelos personalizados entrenados para analizar los formularios personalizados.  Estos valores se devuelven en una colección de objetos `RecognizedForm`. Vea el ejemplo [Análisis de formularios personalizados](#analyze-forms-with-a-custom-model).
  - El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo.  El contenido del formulario se devuelve en una colección de objetos `FormPage`. Consulte el ejemplo [Análisis de diseño](#analyze-layout).
  - Reconocimiento de los campos comunes de los recibos de EE. UU. con un modelo de recibo entrenado previamente en el servicio Form Recognizer. Estos campos y metadatos se devuelven en una colección de objetos `RecognizedForm`. Consulte el ejemplo [Análisis de confirmaciones de recepción](#analyze-receipts).
 
@@ -120,8 +120,8 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 
 `FormTrainingClient` proporciona operaciones para:
 
-- El entrenamiento de modelos personalizados para reconocer todos los campos y los valores que se encuentren en los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo reconocerá y los campos que se extraerán para cada tipo de formulario.
-- El entrenamiento de modelos personalizados para reconocer los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los campos que el modelo va a extraer, así como la precisión estimada para cada campo.
+- El entrenamiento de modelos personalizados para analizar todos los campos y los valores que se encuentren en los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo analizará y los campos que se extraerán para cada tipo de formulario.
+- El entrenamiento de modelos personalizados para analizar los campos y los valores concretos que especifique mediante la etiqueta de los formularios personalizados.  Se devuelve un `CustomFormModel` que indica los campos que el modelo va a extraer, así como la precisión estimada para cada campo.
 - La administración de los modelos creados en una cuenta.
 - La copia de un modelo personalizado entre recursos de Form Recognizer.
 
@@ -191,9 +191,9 @@ También tendrá que agregar referencias a las direcciones URL de los datos de e
 
 ## <a name="analyze-layout"></a>Análisis de diseño
 
-Puede usar Form Recognizer para reconocer tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. El valor devuelto es una colección de objetos **FormPage**, uno para cada página del documento enviado. 
+Puede usar Form Recognizer para analizar tablas, líneas y palabras de los documentos sin necesidad de entrenar un modelo. El valor devuelto es una colección de objetos **FormPage**, uno para cada página del documento enviado. Para más información sobre la extracción del diseño, consulte la [guía conceptual sobre diseño](../../concept-layout.md).
 
-Para reconocer el contenido de un archivo en una dirección URL determinada, use el método `StartRecognizeContentFromUri`.
+Para analizar el contenido de un archivo en una dirección URL determinada, use el método `StartRecognizeContentFromUri`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
 
@@ -239,89 +239,6 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
-
-En esta sección se muestra cómo reconocer y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente.
-
-Para reconocer los recibos a partir de una dirección URL, use el método `StartRecognizeReceiptsFromUri`. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
-
-> [!TIP]
-> También puede reconocer imágenes de recepción locales. Consulte los métodos [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), como **StartRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
-
-El valor devuelto es una colección de objetos `RecognizedReceipt`, uno para cada página del documento enviado. En el código siguiente se procesa el recibo en el URI especificado y se imprimen los campos y valores principales en la consola.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
-
-### <a name="output"></a>Resultados 
-
-```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
-    Line 7 has 1 word, and text: '99243'.
-    Line 8 has 2 words, and text: 'Invoice Number'.
-    Line 9 has 2 words, and text: 'Invoice Date'.
-    Line 10 has 3 words, and text: 'Invoice Due Date'.
-    Line 11 has 1 word, and text: 'Charges'.
-    Line 12 has 2 words, and text: 'VAT ID'.
-    Line 13 has 1 word, and text: '34278587'.
-    Line 14 has 1 word, and text: '6/18/2017'.
-    Line 15 has 1 word, and text: '6/24/2017'.
-    Line 16 has 1 word, and text: '$56,651.49'.
-    Line 17 has 1 word, and text: 'PT'.
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    Cell (0, 5) contains text: 'VAT ID'.
-    Cell (1, 0) contains text: '34278587'.
-    Cell (1, 1) contains text: '6/18/2017'.
-    Cell (1, 2) contains text: '6/24/2017'.
-    Cell (1, 3) contains text: '$56,651.49'.
-    Cell (1, 5) contains text: 'PT'.
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-```
-
-## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
-
-#### <a name="version-20"></a>[versión 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Esta característica no está disponible en la versión de API seleccionada.
-
-#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
-
-
-En esta sección se muestra cómo reconocer y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente.
-
-Para reconocer tarjetas de presentación en una dirección URL, use el método `StartRecognizeBusinessCardsFromUriAsync`. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
-
-> [!TIP]
-> También puede reconocer imágenes de recepción locales. Consulte los métodos de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), como **StartRecognizeBusinessCards**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
-
-El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada tarjeta del documento. En el código siguiente se procesa la tarjeta de presentación en el identificador URI dado y se imprimen los campos y valores principales en la consola.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
-
----
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
@@ -332,14 +249,14 @@ El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada t
 
 #### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
 
-En esta sección se muestra cómo reconocer y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente.
+En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
 
-Para reconocer facturas en una dirección URL, use el método `StartRecognizeInvoicesFromUriAsync`. 
+Para analizar facturas de una dirección URL, use el método `StartRecognizeInvoicesFromUriAsync`. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> También puede reconocer imágenes de facturas locales. Consulte los métodos de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), como **StartRecognizeInvoices**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de facturas locales. Consulte los métodos de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), como **StartRecognizeInvoices**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
 
 El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada factura del documento enviado. En el código siguiente se procesa la factura en el identificador URI especificado y se imprimen los campos y valores principales en la consola.
 
@@ -357,13 +274,13 @@ En esta sección se muestra cómo entrenar un modelo con sus propios datos. Un m
 
 ### <a name="train-a-model-without-labels"></a>Entrenamiento de un modelo sin etiquetas
 
-Entrene modelos personalizados para reconocer todos los campos y valores que se encuentran en los formularios personalizados sin etiquetar manualmente los documentos de entrenamiento. El método siguiente entrena un modelo en un conjunto de documentos dado e imprime el estado del modelo en la consola. 
+Entrene modelos personalizados para analizar todos los campos y valores que se encuentran en los formularios personalizados sin etiquetar manualmente los documentos de entrenamiento. El método siguiente entrena un modelo en un conjunto de documentos dado e imprime el estado del modelo en la consola. 
 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train)]
 
 
-El objeto devuelto `CustomFormModel` contiene información sobre los tipos de formulario que el modelo puede reconocer y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
+El objeto devuelto `CustomFormModel` contiene información sobre los tipos de formulario que el modelo puede analizar y los campos que puede extraer de cada tipo de formulario. El siguiente bloque de código imprime esta información en la consola.
 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_response)]
@@ -560,6 +477,90 @@ Field 'Azure.AI.FormRecognizer.Models.FieldValue:
     Confidence: '0.114
    ...
 ```
+
+## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
+
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md).
+
+Para analizar recibos de una dirección URL, use el método `StartRecognizeReceiptsFromUri`. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
+
+> [!TIP]
+> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), como **StartRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
+
+El valor devuelto es una colección de objetos `RecognizedReceipt`, uno para cada página del documento enviado. En el código siguiente se procesa el recibo en el URI especificado y se imprimen los campos y valores principales en la consola.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
+
+### <a name="output"></a>Resultados 
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
+    Line 7 has 1 word, and text: '99243'.
+    Line 8 has 2 words, and text: 'Invoice Number'.
+    Line 9 has 2 words, and text: 'Invoice Date'.
+    Line 10 has 3 words, and text: 'Invoice Due Date'.
+    Line 11 has 1 word, and text: 'Charges'.
+    Line 12 has 2 words, and text: 'VAT ID'.
+    Line 13 has 1 word, and text: '34278587'.
+    Line 14 has 1 word, and text: '6/18/2017'.
+    Line 15 has 1 word, and text: '6/24/2017'.
+    Line 16 has 1 word, and text: '$56,651.49'.
+    Line 17 has 1 word, and text: 'PT'.
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    Cell (0, 5) contains text: 'VAT ID'.
+    Cell (1, 0) contains text: '34278587'.
+    Cell (1, 1) contains text: '6/18/2017'.
+    Cell (1, 2) contains text: '6/24/2017'.
+    Cell (1, 3) contains text: '$56,651.49'.
+    Cell (1, 5) contains text: 'PT'.
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+```
+
+## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
+
+#### <a name="version-20"></a>[versión 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Esta característica no está disponible en la versión de API seleccionada.
+
+#### <a name="version-21-preview"></a>[versión preliminar 2.1](#tab/preview)
+
+
+En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
+
+Para analizar tarjetas de presentación en una dirección URL, use el método `StartRecognizeBusinessCardsFromUriAsync`. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+
+> [!TIP]
+> También puede analizar imágenes de recibos locales. Consulte los métodos de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), como **StartRecognizeBusinessCards**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) para escenarios relacionados con imágenes locales.
+
+El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada tarjeta del documento. En el código siguiente se procesa la tarjeta de presentación en el identificador URI dado y se imprimen los campos y valores principales en la consola.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+
+---
 
 ## <a name="manage-custom-models"></a>Administración de modelos personalizados
 

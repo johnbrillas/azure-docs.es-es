@@ -10,16 +10,32 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490884"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007404"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="february-2021"></a>Febrero de 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versión preliminar pública de Read API v3.2 con compatibilidad con OCR para 73 idiomas
+La versión preliminar pública de Read API v3.2 de Computer Vision, disponible como servicio en la nube y como contenedor de Docker, incluye estas actualizaciones:
+* [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) entre los que se incluyen chino simplificado y tradicional, japonés, coreano y los idiomas procedentes del latín.
+* Orden de lectura natural para la salida de la línea de texto.
+* Clasificación de estilos de escritura a mano para líneas de texto junto con una puntuación de confianza (solo para idiomas procedentes del latín).
+* Extracción de texto solo de las páginas seleccionadas de un documento.
+* Disponible como [contenedor sin distribución](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para la implementación local.
+
+[Más información](concept-recognizing-text.md) acerca de Read API.
+
+> [!div class="nextstepaction"]
+> [Use la versión preliminar pública de Read API v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Enero de 2021
 

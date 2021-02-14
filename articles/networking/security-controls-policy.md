@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para los servicios de red de Azure
 description: En este artículo se muestran los controles de cumplimiento normativo de Azure Policy disponibles para los servicios de red de Azure. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d2fa98f5fb08978ca44a591de7f7c93d26dc4165
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: fc5d51304d628561e0cd2386088e8099a3b17406
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097815"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099054"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-networking-services"></a>Controles de cumplimiento normativo de Azure Policy para los servicios de red de Azure
 
