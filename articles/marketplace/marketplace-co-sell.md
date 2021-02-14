@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063086"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581574"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
@@ -79,6 +79,9 @@ Comience el recorrido de venta conjunta directamente en el Centro de partners a 
 
 1. Guarde el borrador antes de continuar.
 1. Una vez que haya completado todas las secciones necesarias de la oferta, puede enviarla para su revisión y publicación. En la esquina superior derecha, seleccione **Revisar y publicar**. Revise los detalles de la oferta y, a continuación, seleccione **Publicar**.
+
+> [!NOTE]
+> Ya no es necesario que se ponga en contacto con nosotros para proponer la oferta para venta conjunta. Después de completar todos los campos obligatorios de la página Venta conjunta con Microsoft y de volver a publicar la oferta, esta se revisa para determinar si cumple los requisitos del estado de venta conjunta.
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulta del estado de la venta conjunta de su oferta
 

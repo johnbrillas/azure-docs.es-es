@@ -39,13 +39,11 @@
       href: access-control.md
     - name: Roles integrados de RBAC local
       href: built-in-roles.md
-- name: Guías paso a paso
-  items: null
 - name: Referencia
   items:
     - name: Azure PowerShell
       href: /powershell/azure#key_vault
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet

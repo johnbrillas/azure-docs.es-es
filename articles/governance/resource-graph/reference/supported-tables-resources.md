@@ -1,15 +1,15 @@
 ---
 title: Tipos de recurso de Azure Resource Manager admitidos
 description: Proporcione una lista de los tipos de recurso de Azure Resource Manager admitidos en Azure Resource Graph y el Historial de cambios.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4198c60bc298eb6a1b9902bb92e3df44648b2c0b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251784"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594340"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -130,6 +130,9 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.azurestack/linkedsubscriptions
 - Microsoft.Azurestack/registrations (instancias de Azure Stack Hub)
 - <<<<Microsoft.AzureStackHCI/clusters (Azure Stack HCI)
+- microsoft.azurestackhci/galleryimages
+- microsoft.azurestackhci/networkinterfaces
+- microsoft.azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (servidores de Cray)
 - Microsoft.BareMetal/monitoringServers (servidores de supervisión)
@@ -331,6 +334,9 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.insights/workbooktemplates (plantillas de libro de Azure)
 - Microsoft.IntelligentITDigitalTwin/digitalTwins (Minervas)
 - microsoft.intelligentitdigitaltwin/digitaltwins/assets
+- microsoft.intelligentitdigitaltwin/digitaltwins/executionplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/testplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/tests
 - Microsoft.IoTCentral/IoTApps (aplicaciones de IoT Central)
 - Microsoft. IoTSpaces/Graph (Digital Twins [en desuso])
 - microsoft.keyvault/hsmpools
@@ -494,6 +500,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Resources/templateSpecs (especificaciones de plantilla)
 - microsoft.resources/templatespecs/versions
 - Microsoft.SaaS/applications (software como servicio [clásico])
+- Microsoft.SaaS/resources (CPX-Placeholder)
 - Microsoft.Scheduler/jobCollections (colecciones de trabajos de Scheduler)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (máquina virtual de SCVMM - Azure Arc)
@@ -588,6 +595,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Web/StaticSites (Static Web Apps [versión preliminar])
 - Microsoft.WindowsESU/multipleActivationKeys (claves de activación múltiple de Windows)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- microsoft.workloadbuilder/migrationagents
 - microsoft.workloadbuilder/workloads
 - MyGet.PackageManagement/services (MyGet - NuGet, NPM, Bower y Vsix hospedados)
 - <<<Paraleap.CloudMonix/services (CloudMonix)

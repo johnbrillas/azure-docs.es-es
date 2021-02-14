@@ -1,27 +1,27 @@
 ---
-title: Uso de .NET para crear una SAS de delegación de usuarios para un contenedor o un blob
+title: Uso de .NET para crear una SAS de delegación de usuarios para un contenedor, un directorio o un blob
 titleSuffix: Azure Storage
 description: Aprenda a crear una SAS de delegación de usuarios con credenciales de Azure Active Directory en Azure Storage mediante la biblioteca cliente de .NET.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199264"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526812"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET
+# <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor, un directorio o un blob con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-En este artículo se muestra cómo usar credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios para un contenedor o blob con la biblioteca cliente de Azure Storage para .NET versión 12.
+En este artículo se muestra cómo usar credenciales de Azure Active Directory (Azure AD) para crear una SAS de delegación de usuarios para un contenedor, un directorio o un blob con la biblioteca cliente de Azure Storage para .NET versión 12.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -99,7 +99,7 @@ En el ejemplo siguiente se prueba la SAS de delegación de usuarios creada en el
 
 ## <a name="get-a-user-delegation-sas-for-a-directory"></a>Obtención de una SAS de delegación de usuarios para un directorio
 
-En el ejemplo de código siguiente se muestra cómo generar una SAS de delegación de usuarios para un directorio cuando está habilitado un espacio de nombres jerárquico:
+En el ejemplo de código siguiente se muestra cómo generar una SAS de delegación de usuarios para un directorio cuando hay un espacio de nombres jerárquico habilitado para la cuenta de almacenamiento:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 

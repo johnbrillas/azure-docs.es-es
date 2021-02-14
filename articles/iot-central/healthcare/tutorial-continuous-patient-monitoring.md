@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531277"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832511"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementación y tutorial de una plantilla de aplicación de supervisión continua de pacientes
 
@@ -24,6 +24,10 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Elija una plantilla de aplicación.
 > * Recorrido por la plantilla de aplicación
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+Se recomienda una suscripción de Azure. Como alternativa, puede usar una versión de prueba gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Elija una plantilla de aplicación.
 
@@ -61,11 +65,11 @@ Después de implementar la plantilla de la aplicación, irá en primer lugar al 
 
 * Cambie el **estado del paciente** del dispositivo para indicar si se está usando para un escenario remoto o con pacientes in situ.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Estado de paciente in situ":::
 
 También puede seleccionar **Go to remote patient dashboard** (Ir al panel de pacientes remotos) para ver el panel del operador del Hospital de Burkville. Este panel contiene un conjunto similar de acciones, telemetría e información. También puede ver varios dispositivos en uso y elegir **actualizar el firmware** de cada uno.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Panel del operador remoto":::
 
 ### <a name="device-templates"></a>Plantillas de dispositivo
 
@@ -75,7 +79,7 @@ Si selecciona **Device templates**, (Plantillas de dispositivo) verá los dos ti
 
 * **Smart Knee Brace** (Rodillera inteligente): este dispositivo representa una rodillera que los pacientes utilizan al recuperarse de una cirugía de reemplazo de una rodilla. Si selecciona esta plantilla, verá funcionalidades como los datos del dispositivo, el intervalo de movimiento y la aceleración.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Plantilla de parche inteligente":::
 
 ### <a name="device-groups"></a>Grupos de dispositivos
 
@@ -93,7 +97,7 @@ Si selecciona **Rules** (Reglas), verá las tres reglas en la plantilla:
 
 * **Patch battery low** (Revisión de poca batería): esta regla se desencadena cuando el nivel de batería del dispositivo desciende por debajo del 10 %. Utilice esta regla para desencadenar una notificación al paciente para que cargue su dispositivo.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Reglas":::
 
 ### <a name="jobs"></a>Trabajos
 
@@ -113,7 +117,7 @@ La pestaña **Properties** (Propiedades) le permite editar las propiedades de la
 
 La pestaña **Commands** (Comandos) le permite ejecutar comandos en el dispositivo.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Panel de la rodillera inteligente":::
 
 ### <a name="data-export"></a>Exportación de datos
 
@@ -123,7 +127,7 @@ La exportación de datos permite exportar los datos del dispositivo de forma con
 
 Si no va a seguir usando esta aplicación, elimine su plantilla. Para ello, vaya a **Administración > Configuración de la aplicación** y haga clic en **Eliminar**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
+:::image type="content" source="media/admin-delete.png" alt-text="Recursos ordenados":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

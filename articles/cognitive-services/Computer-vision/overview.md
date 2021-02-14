@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033296"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575947"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -32,7 +32,7 @@ Puede crear aplicaciones de Computer Vision mediante el [SDK de una biblioteca c
 
 ## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
-Computer Vision incluye funcionalidades de [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md). Puede usar la nueva Read API para extraer texto impreso y manuscrito de imágenes y documentos. Usa los modelos más recientes y funciona con texto en diversas superficies y fondos. Entre estos se incluyen recibos, pósteres, tarjetas de presentación, cartas y pizarras. Las dos API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga un [inicio rápido](./quickstarts-sdk/client-library.md) para comenzar.
+Computer Vision incluye funcionalidades de [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md). Puede usar la nueva Read API para extraer texto impreso y manuscrito de imágenes y documentos. Usa los modelos basados en aprendizaje profundo y funciona con texto en diversas superficies y fondos. Entre estos se incluyen documentos de la empresa, facturas, recibos, pósteres, tarjetas de presentación, cartas y pizarras. Las API de OCR admiten la extracción de texto impreso en [varios idiomas](./language-support.md). Siga un [inicio rápido](./quickstarts-sdk/client-library.md) para comenzar.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Computer Vision para la administración de activos digitales
 

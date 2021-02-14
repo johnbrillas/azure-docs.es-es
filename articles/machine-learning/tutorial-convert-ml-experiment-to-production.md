@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317850"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576031"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Conversión de experimentos de ML en código de producción de Python
 
@@ -353,7 +353,7 @@ En tercer lugar, las funciones relacionadas deben combinarse en archivos de Pyth
 Convierta el cuaderno en un script ejecutable mediante la ejecución de la siguiente instrucción en un símbolo del sistema, que usa el paquete `nbconvert` y la ruta de acceso de `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Una vez convertido el cuaderno en `train.py`, quite todos los comentarios innecesarios. Reemplace la llamada a `main()` al final del archivo por una invocación condicional como el código siguiente:
@@ -441,7 +441,7 @@ El archivo `train_aml.py` que se encuentra en el directorio `diabetes_regression
 Convierta el cuaderno en un script ejecutable mediante la ejecución de la siguiente instrucción en un símbolo del sistema, que usa el paquete `nbconvert` y la ruta de acceso de `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Una vez convertido el cuaderno en `score.py`, quite todos los comentarios innecesarios. El archivo `score.py` debe ser similar al siguiente código:

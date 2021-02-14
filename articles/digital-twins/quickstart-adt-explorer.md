@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050534"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575697"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Inicio rápido: Exploración de un escenario de Azure Digital Twins de ejemplo con ADT Explorer
 
@@ -306,11 +306,15 @@ En este inicio rápido, realizó la actualización de la temperatura manualmente
 
 Para finalizar el trabajo de esta guía de inicio rápido, primero finalice la aplicación de consola en ejecución. Esta acción cierra la conexión a la aplicación ADT Explorer en el explorador. Ya no podrá ver allí los datos en directo. Puede cerrar la pestaña del explorador.
 
-Si tiene previsto seguir con los tutoriales de Azure Digital Twins, puede reutilizar la instancia de este inicio rápido en esos artículos, no es necesario eliminarla.
+Después, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
+
+* **Si tiene previsto seguir con los tutoriales de Azure Digital Twins**, puede reutilizar la instancia de este inicio rápido en esos artículos, no es necesario eliminarla.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finalmente, elimine la carpeta de ejemplo del proyecto, **Azure_Digital_Twins__ADT__explorer**, que descargó en la máquina local. Es posible que tenga que eliminar las versiones comprimidas y descomprimidas.
+También puede que desee eliminar la carpeta del proyecto de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052353"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581455"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -102,15 +102,14 @@ Se recomienda que <!--turn on storage auto-grow or to--> configure una alerta qu
 El crecimiento automático del almacenamiento todavía no está disponible para los servidores flexibles de Azure Database for MySQL.
 
 ## <a name="iops"></a>E/S
-El número mínimo efectivo de IOPS es de 100 en todos los tamaños de proceso y el número máximo efectivo de IOPS se determina mediante los siguientes atributos: 
-- Proceso: el número máximo efectivo de IOPS puede estar limitado por el número máximo disponible de IOPS del tamaño de proceso seleccionado.
-- Almacenamiento: en todos los niveles de proceso, la escala de IOPS con el tamaño de almacenamiento aprovisionado en una relación de 3:1.
 
-Puede escalar la IOPS efectiva disponible aumentando el almacenamiento aprovisionado o pasando a un tamaño de proceso mayor (si el número de IOPS está limitado por proceso). En la versión preliminar, el número máximo de IOPS efectivo que se admite es de 20 000 IOPS.
+Azure Database for MySQL: el servidor flexible admite el aprovisionamiento de IOPS adicionales. Esta característica permite aprovisionar IOPS adicionales por encima del límite gratuito de IOPS. Con esta característica puede aumentar o disminuir el número de IOPS aprovisionadas en función de los requisitos de la carga de trabajo en cualquier momento. 
 
-Para obtener más información sobre el número máximo de IOPS efectivo por tamaño de proceso, use la combinación de proceso y almacenamiento, tal como se muestra a continuación: 
+El número mínimo de IOPS es de 100 en todos los tamaños de proceso y el máximo viene determinado por el tamaño de proceso seleccionado. En la versión preliminar, el número máximo de IOPS admitido es de 20 000.
 
-| Tamaño de proceso         | Número máximo de IOPS efectivo  | 
+A continuación se muestra el número máximo de IOPS por tamaño de proceso: 
+
+| Tamaño de proceso         | Número máximo de IOPS        | 
 |----------------------|---------------------|
 | **Flexible**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ Para obtener más información sobre el número máximo de IOPS efectivo por tam
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-El número máximo efectivo de IOPS depende del número máximo de IOPS disponible por tamaño de proceso. Vea la fórmula siguiente y consulte la columna *Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/MBps* en la documentación de la [serie B](../../virtual-machines/sizes-b-series-burstable.md), [serie Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) y [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md).
+El número máximo de IOPS depende del máximo de IOPS disponible por tamaño de proceso. Vea la columna *Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/MBps* en la documentación de la [serie B](../../virtual-machines/sizes-b-series-burstable.md), [serie Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) y [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
-**Número máximo efectivo de IOPS** = MÍNIMO ( *"rendimiento de disco no almacenado en caché máximo: IOPS/MBps"* del tamaño de proceso, almacenamiento aprovisionado en GiB * 3)
+> [!Important]
+> Las **IOPS gratuitas** son iguales a MINIMUM("Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/MBps" de tamaño de proceso, almacenamiento aprovisionado en GiB * 3)<br>
+> El **número de IOPS mínimo** es de 100 en todos los tamaños de proceso.<br>
+> El **número de IOPS máximo** viene determinado por el tamaño de proceso seleccionado. En la versión preliminar, el número máximo de IOPS admitido es de 20 000.
 
-Puede supervisar el consumo de E/S en el Azure Portal (con Azure Monitor) mediante la métrica [Porcentaje de E/S](./concepts-monitoring.md). Si necesita más IOPS, tendrá que saber si está restringido por el tamaño de proceso o por el almacenamiento aprovisionado. Escale el proceso o el almacenamiento del servidor aprovisionado en consecuencia.
+Puede supervisar el consumo de E/S en el Azure Portal (con Azure Monitor) mediante la métrica [Porcentaje de E/S](./concepts-monitoring.md). Si necesita más IOPS que el número máximo de IOPS basado en el proceso, debe escalar el proceso del servidor.
 
 ## <a name="backup"></a>Copia de seguridad
 

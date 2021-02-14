@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672294"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581047"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guía de migración de ADAL a MSAL para Android
 
@@ -71,7 +71,7 @@ En el registro de la aplicación en el portal, verá una pestaña **Permisos de 
 Con ADAL y el punto de conexión de Azure AD v1, el consentimiento del usuario a los recursos que posee se concedió al usarlos por primera vez. Con MSAL y la Plataforma de identidad de Microsoft, se puede solicitar el consentimiento de forma incremental. El consentimiento incremental es útil para los permisos que un usuario puede considerar privilegios elevados o, por el contrario, de los que dude porque no se proporciona una explicación clara de por qué se requiere el permiso. En ADAL, esos permisos pueden provocar que el usuario abandone el registro en la aplicación.
 
 > [!TIP]
-> Se recomienda el uso del consentimiento incremental en escenarios en los que es necesario proporcionar contexto adicional al usuario sobre el motivo por el que la aplicación necesita un permiso.
+> Use el consentimiento incremental para proporcionar contexto adicional a los usuarios sobre por qué la aplicación necesita un permiso.
 
 ### <a name="admin-consent"></a>Consentimiento de administrador
 

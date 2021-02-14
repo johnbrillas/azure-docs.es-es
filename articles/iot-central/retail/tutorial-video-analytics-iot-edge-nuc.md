@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427996"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831933"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (Intel NUC)
 
@@ -148,6 +148,14 @@ Identifique las direcciones URL de la secuencia RTSP de las cámaras conectadas 
 
 > [!TIP]
 > Intente ver la secuencia de la cámara en el equipo de IoT Edge con un reproductor multimedia, como VLC.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si ha terminado con la aplicación, puede eliminar todos los recursos que ha creado de la siguiente manera:
+
+1. En la aplicación de IoT Central, vaya a la página **Your application** (Su aplicación) en la sección **Administration** (Administración). A continuación, seleccione **Eliminar**.
+1. En Azure Portal, elimine el grupo de recursos **lva-rg**.
+1. En el equipo local, detenga el contenedor de Docker **amp-viewer**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

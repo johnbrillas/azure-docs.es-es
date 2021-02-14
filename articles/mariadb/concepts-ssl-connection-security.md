@@ -3,15 +3,15 @@ title: 'Conectividad SSL/TLS: Azure Database for MariaDB'
 description: Información para configurar Azure Database for MariaDB y las aplicaciones asociadas, a fin de usar correctamente las conexiones SSL
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 7ada6f5a7b7ece9b8b36ea1bd2e52b5ad7efd12d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 6c4ee8c6d12a6350c319e40bbe30046af4932311
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662498"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550647"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividad SSL/TLS en Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de bases de datos a las aplicaciones cliente con la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -62,7 +62,7 @@ Para obtener información sobre cómo establecer la configuración de TLS para A
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Cifrado admitido por el servidor único de Azure Database for MariaDB
 
-Como parte de la comunicación SSL/TLS, los conjuntos de cifrado se validan y son los únicos que tienen permitido comunicarse con el servidor de la base de datos. La validación del conjunto de cifrado se controla en el [nivel de puerta de enlace](concepts-connectivity-architecture.md#connectivity-architecture) y no de manera explícita en el propio nodo. Si los conjuntos de cifrado no coinciden con algunos de los conjuntos mencionados a continuación, se rechazarán las conexiones de cliente entrantes.
+Como parte de la comunicación SSL/TLS, los conjuntos de cifrado se validan y solo los admitidos pueden comunicarse con el servidor de bases de datos. La validación del conjunto de cifrado se controla en el [nivel de puerta de enlace](concepts-connectivity-architecture.md#connectivity-architecture) y no de manera explícita en el propio nodo. Si los conjuntos de cifrado no coinciden con algunos de los conjuntos mencionados a continuación, se rechazarán las conexiones de cliente entrantes.
 
 ### <a name="cipher-suite-supported"></a>Conjunto de cifrado compatible
 
