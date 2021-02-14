@@ -2,13 +2,13 @@
 title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de Azure VMware Solution y los clústeres de vSphere.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 234e705ad3b39a575c6f8c475bede4b81efa4b96
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/02/2021
+ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474920"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538931"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
@@ -66,10 +66,11 @@ Las configuraciones de vCenter y NSX-T de la nube privada se encuentran en una p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha analizado estos conceptos de la nube privada de Azure VMware Solution, puede que quiera obtener información sobre: 
+Ahora que ha visto los conceptos de nube privada de Azure VMware Solution, puede que quiera obtener información sobre: 
 
 - [Conceptos de interconectividad y redes de Azure VMware Solution](concepts-networking.md).
 - [Conceptos de almacenamiento de Azure VMware Solution](concepts-storage.md).
+- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

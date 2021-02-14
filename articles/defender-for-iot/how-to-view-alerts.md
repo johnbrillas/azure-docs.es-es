@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837041"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509083"
 ---
 # <a name="view-alerts"></a>Visualización de alertas
 
@@ -84,7 +84,7 @@ Si no se selecciona ninguna de las opciones, se muestran todas las alertas.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Seguridad en la pantalla Alertas.":::
 
-## <a name="alert-window-options"></a>Opciones de la ventana Alertas
+## <a name="alert-page-options"></a>Opciones de la página Alertas
 
 Los mensajes de alerta proporcionan las siguientes acciones:
 
@@ -101,6 +101,8 @@ Los mensajes de alerta proporcionan las siguientes acciones:
 - Seleccione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para conocer y confirmar todas las alertas.
 
 - Seleccione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar la lista de alertas a un archivo CSV y seleccionar la opción de exportación. Elija **Exportación de alertas** para la opción para exportar a CSV normal. O bien, elija **Extended Alert Export** (Exportación de alertas extendida) para tener la posibilidad de agregar filas independientes y obtener información adicional sobre una alerta del archivo CSV.
+
+## <a name="alert-pop-up-window-options"></a>Opciones de la ventana emergente Alertas
 
 - Seleccione el icono :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: para descargar un informe de alertas como un archivo PDF.
 

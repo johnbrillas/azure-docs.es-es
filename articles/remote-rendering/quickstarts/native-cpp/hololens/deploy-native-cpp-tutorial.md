@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: d35d6e75b45c2ea263c2e986c5fc6f414cad16e4
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724976"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594034"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de C++ nativo en HoloLens
 
@@ -61,26 +61,26 @@ Cambie la configuración de compilación a *Depurar* (o *Liberar*) y *ARM64*. As
 
 ![Configuración de Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
-Puesto que las credenciales de la cuenta están codificadas de forma rígida en el código fuente del tutorial, cámbielas por unas credenciales válidas. Para ello, abra el archivo `HolographicAppMain.cpp` dentro de Visual Studio y cambie la parte en la que se crea el front-end dentro del constructor de la clase `HolographicAppMain`:
+Puesto que las credenciales de la cuenta están codificadas de forma rígida en el código fuente del tutorial, cámbielas por unas credenciales válidas. Para ello, abra el archivo `HolographicAppMain.cpp` dentro de Visual Studio y cambie la parte en la que se crea el cliente dentro del constructor de la clase `HolographicAppMain`:
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
-    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 En concreto, cambie los valores siguientes:
-* `init.AccountId`, `init.AccountKey` e `init.AccountAuthenticationDomain` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.AccountDomain` para otras regiones distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
+* `init.AccountId`, `init.AccountKey` e `init.AccountDomain` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.RemoteRenderingDomain` para otras regiones distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
 * Además, `m_sessionOverride` se puede cambiar a un identificador de sesión existente. Se pueden crear sesiones fuera de este ejemplo, por ejemplo, mediante [el script de PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o mediante la [API REST de la sesión](../../../how-tos/session-rest-api.md#create-a-session) directamente.
 Se recomienda crear una sesión fuera del ejemplo cuando este deba ejecutarse varias veces. Si no se devuelve ninguna sesión, el ejemplo creará una en cada inicio, lo que puede tardar varios minutos.
 

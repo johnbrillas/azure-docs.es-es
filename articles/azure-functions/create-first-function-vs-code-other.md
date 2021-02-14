@@ -3,12 +3,12 @@ title: 'Creación de una función en Go o Rust con Visual Studio Code: Azure Fu
 description: Obtenga información sobre cómo crear una función de Go como un controlador personalizado de Azure Functions y, a continuación, publicar el proyecto local en el hospedaje sin servidor de Azure Functions con la extensión de Azure Functions en Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493672"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809582"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Inicio rápido: Creación de una función de Go o Rust en Azure con Visual Studio Code
 
@@ -262,7 +262,7 @@ En esta sección, publicará el proyecto en Azure en una aplicación de funcione
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Cambie el valor de `defaultExecutablePath` en *host.json* de `handler.exe` a `handler`. Esto indica a la aplicación de funciones que ejecute el archivo binario de Linux.

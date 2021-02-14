@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124901"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832052"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificación y compilación de los módulos de la puerta de enlace de análisis de vídeo en directo
 
@@ -73,6 +73,13 @@ Abra la carpeta del repositorio local *live-video-analytics* con VS Code.
 1. Use el terminal de VS Code para ejecutar el comando **npm version patch**. Este script de compilación implementa las imágenes en el registro de contenedor. La salida de la ventana del terminal de VS Code muestra si la compilación se ha realizado correctamente.
 
 1. La versión de la imagen **LvaEdgeGatewayModule** se incrementa cada vez que se completa la compilación. Debe usar esta versión en el archivo de manifiesto de implementación.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si ha terminado con la aplicación, puede eliminar todos los recursos que ha creado de la siguiente manera:
+
+1. En la aplicación de IoT Central, vaya a la página **Your application** (Su aplicación) en la sección **Administration** (Administración). A continuación, seleccione **Eliminar**.
+1. En Azure Portal, elimine el grupo de recursos **lva-rg**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

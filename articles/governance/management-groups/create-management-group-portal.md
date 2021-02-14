@@ -1,14 +1,14 @@
 ---
 title: Creación de un grupo de administración con Azure Portal
 description: En este inicio rápido, se usa Azure Portal para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661741"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592439"
 ---
 # <a name="quickstart-create-a-management-group"></a>Inicio rápido: Creación de un grupo de administración
 
@@ -39,7 +39,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
    - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es puede editar después de la creación, ya que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](./overview.md#root-management-group-for-each-directory) se crea automáticamente con un ID que es el identificador de Azure Active Directory. Para el resto de grupos de administración, asigne un identificador único.
    - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Captura de pantalla de las opciones de &quot;Agregar grupo de administración&quot; para crear un nuevo grupo de administración.":::
 
 1. Seleccione **Guardar**.
 
