@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874805"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832613"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Supervisión y administración de una aplicación de análisis de vídeo con detección de objetos y movimiento
 
@@ -61,7 +61,7 @@ Si tiene dos cámaras conectadas al dispositivo de puerta de enlace IoT Edge, re
 
 Seleccione la pestaña **Downstream Devices** (Dispositivos de bajada) del dispositivo **LVA Gateway 001** para ver los dispositivos de cámara que acaba de agregar:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspeccionar":::
 
 Los dispositivos de cámara también aparecen en la lista de la página **Devices** (Dispositivos) de la aplicación.
 
@@ -98,7 +98,7 @@ Seleccione **Guardar**.
 
 Después de unos segundos, verá el mensaje de confirmación **Accepted** (Aceptado) para cada configuración:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Detección de objetos":::
 
 ## <a name="start-lva-processing"></a>Inicio del procesamiento de LVA
 
@@ -108,13 +108,13 @@ Ejecute el comando **Start LVA Processing** (Iniciar procesamiento de LVA).
 
 Cuando se complete el comando, consulte el historial de comandos para asegurarse de que no hay errores:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Comando Start LVA processing (Iniciar procesamiento de LVA)":::
 
 ## <a name="monitor-the-cameras"></a>Supervisión de las cámaras
 
 Vaya al dispositivo **camera-003** y seleccione la pestaña **Dashboard** (Panel):
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Panel de la cámara":::
 
 El icono **Detection Count** (Recuento de detecciones) muestra el recuento medio de detecciones de cada uno de los objetos de clases de detección seleccionados durante un intervalo de detección de un segundo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Vaya al dispositivo **camera-003** y seleccione la pestaña **Dashboard** (Panel). A continuación, haga clic en uno de los hipervínculos de detección de objetos capturados en el icono **Inference Event Video** (Vídeo de evento de inferencia). El reproductor de vídeo local muestra el vídeo en una página:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragmento de vídeo":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Cambio de los dispositivos simulados en los paneles de la aplicación
 
@@ -182,7 +182,7 @@ Los paneles de la aplicación se rellenan originalmente con los datos de telemet
 
 En el panel **Real Camera Monitor** (Monitor de cámara real) ahora se muestran los valores del dispositivo de cámara real:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Agregar cámara":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Panel de la aplicación con cámaras reales":::
 
 ## <a name="pause-processing"></a>Pausa del procesamiento
 
@@ -195,7 +195,7 @@ Puede pausar el procesamiento de análisis de vídeo en directo en la aplicació
     * Haga clic en el recurso **Punto de conexión de streaming**.
     * En la página **Detalles del punto de conexión de streaming**, seleccione **Detener**.
 
-## <a name="tidy-up"></a>Limpieza
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si ha terminado con la aplicación, puede eliminar todos los recursos que ha creado de la siguiente manera:
 
