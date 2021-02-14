@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fc8ddba2ec9b7bc9f1c2db8673ab805810afe17e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545487"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981296"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Inicio rápido: Implementación de un centro de Azure IoT Hub y una cuenta de almacenamiento mediante una plantilla de ARM
 
@@ -91,7 +91,7 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
 1. La última variable de entorno es el **identificador de dispositivo**. En la ventana de comandos, configure el comando y ejecútelo.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
@@ -101,7 +101,7 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
    SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
-1. Para ver las variables de entorno que ha definido, escriba SET en la línea de comandos y presione **Entrar** ; a continuación, busque las que comienzan por **IoT**.
+1. Para ver las variables de entorno que ha definido, escriba SET en la línea de comandos y presione **Entrar**; a continuación, busque las que comienzan por **IoT**.
 
    ![Ver las variables de entorno](./media/horizontal-arm-route-messages/06-environment-variables.png)
 

@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426708"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979834"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integración con la implementación de Kubernetes mediante Helm
 
@@ -33,7 +33,7 @@ En este tutorial se da por supuesto que tiene conocimientos básicos sobre la ad
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Instalar la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.4.0 o posterior)
+- Instalar la [CLI de Azure](/cli/azure/install-azure-cli) (versión 2.4.0 o posterior)
 - Instalar [Helm](https://helm.sh/docs/intro/install/) (versión 2.14.0 o posterior)
 - Un clúster de Kubernetes.
 
@@ -57,10 +57,10 @@ En este tutorial se da por supuesto que tiene conocimientos básicos sobre la ad
 3. Seleccione **Explorador de configuración**.
 
 4. Seleccione **+ Crear** > **Referencia del almacén de claves** y, a continuación, especifique los valores siguientes:
-    - **Clave** : Seleccione **secrets.password**.
-    - **Etiqueta** : deje este valor en blanco.
-    - **Suscripción** , **Grupo de recursos** y **Key Vault** : escriba los valores correspondientes a los del almacén de claves que creó en el paso anterior.
-    - **Secreto** : seleccione el secreto llamado **Password** que creó en la sección anterior.
+    - **Clave**: Seleccione **secrets.password**.
+    - **Etiqueta**: deje este valor en blanco.
+    - **Suscripción**, **Grupo de recursos** y **Key Vault**: escriba los valores correspondientes a los del almacén de claves que creó en el paso anterior.
+    - **Secreto**: seleccione el secreto llamado **Password** que creó en la sección anterior.
 
 ## <a name="create-helm-chart"></a>Creación de un gráfico de Helm ##
 En primer lugar, cree un gráfico de Helm de ejemplo con el siguiente comando:
@@ -185,7 +185,7 @@ settings:
 En primer lugar, descargue la configuración de App Configuration en un archivo *myConfig.yaml*. Use un filtro de clave para descargar solo las claves que comiencen por **settings.** . Si en su caso el filtro de clave no es suficiente para excluir las claves de las referencias de Key Vault, puede usar el argumento **--skip-keyvault** para excluirlas. 
 
 > [!TIP]
-> Obtenga más información sobre el [comando export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Obtenga más información sobre el [comando export](/cli/azure/appconfig/kv#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -229,7 +229,7 @@ Compruebe que las configuraciones y los secretos se establecieron correctamente;
 
 ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/kubernetes-dashboard-env-variables.png)
 
-Un secreto, **password** , se almacena como referencia de Key Vault en App Configuration y también se agregó a los secretos de Kubernetes. 
+Un secreto, **password**, se almacena como referencia de Key Vault en App Configuration y también se agregó a los secretos de Kubernetes. 
 
 ![Captura de pantalla que resalta la contraseña en la sección de datos.](./media/kubernetes-dashboard-secrets.png)
 
@@ -242,4 +242,4 @@ Un secreto, **password** , se almacena como referencia de Key Vault en App Confi
 En este tutorial, ha exportado los datos de Azure App Configuration que se van a usar en una implementación de Kubernetes con Helm. Para más información sobre App Configuration, continúe con los ejemplos de la CLI de Azure.
 
 > [!div class="nextstepaction"]
-> [CLI de Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI de Azure](/cli/azure/appconfig)

@@ -219,7 +219,7 @@
       href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
@@ -323,8 +323,6 @@
       items:
         - name: Canal de YouTube de gobernanza
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: "Video: Ignite\_2019"
-          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
         - name: Vídeos de configuración de invitado
           items:
             - name: Introducción
