@@ -2,13 +2,13 @@
 title: Uso de la funcionalidad de dirección IP pública en Azure VMware Solution
 description: En este artículo se explica cómo usar la funcionalidad de IP pública en Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517910"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581387"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Uso de la funcionalidad de dirección IP pública en Azure VMware Solution
 
@@ -116,11 +116,11 @@ Una vez que se implementan todos los componentes, puede verlos en el grupo de re
 
    :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Captura de pantalla que muestra cómo crear una directiva de firewall en Firewall Manager" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. En la pestaña **Básico**, proporcione los detalles necesarios y seleccione **Siguiente: Configuración de DNS**. 
+1. En la pestaña **Conceptos básicos**, proporcione los detalles necesarios y seleccione **Siguiente: Configuración de DNS**. 
 
-1. En la pestaña **DNS**, seleccione **Deshabilitar** y, a continuación, seleccione **Siguiente: Las reglas**.
+1. En la pestaña **DNS**, seleccione **Deshabilitar** y luego **Siguiente: Las reglas**.
 
-1. Seleccione **Agregar una colección de reglas**, proporcione los detalles siguientes y seleccione **Agregar**; a continuación, seleccione **Siguiente: Inteligencia sobre amenazas**.
+1. Seleccione **Agregar una colección de reglas**, proporcione los detalles siguientes y seleccione **Agregar** y luego **Siguiente: Inteligencia sobre amenazas**.
 
    -  Name
    -  Tipo de colección de reglas: DNAT
@@ -128,8 +128,8 @@ Una vez que se implementan todos los componentes, puede verlos en el grupo de re
    -  Acción de la colección de reglas: permitir
    -  Nombre de la regla
    -  Tipo de origen: **IPaddress**
-   -  Origen: * *\** _
-   -  Protocolo: _ *TCP**
+   -  Origen: **\***
+   -  Protocolo **TCP**
    -  Puerto de destino: **80**
    -  Tipo de destino: **Dirección IP**
    -  Destino: **Dirección IP pública**
@@ -156,5 +156,7 @@ Puede tener 100 direcciones IP públicas por SDDC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el uso de direcciones IP públicas mediante [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Ahora que ha visto cómo usar la funcionalidad de IP pública de Azure VMware Solution, puede que quiera obtener información sobre:
 
+- Uso de direcciones IP públicas con [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+- [Creación de un túnel IPSec en Azure VMware Solution](create-ipsec-tunnel.md).

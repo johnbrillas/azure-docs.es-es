@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/30/2020
-  ms.openlocfilehash: 120e020a30daf377844ad9933a067def3360a399
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 0f799ecd13258b683acd112b01c5d63425dab99c
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91597781"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100094175"
 landingContent:
 - title: Acerca de Gobernanza de Azure
   linkLists:
@@ -41,8 +41,12 @@ landingContent:
       url: ./create-management-group-powershell.md
     - text: Creación de un grupo de administración (.NET)
       url: ./create-management-group-dotnet.md
+    - text: Creación de un grupo de administración (Go)
+      url: ./create-management-group-go.md
     - text: Creación de un grupo de administración (JavaScript)
       url: ./create-management-group-javascript.md
+    - text: Creación de un grupo de administración (Python)
+      url: ./create-management-group-python.md
     - text: Creación de un grupo de administración (REST)
       url: ./create-management-group-rest-api.md
     - text: Implementación de recursos en el grupo de administración (plantillas de Resource Manager)
@@ -57,14 +61,18 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure CLI
+    - text: CLI de Azure
       url: /cli/azure/account/management-group
     - text: Azure PowerShell
       url: /powershell/module/az.resources/#resources
     - text: SDK de Azure para .NET
       url: /dotnet/api/overview/azure/managementgroups
+    - text: SDK de Azure para Go
+      url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
     - text: SDK de Azure para JavaScript
       url: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - text: SDK de Azure para Python
+      url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - text: REST
       url: /rest/api/resources/managementgroups
     - text: Plantillas de Resource Manager

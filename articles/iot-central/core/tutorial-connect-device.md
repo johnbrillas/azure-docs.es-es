@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 2757d696f5922263abf87399d6491e46b5e5513c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8f1b5eabe235d107b48dc7b2db5b6d4b1188a3fa
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033903"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833973"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central
 
@@ -71,6 +71,10 @@ Como desarrollador para dispositivos, puede usar la vista **Datos sin procesar**
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Vista de datos sin procesar":::
 
 En esta vista, puede seleccionar las columnas que se van a mostrar y establecer el intervalo de tiempo que desea ver. La columna **Datos no modelados** muestra datos del dispositivo que no coinciden con ninguna de las definiciones de telemetría o propiedades de la plantilla de dispositivo.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

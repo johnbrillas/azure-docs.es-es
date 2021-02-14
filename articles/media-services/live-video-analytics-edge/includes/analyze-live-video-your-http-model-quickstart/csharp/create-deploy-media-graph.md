@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 48c6e1141a00635dd1fd82ef9053b2e77168e5e8
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 374a7dd37c23cdc8391485ec8f87f3427fc61ef1
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956367"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569617"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examen y edición de los archivos de ejemplo
 
@@ -15,11 +15,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     La plantilla de implementación hace referencia al manifiesto de implementación del dispositivo perimetral. Incluye algunos valores de marcador de posición. El archivo *.env* incluye los valores de esas variables.
 1. Vaya a la carpeta *src/cloud-to-device-console-app*. Aquí verá tanto su archivo *appsettings.json* como otros archivos:
 
-    * ***c2d-console-app.csproj** _: archivo del proyecto de Visual Studio Code.
-    _ ***operations.json** _: lista de las operaciones que desea que ejecute el programa.
-    _ ***Program.cs** _: código del programa de ejemplo. Este código:
+    * ***c2d-console-app.csproj***: el archivo de proyecto de Visual Studio Code.
+    * ***operations.json***: una lista de las operaciones que desea que ejecute el programa.
+    * ***Program.cs***: el código del programa de ejemplo. Este código:
 
-        _ Carga la configuración de la aplicación.
+        * Carga la configuración de la aplicación.
         * Invoca los métodos directos que expone el módulo Live Video Analytics en IoT Edge. Puede usar el módulo para analizar secuencias de vídeo en directo mediante la invocación de sus [métodos directos](../../../direct-methods.md).
         * Se pone en pausa para que pueda examinar la salida del programa en la ventana **TERMINAL** y los eventos generados por el módulo en la ventana **SALIDA**.
         * Invoca los métodos directos para limpiar los recursos.
@@ -49,11 +49,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
     
     ![Establecimiento de la cadena de conexión de IoT Hub](../../../media/quickstarts/set-iotconnection-string.png)
 
-> [!NOTE]
-> Es posible que se le pida que proporcione información del punto de conexión integrado de IoT Hub. Para obtener esa información, en Azure Portal, vaya a su instancia de IoT Hub y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Es posible que se le pida que proporcione información del punto de conexión integrado de IoT Hub. Para obtener esa información, en Azure Portal, vaya a su instancia de IoT Hub y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 1. Haga clic con el botón derecho en *src/edge/config/deployment.yolov3.amd64.json* y seleccione **Create Deployment for Single Device** (Crear una implementación para un dispositivo individual). 
 
@@ -92,6 +92,11 @@ Como parte de los requisitos previos, ha descargado el código de ejemplo en una
 
    ![Iniciar supervisión](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
+> [!NOTE]
+> Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 ### <a name="run-the-sample-program"></a>Ejecución del programa de ejemplo
 
 1. Para iniciar una sesión de depuración, seleccione la tecla F5. Verá mensajes impresos en la ventana **TERMINAL**.

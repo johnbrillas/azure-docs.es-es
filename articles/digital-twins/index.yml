@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186412"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007761"
 landingContent:
 - title: Acerca de Azure Digital Twins
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: ¿Qué es Azure Digital Twins?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modelos personalizados
+      url: concepts-models.md
+    - text: Gemelos digitales y el grafo de gemelos
+      url: concepts-twins-graph.md
+    - text: Lenguaje de consulta
+      url: concepts-query-language.md
 - title: Primeros pasos con el inicio rápido
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: Conexión de una solución de un extremo a otro
       url: tutorial-end-to-end.md
-- title: Obtener información
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modelos personalizados
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Gemelos digitales y el grafo de gemelos
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Lenguaje de consulta
-      url: concepts-query-language.md
 - title: Desarrollar
   linkLists:
   - linkListType: how-to-guide
@@ -115,3 +109,19 @@ landingContent:
     links:
     - text: Swaggers personalizados para el conector de Logic Apps
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Aprendizaje basado en escenario con Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Ruta de aprendizaje: Desarrollo con Azure Digital Twins'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: 'Módulo de aprendizaje: Introducción a Azure Digital Twins'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: 'Módulo de aprendizaje: Creación de un grafo de Azure Digital Twins para una línea de producción de una fábrica de chocolates'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: 'Módulo de aprendizaje: Ingesta de datos en Azure Digital Twins'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: 'Módulo de aprendizaje: Salida de Azure Digital Twins a servicios de bajada'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

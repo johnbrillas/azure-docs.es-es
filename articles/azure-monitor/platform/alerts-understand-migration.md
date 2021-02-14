@@ -6,16 +6,16 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e57b3dd31455db245103469874c517fe54479110
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875927"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526914"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Descripción de las opciones de migración para las alertas más recientes
 
-Las alertas clásicas se [retiran](./monitoring-classic-retirement.md), aunque siguen con un uso limitado para los recursos que aún no admiten las nuevas alertas. Pronto se va a anunciar una nueva fecha para la migración de las alertas restante, la [nube de Azure Government](../../azure-government/documentation-government-welcome.md) y [Azure China 21Vianet](https://docs.azure.cn/).
+Las alertas clásicas se [retiran](./monitoring-classic-retirement.md) para los usuarios de la nube pública, aunque siguen usándose de forma limitada para los recursos que aún no admiten las nuevas alertas. Pronto se va a anunciar una nueva fecha para la migración de las alertas restante, la [nube de Azure Government](../../azure-government/documentation-government-welcome.md) y [Azure China 21Vianet](https://docs.azure.cn/).
 
 En este artículo se explica cómo funcionan las herramientas de migración manual y de migración voluntaria, que se usarán para migrar las reglas de alertas restantes. También se describen soluciones para algunos problemas comunes.
 
