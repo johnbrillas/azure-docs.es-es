@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010068"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979148"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -53,6 +53,10 @@ El almacenamiento inmutable admite las características siguientes:
 Almacenamiento inmutable para Azure Blob Storage admite dos tipos de directivas inmutables o WORM: retención con duración definida y suspensiones legales. Cuando se aplica una directiva de retención con duración definida o una suspensión legal a un contenedor, todos los blobs existentes pasan al estado WORM inmutable en menos de 30 segundos. Todos los nuevos blobs que se carguen en ese contenedor protegido mediante directiva también pasarán a un estado inmutable. Una vez que todos los blobs estén en un estado inmutable, la directiva inmutable se confirma y no se permite ninguna operación de sobrescritura o eliminación en el contenedor inmutable.
 
 Tampoco se permite la eliminación de la cuenta de almacenamiento y el contenedor si hay blobs en un contenedor protegidos mediante una directiva de suspensión legal o de duración definida bloqueada. Una directiva de suspensión legal protegerá contra la eliminación del blob, el contenedor y la cuenta de almacenamiento. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación de blobs durante el tiempo especificado. Las directivas de duración definida bloqueadas y desbloqueadas protegerán contra la eliminación del contenedor solo si existe al menos un blob en el contenedor. Solo un contenedor con una directiva de duración definida *bloqueada* protegerá contra eliminaciones de la cuenta de almacenamiento; los contenedores con directivas de duración definida desbloqueadas no ofrecen protección contra la eliminación de la cuenta de almacenamiento ni cumplimiento.
+
+En el diagrama siguiente se muestra cómo las directivas de retención basadas en el tiempo y la conservación por razones legales evitan las operaciones de escritura y eliminación mientras están en vigor.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagrama que muestra cómo las directivas de retención y la conservación por razones legales evitan las operaciones de escritura y eliminación":::
 
 Para obtener más información sobre cómo establecer y bloquear las directivas de retención con duración definida, vea [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](storage-blob-immutability-policies-manage.md).
 

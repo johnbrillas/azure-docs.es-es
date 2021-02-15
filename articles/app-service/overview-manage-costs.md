@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736228"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573371"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planeamiento y administración de costos de Azure App Service
 
@@ -125,7 +125,7 @@ Si planea usar un número mínimo conocido de instancias de proceso durante un a
 
 Los precios de instancia reservada se aplican a las instancias correspondientes de su suscripción, hasta el número de instancias que haya reservado. Las instancias reservadas son una cuestión de facturación y no están vinculadas a instancias de proceso específicas. Aunque ejecute menos instancias de las que reserve en cualquier momento durante el período de reserva, seguirá pagando por todas las instancias reservadas. Si ejecuta más instancias de las que reserva en cualquier momento durante el período de reserva, deberá pagar el costo acumulado normal de las instancias adicionales.
 
-El nivel **Aislado** (entorno de App Service) también admite reservas de 1 y 3 años a precios reducidos. Para más información, consulte [Cómo se aplican los descuentos de reserva a los timbres de Azure App Service en entorno aislado](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+El nivel **Aislado** (entorno de App Service) también admite reservas de 1 y 3 años a precios reducidos. Para más información, consulte [Cómo se aplican los descuentos de reserva a Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Supervisión de costos
 

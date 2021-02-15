@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785132"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582662"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -445,7 +445,7 @@ Para más información sobre el consentimiento, consulte [Permisos y consentimie
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-En MSAL.NET, debe usar:
+En MSAL.NET, use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Este flujo no se admite en MSAL para macOS.
 
 ### <a name="device-code-flow"></a>Flujo de código de dispositivo
 
-Si va a escribir una herramienta de línea de comandos que no tenga controles web y no puede o no quiere usar los flujos anteriores, debe usar el flujo de código de dispositivo.
+Si va a escribir una herramienta de línea de comandos que no tenga controles web y no puede o no quiere usar los flujos anteriores, use el flujo de código de dispositivo.
 
 La autenticación interactiva con Azure AD requiere un explorador web. Para más información, consulte [Uso de exploradores web](https://aka.ms/msal-net-uses-web-browser). Para autenticar a los usuarios en dispositivos o sistemas operativos que no proporcionan un explorador web, el flujo de código de dispositivo permite al usuario usar otro dispositivo, como un equipo o un teléfono móvil, para iniciar sesión de forma interactiva. Al usar flujo de código de dispositivo, la aplicación obtiene los tokens mediante un proceso de dos pasos diseñado para estos dispositivos o sistemas operativos. Ejemplos de estas aplicaciones son aquellas que se ejecutan en iOT o herramientas de línea de comandos (CLI). La idea es la siguiente:
 

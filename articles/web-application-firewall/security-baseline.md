@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878128"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807876"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Línea base de seguridad de Azure Web Application Firewall
 
@@ -135,7 +135,7 @@ Seleccione Azure PowerShell o la CLI de Azure para buscar o realizar acciones e
 
 **Guía**: Configure los registros de Azure Web Application Firewall (WAF) para enviarlos a una solución central de administración de registros de seguridad, como Azure Sentinel, o a un SIEM de terceros. Estos registros incluyen los registros de Azure Activity, Diagnostic y WAF en tiempo real. Dichos registros pueden verse en distintas herramientas, como Azure Monitor, Excel y Power BI. Los registros de Azure Web Application Firewall proporcionan información sobre los datos que Azure WAF evalúa, empareja y bloquea.
 
-Azure Sentinel tiene un libro de Azure WAF integrado que proporciona información general acerca de los eventos de seguridad de Azure WAF. Este libro incluye eventos, reglas coincidentes y bloqueadas, y todo lo demás que se registra en los registros del firewall. Esta telemetría puede utilizarse para iniciar la automatización de la guía para notificar o tomar medidas de corrección basadas en eventos de WAF recopilados por Sentinel.
+Azure Sentinel tiene un libro de Azure WAF integrado que proporciona información general acerca de los eventos de seguridad de Azure WAF. Este libro incluye eventos, reglas coincidentes y bloqueadas, y todo lo demás que se registra en los registros del firewall. Esta telemetría puede utilizarse para iniciar la automatización de la guía para notificar o tomar medidas de corrección basadas en eventos de WAF recopilados por Azure Sentinel.
 
 - [Visualización de registro de actividad](../azure-resource-manager/management/view-activity-logs.md)
 

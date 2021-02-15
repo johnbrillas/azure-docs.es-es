@@ -3,15 +3,15 @@ title: Uso de referencias de Key Vault
 description: Aprenda a configurar Azure App Service y Azure Functions para que usen referencias de Azure Key Vault. Haga que los secretos de Key Vault estén disponibles para el código de aplicación.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205853"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988768"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -40,24 +40,24 @@ Una referencia de Key Vault tiene el formato `@Microsoft.KeyVault({referenceStri
 > [!div class="mx-tdBreakAll"]
 > | Cadena de referencia                                                            | Descripción                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri= _secretUri_                                                       | **SecretUri** debe ser el URI completo del plano de datos de un secreto en Key Vault, incluida una versión, por ejemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931.  |
-> | VaultName= _vaultName_ ;SecretName= _secretName_ ;SecretVersion= _secretVersion_ | **VaultName** debe ser el nombre del recurso de Key Vault. **SecretName** debe ser el nombre del secreto de destino. **SecretVersion** debe ser la versión del secreto que se va a usar. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** debe ser el URI completo del plano de datos de un secreto en Key Vault y, opcionalmente, puede incluir una versión; por ejemplo, `https://myvault.vault.azure.net/secrets/mysecret/` o `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** es un parámetro obligatorio y debe ser el nombre del recurso de Key Vault. **SecretName** es un parámetro obligatorio y debe ser el nombre del secreto de destino. **SecretVersion** es opcional, pero si está presente indica la versión del secreto que se usará. |
 
-> [!NOTE] 
-> Las versiones son obligatorias actualmente. Al rotar secretos, deberá actualizar la versión en la configuración de la aplicación.
 Por ejemplo, una referencia completa se parecería a la siguiente:
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 O bien:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## <a name="rotation"></a>Rotación
+
+Si no se especifica una versión en la referencia, la aplicación usará la versión más reciente que exista en Key Vault. Cuando haya disponibles versiones más recientes, como con un evento de rotación, la aplicación se actualizará automáticamente y comenzará a usar la versión más reciente en el plazo de un día. Los cambios de configuración realizados en la aplicación actualizarán inmediatamente a las versiones más recientes todos los secretos a los que se hace referencia.
 
 ## <a name="source-application-settings-from-key-vault"></a>Configuración de la aplicación de origen desde Key Vault
 
@@ -191,15 +191,15 @@ También puede usar uno de los detectores integrados para obtener información a
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector en App Service
 
 1. En el portal, vaya a la aplicación.
-2. Seleccione **Diagnóstico y solución de problemas** .
+2. Seleccione **Diagnóstico y solución de problemas**.
 3. Elija **Availability and Performance** (Disponibilidad y rendimiento) y seleccione **Web app down** (La aplicación web no funciona).
-4. Busque **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault) y haga clic en **Más información** .
+4. Busque **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault) y haga clic en **Más información**.
 
 
 ### <a name="using-the-detector-for-azure-functions"></a>Uso del detector en Azure Functions
 
 1. En el portal, vaya a la aplicación.
-2. Seleccione **Características de la plataforma** .
-3. Seleccione **Diagnóstico y solución de problemas** .
+2. Seleccione **Características de la plataforma**.
+3. Seleccione **Diagnóstico y solución de problemas**.
 4. Elija **Disponibilidad y rendimiento** y seleccione **Function app down or reporting errors** (La aplicación de funciones no funciona o presenta errores).
 5. Haga clic en **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault).

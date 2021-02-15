@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 222257f5045984a71c2aee9de83b5fa420306728
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223396"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573422"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Conexión de ServiceNow al Conector de Administración de servicios de TI
 
@@ -123,7 +123,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
    | --- | --- |
    | **Nombre de la conexión**   | Escriba un nombre para la instancia de ServiceNow que quiere conectar con ITSMC. Usará este nombre más adelante en Log Analytics cuando configure los elementos de trabajo de ITSM y vea el análisis de registros. |
    | **Tipo de asociado**   | Seleccione **ServiceNow**. |
-   | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. La dirección URL debe apuntar a una versión de SaaS compatible con el sufijo *.servicenow.com* (por ejemplo, https://XXXXX.service-now.com/) ).|
+   | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. La dirección URL debe apuntar a una versión de SaaS compatible con el sufijo *.servicenow.com* (por ejemplo, `https://XXXXX.service-now.com/`).|
    | **Nombre de usuario**   | Escriba el nombre de usuario de integración que ha creado en la aplicación de ServiceNow para que admita la conexión con ITSMC.|
    | **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación. No se almacenan en ningún lugar dentro del servicio ITSMC.  |
    | **Id. de cliente**   | Escriba el id. de cliente que quiere utilizar para la autenticación de OAuth2 y que ha generado anteriormente. Para obtener más información sobre la generación de un id. de cliente y un secreto, consulte [Configuración de OAuth](https://old.wiki/index.php/OAuth_Setup). |

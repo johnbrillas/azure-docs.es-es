@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095447"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593425"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 ![Configuración con redundancia de zona para De uso general](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Para información actualizada sobre las regiones que admiten bases de datos con redundancia de zona, consulte [Soporte técnico de servicios por región](../../availability-zones/az-region.md). La configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Esta característica no está disponible en Instancia administrada de SQL.
+> La configuración de redundancia de zona solo está disponible cuando se selecciona el hardware de proceso Gen5. Esta característica no está disponible en Instancia administrada de SQL. La configuración con redundancia de zona de uso general solo está disponible en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Oeste de Europa, Sudeste Asiático, Este de Australia, Japón Oriental, Sur de Reino Unido y Centro de Francia.
 
 > [!NOTE]
 > Las bases de datos De uso general con un tamaño de 80 núcleos virtuales pueden experimentar una degradación del rendimiento con la configuración con redundancia de zona. Además, las operaciones como las de copia de seguridad, restauración, copia de bases de datos y configuración de relaciones de Geo-DR pueden experimentar un rendimiento más lento en las bases de datos únicas de más de 1 TB. 

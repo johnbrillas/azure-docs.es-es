@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995869"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807757"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -109,7 +109,7 @@ ms.locfileid: "95995869"
 > - Si no retira la solución manualmente antes del 31 de octubre, los datos se desconectarán automáticamente, y se quitará la tabla **OfficeActivity**. Aún así, podrá restaurar la tabla cuando habilite el conector de Office 365 en Azure Sentinel, como se explica a continuación.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: ¿Mis datos se transferirán a la nueva solución?
-> Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 
+> Sí. Cuando quite la solución **Office 365** del área de trabajo, los datos dejarán de estar disponibles temporalmente porque el esquema se ha quitado. Al habilitar el nuevo conector de **Office 365** en Azure Sentinel, el esquema se restaura en el área de trabajo y los datos ya recopilados estarán disponibles. 
  
 
 La solución de administración de Office 365 permite supervisar el entorno de Office 365 en Azure Monitor.

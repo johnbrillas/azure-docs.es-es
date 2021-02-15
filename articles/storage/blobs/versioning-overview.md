@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001888"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980279"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -37,6 +37,10 @@ Para obtener información sobre cómo habilitar el control de versiones de blobs
 Una versión captura el estado de un blob en un momento dado. Cuando el control de versiones de blobs está habilitado para una cuenta de almacenamiento, Azure Storage crea automáticamente una nueva versión de un blob cada vez que este se modifica o se elimina.
 
 Cuando crea un blob con el control de versiones habilitado, este pasa a ser la versión actual del blob (o blob base). Si posteriormente lo modifica, Azure Storage crea una versión que captura su estado antes de la modificación. El blob modificado se convierte en la nueva versión actual. Cada vez que modifique el blob, se creará una nueva versión.
+
+En el diagrama siguiente se muestra cómo se crean las versiones durante las operaciones de escritura y eliminación, y cómo una versión anterior se puede promover para que sea la versión actual:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama que muestra el funcionamiento del control de versiones de blobs":::
 
 Tener un gran número de versiones por cada blob puede aumentar la latencia de las operaciones de enumeración de blobs. Microsoft recomienda mantener menos de 1000 versiones por blob. Puede usar la administración del ciclo de vida para eliminar automáticamente las versiones anteriores. Para obtener más información sobre la administración del ciclo de vida, consulte [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](storage-lifecycle-management-concepts.md).
 

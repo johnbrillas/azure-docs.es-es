@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397158"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575660"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescritura de encabezados HTTP con Azure Application Gateway
 
@@ -49,14 +49,14 @@ Puede usar una condición para evaluar si una variable especificada está presen
 Las acciones de reescritura se usan para especificar los encabezados de solicitud y de respuesta que quiere reescribir y el nuevo valor para los encabezados. Puede crear un nuevo encabezado, modificar el valor de un encabezado existente o eliminar un encabezado existente. El valor de un nuevo encabezado o un encabezado existente se pueden establecer para estos tipos de valores:
 
 - Texto.
-- Encabezado de la solicitud. Para especificar un encabezado de solicitud, tiene que usar la sintaxis siguiente: {http_req_ *headerName* }.
-- Encabezado de respuesta. Para especificar un encabezado de respuesta, tiene que usar la sintaxis {http_req_ *headerName* }.
-- Variable de servidor. Para especificar una variable de servidor, tiene que usar la sintaxis {var_ *serverVariable* }.
+- Encabezado de la solicitud. Para especificar un encabezado de solicitud, tiene que usar la sintaxis siguiente: {http_req_ *headerName*}.
+- Encabezado de respuesta. Para especificar un encabezado de respuesta, tiene que usar la sintaxis {http_req_ *headerName*}.
+- Variable de servidor. Para especificar una variable de servidor, tiene que usar la sintaxis {var_ *serverVariable*}.
 - Una combinación de texto, un encabezado de solicitud, un encabezado de respuesta y una variable de servidor.
 
 ## <a name="server-variables"></a>Variables de servidor
 
-App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor para volver a escribir los encabezados, deberá especificar estas variables en la sintaxis {var_ *serverVariable* }.
+App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor para volver a escribir los encabezados, deberá especificar estas variables en la sintaxis {var_ *serverVariable*}.
 
 Application Gateway admite estas variables de servidor:
 
@@ -69,21 +69,21 @@ Application Gateway admite estas variables de servidor:
 | client_port                | Puerto del cliente.                                                  |
 | client_tcp_rtt             | Información sobre la conexión TCP de cliente. Está disponible en los sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | Al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |
-| host                       | En este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor del host será *contoso.com*. |
+| host                       | En este orden de prioridad: nombre de host de la línea de la solicitud, nombre de host del campo de encabezado de la solicitud del “Host”, o bien el nombre del servidor que coincida con una solicitud. Ejemplo: en la solicitud `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, el valor del host será *contoso.com*. |
 | cookie_ *name*              | El cookie de *nombre*.                                            |
 | http_method                | Método usado para realizar la solicitud de URL. Por ejemplo, GET, POST, etc. |
 | http_status                | Estado de la sesión. Por ejemplo, 200, 400 o 403.                       |
 | http_version               | Protocolo de solicitud. Normalmente, HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string               | La lista de pares de variable-valor que aparecen después de “?” en la dirección URL solicitada. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de query_string será *id=123&title=fabrikam*. |
+| query_string               | La lista de pares de variable-valor que aparecen después de “?” en la dirección URL solicitada. Ejemplo: en la solicitud `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, el valor de query_string será *id=123&title=fabrikam*. |
 | received_bytes             | La longitud de la solicitud (incluida la línea de la solicitud, el encabezado y el cuerpo de la solicitud). |
 | request_query              | Los argumentos en la línea de la solicitud.                                |
 | request_scheme             | El esquema de la solicitud: HTTP o HTTPS.                            |
-| request_uri                | El URI original completo de la solicitud (con argumentos). Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de request_uri será */article.aspx?id=123&title=fabrikam*.   |
+| request_uri                | El URI original completo de la solicitud (con argumentos). Ejemplo: en la solicitud `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, el valor de request_uri será */article.aspx?id=123&title=fabrikam*.   |
 | sent_bytes                 | El número de bytes enviados a un cliente.                             |
 | server_port                | El puerto del servidor que ha aceptado una solicitud.                 |
 | ssl_connection_protocol    | El protocolo de una conexión TLS establecida.        |
 | ssl_enabled                | "On" si la conexión funciona en modo TLS. No puede ser una cadena vacía. |
-| uri_path                   | Identifica el recurso específico en el host al que el cliente web quiere acceder. Esta es la parte del URI de solicitud sin los argumentos. Ejemplo: en la solicitud *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , el valor de uri_path será */article.aspx*.  |
+| uri_path                   | Identifica el recurso específico en el host al que el cliente web quiere acceder. Esta es la parte del URI de solicitud sin los argumentos. Ejemplo: en la solicitud `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, el valor de uri_path será */article.aspx*.  |
 
 ## <a name="rewrite-configuration"></a>Configuración de la reescritura
 
@@ -91,19 +91,19 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
 1. Cree los objetos necesarios para la reescritura de encabezados HTTP:
 
-   - **Acción de reescritura** : Se usa para especificar los campos de solicitud y encabezado de solicitud que desee reescribir y el nuevo valor para los encabezados. Puede asociar una o varias condiciones de reescritura con una acción de reescritura.
+   - **Acción de reescritura**: Se usa para especificar los campos de solicitud y encabezado de solicitud que desee reescribir y el nuevo valor para los encabezados. Puede asociar una o varias condiciones de reescritura con una acción de reescritura.
 
-   - **Condición de reescritura** : Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
+   - **Condición de reescritura**: Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-   - **Regla de reescritura** : Contiene varias combinaciones de acción de reescritura y condición de reescritura.
+   - **Regla de reescritura**: Contiene varias combinaciones de acción de reescritura y condición de reescritura.
 
-   - **Secuencia de reglas** : Ayuda a determinar el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
+   - **Secuencia de reglas**: Ayuda a determinar el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
 
-   - **Conjunto de reescritura** : Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
+   - **Conjunto de reescritura**: Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
 
-2. Conecte el conjunto de reescritura ( *rewriteRuleSet* ) con una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
+2. Conecte el conjunto de reescritura (*rewriteRuleSet*) con una regla de enrutamiento. La configuración de reescritura se conecta al agente de escucha de origen mediante la regla de enrutamiento. Cuando usa una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Cuando usa una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezados se define en la asignación de la ruta de URL. En este caso, solo se aplica al área específica de la ruta de acceso de un sitio.
    > [!NOTE]
    > La reescritura de dirección URL modifica los encabezados; no cambia la dirección URL de la ruta de acceso.
 

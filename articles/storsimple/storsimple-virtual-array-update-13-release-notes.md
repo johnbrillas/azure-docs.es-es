@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 02611bdf9689d2f62f661f558fd547ea46bd4d36
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744131"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576015"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notas de la versión de StorSimple Virtual Array Update 1.3
 
@@ -28,15 +28,15 @@ Update 1.3 se corresponde con la versión 10.0.10319.0 del software.
 
 ## <a name="whats-new-in-update-13"></a>Novedades de Update 1.3
 
-Esta actualización contiene las siguientes mejoras:
+Esta actualización contiene las siguientes mejoras: KB4540725
 
 - Seguridad de la capa de transporte (TLS) 1.2 es una actualización obligatoria y debe instalarse inmediatamente. A partir de esta versión, TLS 1.2 se convierte en el protocolo estándar para todas las comunicaciones de Azure Portal.
 - Las correcciones de errores de la recolección de elementos no utilizados mejoran el rendimiento del ciclo de recolección de elementos no utilizados cuando la cuenta de almacenamiento y el dispositivo se encuentran en dos regiones lejanas.
 - Corrección de errores de copia de seguridad debido a tiempos de espera de blobs.
 - Parches de seguridad del sistema operativo/.NET Framework actualizados:
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): Actualización de la pila de servicio (marzo de 2020)
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): Paquete acumulativo de actualizaciones de julio de 2020
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): Actualización de .NET Framework de julio de 2020
+  - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): Actualización de la pila de servicio (marzo de 2020)
+  - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): Paquete acumulativo de actualizaciones de julio de 2020
+  - [KB4565622](https://support.microsoft.com/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00): Actualización de .NET Framework de julio de 2020
 
 ## <a name="download-update-13"></a>Descarga de Update 1.3
 

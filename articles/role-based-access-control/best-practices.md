@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617381"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526422"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -41,6 +41,10 @@ Debe tener un máximo de 3 propietarios de suscripción para reducir el riesgo d
 Para proteger las cuentas con privilegios de ciberataques malintencionados, puede usar Azure Active Directory Privileged Identity Management (PIM) para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad de su uso a través de alertas e informes. PIM ayuda a proteger las cuentas con privilegios, ya que proporciona acceso con privilegios Just-in-Time a Azure AD y recursos de Azure. El acceso puede estar limitado por el tiempo, después del cual los privilegios se revocan automáticamente. 
 
 Para más información, vea [¿Qué es Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+
+## <a name="assign-roles-to-groups-not-users"></a>Asignación de roles a grupos, no a usuarios
+
+Para que las asignaciones de roles sean más fáciles de administrar, evite la asignación directa de roles a los usuarios. En su lugar, asigne roles a grupos. La asignación de roles a grupos en lugar de a usuarios también ayuda a minimizar el número de asignaciones de roles, que tiene un [límite de 2000 asignaciones de roles por suscripción](troubleshooting.md#azure-role-assignments-limit). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

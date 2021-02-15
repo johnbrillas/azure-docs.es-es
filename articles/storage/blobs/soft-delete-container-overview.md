@@ -6,33 +6,39 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962183"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979114"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
-La eliminación temporal de contenedores (versión preliminar) evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal de contenedores está habilitada para una cuenta de almacenamiento, los contenedores eliminados y su contenido se conservan en Azure Storage durante el período que especifique. Durante el período de retención, puede restaurar los contenedores previamente eliminados y los blobs que aquellos contienen.
+La eliminación temporal de contenedores (versión preliminar) evita que los datos se eliminen de forma accidental o malintencionada. Cuando la eliminación temporal de contenedores está habilitada para una cuenta de almacenamiento, los contenedores eliminados y su contenido se conservan en Azure Storage durante el período que especifique. Durante el período de retención, puede restaurar los contenedores previamente eliminados. Al restaurar un contenedor, se restauran los blobs del mismo cuando se eliminó.
 
 Para una protección integral de los datos de blobs, Microsoft recomienda habilitar las siguientes características de protección de datos:
 
-- Eliminación temporal de contenedores, para proteger frente a la eliminación o sobrescritura accidentales de un contenedor. Para obtener información sobre cómo habilitar la eliminación temporal de contenedores, consulte [Habilitación y administración de la eliminación temporal de contenedores](soft-delete-container-enable.md).
-- Eliminación temporal de blobs, para proteger frente a la eliminación o sobrescritura accidentales de un blob individual. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Eliminación temporal para blobs](soft-delete-blob-overview.md).
+- Eliminación temporal de contenedores, para restaurar un contenedor que se ha eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de contenedores, consulte [Habilitación y administración de la eliminación temporal de contenedores](soft-delete-container-enable.md).
 - Control de versiones de blobs, para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
+- Eliminación temporal de blobs, para restaurar un blob o una versión que se ha eliminado. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> No se puede deshacer la eliminación de una cuenta de almacenamiento. La eliminación temporal no protege contra la eliminación de una cuenta de almacenamiento. Para evitar la eliminación accidental de una cuenta de almacenamiento, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+> No se puede deshacer la eliminación de una cuenta de almacenamiento. La eliminación temporal no protege contra la eliminación de una cuenta de almacenamiento, sino solo contra la eliminación de objetos de datos en esa cuenta. Para proteger una cuenta de almacenamiento de la eliminación, configure un bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure Resource Manager, consulte [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funcionamiento de la eliminación temporal de contenedores
 
 Al habilitar la eliminación temporal de contenedores, puede especificar un período de retención de 1 a 365 días para los contenedores eliminados. El período de retención predeterminado es de 7 días. Durante el período de retención, puede recuperar un contenedor eliminado mediante una llamada a la operación **Recuperar contenedor**.
+
+Al restaurar un contenedor, también se restauran los blobs del contenedor y las versiones de blob. Sin embargo, solo puede usar la eliminación temporal de contenedores para restaurar blobs si se eliminó el propio contenedor. Para restaurar un blob eliminado cuando su contenedor principal no se ha eliminado, debe usar la eliminación temporal de blobs o el control de versiones de blobs.
+
+En el diagrama siguiente se muestra cómo se puede restaurar un contenedor eliminado cuando está habilitada la eliminación temporal de contenedores:
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagrama que muestra cómo se puede restaurar un contenedor eliminado temporalmente":::
 
 Cuando restaure un contenedor, puede restaurarlo a su nombre original si ese nombre no se ha reutilizado. Si se ha usado el nombre del contenedor original, puede restaurar el contenedor con un nuevo nombre.
 
@@ -42,7 +48,7 @@ La deshabilitación de la eliminación temporal de contenedores no provoca la el
 
 ## <a name="about-the-preview"></a>Acerca de la versión preliminar
 
-La eliminación temporal de contenedores está disponible en versión preliminar en todas las regiones públicas de Azure.
+La eliminación temporal de contenedores está disponible en versión preliminar en todas las regiones de Azure.
 
 > [!IMPORTANT]
 > La versión preliminar de la eliminación temporal de contenedores está pensada para usos que no tengan que ver con la producción. En este momento no hay contratos de nivel de servicio de producción disponibles.

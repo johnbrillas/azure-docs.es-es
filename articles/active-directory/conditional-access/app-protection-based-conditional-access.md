@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881168"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575778"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -34,7 +34,7 @@ En el acceso condicional, estas aplicaciones cliente se conocen como directivas 
 > No todas las aplicaciones se admiten como aplicaciones aprobadas ni admiten directivas de protección de aplicaciones. Para obtener una lista de aplicaciones cliente aptas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Requerir uno de los controles seleccionados" en Conceder controles es como una cláusula OR. Esta cláusula se usa dentro de la directiva para que los usuarios puedan utilizar aplicaciones que admitan los controles de concesión **Requerir directiva de protección de aplicaciones** o **Requerir aplicación cliente aprobada**. **Requerir directiva de protección de aplicaciones** se aplica si se admite una aplicación en ambas directivas. Para más información sobre las aplicaciones que admiten el control de concesión **Requerir directiva de protección de aplicaciones**, consulte el [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Requerir uno de los controles seleccionados" en Conceder controles es como una cláusula OR. Esta cláusula se usa dentro de la directiva para que los usuarios puedan utilizar aplicaciones que admitan los controles de concesión **Requerir directiva de protección de aplicaciones** o **Requerir aplicación cliente aprobada**. **Requerir la directiva de protección de aplicaciones** se aplica cuando la aplicación admite ese control de concesión. Para más información sobre las aplicaciones que admiten el control de concesión **Requerir directiva de protección de aplicaciones**, consulte el [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Escenario 1: Las aplicaciones de Microsoft 365 requieren aplicaciones aprobadas con directivas de protección de aplicaciones
 

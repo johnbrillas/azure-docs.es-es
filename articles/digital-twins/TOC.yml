@@ -52,7 +52,11 @@
             - name: Versión con scripts
               href: how-to-set-up-instance-scripted.md
         - name: Habilitación del acceso privado con Private Link
-          href: how-to-enable-private-link.md
+          items:
+            - name: Versión del portal
+              href: how-to-enable-private-link-portal.md
+            - name: Versión de la CLI
+              href: how-to-enable-private-link-cli.md
         - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
         - name: Crear un registro de aplicación
@@ -103,12 +107,16 @@
       items:
         - name: Administración de puntos de conexión y rutas
           items:
-            - name: Versión de las API y de la CLI
-              href: how-to-manage-routes-apis-cli.md
             - name: Versión del portal
               href: how-to-manage-routes-portal.md
+            - name: Versión de las API y de la CLI
+              href: how-to-manage-routes-apis-cli.md
         - name: Habilitación de una identidad administrada para eventos de enrutamiento
-          href: how-to-enable-managed-identities.md
+          items:
+            - name: Versión del portal
+              href: how-to-enable-managed-identities-portal.md
+            - name: Versión de la CLI
+              href: how-to-enable-managed-identities-cli.md
         - name: Integración con Azure Maps
           href: how-to-integrate-maps.md
         - name: Integración con Azure Time Series Insights

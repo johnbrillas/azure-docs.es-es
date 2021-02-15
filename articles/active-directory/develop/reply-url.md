@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752800"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582815"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -45,7 +45,7 @@ Puede usar un máximo de 256 caracteres para cada identificador URI de redirecc
 
 En la actualidad, el modelo de aplicación de Azure Active Directory (Azure AD) admite esquemas HTTP y HTTPS para las aplicaciones que inician sesión en cuentas profesionales o educativas de Microsoft en el inquilino de Azure AD de cualquier organización. Estos tipos de cuenta se especifican mediante los valores `AzureADMyOrg` y `AzureADMultipleOrgs` en el campo `signInAudience` del manifiesto de aplicación. En el caso de las aplicaciones que inician sesión en cuentas personales de Microsoft (MSA) *y* en cuentas profesionales y educativas (es decir, que el elemento `signInAudience` está establecido en `AzureADandPersonalMicrosoftAccount`), solo se permite el esquema HTTPS.
 
-Para agregar identificadores URI de redirección con un esquema HTTP a los registros de aplicación que inician sesión en cuentas profesionales o educativas, debe usar el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Sin embargo, aunque es posible establecer un identificador URI de redirección basado en HTTP mediante el editor de manifiestos, *se recomienda* usar el esquema HTTPS para los identificadores URI de redirección.
+Para agregar identificadores URI de redirección con un esquema HTTP a los registros de aplicaciones que la inician sesión de cuentas profesionales o educativas, use el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Sin embargo, aunque es posible establecer un identificador URI de redirección basado en HTTP mediante el editor de manifiestos, *se recomienda* usar el esquema HTTPS para los identificadores URI de redirección.
 
 ## <a name="localhost-exceptions"></a>Excepciones de localhost
 
@@ -65,7 +65,7 @@ Desde el punto de vista del desarrollo, esto significa algunas cosas:
 * No registre varios identificadores URI de redirección en los que solo el puerto es distinto. El servidor de inicio de sesión seleccionará uno arbitrariamente y usará el comportamiento asociado a ese identificador URI de redirección (por ejemplo, si es una redirección de tipo `web`, `native` o `spa`).
 
     Esto es especialmente importante si desea utilizar flujos de autenticación diferentes en el mismo registro de aplicación, por ejemplo, la concesión de código de autorización y el flujo implícito. Para asociar el comportamiento de respuesta correcto con cada identificador URI de redirección, el servidor de inicio de sesión debe ser capaz de distinguir entre los identificadores URI de redirección y no puede hacerlo cuando solo difiere el puerto.
-* Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://localhost/MyWebApp` no coincide con `http://localhost/MyNativeApp`.
+* Para registrar varios URI de redirección en localhost a fin de probar diferentes flujos durante el desarrollo, puede diferenciarlos mediante el componente *ruta de acceso* del URI. Por ejemplo, `http://localhost/MyWebApp` no coincide con `http://localhost/MyNativeApp`.
 * La dirección de bucle invertido IPv6 (`[::1]`) no se admite actualmente.
 
 #### <a name="prefer-127001-over-localhost"></a>Es preferible 127.0.0.1 frente a localhost
@@ -84,7 +84,7 @@ Los identificadores URI con caracteres comodín como `https://*.contoso.com` pue
 
 Los identificadores URI con caracteres comodín no se admiten actualmente en los registros de aplicación configurados para iniciar sesión en cuentas personales de Microsoft y cuentas profesionales o educativas. Sin embargo, se permiten los identificadores URI con caracteres comodín para las aplicaciones que están configuradas para iniciar sesión solo en cuentas profesionales o educativas del inquilino de Azure AD de la organización.
 
-Para agregar identificadores URI de redirección con caracteres comodín a los registros de aplicación que inician sesión en cuentas profesionales o educativas, debe usar el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Aunque es posible establecer un identificador URI de redirección con un carácter comodín mediante el editor de manifiestos, *se recomienda* que respete la [sección 3.1.2 de RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) y use solo identificadores URI absolutos.
+Para agregar identificadores URI de redirección con caracteres comodín a los registros de aplicaciones que inician la sesión de cuentas profesionales o educativas, use el editor de manifiestos de aplicación en [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) en Azure Portal. Aunque es posible establecer un identificador URI de redirección con un carácter comodín mediante el editor de manifiestos, *se recomienda* que respete la [sección 3.1.2 de RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) y use solo identificadores URI absolutos.
 
 Si el escenario requiere más identificadores URI de redirección que el límite máximo permitido, en lugar de agregar un identificador URI de redirección con caracteres comodín, considere la posibilidad de utilizar el siguiente [enfoque de parámetro de estado](#use-a-state-parameter).
 

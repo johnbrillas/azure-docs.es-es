@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 48d1c04e59d316ac19000f5b890c0cb1c96fb213
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746754"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549446"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -81,7 +81,13 @@ Al leer los detalles, es evidente que aprovechar esta funcionalidad elimina las 
 
 
 ## <a name="linux-io-scheduler-mode"></a>Modo de programador de E/S de Linux
-Linux tiene varios modos diferentes de programación de E/S. Una recomendación común de los proveedores de Linux y SAP consiste en reconfigurar el modo de programador de E/S para los volúmenes de disco del modo **mq-deadline** o **kyber** en el modo **noop** (no multicola) o **none** (multicola). Los detalles se incluyen en la [nota de SAP n.º 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux tiene varios modos diferentes de programación de E/S. Una recomendación común de los proveedores de Linux y SAP consiste en reconfigurar el modo de programador de E/S para los volúmenes de disco del modo **mq-deadline** o **kyber** en el modo **noop** (no multicola) o **none** (multicola) si todavía no lo han hecho los perfiles saptune de SLES. Los detalles se incluyen en: 
+
+- [Nota de SAP n.º 1984787](https://launchpad.support.sap.com/#/notes/1984787)
+- [Nota de SAP n.º 2578899](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Problema con la configuración de noop en SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+En Red Hat, deje la configuración establecida por los perfiles de ajuste específicos para las diferentes aplicaciones SAP.
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluciones con Premium Storage y el Acelerador de escritura de Azure para máquinas virtuales de la serie M de Azure

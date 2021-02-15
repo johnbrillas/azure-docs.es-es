@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 902348063a24b50d1de0a821d9d6e67931cc53cd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014729"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582543"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registro de aplicaciones móviles que llaman a las API web
 
@@ -79,9 +79,9 @@ Si prefiere configurar manualmente el URI de redirección, puede hacerlo mediant
 
 ### <a name="username-password-authentication"></a>Autenticación con nombre de usuario y contraseña
 
-Si la aplicación solo utiliza la autenticación con nombre de usuario y contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Este flujo realiza un recorrido de ida y vuelta al punto de conexión de la Plataforma de identidad de Microsoft versión 2.0. No se volverá a llamar a la aplicación en ningún URI específico.
+Si la aplicación solo utiliza la autenticación con nombre de usuario y contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Este flujo realiza un recorrido de ida y vuelta a la Plataforma de identidad de Microsoft. No se volverá a llamar a la aplicación en ningún URI específico.
 
-Sin embargo, tiene que expresar la aplicación como una aplicación cliente pública. Para ello:
+Sin embargo, exprese la aplicación como una aplicación cliente pública. Para ello:
 
 1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, seleccione la aplicación en **Registros de aplicaciones** y, a continuación, seleccione **Autenticación**.
 1. En **Configuración avanzada** > **Permitir flujos de cliente público** > **Habilitar los flujos móviles y de escritorio siguientes:** , seleccione **Sí**.

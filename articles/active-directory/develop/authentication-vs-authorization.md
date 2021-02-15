@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5244a8e572abb56c00d87d0bdd7e8d1291af9b9e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755396"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581914"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticación frente a autorización
 
@@ -34,7 +34,7 @@ La *autorización* es el acto de conceder a una parte autenticada permiso para h
 
 ## <a name="authentication-and-authorization-using-the-microsoft-identity-platform"></a>Autenticación y autorización con la Plataforma de identidad de Microsoft
 
-La creación de aplicaciones que mantienen su propia información de nombre de usuario y contraseña conlleva una gran carga administrativa cuando hace falta agregar o quitar usuarios en varias aplicaciones. Sin embargo, las aplicaciones pueden delegar esa responsabilidad en un proveedor de identidades centralizado.
+La creación de aplicaciones que mantienen su propia información de nombre de usuario y contraseña conlleva una gran carga administrativa al agregar o quitar usuarios entre varias aplicaciones. Sin embargo, las aplicaciones pueden delegar esa responsabilidad en un proveedor de identidades centralizado.
 
 Azure Active Directory (Azure AD) es un proveedor de identidades centralizado en la nube. La delegación de la autenticación y la autorización en él permite escenarios como los siguientes:
 
