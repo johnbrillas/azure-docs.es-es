@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576538"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Acceso a una aplicación en una red privada
 
 En este documento se explica cómo acceder a un punto de conexión de la aplicación en una red privada.  Para obtener acceso, debe crear una **zona DNS privada de Azure** en su suscripción para traducir o resolver el nombre de dominio completo (FQDN) privado en su dirección IP.
 
-Cuando **Assign Endpoint** (Asignar punto de conexión) para aplicaciones en una instancia de servicio en Azure Spring Cloud se implementa en la red virtual, el punto de conexión es un FQDN privado. Solo se puede tener acceso al dominio en la red privada. Las aplicaciones y los servicios usan el punto de conexión de la aplicación. Incluyen el **punto de conexión de prueba** descrito en [Comprobación de la implementación de ensayo](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). El **streaming de registro**, que se describe en [Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real](spring-cloud-howto-log-streaming.md), también funcionan solo dentro de la red privada.
+Cuando **Assign Endpoint** (Asignar punto de conexión) para aplicaciones en una instancia de servicio en Azure Spring Cloud se implementa en la red virtual, el punto de conexión es un FQDN privado. Solo se puede tener acceso al dominio en la red privada. Las aplicaciones y los servicios usan el punto de conexión de la aplicación. Incluyen el **punto de conexión de prueba** descrito en [Visualización de aplicaciones e implementaciones](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). El **streaming de registro**, que se describe en [Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real](spring-cloud-howto-log-streaming.md), también funcionan solo dentro de la red privada.
 
 ## <a name="create-a-private-dns-zone"></a>Crear una zona DNS privada
 

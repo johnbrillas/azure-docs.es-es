@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 080d7c29a9e6950117fe475445458a84fb092e94
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090211"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584220"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
 Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 
@@ -52,8 +52,8 @@ A continuación se muestran algunos problemas comunes que pueden producirse dura
     1. Vaya a su [perfil de asociado](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) y compruebe lo siguiente: 
         - El id. de MPN es correcto. 
         - No se muestran errores ni "acciones pendientes", y el estado de verificación en el perfil de negocio legal y en la información del asociado indica "autorizado" o "correcto".
-    1. Vaya a la [página de administración de inquilinos de MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) y confirme que el inquilino en el que está registrada la aplicación y en que el está iniciando sesión con una cuenta de usuario está en la lista de inquilinos asociados. Si necesita agregar un inquilino adicional, siga las instrucciones que [aquí](/partner-center/multi-tenant-account) se indican. Tenga en cuenta que a todos los administradores globales de cualquier inquilino que agregue se les concederán privilegios de administrador global en la cuenta del Centro de partners.
-    1. Vaya a la [página de Administración de usuarios de MPN](https://partner.microsoft.com/pcv/users) y confirme que el usuario con el que inicia sesión es un administrador global, un administrador de MPN o un administrador de cuentas. Si necesita agregar un usuario a un rol en el Centro de partners, siga las instrucciones que [aquí](/partner-center/create-user-accounts-and-set-permissions) se indican.
+    1. Vaya a la [página de administración de inquilinos de MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) y confirme que el inquilino en el que está registrada la aplicación y en que el está iniciando sesión con una cuenta de usuario está en la lista de inquilinos asociados. Para agregar un inquilino adicional, siga las instrucciones que se indican [aquí](/partner-center/multi-tenant-account). Tenga en cuenta que a todos los administradores globales de cualquier inquilino que agregue se les concederán privilegios de administrador global en la cuenta del Centro de partners.
+    1. Vaya a la [página de Administración de usuarios de MPN](https://partner.microsoft.com/pcv/users) y confirme que el usuario con el que inicia sesión es un administrador global, un administrador de MPN o un administrador de cuentas. Para agregar un rol a un usuario en el Centro de partners, siga las instrucciones que se indican [aquí](/partner-center/create-user-accounts-and-set-permissions).
 
 - **Al iniciar sesión en el portal de Azure AD, no veo ninguna aplicación registrada. ¿Por qué?** 
     Es posible que los registros de aplicaciones se hayan creado con otra cuenta de usuario en este inquilino, una cuenta personal o de consumidor, o en otro inquilino. Asegúrese de que ha iniciado sesión con la cuenta correcta en el inquilino donde se crearon los registros de la aplicación.

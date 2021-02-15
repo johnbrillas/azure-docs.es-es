@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825369"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980616"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -171,7 +171,7 @@ En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del 
 | **Registros de aplicaciones** |*/LogFiles/Application/* | Contiene uno o varios archivos de texto. El formato de los mensajes de registro depende del proveedor de registro que se use. |
 | **Seguimiento de solicitudes con error** | */LogFiles/W3SVC#########/* | Contiene archivos XML y un archivo XSL. Puede ver los archivos XML con formato en el explorador. |
 | **Registros de errores detallados** | */LogFiles/DetailedErrors/* | Contiene archivos de error HTM. Puede ver los archivos HTM en el explorador.<br/>Otra manera sencilla de ver los seguimientos de las solicitudes con error consiste en ir a la página de la aplicación en el portal. En el menú izquierdo, seleccione **Diagnosticar y solucionar problemas**, busque **registros de seguimiento de solicitudes erróneas** y haga clic en el icono para examinar y ver el seguimiento que desee. |
-| **Registros de servidor web** | */LogFiles/http/RawLogs/* | Contiene archivos de texto con [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o una utilidad como [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service no admite los campos `s-computername`, `s-ip` ni `cs-version`. |
+| **Registros de servidor web** | */LogFiles/http/RawLogs/* | Contiene archivos de texto con [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o una utilidad como [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service no admite los campos `s-computername`, `s-ip` ni `cs-version`. |
 | **Registros de implementación** | */LogFiles/Git/* y */deployments/* | Contienen registros generados por los procesos de implementación internos, así como registros para implementaciones de Git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Envío de registros a Azure Monitor (versión preliminar)
@@ -191,10 +191,11 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceHTTPLogs | Sí | Sí | Sí | Sí | Registros de servidor web |
 | AppServiceEnvironmentPlatformLogs | Sí | N/D | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
 | AppServiceAuditLogs | Sí | Sí | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
-| AppServiceFileAuditLogs | Sí | Sí | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; solo disponible para el nivel Premium y versiones posteriores |
+| AppServiceFileAuditLogs | Sí | Sí | TBA | TBA | Cambios de archivo realizados en el contenido del sitio; **solo disponible para el nivel Premium y versiones posteriores** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Imágenes preparadas de Java SE y Tomcat <sup>1</sup> | Registros de aplicación |
 | AppServiceIPSecAuditLogs  | Sí | Sí | Sí | Sí | Solicitudes de reglas IP |
 | AppServicePlatformLogs  | TBA | Sí | Sí | Sí | Registros de operación de contenedor |
+| AppServiceAntivirusScanAuditLogs | Sí | Sí | Sí | Sí | [Registros de examen antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) con Microsoft Defender; **solo están disponibles para el nivel prémium** | 
 
 <sup>1</sup> Para las aplicaciones Java SE, agregue "$WEBSITE _AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 189ff3bbfdb3b8533defcedb77e15fef433598b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023095"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526609"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop
 
@@ -28,11 +28,11 @@ En las siguientes tablas se comparan las soluciones de almacenamiento que Azure 
 |Caso de uso|Uso general|Ultrarrendimiento o migración desde NetApp local|Multiplataforma|
 |Servicio de plataforma|Sí, solución nativa de Azure|Sí, solución nativa de Azure|No, administración automática|
 |Disponibilidad regional|Todas las regiones|[Seleccionar regiones](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas las regiones|
-|Redundancia|Redundancia local/de zona/geográfica|Redundancia local|Redundancia local/de zona/geográfica|
-|Niveles y rendimiento|Estándar<br>Premium<br>Hasta un máximo de 100 000 IOPS por recurso compartido con 5 GBps por recurso compartido a aproximadamente 3 ms de latencia|Estándar<br>Premium<br>Ultra<br>Hasta 320 000 (16 000) IOPS con 4,5 GBps por volumen a aproximadamente 1 ms de latencia|HDD estándar: hasta 500 IOPS por disco<br>SSD estándar: hasta 4000 IOPS por disco<br>SSD Premium: hasta 20 000 IOPS por disco<br>Se recomiendan discos Premium para Espacios de almacenamiento directo|
-|Capacity|100 TiB por recurso compartido|100 TiB por volumen, hasta 12,5 PiB por suscripción|32 TiB por disco como máximo|
+|Redundancia|Redundancia local/redundancia de zona/redundancia geográfica/redundancia de zona geográfica|Redundancia local|Redundancia local/de zona/geográfica|
+|Niveles y rendimiento| Estándar (optimizado para transacciones)<br>Premium<br>Hasta un máximo de 100 000 IOPS por recurso compartido con 10 GBps por recurso compartido a aproximadamente 3 ms de latencia|Estándar<br>Premium<br>Ultra<br>Hasta 320 000 (16 000) IOPS con 4,5 GBps por volumen a aproximadamente 1 ms de latencia|HDD estándar: hasta 500 IOPS por disco<br>SSD estándar: hasta 4000 IOPS por disco<br>SSD Premium: hasta 20 000 IOPS por disco<br>Se recomiendan discos Premium para Espacios de almacenamiento directo|
+|Capacity|100 TiB por recurso compartido, hasta 5 PiB por cuenta de uso general |100 TiB por volumen, hasta 12,5 PiB por suscripción|32 TiB por disco como máximo|
 |Infraestructura necesaria|Tamaño mínimo del recurso compartido: 1 GiB|Grupo de capacidad mínima: 4 TiB, tamaño de volumen mínimo: 100 GiB|Dos máquinas virtuales en Azure IaaS (+ testigo de la nube) o al menos tres máquinas virtuales sin él y costos por los discos|
-|Protocolos|SMB 2.1/3. y REST|NFSv3, NFSv 4.1 (versión preliminar), SMB 3.x/2.x|NFSv3, NFS v4.1, SMB 3.1|
+|Protocolos|SMB 3.0/2.1, NFSv4.1 (versión preliminar), REST|NFSv3, NFSv 4.1 (versión preliminar), SMB 3.x/2.x|NFSv3, NFS v4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Detalles de administración de Azure
 

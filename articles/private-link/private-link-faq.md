@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901545"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582016"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre Azure Private Link
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901545"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>¿Cómo se envía el tráfico al usar Private Link?
 El tráfico se envía de forma privada mediante la red troncal de Microsoft. No recorre Internet. Azure Private Link no almacena datos de clientes.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>¿Cuál es la diferencia entre puntos de conexión de servicio y puntos de conexión privados?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>¿Cuál es la diferencia entre puntos de conexión de servicio y puntos de conexión privados?
 - Los puntos de conexión privados conceden acceso de red a recursos específicos detrás de un servicio determinado, lo que proporciona una segmentación granular. El tráfico puede llegar al recurso de servicio desde el entorno local sin usar puntos de conexión públicos.
 - Un punto de conexión de servicio sigue siendo una dirección IP enrutable públicamente.  Un punto de conexión privado es una dirección IP privada en el espacio de direcciones de la red virtual en donde se configura el punto de conexión privado.
 
@@ -34,6 +34,9 @@ El tráfico se envía de forma privada mediante la red troncal de Microsoft. No 
 Varios tipos de recursos de Private Link admiten el acceso a través de un punto de conexión privado. Los recursos incluyen los servicios PaaS de Azure y su propio servicio Private Link. Es una relación de uno a varios. 
 
 Un servicio Private Link recibe conexiones de varios puntos de conexión privados. Un punto de conexión privado se conecta a un servicio Private Link.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>¿Tengo que deshabilitar las directivas de red para Private Link?
+Sí. Tanto el punto de conexión privado como el servicio de Private Link tienen que deshabilitar las directivas de red para funcionar correctamente. Ambos tienen propiedades independientes entre sí.
 
 ## <a name="private-endpoint"></a>Punto de conexión privado 
  

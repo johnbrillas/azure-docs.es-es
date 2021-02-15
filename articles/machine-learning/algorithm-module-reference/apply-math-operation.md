@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536773"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584997"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
 
@@ -249,16 +249,19 @@ Devuelve el valor que sea menor: el valor de **Column set** (Conjunto de columna
 
 Incluye las operaciones aritméticas básicas: suma, resta, división y multiplicación.  Dado que la mayoría de las operaciones son binarias, lo que requiere dos números, primero seleccionará la operación y, a continuación, elegirá la columna o los números que usar en el primer y el segundo argumento.
 
-El orden en que se eligen las columnas para la división y la resta puede parecer poco intuitivo; sin embargo, para facilitar la comprensión de los resultados, el encabezado de columna indica el nombre de la operación y el orden en el que se usaron las columnas.
+El orden de división y resta es el siguiente: 
+- Subtract(Arg1_Arg2) = Arg1 - Arg 2
+- Divide(Arg1_Arg2) =  Arg1 / Arg 2
 
+En la tabla siguiente se muestran algunos ejemplos:
 Operación|Num1|Num2|Columna de resultados|Valor del resultado|
 ----|----|----|----|----
-|Suma|1|5|Add(Num2_Num1)| 4|
+|Suma|1|5|Add(Num2_Num1)| 6|
 |Multiplicación|1|5|Multiple(Num2_Num1)|5|
-|Resta|1|5|Subtract(Num2_Num1)|4|
-|Resta|0|1|Subtract(Num2_Num1)|0|
-|División|1|5|Divide(Num2_Num1)|5|
-|División|0|1|Divide(Num2_Num1)|Infinity|
+|Resta|5|1|Subtract(Num2_Num1)|4|
+|Resta|0|1|Subtract(Num2_Num1)|-1|
+|División|5|1|Divide(Num2_Num1)|5|
+|División|1|0|Divide(Num2_Num1)|Infinity|
 
 ### <a name="add"></a>Sumar
 
@@ -300,7 +303,7 @@ Devuelve el límite inferior para los valores del **Conjunto de columnas** con l
 
 ### <a name="mod"></a>Mod
 
-Devuelve la parte fraccionaria de los valores del **Conjunto de columnas** con la precisión especificada.  
+Devuelve la parte fraccionaria de los valores de **Column set** (Conjunto de columnas), a la precisión especificada.  
 
 ### <a name="quotient"></a>Cociente
 
@@ -320,7 +323,7 @@ Devuelve los valores del **Conjunto de columnas** redondeados hacia abajo el nú
 
 ### <a name="roundup"></a>RoundUp
 
-Devuelve los valores del **Conjunto de columnas**redondeados hacia arriba el número de dígitos especificado.  
+Devuelve los valores del **Conjunto de columnas** redondeados hacia arriba el número de dígitos especificado.  
 
 ### <a name="toeven"></a>ToEven
 

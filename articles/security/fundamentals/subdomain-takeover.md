@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409899"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559240"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
 En este artículo se describe la amenaza de seguridad común de la adquisición de subdominios y los pasos que puede seguir para mitigarla.
 
 
-## <a name="what-is-subdomain-takeover"></a>¿Qué es la adquisición de subdominios?
+## <a name="what-is-a-subdomain-takeover"></a>¿Qué es una adquisición de subdominios?
 
 Las adquisiciones de subdominios son una amenaza común muy grave para las organizaciones que crean y eliminan muchos recursos con regularidad. Una adquisición de subdominios puede producirse cuando tiene un [registro DNS](../../dns/dns-zones-records.md#dns-records) que apunta a un recurso de Azure desaprovisionado. Estos registros DNS también se conocen como entradas "DNS pendientes". Los registros CNAME son especialmente vulnerables a esta amenaza. Las adquisición de subdominios permiten a los actores malintencionados redirigir el tráfico destinado al dominio de una organización a un sitio que realiza una actividad malintencionada.
 
@@ -65,13 +65,13 @@ Cuando un registro DNS apunta a un recurso que no está disponible, el propio re
 
 Las entradas DNS pendientes permiten a los actores de amenazas tomar el control del nombre DNS asociado para hospedar un servicio o un sitio web malintencionado. Las páginas y los servicios malintencionados del subdominio de una organización pueden dar lugar a:
 
-- **Pérdida de control sobre el contenido del subdominio** : prensa negativa sobre la incapacidad de la organización para proteger su contenido, así como perjuicios para la marca y pérdida de confianza.
+- **Pérdida de control sobre el contenido del subdominio**: prensa negativa sobre la incapacidad de la organización para proteger su contenido, así como perjuicios para la marca y pérdida de confianza.
 
-- **Recopilación de cookies de visitantes confiados** : es habitual que las aplicaciones web expongan cookies de sesión a subdominios (*.contoso.com), de modo que cualquier subdominio puede acceder a estas. Los actores de amenazas pueden usar la adquisición de subdominios para crear una página de aspecto auténtico, engañar a los usuarios confiados para que la visiten y recopilar sus cookies (incluso las cookies seguras). Una idea equivocada habitual es que el uso de certificados SSL protege su sitio y las cookies de los usuarios de una adquisición. Sin embargo, un actor de amenaza puede usar el subdominio secuestrado para solicitar y recibir un certificado SSL válido. Los certificados SSL válidos les conceden acceso a las cookies seguras y pueden aumentar aún más la legitimidad aparente del sitio malintencionado.
+- **Recopilación de cookies de visitantes confiados**: es habitual que las aplicaciones web expongan cookies de sesión a subdominios (*.contoso.com), de modo que cualquier subdominio puede acceder a estas. Los actores de amenazas pueden usar la adquisición de subdominios para crear una página de aspecto auténtico, engañar a los usuarios confiados para que la visiten y recopilar sus cookies (incluso las cookies seguras). Una idea equivocada habitual es que el uso de certificados SSL protege su sitio y las cookies de los usuarios de una adquisición. Sin embargo, un actor de amenaza puede usar el subdominio secuestrado para solicitar y recibir un certificado SSL válido. Los certificados SSL válidos les conceden acceso a las cookies seguras y pueden aumentar aún más la legitimidad aparente del sitio malintencionado.
 
 - **Campañas de suplantación de identidad (phishing)** : los subdominios de aspecto auténtico se pueden usar en campañas de suplantación de identidad. Esto se aplica a los sitios malintencionados y a los registros MX, que permitirían que el actor de amenaza recibiera correos electrónicos dirigidos a un subdominio legítimo de una marca segura.
 
-- **Más riesgos** : los sitios malintencionados se pueden usar para escalar a otros ataques clásicos, como XSS, CSRF, omisión de CORS, etc.
+- **Más riesgos**: los sitios malintencionados se pueden usar para escalar a otros ataques clásicos, como XSS, CSRF, omisión de CORS, etc.
 
 
 
@@ -144,6 +144,15 @@ Asegurarse de que su organización ha implementado procesos para evitar las entr
 
 Algunos servicios de Azure ofrecen características que ayudan a crear medidas preventivas y se detallan a continuación. Otros métodos para evitar este problema se deben establecer a través de las prácticas recomendadas de la organización o de los procedimientos operativos estándar.
 
+### <a name="enable-azure-defender-for-app-service"></a>Habilitación de Azure Defender para App Service
+
+La plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Azure Security Center, Azure Defender, ofrece la protección una amplia variedad de planes para proteger sus recursos y cargas de trabajo híbridas de varias nubes de Azure.
+
+El plan de **Azure defender para App Service** incluye la detección de DNS pendiente. Con este plan habilitado, recibirá alertas de seguridad si retira un sitio web de App Service pero no quita su dominio personalizado del registrador de DNS.
+
+La protección contra DNS pendiente de Azure Defender está disponible tanto si los dominios se administran con Azure DNS como con un registrador de dominios externo y se aplica a App Service en Windows y en Linux.
+
+Obtenga más información sobre esta y otras ventajas de este plan de Azure Defender en [Introducción a Azure Defender para App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Uso de registros de alias de Azure DNS
 
@@ -201,6 +210,8 @@ A menudo, los desarrolladores y los equipos de operaciones deben ejecutar proces
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre los servicios relacionados y las características de Azure que puede usar para defenderse de la adquisición de subdominios, consulte las páginas siguientes.
+
+- [Habilitación de Azure Defender para App Service](../../security-center/defender-for-app-service-introduction.md): para recibir alertas cuando se detectan entradas de DNS pendientes.
 
 - [Impedir que los registros DNS queden pendientes con Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

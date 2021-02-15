@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744347"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548809"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Deshabilitación de directivas de red para la dirección IP de origen del servicio de vínculo privado
 
 Para elegir una dirección IP de origen para el servicio de vínculo privado, se requiere un valor `privateLinkServiceNetworkPolicies` de deshabilitación explícita en la subred. Esta configuración solo es aplicable a la dirección IP privada específica que se eligió como IP de origen del servicio de vínculo privado. Para otros recursos de la subred, el acceso se controla en función de la definición de reglas de seguridad de los grupos de seguridad de red (NSG). 
  
-Al usar cualquier cliente de Azure (PowerShell, CLI o plantillas), se requiere un paso adicional para cambiar esta propiedad. Puede deshabilitar la directiva mediante Cloud Shell desde Azure Portal, las instalaciones locales de Azure PowerShell o la CLI de Azure, o bien usar plantillas de Azure Resource Manager.  
+Al usar el portal para crear un servicio de Private Link, este valor se deshabilita automáticamente como parte del proceso de creación. Las implementaciones con cualquier cliente de Azure (PowerShell, CLI o plantillas), se requiere un paso adicional para cambiar esta propiedad. Puede deshabilitar la directiva mediante Cloud Shell desde Azure Portal, las instalaciones locales de Azure PowerShell o la CLI de Azure, o bien usar plantillas de Azure Resource Manager.  
  
 Siga los pasos que se indican a continuación para deshabilitar las directivas de red del servicio de vínculo privado para una red virtual llamada *myVirtualNetwork* con una subred *predeterminada* hospedada en un grupo de recursos llamado *myResourceGroup*. 
 

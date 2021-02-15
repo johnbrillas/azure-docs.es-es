@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509560"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](./overview.md) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
@@ -25,9 +25,9 @@ Las aplicaciones que se hospedan en App Service están sujetas a ciertos límite
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Si la aplicación se hospeda en un plan *gratis* o *compartido* , los límites de los recursos que la aplicación puede usar vienen definidos por las cuotas.
+Si la aplicación se hospeda en un plan *gratis* o *compartido*, los límites de los recursos que la aplicación puede usar vienen definidos por las cuotas.
 
-Si la aplicación está hospedada en un plan *Básico* , *Estándar* o *Premium* , los límites de los recursos que se pueden utilizar vendrán definidos por el *tamaño* (pequeño, mediano o grande) y el *recuento de instancias* (1, 2, 3, etc.) del plan de App Service.
+Si la aplicación está hospedada en un plan *Básico*, *Estándar* o *Premium*, los límites de los recursos que se pueden utilizar vendrán definidos por el *tamaño* (pequeño, mediano o grande) y el *recuento de instancias* (1, 2, 3, etc.) del plan de App Service.
 
 Las cuotas de las aplicaciones gratis o compartidas son:
 
@@ -39,13 +39,13 @@ Las cuotas de las aplicaciones gratis o compartidas son:
 | **Ancho de banda** | Cantidad total de ancho de banda saliente permitido para esta aplicación en un día. Esta cuota se restablece cada 24 horas a medianoche (UTC). |
 | **Sistema de archivos** | Cantidad total de almacenamiento permitido. |
 
-La única cuota aplicable a las aplicaciones que se hospedan en un plan *Básico* , *Estándar* o *Premium* es la del sistema de archivos.
+La única cuota aplicable a las aplicaciones que se hospedan en un plan *Básico*, *Estándar* o *Premium* es la del sistema de archivos.
 
 Para más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte los [límites del servicio de suscripción de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Aplicación de cuotas
 
-Si una aplicación supera las cuotas *CPU (breve)* , *CPU (día)* o *Ancho de banda* , se detiene hasta que vuelva a restablecerse la cuota. Durante este tiempo, todas las solicitudes entrantes dan como resultado un error HTTP 403.
+Si una aplicación supera las cuotas *CPU (breve)* , *CPU (día)* o *Ancho de banda*, se detiene hasta que vuelva a restablecerse la cuota. Durante este tiempo, todas las solicitudes entrantes dan como resultado un error HTTP 403.
 
 ![Mensaje de error 403][http403]
 
@@ -82,7 +82,7 @@ Para una aplicación, estas son las métricas disponibles:
 | **Ensamblados actuales** | Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación. |
 | **Entrada de datos** | Cantidad de ancho de banda entrante consumido por la aplicación, en MiB. |
 | **Salida de datos** | Cantidad de ancho de banda saliente consumido por la aplicación, en MiB. |
-| **Uso del sistema de archivos** | Porcentaje de la cuota de sistema de archivos consumida por la aplicación. |
+| **Uso del sistema de archivos** | Cantidad de uso en bytes por recurso compartido de almacenamiento. |
 | **Recolección de elementos no utilizados de gen. 0** | Número de veces que los objetos de generación 0 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 1** | Número de veces que los objetos de generación 1 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 2** | Número de veces que los objetos de generación 2 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación.|
@@ -114,7 +114,7 @@ Para una aplicación, estas son las métricas disponibles:
 Para un plan de App Service, estas son las métricas disponibles:
 
 > [!NOTE]
-> Las métricas de plan de App Service solo están disponibles para planes *Básico* , *Estándar* o *Premium*.
+> Las métricas de plan de App Service solo están disponibles para planes *Básico*, *Estándar* o *Premium*.
 > 
 
 | Métrica | Descripción |
@@ -131,9 +131,9 @@ Para un plan de App Service, estas son las métricas disponibles:
 
 Hay dos métricas que reflejan el uso de CPU:
 
-**Tiempo de CPU** : es útil para las aplicaciones hospedadas en planes gratis o compartidos, porque una de sus cuotas está definida en minutos de CPU utilizados por la aplicación.
+**Tiempo de CPU**: es útil para las aplicaciones hospedadas en planes gratis o compartidos, porque una de sus cuotas está definida en minutos de CPU utilizados por la aplicación.
 
-**Porcentaje de CPU** : es útil para las aplicaciones hospedadas en los planes de tipo Básico, Estándar y Premium, dado que se pueden escalar horizontalmente. Porcentaje de CPU es una buena indicación del uso general en todas las instancias.
+**Porcentaje de CPU**: es útil para las aplicaciones hospedadas en los planes de tipo Básico, Estándar y Premium, dado que se pueden escalar horizontalmente. Porcentaje de CPU es una buena indicación del uso general en todas las instancias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Directiva de retención y granularidad de métricas
 El servicio registra y agrega las métricas de una aplicación y de un plan del servicio de aplicación, y [estas se conservan según estas reglas](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145722"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584930"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
@@ -106,6 +106,9 @@ Algunos ejemplos de interpolación de cadena:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> Cuando se usa la sintaxis de interpolación de cadenas en consultas de origen SQL, la cadena de consulta debe estar en una sola línea, sin "/n".
 
 ## <a name="commenting-expressions"></a>Comentarios de las expresiones
 

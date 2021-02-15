@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442055"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548668"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Personalización y API de colaboración B2B de Active Directory Azure
 
@@ -67,6 +66,16 @@ La API ofrece las siguientes funcionalidades:
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Determinación de si ya se invitó a un usuario a su directorio
+
+Puede usar la API de invitación para determinar si ya existe un usuario en el inquilino de recursos. Esto puede ser útil cuando está desarrollando una aplicación que usa la API de invitación para invitar a un usuario. Si el usuario ya existe en el directorio de recursos, no recibirá una invitación, por lo que puede ejecutar primero una consulta para determinar si el correo electrónico ya existe como nombre principal de usuario u otra propiedad de inicio de sesión.
+
+1. Asegúrese de que el dominio de correo electrónico del usuario no forma parte del dominio comprobado del inquilino de recursos.
+2. En el inquilino de recursos, use la consulta get user siguiente, donde {0} es la dirección de correo electrónico a la que va a invitar:
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Modelo de autorización
 
@@ -102,10 +111,10 @@ Puede utilizar las siguientes opciones:
 
 Después de enviar una invitación a un usuario externo, puede usar el cmdlet **Get-AzureADUser** para ver si ya la ha aceptado. Cuando se envía una invitación a un usuario externo, se rellenan las propiedades siguientes de Get-AzureADUser:
 
-* **UserState** indica si la invitación está en el estado **PendingAcceptance** o **Accepted** .
-* **UserStateChangedOn** muestra la marca de tiempo del cambio más reciente de la propiedad **UserState** .
+* **UserState** indica si la invitación está en el estado **PendingAcceptance** o **Accepted**.
+* **UserStateChangedOn** muestra la marca de tiempo del cambio más reciente de la propiedad **UserState**.
 
-Puede usar la opción **Filter** para filtrar los resultados por **UserState** . En el ejemplo siguiente se muestra cómo filtrar resultados para mostrar solo a los usuarios que tienen una invitación pendiente. En el ejemplo también se muestra la opción **Format-List** , que le permite especificar las propiedades que se van a mostrar. 
+Puede usar la opción **Filter** para filtrar los resultados por **UserState**. En el ejemplo siguiente se muestra cómo filtrar resultados para mostrar solo a los usuarios que tienen una invitación pendiente. En el ejemplo también se muestra la opción **Format-List**, que le permite especificar las propiedades que se van a mostrar. 
  
 
 ```powershell

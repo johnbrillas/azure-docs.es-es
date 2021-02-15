@@ -10,19 +10,21 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808004"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575167"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
-Se enviará un aviso a los clientes por correo electrónico y en Azure Portal con antelación de cualquier cambio en las puertas de enlace disponibles en cada región. La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
+A los clientes se les avisará de antemano mediante notificaciones de estado del servicio de cualquier cambio en las puertas de enlace disponibles en cada región. Los clientes pueden [usar Azure Portal para configurar las alertas del registro de actividad](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 
 ## <a name="status-updates"></a>Actualizaciones de estado
 

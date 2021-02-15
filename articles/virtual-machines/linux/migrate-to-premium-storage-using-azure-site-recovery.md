@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970850"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806179"
 ---
-# <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
+# <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Uso de Site Recovery para migrar a Premium Storage
 
 Los [SSD de Azure Premium](../disks-types.md) le ofrecen compatibilidad con los discos de alto rendimiento y latencia baja para máquinas virtuales (VM) que ejecutan cargas de trabajo con muchas operaciones de E/S. Esta guía le ayuda a migrar los discos de las máquinas virtuales desde una cuenta de almacenamiento estándar a una cuenta de Premium Storage mediante [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 

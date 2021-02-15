@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754987"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584000"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guía de migración de ADAL a MSAL para Java
 
@@ -80,7 +80,7 @@ MSAL para Java agrega una [memoria caché de tokens](msal-acquire-cache-tokens.m
 
 En la versión 1.0, si usa la autoridad `https://login.microsoftonline.com/common`, los usuarios pueden iniciar sesión con cualquier cuenta de Azure Active Directory (AAD) (para cualquier organización).
 
-Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, los usuarios pueden iniciar sesión con cualquier organización de AAD o incluso con una cuenta personal de Microsoft (MSA). En MSAL para Java, si quiere restringir el inicio de sesión a cualquier cuenta de AAD, ha de usar la autoridad `https://login.microsoftonline.com/organizations` (que tiene el mismo comportamiento que con ADAL4J). Para especificar una autoridad, establezca el parámetro `authority` en el método [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) al crear la clase de `PublicClientApplication`.
+Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, los usuarios pueden iniciar sesión con cualquier organización de AAD o incluso con una cuenta personal de Microsoft (MSA). En MSAL para Java, si quiere restringir el inicio de sesión a cualquier cuenta de AAD, use la autoridad `https://login.microsoftonline.com/organizations` (que tiene el mismo comportamiento que con ADAL4J). Para especificar una autoridad, establezca el parámetro `authority` en el método [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) al crear la clase de `PublicClientApplication`.
 
 ## <a name="v10-and-v20-tokens"></a>Tokens de las versiones 1.0 y 2.0
 

@@ -2,13 +2,13 @@
 title: Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center
 description: Obtenga información sobre cómo proteger las máquinas virtuales de Azure VMware Solution con las herramientas de seguridad nativas de Azure desde un solo panel en Azure Security Center.
 ms.topic: how-to
-ms.date: 11/06/2020
-ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/04/2021
+ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061471"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584964"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center
 
@@ -36,7 +36,12 @@ Puede configurar el área de trabajo de Log Analytics con Azure Sentinel para de
 
 - Los servicios nativos de Azure se pueden usar para la seguridad del entorno híbrido en Azure, Azure VMware Solution y servicios locales.
 - Con un área de trabajo de Log Analytics, puede recopilar los datos o los registros en un solo punto y presentar los mismos datos en diferentes servicios nativos de Azure.
-- Azure Security Center proporciona características de seguridad, como la supervisión de la integridad de los archivos, la detección de ataques sin archivos, la evaluación de revisiones del sistema operativo, la evaluación de los errores de configuración de seguridad y la evaluación de Endpoint Protection.
+- Azure Security Center ofrece una serie de características, entre las que se incluyen:
+    - Supervisión de la integridad de los archivos
+    - Detección de ataques sin archivos
+    - Evaluación de revisiones del sistema operativo 
+    - Evaluación de configuraciones de seguridad incorrectas
+    - Evaluación de EndPoint Protection
 - Azure Sentinel le permite lo siguiente:
     - Recopile datos a escala de nube de todos los usuarios, dispositivos, aplicaciones y de toda la infraestructura, tanto en el entorno local como en diversas nubes.
     - Detecte amenazas previamente no detectadas.
@@ -183,7 +188,7 @@ Después de conectar los orígenes de datos a Azure Sentinel, puede crear reglas
 
 6. En la pestaña **Configuración de los incidentes**, habilite **Crear incidentes a partir de las alertas desencadenadas por esta regla de análisis** y seleccione **Siguiente: Respuesta automatizada >** .
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Captura de pantalla del Asistente para reglas de análisis para crear una regla en Azure Sentinel que muestra habilitada la opción Crear incidentes a partir de alertas desencadenadas por esta regla de análisis":::.
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Captura de pantalla del Asistente para reglas de análisis para crear una regla en Azure Sentinel. Se muestra cómo crear incidentes a partir de alertas desencadenadas por esta regla cuando está habilitada.":::
 
 7. Seleccione **Siguiente: revisión >** .
 
@@ -235,6 +240,8 @@ Puede crear consultas o usar la consulta predefinida disponible en Azure Sentine
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo usar el [panel de Azure Defender](../security-center/azure-defender-dashboard.md).
-- Explore toda la gama de protección que ofrece [Azure Defender](../security-center/azure-defender.md).
-- Obtenga información sobre la [Detección avanzada de ataques de varias fases en Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+Ahora que se ha explicado cómo proteger las máquinas virtuales de Azure VMware Solution, puede que quiera obtener información sobre:
+
+- El uso del [panel de Azure Defender](../security-center/azure-defender-dashboard.md).
+- La [detección avanzada de ataques de varias fases en Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- La [administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).

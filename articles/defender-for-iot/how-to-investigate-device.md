@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: cd7802fa4a88c3b05140d30ab4d8b2bbd4adc8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932394"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820609"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigación de un dispositivo de IoT sospechoso
 
@@ -43,7 +43,7 @@ Para buscar el área de trabajo de Log Analytics para el almacenamiento de datos
 
 Después de la configuración, realice las siguientes operaciones para acceder a los datos almacenados en el área de trabajo de Log Analytics:
 
-1. Seleccione una alerta de Defender for IoT y haga clic en ella.
+1. Seleccione una alerta de Defender para IoT en la instancia de IoT Hub y haga clic en ella.
 1. Haga clic en **Further investigation** (Investigación adicional).
 1. Seleccione **To see which devices have this alert click here and view the DeviceId column** (Para ver los dispositivos que tienen esta alerta haga clic aquí y vea la columna DeviceId).
 

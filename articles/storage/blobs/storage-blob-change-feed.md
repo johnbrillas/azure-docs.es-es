@@ -3,17 +3,17 @@ title: Fuente de cambios en Azure Blob Storage | Microsoft Docs
 description: Obtenga información sobre los registros de fuente de cambios en Azure Blob Storage y cómo usarlos.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997110"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979233"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -21,9 +21,15 @@ El propósito de la fuente de cambios es proporcionar registros de transacciones
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>Funcionamiento de la fuente de cambios
+
 La fuente de cambios se almacena como [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en un contenedor especial de la cuenta de almacenamiento al costo de los [precios de los blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) estándar. Puede controlar el período de retención de estos archivos en función de los requisitos (consulte las [condiciones](#conditions) de la versión actual). Los eventos de cambio se anexan a la fuente de cambios como registros en la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html): un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con el esquema en línea. Este formato se usa ampliamente en el ecosistema de Hadoop, en Stream Analytics y en Azure Data Factory.
 
 Puede procesar estos registros de manera asincrónica, incremental o en su totalidad. Cualquier número de aplicaciones cliente puede leer de manera independiente la fuente de cambios, en paralelo y a su propio ritmo. Las aplicaciones de análisis como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) o [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) pueden consumir registros directamente como archivos Avro, lo que le permite procesarlos a un bajo costo, con un alto ancho de banda y sin la necesidad de escribir una aplicación personalizada.
+
+En el diagrama siguiente se muestra cómo se agregan registros a la fuente de cambios:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagrama que muestra cómo funciona la fuente de cambios para ofrecer un registro ordenado de los cambios en los blobs":::
 
 La compatibilidad con la fuente de cambios es adecuada para escenarios que procesan datos en función de los objetos que han cambiado. Por ejemplo, las aplicaciones pueden:
 

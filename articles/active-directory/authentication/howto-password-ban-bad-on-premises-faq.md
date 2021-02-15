@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741905"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625135"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Preguntas más frecuentes sobre protección con contraseña de Azure AD local
 
@@ -150,6 +150,146 @@ Solo se admite el modo de auditoría en el entorno de Active Directory local. Az
 **P: Mis usuarios ven el mensaje de error tradicional de Windows cuando Protección con contraseña de Azure AD rechaza una contraseña. ¿Es posible personalizar este mensaje de error para que los usuarios sepan lo que ha sucedido realmente?**
 
 No. El mensaje de error que ven los usuarios cuando un controlador de dominio rechaza una contraseña está controlado por la máquina cliente, no por el controlador de dominio. Este comportamiento se produce si las directivas predeterminadas de contraseñas de Active Directory o una solución basada en filtro de contraseña, como Protección con contraseña de Azure AD, rechazan una contraseña.
+
+## <a name="password-testing-procedures"></a>Procedimientos de prueba de contraseñas
+
+Puede que quiera realizar algunas pruebas básicas de varias contraseñas con el fin de validar el funcionamiento adecuado del software y comprender mejor el [algoritmo de evaluación de contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated). En esta sección se describe un método para tales pruebas que está diseñado para generar resultados repetibles.
+
+¿Por qué es necesario seguir estos pasos? Hay varios factores que dificultan la realización de pruebas controlables y repetibles de contraseñas en el entorno de Active Directory local:
+
+* La directiva de contraseñas se configura y se conserva en Azure y los agentes de controlador de dominio locales sincronizan periódicamente las copias de la directiva mediante un mecanismo de sondeo. La latencia inherente a este ciclo de sondeo puede provocar confusión. Por ejemplo, si configura la directiva en Azure, pero olvida sincronizarla con el agente de controlador de dominio, es posible que las pruebas no produzcan los resultados esperados. El intervalo de sondeo está actualmente codificado de forma rígida para que sea una vez por hora, pero esperar una hora entre cambios de directiva no es una buena idea en un escenario de pruebas interactivo.
+* Una vez que una nueva directiva de contraseñas se sincroniza con un controlador de dominio, se producirá más latencia mientras se replica en otros controladores de dominio. Estos retrasos pueden producir resultados inesperados cuando se prueba un cambio de contraseña en un controlador de dominio que todavía no ha recibido la versión más reciente de la directiva.
+* La prueba de los cambios de contraseña a través de una interfaz de usuario dificulta la confianza en los resultados. Por ejemplo, es fácil escribir incorrectamente una contraseña no válida en una interfaz de usuario, dado que principalmente la mayoría de las interfaces de usuario de contraseña ocultan la entrada del usuario (por ejemplo, la interfaz de usuario de Windows de Ctrl-Alt-Supr-> Cambiar contraseña).
+* No es posible controlar estrictamente qué controlador de dominio se usa al probar los cambios de contraseña de los clientes unidos a un dominio. El sistema operativo cliente de Windows selecciona un controlador de dominio en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica del entorno, etc.
+
+Para evitar estos problemas, los siguientes pasos se basan en la prueba mediante la línea de comandos del restablecimiento de contraseña mientras se inicia sesión en un controlador de dominio.
+
+> [!WARNING]
+> Estos procedimientos deben usarse solo en entornos de prueba, ya que todos los cambios y restablecimientos de contraseña entrantes se aceptarán sin validarse mientras el servicio del agente de controlador de dominio esté detenido, y también para evitar el aumento de los riesgos inherentes al inicio de sesión en un controlador de dominio.
+
+En los pasos siguientes se da por supuesto que ha instalado el agente de controlador de dominio en al menos un controlador de dominio, que ha instalado al menos un proxy y que ha registrado tanto el proxy como el bosque.
+
+1. Inicie sesión en un controlador de dominio con credenciales de administrador de dominio (u otras credenciales que tengan privilegios suficientes para crear cuentas de usuario de prueba y restablecer contraseñas) que tenga instalado el software de agente de controlador de dominio y que se haya reiniciado.
+1. Abra el Visor de eventos y vaya al [registro de eventos de administración del agente de controlador de dominio](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Abra una ventana del símbolo del sistema con permisos elevados.
+1. Creación de una cuenta de prueba para realizar pruebas de contraseñas
+
+   Hay muchas maneras de crear una cuenta de usuario, pero aquí se ofrece una opción mediante la línea de comandos para facilitar esta operación durante ciclos de prueba repetitivos:
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   A efectos del presente análisis, suponga que hemos creado una cuenta de prueba llamada "ContosoUser", por ejemplo:
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Abra un explorador web (puede que tenga que usar otro dispositivo en lugar del controlador de dominio), inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a Azure Active Directory > Seguridad > Métodos de autenticación > Protección con contraseña.
+1. Modifique la directiva de protección con contraseña de Azure AD según sea necesario para las pruebas que quiere realizar.  Por ejemplo, puede decidir configurar el Modo aplicado o el Modo de auditoría, o modificar la lista de términos prohibidos en la lista personalizada de contraseñas prohibidas.
+1. Para sincronizar la nueva directiva, detenga y reinicie el servicio del agente de controlador de dominio.
+
+   Este paso se puede realizar de varias maneras. Una manera sería usar la consola administrativa de administración de servicios; para ello, haga clic con el botón derecho en el servicio del agente de controlador de dominio de protección con contraseña de Azure AD y elija "Reiniciar". Otra manera es usar la ventana del símbolo del sistema, como, por ejemplo:
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Compruebe el Visor de eventos para confirmar que se ha descargado una nueva directiva.
+
+   Cada vez que el servicio del agente de controlador de dominio se detiene y se inicia, verá que se emiten dos eventos 30006 en estrecha sucesión. El primer evento 30006 reflejará la directiva que se almacenó en caché en el disco del recurso compartido sysvol. El segundo evento 30006 (si existe) debe tener una fecha de directiva de inquilino actualizada y, si es así, reflejará la directiva que se descargó de Azure. El valor de fecha de la directiva de inquilino está actualmente codificado para mostrar la marca de tiempo aproximada en que la directiva se descargó de Azure.
+   
+   Si el segundo evento 30006 no aparece, debe solucionar el problema antes de continuar.
+   
+   Los eventos 30006 tendrán un aspecto similar al del ejemplo siguiente:
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Por ejemplo, si se cambia entre el Modo aplicado y el Modo de auditoría, se modificará la marca AuditOnly (la directiva anterior con AuditOnly = 0 está en Modo aplicado); los cambios en la lista personalizada de contraseñas prohibidas no se reflejan directamente en el evento 30006 anterior (y no se registran en ninguna parte por motivos de seguridad). La descarga correcta de la directiva de Azure después de este cambio también incluirá la lista modificada de contraseñas prohibidas.
+
+1. Ejecute una prueba intentando restablecer una nueva contraseña en la cuenta de usuario de prueba.
+
+   Este paso se puede realizar desde la ventana del símbolo del sistema, como se indica a continuación:
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Después de ejecutar el comando, consulte el Visor de eventos para obtener más información sobre el resultado del comando. Los eventos de resultados de validación de contraseñas se documentan en el tema [Registro de eventos de administración del agente de controlador de dominio](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log); tales eventos se usarán para validar el resultado de la prueba, además de la salida interactiva de los comandos net.exe.
+
+   Vamos a probar un ejemplo: intentaremos establecer una contraseña prohibida en la lista global de Microsoft (tenga en cuenta que la lista [no está documentada](concept-password-ban-bad.md#global-banned-password-list), pero podemos probarla aquí con un término prohibido conocido). En este ejemplo se da por supuesto que ha configurado la directiva en el Modo aplicado y que ha agregado cero términos a la lista personalizada de contraseñas prohibidas.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   Según la documentación, dado que nuestra prueba era una operación de restablecimiento de contraseña, debería ver un evento 10017 y 30005 para el usuario ContosoUser.
+
+   El evento 10017 se parecerá al de este ejemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   El evento 30005 se parecerá al de este ejemplo:
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Ha estado bien. Vamos a probar otro ejemplo. Esta vez intentaremos establecer una contraseña prohibida de la lista personalizada de contraseñas prohibidas mientras la directiva está en Modo de auditoría. En este ejemplo se da por supuesto que ha realizado los pasos siguientes: ha configurado la directiva en Modo de auditoría, ha agregado el término "lachrymose" a la lista personalizada de contraseñas prohibidas y ha sincronizado la nueva directiva resultante con el controlador de dominio mediante el proceso del servicio del agente de controlador de dominio, como se ha descrito anteriormente.
+
+   Bien, establezca una variación de la contraseña prohibida:
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   Recuerde que esta vez ha funcionado porque la directiva está en Modo de auditoría. Debería ver los eventos 10025 y 30007 del usuario ContosoUser.
+
+   El evento 10025 se parecerá al de este ejemplo:
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   El evento 30007 se parecerá al de este ejemplo:
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Siga probando las distintas contraseñas que elija y compruebe los resultados en el Visor de eventos mediante los procedimientos descritos en los pasos anteriores. Si necesita cambiar la directiva en Azure Portal, no olvide sincronizar la nueva directiva con el agente de controlador de dominio como se ha descrito anteriormente.
+
+Se han descrito procedimientos que le permiten realizar pruebas controladas del comportamiento de la validación de contraseñas de la protección mediante contraseña de Azure AD. El restablecimiento de contraseñas de usuario desde la línea de comandos directamente en un controlador de dominio puede parecer un medio extraño de realizar estas pruebas, pero, como se ha descrito anteriormente, está diseñado para generar resultados repetibles. A medida que se prueban varias contraseñas, tenga en cuenta el [algoritmo de evaluación de contraseñas](concept-password-ban-bad.md#how-are-passwords-evaluated), ya que puede ayudar a explicar los resultados que no esperaba.
+
+> [!WARNING]
+> Cuando finalicen todas las pruebas, no olvide eliminar las cuentas de usuario creadas con fines de prueba.
 
 ## <a name="additional-content"></a>Contenido adicional
 

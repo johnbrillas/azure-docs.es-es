@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a108f8f5c5b333a9fc7e6eabbfa516b6578ca76
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 28cfb3d8b09c9661d16ac6e7146c50e7043d913a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063831"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581965"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Búsqueda de una API específica necesaria para una aplicación desarrollada internamente
 
-El acceso a API requiere configurar los ámbitos y roles de acceso. Si desea exponer su API web de aplicaciones de recursos a aplicaciones cliente, debe configurar los roles y ámbitos de acceso de la API. Si desea que una aplicación cliente pueda acceder a una API web, debe configurar los permisos de acceso a la API en el registro de la aplicación.
+El acceso a API requiere configurar los ámbitos y roles de acceso. Si quiere exponer sus API web de aplicaciones de recursos a aplicaciones cliente, configure los roles y ámbitos de acceso de la API. Si quiere que una aplicación cliente pueda acceder a una API web, configure permisos de acceso a la API en el registro de la aplicación.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configuración de una aplicación de recursos para exponer las API web
 

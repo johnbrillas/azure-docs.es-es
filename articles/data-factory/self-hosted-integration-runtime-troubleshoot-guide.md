@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942042"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551083"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -244,7 +244,7 @@ Instale los controladores para los almacenes de datos de origen y de destino en 
  
 Si el tráfico no puede atravesar la red entre dos almacenes de datos (por ejemplo, están configurados en dos redes virtuales), es posible que no finalice la copia en una actividad, incluso con el IR instalado. Si no puede finalizar la copia en una sola actividad, puede crear dos actividades de copia con dos IR, cada uno en una red virtual: 
 * Copie un IR del almacén de datos 1 a Azure Blob Storage
-* Copie otro IR de Azure Blob Storage al almacén de datos 2. 
+* Copie otro entorno de ejecución de integración de Azure Blob Storage en el almacén de datos 2. 
 
 Esta solución podría simular el requisito de usar el IR para crear un puente que conecte dos almacenes de datos desconectados.
 
@@ -710,7 +710,7 @@ Esta notificación se aplica a los escenarios siguientes:
 
 Cómo determinar si se ve afectado:
 
-- *No se verá afectado* si define reglas de firewall basadas en nombres de dominio completos (FQDN) que usen el enfoque descrito en [Configuraciones de firewall y configuración de direcciones IP permitidas](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- *No se verá afectado* si define reglas de firewall basadas en nombres de dominio completos (FQDN) que usen el enfoque descrito en [Configuraciones de firewall y configuración de direcciones IP permitidas](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - *Se verá afectado* si habilita de forma explícita la lista de direcciones IP de salida permitidas en el firewall corporativo.
 

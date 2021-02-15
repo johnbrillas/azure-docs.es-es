@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9643e62f085888808b95698d068c5e383fb8d539
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337974"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524556"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box en Azure Portal
 
@@ -24,12 +24,14 @@ En este artículo se describen las tareas de envío autoadministradas para pedir
 El envío autoadministrado está disponible como opción cuando [realiza un pedido de Azure Data Box](data-box-deploy-ordered.md). Solo está disponible en las siguientes regiones:
 
 * US Gov
+* Reino Unido
 * Europa Occidental
 * Japón
 * Singapur
 * Corea del Sur
 * India
 * Sudáfrica
+* Australia
 
 ## <a name="use-self-managed-shipping"></a>Uso del envío autoadministrado
 
@@ -41,7 +43,7 @@ Al realizar el pedido de Data Box, puede elegir la opción de envío autoadminis
 
 2. Al elegir un tipo de envío, seleccione la opción **Envío autoadministrado**. Esta opción solo está disponible si se encuentra en una región admitida, tal como se describe en los requisitos previos.
 
-3. Cuando proporcione la dirección de envío, tendrá que validarla y completar el pedido.
+3. Una vez proporcionada la dirección de envío, tendrá que validarla y completar el pedido.
 
    ![Envío autoadministrado, validar y agregar dirección](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
@@ -57,7 +59,7 @@ Al realizar el pedido de Data Box, puede elegir la opción de envío autoadminis
 
    ![Instrucciones de programar recogida para Azure](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-6. Una vez que haya programado la recogida del dispositivo, podrá ver el código de autorización del dispositivo en el panel **Programar recogida para Azure**.
+6. Una vez programada la recogida del dispositivo, puede ver el código de autorización del dispositivo en el panel **Programar recogida para Azure**.
 
    ![Visualización del código de autorización del dispositivo](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
@@ -73,7 +75,7 @@ Al realizar el pedido de Data Box, puede elegir la opción de envío autoadminis
 
 8. Después de recogerlo, copie los datos al dispositivo Data Box en su sitio. Una vez completada la copia, prepare para enviar el dispositivo Data Box. Para obtener más información, vaya a [Preparación para el envío](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   El paso **Preparación para el envío** debe completarse sin errores críticos. De lo contrario, tendrá que volver a ejecutarlo después de realizar las correcciones necesarias. Cuando la preparación para el envío se complete correctamente, podrá ver el código de autorización para la entrega en la interfaz de usuario local del dispositivo.
+   El paso **Preparación para el envío** debe completarse sin errores críticos. De lo contrario, deberá volver a ejecutar este paso después de realizar las correcciones necesarias. Una vez completado correctamente el paso **Preparación para el envío**, puede ver el código de autorización para la entrega en la interfaz de usuario local del dispositivo.
 
    > [!NOTE]
    > No comparta el código de autorización por correo electrónico. Este solo debe verificarse en el centro de datos durante la entrega.

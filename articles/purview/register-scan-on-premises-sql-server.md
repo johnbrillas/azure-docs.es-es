@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555906"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574964"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
 
@@ -50,33 +50,32 @@ Solo hay una manera de configurar la autenticación para la instancia local de S
 
 ### <a name="sql-authentication"></a>Autenticación SQL
 
-La identidad de SQL debe tener acceso a la base de datos principal. Esta ubicación es donde se almacena `sys.databases`. El analizador de Purview necesita enumerar `sys.databases` para buscar todas las instancias de SQL DB en el servidor.
+La cuenta de SQL debe tener acceso a la base de datos **maestra**. El motivo es que `sys.databases` está en la base de datos maestra. El examen de Purview debe enumerar `sys.databases` para buscar todas las instancias de SQL en el servidor.
 
 #### <a name="using-an-existing-server-administrator"></a>Uso del administrador del servidor existente
 
 Si tiene previsto utilizar un administrador del servidor (sa) existente para examinar el servidor local de SQL Server, asegúrese de lo siguiente:
 
-1. `sa` no es un tipo de autenticación de Windows.
+1. `sa` no es una cuenta de autenticación de Windows.
 
-2. El usuario de nivel de servidor que quiera usar debe tener roles de servidor de tipo público y sysadmin. Para comprobar estos roles, vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a seguridad, seleccione el inicio de sesión que va a usar, haga clic con el botón derecho en **Propiedades** y seleccione **Roles de servidor**.
+2. El inicio de sesión de nivel de servidor que planee usar debe tener roles de servidor de tipo público y sysadmin. Para comprobarlo, vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a Seguridad, seleccione el inicio de sesión que planea usar, haga clic con el botón derecho en **Propiedades** y, luego, seleccione **Roles de servidor**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Inicio de sesión en el nivel de servidor.":::
-
-3. Las bases de datos se asignan a un usuario que tiene al menos acceso de nivel db_datareader en cada base de datos.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="asignación de usuarios para sa.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Creación de un inicio de sesión y un usuario nuevos
 
 Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el servidor de SQL Server, siga estos pasos:
 
+> [!Note]
+   > Todos los pasos siguientes se pueden ejecutar con el código proporcionado [aquí](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+
 1. Vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a seguridad, haga clic con el botón derecho en Inicio de sesión y cree un nuevo inicio de sesión. Asegúrese de seleccionar la autenticación de SQL.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Creación de un nuevo inicio de sesión y un usuario.":::
 
-2. Seleccione los roles de servidor en el panel de navegación izquierdo y seleccione los tipos público y sysadmin.
+2. Seleccione Roles de servidor en el panel de navegación izquierdo y asegúrese de que está asignado el rol público.
 
-3. Seleccione la opción de asignación de usuarios en el panel de navegación izquierdo y seleccione todas las bases de datos de al asignación.
+3. Seleccione sucesivamente Asignación de usuarios en el panel de navegación izquierdo, luego, todas las bases de datos del mapa y, seguidamente, el rol de base de datos **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="asignación de usuarios.":::
 
@@ -88,8 +87,7 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Almacenaje de la contraseña de inicio de sesión de SQL en un almacén de claves y creación una credencial en Purview
 
-1. Vaya al almacén de claves en Azure Portal.
-1. Seleccione **Configuración > Secretos**.
+1. Vaya al almacén de claves en Azure Portal1. Seleccione **Configuración > Secretos**.
 1. Seleccione **+ Generate/Import** (+ Generar/Importar) y escriba el **nombre** y el **valor** como la *contraseña* del inicio de sesión de SQL Server.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).

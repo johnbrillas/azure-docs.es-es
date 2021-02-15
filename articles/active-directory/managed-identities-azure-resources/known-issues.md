@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825813"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008543"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -48,6 +48,10 @@ No. Las identidades administradas y los registros de aplicaciones de Azure AD n
 Los registros de aplicaciones tienen dos componentes: Un objeto de aplicación y un objeto de entidad de servicio. Las identidades administradas para los recursos de Azure solo tienen uno de estos componentes: un objeto de entidad de servicio. 
 
 Las identidades administradas no tienen un objeto de aplicación en el directorio, que es lo que se suele usar para conceder permisos de aplicación para MS Graph. En su lugar, los permisos de MS Graph para identidades administradas deben concederse directamente a la entidad de servicio.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>¿Se puede usar la misma identidad administrada en varias regiones?
+
+En resumen, sí puede usar identidades administradas asignadas por el usuario en más de una región de Azure. La respuesta más larga es que, mientras que las identidades administradas asignadas por el usuario se crean como recursos regionales, la [entidad de servicio](../develop/app-objects-and-service-principals.md#service-principal-object) asociada (SPN) creada en Azure AD está disponible globalmente. La entidad de servicio se puede usar desde cualquier región de Azure y su disponibilidad depende de la disponibilidad de Azure AD. Por ejemplo, si ha creado una identidad administrada asignada por el usuario en la región Centro y Sur, y esa región deja de estar disponible, este problema solo afecta a las actividades del [plano de control](../../azure-resource-manager/management/control-plane-and-data-plane.md) en la propia identidad administrada.  Las actividades realizadas por los recursos ya configuradas para usar las identidades administradas no se verán afectadas.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>¿Funcionan las identidades administradas para recursos de Azure con Azure Cloud Services?
 

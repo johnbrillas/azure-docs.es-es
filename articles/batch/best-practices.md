@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar sus soluciones de Azure Batch.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732418"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550868"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -169,6 +169,8 @@ Si observa un problema relacionado con el comportamiento de un nodo o tareas en 
 
 En el caso de las cuentas de Batch del modo de suscripción de usuario, las actualizaciones automáticas del sistema operativo pueden interrumpir el progreso de las tareas, especialmente si estas son de larga duración. La [creación de tareas idempotentes](#build-durable-tasks) puede ayudar a reducir los errores causados por estas interrupciones. También se recomienda [programar actualizaciones de imágenes de sistema operativo para las horas en las que no se espera que las tareas se ejecuten](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+En los grupos de Windows, `enableAutomaticUpdates` se establece en `true` de manera predeterminada. Aunque se recomienda permitir actualizaciones automáticas, si necesita asegurarse de que no se produzcan actualizaciones del sistema operativo de forma inesperada puede establecer este valor en `false`.
+
 ## <a name="isolation-security"></a>Seguridad de aislamiento
 
 Con respecto al aislamiento, si su escenario requiere aislar los trabajos entre sí, debe hacerlo colocándolos en grupos independientes. Un grupo es el límite de aislamiento de seguridad en Batch y, de forma predeterminada, dos grupos no son visibles ni pueden comunicarse entre sí. Evite el uso de cuentas de Batch independientes como medio de aislamiento.
@@ -189,8 +191,7 @@ Revise la siguiente guía relacionada con la conectividad en las soluciones de B
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Grupos de seguridad de red (NSG) y Rutas definidas por el usuario (UDR)
 
-Al aprovisionar [grupos de Batch en una red virtual](batch-virtual-network.md), asegúrese de seguir las instrucciones sobre el uso de la etiqueta de servicio `BatchNodeManagement`, los puertos, los protocolos y la dirección de la regla.
-Se recomienda encarecidamente el uso de la etiqueta de servicio, en lugar de usar las direcciones IP subyacentes del servicio Batch. Esto se debe a que las direcciones IP pueden cambiar con el tiempo. El uso directo de las direcciones IP del servicio Batch puede provocar inestabilidad o interrupciones para los grupos de Batch.
+Al aprovisionar [grupos de Batch en una red virtual](batch-virtual-network.md), asegúrese de seguir las instrucciones sobre el uso de la etiqueta de servicio `BatchNodeManagement`, los puertos, los protocolos y la dirección de la regla. Se recomienda encarecidamente el uso de la etiqueta de servicio, en lugar de usar las direcciones IP subyacentes del servicio Batch. Esto se debe a que las direcciones IP pueden cambiar con el tiempo. El uso directo de las direcciones IP del servicio Batch puede provocar inestabilidad o interrupciones para los grupos de Batch.
 
 En el caso de las rutas definidas por el usuario (UDR), asegúrese de que tiene un proceso implementado para actualizar las direcciones IP del servicio Batch periódicamente en la tabla de rutas, ya que estas direcciones cambian con el tiempo. Para más información sobre cómo obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md). Las direcciones IP del servicio Batch se asociarán a la etiqueta de servicio `BatchNodeManagement`, o la variante regional que coincida con la región de la cuenta de Batch.
 

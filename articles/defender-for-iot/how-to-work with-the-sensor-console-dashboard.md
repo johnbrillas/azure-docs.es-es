@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 735b1ce4391598d05a1bf0b4486503092f4de37d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837016"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509089"
 ---
 # <a name="the-dashboard"></a>El panel
 
@@ -28,7 +28,7 @@ El panel le permite ver rápidamente el estado de seguridad de la red. Proporcio
 
 - Advertencias
 
-- Los dos medidores del centro de la página indican los paquetes por segundo (PPS) y las alertas no confirmadas (UA). **PPS** es el número de paquetes confirmados por el sistema por segundo. **UA** es el número de alertas que aún no se han confirmado.
+- Los dos indicadores del centro de la página muestran los paquetes por segundo (PPS) y las alertas no confirmadas (UA). **PPS** es el número de paquetes confirmados por el sistema por segundo. **UA** es el número de alertas que aún no se han confirmado.
 
 - Lista de alertas no confirmadas con su descripción.
 
@@ -78,23 +78,23 @@ Seleccione la flecha hacia abajo **V** en la parte inferior de un cuadro de aler
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Entrada de alertas e información de dispositivos":::
 
-- Seleccione el dispositivo o **Mostrar dispositivos** para mostrar el mapa del modo físico. Los dispositivos afectados se resaltan.
+- Seleccione el dispositivo para mostrar el mapa del modo físico. Los dispositivos afectados se resaltan.
+
+- Haga clic en cualquier lugar del cuadro alerta para mostrar detalles adicionales relacionados con la alerta. Se mostrará un elemento emergente similar al siguiente.
 
 - Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: para exportar un archivo CSV sobre la alerta.
 
 - Solo administradores y analistas de seguridad: seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Acknowledge all"::: (Confirmar todo) para **confirmar todas** las alertas asociadas.
 
-- Seleccione la entrada de alerta para ver el tipo y la descripción de la alerta:
-
 - Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF"::: para descargar un informe de alerta como un archivo PDF.
 
-- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Anclar"::: para anclar o desanclar la alerta.
+- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Anclar"::: para anclar o desanclar la alerta. Al seleccionar la opción para anclar, se agregará a la ventana **Pinned Alerts** (Alertas ancladas) en la pantalla **Alerts** (Alertas).
 
-- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Descargar"::: para investigar la alerta mediante la descarga del archivo PCAP que contiene un análisis del protocolo de red.
+- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Download"::: (Descargar) para investigar la alerta mediante la descarga del archivo PCAP relacionado que contiene un análisis del protocolo de red.
 
-- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Nube"::: para descargar un archivo PCAP filtrado que solo contenga los paquetes relevantes de la alerta, lo que reduce el tamaño del archivo de salida y permite realizar un análisis más específico. Puede verlo mediante [Wireshark](https://www.wireshark.org/).
+- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud"::: (Nube) para descargar un archivo PCAP filtrado relacionado que solo contenga los paquetes pertinentes de la alerta, lo que reduce el tamaño del archivo de salida y permite realizar un análisis más específico. Puede verlo mediante [Wireshark](https://www.wireshark.org/).
 
-- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navegación"::: para ir a la escala de tiempo del evento en el momento de la alerta solicitada.
+- Seleccione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navegación"::: para ir a la escala de tiempo del evento en el momento de la alerta solicitada. Esto le permite evaluar otros eventos que pueden estar ocurriendo en torno a la alerta específica.
 
 - Solo administradores y analistas de seguridad: cambian el estado de la alerta de no confirmada a confirmada. Seleccione Aprender para aprobar la actividad detectada.
 

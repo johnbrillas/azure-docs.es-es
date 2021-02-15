@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063304"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582356"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Escenarios de intercambio de tokens de la plataforma de identidad de Microsoft con SAML y OIDC/OAuth
 
 SAML y OpenID Connect (OIDC)/OAuth son protocolos conocidos que se usan para implementar el inicio de sesión único (SSO). Algunas aplicaciones solo pueden implementar SAML y otras solo pueden implementar OIDC/OAuth. Ambos protocolos emplean tokens para comunicar secretos. Para más información sobre SAML, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md). Para más información sobre OIDC/OAuth, consulte [Protocolos OAuth 2.0 y OpenID Connect en la plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
 
-En este artículo se describe un escenario común en el que una aplicación implementa SAML, pero debe llamar a Graph API, que usa OIDC/OAuth. Se proporcionan instrucciones básicas para las personas que trabajan con este escenario.
+En este artículo se describe un escenario común en el que una aplicación implementa SAML, pero llama a Graph API, que usa OIDC/OAuth. Se proporcionan instrucciones básicas para las personas que trabajan con este escenario.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Escenario: Tiene un token SAML y quiere llamar a Graph API.
 Muchas aplicaciones se implementan con SAML. Sin embargo, Graph API emplea los protocolos OIDC/OAuth. Es posible, aunque no resulta sencillo, agregar la funcionalidad OIDC/OAuth a una aplicación de SAML. Una vez que la funcionalidad OAuth está disponible en una aplicación, se puede usar Graph API.

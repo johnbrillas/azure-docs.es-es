@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429473"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557739"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -202,17 +202,24 @@ La operación se bloquea porque ha alcanzado el límite en el número de operaci
 |---|---|---|
 La operación está bloqueada porque el almacén ha alcanzado su límite máximo permitido para ese tipo de operaciones en un intervalo de 24 horas. | Este error aparecerá cuando haya alcanzado el límite máximo permitido para una operación en un intervalo de 24 horas. Normalmente, este error aparece cuando hay operaciones a escala, como la modificación de una directiva o la protección automática. A diferencia de lo que sucede en el caso de CloudDosAbsoluteLimitReached, no se puede hacer mucho para resolver este estado. De hecho, el servicio de Azure Backup volverá a intentar internamente las operaciones para todos los elementos en cuestión.<br> Por ejemplo: si tiene un gran número de orígenes de datos protegidos con una directiva e intenta modificar esa directiva, se desencadenará la configuración de los trabajos de protección para cada uno de los elementos protegidos y, en ocasiones, puede alcanzar el límite máximo permitido para tales operaciones al día.| El servicio Azure Backup volverá a intentar esta operación automáticamente después de 24 horas.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Mensaje de error | Causas posibles | Acción recomendada |
+|---|---|---|
+Error en la operación de extensión de carga de trabajo de Azure Backup. | La VM está apagada o no puede ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet.| <li> Asegúrese de que la VM está en funcionamiento y tiene conectividad a Internet.<li> [Volver a registrar la extensión en la VM de SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio *AzureBackup* para permitir el acceso saliente al servicio Azure Backup, y de forma similar para los servicios Azure AD (*AzureActiveDirectory*) y Azure Storage(*Storage*). Siga estos [pasos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
+La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| <li> Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio *AzureBackup* para permitir el acceso saliente al servicio Azure Backup, y de forma similar para los servicios de Azure AD (*AzureActiveDirectory*) y Azure Storage (*Storage*). Siga estos [pasos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acceso. <li> Asegúrese de que DNS está resolviendo los puntos de conexión de Azure. <li> Compruebe si la VM está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará. <li> Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 
 Compruebe uno o varios de los siguientes síntomas antes de desencadenar la operación de repetición del registro:
 
-- Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Se producen errores en todas las operaciones (tales como copia de seguridad, restauración y configuración de copia de seguridad) en la máquina virtual con uno de los códigos de error siguientes: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)** , **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Si el área **Estado de copia de seguridad** del elemento de copia de seguridad se muestra como **no accesible**, descarte todas las demás causas que podrían dar lugar al mismo estado:
 
   - Falta de permiso para realizar operaciones relacionadas con la copia de seguridad en la máquina virtual.

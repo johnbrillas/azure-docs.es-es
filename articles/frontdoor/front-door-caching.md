@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535838"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538058"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifican los comportamientos de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna con aceleración de sitios dinámicos y equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -24,13 +24,13 @@ En el documento siguiente se especifican los comportamientos de Front Door con r
 ## <a name="delivery-of-large-files"></a>Suministro de archivos grandes
 Azure Front Door proporciona archivos grandes sin un límite en el tamaño de los archivos. Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del back-end. Después de recibir una solicitud de un archivo completo o de intervalos de bytes, el entorno de Front Door solicita el archivo desde el back-end en fragmentos de 8 MB.
 
-</br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se ha solicitado) o el cliente termina la conexión.
+Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se ha solicitado) o el cliente termina la conexión.
 
-</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes subsiguientes del archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del back-end de admitir solicitudes de intervalos de bytes. Si el back-end no admite solicitudes de intervalos de bytes, esta optimización no sirve.
 
 ## <a name="file-compression"></a>Compresión de archivos
-Front Door comprime dinámicamente el contenido en el borde, lo que genera un tiempo de respuesta menor y más rápido para los clientes. Todos los archivos son aptos para la compresión. Sin embargo, un archivo debe ser de tipo MIME, apto para la compresión. Actualmente, Front Door no permite cambiar esta lista. La lista actual es:</br>
+Front Door comprime dinámicamente el contenido en el borde, lo que genera un tiempo de respuesta menor y más rápido para los clientes. Para que un archivo sea válido para la compresión, el almacenamiento en caché debe estar habilitado y el archivo debe ser de un tipo MIME para ser válido para la compresión. Actualmente, Front Door no permite cambiar esta lista. La lista actual es:
 - "application/eot"
 - "application/font"
 - "application/font-sfnt"

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
-ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.date: 02/07/2021
+ms.openlocfilehash: 03061f71ee0cceaa39c7ab9b258f9d3a0a84f1be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895975"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807893"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -28,8 +28,7 @@ Todos los datos de las tablas incluidas se exportan sin ningún filtro. Por ejem
 ## <a name="other-export-options"></a>Otras opciones de exportación
 La exportación de datos del área de trabajo de Log Analytics permite exportar datos continuamente de un área de trabajo de Log Analytics. Otras opciones para exportar datos en determinados escenarios son las siguientes:
 
-- Exportación programada desde una consulta de registro con una aplicación lógica. Es similar a la característica de exportación de datos, pero permite enviar datos filtrados o agregados a Azure Storage. Aunque este método está sujeto a [límites de consultas de registro](../service-limits.md#log-analytics-workspaces). Consulte [Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps](logs-export-logic-app.md).
-- Exportación única mediante una aplicación lógica. Consulte [Conector de Azure Monitor Logs para Logic Apps y Power Automate](logicapp-flow-connector.md).
+- Exportación programada desde una consulta de registro con una aplicación lógica. Es similar a la característica de exportación de datos, pero permite enviar datos filtrados o agregados a Azure Storage. Este método está sujeto a los [límites de las consultas de registro](../service-limits.md#log-analytics-workspaces); consulte [Archivado de datos de un área de trabajo de Log Analytics a Azure Storage mediante Logic Apps](logs-export-logic-app.md).
 - Exportación única a la máquina local mediante el script de PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
@@ -47,16 +46,7 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 - Puede crear dos reglas de exportación en un área de trabajo: puede ser una regla para el centro de eventos y una regla para la cuenta de almacenamiento.
 - La cuenta de almacenamiento de destino o el centro de eventos deben estar en la misma región que el área de trabajo de Log Analytics.
 - Los nombres de las tablas que se vayan a exportar no pueden tener más de 60 caracteres para una cuenta de almacenamiento, ni más de 47 caracteres en el caso de un centro de eventos. Las tablas con nombres más largos no se exportarán.
-
-> [!NOTE]
-> La exportación de datos de Log Analytics escribe los datos como blobs en anexos, lo que actualmente se encuentra en versión preliminar para Azure Data Lake Storage Gen2. Para poder configurar la exportación en este almacenamiento, tendrá que abrir una solicitud de soporte técnico. Use los detalles siguientes para dicha solicitud.
-> - Tipo de problema: Requisitos previos técnicos
-> - Suscripción: Su suscripción
-> - Servicio: Data Lake Storage Gen2
-> - Recurso: Nombre del recurso
-> - Resumen: Solicitud del registro de la suscripción para aceptar datos de la exportación de datos de Log Analytics.
-> - Tipo de problema: Conectividad
-> - Subtipo de problema: Incidencia de conectividad
+- La compatibilidad con Anexar blobs para Azure Data Lake Storage ahora se encuentra en [versión preliminar pública limitada](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/).
 
 ## <a name="data-completeness"></a>Integridad de los datos
 La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos, en el caso de que el destino no esté disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.
@@ -76,6 +66,9 @@ El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](./re
 [![Datos de ejemplo de almacenamiento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 La exportación de datos de Log Analytics puede escribir blobs en anexos en cuentas de almacenamiento inmutables cuando las directivas de retención con una duración definida tienen habilitada la opción *allowProtectedAppendWrites*. Esto permite escribir nuevos bloques en un blob en anexos al tiempo que se mantienen la protección y el cumplimiento de la inmutabilidad. Consulte [Permitir escrituras de blobs en anexos protegidos](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> La compatibilidad con Anexar blobs para Azure Data Lake Storage ahora está disponible en versión preliminar en todas las regiones de Azure. [Inscríbase en la versión preliminar pública limitada](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) antes de crear una regla de exportación a Azure Data Lake Storage. La exportación no funcionará sin esta inscripción.
 
 ### <a name="event-hub"></a>Centro de eventos
 Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.

@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614921"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580834"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
 Puede usar MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales con [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C se basa en la noción de directivas. En MSAL.NET, especificar una directiva se traduce en proporcionar una autoridad.
 
-- Al crear una instancia de la aplicación cliente pública, debe especificar la directiva como parte de la autoridad.
+- Al crear una instancia de la aplicación cliente pública, especifique la directiva como parte de la autoridad.
 - Cuando quiera aplicar una directiva, invoque una invalidación de `AcquireTokenInteractive` que acepte el parámetro `authority`.
 
 Este artículo se aplica a MSAL.NET 3.x. Para MSAL.NET 2.x, consulte los [detalles de Azure AD B2C en MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) en la wiki de MSAL.NET en GitHub.

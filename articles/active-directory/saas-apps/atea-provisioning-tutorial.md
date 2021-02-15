@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 67b114ac355b293db61d00b89816ab73aaa2e5b2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430703"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550275"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>Tutorial: Configuración de Atea para el aprovisionamiento automático de usuarios
 
@@ -48,7 +48,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Atea para admitir el aprovisionamiento con Azure AD
 
-Para configurar Iris Intranet con el fin de admitir el aprovisionamiento con Azure AD, es necesario obtener la **URL de inquilino** y el **token secreto** mediante el envío de un correo electrónico al [equipo de soporte técnico de Atea](mailto:servicedesk@atea.dk). Estos valores se escriben en los campos **Token secreto** y **URL de inquilino** de la pestaña Aprovisionamiento de la aplicación Atea en Azure Portal.
+Para configurar Atea para admitir el aprovisionamiento con Azure AD: escriba un correo electrónico al equipo de soporte técnico de Atea <SSO.Support@atea.com>.
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Atea desde la galería de aplicaciones de Azure AD
 

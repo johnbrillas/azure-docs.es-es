@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 19d2ef1d4d711738d60938aac502dfd490e021a1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 0cdbcf0a895a2fc9b81df464f364e04aa79abf99
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729568"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006775"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Conexión de Provance al Conector de Administración de servicios de TI
 
 En este artículo se ofrece información sobre cómo configurar la conexión entre la instancia de Provance y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo.
 
 > [!NOTE]
-> Proponemos a nuestros clientes de Cherwell y Provance que utilicen la [acción de Webhook](./action-groups.md#webhook) en el punto de conexión a Cherwell y Provance como otra solución para la integración.
+> A partir del 1 de octubre de 2020, la integración de ITSM de Provance con alertas de Azure ya estará habilitada para los clientes nuevos. No se admitirán las nuevas conexiones de ITSM.
+> Se admitirán las conexiones de ITSM existentes.
 
 En las secciones siguientes se proporcionan detalles sobre cómo conectar su producto de Provance a ITSMC en Azure.
 

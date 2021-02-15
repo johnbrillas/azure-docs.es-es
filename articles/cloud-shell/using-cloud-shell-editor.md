@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60199233"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832342"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Uso del editor de Azure Cloud Shell
 
@@ -52,5 +52,6 @@ Para iniciar la paleta de comandos, utilice la tecla `F1` cuando se establece el
 La compatibilidad con lo más destacado del lenguaje en el editor de Cloud Shell tiene lugar mediante la funcionalidad de nivel superior del uso del [Editor Monaco](https://github.com/Microsoft/monaco-editor) de definiciones de sintaxis de Monarch. Para más información sobre cómo realizar contribuciones, lea la [guía para colaboradores de Mónaco](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Pruebe la guía de inicio rápido para Bash en Cloud Shell](quickstart.md)
-[Vea la lista completa de las herramientas integradas de Cloud Shell](features.md)
+
+- [Pruebe la guía de inicio rápido para Bash en Cloud Shell](quickstart.md)
+- [Vea la lista completa de herramientas de Cloud Shell integradas](features.md)

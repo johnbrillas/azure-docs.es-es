@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542650"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006860"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Herramientas de administración y controladores de MySQL compatibles con Azure Database for MySQL
 En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MySQL.
@@ -43,16 +43,16 @@ Azure Database for MySQL usa la edición comunitaria más popular del mundo de l
 ## <a name="management-tools"></a>Herramientas de administración
 La ventaja de compatibilidad se amplía también a las herramientas de administración de base de datos. Sus herramientas actuales deben continuar funcionando con Azure Database for MySQL, siempre y cuando la manipulación de la base de datos tenga lugar dentro de los límites establecidos por los permisos de usuario. En la tabla siguiente se indican las tres herramientas comunes de administración de base de datos que se han probado y son compatibles con Azure Database for MySQL 5.6 y 5.7:
 
-|                                     | **MySQL Workbench 6.x y superiores** | **Navicat 12** | **PHPMyAdmin 4.x y superiores** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Crear, actualizar, leer, escribir, eliminar** | X | X | X |
-| **Conexión SSL** | X | X | X |
-| **Completado automático de consultas SQL** | X | X |  |
-| **Importar y exportar datos** | X | X | X |
-| **Exportar a varios formatos** | X | X | X |
-| **Copia de seguridad y restauración** |  | X |  |
-| **Mostrar parámetros del servidor** | X | X | X |
-| **Mostrar conexiones de cliente** | X | X | X |
+|                                     | **MySQL Workbench 6.x y superiores** | **Navicat 12** | **PHPMyAdmin 4.x y superiores** | **dbForge Studio for MySQL 9.0** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **Crear, actualizar, leer, escribir, eliminar** | X | X | X | X |
+| **Conexión SSL** | X | X | X | X |
+| **Completado automático de consultas SQL** | X | X |  | X |
+| **Importar y exportar datos** | X | X | X | X |
+| **Exportar a varios formatos** | X | X | X | X |
+| **Copia de seguridad y restauración** |  | X |  | X |
+| **Mostrar parámetros del servidor** | X | X | X | X |
+| **Mostrar conexiones de cliente** | X | X | X | X |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

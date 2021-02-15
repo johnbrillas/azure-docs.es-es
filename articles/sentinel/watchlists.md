@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797349"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555641"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Uso de listas de seguimiento de Azure Sentinel
 
@@ -28,7 +28,7 @@ Algunos escenarios habituales para usar listas de seguimiento son:
 
 - **Investigación de amenazas** y respuesta a los incidentes con una rápida importación de direcciones IP, hashes de archivo y otros datos de archivos CSV. Una vez que se importan, puede usar los pares nombre-valor de las listas de seguimiento para combinaciones y filtros en reglas de alerta, búsqueda de amenazas, libros, cuadernos y consultas generales.
 
-- **Importación de datos comerciales** como listas de seguimiento. Por ejemplo, importe las listas de usuarios con privilegios de acceso del sistema, o empleados despedidos, y, a continuación, use la lista de seguimiento para crear listas de permitidos y de denegados, que se usan para detectar o impedir que los usuarios inicien sesión en la red.
+- **Importación de datos comerciales** como una lista de reproducción. Por ejemplo, importe las listas de usuarios con privilegios de acceso del sistema, o empleados despedidos, y, a continuación, use la lista de seguimiento para crear listas de permitidos y de denegados, que se usan para detectar o impedir que los usuarios inicien sesión en la red.
 
 - **Reducción de la fatiga por alerta**. Cree listas de permitidos para suprimir las alertas de un grupo de usuarios, como usuarios de direcciones IP autorizadas que realizan tareas que normalmente desencadenarían la alerta, y evitar que eventos benignos se conviertan en alertas.
 

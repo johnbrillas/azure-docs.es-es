@@ -1,6 +1,6 @@
 ---
 title: Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management | Microsoft Docs
-description: Aprenda a configurar los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
+description: Aprenda a configurar los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management en un clúster de Kubernetes.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254510"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526677"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
-En este artículo se proporcionan detalles para configurar los registros y las métricas locales para la [puerta de enlace autohospedada](./self-hosted-gateway-overview.md). Para configurar los registros y las métricas en la nube, consulte [este artículo](how-to-configure-cloud-metrics-logs.md). 
+En este artículo se proporcionan detalles para configurar los registros y las métricas locales para la [puerta de enlace autohospedada](./self-hosted-gateway-overview.md) implementada en un clúster de Kubernetes. Para configurar los registros y las métricas en la nube, consulte [este artículo](how-to-configure-cloud-metrics-logs.md). 
 
 ## <a name="metrics"></a>Métricas
 La puerta de enlace autohospedada admite [StatsD](https://github.com/statsd/statsd) que se ha convertido en un protocolo de unificación para la recopilación y agregación de métricas. En esta sección se describen los pasos para implementar StatsD en Kubernetes, configurar la puerta de enlace para emitir métricas mediante StatsD y usar [Prometheus](https://prometheus.io/) para supervisar las métricas. 
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: prom/statsd-exporter
+        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +80,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: prom/prometheus
+        image: mcr.microsoft.com/oss/prometheus/prometheus
         ports:
         - name: tcp
           containerPort: 9090

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: e2b12d7a2206ab369328563af438c6ef1ea39327
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d094e1760db1ddfcff520b0022a232735d21d355
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184117"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525829"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Retirada de versiones de la API OperationalInsights
 Microsoft notifica la retirada de una API con al menos 12 meses de antelación para facilitar la transición a una versión compatible o más reciente. Hemos publicado una versión nueva (2020-08-01) para las API del proveedor de recursos **OperationalInsights** y retiraremos las versiones anteriores de la API el 29 de octubre de 2024.
@@ -66,6 +66,15 @@ Según el método de configuración que use, debe actualizar la versión nueva e
     }
     ```
 
+
+### <a name="more-information"></a>Más información
+Si tiene alguna pregunta, obtenga respuestas de [nuestros expertos de la comunidad tecnológica]( https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor). Si tiene un plan de soporte técnico y necesita ayuda técnica, cree una [solicitud de soporte técnico]( https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest): 
+1.  En *Tipo de problema*, seleccione **Técnico**. 
+2.  En *Suscripción*, seleccione la suscripción. 
+3.  Para *Servicio*, seleccione **Mis servicios** y, a continuación, seleccione **Log Analytics**. 
+4.  En *Resumen*, escriba una descripción del problema. 
+5.  En *Tipo de problema*, seleccione **Log Analytics workspace management** (Administración del área de trabajo de Log Analytics).  
+6.  En *Subtipo de problema*, seleccione **ARM templates, PowerShell and CLI** (Plantilla de ARM, PowerShell y CLI). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

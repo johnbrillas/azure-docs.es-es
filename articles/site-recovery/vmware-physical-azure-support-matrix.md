@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475478"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550851"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -141,19 +141,19 @@ Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd6
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.38-azure|
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.34-azure |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.28-azure |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/),  | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3 y SP4](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.22-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.38-azure|
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.34-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.28-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/),  | Se admiten todos los [kernels de SUSE 12 SP1, SP2, SP3, SP4, SP5 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.43-azure </br> 4.12.14-16.7-azure a 4.12.14-16.22-azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 15
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | De forma predeterminada, se admiten todos los [kernels incluidos en SUSE 15 y 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.29-azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | De forma predeterminada, se admiten todos los [kernels incluidos en SUSE 15 y 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.47-azure, </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.21-azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | De forma predeterminada, se admiten todos los [kernels incluidos en SUSE 15 y 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.18-azure
-SUSE Linux Enterprise Server 15 y 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | De forma predeterminada, se admiten todos los [kernels incluidos en SUSE 15 y 15](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.38-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.29-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.47-azure, </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.21-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) en stock.</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure a 5.3.18-18.18-azure
+SUSE Linux Enterprise Server 15 y 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | De forma predeterminada, se admiten todos los [kernels de SUSE 15, SP1, SP2 en stock](https://www.suse.com/support/kb/doc/?id=000019587).</br></br> 4.12.14-5.5-azure a 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure a 4.12.14-8.38-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de archivos Linux/almacenamiento de invitados
 
@@ -231,7 +231,7 @@ NFS de invitado/servidor | No
 Invitado/servidor iSCSI | Para migración: sí<br/>Para recuperación ante desastres: no, iSCSI realiza la conmutación por recuperación como un disco conectado a la máquina virtual
 SMB 3.0 de invitado/servidor | No
 RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
-Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 32 TB al replicar en discos administrados (versión 9.40 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
+Disco de invitado/servidor > 1 TB | Sí, el disco debe ser de un tamaño superior a 1024 MB.<br/><br/>Hasta 8192 GB al replicar en discos administrados (versión 9.26 en adelante)<br></br> Hasta 4095 GB al replicar en cuentas de almacenamiento
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | No
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | No
 Volumen de invitado/servidor con disco seccionado > 4 TB | Sí
@@ -292,7 +292,7 @@ Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en l
 Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible.
 Número de discos del sistema operativo | 1 </br> El arranque y la partición del sistema en discos diferentes no se admiten. | Se produce un error en la comprobación si no es compatible.
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.
-Tamaño del disco de datos | Hasta 32 TB al replicar en discos administrados (versión 9.40 en adelante)<br></br>Hasta 4095 GB al replicar en cuentas de almacenamiento| Se produce un error en la comprobación si no es compatible.
+Tamaño del disco de datos | Hasta 8192 GB al replicar en discos administrados (versión 9.26 en adelante)<br></br>Hasta 4095 GB al replicar en cuentas de almacenamiento| Se produce un error en la comprobación si no es compatible.
 Adaptadores de red | Se admiten varios adaptadores. |
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.

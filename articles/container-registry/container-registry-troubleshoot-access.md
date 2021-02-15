@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052168"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525083"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -105,20 +105,20 @@ Vínculos relacionados:
 
 ### <a name="configure-service-access"></a>Configuración del acceso al servicio
 
-Actualmente, Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. Además, los recursos de los siguientes servicios no pueden tener acceso a un registro de contenedor con restricciones de red:
+Actualmente, no se permite el acceso a un registro de contenedor con restricciones de red desde varios servicios de Azure:
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Tareas de Azure Container Registry
+* Azure Security Center no puede realizar el [análisis de vulnerabilidades de imagen](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) en un registro que restringe el acceso a los puntos de conexión privados, las subredes seleccionadas o las direcciones IP. 
+* Los recursos de determinados servicios de Azure no pueden acceder a un registro de contenedor con restricciones de red, incluidos Azure App Service y Azure Container Instances.
 
 Si se requiere acceso o integración de estos servicios de Azure con el registro de contenedor, quite la restricción de red. Por ejemplo, quite los puntos de conexión privados del registro, o bien elimine o modifique las reglas de acceso público del registro.
+
+A partir de enero de 2021, puede configurar un registro con restricción de red para [permitir el acceso](allow-access-trusted-services.md) desde servicios de confianza seleccionados.
 
 Vínculos relacionados:
 
 * [Análisis de imágenes de Azure Container Registry por Security Center](../security-center/defender-for-container-registries-introduction.md)
 * [Envío de comentarios](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configuración de reglas de red de dirección IP pública](container-registry-access-selected-networks.md)
-* [Conexión privada a un registro de contenedor de Azure mediante Azure Private Link](container-registry-private-link.md)
+* [Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricciones de red](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
@@ -140,5 +140,5 @@ Si no encuentra aquí una solución para su problema, vea las siguientes opcione
   * [Solución de problemas de inicio de sesión del registro](container-registry-troubleshoot-login.md) 
   * [Solución de problemas de rendimiento del registro](container-registry-troubleshoot-performance.md)
 * Opciones de [soporte técnico de la comunidad](https://azure.microsoft.com/support/community/)
-* [Preguntas y respuestas de Microsoft](/answers/products/)
+* [Preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abrir una incidencia de soporte técnico](https://azure.microsoft.com/support/create-ticket/)

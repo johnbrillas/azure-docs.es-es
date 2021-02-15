@@ -5,12 +5,12 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945363"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508598"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Caso práctico de arquitectura de solución de alta disponibilidad de Azure HDInsight
 
@@ -71,7 +71,7 @@ La siguiente imagen muestra la arquitectura de recuperación ante desastres de a
 
 **Hive y Spark** usan los modelos de replicación [primaria activa con secundaria a petición](hdinsight-business-continuity-architecture.md#apache-spark) durante el horario normal. El proceso de replicación de Hive se ejecuta periódicamente y se acompaña del metastore de Hive en Azure SQL y la replicación de la cuenta de almacenamiento de Hive. La cuenta de almacenamiento de Spark se replica periódicamente con la herramienta DistCP de ADF. La naturaleza transitoria de estos clústeres contribuye a optimizar los costos. Las replicaciones se programan cada cuatro horas para lograr un RPO que queda claramente por debajo del requisito de cinco horas.
 
-La replicación de **HBase** usa el modelo [líder-seguidor](hdinsight-business-continuity-architecture.md#apache-hbase) durante el horario normal para garantizar que los datos se sirvan siempre sin importar la región y que el RPO sea igual a cero.
+La replicación de **HBase** usa el modelo [Líder-seguidor](hdinsight-business-continuity-architecture.md#apache-hbase) durante el horario normal para garantizar que los datos se sirvan siempre sin importar la región y que el RPO sea igual a cero.
 
 Si hay un error regional en la región primaria, la página web y el contenido del back-end se sirven desde la región secundaria durante cinco horas con cierto grado de obsolescencia. Si el panel de estado del servicio de Azure no indica un tiempo estimado de recuperación en el período de cinco horas, la arquitectura de Contoso Retail creará la capa de transformación de Hive y Spark en la región secundaria y, después, hará que todos los orígenes de datos ascendentes apunten a la región secundaria. El hecho de convertir la región secundaria en grabable causaría un proceso de conmutación por recuperación que implicaría la replicación en la región primaria.
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803874"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980525"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
@@ -32,6 +32,10 @@ Para habilitar la restauración a un momento dado, cree una directiva de adminis
 Para iniciar una restauración a un momento dado, llame a la operación [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) y especifique un punto de restauración en una hora UTC. Puede especificar rangos lexicográficos de nombres de contenedor y blob para restaurar u omitir el rango para restaurar todos los contenedores de la cuenta de almacenamiento. Se admiten hasta 10 rangos lexicográficos por operación de restauración.
 
 Igualmente, Azure Storage analiza todos los cambios que se han realizado en los blobs especificados entre el punto de restauración solicitado,la hora UTC especificada y el momento presente. La operación de restauración es atómica, por lo que o todos los cambios de la restauración se realizan correctamente, o se produce un error. Si hay blobs que no se pueden restaurar, se produce un error en la operación y se reanudan las operaciones de lectura y escritura en los contenedores afectados.
+
+En el siguiente diagrama se muestra cómo funciona la restauración a un momento dado. Uno o varios contenedores o intervalos de blobs se restauran a su estado de hace *n* días, donde *n* es menor o igual que el período de retención definido para la restauración a un momento dado. El efecto consiste en revertir las operaciones de escritura y eliminación que se produjeron durante el período de retención.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagrama que muestra cómo se realiza la restauración a un momento dado de los contenedores a un estado anterior":::
 
 Recuerde que solo se puede ejecutar una operación de restauración en una cuenta de almacenamiento a la vez. Una operación de restauración no se puede cancelar una vez está en curso, pero se puede realizar una segunda operación de restauración para deshacer la primera operación.
 

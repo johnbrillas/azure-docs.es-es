@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779907"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831508"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configuración de un DNS personalizado para Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Como Instancia administrada de SQL usa el mismo DNS para su funcionamiento inter
 > Utilice siempre nombres de dominio completos (FQDN) para el servidor de correo electrónico, la instancia de SQL Server y otros servicios, aunque se encuentren en la zona DNS privada. Por ejemplo, `smtp.contoso.com` para el servidor de correo, ya que `smtp` no se resolverá correctamente. La creación de un servidor vinculado o una replicación que haga referencia a las máquinas virtuales de SQL Server de la misma red virtual también requiere un nombre de dominio completo y un sufijo DNS predeterminado. Por ejemplo, `SQLVM.internal.cloudapp.net`. Para más información, consulte [Resolución de nombres con su propio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> La actualización de los servidores DNS de una red virtual no afectará de inmediato a Instancia administrada de SQL. La configuración de DNS de SQL Managed Instance se actualiza una vez que expira la concesión de DHCP o se actualiza la plataforma, lo que ocurra primero. **Se recomienda que los usuarios establezcan la configuración de DNS de la red virtual antes de crear su primera instancia administrada.**
+> La actualización de los servidores DNS de una red virtual no afectará de inmediato a Instancia administrada de SQL. Consulte [cómo sincronizar la configuración de servidores DNS de red virtual en el clúster virtual de SQL Managed Instance](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

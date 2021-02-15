@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757654"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556430"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organización de grupos de administración, suscripciones y visibilidad de todo el inquilino
 
@@ -81,12 +81,14 @@ Puede agregar suscripciones al grupo de administración que ha creado.
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concesión de permisos de todo el inquilino a uno mismo
 
-Un usuario con el rol de **administrador global** de Azure Active Directory puede tener responsabilidades en todo el inquilino, pero carecer de los permisos de Azure para ver la información de toda la organización en Azure Security Center. 
+Un usuario con el rol de **administrador global** de Azure Active Directory (AD) puede tener responsabilidades en todo el inquilino, pero carecer de los permisos de Azure para ver la información de toda la organización en Azure Security Center. La elevación de permisos es necesaria porque las asignaciones de roles de Azure AD no conceden acceso a los recursos de Azure. 
 
 > [!TIP]
-> Si su organización administra el acceso a los recursos con [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) o cualquier otra herramienta de PIM, el rol de administrador global debe estar activo para el usuario que realiza estos cambios.
+> Aprenda más sobre la elevación de permisos del rol de administrador global en [Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 Para asignarse a uno mismo permisos de nivel de inquilino:
+
+1. Si su organización administra el acceso a los recursos con [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) o cualquier otra herramienta de PIM, el rol de administrador global debe estar activo para el usuario mediante el procedimiento que se describe a continuación.
 
 1. Como usuario administrador global sin una asignación en el grupo de administración raíz del inquilino, abra la página **Información general** de Security Center y seleccione el vínculo de **visibilidad de todo el inquilino** en el mensaje emergente. 
 

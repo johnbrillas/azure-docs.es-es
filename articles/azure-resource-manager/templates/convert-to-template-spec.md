@@ -2,31 +2,21 @@
 title: Conversión de plantilla de portal en especificaciones de plantilla
 description: Se describe cómo convertir una plantilla existente en la galería de Azure Portal en especificaciones de plantilla.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739064"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555939"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>Conversión de la galería de plantillas en el portal en especificaciones de plantilla
 
-Azure Portal ofrece una manera de almacenar plantillas de Azure Resource Manager (plantillas de ARM) en su cuenta. **Esta característica está en desuso.** Para seguir usando las plantillas en esta galería, conviértalas en [especificaciones de plantilla](template-specs.md).
+Azure Portal ofrece una manera de almacenar plantillas de Azure Resource Manager (plantillas de ARM) en su cuenta. Sin embargo, las [especificaciones de plantilla](template-specs.md) ofrecen una manera más fácil de compartir sus plantillas con los usuarios de la organización y de vincular con otras plantillas. En este artículo se muestra cómo convertir las plantillas existentes en la galería de plantillas en especificaciones de plantilla.
 
-En este artículo se muestra cómo convertir las plantillas existentes en la galería de plantillas en especificaciones de plantilla.
-
-En el portal, la característica que quedará en desuso se denomina **Plantillas (versión preliminar)** . Para ver si tiene plantillas para convertir, vea la [galería de plantillas en el portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Estas plantillas tienen el tipo de recurso `Microsoft.Gallery/myareas/galleryitems`.
-
-## <a name="deprecation-of-portal-feature"></a>Desuso de la característica de portal
-
-La galería de plantillas en el portal quedará en desuso el 21 de enero de 2021. Puede seguir usándola hasta el 21 de febrero. A partir del 22 de febrero, no se podrán crear nuevas plantillas en la galería del portal, aunque aún podrá ver e implementar plantillas existentes.
-
-El 22 de junio, la característica se quitará del portal y se bloquearán todas las operaciones de la API. No podrá ver ni implementar ninguna plantilla de la galería.
-
-Antes del 22 de junio, deberá migrar las plantillas que quiera seguir usando. Puede usar uno de los métodos que se muestran en este artículo para migrar las plantillas. Una vez que se haya quitado la característica, tendrá que abrir un caso de soporte técnico para obtener las plantillas que no haya migrado.
+Para ver si tiene plantillas para convertir, vea la [galería de plantillas en el portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). Estas plantillas tienen el tipo de recurso `Microsoft.Gallery/myareas/galleryitems`.
 
 ## <a name="convert-with-powershell-script"></a>Conversión con script de PowerShell
 

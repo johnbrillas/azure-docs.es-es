@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491306"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583050"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -27,7 +27,7 @@ El manifiesto de la aplicación contiene una definición de todos los atributos 
 Los atributos de una aplicación pueden configurarse en Azure Portal o mediante programación con la [API de REST](/graph/api/resources/application) o [PowerShell](/powershell/module/azuread#applications). Sin embargo, hay algunos escenarios en los que será necesario editar el manifiesto de la aplicación para poder configurar los atributos de una aplicación. Entre los escenarios se incluyen los siguientes:
 
 * Si registró la aplicación como una cuenta multiinquilino de Azure AD y una cuenta de Microsoft personal, no podrá cambiar las cuentas de Microsoft compatibles en la interfaz de usuario. En su lugar, tendrá que utilizar el editor de manifiesto de la aplicación para cambiar los tipos de cuenta compatibles.
-* Si necesita definir permisos y roles compatibles con la aplicación, tendrá que modificar el manifiesto de la aplicación.
+* Para definir permisos y roles compatibles con la aplicación, debe modificar el manifiesto de la aplicación.
 
 ## <a name="configure-the-app-manifest"></a>Configuración del manifiesto de la aplicación
 
@@ -173,7 +173,8 @@ Configura la notificación `groups` emitida en un token de acceso OAuth 2.0 o de
 - `"None"`
 - `"SecurityGroup"` (para grupos de seguridad y roles de Azure AD)
 - `"ApplicationGroup"` (esta opción solo incluye los grupos asignados a la aplicación)
-- `"All"` (se obtendrán todos los grupos de seguridad, grupos de distribución y los roles de directorio de Azure AD a los que pertenezca el usuario que inició sesión.
+- `"DirectoryRole"` (obtiene los roles de directorio de Azure AD de los que es miembro el usuario).
+- `"All"` (se obtendrán todos los grupos de seguridad, grupos de distribución y roles de directorio de Azure AD a los que pertenezca el usuario que inició sesión).
 
 Ejemplo:
 

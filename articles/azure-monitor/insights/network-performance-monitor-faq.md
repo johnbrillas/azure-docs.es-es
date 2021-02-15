@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625172"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833021"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
 ![Símbolo de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 En este artículo se incluyen las preguntas más frecuentes (P+f) sobre Network Performance Monitor (NPM) en Azure.
 
@@ -54,7 +57,7 @@ Puede obtener más detalles sobre las ventajas relativas de cada protocolo [aqu�
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>¿Cómo se puede configurar un nodo para que admita la supervisión con el protocolo TCP?
 Para que el nodo admita la supervisión con el protocolo TCP: 
 * Asegúrese de que la plataforma de nodos sea Windows Server (2008 SP1 o posterior).
-* Ejecute el script [EnableRules.ps1](https://aka.ms/npmpowershellscript) de Powershell en el nodo. Vea las [instrucciones](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para obtener más detalles.
+* Ejecute el script [EnableRules.ps1](https://aka.ms/npmpowershellscript) de PowerShell en el nodo. Vea las [instrucciones](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para obtener más detalles.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>¿Cómo se puede cambiar el puerto TCP que NPM utiliza para la supervisión?
@@ -257,8 +260,8 @@ Esto puede suceder si:
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>¿Por qué el monitor de ExpressRoute notifica mi circuito o emparejamiento como incorrecto cuando está disponible y pasa datos?
 El monitor de ExpressRoute compara los valores de rendimiento de red (pérdida, latencia y uso de ancho de banda) notificados por los agentes o servicios con los umbrales establecidos durante la configuración. En el caso de un circuito, si el uso de ancho de banda indicado es mayor que el umbral establecido en la configuración, el circuito se marca como incorrecto. En el caso de los emparejamientos, si la pérdida, la latencia o el uso de ancho de banda notificado es mayor que el umbral establecido en la configuración, el emparejamiento se marca como incorrecto. NPM no usa métricas ni ningún otro tipo de datos para decidir el estado de mantenimiento.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>¿Por qué el uso de ancho de banda del monitor de ExpressRoute notifica un valor distinto de los bits de métrica de entrada y salida?
-Para el monitor de ExpressRoute, el uso de ancho de banda es el promedio de ancho de banda de entrada y salida de los últimos 20 minutos que se expresa en bits por segundo. En el caso de las métricas de ExpressRoute, los bits de entrada y salida son por puntos de datos por minuto. De manera interna, se usa el mismo conjunto de datos, pero la agregación varía entre las métricas de NPM y ER. Para obtener una supervisión detallada por minuto y alertas rápidas, se recomienda establecer las alertas directamente en las métricas de ER
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>¿Por qué el uso de ancho de banda del monitor de ExpressRoute notifica un valor distinto de los bits de métrica de entrada y salida?
+Para el monitor de ExpressRoute, el uso de ancho de banda es el promedio de ancho de banda de entrada y salida de los últimos 20 minutos que se expresa en bits por segundo. En el caso de las métricas de ExpressRoute, los bits de entrada y salida se miden por puntos de datos por minuto. De manera interna, se usa el mismo conjunto de datos, pero la agregación varía entre las métricas de NPM y ER. Para obtener una supervisión detallada por minuto y alertas rápidas, se recomienda establecer las alertas directamente en las métricas de ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Al configurar la supervisión de mi circuito ExpressRoute, no se detectan los nodos de Azure.
 Esto puede suceder si los nodos de Azure se conectan a través de Operations Manager. La funcionalidad Supervisión de ExpressRoute solo admite los nodos de Azure que se conectan como agentes directos.
@@ -289,7 +292,7 @@ Esto puede suceder si el servicio de destino no es una aplicación web pero la p
 El proceso de NPM está configurado para detenerse en caso de que utilice más del 5 % de los recursos de CPU del host. Con esto se garantiza que se pueden seguir usando los nodos para las cargas de trabajo habituales sin afectar al rendimiento.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>¿Edita NPM las reglas de firewall para la supervisión?
-NPM solo crea una regla local de Firewall de Windows en los nodos en los que se ejecuta el script EnableRules.ps1 de Powershell para permitir que los agentes establezcan conexiones TCP entre sí en el puerto especificado. La solución no modifica las reglas de firewall de red o de grupo de seguridad de red (NSG).
+NPM solo crea una regla local de Firewall de Windows en los nodos en los que se ejecuta el script EnableRules.ps1 de PowerShell para permitir que los agentes establezcan conexiones TCP entre sí en el puerto especificado. La solución no modifica las reglas de firewall de red o de grupo de seguridad de red (NSG).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>¿Cómo se puede comprobar el mantenimiento de los nodos que se usan para la supervisión?
 Puede ver el estado de mantenimiento de los nodos que se usan para la supervisión en la siguiente vista: Network Performance Monitor -> Configuración -> Nodos. Si un nodo es incorrecto, puede ver los detalles del error y realizar la acción sugerida.
@@ -300,4 +303,3 @@ NPM redondea los números de latencia en la interfaz de usuario y en milisegundo
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Puede obtener más información sobre Network Performance Monitor en [Solución Network Performance Monitor en Azure](./network-performance-monitor.md).
-

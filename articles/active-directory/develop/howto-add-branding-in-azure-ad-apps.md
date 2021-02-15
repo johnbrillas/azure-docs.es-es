@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706207"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581999"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 
@@ -27,7 +27,7 @@ Cuando desarrolle aplicaciones con la plataforma de identidad de Microsoft, debe
 En este artículo:
 
 - Obtendrá información sobre los dos tipos de cuentas de usuario administradas por Microsoft y cómo hacer referencia a las cuentas de Azure AD en su aplicación.
-- Averiguará qué debe hacer para agregar el logotipo de Microsoft para usarlo en su aplicación.
+- Conocerá los requisitos para usar el logotipo de Microsoft en su aplicación.
 - Descargue las imágenes de **Iniciar sesión** o **Iniciar sesión con Microsoft** oficiales para usarlas en su aplicación
 - Obtenga información sobre la personalización de marca y qué debe hacer y qué no debe hacer en la navegación.
 

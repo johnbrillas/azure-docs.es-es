@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015910"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560219"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 
@@ -32,7 +32,7 @@ Stream Analytics admite Azure Blob Storage y Azure SQL Database como capa de alm
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
+Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia. Para más información, consulte el tema sobre el [uso de datos de referencia de una instancia de Blob Storage para un trabajo de Azure Stream Analytics](data-protection.md).
 
 ### <a name="configure-blob-reference-data"></a>Configuración de los datos de referencia de blob
 

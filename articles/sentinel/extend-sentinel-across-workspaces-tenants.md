@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757126"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006690"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -98,7 +98,7 @@ Después, puede escribir una consulta en ambas áreas de trabajo empezando por `
 <!-- Bookmark added for backward compatibility with old heading -->
 Las consultas entre áreas de trabajo ahora se pueden incluir en las reglas de análisis programadas, en función de las limitaciones siguientes:
 
-- Se pueden incluir hasta 15 áreas de trabajo en una sola consulta.
+- Se pueden incluir hasta 20 áreas de trabajo en una sola consulta.
 - Azure Sentinel debe implementarse en todas las áreas de trabajo a las que se hace referencia en la consulta.
 
 > [!NOTE] 
@@ -127,7 +127,7 @@ Las funcionalidades de búsqueda entre áreas de trabajo permiten que los buscad
 
 Para configurar y administrar varias áreas de trabajo de Azure Sentinel, deberá automatizar el uso de la API de administración de Azure Sentinel. Para obtener más información sobre cómo automatizar la implementación de recursos de Azure Sentinel, incluidas reglas de alertas, consultas de búsqueda, libros y guías, consulte [Extensión de Azure Sentinel: API, integración y automatización de la administración](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-Consulte también [Implementación y administración de Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) y [Combinación de Azure Lighthouse con las funcionalidades de DevOps de Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para obtener una metodología consolidada de colaboración de la comunidad para administrar Azure Sentinel como código y para implementar y configurar recursos desde un repositorio de GitHub privado. 
+Consulte también [Implementación y administración de Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) y [Combinación de Azure Lighthouse con las funcionalidades de DevOps de Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para obtener una metodología consolidada de colaboración de la comunidad para administrar Azure Sentinel como código y para implementar y configurar recursos desde un repositorio de GitHub privado. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Administración de áreas de trabajo en los inquilinos mediante Azure Lighthouse
 

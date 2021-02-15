@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064851"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583983"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ Esto se debe a que Internet Explorer no admite las promesas de JavaScript de for
 La implementación de la aplicación en producción (por ejemplo, en las aplicaciones web de Azure) normalmente funciona bien, siempre que el usuario final haya aceptado los elementos emergentes. Lo probamos con Internet Explorer 11.
 
 ### <a name="running-locally"></a>Ejecución local
-Si quiere ejecutar y depurar localmente la aplicación que se ejecuta en Internet Explorer, debe tener en cuenta las siguientes opciones (supongamos que quiere ejecutar su aplicación como *http://localhost:1234* ):
+Si quiere ejecutar y depurar localmente la aplicación que se ejecuta en Internet Explorer, debe considerar los siguientes aspectos (suponga que quiere ejecutar su aplicación como *http://localhost:1234* ):
 
 - Internet Explorer tiene un mecanismo de seguridad llamado "modo protegido", que impide que MSAL.js funcione correctamente. Entre los síntomas que pueden aparecer después de iniciar sesión, la página puede redirigirse a http://localhost:1234/null.
 

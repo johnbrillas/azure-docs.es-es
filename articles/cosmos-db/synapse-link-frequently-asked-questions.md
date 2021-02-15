@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488721"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627789"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -109,7 +109,7 @@ Actualmente, Terraform no admite contenedores de almacenes analíticos. Consulte
 
 ## <a name="analytical-time-to-live-ttl"></a>Período de vida (TTL) analítico
 
-### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>¿El TTL de los datos analíticos se admite en los niveles de contenedor y elemento?
+### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>¿Se admite el TTL de los datos analíticos en los niveles de contenedor y elemento?
 
 En este momento, el TTL de los datos analíticos solo se puede configurar en el nivel de contenedor y no hay compatibilidad para establecerlo en el nivel de elemento.
 

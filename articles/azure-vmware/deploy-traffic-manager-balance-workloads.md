@@ -2,13 +2,13 @@
 title: Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution
 description: Aprenda a integrar Traffic Manager con Azure VMware Solution para equilibrar las cargas de trabajo de aplicaciones en varios puntos de conexión de distintas regiones.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809741"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988590"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution
 
@@ -130,9 +130,9 @@ En los pasos siguientes se comprueba la configuración del segmento NSX-T en el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre:
+Ahora que ha leído sobre la integración de Azure Traffic Manager con Azure VMware Solution, puede obtener más información acerca de:
 
-- [Uso de Azure Application Gateway en Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
-- [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)
-- [Combinación de servicios de equilibrio de carga en Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Medición del rendimiento de Traffic Manager](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Uso de Azure Application Gateway en Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md).
+- [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+- [Combinación de servicios de equilibrio de carga en Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- [Medición del rendimiento de Traffic Manager](../traffic-manager/traffic-manager-performance-considerations.md).

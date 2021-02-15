@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: 8e13f18ef9c2ec71a351d8a80d72d600bf8e9715
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ae95269dbac3ef1561e19d4b7ea5dd383c1eed73
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607412"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536974"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager (versión preliminar pública)
 
@@ -28,20 +28,20 @@ Para que la integración del mantenimiento sea lo más sencilla posible, Microso
 
 [Los proveedores de seguimiento de mantenimiento](#health-monitoring-providers) ofrecen varios mecanismos para la supervisión de los servicios y alertarle de cualquier problema de mantenimiento del servicio. [Azure Monitor](../../azure-monitor/overview.md) es un ejemplo de este tipo de oferta. Azure Monitor se puede usar para crear alertas cuando se superan determinados umbrales. Por ejemplo, la utilización de la CPU y la memoria supera los niveles esperados cuando se implementa una actualización nueva en el servicio. Cuando se le notifique, pueda tomar acciones correctivas.
 
-Estos proveedores de mantenimiento normalmente ofrecen API REST para que el estado de los monitores del servicio se pueda examinar mediante programación. Las API REST pueden devolver una sencilla señal de estado correcto o incorrecto (determinada por el código de respuesta HTTP), o bien información detallada sobre las señales que reciben.
+Estos proveedores de mantenimiento normalmente ofrecen API de REST para que el estado de los monitores del servicio se pueda examinar mediante programación. Las API REST pueden devolver una sencilla señal de estado correcto o incorrecto (determinada por el código de respuesta HTTP), o bien información detallada sobre las señales que reciben.
 
-El nuevo paso *healthCheck* de Azure Deployment Manager permite declarar códigos HTTP que indican un servicio en buen estado, o bien, para obtener resultados de REST más complejos, puede incluso especificar expresiones regulares que, si coinciden, indican una respuesta correcta.
+El nuevo paso `healthCheck` de Azure Deployment Manager permite declarar códigos HTTP que indican un servicio en buen estado. En el caso de los resultados de REST complejos, puede especificar expresiones regulares que, si coinciden, indican una respuesta correcta.
 
-El flujo de instalación de las comprobaciones de estado de Azure Deployment Manager es el siguiente:
+El flujo de configuración de las comprobaciones de estado de Azure Deployment Manager es el siguiente:
 
 1. Crea los monitores de mantenimiento a través del proveedor de servicios de mantenimiento que elija.
-1. Crea uno o varios pasos healthCheck como parte de la implementación de Azure Deployment Manager. Rellena los pasos healthCheck con la información siguiente:
+1. Crea uno o varios pasos `healthCheck` como parte de la implementación de Azure Deployment Manager. Rellene los pasos `healthCheck` con la siguiente información:
 
     1. El URI de la API REST para los monitores de mantenimiento (según lo definido por el proveedor de servicios de mantenimiento).
-    1. Información de autenticación. Actualmente solo se admite la autenticación de estilo de clave de API. En Azure Monitor, el tipo de autenticación debe establecerse como "RolloutIdentity", ya que la identidad administrada asignada por el usuario que se usa para la implementación de Azure Deployment Manager se amplía para Azure Monitor.
-    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) o expresiones regulares que definen una respuesta correcta. Tenga en cuenta que puede proporcionar expresiones regulares, que todas tengan que coincidir para que la respuesta se considere correcta, o bien expresiones de las que cualquiera tenga que coincidir para que la respuesta se considere correcta. Se admiten los dos métodos.
+    1. Información de autenticación. Actualmente solo se admite la autenticación de estilo de clave de API. En Azure Monitor, el tipo de autenticación debe establecerse como `RolloutIdentity`, ya que la identidad administrada asignada por el usuario que se usa para la implementación de Azure Deployment Manager se amplía para Azure Monitor.
+    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) o expresiones regulares que definen una respuesta correcta. Puede proporcionar expresiones regulares, que todas tengan que coincidir para que la respuesta se considere correcta, o bien expresiones de las que cualquiera tenga que coincidir para que la respuesta se considere correcta. Se admiten los dos métodos.
 
-    El siguiente JSON es un ejemplo de integración de Azure Monitor con Azure Deployment Manager que aprovecha RolloutIdentity y establece la comprobación de estado en la que se realiza una implementación si no hay ninguna alerta. La única API de Azure Monitor compatible: [Alertas – Obtener todo](/rest/api/monitor/alertsmanagement/alerts/getall).
+    El siguiente JSON es un ejemplo para integrar Azure Monitor con Azure Deployment Manager. En el ejemplo se usa `RolloutIdentity` y se establece una comprobación de estado en la que se realiza una implementación si no hay ninguna alerta. La única API de Azure Monitor compatible: [Alertas – Obtener todo](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {
@@ -135,7 +135,7 @@ El flujo de instalación de las comprobaciones de estado de Azure Deployment Man
     },
     ```
 
-1. Invoque los pasos healthCheck en el momento adecuado de la implementación de Azure Deployment Manager. En el ejemplo siguiente, se invoca un paso de comprobación de mantenimiento en **postDeploymentSteps** de **stepGroup2**.
+1. Invoque los pasos `healthCheck` en el momento adecuado de la implementación de Azure Deployment Manager. En el ejemplo siguiente, se invoca un paso `healthCheck` en `postDeploymentSteps` de `stepGroup2`.
 
     ```json
     "stepGroups": [
@@ -173,33 +173,35 @@ El flujo de instalación de las comprobaciones de estado de Azure Deployment Man
     ]
     ```
 
-Para realizar un ejemplo, vea [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-health-check.md).
+Para realizar un ejemplo, vea [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 ## <a name="phases-of-a-health-check"></a>Fases de una comprobación de estado
 
-En este momento, Azure Deployment Manager sabe cómo consultar el estado del servicio y en qué fases de la implementación hacerlo. Pero Azure Deployment Manager también permite la configuración en profundidad de los intervalos de estas comprobaciones. Se ejecuta un paso healthCheck en tres fases secuenciales, todas con duraciones que se pueden configurar:
+En este momento, Azure Deployment Manager sabe cómo consultar el estado del servicio y en qué fases de la implementación hacerlo. Pero Azure Deployment Manager también permite la configuración en profundidad de los intervalos de estas comprobaciones. Se ejecuta un paso `healthCheck` en tres fases secuenciales, todas con duraciones que se pueden configurar:
 
 1. Esperar
 
     1. Una vez que se ha completado una operación de implementación, se pueden reiniciar las máquinas virtuales, volver a configurar en función de los datos nuevos o incluso iniciarse por primera vez. Los servicios también necesitan tiempo para empezar a emitir señales de mantenimiento que el proveedor de supervisión de mantenimiento combine en algo útil. Durante este complicado proceso, es posible que no tenga sentido comprobar el estado de servicio dado que la actualización todavía no ha alcanzado un estado estable. De hecho, el servicio puede oscilar entre los estados correcto e incorrecto mientras los recursos se consolidan.
     1. Durante la fase de espera, el estado del servicio no se supervisa. Esto se usa para proporcionar a los recursos implementados tiempo de preparación antes de que comience el proceso de comprobación de mantenimiento.
+
 1. Elastic
 
-    1. Como es imposible saber en todos los casos cuánto tiempo de preparación necesitarán los recursos antes de que sean estables, la fase Elastic (Elástica) permite un período de tiempo flexible entre cuando los recursos son potencialmente inestables y cuando deben mantener un estado correcto estable.
+    1. Como es imposible saber en todos los casos cuánto tardarán los recursos en ser estables, la fase Elastic (Elástica) permite un período de tiempo flexible entre el momento en que los recursos son potencialmente inestables y el momento en que deben mantener un estado estable correcto.
     1. Cuando se inicia la fase Elastic, Azure Deployment Manager comienza a sondear de forma periódica el punto de conexión REST proporcionado para comprobar el estado del servicio. El intervalo de sondeo es configurable.
     1. Si el monitor de mantenimiento devuelve señales que indican que el servicio está en mal estado, esas señales se omiten y continúan la fase Elastic y el sondeo.
-    1. En cuanto el monitor de mantenimiento devuelva señales que indican que el servicio está en buen estado, finaliza la fase Elastic y comienza la fase HealthyState.
+    1. Cuando el monitor de mantenimiento devuelve señales que indican que el servicio está en buen estado, finaliza la fase Elastic y comienza la fase HealthyState.
     1. Por tanto, la duración especificada para la fase Elastic es la cantidad máxima de tiempo que se puede dedicar a sondear el mantenimiento del servicio antes de que una respuesta correcta se considere obligatoria.
+
 1. HealthyState
 
     1. Durante la fase HealthyState, el estado del servicio se sondea de forma continua con el mismo intervalo que la fase Elastic.
     1. Se espera que el servicio mantenga señales correctas del proveedor de supervisión de mantenimiento a lo largo de toda la duración especificada.
     1. Si en cualquier momento se detecta una respuesta incorrecta, Azure Deployment Manager detendrá la implementación y devolverá la respuesta REST en la que se incluyen las señales de servicio en mal estado.
-    1. Una vez que ha finalizado la duración de HealthyState, se completa el paso healthCheck y la implementación continúa con el paso siguiente.
+    1. Una vez que ha finalizado la duración de HealthyState, se completa el paso `healthCheck` y la implementación continúa con el paso siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo ha obtenido información sobre cómo integrar el seguimiento de estado en Azure Deployment Manager. Pase al siguiente artículo, donde aprenderá a realizar implementaciones con Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Integración de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
+> [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

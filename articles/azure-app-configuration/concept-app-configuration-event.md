@@ -7,22 +7,22 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078211"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550749"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reacción ante los eventos de Azure App Configuration
 
 Los eventos de Azure App Configuration permiten a las aplicaciones reaccionar ante los cambios en los pares clave-valor. Esto se consigue sin necesidad de código complejo ni de servicios de sondeo costosos e ineficientes. En su lugar, se insertan eventos mediante [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) o incluso su propio cliente de escucha http. De forma crítica, solo paga por lo que utiliza.
 
-Los eventos de Azure App Configuration se envían a Azure Event Grid, que proporciona servicios de entrega confiables para sus aplicaciones mediante directivas de reintento enriquecidas y la entrega de mensajes fallidos. Para más información, consulte [Entrega y reintento de entrega de mensajes de Event Grid](../event-grid/delivery-and-retry.md).
+Los eventos de Azure App Configuration se envían a Azure Event Grid, que proporciona servicios de entrega confiables para sus aplicaciones mediante directivas de reintento enriquecidas y entrega de mensajes fallidos. Para más información, consulte [Entrega y reintento de entrega de mensajes de Event Grid](../event-grid/delivery-and-retry.md).
 
 Entre los escenarios comunes de eventos de App Configuration se incluyen la actualización de la configuración de la aplicación, el desencadenamiento de implementaciones o cualquier flujo de trabajo de configuración. Cuando se realizan pocos cambios en el escenario, pero se requiere una respuesta inmediata, la arquitectura basada en eventos puede ser especialmente eficaz.
 
-En el artículo de [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web personalizado: CLI](./howto-app-configuration-event.md) puede encontrar un ejemplo rápido. 
+Para ver un ejemplo rápido, eche un vistazo a [Uso de Event Grid para las notificaciones de cambio de datos](./howto-app-configuration-event.md). 
 
 ![Modelo de Event Grid](./media/event-grid-functional-model.png)
 
@@ -87,4 +87,4 @@ Las aplicaciones que administran los eventos de App Configuration deben seguir e
 Obtenga más información sobre Event Grid y pruebe los eventos de Azure App Configuration:
 
 - [Una introducción a Azure Event Grid](../event-grid/overview.md)
-- [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web personalizado](./howto-app-configuration-event.md)
+- [Uso de Event Grid para las notificaciones de cambios de datos](./howto-app-configuration-event.md)

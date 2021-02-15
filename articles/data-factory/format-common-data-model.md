@@ -5,14 +5,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: e3152f1dff4a80ce3ae8bd121215ceb2595b9ee2
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: a08457ba041fa39fda367976498a4a89930c56e3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854015"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585167"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -85,6 +85,7 @@ Al asignar columnas de flujo de datos a las propiedades de entidad en la transfo
 2. Busque las propiedades partitions.Location 
 3. Cambie "blob.core.windows.net" a "dfs.core.windows.net"
 4. Corrija cualquier codificación "% 2F" de la dirección URL a "/"
+5. Si usa flujos de datos de ADF, los caracteres especiales de la ruta de acceso del archivo de partición deben reemplazarse por valores alfanuméricos o cambiar a flujos de datos de Synapse.
 
 ### <a name="cdm-source-data-flow-script-example"></a>Ejemplo de script de flujo de datos del origen de CDM
 

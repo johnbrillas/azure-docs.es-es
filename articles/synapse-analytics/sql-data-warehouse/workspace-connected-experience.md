@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d477693667c8d78687d27b291d2b3c15612a0f30
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499788"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989037"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Habilitación de las características del área de trabajo de Synapse en un grupo existente de SQL dedicado (anteriormente, SQL DW)
 
@@ -32,7 +32,7 @@ La siguiente información se aplicará al utilizar una instancia dedicada de SQL
 - **Funcionalidades de SQL**: todas las funcionalidades de SQL se conservarán con el servidor SQL lógico una vez que se haya habilitado la característica del área de trabajo de Synapse. El acceso al servidor mediante el proveedor de recursos de SQL seguirá siendo posible una vez que se haya habilitado el área de trabajo. Todas las funciones de administración se pueden iniciar a través del área de trabajo, y la operación se llevará a cabo en el servidor SQL lógico que hospeda los grupos de SQL. Ninguna automatización, herramienta o conexión existente se interrumpirá cuando se habilite un área de trabajo.  
 - **Movimiento de recursos**: iniciar un movimiento de recursos en un servidor con la característica del área de trabajo de Synapse habilitada romperá el vínculo entre el servidor y el área de trabajo, y ya no podrá acceder a las instancias existentes del grupo de SQL dedicado (anteriormente, SQL DW) desde el área de trabajo. Para garantizar que se mantenga la conexión, se recomienda que ambos recursos permanezcan en la misma suscripción y en el mismo grupo de recursos. 
 - **Supervisión**: las solicitudes de SQL enviadas mediante Synapse Studio en un área de trabajo habilitada para un grupo de SQL dedicado (anteriormente, SQL DW) se pueden ver en el centro de supervisión. Para todas las demás actividades de supervisión, puede ir a la supervisión de grupos de SQL dedicados de Azure Portal (anteriormente, SQL DW). 
-- **Controles de seguridad** y **acceso**: como se indicó anteriormente, todas las funciones de administración de las instancias de SQL Server y de los grupos de SQL dedicados (anteriormente, SQL DW) seguirán residiendo en el servidor SQL lógico. Estas funciones incluyen la administración de reglas de firewall, la configuración del administrador de Azure AD del servidor y todo el control de acceso de los datos en el grupo de SQL dedicado (anteriormente, SQL DW). Se deben completar los pasos siguientes para asegurarse de que se puede acceder al grupo de SQL dedicado (anteriormente, SQL DW) y que se puede utilizar mediante el área de trabajo de Synapse. Las pertenencias a roles del área de trabajo no conceden a los usuarios permisos para los datos de las instancias del grupo de SQL dedicado (anteriormente, SQL DW). Siga las directivas de [autenticación de SQL](sql-data-warehouse-authentication.md) habituales para asegurarse de que los usuarios puedan acceder a las instancias del grupo de SQL dedicado (anteriormente, SQL DW) en el servidor lógico. 
+- **Controles de seguridad** y **acceso**: como se indicó anteriormente, todas las funciones de administración de las instancias de SQL Server y de los grupos de SQL dedicados (anteriormente, SQL DW) seguirán residiendo en el servidor SQL lógico. Estas funciones incluyen la administración de reglas de firewall, la configuración del administrador de Azure AD del servidor y todo el control de acceso de los datos en el grupo de SQL dedicado (anteriormente, SQL DW). Se deben completar los pasos siguientes para asegurarse de que se puede acceder al grupo de SQL dedicado (anteriormente, SQL DW) y que se puede utilizar mediante el área de trabajo de Synapse. Las pertenencias a roles del área de trabajo no conceden a los usuarios permisos para los datos de las instancias del grupo de SQL dedicado (anteriormente, SQL DW). Siga las directivas de [autenticación de SQL](sql-data-warehouse-authentication.md) habituales para asegurarse de que los usuarios puedan acceder a las instancias del grupo de SQL dedicado (anteriormente, SQL DW) en el servidor lógico. Si el servidor host del grupo de SQL dedicado (anteriormente SQL DW) ya tiene una identidad administrada asignada, el nombre de esta identidad administrada será el mismo que el de la identidad administrada del área de trabajo que se creó automáticamente para admitir los servicios de asociados del área de trabajo (por ejemplo, las canalizaciones de ADF).  En un escenario conectado pueden existir dos identidades administradas con el mismo nombre. Las identidades administradas se pueden distinguir por sus identificadores de objeto de Azure AD, y la funcionalidad para crear usuarios de SQL con identificadores de objeto estará disponible próximamente.
 
     ```sql
     CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 

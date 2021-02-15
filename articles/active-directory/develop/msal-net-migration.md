@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754824"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583932"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -145,7 +145,7 @@ MSAL.NET hace que la caché de tokens sea una clase sellada y elimina la posibil
 
 En la versión 1.0, si usa la autoridad `https://login.microsoftonline.com/common`, permitirá a los usuarios iniciar sesión con cualquier cuenta de AAD (para cualquier organización). Consulte [Validación de autoridad en ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o de cualquier organización de AAD. En MSAL.NET, si desea restringir el inicio de sesión a cualquier cuenta de AAD (el mismo comportamiento que con ADAL.NET), es preciso que use `https://login.microsoftonline.com/organizations`. Para más información, consulte el parámetro `authority` en la [aplicación cliente pública](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o de cualquier organización de AAD. En MSAL.NET, si quiere restringir el inicio de sesión a cualquier cuenta de AAD (el mismo comportamiento que con ADAL.NET), use `https://login.microsoftonline.com/organizations`. Para más información, consulte el parámetro `authority` en la [aplicación cliente pública](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>Tokens de las versiones 1.0 y 2.0
 
@@ -182,7 +182,7 @@ string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Advertencia: Debe tener una o dos barras diagonales en el ámbito correspondiente a una API web v1.0
 
-Si desea escribir el ámbito correspondiente a la API de Azure Resource Manager (https://management.core.windows.net/) , es preciso que solicite el ámbito siguiente (tenga en cuenta las dos barras diagonales)
+Si quiere escribir el ámbito correspondiente a la API de Azure Resource Manager (https://management.core.windows.net/), solicite el ámbito siguiente (observe las dos barras diagonales).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};

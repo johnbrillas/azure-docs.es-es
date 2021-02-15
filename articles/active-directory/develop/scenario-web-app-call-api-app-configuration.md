@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753323"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582336"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplicación web que llama a las API web: Configuración del código
 
@@ -44,7 +44,7 @@ Seleccione la pestaña correspondiente a la plataforma que le interese:
 
 ## <a name="client-secrets-or-client-certificates"></a>Secretos de cliente o certificados de cliente
 
-Dado que la aplicación web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*. También puede agregar una sección que especifique:
+Dado que la aplicación web ahora llama a una API web de nivel inferior, proporcione un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*. También puede agregar una sección que especifique:
 
 - La dirección URL de la API web de nivel inferior.
 - Los ámbitos necesarios para llamar a la API.
@@ -184,7 +184,7 @@ En la imagen siguiente se muestran las distintas posibilidades de *Microsoft.Ide
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloques que muestra las opciones de configuración del servicio en startup punto c s para llamar a una API web y especificar una implementación de la caché de tokens":::
 
 > [!NOTE]
-> Para comprender por completo los ejemplos de código que se indican a continuación, debe estar familiarizado con los [aspectos básicos de ASP.NET Core](/aspnet/core/fundamentals) y, en particular, con la [inserción de dependencias](/aspnet/core/fundamentals/dependency-injection) y las [opciones](/aspnet/core/fundamentals/configuration/options).
+> Para comprender por completo los ejemplos de código que se indican a continuación, familiarícese con los [aspectos básicos de ASP.NET Core](/aspnet/core/fundamentals) y, en particular, con la [inserción de dependencias](/aspnet/core/fundamentals/dependency-injection) y las [opciones](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

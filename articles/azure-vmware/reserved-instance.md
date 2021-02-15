@@ -2,13 +2,13 @@
 title: Ahorro de costos con la instancia reservada de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600871"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550982"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -132,3 +132,12 @@ Para más información sobre las reservas administradas por CSP, consulte [Venta
 Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 Los CSP pueden cancelar, intercambiar o reembolsar reservas, con algunas limitaciones, adquiridas por sus clientes. Para obtener más información, consulte [Administración, cancelación, intercambio o reembolso de reservas de Microsoft Azure para clientes](/partner-center/azure-reservations-manage).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que se ha explicado la compra de una instancia reservada de Azure VMware Solution, puede que quiera obtener información sobre:
+
+- [Creación de una evaluación de Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Administración de DHCP para Azure VMware Solution](manage-dhcp.md).
+- La [administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

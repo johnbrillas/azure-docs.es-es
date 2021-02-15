@@ -3,16 +3,21 @@ title: Tipos de clase de ejemplo en Azure Lab Services | Microsoft Docs
 description: Proporciona algunos tipos de clases para los que puede configurar laboratorios mediante Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436409"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627440"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Información general sobre tipos de clase: Azure Lab Services
 
 Azure Lab Services le permite configurar rápidamente un entorno de laboratorio educativo en la nube. En los artículos de esta sección se proporcionan instrucciones sobre cómo configurar varios tipos de laboratorios mediante Azure Lab Services.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) es un tipo de sistema de información geográfica (GIS).  Puede configurar un laboratorio que use distintas aplicaciones de ArcGIS Desktop, como [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm), para crear, editar y analizar mapas 2D.
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio de ArcMap\ArcGIS Desktop](class-type-arcgis.md).
 
 ## <a name="big-data-analytics"></a>Análisis de macrodatos
 Puede configurar un laboratorio de GPU para enseñar una clase de análisis de macrodatos. Con este tipo de clase, los alumnos aprenden a manipular grandes volúmenes de datos y a aplicar algoritmos de aprendizaje automático y estadístico para obtener conclusiones sobre los datos. Un objetivo clave para los alumnos es aprender a usar herramientas de análisis de datos, como el paquete de software de código abierto de Apache Hadoop, que proporciona herramientas para almacenar, administrar y procesar macrodatos. 
@@ -41,6 +46,11 @@ Para más información sobre cómo configurar este tipo de laboratorio, consulte
 
 Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar MATLAB](class-type-matlab.md).
 
+## <a name="networking-with-gns3"></a>Redes con GNS3
+Puede configurar un laboratorio para una clase orientado a permitir a los alumnos emular, configurar, probar y solucionar problemas de redes reales y virtuales mediante el software [GNS3](https://www.gns3.com/). 
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para impartir una clase de redes](class-type-networking-gns3.md).
+
 ## <a name="project-lead-the-way-pltw"></a>Project Lead the Way (PLTW)
 [Project Lead the Way (PLTW)](https://www.pltw.org/) es una organización sin ánimo de lucro que proporciona un currículo de PreK-12 en informática, ingeniería y ciencia biomédica en los Estados Unidos.  En cada clase de PLTW, los estudiantes usan una gran variedad de aplicaciones de software como parte de su experiencia de aprendizaje práctico.
 
@@ -61,7 +71,12 @@ Para más información sobre cómo configurar este tipo de laboratorio, consulte
 ## <a name="solidworks-computer-aided-design-cad"></a>Diseño asistido por ordenador (CAD) de SolidWorks
 Puede configurar un laboratorio de GPU que proporcione a los estudiantes de ingeniería acceso a [SolidWorks](https://www.solidworks.com/).  SolidWorks proporciona un entorno CAD 3D para el modelado de objetos sólidos.  Con SolidWorks, los ingenieros pueden crear, visualizar, simular y documentar sus diseños fácilmente.
 
-Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para clases de ingeniería mediante SolidWorks](class-type-solidworks.md)
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para clases de ingeniería mediante SolidWorks](class-type-solidworks.md).
+
+## <a name="sql-database-and-management"></a>SQL Database y administración
+SQL (Lenguaje de consulta estructurado) es el lenguaje estándar para la administración de bases de datos relacionales, lo que incluye agregar y administrar el contenido de una base de datos, así como acceder a él.  Puede configurar un laboratorio para enseñar conceptos de bases de datos mediante el servidor de base de datos [MySQL](https://www.mysql.com/) y el servidor [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+
+Para más información sobre cómo configurar este tipo de laboratorio, consulte [Configuración de un laboratorio para enseñar administración de bases de datos relacionales](class-type-database-management.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes:

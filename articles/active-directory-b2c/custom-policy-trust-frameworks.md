@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936668"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592847"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
@@ -115,7 +115,7 @@ Cada paquete de inicio incluye los siguientes archivos:
 Este es el modelo de herencia:
 
 - La directiva secundaria de cualquier nivel puede heredar de la directiva principal y extenderse mediante la adición de nuevos elementos.
-- En escenarios más complejos, puede agregar más niveles de herencia (hasta cinco en total).
+- En escenarios más complejos, puede agregar más niveles de herencia (hasta 10 en total).
 - Puede agregar más directivas del usuario de confianza. Por ejemplo, elimine mi cuenta, cambie un número de teléfono, una directiva del usuario de confianza de SAML y mucho más.
 
 En el diagrama siguiente, se muestra la relación entre los archivos de directiva y las aplicaciones de usuario de confianza.

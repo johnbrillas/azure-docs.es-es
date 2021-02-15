@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756473"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584404"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Llamada a una API web desde una aplicación móvil
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Realización de varias solicitudes de API
 
-Si tiene que llamar varias veces a la misma API, o si debe llamar a varias API, tenga en cuenta los temas siguientes al compilar la aplicación:
+Para llamar varias veces a la misma API, o llamar a varias API, tenga en cuenta los asuntos siguientes al compilar la aplicación:
 
 - **Consentimiento incremental**: La Plataforma de identidad de Microsoft permite que las aplicaciones obtengan el consentimiento del usuario cuando se necesitan los permisos, en lugar de todos al principio. Cada vez que la aplicación está lista para llamar a una API, debe solicitar solo los ámbitos que necesita.
 
@@ -125,7 +125,7 @@ Si tiene que llamar varias veces a la misma API, o si debe llamar a varias API, 
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Llamada a varias API con consentimiento incremental y acceso condicional
 
-Si necesita llamar a varias API para el mismo usuario, después de haber adquirido un token para el usuario, puede evitar solicitar repetidamente las credenciales del usuario mediante llamadas subsiguientes a `AcquireTokenSilent` para obtener un token:
+Para llamar a varias API con el mismo usuario, después de haber adquirido un token para el usuario, puede evitar solicitar repetidamente las credenciales del usuario llamando posteriormente a `AcquireTokenSilent` para obtener un token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

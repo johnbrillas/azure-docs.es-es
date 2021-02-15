@@ -1,14 +1,14 @@
 ---
 title: Información general del agente Connected Machine de Windows
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033972"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626315"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -55,6 +55,7 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > El nombre de host de Linux o de equipo de Windows no puede usar una de las palabras reservadas o marcas en el nombre; de lo contrario, si intenta registrar la máquina conectada con Azure, se producirá un error. Consulte [Resolución de errores en los nombres de recursos reservados](../../azure-resource-manager/templates/error-reserved-resource-name.md) para obtener una lista de las palabras reservadas.
@@ -116,9 +117,9 @@ Los agentes de versión preliminar (versión 0.11 y anteriores) también requie
 |`agentserviceapi.azure-automation.net`|Configuración de invitado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuración de invitado|
 
-Para obtener una lista de direcciones IP para cada etiqueta o región de servicio, consulte el archivo JSON [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publica actualizaciones semanales que incluyen cada uno de los servicios de Azure y los intervalos IP que usan. Para más información, consulte [Etiquetas de servicio](../../virtual-network/network-security-groups-overview.md#service-tags).
+Para obtener una lista de direcciones IP para cada etiqueta o región de servicio, consulte el archivo JSON [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publica actualizaciones semanales que incluyen cada uno de los servicios de Azure y los intervalos IP que usan. Esta información en el archivo JSON es la lista actual en un momento dado de los intervalos de direcciones IP que corresponden a cada etiqueta de servicio. Las direcciones IP están sujetas a cambios. Si se necesitan intervalos de direcciones IP para la configuración del firewall, se debe usar la etiqueta de servicio **AzureCloud** para permitir el acceso a todos los servicios de Azure. No deshabilite la supervisión de seguridad ni la inspección de estas direcciones URL, pero permítalas como haría con otro tráfico de Internet.
 
-Se requieren las direcciones URL de la tabla anterior junto con la información del intervalo IP de la etiqueta de servicio, ya que la mayoría de los servicios no tienen actualmente un registro de etiquetas de servicio. Por este motivo, las direcciones IP están sujetas a cambios. Si se necesitan intervalos de direcciones IP para la configuración del firewall, se debe usar la etiqueta de servicio **AzureCloud** para permitir el acceso a todos los servicios de Azure. No deshabilite la supervisión de seguridad ni la inspección de estas direcciones URL, pero permítalas como haría con otro tráfico de Internet.
+Para obtener más información, consulte [Información general sobre etiquetas de servicio](../../virtual-network/service-tags-overview.md).
 
 ### <a name="register-azure-resource-providers"></a>Registro de proveedores de recursos de Azure
 

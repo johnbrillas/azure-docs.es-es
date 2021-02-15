@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: d6a8276de9674266415604e8654034f129da8f50
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430954"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806111"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de compatibilidad de Azure Disk Backup (en versión preliminar)
 
@@ -22,7 +22,7 @@ Puede usar [Azure Backup](./backup-overview.md) para proteger los discos de Azur
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Oeste de EE. UU., Centro-oeste de EE. UU., Este de EE. UU  2, Centro de Canadá, Oeste de Reino Unido, Centro de Australia, Centro de Corea del Sur, Sur de Corea del Sur, Japón Occidental, Este de Asia, Norte de Emiratos Árabes Unidos, Sur de Brasil, Centro de la India. 
+Azure Disk Backup está disponible en versión preliminar en las siguientes regiones: Oeste de EE. UU., Centro-oeste de EE. UU., Este de EE. UU. 2, Centro de Canadá, Oeste de Reino Unido, Norte de Suiza, Oeste de Suiza, Centro de Australia, Centro de Australia 2, Centro de Corea del Sur, Sur de Corea del Sur, Japón Occidental, Este de Asia, Norte de Emiratos Árabes Unidos, Sur de Brasil, Centro de la India. 
 
 Se anunciarán más regiones cuando estén disponibles.
 

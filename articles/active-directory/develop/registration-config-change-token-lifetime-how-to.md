@@ -12,12 +12,12 @@ ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d39f378171443f028ef6b549b120b22f2a3405c4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063355"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582948"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo usar Azure AD PowerShell para establecer un
 > Después de mayo de 2020, los inquilinos ya no podrán configurar la vigencia de los tokens de sesión y la actualización.  Azure Active Directory dejará de respetar la configuración existente de los tokens de sesión y la actualización en las directivas después del 30 de enero de 2021. Después, podrá seguir configurando la duración del token de acceso. Para obtener más información, consulte [Vigencia de tokens configurable en Azure AD](./active-directory-configurable-token-lifetimes.md).
 > Se han implementado  [funciones de administración de sesiones de autenticación](../conditional-access/howto-conditional-access-session-lifetime.md) en el acceso condicional de Azure AD. Puede usar esta nueva característica para configurar la vigencia de los tokens de actualización mediante la configuración de la frecuencia de inicio de sesión.  
 
-Para establecer una directiva de vigencia del token de acceso, debe descargar el [módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+Para establecer una directiva de vigencia del token de acceso, descargue el [módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 Ejecute el comando **Connect-AzureAD -Confirm**.
 
 En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web. Esta Directiva establece la duración del acceso a la entidad de servicio de la aplicación web. Cree la directiva y asígnela a la entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.

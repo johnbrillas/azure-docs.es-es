@@ -1,5 +1,6 @@
 ---
-title: 'Paso a producción de una aplicación web que permite iniciar sesión a los usuarios: Plataforma de identidad de Microsoft | Azure'
+title: Paso a producción de la aplicación web que inicia la sesión de los usuarios | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación web que permita iniciar sesión a los usuarios (paso a producción)
 services: active-directory
 author: jmprieur
@@ -11,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169297"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584304"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicación web que inicia sesión de usuarios: Paso a producción
 
-Ahora que sabe cómo obtener un token para llamar a las API web, obtenga información sobre cómo pasarla a producción.
+Ahora que sabe cómo obtener un token para llamar a las API web, aquí tiene algunos aspectos que deben tenerse en cuenta al pasar la aplicación a producción.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
-
-> [!NOTE]
-> Cuando los usuarios inicien sesión en la aplicación web por primera vez, deberán dar su consentimiento. Sin embargo, en algunas organizaciones, los usuarios pueden ver un mensaje similar al siguiente:
->
-> *NombreAplicación necesita permisos para acceder a recursos de su organización que solo un administrador puede conceder. Pida a un administrador que conceda permiso a esta aplicación para poder usarla.*
->
-> Esto se debe a que el administrador de inquilinos ha **deshabilitado** la capacidad de los usuarios de dar su consentimiento. En ese caso, debe ponerse en contacto con los administradores de inquilinos para que creen un consentimiento de administrador para los ámbitos que requiere la aplicación.
+Cuando los usuarios inicien sesión en la aplicación web por primera vez, deberán dar su consentimiento. Sin embargo, en algunas organizaciones, los usuarios pueden ver un mensaje similar al siguiente: *NombreAplicación necesita permisos para acceder a recursos de su organización que solo un administrador puede conceder. Pida a un administrador que conceda permiso a esta aplicación para poder usarla.*
+Esto se debe a que el administrador de inquilinos ha **deshabilitado** la capacidad de los usuarios de dar su consentimiento. En ese caso, póngase en contacto con los administradores de inquilinos para que creen un consentimiento de administrador para los ámbitos que requiere la aplicación.
 
 ## <a name="same-site"></a>Mismo sitio
 

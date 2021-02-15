@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060017"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980582"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -137,6 +137,15 @@ En el diagrama de red siguiente se muestra un área de trabajo de Azure Machine 
 ### <a name="limitations"></a>Limitaciones
 - Los clústeres de AKS deben pertenecer a la misma red virtual que el área de trabajo y sus recursos asociados. 
 
+## <a name="optional-enable-public-access"></a>Opcional: Habilitación del acceso público
+
+Puede proteger el área de trabajo detrás de una red virtual mediante un punto de conexión privado y seguir permitiendo el acceso a través de la red pública de Internet. La configuración inicial equivale a [proteger el área de trabajo y los recursos asociados](#secure-the-workspace-and-associated-resources). 
+
+Después de proteger el área de trabajo con un vínculo privado, [habilitar el acceso público](how-to-configure-private-link.md#enable-public-access). Después de esto, puede tener acceso al área de trabajo desde la red pública de Internet y la red virtual.
+
+### <a name="limitations"></a>Limitaciones
+
+- Si usa Estudio de Azure Machine Learning a través de la red pública de Internet, es posible que algunas características como el diseñador no tengan acceso a sus datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
 ## <a name="optional-enable-studio-functionality"></a>Opcional: habilitación de la funcionalidad de Studio
 
 [Proteger el área de trabajo](#secure-the-workspace-and-associated-resources) > [Proteger el entorno de entrenamiento](#secure-the-training-environment) > [Proteger el entorno de inferencia](#secure-the-inferencing-environment) > **Habilitar la funcionalidad de Studio** > [Configurar el firewall](#configure-firewall-settings)

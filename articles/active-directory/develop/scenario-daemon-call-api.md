@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd0d53049c68843a6fd2cb6128c473d7c4f8d639
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756582"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582798"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación
 
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Llamada a varias API
 
-Para las aplicaciones de demonio, las API web a las que llame deben estar aprobadas previamente. No hay ningún consentimiento incremental con las aplicaciones de demonio. (No hay interacción del usuario). El administrador de inquilinos debe dar el consentimiento previo a la aplicación y a todos los permisos de la API. Si quiere llamar a varias API, debe adquirir un token para cada recurso, cada vez llamando a `AcquireTokenForClient`. MSAL usará la caché de tokens de aplicación para evitar las llamadas de servicio innecesarias.
+Para las aplicaciones de demonio, las API web a las que llame deben estar aprobadas previamente. No hay ningún consentimiento incremental con las aplicaciones de demonio. (No hay interacción del usuario). El administrador de inquilinos debe dar el consentimiento previo a la aplicación y a todos los permisos de la API. Si quiere llamar a varias API, adquiera un token para cada recurso, cada vez llamando a `AcquireTokenForClient`. MSAL usará la caché de tokens de aplicación para evitar las llamadas de servicio innecesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.openlocfilehash: 02e439989c985354dbe06fa3e231d5daf7099d70
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/08/2021
+ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629054"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988639"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
 
@@ -188,4 +188,8 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise la [documentación de Azure Application Gateway](../application-gateway/index.yml) para ver más ejemplos de configuración.
+Ahora que ha leído sobre el uso de Application Gateway para proteger una aplicación web que se ejecuta en Azure VMware Solution, se recomienda que aprenda sobre:
+
+- [Configuración de Azure Application Gateway para distintos escenarios](../application-gateway/configuration-overview.md).
+- [Implementación de Traffic Manager para equilibrar las cargas de trabajo de Azure VMware Solution](deploy-traffic-manager-balance-workloads.md).
+- [Integración de Azure NetApp Files con cargas de trabajo basadas en Azure VMware Solution](netapp-files-with-azure-vmware-solution.md).

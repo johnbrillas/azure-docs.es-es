@@ -5,40 +5,35 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2020
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 802307a21873d15242c2e387ec0defe35f50bb20
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015766"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576437"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Invitar a usuarios internos a la colaboración B2B
 
-> [!NOTE]
-> La invitación a los usuarios internos para usar la colaboración B2B es una característica en vista previa pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Antes de la disponibilidad de la colaboración B2B de Azure AD, las organizaciones pueden colaborar con distribuidores, proveedores y otros usuarios invitados mediante la configuración de credenciales internas para ellos. Si tiene usuarios de invitado internos como estos, puede invitarlos a usar la colaboración B2B en su lugar. Estos usuarios invitados de B2B podrán usar sus propias identidades y credenciales para iniciar sesión, y no tendrá que mantener contraseñas ni administrar los ciclos de vida de las cuentas.
 
-Antes de la disponibilidad de la colaboración B2B de Azure AD, las organizaciones pueden colaborar con distribuidores, proveedores y otros usuarios invitados mediante la configuración de credenciales internas para ellos. Si tiene usuarios invitados internos como este, puede invitarlos a usar la colaboración B2B para que pueda aprovechar las ventajas de B2B de Azure AD. Los usuarios invitados de B2B podrán usar sus propias identidades y credenciales para iniciar sesión, y no tendrá que mantener contraseñas ni administrar los ciclos de vida de las cuentas.
+El envío de una invitación a una cuenta interna existente le permite conservar el identificador de objeto, el UPN, la pertenencia a grupos y las asignaciones de aplicaciones de ese usuario. No es necesario eliminar y volver a invitar al usuario manualmente ni reasignar los recursos. Para invitar al usuario, use la API de invitación para pasar el objeto de usuario interno y la dirección de correo electrónico del usuario invitado junto con la invitación. Cuando el usuario acepta la invitación, el servicio B2B cambia el objeto de usuario interno existente a un usuario de B2B. A partir de ahí, el usuario debe iniciar sesión en los servicios de recursos de nube con sus credenciales de B2B.
 
-El envío de una invitación a una cuenta interna existente le permite conservar el identificador de objeto, el UPN, la pertenencia a grupos y las asignaciones de aplicaciones de ese usuario. No es necesario eliminar y volver a invitar al usuario manualmente ni reasignar los recursos. Para invitar al usuario, usará la API de invitación para pasar el objeto de usuario interno y la dirección de correo electrónico del usuario invitado junto con la invitación. Cuando el usuario acepta la invitación, el servicio B2B cambia el objeto de usuario interno existente a un usuario de B2B. A partir de ahí, el usuario debe iniciar sesión en los servicios de recursos de nube con sus credenciales de B2B. Todavía pueden usar sus credenciales internas para acceder a los recursos locales, pero puede evitarlo mediante el restablecimiento o la modificación de la contraseña de la cuenta interna.
+## <a name="things-to-consider"></a>Aspectos que se deben tener en cuenta:
 
-> [!NOTE]
-> La invitación es unidireccional. Puede invitar a usuarios internos a usar la colaboración B2B, pero no puede quitar las credenciales de B2B una vez agregadas. Para volver a cambiar el usuario a un usuario solo interno, deberá eliminar el objeto de usuario y crear otro.
+- **Acceso a recursos locales**: Una vez que se ha invitado al usuario a la colaboración B2B, todavía puede usar sus credenciales internas para acceder a los recursos locales. Para evitarlo, puede restablecer o cambiar la contraseña en la cuenta interna. La excepción es [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Si el método de autenticación del usuario se cambia a código de acceso de un solo uso, ya no podrá usar sus credenciales internas.
 
-En la versión preliminar pública, el método descrito en este artículo para invitar a usuarios internos a la colaboración B2B no se puede usar en estas instancias:
+- **Facturación**: Esta característica no cambia el UserType del usuario, por lo que no cambia automáticamente el modelo de facturación del usuario a los [precios de usuarios activos mensuales (MAU) de External Identities](external-identities-pricing.md). Para activar los precios de MAU para el usuario, cambie UserType para el usuario a `guest`. Además tenga en cuenta que el inquilino de Azure AD debe estar [vinculado a una suscripción de Azure](external-identities-pricing.md#link-your-azure-ad-tenant-to-a-subscription) para activar la facturación de MAU.
 
-- Al usuario interno tiene asignada una licencia de Exchange.
-- El usuario pertenece a un dominio que está configurado para la federación directa del directorio.
-- El usuario interno es una cuenta solo en la nube y su cuenta principal no está en Azure AD.
+- **La invitación es unidireccional**: Puede invitar a usuarios internos a usar la colaboración B2B, pero no puede quitar las credenciales de B2B una vez agregadas. Para volver a cambiar el usuario a un usuario solo interno, deberá eliminar el objeto de usuario y crear otro.
 
-En estos casos, si el usuario interno debe cambiarse a un usuario de B2B, debe eliminar la cuenta interna y enviar al usuario una invitación para la colaboración B2B.
+- **Teams**: Cuando el usuario accede a Teams con sus credenciales externas, su inquilino no estará disponible inicialmente en el selector de inquilinos de Teams. El usuario puede acceder a Teams mediante una dirección URL que contiene el contexto del inquilino, por ejemplo: `https://team.microsoft.com/?tenantId=<TenantId>`. Después de esto, el inquilino estará disponible en el selector de inquilinos de Teams.
 
-**Usuarios sincronizados locales**: para las cuentas de usuario sincronizadas entre el entorno local y la nube, el directorio local sigue siendo el origen de autoridad después de haber invitado a los usuarios a usar la colaboración B2B. Los cambios que realice en la cuenta local se sincronizarán con la cuenta en la nube, incluida la deshabilitación o eliminación de la cuenta. Por lo tanto, solo mediante la eliminación de la cuenta local, no puede evitar que el usuario inicie sesión en su cuenta local mientras conserva su cuenta en la nube. En su lugar, puede establecer la contraseña de la cuenta local en un GUID aleatorio u otro valor desconocido.
+- **Usuarios sincronizados locales**: para las cuentas de usuario sincronizadas entre el entorno local y la nube, el directorio local sigue siendo el origen de autoridad después de haber invitado a los usuarios a usar la colaboración B2B. Los cambios que realice en la cuenta local se sincronizarán con la cuenta en la nube, incluida la deshabilitación o eliminación de la cuenta. Por lo tanto, solo mediante la eliminación de la cuenta local, no puede evitar que el usuario inicie sesión en su cuenta local mientras conserva su cuenta en la nube. En su lugar, puede establecer la contraseña de la cuenta local en un GUID aleatorio u otro valor desconocido.
 
 ## <a name="how-to-invite-internal-users-to-b2b-collaboration"></a>Invitación de usuarios internos a la colaboración B2B
 
@@ -50,15 +45,15 @@ Puede usar PowerShell o la API de invitación para enviar una invitación a B2B 
 De forma predeterminada, se enviará un correo electrónico al usuario para notificarle que se le ha invitado, pero puede suprimir el mensaje y escribir uno personalizado.
 
 > [!NOTE]
-> Para enviar su propio correo electrónico u otra comunicación, puede usar New-AzureADMSInvitation with -SendInvitationMessage:$false para invitar a los usuarios de forma silenciosa y, a continuación, enviar su propio mensaje de correo electrónico al usuario convertido. Vea [Personalización y API de colaboración B2B de Active Directory Azure](customize-invitation-api.md).
+> Para enviar su propio correo electrónico u otra comunicación, puede usar `New-AzureADMSInvitation` con `-SendInvitationMessage:$false` para invitar a los usuarios de forma silenciosa y, a continuación, enviar su propio mensaje de correo electrónico al usuario convertido. Vea [Personalización y API de colaboración B2B de Active Directory Azure](customize-invitation-api.md).
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>Uso de PowerShell para enviar una invitación a B2B
 
-Use el siguiente comando para invitar al usuario a la colaboración B2B:
+Necesitará el módulo Azure AD PowerShell, versión 2.0.2.130 o posterior. Use el siguiente comando para actualizar al módulo de AzureAD PowerShell más reciente e invitar al usuario interno a la colaboración B2B:
 
 ```powershell
-Uninstall-Module AzureADPreview
-Install-Module AzureADPreview
+Uninstall-Module AzureAD
+Install-Module AzureAD
 $ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
@@ -95,7 +90,6 @@ ContentType: application/json
 ```
 
 La respuesta a la API es la misma respuesta que se obtiene al invitar a un nuevo usuario invitado al directorio.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Canje de invitación de colaboración B2B](redemption-experience.md)

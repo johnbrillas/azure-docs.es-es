@@ -6,14 +6,14 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e071a20051f047efbd040dfc01a30e3c1381367
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631331"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805047"
 ---
-# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>Use la autenticación de Azure Active Directory (AD) para StorSimple
+# <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Uso de la autenticación de Azure Active Directory (AD) para StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 

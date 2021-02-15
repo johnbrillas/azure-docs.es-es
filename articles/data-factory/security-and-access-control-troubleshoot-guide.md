@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 37da2869f0cf315ac0a6851c9a77dcee4debf71a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944514"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581693"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solución de problemas de seguridad y control de acceso de Azure Data Factory
 
@@ -88,9 +88,10 @@ Para comprobar si el nombre de dominio completo (FQDN) de Data Factory se resuel
 #### <a name="resolution"></a>Solución
 
 Para solucionar el problema, haga lo siguiente:
-- Consulte el artículo [Azure Private Link para Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints). La instrucción es para configurar el servidor o la zona DNS privada para resolver el FQDN de Data Factory en una dirección IP privada.
 
-- Se recomienda usar un DNS personalizado como solución a largo plazo. Sin embargo, si no quiere configurar el servidor ni la zona DNS privada, pruebe la siguiente solución temporal:
+- Como opción, nos gustaría sugerirle que agregue manualmente un "vínculo de Virtual Network" en la "zona DNS de vínculo privado" de Data Factory. Para más información, consulte el artículo [Azure Private Link para Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints). La instrucción es para configurar el servidor DNS personalizado o la zona DNS privada para resolver el FQDN de Data Factory en una dirección IP privada. 
+
+- Sin embargo, si no quiere configurar ninguno de estos, pruebe la siguiente solución temporal:
 
   1. Cambie el archivo de host en Windows y asigne la dirección IP privada (el punto de conexión privado de Azure Data Factory) al FQDN de Azure Data Factory.
   

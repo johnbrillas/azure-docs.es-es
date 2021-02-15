@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754514"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525202"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario (versión preliminar)
 
@@ -89,7 +89,7 @@ Este es un ejemplo en el que se muestra cómo agregar el registro telefónico a 
 9. En **Proveedores de identidades sociales**, seleccione cualquier otro proveedor de identidades que desee permitir para este flujo de usuario.
 
    > [!NOTE]
-   > La autenticación multifactor (MFA) está deshabilitada de forma predeterminada. Puede habilitar MFA para un flujo de usuario de registro telefónico, pero como un número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
+   > La autenticación multifactor (MFA) está deshabilitada de forma predeterminada para los flujos de registro de usuarios. Puede habilitar MFA para un flujo de usuario de registro telefónico, pero como un número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
 
 1. En la sección **User attributes and token claims** (Atributos de usuario y notificaciones de token), elija los atributos y las notificaciones que desea recopilar y enviar del usuario durante el registro. Por ejemplo, seleccione **Mostrar más** y elija los atributos y las notificaciones de **País o región**, **Nombre para mostrar** y **Código postal**. Seleccione **Aceptar**.
 

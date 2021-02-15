@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539659"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832885"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Cambios de precios de Azure Network Performance Monitor
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Hemos escuchado sus comentarios y recientemente hemos introducido una [nueva experiencia de precios](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para diversos servicios de supervisión en Azure. En este artículo se incluyen los cambios de precios relacionados con Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM), en un formato de preguntas y respuestas fácil de leer.
 

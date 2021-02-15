@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878111"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507829"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -254,14 +254,14 @@ Siga estos pasos para habilitar la recopilación de métricas de Live Video Anal
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Asegúrese de reemplazar las variables en el archivo .toml. Las variables se representan mediante llaves (`{}`).
 
-1. En la misma carpeta, cree un archivo `.dockerfile` que contenga los siguientes comandos:
+1. En la misma carpeta, cree un Dockerfile que contenga los siguientes comandos:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Siga estos pasos para habilitar la recopilación de métricas de Live Video Anal
      `AZURE_CLIENT_SECRET`: especifica el secreto de la aplicación que se va a usar.  
      
      >[!TIP]
-     > A la entidad de servicio se le puede otorgar el rol **Publicador de métricas de supervisión**.
+     > A la entidad de servicio se le puede otorgar el rol **Publicador de métricas de supervisión**. Siga los pasos descritos en **[Creación de una entidad de servicio](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** para crear la entidad de servicio y asignar el rol.
 
 1. Una vez implementados los módulos, las métricas aparecerán en Azure Monitor en un espacio de nombres único. Los nombres de métricas coincidirán con los emitidos por Prometheus. 
 
    En este caso, en Azure Portal, vaya al centro de IoT y seleccione **Métricas** en el panel izquierdo. Allí debería ver las métricas.
 
+Si usa Prometheus junto con [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), puede generar y [supervisar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), como el porcentaje de CPU usado, el porcentaje usado de memoria, etc. Con el lenguaje de consulta Kusto, puede escribir consultas como se indica a continuación y obtener el porcentaje de CPU que usan los módulos de IoT Edge.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[ ![Diagrama que muestra las métricas mediante la consulta de Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Registro
 
 Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) en el dispositivo perimetral. Puede configurar la información que se escribe en los registros mediante las propiedades del [siguiente módulo gemelo](module-twin-configuration-schema.md):

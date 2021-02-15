@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533062"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979630"
 ---
 # <a name="modify-target-settings"></a>Modificación de la configuración de destino
 
@@ -36,16 +36,16 @@ Las opciones de configuración que se pueden modificar se resumen en la tabla.
 
 **Recurso** | **Opciones** 
 --- | --- | --- 
-**Nombre de VM** | Opciones:<br/><br/> - Crear una nueva máquina virtual con el mismo nombre en la región de destino.<br/><br/> - Crear una nueva máquina virtual con un nombre diferente en la región de destino.<br/><br/> - Usar una máquina virtual existente en la región de destino.<br/><br/> Si crea una nueva máquina virtual, con la excepción de los valores que modifique, a la nueva máquina virtual de destino se le asignará la misma configuración que la de la máquina virtual de origen.
-**Zona de disponibilidad de máquina virtual** | La zona de disponibilidad en la que se colocará la máquina virtual de destino. Esto se puede marcar como **NA** si no desea cambiar la configuración de origen o si no desea colocar la máquina virtual en una zona de disponibilidad.
+**Nombre de la máquina virtual** | Opciones:<br/><br/> - Crear una nueva máquina virtual con el mismo nombre en la región de destino.<br/><br/> - Crear una nueva máquina virtual con un nombre diferente en la región de destino.<br/><br/> - Usar una máquina virtual existente en la región de destino.<br/><br/> Si crea una nueva máquina virtual, con la excepción de los valores que modifique, a la nueva máquina virtual de destino se le asignará la misma configuración que la de la máquina virtual de origen.
+**Zona de disponibilidad de máquina virtual** | La zona de disponibilidad en la que se colocará la máquina virtual de destino. Seleccione **No aplicable** si no quiere cambiar la configuración de origen o si no quiere colocar la VM en una zona de disponibilidad.
 **SKU de la máquina virtual** | El [tipo de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponible en la región de destino) que se usará para la máquina virtual de destino.<br/><br/> La máquina virtual de destino seleccionada no debe ser más pequeña que la máquina virtual de origen.
-**Recursos de redes** | Opciones para redes virtuales (Vnet)/grupos de seguridad de red/interfaces de red:<br/><br/> - Crear un nuevo recurso con el mismo nombre en la región de destino.<br/><br/> - Crear un nuevo recurso con un nombre diferente en la región de destino.<br/><br/> - Usar un recurso de red existente en la región de destino.<br/><br/> Si crea un nuevo recurso de destino, con la excepción de los valores que modifique, se ale signará la misma configuración que la del recurso de origen.
-**Nombre de la dirección IP pública** | Especifique el nombre.
-**SKU de la dirección IP pública** | Especifique la [SKU](../virtual-network/public-ip-addresses.md#sku).
-**Zona de la dirección IP pública** | Especifique la [zona](../virtual-network/public-ip-addresses.md#standard) para las direcciones IP públicas estándar.<br/><br/> Si desea que tenga redundancia de zona, especifíquela como **Con redundancia de zona**.
-**Nombre del equilibrador de carga** | Especifique el nombre.
-**SKU del equilibrador de carga** | Básico o Estándar. Es recomendable usar Estándar.
-**Zona del equilibrador de carga** | Especifique una zona para el equilibrador de carga. <br/><br/> Si desea que tenga redundancia de zona, especifíquela como **Con redundancia de zona**.
+**Conjunto de disponibilidad de VM | Conjunto de disponibilidad en el que se colocará la máquina virtual de destino. Seleccione **No aplicable** si no quiere cambiar la configuración de origen o si no quiere colocar la VM en un conjunto de disponibilidad.
+**Almacén de claves de VM** | Almacén de claves asociado al habilitar el cifrado de discos de Azure en una VM.
+**Conjunto de cifrado de disco** | Conjunto de cifrado de disco asociado si la VM usa una clave administrada por el cliente para el cifrado del lado servidor.
+**Grupos de recursos** | Grupo de recursos en el que se colocará la VM de destino.
+**Recursos de redes** | Opciones para interfaces de red, redes virtuales (VNets/) y grupos de seguridad de red/interfaces de red:<br/><br/> - Crear un nuevo recurso con el mismo nombre en la región de destino.<br/><br/> - Crear un nuevo recurso con un nombre diferente en la región de destino.<br/><br/> - Usar un recurso de red existente en la región de destino.<br/><br/> Si crea un nuevo recurso de destino, con la excepción de los valores que modifique, se ale signará la misma configuración que la del recurso de origen.
+**Nombre, SKU y zona de la dirección IP pública** | Especifica la [SKU](../virtual-network/public-ip-addresses.md#sku) y la [zona](../virtual-network/public-ip-addresses.md#standard) de las direcciones IP públicas estándar.<br/><br/> Si desea que tenga redundancia de zona, especifíquela como **Con redundancia de zona**.
+**Nombre, SKU y zona del equilibrador de carga ** | Especifica el nombre, la SKU (nivel Básico o Estándar) y la zona del equilibrador de carga.<br/><br/> Se recomienda usar la SKU Estándar.<br/><br/> Si quiere que tenga redundancia de zona, especifique **Con redundancia de zona**.
 **Dependencias de recursos** | Opciones para cada dependencia:<br/><br/>- El recurso usa recursos dependientes del origen que se moverán a la región de destino.<br/><br/> - El recurso usa distintos recursos dependientes ubicados en la región de destino. En este caso, puede elegir entre cualquier recurso similar de la región de destino.
 
 ### <a name="edit-vm-target-settings"></a>Edición de la configuración de destino de VM

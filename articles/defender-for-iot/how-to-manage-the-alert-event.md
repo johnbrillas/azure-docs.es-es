@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803516"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508750"
 ---
 # <a name="manage-alert-events"></a>Administrar eventos de alerta
 
@@ -45,7 +45,7 @@ En determinadas situaciones, es posible que no desee que un sensor aprenda un ev
 
 Después de llevar a cabo la mitigación o la investigación, puede indicar al sensor que oculte la alerta seleccionando **Confirmación**. La alerta se volverá a desencadenar si el evento se vuelve a detectar.
 
-Para ocultar la alerta:
+Para desactivar la alerta:
 
   - Seleccione **Confirmación**.
 
@@ -72,7 +72,7 @@ En estas situaciones, el aprendizaje no está disponible. Cuando no se puede rea
 
 Un escenario silenciado incluye los dispositivos de red y el tráfico detectado para un evento. El título de la alerta describe el tráfico que se está silenciando.
 
-El dispositivo o los dispositivos que se están silenciando se mostrarán como una imagen en la alerta. Si se muestran dos dispositivos, se silencia el tráfico entre ellos.
+El dispositivo o los dispositivos que se están silenciando se mostrarán como una imagen en la alerta. Si se muestran dos dispositivos, se silencia el tráfico del que se ha recibido la alerta entre ellos.
 
 **Ejemplo 1**
 

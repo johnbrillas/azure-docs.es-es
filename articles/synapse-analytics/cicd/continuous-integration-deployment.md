@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797307"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624773"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
 
@@ -139,8 +139,8 @@ Si usa la integración de Git con el área de trabajo de Synapse y tiene una can
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Uso de la tarea de implementación del área de trabajo de Synapse
 
-En Synapse, ningún tipo de artefacto es un recurso ARM, que es diferente de ADF. No se puede usar la tarea de implementación de plantilla de ARM para implementar artefactos de Synapse.
+En Synapse, hay varios artefactos que no son recursos de ARM. Esto difiere con respecto a Azure Data Factory. La tarea de implementación de plantilla de ARM no funcionará correctamente para implementar artefactos de Synapse.
  
 ### <a name="unexpected-token-error-in-release"></a>Error de token inesperado en la versión
 
-Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no puede analizar el archivo con el error de token inesperado. Se recomienda invalidar los parámetros o KeyVault para obtener los parámetros. También puede hacer doble escape como solución alternativa.
+Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no podrá analizar el archivo y generará el error "token inesperado". Se recomienda invalidar los parámetros o usar Azure KeyVault para recuperar los valores de parámetro. Como alternativa, también puede usar caracteres de escape dobles.

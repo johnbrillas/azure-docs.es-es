@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756453"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584387"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -58,7 +58,7 @@ Otra configuración específica de las API web es la API expuesta y los ámbitos
 
 Normalmente, los ámbitos tienen el formato `resourceURI/scopeName`. En Microsoft Graph, los ámbitos tienen accesos directos. Por ejemplo, `User.Read` es un acceso directo de `https://graph.microsoft.com/user.read`.
 
-Durante el registro de la aplicación, debe definir estos parámetros:
+Durante el registro de la aplicación, defina estos parámetros:
 
 - URI del recurso
 - Uno o varios ámbitos
@@ -68,7 +68,7 @@ De forma predeterminada, el portal de registro de aplicación recomienda usar el
 
 Para las aplicaciones cliente, los ámbitos se muestran como *permisos delegados* y los roles de aplicación se muestran como *permisos de aplicación* para la API web.
 
-También aparecen ámbitos en la ventana de consentimiento que se presenta a los usuarios de la aplicación. Por lo tanto, deberá proporcionar las cadenas correspondientes que describen el ámbito:
+También aparecen ámbitos en la ventana de consentimiento que se presenta a los usuarios de la aplicación. Por lo tanto, proporcione las cadenas correspondientes que describen el ámbito:
 
 - Como las ve un usuario.
 - Como las ve un administrador de inquilinos, que puede otorgar consentimiento de administrador.
@@ -99,7 +99,7 @@ En esta sección, aprenderá a registrar su API web protegida para que las aplic
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exposición de permisos de aplicación (roles de aplicación)
 
-Para exponer permisos de aplicación, debe editar el manifiesto.
+Para exponer permisos de aplicación, edite el manifiesto.
 
 1. En el registro de aplicación para la aplicación, seleccione **Manifiesto**.
 1. Para editar el manifiesto, busque el valor `appRoles` y agregue roles de aplicación. En el siguiente bloque JSON de ejemplo se proporcionan las definiciones del rol.

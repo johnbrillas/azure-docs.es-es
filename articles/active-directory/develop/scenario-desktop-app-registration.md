@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4031e43b3ec6f6f451fbc4888cc482249042690b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753717"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582730"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -47,7 +47,7 @@ Los URI de redirección que se utilizan en una aplicación de escritorio depende
 
 - Si compila una aplicación nativa de Objective-C o Swift para macOS, registre el URI de redirección en función del identificador de agrupación de la aplicación, con el formato siguiente: `msauth.<your.app.bundle.id>://auth`. Reemplace `<your.app.bundle.id>` por el identificador de paquete de la aplicación.
 - Si la aplicación solo utiliza la autenticación integrada de Windows o un nombre de usuario y una contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Estos flujos realizan un recorrido de ida y vuelta al punto de conexión de la plataforma de identidad de Microsoft v2.0. No se volverá a llamar a la aplicación en ningún URI específico.
-- Para distinguir el [flujo de código de dispositivo](scenario-desktop-acquire-token.md#device-code-flow), la [autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) y el [nombre de usuario y la contraseña](scenario-desktop-acquire-token.md#username-and-password) de una aplicación cliente confidencial mediante un flujo de credenciales de cliente usado en [aplicaciones de demonio](scenario-daemon-overview.md), ninguna de las cuales requiere un URI de redirección, hay que configurarla como una aplicación cliente pública. Para lograr esta configuración:
+- Para distinguir el [flujo de código de dispositivo](scenario-desktop-acquire-token.md#device-code-flow), la [autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) y el [nombre de usuario y la contraseña](scenario-desktop-acquire-token.md#username-and-password) de una aplicación cliente confidencial mediante un flujo de credenciales de cliente usado en [aplicaciones de demonio](scenario-daemon-overview.md), ninguna de las cuales requiere un URI de redirección, configúrela como aplicación cliente pública. Para lograr esta configuración:
 
     1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, seleccione la aplicación en **Registros de aplicaciones** y, a continuación, seleccione **Autenticación**.
     1. En **Configuración avanzada** > **Permitir flujos de cliente público** > **Habilitar los flujos móviles y de escritorio siguientes:** , seleccione **Sí**.

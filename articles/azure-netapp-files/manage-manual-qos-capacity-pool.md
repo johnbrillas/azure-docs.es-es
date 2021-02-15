@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 566cc3b1192d632bbffb8f9ef091f291b4bcc6e6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929224"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581163"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Administración de un grupo de capacidad de QoS manual
 
@@ -59,7 +59,8 @@ Para crear un nuevo grupo de capacidad mediante el tipo de QoS manual:
 Puede cambiar un grupo de capacidad que actualmente usa el tipo de QoS automático para usar el tipo de QoS manual.  
 
 > [!IMPORTANT]
-> Establecer el tipo de capacidad en QoS manual es un cambio permanente. No se puede convertir un grupo de capacidad de QoS manual en uno automático. 
+> Establecer el tipo de capacidad en QoS manual es un cambio permanente. No se puede convertir un grupo de capacidad de QoS manual en uno automático.  
+> En el momento de la conversión, los niveles de rendimiento se pueden limitar para ajustarse a los de los volúmenes del tipo de QoS manual. Vea [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
 1. En la hoja de administración de la cuenta de NetApp, haga clic en **Grupos de capacidad** para mostrar los grupos de capacidad existentes.   
  

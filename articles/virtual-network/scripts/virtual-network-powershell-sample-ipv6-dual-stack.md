@@ -8,19 +8,19 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 772eb8d436a3ff870caa8fd4bc4e4e2b56672690
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b4d7861c7b4042f9143c7497ee62ded6963b42e6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217525"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550800"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Configuración de puntos de conexión IPv6 en una red virtual con un ejemplo de script de Azure PowerShell (versión preliminar)
+# <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample"></a>Configuración de puntos de conexión IPv6 en una red virtual con un script de ejemplo de Azure PowerShell
 
 En este artículo, se explica cómo se implementa en Azure una aplicación de pila doble (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred de pila doble, un equilibrador de carga con configuraciones de front-end duales (IPv4 + IPv6), VM con NIC que tienen una configuración de IP dual, reglas de grupo de seguridad de red dual e IP públicas duales.
 

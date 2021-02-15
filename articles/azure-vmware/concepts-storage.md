@@ -2,13 +2,13 @@
 title: Conceptos sobre almacenamiento
 description: Obtenga información sobre las funcionalidades de almacenamiento principales en las nubes privadas de Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/02/2021
+ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062802"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536957"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceptos de almacenamiento de Azure VMware Solution
 
@@ -32,15 +32,19 @@ Los almacenes de datos de vSAN usan el cifrado de datos en reposo de forma prede
 
 ## <a name="scaling"></a>Ampliación
 
-La capacidad nativa de almacenamiento de un clúster se escala mediante la adición de hosts al clúster. En el caso de los clústeres que usan hosts HE, la capacidad sin procesar en todo el clúster aumenta 15,4 TB con cada host adicional. La capacidad sin procesar de los clústeres que se crean con hosts GP aumenta 7,7 TB con cada host adicional. En ambos tipos de clústeres, los hosts tardan unos 10 minutos en agregarse a un clúster. Para instrucciones sobre el escalado de clústeres, consulte el [tutorial sobre escalado de nubes privadas][tutorial-scale-private-cloud].
+La capacidad nativa de almacenamiento de un clúster se escala mediante la adición de hosts al clúster. En el caso de los clústeres que usan hosts HE, la capacidad sin procesar en todo el clúster aumenta 15,4 TB con cada host agregado. La capacidad sin procesar de los clústeres que se crean con hosts GP aumenta 7,7 TB con cada host agregado. En ambos tipos de clústeres, los hosts tardan unos 10 minutos en agregarse a un clúster. Para instrucciones sobre el escalado de clústeres, consulte el [tutorial sobre escalado de nubes privadas][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Integración del almacenamiento de Azure
 
-Puede usar los servicios de almacenamiento de Azure en las cargas de trabajo que se ejecutan en su nube privada. Entre los servicios de almacenamiento de Azure se incluyen cuenta de almacenamiento, Table Storage y Blob Storage. La conexión de las cargas de trabajo a los servicios de almacenamiento de Azure no atraviesa Internet. Esta conectividad ofrece seguridad adicional y le permite usar los servicios de almacenamiento de Azure basados en SLA en las cargas de trabajo de su nube privada.
+Puede usar los servicios de almacenamiento de Azure en las cargas de trabajo que se ejecutan en su nube privada. Entre los servicios de almacenamiento de Azure se incluyen cuenta de almacenamiento, Table Storage y Blob Storage. La conexión de las cargas de trabajo a los servicios de almacenamiento de Azure no atraviesa Internet. Esta conectividad ofrece más seguridad y le permite usar los servicios de almacenamiento de Azure basados en SLA en las cargas de trabajo de su nube privada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El siguiente paso es obtener información sobre los [conceptos de identidad de nubes privadas][concepts-identity].
+Ahora que ha visto los conceptos de Azure VMware Solution, puede que quiera obtener información sobre:
+
+- [Conceptos de identidad de nube privada](concepts-identity.md).
+- [Control de acceso basado en rol de vSphere para Azure VMware Solution](concepts-role-based-access-control.md).
+- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external-->
 

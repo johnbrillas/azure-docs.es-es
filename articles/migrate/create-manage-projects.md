@@ -6,16 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757566"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830760"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creación y administración de proyectos de Azure Migrate
 
-En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md). Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate. Vea las [preguntas más frecuentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar el proceso de creación.
+En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md). 
+
+Azure Migrate clásico se retira en febrero de 2024. Después de febrero de 2024, ya no se admitirá la versión clásica de Azure Migrate y se eliminarán los metadatos de inventario del proyecto clásico. Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate. Vea las [preguntas más frecuentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar el proceso de creación.
 
 El proyecto de Azure Migrate se usa para almacenar los metadatos de detección, valoración y migración recopilados del entorno que se va a evaluar o migrar. En un proyecto puede realizar un seguimiento de los recursos detectados, crear evaluaciones y organizar migraciones a Azure.  
 

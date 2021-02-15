@@ -3,14 +3,14 @@ title: Administración de módulos en Azure Automation
 description: En este artículo se explica cómo usar los módulos de PowerShell para habilitar cmdlets en runbooks y recursos de DSC en configuraciones de DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936631"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548785"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -40,7 +40,11 @@ Estas son limitaciones conocidas del espacio aislado. La solución recomendada e
 
 ## <a name="default-modules"></a>Módulos predeterminados
 
-En la tabla siguiente se enumeran los módulos que importa Azure Automation de forma predeterminada al crear la cuenta de Automation. Automation puede importar versiones más recientes de estos módulos. Pero no se puede quitar la versión original de la cuenta de Automation aunque se elimine una versión más reciente. Tenga en cuenta que estos módulos predeterminados incluyen varios módulos de AzureRM. 
+En la tabla siguiente se enumeran los módulos que importa Azure Automation de forma predeterminada al crear la cuenta de Automation. Automation puede importar versiones más recientes de estos módulos. Pero no se puede quitar la versión original de la cuenta de Automation aunque se elimine una versión más reciente. Tenga en cuenta que estos módulos predeterminados incluyen varios módulos de AzureRM.
+
+Los módulos predeterminados también se conocen como módulos globales. En Azure Portal, la propiedad **Módulo global** será **true** al ver un módulo que se importó al crear la cuenta.
+
+![Captura de pantalla de la propiedad Módulo global en Azure portal](../media/modules/automation-global-modules.png)
 
 Automation no importa el módulo Az raíz automáticamente en ninguna cuenta de Automation nueva o existente. Para más información sobre cómo trabajar con estos módulos, consulte [Migración a los módulos Az](#migrate-to-az-modules).
 

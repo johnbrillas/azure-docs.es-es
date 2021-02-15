@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811585"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509493"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Informes de tendencias y estadísticas del sensor
 
@@ -26,19 +26,29 @@ Puede crear gráficos de widgets y gráficos circulares para obtener informació
 El panel consta de widgets que describen gráficamente los siguientes tipos de información:
 
 - Tráfico por puerto
+- Tráfico principal por puerto
 - Ancho de banda de canal
 - Ancho de banda total
 - Conexión TCP activa
+- Ancho de banda principal por VLAN
 - Dispositivos:
   - Dispositivos nuevos
   - Dispositivos ocupados
   - Dispositivos por proveedor
   - Dispositivos por SO
+  - Número de dispositivos por VLAN
   - Dispositivo desconectados
 - Caídas de conectividad por horas
 - Alertas de incidentes por tipo
 - Acceso de tablas de base de datos
 - Widgets de disección de protocolos
+- DELTAV
+  - Distribución de operaciones de DeltaV ROC
+  - Eventos de DeltaV ROC por nombre
+  - Eventos de DeltaV por hora
+- AMS
+  - Tráfico de AMS por puerto de servidor
+  - Tráfico de AMS por comando
 - Dirección IP y Ethernet:
   - Tráfico de direcciones IP y Ethernet por servicio de CIP
   - Tráfico de direcciones IP y Ethernet por clase de CIP
@@ -49,6 +59,15 @@ El panel consta de widgets que describen gráficamente los siguientes tipos de i
 - Siemens S7:
   - Tráfico S7 por función de control
   - Tráfico S7 por subfunción
+- VLAN
+  - Número de dispositivos por VLAN
+  - Ancho de banda principal por VLAN
+- 60870-5-104
+  - Tráfico IEC-60870 por ASDU
+- BACNET
+  - Servicios BACnet
+- DNP3
+  - Tráfico DNP3 por función
 - SRTP:
   - Tráfico SRTP por código de servicio
   - Errores SRTP por día

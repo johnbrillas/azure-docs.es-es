@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518095"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808456"
 ---
 ![Gráfico en el que se muestran las especificaciones de Dsv3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -28,8 +28,8 @@ Puede habilitar el almacenamiento en caché de host al crear la máquina virtual
 
 Puede ajustar el almacenamiento en caché de host para que coincida con los requisitos de carga de trabajo de cada disco. Puede configurar el almacenamiento en caché de host para que sea:
 
-- **Solo lectura** : para cargas de trabajo que solo realizan operaciones de lectura
-- **Lectura/escritura** : para cargas de trabajo que realizan un equilibrio de operaciones de lectura y escritura
+- **Solo lectura**: para cargas de trabajo que solo realizan operaciones de lectura
+- **Lectura/escritura**: para cargas de trabajo que realizan un equilibrio de operaciones de lectura y escritura
 
 Si la carga de trabajo no sigue ninguno de estos patrones, no se recomienda usar el almacenamiento en caché de host.
 
@@ -67,7 +67,7 @@ Ahora se verá lo que sucede con las solicitudes de E/S cuando la opción de alm
   - IOPS: 5.000
   - Almacenamiento en caché de host: **Lectura/escritura**
 
-Una lectura se controla de la misma manera que una operación de solo lectura. Las escrituras son lo único que es diferente con el almacenamiento en caché de lectura y escritura. Al escribir con el almacenamiento en caché de host establecido en **Lectura/escritura** , la escritura solo se debe realizar en la caché de host para que se considere completada. Después, la escritura se escribe de forma diferida en el disco, como un proceso en segundo plano. Esto significa que una escritura se cuenta para la E/S almacenada en caché cuando se escribe en la caché. Cuando se escribe de forma diferida en el disco, se cuenta para la E/S sin almacenamiento en caché.
+Una lectura se controla de la misma manera que una operación de solo lectura. Las escrituras son lo único que es diferente con el almacenamiento en caché de lectura y escritura. Al escribir con el almacenamiento en caché de host establecido en **Lectura/escritura**, la escritura solo se debe realizar en la caché de host para que se considere completada. Después, la escritura se escribe de forma diferida en el disco, como un proceso en segundo plano. Esto significa que una escritura se cuenta para la E/S almacenada en caché cuando se escribe en la caché. Cuando se escribe de forma diferida en el disco, se cuenta para la E/S sin almacenamiento en caché.
 
 ![Diagrama en el que se muestra una escritura de almacenamiento en caché de host de lectura/escritura.](media/vm-disk-performance/host-caching-read-write.jpg)
 
@@ -121,36 +121,37 @@ En este caso, la aplicación que se ejecuta en una máquina virtual Standard_D8s
 
 En Azure hay métricas que proporcionan información sobre el rendimiento de las máquinas virtuales y los discos. Estas métricas se pueden ver a través de Azure Portal. También se pueden recuperar a través de una llamada API. Las métricas se calculan en intervalos de un minuto. Las métricas siguientes están disponibles para obtener conclusiones sobre la E/S de máquina virtual y disco, y también sobre el rendimiento:
 
-- **Profundidad de la cola del disco del SO** : el número actual de solicitudes de E/S pendientes que esperan a que se lean desde el SO o se escriban en este.
-- **Bytes de lectura de disco de SO por segundo** : el número de bytes que se leen en un segundo desde el disco del sistema operativo.
-- **Operaciones de lectura en discos de SO por segundo** : el número de operaciones de entrada que se leen en un segundo desde el disco del sistema operativo.
-- **Bytes de escritura en disco del SO por segundo** : el número de bytes que se escriben en un segundo desde el disco del sistema operativo.
-- **Operaciones de escritura en disco de sistema operativo por segundo** : el número de operaciones de salida que se escriben en un segundo desde el disco del sistema operativo.
-- **Profundidad de la cola de disco de datos** : el número actual de solicitudes de E/S pendientes que esperan a que se lean desde los discos de datos o se escriban en estos.
-- **Bytes de lectura de discos de datos por segundo** : el número de bytes que se leen en un segundo desde los discos de datos.
-- **Operaciones de lectura de disco de datos por segundo** : el número de operaciones de entrada que se leen en un segundo desde los discos de datos.
-- **Bytes de escritura de discos de datos por segundo** : el número de bytes que se escriben en un segundo desde el disco de datos.
-- **Operaciones de escritura de discos de datos por segundo** : el número de operaciones de salida que se escriben en un segundo desde los discos de datos.
-- **Bytes de lectura de disco por segundo** : el número de bytes totales que se leen en un segundo desde los discos conectados a una máquina virtual.
-- **Operaciones de lectura de disco por segundo** : el número de operaciones de entrada que se leen en un segundo desde todos los discos conectados a una máquina virtual.
-- **Bytes de escritura en disco por segundo** : el número de bytes que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
-- **Operaciones de escritura por segundo en disco** : el número de operaciones de salida que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
+- **Profundidad de la cola del disco del SO**: el número actual de solicitudes de E/S pendientes que esperan a que se lean desde el SO o se escriban en este.
+- **Bytes de lectura de disco de SO por segundo**: el número de bytes que se leen en un segundo desde el disco del sistema operativo.
+- **Operaciones de lectura en discos de SO por segundo**: el número de operaciones de entrada que se leen en un segundo desde el disco del sistema operativo.
+- **Bytes de escritura en disco del SO por segundo**: el número de bytes que se escriben en un segundo desde el disco del sistema operativo.
+- **Operaciones de escritura en disco de sistema operativo por segundo**: el número de operaciones de salida que se escriben en un segundo desde el disco del sistema operativo.
+- **Profundidad de la cola de disco de datos**: el número actual de solicitudes de E/S pendientes que esperan a que se lean desde los discos de datos o se escriban en estos.
+- **Bytes de lectura de discos de datos por segundo**: el número de bytes que se leen en un segundo desde los discos de datos.
+- **Operaciones de lectura de disco de datos por segundo**: el número de operaciones de entrada que se leen en un segundo desde los discos de datos.
+- **Bytes de escritura de discos de datos por segundo**: el número de bytes que se escriben en un segundo desde el disco de datos.
+- **Operaciones de escritura de discos de datos por segundo**: el número de operaciones de salida que se escriben en un segundo desde los discos de datos.
+- **Bytes de lectura de disco por segundo**: el número de bytes totales que se leen en un segundo desde los discos conectados a una máquina virtual.
+- **Operaciones de lectura de disco por segundo**: el número de operaciones de entrada que se leen en un segundo desde todos los discos conectados a una máquina virtual.
+- **Bytes de escritura en disco por segundo**: el número de bytes que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
+- **Operaciones de escritura por segundo en disco**: el número de operaciones de salida que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
 
 ## <a name="storage-io-utilization-metrics"></a>Métricas de uso de E/S de almacenamiento
+Las siguientes métricas ayudan a diagnosticar cuellos de botella en la combinación de discos y máquinas virtuales. Estas métricas solo están disponibles cuando se usa una VM con Premium habilitado. Estas métricas están disponibles para todos los tipos de disco, excepto los Ultra. 
 
 Métricas que ayudan a diagnosticar el límite de E/S de disco:
 
-- **Porcentaje de consumo de IOPS de disco de datos** : el porcentaje calculado por la IOPS de disco de datos completada con respecto a la IOPS del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del disco de datos.
-- **Porcentaje de ancho de banda consumido del disco de datos** : el porcentaje calculado por el rendimiento de disco de datos completado con respecto al rendimiento del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del disco de datos.
-- **Porcentaje de consumo de IOPS de disco del sistema operativo** : el porcentaje calculado por la IOPS de disco del sistema operativo completada con respecto a la IOPS del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del sistema operativo.
-- **Porcentaje de ancho de banda consumido del sistema operativo** : el porcentaje calculado por el rendimiento del sistema operativo completado con respecto al rendimiento del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del sistema operativo.
+- **Porcentaje de consumo de IOPS de disco de datos**: el porcentaje calculado por la IOPS de disco de datos completada con respecto a la IOPS del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del disco de datos.
+- **Porcentaje de ancho de banda consumido del disco de datos**: el porcentaje calculado por el rendimiento de disco de datos completado con respecto al rendimiento del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del disco de datos.
+- **Porcentaje de consumo de IOPS de disco del sistema operativo**: el porcentaje calculado por la IOPS de disco del sistema operativo completada con respecto a la IOPS del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del sistema operativo.
+- **Porcentaje de ancho de banda consumido del sistema operativo**: el porcentaje calculado por el rendimiento del sistema operativo completado con respecto al rendimiento del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del sistema operativo.
 
 Métricas que ayudan a diagnosticar el límite de E/S de máquinas virtuales:
 
-- **Porcentaje de consumo de IOPS en caché de la máquina virtual** : el porcentaje calculado por la IOPS total completado con respecto al límite máximo de IOPS de máquinas virtuales en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual en caché.
-- **Porcentaje de consumo de ancho de banda en caché de máquinas virtuales** : el porcentaje calculado por el rendimiento total de disco completado en el límite máximo del rendimiento de las máquinas virtuales almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual en caché.
-- **Porcentaje de consumo de IOPS que no se encuentra almacenado en caché de máquinas virtuales** : el porcentaje calculado por la IOPS total de una máquina virtual completado en el límite máximo de IOPS de máquinas virtuales que no se encuentran almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual que no se encuentra almacenada en caché.
-- **Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales** : el porcentaje calculado por el rendimiento total de disco de una máquina virtual completado en el límite máximo del rendimiento de las máquinas virtuales aprovisionadas. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual que no está en caché.
+- **Porcentaje de consumo de IOPS en caché de la máquina virtual**: el porcentaje calculado por la IOPS total completado con respecto al límite máximo de IOPS de máquinas virtuales en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual en caché.
+- **Porcentaje de consumo de ancho de banda en caché de máquinas virtuales**: el porcentaje calculado por el rendimiento total de disco completado en el límite máximo del rendimiento de las máquinas virtuales almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual en caché.
+- **Porcentaje de consumo de IOPS que no se encuentra almacenado en caché de máquinas virtuales**: el porcentaje calculado por la IOPS total de una máquina virtual completado en el límite máximo de IOPS de máquinas virtuales que no se encuentran almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual que no se encuentra almacenada en caché.
+- **Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales**: el porcentaje calculado por el rendimiento total de disco de una máquina virtual completado en el límite máximo del rendimiento de las máquinas virtuales aprovisionadas. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual que no está en caché.
 
 ## <a name="storage-io-utilization-metrics-example"></a>Ejemplo de métricas de uso de E/S de almacenamiento
 

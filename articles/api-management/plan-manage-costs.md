@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725944"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581336"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planeamiento y administración de costos de API Management
 
@@ -89,10 +89,10 @@ También puede [exportar los datos de costos](../cost-management-billing/costs/t
 
 ### <a name="choose-tier"></a>Elección del nivel
 
-Revise la [comparación basada en características de los niveles de Azure API Management](api-management-features.md) para ayudar a decidir qué nivel de servicio puede ser adecuado para sus escenarios. Los distintos niveles de servicio admiten combinaciones de características y capacidades diseñadas para varios casos de uso con costos diferentes. [Actualice](upgrade-and-scale.md) a un nivel de servicio diferente en cualquier momento.
+Revise la [comparación basada en características de los niveles de Azure API Management](api-management-features.md) para ayudar a decidir qué nivel de servicio puede ser adecuado para sus escenarios. Los distintos niveles de servicio admiten combinaciones de características y capacidades diseñadas para varios casos de uso con costos diferentes. 
 
 * El nivel de servicio **Consumo** proporciona una opción ligera sin servidor que no supone costos fijos. Se le facturará en función del número de llamadas API al servicio por encima de un umbral determinado. La capacidad también se escala automáticamente en función de la carga en el servicio.
-* Otros niveles de API Management incurren en costos mensuales y proporcionan mayor rendimiento y conjuntos de características más completos para cargas de trabajo de evaluación y producción.
+* Los niveles de API Management **Desarrollador**, **Básico**, **Estándar** y **Prémium** generan costos mensuales y proporcionan un mayor rendimiento y conjuntos de características más completos para las cargas de trabajo de evaluación y producción. [Actualice](upgrade-and-scale.md) a un nivel de servicio diferente en cualquier momento.
 
 ### <a name="scale-using-capacity-units"></a>Escalado mediante unidades de capacidad
 

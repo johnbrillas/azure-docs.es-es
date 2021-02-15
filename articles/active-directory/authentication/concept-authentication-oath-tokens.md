@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475005"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537008"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticación en Azure Active Directory: tokens OATH
 
@@ -33,7 +33,7 @@ Algunos tokens de hardware TOTP de OATH son programables, es decir, no incluyen 
 
 Azure AD admite el uso de tokens TOTP SHA-1 de OATH, que actualizan los códigos cada 30 o 60 segundos. Los clientes pueden adquirir estos tokens a través del proveedor de su elección.
 
-Los tokens de hardware TOTP de OATH suelen incluir una clave secreta, o valor de inicialización, programada previamente en el token. Estas claves se deben introducir en Azure AD según se describe en los pasos siguientes. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. La clave secreta solo puede contener los caracteres *a-z* o *A-Z* y los dígitos *1-7*, y debe estar codificada en *base 32*.
+Los tokens de hardware TOTP de OATH suelen incluir una clave secreta, o valor de inicialización, programada previamente en el token. Estas claves se deben introducir en Azure AD según se describe en los pasos siguientes. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. La clave secreta solo puede contener los caracteres *a-z* o *A-Z* y los dígitos *2-7*, y debe estar codificada en *base 32*.
 
 Los tokens de hardware TOTP de OATH programables que se pueden reinicializar también se pueden configurar con Azure AD en el flujo de configuración de los tokens de software.
 
@@ -45,7 +45,7 @@ Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]

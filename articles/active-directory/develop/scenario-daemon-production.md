@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 04ee4ccc3b0553d6532869d6403000fdedd93b5f
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8dc9bff86a07f3d4a0ec6fd224de6d5633165a6d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062718"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582848"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicación de demonio que llama a las API web: paso a producción
 
@@ -25,7 +25,7 @@ Ahora que sabe cómo adquirir y usar un token para una llamada de servicio a ser
 
 ## <a name="deployment---multitenant-daemon-apps"></a>Implementación: aplicaciones de demonio multiinquilino
 
-Si es un ISV que crea una aplicación de demonio que se pueda ejecutar en varios inquilinos, deberá asegurarse de que el administrador del inquilino:
+Si es un ISV que crea una aplicación de demonio que se pueda ejecutar en varios inquilinos, asegúrese de que el administrador del inquilino:
 
 - Aprovisione una entidad de servicio para la aplicación.
 - Dé su consentimiento a la aplicación.

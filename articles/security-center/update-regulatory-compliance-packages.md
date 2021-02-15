@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986691"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548871"
 ---
-# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalización del conjunto de estándares en el panel de cumplimiento normativo
 
 Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. En el **panel de cumplimiento normativo** se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos de cumplimiento específicos.
 
@@ -123,5 +123,5 @@ En este artículo, ha aprendido cómo **agregar estándares de cumplimiento** pa
 Para obtener material relacionado, vea las páginas siguientes:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Panel de cumplimiento normativo de Security Center](security-center-compliance-dashboard.md)
+- [Panel de cumplimiento normativo de Security Center](security-center-compliance-dashboard.md): obtenga información sobre cómo hacer seguimiento de los datos de cumplimiento normativo y cómo exportarlos con Security Center y herramientas externas.
 - [Uso de las directivas de seguridad](tutorial-security-policy.md)

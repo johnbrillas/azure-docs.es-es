@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210025"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593136"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -113,6 +113,9 @@ La característica Restricciones de acceso basadas en IP es de utilidad cuando q
 * Restrinja el acceso al tráfico que llega a través de un servicio de equilibrio de carga externo u otros dispositivos de red con direcciones IP de salida conocidas. 
 
 Para obtener información sobre cómo habilitar esta característica, consulte [Configuración de restricciones de acceso][iprestrictions].
+
+> [!NOTE]
+> Las reglas de restricción de acceso basadas en IP solo controlan los intervalos de direcciones de red virtual cuando la aplicación se encuentra en una instancia de App Service Environment. Si su aplicación se encuentra en el servicio multiinquilino, debe usar [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) para restringir el tráfico a determinadas subredes de la red virtual.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Reglas de restricciones de acceso basadas en puntos de conexión de servicio 
 

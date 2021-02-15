@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103892"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807740"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Conexión de los registros de auditoría y diagnóstico de bases de datos de Azure SQL
 
 Azure SQL es un motor de base de datos de plataforma como servicio (PaaS) totalmente administrado que se encarga de la mayoría de las funciones de administración de bases de datos, como actualizar, aplicar revisiones, crear copias de seguridad y supervisar sin la intervención del usuario. 
 
-El conector de Azure SQL Database permite transmitir registros de auditoría y diagnóstico de bases de datos a Sentinel, para poder supervisar continuamente la actividad en todas las instancias.
+El conector de Azure SQL Database permite transmitir registros de auditoría y diagnóstico de bases de datos a Azure Sentinel, para poder supervisar continuamente la actividad en todas las instancias.
 
-- La conexión de registros de diagnóstico permite enviar registros de diagnóstico de base de datos de diferentes tipos de datos al área de trabajo de Sentinel.
+- La conexión de registros de diagnóstico permite enviar registros de diagnóstico de base de datos de diferentes tipos de datos al área de trabajo de Azure Sentinel.
 
 - La conexión de registros de auditoría permite transmitir los registros de auditoría de seguridad de todas las bases de datos de Azure SQL en el nivel de servidor.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c85049d6c8921432a753bf08989cab473b7c734
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014030"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525134"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Alojamiento de zonas de búsqueda inversa DNS en Azure DNS
 
@@ -44,7 +44,7 @@ El nombre de una zona de búsqueda inversa IPv4 se basa en el intervalo IP que r
 >
 > Por ejemplo, para el intervalo IP 192.0.2.128/26, debe utilizar `128-26.2.0.192.in-addr.arpa` como nombre de zona en lugar de `128/26.2.0.192.in-addr.arpa`.
 >
-> Aunque los estándares DNS admiten ambos métodos, Azure DNS no admite los nombres de zonas DNS que contienen el carácter de barra diagonal (`/`).
+> Aunque los estándares DNS admiten ambos métodos, Azure DNS no admite los nombres de zonas DNS que contienen el carácter de barra diagonal (`/`).
 
 En el ejemplo siguiente se muestra cómo crear una zona DNS inversa de Clase C denominada `2.0.192.in-addr.arpa` en Azure DNS mediante Azure Portal:
 

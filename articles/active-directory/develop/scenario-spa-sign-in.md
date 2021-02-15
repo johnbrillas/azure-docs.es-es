@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 60ecb60d2fe90f190963255adff7a0bb1df15da4
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bdfffbf8d2e416c87dd5abb8f6383c58ad270231
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756366"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584370"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicación de página única: Inicio y cierre de sesión
 
@@ -208,7 +208,7 @@ myMsal.loginRedirect(loginRequest);
 
 # <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
-Los métodos de redirección no devuelven una promesa, dado que se abandona la aplicación principal. Para procesar los tokens devueltos y acceder a ellos, debe registrar las devoluciones de llamada correctas y con error antes de llamar a los métodos de redirección.
+Los métodos de redirección no devuelven una promesa, dado que se abandona la aplicación principal. Para procesar los tokens devueltos y acceder a ellos, registre las devoluciones de llamada correctas y con error antes de llamar a los métodos de redirección.
 
 ```javascript
 

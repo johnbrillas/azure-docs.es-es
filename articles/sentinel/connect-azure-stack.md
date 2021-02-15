@@ -1,6 +1,6 @@
 ---
 title: Incorporación de máquinas virtuales de Azure Stack Hub a Azure Sentinel | Microsoft Docs
-description: En este artículo se muestra cómo aprovisionar la extensión de máquina virtual de Azure Monitor, Update and Configuration Management en máquinas virtuales de Azure Stack Hub y cómo empezar a supervisarlas con Sentinel.
+description: En este artículo se muestra cómo aprovisionar la extensión de máquina virtual de Azure Monitor, Update and Configuration Management en máquinas virtuales de Azure Stack Hub y cómo empezar a supervisarlas con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 068296a02af0abd2fb18d284fdaf01b7c1b198fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631149"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807435"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Conexión de máquinas virtuales de Azure Stack Hub a Azure Sentinel
 

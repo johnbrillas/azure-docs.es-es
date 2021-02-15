@@ -2,13 +2,13 @@
 title: Configuración de Azure Backup Server para Azure VMware Solution
 description: Configure el entorno de Azure VMware Solution para realizar copias de seguridad de máquinas virtuales mediante Azure Backup Server.
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.date: 02/04/2021
+ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703409"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581489"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configuración de Azure Backup Server para Azure VMware Solution
 
@@ -389,7 +389,7 @@ Azure Backup Server v3 solo acepta volúmenes de almacenamiento. Al agregar un 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con el tutorial siguiente para aprender a configurar una copia de seguridad de máquinas virtuales de VMware que se ejecutan en Azure VMware Solution mediante Azure Backup Server.
+Ahora que se ha explicado cómo configurar Azure Backup Server para Azure VMware Solution, puede que quiera informarse sobre los siguientes temas:
 
-> [!div class="nextstepaction"]
-> [Configuración de la copia de seguridad de máquinas virtuales de Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md)
+- [Configuración de copias de seguridad en máquinas virtuales de Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md).
+- [Protección de máquinas virtuales de Azure VMware Solution con la integración de Azure Security Center](azure-security-integration.md).

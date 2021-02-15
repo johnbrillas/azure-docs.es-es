@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341372"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627355"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modelo de recursos de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. Para empezar a usar Azure Cosmos DB, debe crear primero una cuenta de Azure Cosmos en su suscripción de Azure que contenga bases de datos, contenedores y elementos. En este artículo se describe el modelo de recursos de Azure Cosmos DB y las distintas entidades de la jerarquía del modelo de recursos.
 
-La cuenta de Azure Cosmos es la unidad fundamental de distribución global y alta disponibilidad. La cuenta de Azure Cosmos contiene un nombre DNS único y puede administrar una cuenta mediante Azure portal, la CLI de Azure o mediante el uso de diferentes SDK específicos del idioma. Para más información, consulte [cómo administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md). Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta en cualquier momento. Puede configurar la cuenta para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta.
+La cuenta de Azure Cosmos es la unidad fundamental de distribución global y alta disponibilidad. La cuenta de Azure Cosmos contiene un nombre DNS único y se puede administrar mediante Azure Portal, la CLI de Azure o por medio de diferentes SDK específicos del idioma. Para más información, consulte [cómo administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md). Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta en cualquier momento. Puede configurar la cuenta para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta.
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementos de una cuenta de Azure Cosmos
 
-En Azure Cosmos, un contenedor es la unidad fundamental de escalabilidad. Prácticamente puede tener un rendimiento aprovisionado (RU/s) y un almacenamiento ilimitado en un contenedor. Azure Cosmos DB realiza particiones de forma transparente en el contenedor mediante la clave de partición lógica que especifique para escalar elásticamente el rendimiento y el almacenamiento aprovisionados.
+Un contenedor de Azure Cosmos es la unidad fundamental de escalabilidad. Prácticamente puede tener un rendimiento aprovisionado (RU/s) y un almacenamiento ilimitado en un contenedor. Azure Cosmos DB realiza particiones de forma transparente en el contenedor mediante la clave de partición lógica que especifique para escalar elásticamente el rendimiento y el almacenamiento aprovisionados.
 
 Actualmente, puede crear un máximo de 50 cuentas de Azure Cosmos en una suscripción de Azure (este es un límite flexible que se puede aumentar a través de una solicitud de soporte técnico). Una sola cuenta de Azure Cosmos puede administrar una cantidad casi ilimitada de datos y rendimiento aprovisionado. Para administrar los datos y el rendimiento aprovisionado, puede crear una o varias bases de datos de Azure Cosmos en su cuenta y, dentro de esa base de datos, puede crear uno o varios contenedores. La siguiente imagen muestra la jerarquía de elementos en una cuenta de Azure Cosmos:
 
@@ -63,9 +63,9 @@ Un contenedor de Azure Cosmos es la unidad de escalabilidad del rendimiento y de
 
 Al crear un contenedor, debe configurar el rendimiento de uno de los siguientes modos:
 
-* Modo de **rendimiento aprovisionado dedicado** : el rendimiento aprovisionado en un contenedor está reservado exclusivamente para ese contenedor y lo respaldan los contratos de nivel de servicio. Para obtener más información, consulte [Aprovisionamiento del rendimiento de un contenedor](how-to-provision-container-throughput.md).
+* Modo de **rendimiento aprovisionado dedicado**: el rendimiento aprovisionado en un contenedor está reservado exclusivamente para ese contenedor y lo respaldan los contratos de nivel de servicio. Para obtener más información, consulte [Aprovisionamiento del rendimiento de un contenedor](how-to-provision-container-throughput.md).
 
-* Modo de **rendimiento aprovisionado compartido** : estos contenedores comparten el rendimiento aprovisionado con los demás contenedores de la misma base de datos (excepto aquellos contenedores que han sido configurados con un rendimiento aprovisionado dedicado). En otras palabras, el rendimiento aprovisionado en la base de datos se comparte entre todos los contenedores de "rendimiento compartidos". Para obtener más información, consulte [Aprovisionamiento del rendimiento en una base de datos](how-to-provision-database-throughput.md).
+* Modo de **rendimiento aprovisionado compartido**: estos contenedores comparten el rendimiento aprovisionado con los demás contenedores de la misma base de datos (excepto aquellos contenedores que han sido configurados con un rendimiento aprovisionado dedicado). En otras palabras, el rendimiento aprovisionado en la base de datos se comparte entre todos los contenedores de "rendimiento compartidos". Para obtener más información, consulte [Aprovisionamiento del rendimiento en una base de datos](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Puede configurar el rendimiento compartido y dedicado solamente al crear la base de datos y el contenedor. Para cambiar del modo de rendimiento dedicado al modo de rendimiento compartido (y viceversa) después de crear el contenedor, debe crear un nuevo contenedor y migrar los datos al nuevo contenedor. Puede migrar los datos mediante la característica de fuente de cambios de Azure Cosmos DB.

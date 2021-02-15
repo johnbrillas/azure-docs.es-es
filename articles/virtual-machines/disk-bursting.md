@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102710"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576200"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Seguridad en el nivel de máquina virtual
-La compatibilidad con la seguridad de nivel de máquina virtual está habilitada en todas las regiones de la nube pública en estos tamaños admitidos: 
+La expansión a nivel de VM está habilitada en las siguientes series de VM en todas las regiones en las que se admiten:
 - [Serie Lsv2](lsv2-series.md)
-
-La expansión en el nivel de máquina virtual también está disponible en la región Centro-oeste de EE. UU. para los siguientes tamaños admitidos:
 - [Serie Dsv3](dv3-dsv3-series.md)
 - [Serie Esv3](ev3-esv3-series.md)
 

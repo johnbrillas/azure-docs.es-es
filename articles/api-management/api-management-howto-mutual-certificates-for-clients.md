@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099353"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988881"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Protección de API mediante la autenticación de certificados de cliente en API Management
 
@@ -94,6 +94,18 @@ En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certi
 > [!TIP]
 > El problema de interbloqueo de certificados de cliente descrito en este [artículo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) puede manifestarse de varias maneras, por ejemplo, las solicitudes se inmovilizan, las solicitudes resultan en un código de estado `403 Forbidden` después de agotar el tiempo, `context.Request.Certificate` es `null`. Este problema afecta normalmente a las solicitudes `POST` y `PUT` con la longitud del contenido de aproximadamente 60 KB o más.
 > Para evitar que este problema se produzca, active "Negociar certificado de cliente" para los nombres de host deseados en la hoja "Dominios personalizados", tal como se muestra en la primera imagen de este documento. Esta característica no está disponible en el nivel Consumo.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Validación de certificados en una puerta de enlace autohospedada
+
+La imagen de [puerta de enlace autohospedada](self-hosted-gateway-overview.md) predeterminada de la API Management no admite la validación de certificados de servidor y de cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en una instancia de API Management. Los clientes que presentan un certificado personalizado en la puerta de enlace autohospedada pueden experimentar respuestas lentas, ya que el tiempo de espera de la validación de la lista de revocación de certificados (CRL) puede tardar mucho en agotarse en la puerta de enlace. 
+
+Como solución alternativa al usar la puerta de enlace, puede configurar la dirección IP de PKI para que apunte a la dirección localhost (127.0.0.1) en lugar de a la instancia de API Management. Como resultado, la validación de CRL genera un error rápidamente cuando la puerta de enlace intenta validar el certificado de cliente. Para configurar la puerta de enlace, agregue una entrada DNS para que la instancia de API Management se resuelva en el host local en el archivo `/etc/hosts` del contenedor. Puede agregar esta entrada durante la implementación de la puerta de enlace:
+ 
+* En el caso de la implementación de Docker, agregue el parámetro `--add-host <hostname>:127.0.0.1` al comando `docker run`. Para obtener más información, consulte [Adición de entradas al archivo hosts del contenedor](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host).
+ 
+* En el caso de la implementación de Kubernetes: agregue una especificación de `hostAliases` al archivo de configuración `myGateway.yaml`. Para obtener más información, consulte [Adición de entradas al Pod /etc/hosts con alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

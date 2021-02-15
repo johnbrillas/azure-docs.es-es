@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202715"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627822"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -44,6 +44,10 @@ Los discos administrados admiten [Availability Zones](../availability-zones/az-o
 ### <a name="azure-backup-support"></a>Soporte técnico de Azure Backup
 
 Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../backup/backup-overview.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones de máquinas virtuales o de discos administrados a voluntad. Actualmente, Azure Backup admite tamaños de disco de hasta 32 tebibytes (TiB). [Más información](../backup/backup-support-matrix-iaas.md) sobre la compatibilidad con la copia de seguridad de máquinas virtuales de Azure.
+
+#### <a name="azure-disk-backup"></a>Azure Disk Backup
+
+Azure Backup ofrece Azure Disk Backup (versión preliminar) como solución de copia de seguridad nativa y basada en la nube que protege los datos en los discos administrados. Se trata de una solución sencilla, segura y rentable que le permite configurar la protección de los discos administrados en unos pocos pasos. Azure Disk Backup ofrece una solución de tipo "llave en mano" que le proporciona la oportunidad de administrar el ciclo de vida de las instantáneas para los discos administrados; para ello, solo debe automatizar la creación periódica de instantáneas y guardarlas durante la duración configurada mediante la directiva de copia de seguridad. Para obtener más información sobre Azure Disk Backup, consulte [Introducción a Azure Disk Backup (en versión preliminar)](../backup/disk-backup-overview.md).
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 

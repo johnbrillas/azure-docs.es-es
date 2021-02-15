@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054761"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805941"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -427,6 +427,12 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicAppsManagement**, en lugar de especificar prefijos de dirección IP entrante de Logic Apps para cada región. Opcionalmente, también puede usar la etiqueta de servicio **AzureConnectors** para los conectores administrados que realizan devoluciones de llamada de webhook de entrada al servicio de Logic Apps, en lugar de especificar prefijos de direcciones IP de conectores administrados de entrada para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.
+>
+> Los siguientes conectores realizan devoluciones de llamada de webhook entrantes al servicio Logic Apps:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Financials y Operations, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, turnos para Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP**: el autor de llamada de devolución depende de si el entorno de implementación es Azure o ISE de varios inquilinos. En el entorno multiinquilino, la puerta de enlace de datos local realiza la devolución de llamada al servicio Logic Apps. En un ISE, el conector SAP realiza la devolución de llamada al servicio Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
 

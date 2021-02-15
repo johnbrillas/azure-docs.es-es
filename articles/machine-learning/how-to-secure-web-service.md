@@ -10,12 +10,12 @@ author: aashishb
 ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8399cfb4ceed9f50a5c9de0d3d16912a718bbfaa
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 68163f7ca8cc1b37bda4e1224330f966265554c2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070123"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980480"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -28,6 +28,8 @@ Se usa [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para restringir el acceso a 
 > El SDK de Azure Machine Learning usa el término "SSL" para las propiedades relacionadas con las comunicaciones seguras. Esto no significa que su servicio web no use *TLS*. SSL es simplemente un término más comúnmente reconocido.
 >
 > En concreto, los servicios web implementados a través de Azure Machine Learning admiten la versión 1.2 de TLS para AKS y ACI. En el caso de las implementaciones ACI, si está usando una versión anterior de TLS, se recomienda volver a realizar la implementación para obtener la versión más reciente de TLS.
+>
+> La versión 1.3 de TLS para la inferencia entre Azure Machine Learning y AKS no es compatible.
 
 TLS y SSL dependen ambos de los *certificados digitales*, que ayudan con la comprobación de la identidad y el cifrado. Para obtener más información sobre cómo funcionan los certificados digitales, vea el tema de Wikipedia [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) (Infraestructura de clave pública).
 

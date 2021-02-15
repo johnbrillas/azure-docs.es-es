@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127488"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979306"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
@@ -27,6 +27,10 @@ Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de a
 ## <a name="about-soft-delete-for-blobs"></a>Acerca de la eliminación temporal para blobs
 
 Si la eliminación temporal para blobs está habilitada en una cuenta de almacenamiento, puede recuperar los objetos después de eliminarlos dentro del período de retención de datos especificado. Esta protección se extiende a todos los blobs (blobs en bloques, blobs en anexos y blobs en páginas) que se borran como resultado de una sobrescritura.
+
+En el diagrama siguiente se muestra cómo se puede restaurar un blob eliminado cuando está habilitada la eliminación temporal de blobs:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagrama que muestra cómo se puede restaurar un blob eliminado temporalmente":::
 
 Si se eliminan los datos de un blob o una instantánea existentes mientras la eliminación temporal de blobs está habilitada, pero el control de versiones de blobs no está habilitado, se genera una instantánea de eliminación temporal para guardar el estado de los datos sobrescritos. Una vez expirado el período de retención especificado, el objeto se elimina de forma permanente.
 

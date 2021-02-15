@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014950"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581761"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -115,7 +115,7 @@ En la sección siguiente se muestra cómo obtener valores necesarios al iniciar 
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Obtención de valores de identificador de inquilino y aplicación para iniciar sesión
 
-Al iniciar sesión mediante programación, deberá pasar el identificador de inquilino con la solicitud de autenticación y el identificador de aplicación.  También necesita un certificado o una clave de autenticación (lo que se describe en la sección siguiente). Para obtener estos valores, use los pasos siguientes:
+Al iniciar sesión mediante programación, pase el identificador de inquilino con la solicitud de autenticación y el identificador de aplicación.  También necesita un certificado o una clave de autenticación (lo que se describe en la sección siguiente). Para obtener estos valores, use los pasos siguientes:
 
 1. Seleccione **Azure Active Directory**.
 1. En **Registros de aplicaciones**, en Azure AD, seleccione su aplicación.
@@ -162,7 +162,7 @@ Para cargar el certificado:
 
 1. Seleccione **Agregar**.
 
-Después de registrar el certificado con la aplicación en el portal de registro de aplicación, debe habilitar el código de la aplicación cliente para usar el certificado.
+Después de registrar el certificado con la aplicación en el portal de registro de aplicación, habilite el código de la aplicación cliente para usar el certificado.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Opción 2: Creación de un secreto de aplicación
 

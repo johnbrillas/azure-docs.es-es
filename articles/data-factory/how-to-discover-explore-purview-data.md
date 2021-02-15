@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: 1a8ed80daa4406f32909a6622b8649f37ec48063
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064444"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805316"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Detección y exploración de datos en ADF mediante Purview
 
@@ -47,7 +47,7 @@ Para detectar los datos que Azure Purview ha registrado y examinado, puede usar 
 ### <a name="actions-that-you-can-perform-over-datasets-with-data-factory-resources"></a>Acciones que puede realizar en los conjuntos de datos con recursos de Data Factory 
 Puede crear directamente un servicio vinculado, un conjunto de datos o un flujo de datos en los datos que busca mediante Azure Purview.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Captura de pantalla de acciones que se realizan en conjuntos de datos.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Captura de pantalla que muestra cómo puede crear directamente un servicio vinculado, un conjunto de datos o un flujo de datos en los datos que busca mediante Azure Purview.":::
 
 ##  <a name="nextsteps"></a>Pasos siguientes 
 

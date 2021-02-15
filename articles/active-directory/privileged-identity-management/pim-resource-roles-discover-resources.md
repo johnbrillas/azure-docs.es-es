@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568087"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539016"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Detección de recursos de Azure para su administración en Privileged Identity Management
 
@@ -66,7 +66,7 @@ La primera vez que se configura Privileged Identity Management para recursos de 
 
     ![Panel de detección con un recurso seleccionado y la opción Administrar recurso resaltada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Si ve un mensaje para confirmar la incorporación del recurso seleccionado para su administración, seleccione **Sí**.
+1. Si ve un mensaje para confirmar la incorporación del recurso seleccionado para su administración, seleccione **Sí**. A continuación, se configurará PIM para administrar todos los objetos secundarios nuevos y existentes en los recursos.
 
     ![Mensaje que confirma la incorporación de los recursos seleccionados para la administración](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

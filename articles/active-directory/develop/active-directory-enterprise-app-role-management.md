@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015120"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582237"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -30,7 +30,7 @@ Mediante Azure Active Directory (Azure AD) se puede personalizar el tipo de noti
 
 ## <a name="when-to-use-this-feature"></a>Cuándo usar esta característica
 
-Si la aplicación espera que se pasen roles personalizados en una respuesta de SAML, es preciso usar esta característica. Puede crear tantos roles como sea necesario devolver desde Azure AD a la aplicación.
+Use esta característica si la aplicación espera roles personalizados en la respuesta de SAML devuelta por Azure AD. Puede crear tantos roles como sea necesario.
 
 ## <a name="create-roles-for-an-application"></a>Creación de roles para una aplicación
 
@@ -139,7 +139,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
     ![Paneles "Editar asignación" y "Seleccionar rol"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    Para ver los nuevos roles es preciso actualizar la sesión en Azure Portal.
+    Para ver los nuevos roles, actualice la sesión en Azure Portal.
 
 1. Actualice la tabla **Atributos** para definir una asignación personalizada de la notificación de rol.
 

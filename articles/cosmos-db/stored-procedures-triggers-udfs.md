@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340709"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575964"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB proporciona la ejecución transaccional integrada en lenguaje JavaScript. Cuando se usa la API de SQL en Azure Cosmos DB, puede escribir los **procedimientos almacenados** , los **desencadenadores** y las **funciones definidas por el usuario (UDF)** en el lenguaje JavaScript. Puede escribir su lógica en JavaScript, que se ejecuta dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) o los [SDK del cliente de la API de SQL de Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB proporciona la ejecución transaccional integrada en lenguaje JavaScript. Cuando se usa la API de SQL en Azure Cosmos DB, puede escribir los **procedimientos almacenados**, los **desencadenadores** y las **funciones definidas por el usuario (UDF)** en el lenguaje JavaScript. Puede escribir su lógica en JavaScript, que se ejecuta dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) o los [SDK del cliente de la API de SQL de Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Ventajas del uso de la programación en el lado servidor
 
@@ -72,7 +72,7 @@ Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la 
 
 ## <a name="bounded-execution"></a>Ejecución vinculada
 
-Todas las operaciones de Azure Cosmos DB se deben completar dentro de la duración del tiempo de espera especificado. Esta restricción se aplica a las funciones de JavaScript: procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Si una operación no se completa dentro de ese límite de tiempo, la transacción se revierte.
+Todas las operaciones de Azure Cosmos DB se deben completar dentro de la duración del tiempo de espera especificado. Los procedimientos almacenados tienen un tiempo de espera de 5 segundos. Esta restricción se aplica a las funciones de JavaScript: procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Si una operación no se completa dentro de ese límite de tiempo, la transacción se revierte.
 
 Puede asegurarse de que las funciones de JavaScript finalicen dentro del límite de tiempo o implementar un modelo basado en la continuación en el lote o reanudar la ejecución. Con el fin de simplificar el desarrollo de los procedimientos almacenados y los desencadenadores para controlar los límites de tiempo, todas las funciones del contenedor de Azure Cosmos (por ejemplo, la creación, lectura, actualización y eliminación de elementos) devuelven un valor booleano que representa si se completará la operación. Si este valor es false, es una indicación de que el procedimiento debe concluir la ejecución porque el script consume más tiempo o rendimiento aprovisionado que el valor configurado. Se garantiza la finalización de las operaciones en cola anteriores a la primera operación de almacenamiento no aceptada si el procedimiento almacenado se completa a tiempo y no pone en cola más solicitudes. Por lo tanto, las operaciones deben ponerse en cola una a una mediante la convención de devolución de llamada de JavaScript para administrar el flujo de control del script. Dado que los scripts se ejecutan en un entorno de servidor, se rigen estrictamente. Los scripts que infrinjan repetidamente los límites de ejecución puede que se marquen como inactivos y que no se puedan ejecutar, por lo que deben volver a crearse para respetar los dichos límites.
 

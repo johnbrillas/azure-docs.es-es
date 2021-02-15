@@ -4,26 +4,26 @@ description: Aprenda a enviar mensajes de seguridad mediante Defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 2/8/2021
+ms.author: shhazam
 ms.custom: devx-track-js
-ms.openlocfilehash: 5217940a3696bd001db421e61be8313453807c8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59121f2dbae208ba045a9c2e6d66245296537a0
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318524"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820694"
 ---
 # <a name="send-security-messages-sdk"></a>SDK de Send Security Message
 
-En esta guía paso a paso se describen las funcionalidades del servicio Defender para IoT al elegir recopilar y enviar mensajes de seguridad de un dispositivo sin utilizar ningún agente de Defender para IoT, y se explica cómo hacerlo.
+En esta guía paso a paso se describen las funcionalidades del servicio Defender para IoT cuando elige recopilar y enviar mensajes de seguridad de un dispositivo sin usar ningún agente de Defender para IoT, y se explica cómo hacerlo.
 
 En esta guía, aprenderá a:
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8349b7a53eb7b03b27c695bb24c8cb9bc665a1ac
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: af1047c5f890b1b88ae6d043a30704e84b8dc079
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756355"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584321"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>API web que llama a API web: Registro de aplicación
 
-Una API web que llama a API web de bajada tiene el mismo registro que una API web protegida. Por lo tanto, deberá seguir las instrucciones de [API web protegida: registro de aplicación](scenario-protected-web-api-app-registration.md).
+Una API web que llama a API web de bajada tiene el mismo registro que una API web protegida. Siga las instrucciones de [API web protegida: registro de aplicación](scenario-protected-web-api-app-registration.md).
 
 Dado que la aplicación web ahora llama a las API web, se convierte en una aplicación cliente confidencial. Por eso se exige información de registro adicional: la aplicación tiene que compartir secretos (credenciales de cliente) con la Plataforma de identidad de Microsoft.
 

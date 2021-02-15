@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064375"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584237"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -43,9 +43,9 @@ En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único
 
 ### <a name="app-types-impacted"></a>Tipos de aplicación afectados
 
-En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador.  Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional.  Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva.
+En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador. Solo en ciertos casos en los que una aplicación solicita un token de manera indirecta o silenciosa para un servicio, se requieren cambios en el código de la aplicación para controlar los desafíos del acceso condicional.  Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva.
 
-En concreto, los escenarios siguientes requieren código para controlar los "desafíos" del acceso condicional:
+En concreto, en los escenarios siguientes:
 
 * Aplicaciones que realizan el flujo "en nombre de"
 * Aplicaciones que acceden a varios servicios o recursos
@@ -54,7 +54,7 @@ En concreto, los escenarios siguientes requieren código para controlar los "des
 
 Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para averiguar cómo configurar una directiva de acceso condicional, consulte [Inicio rápido: Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 
-Según el escenario, un cliente empresarial puede aplicar y quitar directivas de acceso condicional en cualquier momento. Con el fin de que la aplicación siga funcionando cuando se aplica una directiva nueva, es necesario implementar el control de "desafíos". En los ejemplos siguientes se ilustra el control de desafíos.
+Según el escenario, un cliente empresarial puede aplicar y quitar directivas de acceso condicional en cualquier momento. Para que la aplicación siga funcionando cuando se aplica una nueva directiva, implemente el control de desafíos. En los ejemplos siguientes se ilustra el control de desafíos.
 
 ### <a name="conditional-access-examples"></a>Ejemplos de acceso condicional
 

@@ -1,5 +1,5 @@
 ---
-title: Introducción a los agentes de seguridad
+title: Agentes de seguridad
 description: Introducción a la configuración, implementación y uso de los agentes del servicio de seguridad de Azure Defender para IoT en dispositivos de IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -11,33 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2019
+ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 61c7f1bddd40151aff2b1ca556045d34c4a1cc0d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247308"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820830"
 ---
-# <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introducción a los agentes de seguridad de dispositivo de Azure Defender para IoT
+# <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Introducción a los microagentes de dispositivo de Azure Defender para IoT
 
-Los agentes de seguridad de Defender para IoT ofrecen funcionalidades de seguridad mejoradas, como la supervisión de conexiones remotas, aplicaciones activas, eventos de inicio de sesión y procedimientos recomendados de configuración del sistema operativo. Tome el control de la protección contra amenazas del campo de dispositivo y la postura de seguridad con un único servicio.
-
-Se proporciona arquitectura de referencia para los agentes de seguridad de Windows y Linux tanto en C# como en C.
+Los agentes de seguridad de Defender para IoT ofrecen funcionalidades de seguridad mejoradas, como la supervisión de los procedimientos recomendados de configuración del sistema operativo. Tome el control de la protección contra amenazas del campo de dispositivo y la postura de seguridad con un único servicio.
 
 Los agentes de Defender para IoT controlan la recopilación de eventos sin procesar procedentes del sistema operativo del dispositivo, la agregación de eventos para reducir el costo y la configuración mediante un módulo gemelo del dispositivo. Los mensajes de seguridad se envían a través del IoT Hub a los servicios de análisis de Defender para IoT.
 
 Use el flujo de trabajo a continuación para implementar y probar los agentes de seguridad de Defender para IoT:
 
-1. [Habilitación del servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md)
+1. [Habilite el servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md).
+
 1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
-1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos.
+
+1. [Cree un módulo gemelo DefenderIotMicroAgent](quickstart-create-micro-agent-module-twin.md) para sus dispositivos.
+
 1. Para instalar el agente en un dispositivo simulado de Azure en lugar de hacerlo en un dispositivo real, [prepare una máquina virtual de Azure nueva](../virtual-machines/linux/quick-create-portal.md) en una zona de disponibilidad.
+
 1. [Implemente un agente de seguridad de Defender para IoT](how-to-deploy-linux-cs.md) en el dispositivo IoT o en una máquina virtual nueva.
-1. Siga las instrucciones de [trigger_events](https://aka.ms/iot-security-github-trigger-events) para llevar a cabo una simulación inofensiva de un ataque.
-1. Compruebe las alertas de Defender para IoT en respuesta al ataque simulado del paso anterior. No las compruebe hasta que hayan transcurrido cinco minutos desde la ejecución del script.
-1. Explore las [alertas](concept-security-alerts.md), las [recomendaciones](concept-recommendations.md) y [perfeccione su uso de Log Analytics](how-to-security-data-access.md) mediante IoT Hub.
+
+1. Siga las instrucciones de [trigger_events](https://aka.ms/iot-security-github-trigger-events) para ejecutar un evento de línea de base del sistema operativo.
+
+1. Compruebe las recomendaciones de Defender para IoT en respuesta al error de comprobación de línea de base del sistema operativo simulado en el paso anterior. No las compruebe hasta que hayan transcurrido 30 minutos desde la ejecución del script.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

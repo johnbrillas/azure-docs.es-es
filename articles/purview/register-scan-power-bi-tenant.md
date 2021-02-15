@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874913"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807553"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -84,7 +84,7 @@ En primer lugar, agregue una marca de característica especial a la dirección U
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Imagen en la que se muestra la lista de orígenes de datos disponibles para elegir":::
 
-1. Asigne un nombre descriptivo a la instancia de Power BI.
+3. Asigne un nombre descriptivo a la instancia de Power BI.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Imagen en la que se muestra el nombre descriptivo del origen de datos de Power BI":::
 
@@ -94,17 +94,21 @@ En primer lugar, agregue una marca de característica especial a la dirección U
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Origen de datos de Power BI registrado":::
 
-1. Asigne un nombre al examen. Tenga en cuenta que el único método de autenticación admitido es **Identidad administrada**.
+    > [!Note]
+    > Por Power BI, solo se permite el registro y el examen de orígenes de datos para una instancia.
+
+
+4. Asigne un nombre al examen. Tenga en cuenta que el único método de autenticación admitido es **Identidad administrada**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagen en la que se muestra la configuración del examen de Power BI":::
 
     El nombre del examen debe tener entre 3 y 63 caracteres, y solo puede contener letras, números, guiones bajos y guiones.  No están permitidos los espacios.
 
-1. Configure un desencadenador de examen. Las opciones disponibles son: **Una sola vez**, **Cada 7 días** y **Cada 30 días**.
+5. Configure un desencadenador de examen. Las opciones disponibles son: **Una sola vez**, **Cada 7 días** y **Cada 30 días**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Imagen de desencadenador de examen":::
 
-1. En **Revisar nuevo examen**, seleccione **Guardar y ejecutar** para iniciar el examen.
+6. En **Revisar nuevo examen**, seleccione **Guardar y ejecutar** para iniciar el examen.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Imagen de la pantalla de Power BI Guardar y ejecutar":::
 

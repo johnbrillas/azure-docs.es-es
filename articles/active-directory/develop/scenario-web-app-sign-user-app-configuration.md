@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753278"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582254"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicación web que inicia sesión de usuarios: Configuración del código
 
@@ -64,13 +64,13 @@ Es posible que desee consultar dicho ejemplo para obtener detalles completos de 
 
 ## <a name="configuration-files"></a>Archivos de configuración
 
-Las aplicaciones web en las que los usuarios inician sesión con la Plataforma de identidad de Microsoft se configuran mediante archivos de configuración. La configuración que debe rellenar es:
+Las aplicaciones web en las que los usuarios inician sesión con la Plataforma de identidad de Microsoft se configuran mediante archivos de configuración. Estos son los valores que se deben especificar en la configuración:
 
 - La instancia en la nube (`Instance`) si quiere que la aplicación se ejecute en las nubes nacionales, por ejemplo.
 - La audiencia en el id. de inquilino (`TenantId`).
 - El id. de cliente (`ClientId`) para la aplicación, tal y como se ha copiado de Azure Portal.
 
-A veces, las aplicaciones se pueden parametrizar mediante `Authority`, que constituye la concatenación de `Instance` y `TenantId`.
+También podría ver referencias al valor `Authority`. El valor `Authority` es la concatenación de los valores `Instance` y `TenantId`.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -133,7 +133,7 @@ En ASP.NET Core, hay otro archivo ([properties\launchSettings.json](https://gith
 }
 ```
 
-En Azure Portal, los identificadores URI de respuesta que debe registrar en la página de **Autenticación** de la aplicación deben coincidir con estas direcciones URL. En el caso de los dos archivos de configuración anteriores, deben ser `https://localhost:44321/signin-oidc`. El motivo es que `applicationUrl` es `http://localhost:3110`, pero se especifica `sslPort` (44321). `CallbackPath` es `/signin-oidc`, tal y como se define en `appsettings.json`.
+En Azure Portal, los identificadores URI de redirección que se registran en la página **Autenticación** de la aplicación deben coincidir con estas direcciones URL. En el caso de los dos archivos de configuración anteriores, deben ser `https://localhost:44321/signin-oidc`. El motivo es que `applicationUrl` es `http://localhost:3110`, pero se especifica `sslPort` (44321). `CallbackPath` es `/signin-oidc`, tal y como se define en `appsettings.json`.
 
 De la misma manera, el URI de cierre de sesión se establecería en `https://localhost:44321/signout-oidc`.
 
@@ -161,7 +161,7 @@ En ASP.NET, la aplicación se configura en las líneas 12 a 15 del archivo [Web.
   </appSettings>
 ```
 
-En Azure Portal, los identificadores URI de respuesta que debe registrar en la página de **Autenticación** de la aplicación deben coincidir con estas direcciones URL. Es decir, deben ser `https://localhost:44326/`.
+En Azure Portal, los identificadores URI de respuesta que se registran en la página **Autenticación** de la aplicación deben coincidir con estas direcciones URL. Es decir, deben ser `https://localhost:44326/`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -175,7 +175,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-En Azure Portal, los identificadores URI de respuesta que debe registrar en la página de **Autenticación** de la aplicación deben coincidir con las instancias de `redirectUri` que define la aplicación. Es decir, deben ser `http://localhost:8080/msal4jsample/secure/aad` y `http://localhost:8080/msal4jsample/graph/me`.
+En Azure Portal, los identificadores URI de respuesta que se registran en la página **Autenticación** de la aplicación deben coincidir con las instancias de `redirectUri` que define la aplicación. Es decir, deben ser `http://localhost:8080/msal4jsample/secure/aad` y `http://localhost:8080/msal4jsample/graph/me`.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: b72bbe944a2709d639fdbc3ca467e6950a4c9fbf
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ea136069da73d88174d9d40fe9c60e84982909df
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511369"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616470"
 ---
 ## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
@@ -25,6 +25,9 @@ La sobrecarga `ClientOptions` está disponible en todos los métodos de `DeviceC
 
 > [!TIP]
 > Para los módulos e IoT Edge, use `ModuleClient` en lugar de `DeviceClient`.
+
+> [!TIP]
+> Esta es la única vez que un dispositivo puede establecer el identificador de modelo; después de que el dispositivo se conecte, no se puede actualizar.
 
 ## <a name="dps-payload"></a>Carga de DPS
 

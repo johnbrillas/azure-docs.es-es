@@ -13,12 +13,12 @@ ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 161bcb2a4276b39765361e97a4516812c26ef580
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d847e38a6114b0e5f8d56f6e994aa47dfbe929e7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064477"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583712"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Compatibilidad para los Servicios de federación de Active Directory (AD FS) en MSAL para Python
 
@@ -57,7 +57,7 @@ Al conectar el directorio a AD FS, la autoridad que querrá usar para compilar 
 
 MSAL Python admite ADFS 2019.
 
-No admite una conexión directa a ADFS 2016 o ADFS V2. Si tiene que admitir escenarios que requieran una conexión directa a ADFS 2016, use la versión más reciente de ADAL para Python. Podrá usar MSAL Python una vez actualizado el sistema local a ADFS 2019.
+No admite una conexión directa a ADFS 2016 o ADFS V2. Para admitir escenarios que requieran una conexión directa a ADFS 2016, use la versión más reciente de ADAL para Python. Podrá usar MSAL Python una vez actualizado el sistema local a ADFS 2019.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

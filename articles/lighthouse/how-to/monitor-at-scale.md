@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los recursos delegados a escala
 description: Aprenda a usar los registros de Azure Monitor de forma eficaz y escalable en los inquilinos del cliente que está administrando.
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131158"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575913"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -49,9 +49,9 @@ Una vez implementadas las directivas, los datos se registrarán en las áreas de
 
 Puede ver [alertas](../../azure-monitor/platform/alerts-overview.md) para las suscripciones delegadas en los inquilinos de clientes que administra.
 
-Para actualizar las alertas automáticamente entre varios clientes, use una consulta de [Azure Resource Graph](../../governance/resource-graph/overview.md) para filtrar las alertas. Puede anclar la consulta al panel y seleccionar todos los clientes y suscripciones adecuados.
+Desde el inquilino de administración, puede [crear, ver y administrar las alertas del registro de actividad](../../azure-monitor/platform/alerts-activity-log.md) en Azure Portal o a través de las API y las herramientas de administración.
 
-En la consulta de ejemplo siguiente se mostrarán las alertas de gravedad 0 y 1, que se actualizan cada 60 minutos.
+Para actualizar las alertas automáticamente entre varios clientes, use una consulta de [Azure Resource Graph](../../governance/resource-graph/overview.md) para filtrar las alertas. Puede anclar la consulta al panel y seleccionar todos los clientes y suscripciones adecuados. Por ejemplo, en la consulta siguiente se mostrarán las alertas de gravedad 0 y 1, que se actualizan cada 60 minutos.
 
 ```kusto
 alertsmanagementresources

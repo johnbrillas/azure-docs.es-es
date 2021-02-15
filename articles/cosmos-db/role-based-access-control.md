@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943761"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526948"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Control de acceso basado en rol de Azure en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,8 @@ Los siguientes son los roles integrados compatibles que se admiten en Azure Cosm
 |---------|---------|
 |[Colaborador de cuenta de DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Puede administrar cuentas de Azure Cosmos DB.|
 |[Lector de cuentas de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Puede leer los datos de cuentas de Azure Cosmos DB.|
-|[Operador de copias de seguridad de Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Puede enviar una solicitud de restauración para una base de datos de Azure Cosmos o un contenedor. No se puede tener acceso a los datos ni utilizar Data Explorer.|
+|[Operador de copias de seguridad de Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Puede enviar una solicitud de restauración de Azure Portal para una base de datos o un contenedor que tengan habilitada una copia de seguridad periódica. Puede modificar la retención y el intervalo de copia de seguridad en Azure Portal. No se puede tener acceso a los datos ni utilizar Data Explorer.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Puede realizar una acción de restauración en la cuenta de Azure Cosmos DB con el modo de copia de seguridad continua.|
 |[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Puede aprovisionar cuentas, las bases de datos y los contenedores de Azure Cosmos. No se puede tener acceso a los datos ni utilizar Data Explorer.|
 
 > [!IMPORTANT]

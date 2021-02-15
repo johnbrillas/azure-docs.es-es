@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76e52758bf88dde9cdc68dad974f0b65fd55140f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4a61399bbb75639fdf4f03da7b77f22a2136adbe
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028133"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628938"
 ---
 Los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
@@ -37,7 +37,8 @@ Los discos Ultra Disks compartidos están disponibles en todas las regiones que 
 - Al usar conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales con discos compartidos de Azure, la [alineación del dominio de error del almacenamiento](../articles/virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) con el dominio de error de la máquina virtual no se exige para el disco de datos compartido.
 - Al usar [grupos con ubicación por proximidad (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), todas las máquinas virtuales que comparten un disco deben ser parte del mismo grupo con ubicación por proximidad.
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](/windows-server/failover-clustering/clustering-requirements).
-- La compatibilidad con Azure Backup y Azure Site Recovery todavía no está disponible.
+- La compatibilidad con Azure Site Recovery todavía no está disponible.
+- Azure Backup está disponible a través de [Azure Disk Backup (versión preliminar)](../articles/backup/disk-backup-overview.md).
 
 #### <a name="regional-availability"></a>Disponibilidad regional
 

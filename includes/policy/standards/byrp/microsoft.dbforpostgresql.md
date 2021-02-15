@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 09f7472b44cba37a7edaab7658a3013c1f0a3f8d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 5e488bc0863dc831ee3c2895c2a8377d5483370f
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095050"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099679"
 ---
 ## <a name="azure-security-benchmark"></a>Prueba comparativa de la seguridad de Azure
 
@@ -24,7 +24,7 @@ Para revisar el modo en que las integraciones de Azure Policy disponibles para t
 |Seguridad de redes |NS-2 |Conexión conjunta de redes privadas |[El punto de conexión privado debe estar habilitado para servidores PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
 |Seguridad de redes |NS-3 |establecimiento del acceso de red privada a los servicios de Azure |[El punto de conexión privado debe estar habilitado para servidores PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
 |Protección de datos |DP-4 |Cifrado de la información confidencial en tránsito |[La aplicación de la conexión SSL debe estar habilitada para los servidores de base de datos PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd158790f-bfb0-486c-8631-2dc6b4e8e6af) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableSSL_Audit.json) |
-|Protección de datos |DP-5 |Cifrado de datos confidenciales en reposo |[La protección de datos Bring Your Own Key debe estar habilitada para los servidores PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F18adea5e-f416-4d0f-8aa8-d24321e3e274) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableByok_Audit.json) |
+|Protección de datos |DP-5 |Cifrado de datos confidenciales en reposo |[La protección de datos Bring Your Own Key debe estar habilitada para los servidores PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F18adea5e-f416-4d0f-8aa8-d24321e3e274) |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableByok_Audit.json) |
 |Copia de seguridad y recuperación |BR-1 |Garantía de copias de seguridad automáticas periódicas |[La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 |Copia de seguridad y recuperación |BR-2 |Cifrado de los datos de copia de seguridad |[La copia de seguridad con redundancia geográfica debe estar habilitada para Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 

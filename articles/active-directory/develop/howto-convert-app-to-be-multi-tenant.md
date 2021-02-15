@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755337"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581727"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -125,7 +125,7 @@ Los permisos de solo aplicación siempre requieren el consentimiento del adminis
 
 Algunos permisos delegados también requieren el consentimiento del administrador de inquilinos. Por ejemplo, la posibilidad de reescribir en Azure AD como el usuario que ha iniciado la sesión requiere el consentimiento del administrador de inquilinos. Al igual que los permisos de solo aplicación, si un usuario ordinario intenta iniciar sesión en una aplicación que solicita un permiso delegado que requiere el consentimiento del administrador, la aplicación recibe un error. Que un permiso requiera el consentimiento del administrador viene determinado por el desarrollador que publica el recurso, y se puede encontrar en la documentación del recurso. La documentación de permisos de [Microsoft Graph API][MSFT-Graph-permission-scopes] indica qué permisos requieren consentimiento del administrador.
 
-Si la aplicación usa permisos que requieren el consentimiento del administrador, necesita tener un gesto, como un botón o un vínculo donde el administrador pueda iniciar la acción. La solicitud que la aplicación envía para esta acción es la solicitud de autorización habitual de OAuth2 o OpenID Connect que también incluye el parámetro de cadena de consulta `prompt=admin_consent`. Una vez que el administrador ha dado su consentimiento y la entidad de servicio se crea en el inquilino del cliente, las posteriores solicitudes de inicio de sesión no necesitan el parámetro `prompt=admin_consent`. Dado que el administrador ha decido que los permisos solicitados son aceptables, en adelante no se solicitará consentimiento a ningún otro usuario.
+Si la aplicación usa permisos que requieren el consentimiento del administrador, necesita un gesto, como un botón o un vínculo donde el administrador pueda iniciar la acción. La solicitud que la aplicación envía para esta acción es la solicitud de autorización habitual de OAuth2 o OpenID Connect que también incluye el parámetro de cadena de consulta `prompt=admin_consent`. Una vez que el administrador ha dado su consentimiento y la entidad de servicio se crea en el inquilino del cliente, las posteriores solicitudes de inicio de sesión no necesitan el parámetro `prompt=admin_consent`. Dado que el administrador ha decido que los permisos solicitados son aceptables, en adelante no se solicitará consentimiento a ningún otro usuario.
 
 Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones. Si esta capacidad está deshabilitada, para que la aplicación se use en el inquilino siempre se solicitará el consentimiento del administrador. Si quiere probar la aplicación con el consentimiento de usuario final deshabilitado, puede encontrar el modificador de configuración en [Azure Portal][AZURE-portal], en la sección **[Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** en **Aplicaciones empresariales**.
 

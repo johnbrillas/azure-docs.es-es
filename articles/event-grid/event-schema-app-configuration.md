@@ -3,12 +3,12 @@ title: Azure App Configuration como origen de Event Grid
 description: En este artículo se describe cómo utilizar Azure App Configuration como origen de eventos de Event Grid. Proporciona el esquema y los vínculos a los artículos de procedimientos y tutorial.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d305236e8408052be4be28ec003f4e545119fc59
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117005"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550681"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App Configuration como origen de Event Grid
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure App Configuration. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). También proporciona una lista de inicios rápidos y tutoriales para usar Azure App Configuration como origen de eventos.
@@ -92,10 +92,10 @@ El objeto data tiene las siguientes propiedades:
 |Título | Descripción |
 |---------|---------|
 | [Reacción a eventos de Azure App Configuration con Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure App Configuration con Event Grid. |
-| [Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
+| [Uso de Event Grid para las notificaciones de cambios de datos](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Aprenda a usar suscripciones a eventos de Azure App Configuration para que envíen eventos de modificación de pares clave-valor a un punto de conexión web. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a Azure Event Grid, consulte [Introducción a Azure Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
-* Para una introducción a cómo trabajar con eventos de Azure App Configuration, consulte [Enrutamiento de eventos de Azure App Configuration con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Puede encontrar una introducción al uso de eventos de Azure App Configuration en [Uso de Event Grid para las notificaciones de cambio de datos](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

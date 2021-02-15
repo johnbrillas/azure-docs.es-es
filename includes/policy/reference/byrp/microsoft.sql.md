@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 92589a0ba5f17e8a8da38b516019d832ea2b71d0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: be5e8ee63258d058bdc8bfa21607ae11b99fce2f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99214561"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556847"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,6 +19,7 @@ ms.locfileid: "99214561"
 |[El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Permite aprovisionar un administrador de Azure Active Directory para SQL Server a fin de habilitar la autenticación de Azure AD. La autenticación de Azure AD permite la administración simplificada de permisos y la administración centralizada de identidades de usuarios de base de datos y otros servicios de Microsoft |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[La auditoría de SQL Server debe estar habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |La auditoría debe estar habilitada en SQL Server para realizar un seguimiento de las actividades de todas las bases de datos del servidor y guardarlas en un registro de auditoría. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[La versión mínima de TLS que debe tener Azure SQL Database es la 1.2](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32e6bbec-16b6-44c2-be37-c5b672d103cf) |Si la versión mínima de TLS se establece en 1.2, la seguridad mejora al garantizar que solo se tenga acceso a Azure SQL Database desde clientes que utilicen TLS 1.2. El uso de versiones de TLS anteriores a la versión 1.2 no se recomienda, ya que presentan vulnerabilidades de seguridad bien documentadas. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_MiniumTLSVersion_Audit.json) |
+|[Implementar: configuración de diagnóstico para instancias de SQL Database en el área de trabajo de Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb79fa14e-238a-4c2d-b376-442ce508fc84) |Implementa la configuración de diagnóstico para las instancias de SQL Database transmitan registros de diagnóstico a un área de trabajo de Log Analytics cuando se cree o actualice cualquier instancia de SQL Database en la que falte esta configuración de diagnóstico. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/DataConnectosSqlLogs_PolicyAssignment.json) |
 |[Implementar Advanced Data Security en los servidores de SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6134c3db-786f-471e-87bc-8f479dc890f6) |Esta directiva habilita Advanced Data Security en los servidores de SQL Server. Esta opción también habilita la detección de amenazas y la evaluación de vulnerabilidades. Asimismo, creará automáticamente una cuenta de almacenamiento en la misma región y grupo de recursos que el servidor de SQL Server, para así almacenar los resultados del análisis con un prefijo "sqlva". |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAdvancedDataSecurity_Deploy.json) |
 |[Implementar auditorías en servidores SQL Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4c68484-132f-41f9-9b6d-3e4b1cb55036) |Esta directiva garantiza que la auditoría está habilitada en servidores SQL Server para garantizar el cumplimiento y la seguridad mejorada. Creará automáticamente una cuenta de almacenamiento en la misma región que el servidor SQL Server para almacenar los registros de auditoría. |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Deploy.json) |
 |[Implementar la configuración de diagnóstico para Azure SQL Database en el Centro de eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9a7c7a7d-49e5-4213-bea8-6a502b6272e0) |Implementa la configuración de diagnóstico para que Azure SQL Database se transmita a un Centro de eventos regional cuando se cree o actualice cualquier instancia de Azure SQL Database a la que falte esta configuración de diagnóstico. |DeployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDB_DiagnosticsLog_Deploy.json) |

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06a6a42724eb172a77079b94f2cf50afb8e9cdf1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 29aeca30e1fbdd28d3f69597d902a9b714056cd5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357324"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575930"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD
 
@@ -26,7 +26,7 @@ Antes de Azure Active Directory (Azure AD), las organizaciones con sistemas de i
 Si crea cuentas para los asociados externos en el directorio local (por ejemplo, crea una cuenta con un nombre de inicio de sesión de "wmoran" para un usuario externo llamado Wendy Moran en el dominio partners.contoso.com), ahora puede sincronizarlas con la nube. En concreto, puede usar Azure AD Connect para sincronizar las cuentas de asociados con la nube, lo que crea una cuenta de usuario con UserType = Guest. De esta manera, los usuarios asociados pueden acceder a los recursos en la nube con las mismas credenciales que las de sus cuentas locales, sin concederles más acceso del que necesitan.
 
 > [!NOTE]
-> Consulte también cómo [invitar a usuarios internos a la colaboración B2B](invite-internal-users.md) (una característica de versión preliminar pública). Con esta característica, puede proponer a los usuarios internos invitados que usen la colaboración B2B, independientemente de si se han sincronizado sus cuentas del directorio local con la nube. Una vez que los usuarios aceptan la invitación para usar la colaboración B2B, pueden usar su propia identidad y credenciales para iniciar sesión en los recursos a los que se les da acceso. Ya no tendrá que mantener contraseñas ni administrar los ciclos de vida de la cuenta.
+> Consulte también [Invitación de usuarios internos a la colaboración B2B](invite-internal-users.md). Con esta característica, puede proponer a los usuarios internos invitados que usen la colaboración B2B, independientemente de si se han sincronizado sus cuentas del directorio local con la nube. Una vez que los usuarios aceptan la invitación para usar la colaboración B2B, pueden usar su propia identidad y credenciales para iniciar sesión en los recursos a los que se les da acceso. Ya no tendrá que mantener contraseñas ni administrar los ciclos de vida de la cuenta.
 
 ## <a name="identify-unique-attributes-for-usertype"></a>Identificación de atributos únicos para UserType
 

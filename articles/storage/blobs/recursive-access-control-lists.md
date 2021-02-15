@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 626e626cbd8fa86bd0366516cbaf5a54789f3988
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 737608e4f83846187decb92b090f2385a8ff4ac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741050"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627347"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2
 
@@ -22,7 +22,10 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
 
 [Bibliotecas](#libraries) | [Ejemplos](#code-samples) | [Procedimientos recomendados](#best-practice-guidelines)
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> El Explorador de Azure Storage admite ahora la posibilidad de aplicar ACL de forma recursiva. Para más información, consulte [Aplicación de ACL de forma recursiva en el Explorador de Azure Storage](data-lake-storage-explorer.md#apply-acls-recursively). 
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
