@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Synapse Analytics
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Synapse Analytics. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a84aa2ed6f66f66f8216a3c54d78ee1fc496b4d3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: dc00f63087e38e89446f87449e2eed75e6add768
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092409"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092645"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-synapse-analytics"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Synapse Analytics
 

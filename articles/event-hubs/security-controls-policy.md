@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Event Hubs
 description: Enumera los controles de Cumplimiento normativo de Azure disponibles para Azure Event Hubs. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: event-hubs
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a1c93972a1a936a4482ce06a30f29b37d8554e79
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6eeac86e35856b8b70d259c367f0174f3e9ebba
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094365"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095705"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-hubs"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Event Hubs
 

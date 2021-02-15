@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348057"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831729"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalización del panel del operador y administración de dispositivos en Azure IoT Central
 
@@ -246,7 +246,12 @@ Para agregar un icono de comando para reiniciar la puerta de enlace:
 
 1. Opcionalmente, seleccione el icono **Reboot** (Reiniciar) para ejecutar el comando de reinicio en la puerta de enlace.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, ha aprendido a:
 
 * Cambiar el nombre del panel

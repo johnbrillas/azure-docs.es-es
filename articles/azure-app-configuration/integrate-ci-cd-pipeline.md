@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928456"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979851"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integración con una canalización de CI/CD
 
@@ -35,9 +35,9 @@ Para realizar los pasos de este tutorial, puede usar cualquier editor de código
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Si compila localmente, descargue e instale la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) si aún no lo ha hecho.
+Si compila localmente, descargue e instale la [CLI de Azure](/cli/azure/install-azure-cli) si aún no lo ha hecho.
 
-Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, asegúrese de que la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) está instalada en el sistema de compilación.
+Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, asegúrese de que la [CLI de Azure](/cli/azure/install-azure-cli) está instalada en el sistema de compilación.
 
 ### <a name="export-an-app-configuration-store"></a>Exportación de un almacén de App Configuration
 
@@ -107,4 +107,4 @@ Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, aseg�
 En este tutorial, ha exportado los datos de Azure App Configuration para su uso en una canalización de implementación. Para más información sobre App Configuration, continúe con los ejemplos de la CLI de Azure.
 
 > [!div class="nextstepaction"]
-> [CLI de Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI de Azure](/cli/azure/appconfig)
