@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: d9c2aea284a2ab84b5d45fe35a35785adfc88123
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763460"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832080"
 ---
 ### <a name="publish-the-device-template"></a>Publicación de la plantilla de dispositivo
 
@@ -61,16 +61,3 @@ Necesita las credenciales que permiten que el dispositivo se conecte a la aplica
 
 1. Seleccione **Cerrar**.
 
-## <a name="next-steps"></a>Pasos siguientes
-
-Ahora ha creado una aplicación de IoT Central con la plantilla de aplicación **Video analytics - object and motion detection** (Análisis de vídeo: detección de objetos y movimiento), ha creado una plantilla de dispositivo para el dispositivo de puerta de enlace y ha agregado un dispositivo de puerta de enlace a la aplicación.
-
-Si desea probar la aplicación de análisis de vídeo con detección de objetos y movimiento con módulos IoT Edge que ejecutan una máquina virtual en la nube con secuencias de vídeo simuladas:
-
-> [!div class="nextstepaction"]
-> [Creación de una instancia de IoT Edge para análisis de vídeo (máquina virtual Linux)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-Si desea probar la aplicación de análisis de vídeo con detección de objetos y movimiento con módulos IoT Edge que ejecutan un dispositivo real con una cámara **ONVIF** real:
-
-> [!div class="nextstepaction"]
-> [Creación de una instancia de IoT Edge para análisis de vídeo (Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)
