@@ -1,26 +1,24 @@
 ---
 author: baanders
-description: Archivo de inclusión para limpiar una instancia básica de Azure Digital Twins
+description: archivo de inclusión para limpiar una instancia de Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 8/13/2020
+ms.date: 2/4/2021
 ms.author: baanders
-ms.openlocfilehash: 4c03ef942896dda63f678018cdd257024cfbb6d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3c1b814b357a2e4b724590261657e485852f99c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011292"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575702"
 ---
-Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos.
-
-Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Este comando quita el grupo de recursos y la instancia de Azure Digital Twins.
-
-> [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados.
-
-Abra Azure Cloud Shell y ejecute el siguiente comando para eliminar el grupo de recursos y todo lo que contiene.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+* **Si no necesita ninguno de los recursos que creó en este tutorial**, puede eliminar la instancia de Azure Digital Twins y todos los demás recursos de este artículo con el comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Esto permite eliminar todos los recursos de Azure de un grupo de recursos, así como el grupo en sí.
+    
+    > [!IMPORTANT]
+    > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados.
+    
+    Abra [Azure Cloud Shell](https://shell.azure.com) y ejecute el siguiente comando para eliminar el grupo de recursos y todo lo que contiene.
+    
+    ```azurecli-interactive
+    az group delete --name <your-resource-group>
+    ```
