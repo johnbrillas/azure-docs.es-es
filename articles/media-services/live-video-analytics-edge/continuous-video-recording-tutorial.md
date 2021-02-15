@@ -3,12 +3,12 @@ title: 'Tutorial de grabación continua de vídeo en la nube y reproducción des
 description: En este tutorial aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para grabar continuamente vídeo en la nube y transmitir cualquier parte de ese vídeo con Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 6956539595c5997569dc92b5c62e2396cb5fdd9c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524403"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551066"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación continua de vídeo en la nube y reproducción desde la nube
 
@@ -140,6 +140,12 @@ El manifiesto de implementación define los módulos que se implementan en un di
 1. Establezca la cadena de conexión de IoT Hub; para ello, seleccione el icono **More actions** (Más acciones) situado junto al panel **AZURE IOT HUB** en la esquina inferior izquierda. Copie la cadena del archivo src/cloud-to-device-console-app/appsettings.json. 
 
     ![Establecimiento de la cadena de conexión de IoT Hub](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Haga clic con el botón derecho en el archivo src/edge/deployment.template.json y seleccione **Generate IoT Edge Deployment Manifest** (Generar manifiesto de implementación de IoT Edge). Visual Studio Code usa los valores del archivo .env para reemplazar las variables que se encuentran en el archivo de la plantilla de implementación. Esta acción crea un archivo de manifiesto en la carpeta src/edge/config llamado **deployment.amd64.json**.
 
    ![Generación de un manifiesto de implementación de IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -163,11 +169,11 @@ Al usar el módulo Live Video Analytics en IoT Edge para grabar la secuencia de 
 
     ![Iniciar la supervisión del punto de conexión de eventos integrado](./media/quickstarts/start-monitoring-iothub-events.png)
 
-> [!NOTE]
-> Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 ## <a name="run-the-program"></a>Ejecución del programa 
 

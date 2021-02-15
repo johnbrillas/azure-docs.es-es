@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044771"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584573"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -87,13 +87,13 @@ Form Recognizer usa la [API de diseño](#layout-api) para aprender los tamaños 
 Form Recognizer también incluye modelos precompilados para el procesamiento automático de datos de tipos de formularios únicos.
 
 ### <a name="prebuilt-invoice-model"></a>Modelo de factura precompilado
-El modelo de factura precompilado extrae datos de las facturas en varios formatos y devuelve datos estructurados. Este modelo extrae información clave como el identificador de factura, los detalles del cliente, los detalles del proveedor, la dirección de envío, la dirección de facturación, el total, los impuestos, el subtotal, etc. Además, este modelo se entrena para reconocer y devolver todo el texto y las tablas de la factura. Para más información, consulte la guía conceptual sobre [facturas](./concept-invoices.md).
+El modelo de factura precompilado extrae datos de las facturas en varios formatos y devuelve datos estructurados. Este modelo extrae información clave como el identificador de factura, los detalles del cliente, los detalles del proveedor, la dirección de envío, la dirección de facturación, el total, los impuestos, el subtotal, etc. Además, este modelo se entrena para analizar y devolver todo el texto y las tablas de la factura. Para más información, consulte la guía conceptual sobre [facturas](./concept-invoices.md).
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="Factura de ejemplo" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pregenerado
 
-El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para reconocer y devolver todo el texto en un recibo. Consulte la guía conceptual sobre [recibos](./concept-receipts.md) para más información.
+El modelo de recibo pregenerado se usa para leer los recibos de ventas en Inglés de Australia, Canadá, Gran Bretaña, India y Estados Unidos (el tipo que usan los restaurantes, las estaciones de gas, minoristas, etc). Este modelo extrae información clave como la hora y la fecha de la transacción, información del comerciante, importe de los impuestos, totales y mucho más. Además, el modelo de recibo pregenerado se entrena para analizar y devolver todo el texto en un recibo. Consulte la guía conceptual sobre [recibos](./concept-receipts.md) para más información.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="recibo de ejemplo" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Complete un [inicio rápido](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el idioma que prefiera.
+Complete un [inicio rápido](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el lenguaje de desarrollo que prefiera.

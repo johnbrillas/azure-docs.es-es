@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Cognitive Search. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 014309ef35f120ffeaaea4b715d42acc6ea9b242
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ac1723b40544ef9420b7d9d780b598275cfa0167
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094867"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095979"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Cognitive Search
 
