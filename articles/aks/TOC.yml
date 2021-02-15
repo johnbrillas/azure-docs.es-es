@@ -338,7 +338,7 @@
         - name: Compilación de una aplicación con MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Implementación de una aplicación de Open Liberty o WebSphere Liberty
+        - name: Compilación de una aplicación con Open Liberty o WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
         - name: Uso de Azure API Management
           href: ../api-management/api-management-kubernetes.md

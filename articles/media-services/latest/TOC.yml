@@ -13,6 +13,8 @@
   items:
     - name: Configurar el entorno
       items:
+        - name: Búsqueda del id. de inquilino
+          href: how-to-set-azure-tenant.md
         - name: Búsqueda de la suscripción de Azure
           href: how-to-set-azure-subscription.md
         - name: Creación de una cuenta de Media Services
@@ -70,6 +72,8 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
+        - name: Habilitación del almacenamiento de confianza
+          href: tutorial-trusted-storage-rest.md
         - name: Codificación y transmisión en secuencias de un archivo remoto REST
           href: stream-files-tutorial-with-rest.md
         - name: Claves administradas por el cliente con la API REST
@@ -305,6 +309,12 @@
           displayName: 'migration, samples'
 - name: Guías paso a paso
   items:
+    - name: Búsqueda de un inquilino y una suscripción
+      items:
+        - name: Búsqueda del id. de inquilino
+          href: how-to-set-azure-tenant.md
+        - name: Búsqueda del identificador de suscripción
+          href: how-to-set-azure-subscription.md
     - name: Creación de recursos y carga de soportes físicos
       items:
         - name: Creación de un recurso
