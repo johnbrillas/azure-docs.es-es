@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: creación de un grupo de administración con Azure PowerShell'
 description: En este inicio rápido, se usa Azure PowerShell para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74e4f0769bbf4deafefd27e166e0dae2c2e019a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 216cfeb6e1389793afcfd27d8785a5f912db2c97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237088"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592541"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Inicio rápido: creación de un grupo de administración con Azure PowerShell
 

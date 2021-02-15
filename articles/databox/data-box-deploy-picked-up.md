@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524999"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539118"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
     ```
 
 Si surge algún problema, envíe un correo electrónico a Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) con los detalles y mencione el nombre del trabajo en el asunto.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Comprobación de la carga de datos en Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Emiratos Árabes Unidos](#tab/in-uae)
+
+1. Conserve la caja original utilizada para devolver el dispositivo.
+2. Asegúrese de que la copia de datos en el dispositivo se ha completado y que el paso **Preparación para el envío** se ha realizado correctamente.
+3. Anote el número de referencia de la página **Preparación para el envío** de la interfaz de usuario web local del dispositivo.
+4. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
+6. Empaquete el dispositivo para el envío de devolución en la caja original.
+7. Envíe por correo electrónico las [operaciones de Azure Data Box](mailto:adbops@microsoft.com) para obtener un identificador que se utilizará para identificar el paquete cuando vuelva a recibirse en el centro de datos.
+8. Anote este identificador en la etiqueta de envío impresa, junto a la dirección de devolución para que esté claramente visible.  
+9. Vaya a [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Schedule a Pickup** para programar una recogida en línea.
+   - Escriba el número de referencia de la página **Preparación para el envío** de la interfaz de usuario web local del dispositivo en el campo de número del albarán.
+   - La programación de las recogidas se acepta desde las 9:00 am a las 2:00 pm seis días a la semana (excepto viernes y festivos públicos).
+   - Las solicitudes de recogida deben efectuarse al menos 90 minutos antes de la hora de cierre del cliente.
+10. Si tiene algún problema con la herramienta de reserva de DHL, puede ponerse en contacto con DHL mediante cualquiera de estos métodos:
+    - Llame al 04-2924545.
+    - Si surge algún problema, envíe un correo electrónico a [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) con los detalles y mencione el número del albarán en el asunto.
+    - Llame al servicio de atención al cliente de DHL al 600 567567.
 
 ::: zone target="chromeless"
 

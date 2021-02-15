@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684012"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575812"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -401,18 +401,15 @@ Esta es una revisión del escenario que se ha creado en este tutorial.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos. 
+Después de completar este tutorial, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
 
-Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Así se quitan el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como la aplicación de Azure Functions, incluidas las funciones y los recursos asociados, como el almacenamiento.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
+* **Si desea seguir usando la instancia de Azure Digital Twins que configuró en este artículo, pero borra algunos o todos sus modelos, gemelos y relaciones**, puede usar los comandos [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) de la CLI en una ventana de [Azure Cloud Shell](https://shell.azure.com) para eliminar los elementos que desee quitar.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Esta opción no quitará ninguno de los otros recursos de Azure creados en este tutorial (IoT Hub, aplicación de Azure Functions, etc.). Puede eliminarlos individualmente mediante los [comandos dt](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) adecuados para cada tipo de recurso.
 
-Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.
+También puede que desee eliminar la carpeta del proyecto de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

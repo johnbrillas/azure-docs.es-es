@@ -4,18 +4,29 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174001"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550357"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
 Azure Backup proporciona varias soluciones de copia de seguridad según los requisitos de copia de seguridad y la topología de la infraestructura (local o en Azure). Cualquier usuario o administrador de copias de seguridad debería poder ver lo que está ocurriendo en todas las soluciones y esperar recibir notificaciones en los escenarios importantes. En este artículo se detallan las capacidades de supervisión y notificación que presta el servicio de Azure Backup.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Elementos de copia de seguridad en el almacén de Recovery Services
+
+Puede supervisar todos los elementos de copia de seguridad por medio de un almacén de Recovery Services. Al ir a la sección **Elementos de copia de seguridad** del almacén se abre una vista que proporciona el número de elementos de copia de seguridad de cada tipo de carga de trabajo asociado al almacén. Al hacer clic en cualquier fila se abre una vista detallada que enumera todos los elementos de copia de seguridad del tipo de carga de trabajo dado, con información sobre el último estado de copia de seguridad de cada elemento, el último punto de restauración disponible, etc.
+
+![Elementos de copia de seguridad del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> En el caso de los elementos cuya copia de seguridad en Azure se ha efectuado mediante DPM, la lista muestra todos los orígenes de datos protegidos (tanto en disco como en línea) mediante el servidor de DPM. Si se detiene la protección del origen de datos con datos de copia de seguridad conservados, el origen de datos sigue apareciendo en el portal. Puede ir a los detalles del origen de datos para ver si los puntos de recuperación están presentes en disco, en línea o ambos. Además, en los orígenes de datos cuya protección en línea se ha detenido pero cuyos datos se conservan, la facturación de los puntos de recuperación en línea continúa hasta que los datos se eliminan por completo.
+>
+> La versión de DPM debe ser DPM 1807 (5.1.378.0) o DPM 2019 (versión 10.19.58.0 o superior) para que los elementos de copia de seguridad sean visibles en el portal del almacén de Recovery Services.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabajos de copia de seguridad en el almacén de Recovery Services
 
@@ -81,9 +92,9 @@ Las excepciones están diseñadas bajo el supuesto de que el resultado de estas 
 
 Se pueden definir tres tipos alertas, según la gravedad:
 
-- **Crítico** : en principio, cualquier error en una copia de seguridad o una recuperación (sea programada o desencadenada por el usuario) daría lugar a la generación de una alerta, que se mostraría como una alerta crítica junto con operaciones de destrucción como eliminar la copia de seguridad.
-- **Advertencia** : si la operación de copia de seguridad se realiza correctamente, pero con algunas advertencias, estas se muestran como alertas de advertencia. Las alertas de advertencia solo están disponibles actualmente para las copias de seguridad del agente de Azure Backup.
-- **Informativo** : actualmente, el servicio de Azure Backup aún no ha generado ninguna alerta informativa.
+- **Crítico**: en principio, cualquier error en una copia de seguridad o una recuperación (sea programada o desencadenada por el usuario) daría lugar a la generación de una alerta, que se mostraría como una alerta crítica junto con operaciones de destrucción como eliminar la copia de seguridad.
+- **Advertencia**: si la operación de copia de seguridad se realiza correctamente, pero con algunas advertencias, estas se muestran como alertas de advertencia. Las alertas de advertencia solo están disponibles actualmente para las copias de seguridad del agente de Azure Backup.
+- **Informativo**: actualmente, el servicio de Azure Backup aún no ha generado ninguna alerta informativa.
 
 ## <a name="notification-for-backup-alerts"></a>Notificación de alertas de copia de seguridad
 
@@ -100,12 +111,12 @@ Si la frecuencia se ha establecido en un resumen cada hora y una alerta se gener
 
 > [!NOTE]
 >
-> - Si se lleva a cabo una operación de destrucción, como la **detención de la protección con eliminación de datos** , se generará una alerta y se enviará un correo electrónico a los propietarios de la suscripción, los administradores y los coadministradores, aun cuando las notificaciones no estén configuradas en el almacén de Recovery Services.
+> - Si se lleva a cabo una operación de destrucción, como la **detención de la protección con eliminación de datos**, se generará una alerta y se enviará un correo electrónico a los propietarios de la suscripción, los administradores y los coadministradores, aun cuando las notificaciones no estén configuradas en el almacén de Recovery Services.
 > - Para configurar notificaciones que informen de los trabajos realizados correctamente, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Desactivación de alertas
 
-Para desactivar o resolver una alerta activa, puede seleccionar el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla en la que se muestra información detallada sobre la alerta, con un botón **Desactivar** en la parte superior. Al seleccionar este botón, el estado de la alerta cambiará a **Inactivo** . También puede desactivar una alerta si hace clic con el botón derecho en el elemento de lista correspondiente a esa alerta y selecciona **Desactivar** .
+Para desactivar o resolver una alerta activa, puede seleccionar el elemento de lista correspondiente a la alerta que desea desactivar. Se abre una pantalla en la que se muestra información detallada sobre la alerta, con un botón **Desactivar** en la parte superior. Al seleccionar este botón, el estado de la alerta cambiará a **Inactivo**. También puede desactivar una alerta si hace clic con el botón derecho en el elemento de lista correspondiente a esa alerta y selecciona **Desactivar**.
 
 ![Inactivación de alertas de un depósito de RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

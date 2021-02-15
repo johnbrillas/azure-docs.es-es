@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837061"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509106"
 ---
 # <a name="track-sensor-activity"></a>Seguimiento de la actividad del sensor
 
@@ -59,13 +59,13 @@ Para filtrar la escala de tiempo:
 
 2. Establezca filtros de eventos como se indica a continuación:
 
-   - **Incluir dirección**: Muestra dispositivos de eventos específicos.
+   - **Incluir dirección**: muestra eventos de dispositivos concretos.
 
-   - **Excluir dirección**: Oculta dispositivos de eventos específicos.
+   - **Excluir dirección**: oculta eventos de dispositivos concretos.
 
-   - **Incluir tipos de eventos**: Muestra tipos de eventos específicos.
+   - **Incluir tipos de eventos**: muestra tipos de eventos concretos.
 
-   - **Excluir tipos de eventos**: Oculta tipos de eventos específicos.
+   - **Excluir tipos de eventos**: oculta tipos de eventos concretos.
 
    - **Grupo de dispositivos**: Seleccione un grupo de dispositivos tal y como se definió en el mapa del dispositivo. Solo se presentan los eventos de este grupo.
 
@@ -87,7 +87,7 @@ Para filtrar la escala de tiempo:
 
     - Seleccione **archivo PCAP** para descargar el archivo PCAP (si existe) que contiene una captura de paquetes de toda la red en un momento determinado. 
     
-      El archivo PCAP contiene información técnica que puede ayudar a los ingenieros a determinar exactamente dónde ocurrió el evento y lo que está sucediendo allí. Puede analizar el archivo PCAP con un analizador de protocolos de red como Wireshark, una aplicación gratuita.
+      El archivo PCAP contiene información técnica que puede ayudar a los ingenieros de redes a determinar los parámetros exactos del evento. Puede analizar el archivo PCAP con un analizador de protocolos de red como Wireshark, una aplicación de código abierto.
 
 ## <a name="see-also"></a>Consulte también
 

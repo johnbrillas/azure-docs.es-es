@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de una consulta compartida con la CLI de Azure'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la extensión de Resource Graph en la CLI de Azure y crear una consulta compartida.
-ms.date: 10/14/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 93df1c858ac6238a0192bcdedac8286f2cf75007
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: ec1b010771790339a13777624f04c7bd2db01f11
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919716"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594390"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Inicio rápido: Creación de una consulta compartida de Azure Resource Graph mediante la CLI de Azure
 

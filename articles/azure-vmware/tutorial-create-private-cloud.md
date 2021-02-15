@@ -3,12 +3,12 @@ title: 'Tutorial: Implementación del clúster de vSphere en Azure'
 description: Aprenda a implementar un clúster de vSphere en Azure mediante Azure VMware Solution
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966316"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093954"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementación de una nube privada de Azure VMware Solution en Azure
 
@@ -74,25 +74,6 @@ Proporcione un nombre para el grupo de recursos y la nube privada, una ubicació
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Eliminación de una nube privada de Azure VMware Solution
-
-Si tiene una nube privada de Azure VMware Solution que ya no necesita, puede eliminarla. Una nube privada de Azure VMware Solution incluye un dominio de red aislado, uno o varios clústeres de vSphere aprovisionados en hosts de servidor dedicados y varias máquinas virtuales. Cuando se elimina una nube privada, se eliminan todas las máquinas virtuales, sus datos y los clústeres. Los hosts dedicados sin sistema operativo se borran de forma segura y se devuelven al grupo libre. Se elimina el dominio de red aprovisionado para el cliente.  
-
-> [!CAUTION]
-> La eliminación de la nube privada es una operación irreversible. Una vez eliminada la nube privada, no se pueden recuperar los datos, ya que se finalizan todas las cargas de trabajo en ejecución, se eliminan los componentes y se destruyen todos los datos y valores de configuración de la nube privada, incluidas las direcciones IP públicas.
-
-### <a name="prerequisites"></a>Requisitos previos
-
-Una vez que se elimina una nube privada, no hay forma de recuperar las máquinas virtuales ni sus datos. Si los datos de la máquina virtual se necesitan más adelante, el administrador debe realizar primero una copia de seguridad de todos los datos antes de eliminar la nube privada.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Pasos para eliminar una nube privada de Azure VMware Solution
-
-1. Acceda a la página Azure VMware Solutions desde Azure Portal.
-
-2. Seleccione la nube privada que se va a eliminar.
- 
-3. Escriba el nombre de la nube privada y seleccione **Sí**. El proceso de eliminación se completa en pocas horas.  
 
 ## <a name="azure-vmware-commands"></a>Comandos de Azure VMware
 
