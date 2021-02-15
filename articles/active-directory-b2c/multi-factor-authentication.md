@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225165"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525151"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -41,9 +41,12 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup*.
 1. Seleccione **Propiedades**.
 1. En la sección **Autenticación multifactor**, seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **Condicional (recomendado)** .
-  > [!NOTE]
-  > Si selecciona **Condicional (recomendado)** , también tendrá que [agregar una directiva de acceso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
-1. Seleccione Guardar. MFA ahora está habilitado para este flujo de usuario.
+   > [!NOTE]
+   >
+   > - Si selecciona **Condicional (recomendado)** , también tendrá que [agregar una directiva de acceso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) y especificar las aplicaciones a las que quiere que se aplique dicha directiva.
+   > - La autenticación multifactor (MFA) está deshabilitada de forma predeterminada para los flujos de registro de usuarios. Puede habilitar MFA en los flujos de usuario con el registro telefónico, pero como el número de teléfono se usa como identificador principal, el código de acceso de un solo uso de correo electrónico es la única opción disponible para el segundo factor de autenticación.
+
+1. Seleccione **Guardar**. MFA ahora está habilitado para este flujo de usuario.
 
 Puede usar **Ejecutar flujo de usuario** para comprobar la experiencia. Considere el siguiente escenario:
 

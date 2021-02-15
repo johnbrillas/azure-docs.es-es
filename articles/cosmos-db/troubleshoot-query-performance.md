@@ -8,12 +8,12 @@ ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475733"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524334"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -206,12 +206,15 @@ La mayoría de las funciones del sistema usan índices. Esta es una lista de fun
 - Left
 - Subcadena: pero solo si la primera instancia de num_expr es 0
 
-A continuación se indican algunas funciones del sistema comunes que no usa el índice y que debe cargar cada documento:
+A continuación se indican algunas funciones del sistema comunes que no usa el índice y que debe cargar cada documento cuando se usan en una cláusula `WHERE`:
 
 | **Función del sistema**                     | **Ideas de optimización**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | En lugar de usar la función del sistema para normalizar los datos al realizar comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Una consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se convierte en ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Mayúsculas y minúsculas                         | En lugar de usar la función del sistema para normalizar los datos al realizar comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Una consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se convierte en ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcule la hora actual antes de la ejecución de la consulta y use ese valor de cadena en la cláusula `WHERE`. |
 | Funciones matemáticas (sin agregados) | Si necesita calcular frecuentemente un valor en la consulta, considere la posibilidad de almacenarlo como propiedad en el documento JSON. |
+
+Cuando se usan en la cláusula `SELECT`, las funciones del sistema ineficaces no afectarán al modo en que las consultas pueden usar índices.
 
 ### <a name="improve-string-system-function-execution"></a>Mejora de la ejecución de funciones del sistema de cadena
 

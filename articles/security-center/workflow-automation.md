@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919534"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550326"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatización de respuestas a desencadenadores de Security Center
 
 Cada programa de seguridad incluye varios flujos de trabajo para la respuesta a incidentes. Estos procesos pueden incluir notificaciones para las partes interesadas competentes, iniciar un proceso de administración de cambios y aplicar pasos de corrección específicos. Los expertos en seguridad recomiendan automatizar tantos pasos de esos procedimientos como sea posible. Recuerde que la automatización reduce la sobrecarga. También puede mejorar la seguridad asegurándose de que los pasos del proceso se realizan de forma rápida, coherente y según sus requisitos predefinidos.
 
-En este artículo se describe la característica de automatización de flujos de trabajo de Azure Security Center. Esta característica puede desencadenar una instancia de Logic Apps sobre alertas y recomendaciones de seguridad. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+En este artículo se describe la característica de automatización de flujos de trabajo de Azure Security Center. Esta característica puede desencadenar aplicaciones lógicas sobre alertas de seguridad, recomendaciones y cambios en el cumplimiento normativo. Por ejemplo, si quiere que Security Center envíe un correo electrónico a un usuario específico cuando se produce una alerta. También aprenderá a crear instancias de Logic Apps con [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="availability"></a>Disponibilidad
@@ -70,10 +70,12 @@ En este artículo se describe la característica de automatización de flujos de
 
     El diseñador de aplicaciones lógicas admite estos desencadenadores de Security Center:
 
-    * **Cuando se crea o se desencadena una recomendación de Azure Security Center**: si la aplicación lógica se basa en una recomendación que entra en desuso o se reemplaza, la automatización dejará de funcionar y deberá actualizar el desencadenador. Para hacer un seguimiento de los cambios en las recomendaciones, vea las [notas de la versión de Azure Security Center](release-notes.md).
+    - **Cuando se crea o se desencadena una recomendación de Azure Security Center**: si la aplicación lógica se basa en una recomendación que entra en desuso o se reemplaza, la automatización dejará de funcionar y deberá actualizar el desencadenador. Para hacer un seguimiento de los cambios en las recomendaciones, vea las [notas de la versión de Azure Security Center](release-notes.md).
 
-    * **Cuando se crea o se desencadena una alerta de Azure Security Center**: puede personalizar el desencadenador para que se refiera solo a las alertas con los niveles de gravedad que le interesen.
+    - **Cuando se crea o se desencadena una alerta de Azure Security Center**: puede personalizar el desencadenador para que se refiera solo a las alertas con los niveles de gravedad que le interesen.
     
+    - **When a Security Center regulatory compliance assessment is created or triggered** (Cuando se crea o se desencadena una evaluación de cumplimiento normativo de Security Center): se desencadenan automatizaciones según las actualizaciones de las evaluaciones de cumplimiento normativo.
+
     > [!NOTE]
     > Si utiliza el desencadenador heredado "Cuando se desencadena una respuesta a una alerta de Azure Security Center", la característica de automatización de flujos de trabajo no iniciará su instancia de aplicación lógica. En su lugar, use cualquiera de los desencadenadores mencionados anteriormente. 
 

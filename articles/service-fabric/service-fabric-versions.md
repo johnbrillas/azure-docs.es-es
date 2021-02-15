@@ -3,12 +3,12 @@ title: Actualización de la versión del clúster de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918116"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549075"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Actualización de la versión del clúster de Azure Service Fabric
 
@@ -40,7 +40,7 @@ Los clústeres de Azure Service Fabric que se ejecutan en las versiones de 5.7 a
 Actualice a una versión de Service Fabric compatible para evitar el tiempo de inactividad o la pérdida de funcionalidad relacionados con este cambio. Asegúrese de que los clústeres ejecuten al menos las versiones siguientes para evitar problemas en su entorno.
 
 > [!Note]
-> Todas las versiones de 7.2 incluyen los cambios necesarios.
+> **Todas las versiones de 7.2 incluyen los cambios necesarios**.
   
   | SO | Entorno de ejecución actual de Service Fabric en el clúster | Versión de revisión/actualización acumulativa |
   | --- | --- |--- |
@@ -75,9 +75,15 @@ Para evitar tiempos de inactividad o pérdida de funcionalidad, asegúrese de qu
 Las versiones de Service Fabric de la tabla contienen los cambios necesarios para evitar la pérdida de funcionalidad. Asegúrese de que está usando una de estas versiones.  
 
 > [!Note]
-> Todas las versiones de 7.2 incluyen los cambios necesarios.
+> **Los clústeres de Azure Service Fabric que se ejecutan en la versión 6.5 tienen que realizar varias actualizaciones al mismo tiempo antes de cambiar la infraestructura para evitar la pérdida de funcionalidad en el clúster** . 
+>   -   1. Actualice a 7.0.466. **Los clústeres que ejecutan el sistema operativo Windows que tiene habilitada la característica de contenedores de Windows NO PUEDEN estar en esta versión intermedia. Deben completar el paso siguiente (II) que aparece a continuación, es decir, actualizar para que esté en la versión más segura y compatible a fin de evitar interrupciones del servicio**.
+>   -   2. Actualice a las versiones compatibles más recientes de la versión 7.0* (7.0.478) o cualquiera de las versiones superiores que se muestran a continuación.
 
-  | SO | Entorno de ejecución actual de Service Fabric en el clúster | Versión de revisión/actualización acumulativa |
+
+> [!Note]
+> **Todas las versiones de 7.2 incluyen los cambios necesarios**.
+
+ | SO | Entorno de ejecución actual de Service Fabric en el clúster | Versión de revisión/actualización acumulativa |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |

@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927738"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979987"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -175,6 +175,24 @@ Consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings) 
 
 ## <a name="create-using-azure-policy"></a>Creación mediante Azure Policy
 Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Para más información, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
+
+## <a name="metric-category-is-not-supported-error"></a>La categoría de métrica no es un error compatible
+Al implementar una configuración de diagnóstico, recibirá el mensaje de error siguiente:
+
+   "La categoría de métrica '*xxxx*' no se admite"
+
+Por ejemplo: 
+
+   "La categoría de métrica 'ActionsFailed' no se admite"
+
+donde anteriormente se realizó correctamente la implementación. 
+
+El problema se produce al usar una plantilla de Resource Manager, la API de REST de configuración de diagnóstico, la CLI de Azure o Azure PowerShell. La configuración de diagnóstico creada a través de Azure Portal no se ve afectada, ya que solo se presentan los nombres de categoría admitidos.
+
+El problema se debe a un cambio reciente en la API subyacente. Las categorías de métricas que no sean "AllMetrics" no se admiten y nunca han estado salvo para unos servicios de Azure muy específicos. En el pasado, se omitieron otros nombres de categoría al implementar una configuración de diagnóstico. El back-end de Azure Monitor simplemente redirigió estas categorías a "AllMetrics".  A partir de febrero de 2021, el back-end se actualizó para confirmar específicamente que la categoría de métrica proporcionada es precisa. Este cambio ha provocado un error en algunas implementaciones.
+
+Si recibe este error, actualice las implementaciones para reemplazar los nombres de categoría de métrica por "AllMetrics" para corregir el problema. Si la implementación agregaba anteriormente varias categorías, solo debe conservarse una con la referencia "AllMetrics". Si sigue teniendo el problema, póngase en contacto con el equipo de soporte técnico de Azure a través de Azure Portal. 
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

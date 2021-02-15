@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323784"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584947"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -59,12 +59,12 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 Después de ejecutar **Evaluate Model** (Evaluar modelo), seleccione el módulo para abrir el panel de navegación **Evaluate Model** (Evaluar modelo) a la derecha.  Luego, elija la pestaña **Outputs + Logs** (Salidas y registros) y, en esa pestaña, la sección **Data Outputs** (Salidas de datos) tiene varios iconos. El icono **Visualizar** tiene un icono gráfico de barras y es una primera forma de ver los resultados.
 
-En el caso de la clasificación binaria, después de hacer clic en el icono **Visualizar** , puede visualizar la matriz de confusión binaria.
-En el caso de la clasificación múltiple, puede encontrar el archivo de trazado de la matriz de confusión en la pestaña **Salidas y registros** , como se muestra a continuación:
+En el caso de la clasificación binaria, después de hacer clic en el icono **Visualizar**, puede visualizar la matriz de confusión binaria.
+En el caso de la clasificación múltiple, puede encontrar el archivo de trazado de la matriz de confusión en la pestaña **Salidas y registros**, como se muestra a continuación:
 > [!div class="mx-imgBorder"]
 > ![Vista previa de la imagen cargada](media/module/multi-class-confusion-matrix.png)
 
-Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model** , los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
+Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model**, los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
 El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en el informe, seguido de las métricas del conjunto de datos, o el modelo conectado al puerto derecho.  
 
 Por ejemplo, la imagen siguiente representa una comparación de los resultados de dos modelos de agrupación en clústeres que se crearon con los mismos datos, pero con distintos parámetros.  
@@ -75,7 +75,7 @@ Debido a que se trata de un modelo de agrupación en clústeres, los resultados 
 
 ## <a name="metrics"></a>Métricas
 
-Esta sección describe las métricas devueltas para los tipos específicos de los modelos admitidos para su uso con **Evaluate Model** :
+Esta sección describe las métricas devueltas para los tipos específicos de los modelos admitidos para su uso con **Evaluate Model**:
 
 + [Modelos de clasificación](#metrics-for-classification-models)
 + [Modelos de regresión](#metrics-for-regression-models)
@@ -94,7 +94,7 @@ Las siguientes métricas se notifican al evaluar los modelos de clasificación b
   
 -   **Puntuación F1** se calcula como el promedio ponderado de precisión y recuperación entre 0 y 1, donde el valor ideal de puntuación F1 es 1.  
   
--   **AUC** mide el área bajo la curva trazada con los verdaderos positivos en el eje y los falsos positivos en el eje x. Esta métrica es útil porque proporciona un número único que le permite comparar los modelos de diferentes tipos.  
+-   **AUC** mide el área bajo la curva trazada con los verdaderos positivos en el eje y los falsos positivos en el eje x. Esta métrica es útil porque proporciona un número único que le permite comparar los modelos de diferentes tipos. AUC es el umbral de clasificación invariable. Mide la calidad de las predicciones del modelo con independencia del umbral de clasificación elegido.
 
 
 ### <a name="metrics-for-regression-models"></a>Métricas para los modelos de regresión
@@ -113,7 +113,7 @@ Las métricas devueltas para los modelos de regresión están diseñadas para es
   
 
   
-- **Coeficiente de determinación** : a menudo conocido como R <sup>2</sup>, representa la eficacia predictiva del modelo como un valor entre 0 y 1. Cero significa que el modelo es aleatorio (no explica nada); 1 significa que hay un ajuste perfecto. Pero hay que tener precaución al interpretar los valores de R<sup>2</sup>, ya que los valores bajos pueden ser completamente normales y los valores altos pueden ser sospechosos.
+- **Coeficiente de determinación**: a menudo conocido como R <sup>2</sup>, representa la eficacia predictiva del modelo como un valor entre 0 y 1. Cero significa que el modelo es aleatorio (no explica nada); 1 significa que hay un ajuste perfecto. Pero hay que tener precaución al interpretar los valores de R<sup>2</sup>, ya que los valores bajos pueden ser completamente normales y los valores altos pueden ser sospechosos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de agrupación en clústeres
 

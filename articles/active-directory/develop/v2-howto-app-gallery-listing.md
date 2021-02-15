@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752861"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988914"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -85,7 +85,7 @@ Puede obtener una cuenta de prueba gratuita con todas las características de Az
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Paso 1: Elija el estándar de inicio de sesión único adecuado para su aplicación
 
-Para mostrar una aplicación en la galería de aplicaciones de Azure AD, debe implementar al menos una de las opciones admitidas de inicio de sesión único. Para comprender las opciones de inicio de sesión único y cómo las configurarán los clientes en Azure AD, vea [Opciones de inicio de sesión único](../manage-apps/sso-options.md).
+Para mostrar una aplicación en la galería de aplicaciones de Azure AD, implemente al menos una de las opciones admitidas de inicio de sesión único. Para comprender las opciones de inicio de sesión único y cómo las configurarán los clientes en Azure AD, vea [Opciones de inicio de sesión único](../manage-apps/sso-options.md).
 
 En la tabla siguiente se comparan los estándares principales: Open Authentication 2.0 (OAuth 2.0) con OpenID Connect (OIDC), Lenguaje de marcado de aserción de seguridad (SAML) y Web Services Federation (WS-Fed).
 
@@ -186,7 +186,7 @@ Necesitará un inquilino de Azure AD para probar la aplicación. Para configura
 
 Como alternativa, cada suscripción a Microsoft 365 incluye un inquilino de Azure AD. Para configurar un entorno de desarrollo de Microsoft 365 gratuito, vea [Unirse al programa de desarrolladores de Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Una vez que tenga un inquilino, debe probar el inicio de sesión único y el [aprovisionamiento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Una vez que tenga un inquilino, pruebe el inicio de sesión único y el [aprovisionamiento](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **En aplicaciones de OIDC u Oath**, [registre la aplicación](quickstart-register-app.md) como una aplicación multiinquilino. ‎Seleccione la opción Cuentas en cualquier directorio organizativo y cuentas Microsoft personales en Tipos de cuenta admitidos.
 

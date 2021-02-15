@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795625"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582033"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en la plataforma de identidad de Microsoft
 
@@ -101,12 +101,12 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
 ### <a name="updating-the-application-manifest"></a>Actualizar el manifiesto de aplicación
 
-Si tiene un certificado, debe calcular:
+Después de adquirir un certificado, calcule estos valores:
 
 - `$base64Thumbprint`: valor codificado en Base 64 del hash del certificado
 - `$base64Value`: valor codificado en Base 64 de los datos sin procesar del certificado
 
-También debe proporcionar un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
+Proporcione un GUID para identificar la clave en el manifiesto de la aplicación (`$keyId`).
 
 En el registro de aplicación de Azure para la aplicación cliente:
 1. Seleccione **Manifiesto** para abrir el manifiesto de aplicación.

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165828"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583746"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso de exploradores web (MSAL.NET)
 
@@ -41,7 +41,7 @@ Es importante entender que al adquirir un token de forma interactiva, el conteni
 
 MSAL.NET es una biblioteca de varios marcos que tiene un código específico de marco para hospedar un explorador en un control de interfaz de usuario (por ejemplo, en .NET Classic usa WinForms, en Xamarin usa controles móviles nativos, etc.). Este control se llama interfaz de usuario web `embedded`. Como alternativa, MSAL.NET también puede iniciar el explorador del sistema operativo del sistema.
 
-En general, se recomienda que use la plataforma predeterminada, que suele ser el explorador del sistema. El explorador del sistema la mejor opción para recordar a los usuarios que han iniciado sesión antes. Si necesita cambiar este comportamiento, use `WithUseEmbeddedWebView(bool)`.
+En general, se recomienda que use la plataforma predeterminada, que suele ser el explorador del sistema. El explorador del sistema la mejor opción para recordar a los usuarios que han iniciado sesión antes. Para cambiar este comportamiento, use `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>En un vistazo
 
@@ -141,7 +141,7 @@ También puede habilitar vistas web insertadas en aplicaciones Xamarin.iOS y Xam
 
 Como desarrollador que utiliza MSAL.NET con Xamarin como destino, puede optar por utilizar vistas web integradas o exploradores del sistema. Esta es su elección en función de la experiencia del usuario y de las preocupaciones de seguridad a las que desea dirigirse.
 
-Actualmente, MSAL.NET todavía no admite los agentes de iOS y Android. Por lo tanto, si necesita proporcionar un inicio de sesión único (SSO), el explorador del sistema podría ser una mejor opción. La compatibilidad de los agentes con el explorador web insertado se encuentra todavía pendiente en MSAL.NET.
+Actualmente, MSAL.NET todavía no admite los agentes de iOS y Android. Por lo tanto, para proporcionar un inicio de sesión único (SSO), el explorador del sistema podría ser una mejor opción. La compatibilidad de los agentes con el explorador web insertado se encuentra todavía pendiente en MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Diferencias entre la vista web insertada y el explorador del sistema
 Hay algunas diferencias visuales entre la vista web insertada y el explorador del sistema en MSAL.NET.

@@ -3,14 +3,14 @@ title: Hipótesis para la implementación de plantillas
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673977"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591631"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operación what-if de la implementación de plantilla de Resource Manager
 
@@ -21,10 +21,6 @@ Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las ope
 ## <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 
 Para usar operaciones what-if en PowerShell, debe tener la versión **4.2 o posterior del módulo Az**.
-
-Sin embargo, antes de instalar el módulo necesario, asegúrese de que tiene PowerShell Core (6.x o 7.x). Si tiene PowerShell 5.x o anterior, debe [actualizar la versión de PowerShell](/powershell/scripting/install/installing-powershell). No se puede instalar el módulo necesario en PowerShell 5.x o versiones anteriores.
-
-### <a name="install-latest-version"></a>Instalación de la última versión
 
 Para instalar el módulo, use:
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 La operación hipotética admite el uso del [modo de implementación](deployment-modes.md). Cuando se establece en el modo completo, se eliminan los recursos que no están en la plantilla. En el ejemplo siguiente se implementa una plantilla [que no tiene recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) en el modo completo.
 
-Para obtener una vista previa de los cambios antes de implementar una plantilla, use el parámetro de modificador confirm con el comando de implementación. Si los cambios son los esperados, confirme que desea que se complete la implementación.
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use el parámetro de modificador confirm con el comando de implementación. Si los cambios son los esperados, responda que desea que se complete la implementación.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

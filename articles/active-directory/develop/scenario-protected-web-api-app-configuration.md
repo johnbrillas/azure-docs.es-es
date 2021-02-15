@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753574"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582492"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
-Para configurar el código de la API web protegida, debe comprender lo siguiente:
+Para configurar el código de la API web protegida, entienda lo siguiente:
 
 - Qué define las API como protegidas.
 - Cómo configurar un token de portador.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756497"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584438"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 
@@ -82,7 +82,7 @@ En las secciones siguientes se proporciona más información sobre la creación 
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificación de la ventana, la actividad o la interfaz de usuario primaria
 
-En Android, debe pasar la actividad primaria antes de realizar la autenticación interactiva. En iOS, cuando se usa un agente, debe pasar `ViewController`. Del mismo modo en UWP, puede que quiera pasar la ventana primaria. Se pasa al adquirir el token. No obstante, al crear la aplicación, también puede especificar una devolución de llamada como un delegado que devuelve `UIParent`.
+En Android, pase la actividad principal antes de realizar la autenticación interactiva. En iOS, cuando se use un agente, pase `ViewController`. Del mismo modo en UWP, puede que quiera pasar la ventana primaria. Se pasa al adquirir el token. No obstante, al crear la aplicación, también puede especificar una devolución de llamada como un delegado que devuelve `UIParent`.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)

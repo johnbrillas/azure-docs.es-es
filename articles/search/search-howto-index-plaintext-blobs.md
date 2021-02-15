@@ -8,25 +8,25 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430435"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509459"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Indexación de blobs de texto sin formato en Azure Cognitive Search
 
-Si usa un [indexador de blobs](search-howto-indexing-azure-blob-storage.md) para extraer texto que permite búsquedas para la búsqueda de texto completo, se pueden invocar varios modos de análisis para obtener mejores resultados de la indexación. De forma predeterminada, el indexador analiza el contenido de los blobs como un único fragmento de texto. Sin embargo, si todos los blobs contienen texto sin formato con la misma codificación, el rendimiento de la indexación se puede mejorar notablemente mediante el uso del modo de análisis`text`.
+Si usa un [indexador de blobs](search-howto-indexing-azure-blob-storage.md) para extraer texto de blobs que permite búsquedas para la búsqueda de texto completo, se puede asignar un modo de análisis para obtener mejores resultados de la indexación. De forma predeterminada, el indexador analiza el contenido de los blobs como un único fragmento de texto. Sin embargo, si todos los blobs contienen texto sin formato con la misma codificación, el rendimiento de la indexación se puede mejorar notablemente mediante el uso del modo de análisis`text`.
 
-El modo de análisis `text` se debe usar cuando:
+Las recomendaciones para usar el análisis `text` incluyen:
 
 + El tipo de archivo es .txt
 + Los archivos son de cualquier tipo, pero el propio contenido es texto (por ejemplo, código fuente del programa, HTML, XML, etc.). En el caso de los archivos de un lenguaje de marcado, los caracteres de la sintaxis aparecerán como texto estático.
 
-Recuerde que los indexadores se serializan en JSON. El contenido de todo el archivo de texto completo se indexará en un campo grande como `"content": "<file-contents>"`. Las instrucciones new line y return se expresan como `\r\n\`.
+Recuerde que todos los indexadores se serializan en JSON. De forma predeterminada, el contenido de todo el archivo de texto completo se indexará en un campo grande como `"content": "<file-contents>"`. Las nuevas líneas y las instrucciones devueltas se insertan en el campo de contenido y se expresan como `\r\n\`.
 
-Si desea un resultado más granular, tenga en cuenta las siguientes soluciones:
+Si desea un resultado más granular, y si el tipo de archivo es compatible, tenga en cuenta las siguientes soluciones:
 
 + Modo de análisis [`delimitedText`](search-howto-index-csv-blobs.md), si el origen es CSV
 + [`jsonArray` o `jsonLines`](search-howto-index-json-blobs.md), si el origen es JSON

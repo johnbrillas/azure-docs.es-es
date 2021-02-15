@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836980"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509038"
 ---
 # <a name="work-with-device-notifications"></a>Uso de las notificaciones del dispositivo
 
@@ -60,13 +60,13 @@ En la tabla siguiente se describen los tipos de evento de notificación que pued
 
 | Tipos de eventos de notificación | Descripción | Respuestas |
 |--|--|--|
-| Nuevas direcciones IP | Hay una nueva dirección IP asociada con el dispositivo. Pueden detectarse cinco escenarios: <br /><br /> Se asoció una dirección IP adicional a un dispositivo. Este dispositivo también está asociado a una dirección MAC existente.<br /><br /> Se detectó una nueva dirección IP para un dispositivo que usa una dirección MAC existente. Actualmente, el dispositivo no se comunica mediante una dirección IP.<br /> <br /> Se detectó una nueva dirección IP para un dispositivo que utiliza un nombre NetBIOS. <br /><br /> Se detectó una dirección IP como interfaz de administración de un dispositivo asociado a una dirección MAC. <br /><br /> Se detectó una nueva dirección IP para un dispositivo que usa una dirección IP virtual. | **Establecer IP adicional en el dispositivo** (mezcla de dispositivos) <br /> <br />**Reemplazar IP existente** <br /> <br /> **Descartar**<br /> Quite la notificación. |
+| Nueva dirección IP detectada | Hay una nueva dirección IP asociada con el dispositivo. Pueden detectarse cinco escenarios: <br /><br /> Se asoció una dirección IP adicional a un dispositivo. Este dispositivo también está asociado a una dirección MAC existente.<br /><br /> Se detectó una nueva dirección IP para un dispositivo que usa una dirección MAC existente. Actualmente, el dispositivo no se comunica mediante una dirección IP.<br /> <br /> Se detectó una nueva dirección IP para un dispositivo que utiliza un nombre NetBIOS. <br /><br /> Se detectó una dirección IP como interfaz de administración de un dispositivo asociado a una dirección MAC. <br /><br /> Se detectó una nueva dirección IP para un dispositivo que usa una dirección IP virtual. | **Establecer IP adicional en el dispositivo** (mezcla de dispositivos) <br /> <br />**Reemplazar IP existente** <br /> <br /> **Descartar**<br /> Quite la notificación. |
 | Dispositivos inactivos | No se ha detectado tráfico en un dispositivo durante más de 60 días. | **Eliminar** <br /> Si este dispositivo no forma parte de la red, quítelo. <br /><br />**Descartar** <br /> Quite la notificación si el dispositivo forma parte de la red. Si el dispositivo está inactivo (por ejemplo, porque se ha desconectado por error de la red), descarte la notificación y vuelva a conectarlo. |
-| Nuevo dispositivo de OT | Una subred incluye un dispositivo de OT que no está definido en una subred de ICS. <br /><br /> Cada subred que contiene al menos un dispositivo de OT puede definirse como una subred de ICS. Esto ayuda a diferenciar entre los dispositivos de OT y TI en el mapa. | **Establecer como subred de ICS** <br /> <br /> **Descartar** <br />Quite la notificación si el dispositivo no forma parte de la subred. |
+| Nuevos dispositivos de OT | Una subred incluye un dispositivo de OT que no está definido en una subred de ICS. <br /><br /> Cada subred que contiene al menos un dispositivo de OT puede definirse como una subred de ICS. Esto ayuda a diferenciar entre los dispositivos de OT y TI en el mapa. | **Establecer como subred de ICS** <br /> <br /> **Descartar** <br />Quite la notificación si el dispositivo no forma parte de la subred. |
 | No hay subredes configuradas | No hay subredes configuradas actualmente en la red. <br /><br /> Para una mejor representación en el mapa y poder diferenciar entre los dispositivos de OT y TI, configure subredes. | **Abra Subnets Configuration** (Configuración de subredes) y configure las subredes. <br /><br />**Descartar** <br /> Quite la notificación. |
 | Cambios en el sistema operativo | Uno o más sistemas operativos nuevos se han asociado al dispositivo. | Seleccione el nombre del nuevo sistema operativo que quiere asociar al dispositivo.<br /><br /> **Descartar** <br /> Quite la notificación. |
-| Se detectaron subredes | Se detectaron nuevas subredes. | **Learn**<br />Agregue automáticamente la subred.<br />**Abrir Subnet Configuration** (Configuración de subredes)<br />Agregue toda la información de subred que falta.<br />**Descartar**<br />Quite la notificación. |
-| Se detectó un cambio en el tipo de dispositivo | Se ha asociado un nuevo tipo de dispositivo al dispositivo. | **Establecer como {…}**<br />Asocie el nuevo tipo al dispositivo.<br />**Descartar**<br />Quite la notificación. |
+| Nuevas subredes | Se detectaron nuevas subredes. | **Learn**<br />Agregue automáticamente la subred.<br />**Abrir Subnet Configuration** (Configuración de subredes)<br />Agregue toda la información de subred que falta.<br />**Descartar**<br />Quite la notificación. |
+| Cambios de tipo de dispositivo | Se ha asociado un nuevo tipo de dispositivo al dispositivo. | **Establecer como {…}**<br />Asocie el nuevo tipo al dispositivo.<br />**Descartar**<br />Quite la notificación. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Respuesta a muchas notificaciones a la vez
 

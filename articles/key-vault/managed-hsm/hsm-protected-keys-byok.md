@@ -6,14 +6,14 @@ author: amitbapat
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 444f279f8e96486bd6ad61a2ea2640a18b491c9c
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 1a15ed6b92ade96dd2ed9ef6ffbbe17e2b1452ef
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222241"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581421"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importación de claves protegidas con HSM en HSM administrado (BYOK)
 
@@ -75,11 +75,14 @@ Para más información sobre las opciones de inicio de sesión mediante la CLI, 
 
 ## <a name="supported-key-types"></a>Tipos de clave admitidos
 
-|Nombre de clave|Tipo de clave|Tamaño de clave|Origen|Descripción|
+|Nombre de clave|Tipo de clave|Tamaño o curva de la clave|Origen|Descripción|
 |---|---|---|---|---|
 |Clave de intercambio de claves (KEK)|RSA| 2048 bits<br />3072 bits<br />4096 bits|HSM administrado|Un par de claves RSA respaldadas por HSM generado en HSM administrado|
-|Clave de destino|RSA|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
-
+|Clave de destino|
+||RSA|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||EC|P-256<br />P-384<br />P-521|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||Clave simétrica (oct-HSM)|128 bits<br />192 bits<br />256 bits|HSM del proveedor|La clave que se va a transferir al HSM administrado|
+||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Generación y transferencia de la clave al HSM administrado
 
 Para generar y transferir la clave a un HSM administrado:

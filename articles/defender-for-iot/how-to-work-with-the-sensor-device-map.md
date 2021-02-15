@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976765"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509055"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigación de las detecciones de sensores en la asignación de dispositivos
 
@@ -63,7 +63,7 @@ En la ilustración siguiente se muestra una subred de TI contraída con 27 elem
 
 Para habilitar la capacidad de contracción de redes de TI:
 
-- En la ventana Configuración del sistema, asegúrese de que la capacidad de redes de TI está habilitada.
+- En la ventana **Configuración del sistema**, asegúrese de que la capacidad de alternancia de agrupación de redes de TI está habilitada.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Ventana Configuración del sistema":::
 
@@ -76,7 +76,7 @@ Para expandir una subred de TI:
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Subnets Configuration"::: (Configuración de subredes)
 
-2. En la ventana Edit Subnets Configuration (Editar configuración de subredes), desactive la subred ICS de cada subred que quiera definir como subred de TI. Las subredes de TI aparecen contraídas en la asignación de dispositivos con las notificaciones de los dispositivos ICS (como un controlador o PLC) en las redes de TI.
+2. En la ventana **Edit Subnets Configuration** (Editar configuración de subredes), desactive la casilla **ICS Subnet** (Subred ICS) de cada subred que quiera definir como subred de TI. Las subredes de TI aparecen contraídas en la asignación de dispositivos con las notificaciones de los dispositivos ICS (como un controlador o PLC) en las redes de TI.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Edit Subnets Configuration"::: (Editar configuración de subredes)
 
@@ -106,13 +106,13 @@ El icono de contraer se actualiza con el número actualizado de subredes de TI e
 
 ## <a name="view-or-highlight-device-groups"></a>Visualización o resaltado de grupos de dispositivos
 
-Puede personalizar la presentación de la asignación en función de grupos de dispositivos. Por ejemplo, los grupos de dispositivos asociados a una VLAN o subred específicas. Hay grupos predefinidos disponibles y se pueden crear grupos personalizados.
+Puede personalizar la presentación de la asignación en función de grupos de dispositivos. Por ejemplo, los grupos de dispositivos asociados a un protocolo OT, una VLAN o subred específicos. Hay grupos predefinidos disponibles y se pueden crear grupos personalizados.
 
 Ver grupos por:
 
   - **Resaltado:** resalte en azul los dispositivos que pertenecen a un grupo específico.
 
-  - **Filtrado:** solo se muestran los dispositivos de la asignación que pertenecen a un grupo específico.
+  - **Filtrado:** solo se muestran los dispositivos que pertenecen a un grupo específico.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Vista estándar del puerto":::
 
@@ -120,17 +120,18 @@ Están disponibles los siguientes grupos predefinidos:
 
 | Nombre del grupo | Descripción |
 |--|--|
-| **Known applications or non-standard ports (default)** (Aplicaciones conocidas o puertos que no son estándares [valor predeterminado]) | Dispositivos que usan puertos reservados, como TCP. Dispositivos que usan puertos no estándar o puertos a los que no se les ha asignado un alias. |
-| **OT protocols (default)** (Protocolos OT [valor predeterminado]) | Dispositivos que controlan el tráfico de OT. |
-| **Autorización (valor predeterminado)** | Dispositivos detectados en la red durante el proceso de aprendizaje o que se agregaron oficialmente a la red |
+| **Aplicaciones conocidas** | Dispositivos que usan puertos reservados, como TCP.  |
+| **puertos no estándar (valor predeterminado)** | Dispositivos que usan puertos no estándar o puertos a los que no se les ha asignado un alias. |
+| **OT protocols (default)** (Protocolos OT [valor predeterminado]) | Dispositivos que controlan el tráfico de OT conocido. |
+| **Autorización (valor predeterminado)** | Dispositivos detectados en la red durante el proceso de aprendizaje o que se autorizaron oficialmente a la red. |
 | **Device inventory filters** (Filtros de inventario de dispositivos) | Los dispositivos agrupados según los filtros se guardan en la tabla de inventario de dispositivos. |
 | **Intervalos de sondeo** | Dispositivos agrupados por intervalos de sondeo. Los intervalos de sondeo se generan automáticamente por canales cíclicos o períodos. Por ejemplo, 15,0 segundos, 3,0 segundos, 1,5 segundos o cualquier intervalo. Revisar esta información le ayudará a saber si los sistemas se sondean con demasiada rapidez o lentitud. |
-| **Programar** | Estaciones de ingeniería y controladores programados |
+| **Programar** | Estaciones de ingeniería y máquinas programadas. |
 | **Subredes** | Dispositivos que pertenecen a una subred específica. |
 | **VLAN** | Dispositivos asociados a un identificador de VLAN concreto. |
-| **Connection between subnets** (Conexión entre subredes) | Dispositivos asociados a la conexión entre subredes. |
+| **Cross subnet connections** (Conexiones entre subredes) | Dispositivos que se comunican desde una subred a otra subred. |
 | **Pinned alerts** (Alertas ancladas) | Dispositivos para los que el usuario ha anclado una alerta. |
-| **Attack vector simulations** (Simulaciones de vector de ataque) | Dispositivos vulnerables detectados en los informes de vector de ataque. Para ver estos dispositivos en la asignación, active la casilla **Display on Device Map** (Mostrar en la asignación de dispositivos) al generar el vector de ataque. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Add Attack Vector Simulations"::: (Agregar simulaciones de vector de ataque) |
+| **Attack vector simulations** (Simulaciones de vector de ataque) | Dispositivos vulnerables detectados en los informes de vector de ataque. Para ver estos dispositivos en la asignación, active la casilla **Display on Device Map** (Mostrar en la asignación de dispositivos) al generar el vector de ataque. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Add Attack Vector Simulations"::: (Agregar simulaciones de vector de ataque). |
 | **Última visualización** | Dispositivos agrupados por el intervalo de tiempo durante el que se vieron por última vez, por ejemplo: una hora, seis horas, un día, siete días. |
 | **Not In Active Directory** (No está en Active Directory) | Todos los dispositivos que no son de PLC y que no se comunican con la instancia de Active Directory. |
 
@@ -142,7 +143,7 @@ Para resaltar o filtrar dispositivos:
 
 3. En el panel Grupos, seleccione el grupo cuyos dispositivos quiere resaltar o filtrar.
 
-4. Seleccione **Resaltar** o **Filtrar**.
+4. Seleccione **Resaltar** o **Filtrar**. Alterne la misma selección para quitar el resaltado o el filtro.
 
 ## <a name="define-custom-groups"></a>Definición de grupos personalizados
 
@@ -155,20 +156,20 @@ Para crear un grupo:
 
 1. Seleccione **Dispositivos** en el menú lateral. Se muestra la asignación de dispositivos.
 
-2. Seleccione :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: (Configuración de grupos) para mostrar la configuración de grupos.
+1. Seleccione :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: (Configuración de grupos) para mostrar la configuración de grupos.
 
-3. Seleccione :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="Grupos"::: para crear un grupo personalizado.
+1. Seleccione :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="Grupos"::: para crear un grupo personalizado.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Pantalla de creación de un grupo personalizado":::
 
-4. Agregue el nombre del grupo, use hasta 30 caracteres.
+1. Agregue el nombre del grupo, use hasta 30 caracteres.
 
-5. Seleccione los dispositivos pertinentes, tal y como se indica a continuación:
+1. Seleccione los dispositivos pertinentes, tal y como se indica a continuación:
 
    - Para agregar los dispositivos desde este menú, selecciónelos de la lista (seleccionar con el botón de flecha).<br /> O bien, <br /> 
    - Para agregar los dispositivos desde este menú, cópielos de un grupo seleccionado (seleccionar con el botón de flecha).
 
-6. Seleccione **Agregar grupo**.
+1. Seleccione **Agregar grupo** para agregar grupos existentes a grupos personalizados.
 
 ### <a name="add-devices-to-a-custom-group"></a>Adición de dispositivos a un grupo personalizado
 
@@ -176,13 +177,13 @@ Puede agregar dispositivos a un grupo personalizado o crear un grupo personaliza
 
 1. Haga clic con el botón derecho en uno o varios dispositivos de la asignación.
 
-2. Seleccione **Agregar al grupo**.
+1. Seleccione **Agregar al grupo**.
 
-3. Escriba un nombre de grupo en el campo Grupo y seleccione +. Aparece el nuevo grupo. Si el grupo ya existe, se agregará al grupo personalizado existente.
+1. Escriba un nombre de grupo en el campo Grupo y seleccione +. Aparece el nuevo grupo. Si el grupo ya existe, se agregará al grupo personalizado existente.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Nombre de grupo":::
 
-4. Agregue dispositivos a un grupo repitiendo los pasos del 1 al 3.
+1. Agregue dispositivos a un grupo repitiendo los pasos del 1 al 3.
 
 ## <a name="map-zoom-views"></a>Vistas de zoom de asignación
 
@@ -319,12 +320,12 @@ La siguiente información se puede actualizar manualmente. La información espec
 | Información básica | Información básica que es necesaria. |
 | Nombre | El nombre de dispositivo. <br /> De forma predeterminada, el sensor detecta el nombre del dispositivo tal y como se definió en la red. Por ejemplo, un nombre definido en el servidor DNS. <br /> Si no se definieron estos nombres, la dirección IP del dispositivo aparece en este campo. <br /> Puede cambiar manualmente el nombre de un dispositivo. Asigne a los dispositivos nombres descriptivos que reflejen su funcionalidad. |
 | Tipo | Tipo de dispositivo detectado por el sensor. <br /> Para obtener más información, vea [Visualización de tipos de dispositivo](#view-device-types). |
-| Vendor | Proveedor del dispositivo. |
-| Sistema operativo | Sistema operativo del dispositivo. |
+| Vendor | Proveedor del dispositivo. Esto viene determinado por los caracteres iniciales de la dirección MAC del dispositivo. Este campo es de solo lectura. |
+| Sistema operativo | Sistema operativo de dispositivo detectado por el sensor. |
 | Capa de Purdue | Capa de Purdue identificada por el sensor para este dispositivo, que incluye: <br /> - Automático <br /> - Control de procesos <br /> - Supervisor <br /> - Enterprise |
 | Descripción | Campo de texto estático. <br /> Agregue más información sobre el dispositivo. |
 | Atributos | Cualquier información adicional que se haya detectado sobre el dispositivo durante el período de aprendizaje y que no pertenezca a otras categorías aparece en la sección de atributos. <br /> Esta información es de solo lectura. |
-| Configuración | Puede cambiar manualmente la configuración del dispositivo para evitar falsos positivos: <br /> - **Authorized Device** (Dispositivo autorizado): Durante el período de aprendizaje, todos los dispositivos detectados en la red se identifican como dispositivos autorizados. Cuando un dispositivo se detecta después del período de aprendizaje, aparece de forma predeterminada como dispositivo no autorizado. Puede cambiar esta información manualmente. <br /> - **Known as Scanner** (Conocido como escáner): Habilite esta opción si sabe que este dispositivo se conoce como escáner y no es necesario avisarle de ello. <br /> - **Programming Device** (Dispositivo de programación): Habilite esta opción si sabe que este dispositivo se conoce como dispositivo de programación y no es necesario avisarle de ello. |
+| Configuración | Puede cambiar manualmente la configuración del dispositivo para evitar falsos positivos: <br /> - **Authorized Device** (Dispositivo autorizado): Durante el período de aprendizaje, todos los dispositivos detectados en la red se identifican como dispositivos autorizados. Cuando un dispositivo se detecta después del período de aprendizaje, aparece de forma predeterminada como dispositivo no autorizado. Puede cambiar esta información manualmente. <br /> - **Known as Scanner** (Conocido como escáner): Habilite esta opción si sabe que este dispositivo se conoce como escáner y no es necesario avisarle de ello. <br /> - **Programming Device** (Dispositivo de programación): Habilite esta opción si sabe que este dispositivo se conoce como dispositivo de programación y se usa para realizar cambios en la programación. La identificación como un dispositivo de programación impedirá que se produzcan alertas de los cambios de programación procedentes de este recurso. |
 | Grupos personalizados | Grupos personalizados en la asignación de dispositivos en la que participa este dispositivo. |
 | State | Estado de autorización y seguridad del dispositivo: <br /> - El estado es `Secured` cuando no hay ninguna alerta <br /> - Cuando hay alertas sobre el dispositivo, se muestra el número de alertas <br /> - El estado `Unauthorized` se muestra para los dispositivos que se agregaron a la red después del período de aprendizaje. Puede definir manualmente el dispositivo como `Authorized Device` en la configuración <br /> - En caso de que la dirección de este dispositivo se defina como dirección dinámica, se agrega `DHCP` al estado. |
 
@@ -369,7 +370,7 @@ Para ver la información del dispositivo, siga estos pasos:
 
 2. Haga clic con el botón derecho en un dispositivo y seleccione **Ver propiedades**. Se muestra la ventana Propiedades del dispositivo.
 
-3. Seleccione la alerta necesaria en la parte inferior de esta ventana para ver información detallada sobre las alertas de este dispositivo.
+3. Seleccione la alerta necesaria para ver información detallada sobre las alertas de este dispositivo.
 
 ### <a name="backplane-properties"></a>Propiedades de backplane
 
@@ -429,7 +430,7 @@ Mejore los análisis forenses mostrando los eventos de programación que se llev
 
 Puede mostrar un dispositivo programado y desplazarse por los distintos cambios de programación que llevan a cabo otros dispositivos.
 
-Vea el código que el dispositivo de programación ha agregado, modificado, quitado o dejado sin modificar. Busque los cambios de programación por tipos de archivo, fechas u horas de interés.
+Vea el código que el dispositivo de programación ha agregado, modificado, quitado o recargado. Busque los cambios de programación por tipos de archivo, fechas u horas de interés.
 
 ### <a name="when-to-review-programming-activity"></a>Cuándo revisar la actividad de programación 
 
@@ -443,7 +444,7 @@ Es posible que tenga que revisar la actividad de programación:
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Registro de cambios de programación":::
 
-Otras opciones le permiten:
+Otras opciones le permitirán:
 
   - Marcar eventos de interés con una estrella.
 
@@ -476,7 +477,7 @@ Se desencadenan alertas cuando dispositivos de programación no autorizados llev
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Alertas de programación no autorizada":::
 
 > [!NOTE]
-> También puede ver información de programación básica en la ventana Propiedades del dispositivo y el inventario de dispositivos. Para obtener más información, vea [Información de programación del dispositivo: ubicaciones adicionales](#device-programming-information-additional-locations).
+> También puede ver información de programación básica en la ventana Propiedades del dispositivo y el inventario de dispositivos.
 
 ### <a name="working-in-the-programming-timeline-window"></a>Uso de la ventana Programming Timeline (Escala de tiempo de programación)
 
@@ -539,7 +540,7 @@ Para comparar:
 
 5. El archivo seleccionado en el panel Eventos recientes o Archivos siempre aparece a la derecha.
 
-### <a name="device-programming-information-additional-locations"></a>Información de programación del dispositivo: ubicaciones adicionales
+### <a name="device-programming-information-other-locations"></a>Información de programación del dispositivo: otras ubicaciones
 
 Además de revisar los detalles en la escala de tiempo de programación, puede acceder a la información de programación en la ventana Propiedades del dispositivo y el inventario de dispositivos.
 
@@ -556,7 +557,7 @@ El sensor no actualiza ni modifica los dispositivos directamente en la red. Los 
 
 Es posible que quiera eliminar un dispositivo si la información aprendida no es pertinente. Por ejemplo,
 
-  - Un contratista asociado en una estación de trabajo de ingeniería se conecta para realizar actualizaciones de configuración. Una vez completada la tarea, el dispositivo ya no debe supervisarse.
+  - Un contratista asociado en una estación de trabajo de ingeniería se conecta temporalmente para realizar actualizaciones de configuración. Una vez completada la tarea, se quita el dispositivo.
 
   - Debido a los cambios en la red, algunos dispositivos ya no están conectados.
 
@@ -566,7 +567,7 @@ Es posible que reciba una alerta que indique que el dispositivo no responde si o
 
 El dispositivo se quitará de los informes de asignación de dispositivos, de inventario de dispositivos y de minería de datos. Se mantendrá otra información, por ejemplo: la información almacenada en widgets.
 
-El dispositivo debe estar activo durante al menos 10 minutos para eliminarlo.
+El dispositivo debe estar inactivo durante al menos 10 minutos para eliminarlo.
 
 Para eliminar un dispositivo de la asignación de dispositivos:
 
@@ -576,15 +577,17 @@ Para eliminar un dispositivo de la asignación de dispositivos:
 
 ### <a name="merge-devices"></a>Combinación de dispositivos
 
-Es posible que, en determinadas circunstancias, tenga que combinar dispositivos. Esto puede ser necesario si el sensor detecta entidades de red independientes que son un solo dispositivo único. Por ejemplo,
+Es posible que, en determinadas circunstancias, tenga que combinar dispositivos. Esto puede ser necesario si el sensor detectó entidades de red independientes que están asociadas a un solo dispositivo único. Por ejemplo,
 
-  - Un PLC con cuatro tarjetas de red
+  - Un PLC con cuatro tarjetas de red.
 
-  - Un equipo portátil con Wi-Fi y tarjeta física
+  - Un equipo portátil con Wi-Fi y tarjeta física.
+  
+  - Una estación de trabajo con dos o más tarjetas de red.
 
 Al realizar una combinación, se indica al sensor que combine las propiedades del dispositivo de dos dispositivos en uno. Al hacerlo, la ventana Propiedades del dispositivo y los informes del sensor se actualizarán con los detalles de las propiedades del nuevo dispositivo.
 
-Por ejemplo, si combina dos dispositivos con una dirección IP, las dos direcciones IP aparecerán como interfaces independientes en la ventana Propiedades del dispositivo. Solo se pueden combinar dispositivos autorizados.
+Por ejemplo, si combina dos dispositivos, cada uno con una dirección IP, las dos direcciones IP aparecerán como interfaces independientes en la ventana Propiedades del dispositivo. Solo se pueden combinar dispositivos autorizados.
 
 :::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Ventana Propiedades del dispositivo":::
 
@@ -596,7 +599,7 @@ No se puede deshacer una combinación de dispositivos. Si combinó dos dispositi
 
 Para combinar dispositivos:
 
-1. Seleccione dos dispositivos y haga clic con el botón derecho en uno de ellos.
+1. Seleccione dos dispositivos (Mayús + clic) y haga clic con el botón derecho en uno de ellos.
 
 2. Seleccione **Combinar** para combinar los dispositivos. La combinación puede tardar hasta 2 minutos en completarse.
 
@@ -622,7 +625,7 @@ Si mueve un dispositivo en la asignación o cambia manualmente las propiedades d
 
 #### <a name="unauthorized-devices---attack-vectors-and-risk-assessment-reports"></a>Dispositivos no autorizados: informes de vectores de ataque y de evaluación de riesgos
 
-Los dispositivos no autorizados se calculan e incluyen en los informes de evaluación de riesgos y los informes de vectores de ataque.
+Los dispositivos no autorizados se incluyen en los informes de evaluación de riesgos y los informes de vectores de ataque.
 
 - **Informes de vectores de ataque:** Los dispositivos marcados como no autorizados se resuelven en el vector de ataque como dispositivos sospechosos de actividad no autorizada que podrían ser una amenaza para la red.
 

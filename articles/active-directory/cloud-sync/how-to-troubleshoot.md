@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612729"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805536"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solución de problemas de sincronización en la nube
 
@@ -164,7 +164,7 @@ La sincronización en la nube supervisa el estado de la configuración y estable
 
 Al seleccionar el estado, puede ver información adicional acerca de la cuarentena. También puede obtener el código de error y el mensaje.
 
-![Información del estado de cuarentena](media/how-to-troubleshoot/quarantine-2.png)
+![Captura de pantalla que muestra información adicional sobre la cuarentena.](media/how-to-troubleshoot/quarantine-2.png)
 
 Al hacer clic con el botón derecho en el estado, se mostrarán opciones adicionales:
     
@@ -172,7 +172,7 @@ Al hacer clic con el botón derecho en el estado, se mostrarán opciones adicion
    - ver el agente
    - borrar la cuarentena
 
-![Información del estado de cuarentena](media/how-to-troubleshoot/quarantine-4.png)
+![Captura de pantalla que muestra las opciones del menú contextual.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Resolución de una cuarentena
@@ -186,7 +186,7 @@ Para borrar la marca de agua y ejecutar una sincronización diferencial en el tr
 
 Debería ver un aviso de que la cuarentena se está borrando.
 
-![Información del estado de cuarentena](media/how-to-troubleshoot/quarantine-5.png)
+![Captura de pantalla que muestra el aviso de que la cuarentena se está borrando.](media/how-to-troubleshoot/quarantine-5.png)
 
 A continuación, debería ver el estado en el agente como correcto.
 

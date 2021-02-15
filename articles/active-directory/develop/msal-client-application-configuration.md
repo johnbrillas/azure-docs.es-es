@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761366"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580945"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicaciones
 
@@ -73,7 +73,7 @@ Si no se especifica una instancia, la aplicación se dirigirá a la instancia en
 
 La audiencia de inicio de sesión depende de las necesidades empresariales de la aplicación:
 
-- Si es desarrollador de líneas de negocio (LOB), probablemente producirá una aplicación de inquilino único que se usará solo en su organización. En ese caso, debe especificar la organización, ya sea por el Id. de inquilino (el Id. de la instancia de Azure AD) o por un nombre de dominio asociado a la instancia de Azure AD.
+- Si es desarrollador de líneas de negocio (LOB), probablemente producirá una aplicación de inquilino único que se usará solo en su organización. En ese caso, especifique la organización por el Id. de inquilino (el Id. de la instancia de Azure AD) o por un nombre de dominio asociado a la instancia de Azure AD.
 - Si es ISV, puede que quiera que los usuarios inicien sesión con sus cuentas profesionales o educativas en cualquier organización o en determinadas organizaciones (aplicación multiinquilino). Pero también es posible que quiera que los usuarios inicien sesión con sus cuentas personales de Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Cómo especificar la audiencia en el código o la configuración
@@ -122,9 +122,9 @@ Si es desarrollador de aplicaciones cliente públicas que usa MSAL:
   | UWP | Valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Esto permite realizar el inicio de sesión único con el explorador, al establecer el valor en el resultado de WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), que debe registrar. |
   | .NET Core | `https://localhost`. Esto permite que el usuario use el explorador del sistema para la autenticación interactiva, ya que .NET Core no tiene una interfaz de usuario para la vista web insertada en este momento. |
 
-- No es necesario agregar un identificador URI de redireccionamiento si se compila una aplicación Xamarin Android e iOS que no admite agente (el URI de redireccionamiento se establece automáticamente en `msal{ClientId}://auth` para Xamarin Android e iOS).
+- No es necesario agregar un URI de redireccionamiento si se compila una aplicación Xamarin Android e iOS que no admite el URI de redireccionamiento del agente. Se establece automáticamente en `msal{ClientId}://auth` para Xamarin Android e iOS.
 
-- Debe configurar el URI de redireccionamiento en [Registros de aplicaciones](https://aka.ms/appregistrations):
+- Configure el URI de redireccionamiento en [Registros de aplicaciones](https://aka.ms/appregistrations):
 
    ![URI de redirección en Registros de aplicaciones](media/msal-client-application-configuration/redirect-uri.png)
 

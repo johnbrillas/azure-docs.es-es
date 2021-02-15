@@ -209,9 +209,9 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
-                - name: Azure CLI
+                - name: CLI de Azure
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
@@ -781,6 +781,8 @@
             - name: Alertas de disponibilidad
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: Informe del Acuerdo de Nivel de Servicio
+              href: app/sla-report.md
             - name: Solución de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,6 +796,8 @@
         - name: Live Metrics Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: Integración de elementos de trabajo
+          href: app/work-item-integration.md
         - name: Métricas
           items:
             - name: Métricas basadas en registros y agregadas previamente
@@ -1022,7 +1026,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: Análisis de datos con consultas de registros
           href: insights/vminsights-log-search.md
-        - name: Supervisión del rendimiento
+        - name: Alertas
           href: insights/vminsights-alerts.md
         - name: Supervisión de cambios
           href: insights/vminsights-change-analysis.md

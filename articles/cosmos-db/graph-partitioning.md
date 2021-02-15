@@ -8,19 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 076355e39f813292e00aa54780a3aadc49c50d31
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082001"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988745"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso de Graph con particiones en Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Una de las características clave de la API de Gremlin de Azure Cosmos DB es la posibilidad de tratar grafos a gran escala con escalado horizontal. Los contenedores pueden escalarse independientemente en términos de almacenamiento y rendimiento. Puede crear contenedores en Azure Cosmos DB que pueden escalarse automáticamente para almacenar los datos de un grafo. Los datos se equilibrarán automáticamente según la **clave de partición** especificada.
 
-**Se requiere la creación de particiones** si se espera que el contenedor almacene más de 20 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU). Se aplican los mismos principios generales del [mecanismo para crear particiones de Azure Cosmos DB](partitioning-overview.md) con algunas optimizaciones específicas de Grafo que se describen a continuación.
+La creación de particiones se realiza internamente si se espera que el contenedor almacene más de 20 GB de tamaño o se quieren asignar más de 10 000 unidades de solicitud por segundo (RU). Las particiones de datos se crean automáticamente en función de la clave de partición que se especifica. La clave de partición es necesaria si se crean contenedores de gráficos desde Azure Portal o desde las versiones 3.x o posteriores de los controladores Gremlin. La clave de partición no es necesaria si usa las versiones 2.x o anteriores de los controladores de Gremlin.
+
+Se aplican los mismos principios generales del [mecanismo para crear particiones de Azure Cosmos DB](partitioning-overview.md) con algunas optimizaciones específicas de Grafo que se describen a continuación.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Creación de particiones de Graph." border="false":::
 
@@ -41,25 +43,25 @@ Las instrucciones siguientes describen cómo funciona la estrategia de creación
     - `/id` y `/label` no se admiten como claves de partición para un contenedor en la API de Gremlin.
 
 
-    - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición** :
+    - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición**:
 
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
 
-    - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador** :
+    - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador**:
 
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
 
-    - Especificación de una **matriz de tuplas de identificadores y valores de clave de partición** :
+    - Especificación de una **matriz de tuplas de identificadores y valores de clave de partición**:
 
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
 
-    - Selección de un conjunto de vértices con sus identificadores y **especificación de una lista de valores de clave de partición** :
+    - Selección de un conjunto de vértices con sus identificadores y **especificación de una lista de valores de clave de partición**:
 
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)

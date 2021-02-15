@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0fcea6a44f5379ff3da5b348ae45486be6c2516a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045519"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831321"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
@@ -33,15 +33,22 @@ Al usar Azure Firewall, use la __traducción de direcciones de red de destino (D
 
 Si usa una __instancia de proceso__ o __clúster de proceso__ de Azure Machine Learning, agregue [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md) para la subred que contiene los recursos de Azure Machine Learning. Esta ruta fuerza el tráfico __de__ las direcciones IP de los recursos `BatchNodeManagement` y `AzureMachineLearning` a la dirección IP pública de la instancia de proceso y del clúster de proceso.
 
-Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service en el que existen los recursos, ya que esto es necesario para acceder a las instancias de proceso. Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
+Estas UDR permiten que el servicio Batch se comunique con los nodos de proceso para programar tareas. Agregue también la dirección IP de Azure Machine Learning Service, ya que esto es necesario para acceder a las instancias de proceso. Cuando agregue la dirección IP de Azure Machine Learning Service, debe agregar la dirección IP para las regiones __primaria y secundaria__ de Azure. La región primaria es aquella en la que se encuentra el área de trabajo.
+
+Para ubicar la región secundaria, consulte [Garantía de continuidad empresarial y recuperación ante desastres con regiones emparejadas de Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por ejemplo, si Azure Machine Learning Service está en la región Este de EE. UU. 2, la región secundaria es Centro de EE. UU. 
+
+Para obtener una lista de direcciones IP del servicio Batch y de Azure Machine Learning Service, utilice uno de los métodos siguientes:
 
 * Descargue los [intervalos de direcciones IP y las etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) y busque `BatchNodeManagement.<region>` y `AzureMachineLearning.<region>` en el archivo, donde `<region>` es su región de Azure.
 
-* Use la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP, que se filtra para la región Este de EE. UU. 2:
+* Use la [CLI de Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para descargar la información. En el ejemplo siguiente se descarga la información de la dirección IP y se filtra para la región Este de EE. UU. 2 (primaria) y Centro de EE. UU. (secundaria):
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    # Get primary region IPs
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    # Get secondary region IPs
+    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
     ```
 
     > [!TIP]
@@ -86,6 +93,7 @@ Para más información, consulte [Creación de un grupo de Azure Batch en una re
 
     | **Nombre de host** | **Propósito** |
     | ---- | ---- |
+    | **graph.windows.net** | Se usa en instancias de proceso/clústeres de Azure Machine Learning. |
     | **anaconda.com**</br>**\*.anaconda.com** | Se usa para instalar paquetes predeterminados. |
     | **\*.anaconda.org** | Se usa para obtener datos del repositorio. |
     | **pypi.org** | Se usa para enumerar las dependencias del índice predeterminado, si hay alguna, y el índice no se sobrescribe con la configuración del usuario. Si el índice se sobrescribe, también debe permitir **\*.pythonhosted.org**. |
@@ -115,6 +123,7 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure portal | management.azure.com | management.azure.us | management.azure.cn |
+| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Hosts de Azure Machine Learning**
 
@@ -138,6 +147,7 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | **Requerido para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Instancia/clúster de proceso | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
+| Instancia/clúster de proceso | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instancia de proceso | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instancia de proceso | \*.instances.azureml.ms |  |  |
 

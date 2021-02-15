@@ -2,13 +2,13 @@
 title: 'Conceptos: Actualizaciones y mejoras de la nube privada'
 description: Conozca los procesos de actualización y las características principales de Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/02/2021
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809656"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006710"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Actualizaciones y mejoras de la nube privada de Azure VMware Solution
 
@@ -53,11 +53,14 @@ Además de realizar actualizaciones, Azure VMware Solution hace una copia de seg
 
 Cuando se produzcan errores, Azure VMware Solution puede restaurarlos desde la copia de seguridad de la configuración. 
 
-Para más información sobre las versiones de software de VMware, consulte el [artículo sobre los conceptos de nubes privadas y clústeres](concepts-private-clouds-clusters.md) y las [preguntas frecuentes](faq.md).
+Para más información sobre las versiones de software de VMware, consulte el [artículo sobre los conceptos de nubes privadas y clústeres](concepts-private-clouds-clusters.md) y las [preguntas frecuentes](faq.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El siguiente paso consiste en [crear una nube privada](tutorial-create-private-cloud.md).
+Ahora que ya conoce los procesos de actualización y las características principales de Azure VMware Solution (AVS), puede obtener información sobre los temas siguientes:
+
+- [Creación de una nube privada](tutorial-create-private-cloud.md).
+- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

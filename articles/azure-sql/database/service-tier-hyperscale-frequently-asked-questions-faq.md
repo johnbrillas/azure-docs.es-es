@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459637"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526829"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ El tamaño de la base de datos crece automáticamente a medida que inserta o ing
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>¿Cuál es el tamaño de base de datos más pequeño que admite Hiperescala?
 
-40 GB. Una base de datos de Hiperescala se crea con un tamaño inicial de 10 GB. Después, comienza a crecer 10 GB cada 10 minutos, hasta que alcanza el tamaño de 40 GB. Cada uno de estos bloques de 10 GB se asigna en un servidor de páginas diferente para proporcionar más IOPS y más paralelismo de E/S. Debido a esta optimización, incluso si elige un tamaño de base de datos inicial inferior a 40 GB, la base de datos crecerá automáticamente al menos 40 GB.
+40 GB. Una base de datos de Hiperescala se crea con un tamaño inicial de 10 GB. Después, comienza a crecer 10 GB cada 10 minutos, hasta que alcanza el tamaño de 40 GB. Cada uno de estos fragmentos de 10 GB se asigna en un servidor de páginas diferente para proporcionar más IOPS y más paralelismo de E/S. Debido a esta optimización, incluso si elige un tamaño de base de datos inicial inferior a 40 GB, la base de datos crecerá automáticamente al menos 40 GB.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>¿En cuantos GB se incrementa el tamaño de mi base de datos cada vez?
 
@@ -233,7 +233,7 @@ Hiperescala es capaz de consumir 100 MB/s de datos nuevos o modificados, pero e
 
 Puede hacer que una aplicación cliente lea datos de Azure Storage y cargue la carga de datos en una base de datos de Hiperescala (al igual que con cualquier otra base de datos de Azure SQL Database). Actualmente, Polybase no se admite en Azure SQL Database. Como alternativa a proporcionar una carga rápida, puede usar [Azure Data Factory ](../../data-factory/index.yml) o usar un trabajo de Spark en [Azure Databricks](/azure/azure-databricks/) con el [conector de Spark para SQL](spark-connector.md). Este conector admite la inserción masiva.
 
-También es posible leer datos de forma masiva desde el almacén de blobs de Azure mediante BULK INSERT o OPENROWSET: [Ejemplos de acceso masivo a datos en Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+También es posible leer datos de forma masiva desde el almacén de blobs de Azure mediante BULK INSERT o OPENROWSET: [Ejemplos de acceso masivo a datos en Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 El modelo de recuperación simple o de registro masivo no se admite en Hiperescala. Se requiere el modelo de recuperación completa para proporcionar alta disponibilidad y recuperación a un momento dado. Sin embargo, la arquitectura de registro de Hiperescala proporciona una mejor tasa de ingesta de datos en comparación con otros niveles de servicio de Azure SQL Database.
 
