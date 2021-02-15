@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050245"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576251"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo
 
@@ -274,12 +274,15 @@ Una de las principales características de Azure Digital Twins es la posibilidad
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-El proyecto de este tutorial constituye la base del próximo tutorial, [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md). Si tiene previsto continuar con el siguiente tutorial, puede mantener los recursos configurados aquí para seguir usando esta instancia de Azure Digital Twins y la aplicación de ejemplo configurada.
-* En este caso, puede usar los comandos `DeleteAllTwins` y `DeleteAllModels` de la aplicación de ejemplo para borrar los gemelos y los modelos de la instancia, respectivamente. De esta forma, tendrá una pizarra en blanco para el siguiente tutorial.
+Después de completar este tutorial, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
+
+* **Si tiene previsto continuar con el siguiente tutorial**, puede mantener los recursos configurados aquí para seguir usando esta instancia de Azure Digital Twins y la aplicación de ejemplo configurada para el siguiente tutorial.
+
+* **Si desea seguir usando la instancia de Azure Digital Twins, pero borra todos sus modelos, gemelos y relaciones**, puede usar los comandos `DeleteAllTwins` y `DeleteAllModels` de la aplicación de ejemplo para borrar los gemelos y los modelos de la instancia, respectivamente. De esta forma, tendrá una pizarra en blanco para el siguiente tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.
+También puede que desee eliminar la carpeta del proyecto de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

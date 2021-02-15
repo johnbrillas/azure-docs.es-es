@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602117"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576268"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -253,12 +253,16 @@ En este punto del tutorial, tiene una aplicación cliente completa, capaz de lle
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
- 
-La instancia usada en este tutorial se puede reutilizar en [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Si tiene previsto continuar con el siguiente tutorial, puede mantener la instancia de Azure Digital Twins que configuró aquí.
+
+Después de completar este tutorial, puede elegir los recursos que desea quitar en función de lo que desee hacer a continuación.
+
+* **Si tiene pensado continuar con el siguiente tutorial**, la instancia usada en este tutorial se puede reutilizar en el siguiente. Puede conservar los recursos de Azure Digital Twins que configure aquí y omitir el resto de esta sección.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por último, elimine la carpeta del proyecto que creó en la máquina local.
+También puede que desee eliminar la carpeta del proyecto de la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
