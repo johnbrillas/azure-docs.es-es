@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: Definición del control de acceso de usuarios globales
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: Control del tráfico que se supervisa
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Administración de sensores individuales
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: Administración de sensores en la nube
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Administración de la consola de administración local
@@ -153,10 +153,13 @@
           items:
             - name: Investigación de la detecciones de todos los sensores de la empresa en un inventario de dispositivos
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: Investigación de la detección de todos los sensores de la empresa en un inventario de dispositivos
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: Uso de la asignación de dispositivos sensores
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: Uso de las alertas detectadas por un sensor
           items:
             - name: Uso de una alerta en un sensor
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: Visualización de la información proporcionada en las alertas
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: Administración del evento de alertas
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: Aceleración de la respuesta a incidentes de alerta
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: 'Obtención de información sobre amenazas globales, regionales y locales'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: Uso de alertas en la consola de administración local
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Crear informes
           items:
             - name: Creación de informes de evaluación de riesgos
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: Creación de informes de vectores de ataque
               href: how-to-create-attack-vector-reports.md
             - name: Creación de informes de minería de datos
               href: how-to-create-data-mining-queries.md
             - name: Creación de informes de tendencias y estadísticas
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: Enriquecimiento de la información del dispositivo
           items:
             - name: Uso de las notificaciones de dispositivos
