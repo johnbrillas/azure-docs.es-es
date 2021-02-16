@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a707e3601bb24b2d5c2aa9402edff4a2e8803033
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843063"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625911"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creación de directivas de escalabilidad automática de una aplicación de Service Fabric Mesh
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones a través de la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para obtener más información, consulte [Retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Una de las principales ventajas de implementar aplicaciones en Service Fabric Mesh es la capacidad de escalar vertical u horizontalmente los servicios de un modo sencillo. Esto se debe usar para controlar diferentes cantidades de carga en los servicios o bien para mejorar la disponibilidad. Puede escalar o reducir los servicios horizontalmente de forma manual o configurar directivas de escalado automático.
 
 El [escalado automático](service-fabric-mesh-scalability.md#autoscaling-service-instances) le permite escalar de manera dinámica el número de instancias de servicio (escalado horizontal). El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento o la eliminación de instancias de servicio en función del uso de CPU o memoria.

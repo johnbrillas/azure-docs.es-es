@@ -3,28 +3,28 @@ title: Comprobación de errores de grupo y de nodo
 description: En este artículo se tratan las operaciones en segundo plano que se pueden producir, junto con los errores que deben buscarse y cómo evitarlos al crear grupos y nodos.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85979924"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576319"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
-Al crear y administrar grupos de Azure Batch, algunas operaciones se realizan de inmediato. Pero otras son asincrónicas y se ejecutan en segundo plano, lo cual tarda varios minutos en completarse.
+Al crear y administrar grupos de Azure Batch, algunas operaciones se realizan de inmediato. La detección de errores para estas operaciones normalmente es directa, ya que la API, la CLI o la UI los devuelven inmediatamente. Pero otras son asincrónicas y se ejecutan en segundo plano, lo cual tarda varios minutos en completarse.
 
-Detectar errores de las operaciones que tienen lugar de inmediato es sencillo, porque la API, la CLI o la interfaz de usuario devuelven los errores al instante.
+Compruebe que ha establecido las aplicaciones para implementar la comprobación de errores exhaustiva, especialmente para las operaciones asincrónicas. Esto puede ayudarle a identificar y diagnosticar problemas rápidamente.
 
-En este artículo se tratan las operaciones en segundo plano que pueden realizarse para grupos y nodos de grupo. Se especifica cómo puede detectar y evitar errores.
+En este artículo se describen las formas de detectar y evitar errores en las operaciones en segundo plano que se pueden producir para los grupos y los nodos de grupos.
 
 ## <a name="pool-errors"></a>Errores de grupo
 
 ### <a name="resize-timeout-or-failure"></a>Cambiar el tamaño del tiempo de espera o error
 
-Cuando crea un nuevo grupo o cambia el tamaño de uno existente, especifica el número de nodos de destino.  La operación de creación o de cambio de tamaño se completa inmediatamente, pero la asignación real de nuevos nodos o la eliminación de nodos existentes podrían tardar varios minutos.  El tiempo de expiración de cambio de tamaño se especifica en la API [create](/rest/api/batchservice/pool/add) o [resize](/rest/api/batchservice/pool/resize). Si Batch no puede obtener el número de nodos de destino durante el tiempo de espera de redimensionamiento, el grupo entra en un estado estable e informa de los errores de redimensionamiento.
+Cuando crea un nuevo grupo o cambia el tamaño de uno existente, especifica el número de nodos de destino. La operación de creación o de cambio de tamaño se completa inmediatamente, pero la asignación real de nuevos nodos o la eliminación de nodos existentes podrían tardar varios minutos. El tiempo de expiración de cambio de tamaño se puede especificar en la API [create](/rest/api/batchservice/pool/add) o [resize](/rest/api/batchservice/pool/resize). Si Batch no puede obtener el número de nodos de destino durante el tiempo de espera de redimensionamiento, el grupo entra en un estado estable e informa de los errores de redimensionamiento.
 
 La propiedad [ResizeError](/rest/api/batchservice/pool/get#resizeerror) de la evaluación más reciente indica los errores producidos.
 
@@ -44,23 +44,25 @@ Las causas comunes de los errores de cambio de tamaño son:
 
 ### <a name="automatic-scaling-failures"></a>Errores de escalado automático
 
-También puede establecer Azure Batch para escalar automáticamente el número de nodos de un grupo. Se definen los parámetros para la [fórmula de escalado automático para un grupo](./batch-automatic-scaling.md). El servicio Batch usa la fórmula para evaluar periódicamente el número de nodos del grupo y establecer un nuevo número de destino. Pueden producirse los siguientes tipos de problemas:
+Puede establecer Azure Batch para escalar automáticamente el número de nodos de un grupo. Se definen los parámetros para la [fórmula de escalado automático para un grupo](./batch-automatic-scaling.md). El servicio Batch usará luego la fórmula para evaluar periódicamente el número de nodos del grupo y establecer un nuevo número de destino.
+
+Pueden producirse los siguientes tipos de problemas al usar el escalado automático:
 
 - Error de la evaluación de escalado automático.
 - La operación de cambio de tamaño resultante produce un error y agota el tiempo de expiración.
 - Un problema con la fórmula de escalado automático da lugar a valores incorrectos de destino de nodo. El cambio de tamaño funciona o agota el tiempo de expiración.
 
-Puede obtener información sobre la última evaluación de escalado automático mediante la propiedad [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Esta propiedad informa del tiempo de evaluación, los valores y el resultado, así como de los errores de rendimiento.
+Para obtener información sobre la última evaluación de escalado automático, use la propiedad [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Esta propiedad informa del tiempo de evaluación, los valores y el resultado, así como de los errores de rendimiento.
 
 Un [evento completo de cambio de tamaño de grupo](./batch-pool-resize-complete-event.md) captura información sobre todas las evaluaciones.
 
-### <a name="delete"></a>Eliminar
+### <a name="pool-deletion-failures"></a>Errores en la eliminación de grupos
 
-Cuando se elimina un grupo que contiene nodos, Batch elimina los nodos en primer lugar. A continuación, elimina el propio objeto de grupo. Los nodos del grupo pueden tardar unos minutos en eliminar.
+Cuando se elimina un grupo que contiene nodos, Batch elimina los nodos en primer lugar. Este proceso puede tardar varios minutos en completarse. Luego de esto, Batch elimina el propio objeto de grupo.
 
 Batch establece el [estado del grupo](/rest/api/batchservice/pool/get#poolstate) en **deleting** durante el proceso de eliminación. La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades **state** y **stateTransitionTime**.
 
-## <a name="pool-compute-node-errors"></a>Errores de nodo de proceso de grupo
+## <a name="node-errors"></a>Errores de nodos
 
 Aun cuando Batch asigne correctamente los nodos de un grupo, distintos problemas pueden provocar que algunos de los nodos sean incorrectos y no puedan ejecutar tareas. Estos nodos siguen incurriendo en cargos, por lo que es importante detectar los problemas para evitar pagar por los nodos que no se pueden usar. Además de los errores comunes de nodo, conocer el [estado actual del trabajo](/rest/api/batchservice/job/get#jobstate) es útil para solucionar problemas.
 
@@ -74,7 +76,7 @@ Se pueden detectar los errores de la tarea de inicio mediante las propiedades [r
 
 Una tarea de inicio con errores también hace que Batch establezca el nodo [state](/rest/api/batchservice/computenode/get#computenodestate) en **starttaskfailed**, si **waitForSuccess** estaba establecido en **true**.
 
-Al igual que con cualquier tarea, puede haber varias causas para que se produzcan errores en la tarea de inicio.  Para solucionar problemas, compruebe los archivos stdout, stderr y cualquier otro archivo de registro específico de la tarea.
+Al igual que con cualquier tarea, puede haber varias causas para que se produzcan errores en la tarea de inicio. Para solucionar problemas, compruebe los archivos stdout, stderr y cualquier otro archivo de registro específico de la tarea.
 
 Las tareas de inicio deben ser reentrantes, ya que es posible que la tarea de inicio se ejecute varias veces en el mismo nodo. La tarea de inicio se ejecuta cuando se restablece o se reinicia la imagen inicial de un nodo. En raras ocasiones, una tarea de inicio se ejecutará después de que un evento provoque el reinicio de un nodo, donde uno de los discos efímeros o del sistema operativo restableció la imagen inicial, mientras que el otro no. Dado que las tareas de inicio de Batch (como todas las tareas de Batch) se ejecutan desde el disco efímero, esto no suele ser un problema, pero en algunos casos en los que la tarea de inicio está instalando una aplicación en el disco del sistema operativo y manteniendo otros datos en el disco efímero, puede causar problemas porque los elementos no están sincronizados. Proteja la aplicación como corresponda si usa ambos discos.
 
@@ -87,6 +89,10 @@ La propiedad [errors](/rest/api/batchservice/computenode/get#computenodeerror) d
 ### <a name="container-download-failure"></a>Error de descarga del contenedor
 
 Puede especificar una o varias referencias de contenedor en un grupo. Batch descarga los contenedores especificados en cada nodo. La propiedad [errores](/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar un contenedor y establece el estado del nodo en **inutilizable**.
+
+### <a name="node-os-updates"></a>Actualizaciones del SO de nodo
+
+En los grupos de Windows, `enableAutomaticUpdates` se establece en `true` de manera predeterminada. Se recomienda permitir las actualizaciones automáticas, pero pueden interrumpir el progreso de las tareas, especialmente si las tareas son de ejecución prolongada. Puede establecer este valor en `false` si necesita asegurarse de que una actualización del sistema operativo no se produzca de forma inesperada.
 
 ### <a name="node-in-unusable-state"></a>Nodo en estado unusable
 
@@ -116,7 +122,7 @@ El proceso del agente Batch que se ejecuta en cada nodo del grupo puede proporci
 
 ### <a name="node-disk-full"></a>Disco del nodo lleno
 
-Batch usa la unidad temporal para una máquina virtual de nodos de grupo para los archivos de trabajo, los archivos de tareas y los archivos compartidos.
+Batch usa la unidad temporal para una VM de nodos de grupo para los archivos de trabajo, los archivos de tareas y los archivos compartidos, como los siguientes:
 
 - Archivos de paquetes de aplicación
 - Archivos de recursos de tareas
@@ -135,23 +141,17 @@ El tamaño de la unidad temporal depende del tamaño de la máquina virtual. Una
 
 En el caso de los archivos escritos por cada tarea, se puede especificar un tiempo de retención para cada tarea que determine durante cuánto tiempo se conservan los archivos de tareas antes de que se limpien automáticamente. Se puede reducir el tiempo de retención para reducir los requisitos de almacenamiento.
 
-
 Si el disco temporal se queda sin espacio (o está muy cerca de quedarse sin espacio), el nodo pasará al estado [No utilizable](/rest/api/batchservice/computenode/get#computenodestate) y se notificará un error de nodo que indica que el disco está lleno.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>Qué hacer cuando un disco está lleno
+Si no está seguro de qué ocupa espacio en el nodo, intente comunicarse remotamente con el nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por Batch. Si las tareas crearon archivos en otro lugar, no los verá.
 
-Determine por qué está lleno el disco: Si no está seguro de qué ocupa espacio en el nodo, se recomienda que se conecte en remoto al nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por lotes y, si las tareas han creado archivos en otro lugar, no los verá.
+Asegúrese de que los datos que necesite se han recuperado del nodo o se han cargado en un almacén duradero, luego elimine los datos según sea necesario para liberar espacio.
 
-Asegúrese de que los datos que necesite se han recuperado del nodo o se han cargado en un almacén duradero. Para mitigar el problema de disco lleno, deberá eliminar datos para liberar espacio.
+Puede eliminar los trabajos o tareas completados antiguos cuyos datos de tarea sigan estando en los nodos. Mire la [colección RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) en el nodo o los [archivos en el nodo](/rest/api/batchservice/file/listfromcomputenode). Al eliminar un trabajo, se eliminarán todas las tareas del trabajo y, al eliminar las tareas del trabajo, se desencadenará la eliminación de los datos de los directorios de tareas del nodo, lo que liberará espacio. Una vez que haya liberado espacio suficiente, reinicie el nodo, que debería pasar del estado "No utilizable" a "Inactivo".
 
-### <a name="recovering-the-node"></a>Recuperación del nodo
-
-1. Si su grupo es un grupo [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), puede volver a crear la imagen del nodo mediante [Batch re-image API](/rest/api/batchservice/computenode/reimage). Esto limpiará todo el disco. Actualmente no es posible volver a crear la imagen con grupos [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
-2. Si su grupo es un grupo [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), puede quitar el nodo del grupo mediante [remove nodes API](/rest/api/batchservice/pool/removenodes). A continuación, puede volver a aumentar el grupo para reemplazar el nodo incorrecto por uno nuevo.
-
-3.  Elimine los trabajos o tareas completados antiguos cuyos datos de tarea sigan estando en los nodos. Para saber qué datos de trabajos y tareas hay en los nodos, puede buscar en la [colección RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) del nodo o en los [archivos del nodo](/rest/api/batchservice/file/listfromcomputenode). Al eliminar el trabajo, se eliminarán todas las tareas del trabajo y, al eliminar las tareas del trabajo, se desencadenará la eliminación de los datos de los directorios de tareas del nodo, lo que liberará espacio. Una vez que haya liberado espacio suficiente, reinicie el nodo, que debería pasar del estado "No utilizable" a "Inactivo".
+Para recuperar un nodo inutilizable en grupos [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), puede quitar un nodo del grupo mediante la [API remove node](/rest/api/batchservice/pool/removenodes). A continuación, puede volver a aumentar el grupo para reemplazar el nodo incorrecto por uno nuevo. En el caso de los grupos [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), puede volver a crear la imagen del nodo a través de la [API reimage de Batch](/rest/api/batchservice/computenode/reimage). Esto limpiará todo el disco. Actualmente no es posible volver a crear la imagen con grupos [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Compruebe que ha establecido la aplicación para implementar la comprobación de errores exhaustiva, especialmente para las operaciones asincrónicas. Puede ser crítico detectar y diagnosticar problemas con prontitud.
+- Obtenga información sobre la [comprobación de errores de trabajos y tareas](batch-job-task-error-checking.md).
+- Obtenga información sobre los [procedimientos recomendados](best-practices.md) para trabajar con Azure Batch.

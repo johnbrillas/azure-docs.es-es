@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657030"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805097"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalización en Azure Sentinel
 
@@ -105,11 +105,11 @@ Al guardar una función de consulta, puede ser necesario cerrar el explorador de
 
 #### <a name="using-the-parsers"></a>Uso de los analizadores
 
-Una vez habilitado, puede usar el metaanalizador para consultar una vista unificada de todos los analizadores habilitados actualmente. Para ello, vaya a la página de registros de Sentinel y realice consultas con el metaanalizador:
+Una vez habilitado, puede usar el metaanalizador para consultar una vista unificada de todos los analizadores habilitados actualmente. Para ello, vaya a la página de registros de Azure Sentinel y realice consultas con el metaanalizador:
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Realización de consultas con el analizador":::
  
-También puede acceder al metaanalizador o a los analizadores individuales mediante el explorador de consultas de la página de registros de Sentinel; para ello, haga clic en "Explorador de consultas":
+También puede acceder al metaanalizador o a los analizadores individuales mediante el explorador de consultas de la página de registros; para ello, haga clic en "Explorador de consultas":
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorador de consultas":::
 

@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260155"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626094"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Traslado de una aplicación de Service Fabric Mesh a otra región de Azure
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones a través de la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para obtener más información, consulte [Retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 En este artículo se describe cómo mover una aplicación de Service Fabric Mesh y sus recursos a otra región de Azure. Puede mover sus recursos a otra región por varios motivos. Por ejemplo, en respuesta a interrupciones, para obtener las características o los servicios disponibles solo en regiones concretas, para cumplir los requisitos de gobernanza y directivas internas o en respuesta a los requisitos de planeamiento de capacidad.
 
@@ -44,7 +49,7 @@ En este artículo se describe cómo mover una aplicación de Service Fabric Mesh
 
 1. Una vez completada la implementación, pruebe los puntos de conexión de la aplicación para comprobar la funcionalidad de la misma.
 
-2. También puede comprobar el estado de la aplicación comprobando el estado de la aplicación ([az mesh app show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) y examinando los registros de la aplicación y ([az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) los comandos mediante la [CLI de Azure Service Fabric Mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. También puede comprobar el estado de la aplicación comprobando el estado de la aplicación ([az mesh app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) y examinando los registros de la aplicación y ([az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) los comandos mediante la [CLI de Azure Service Fabric Mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Commit
 

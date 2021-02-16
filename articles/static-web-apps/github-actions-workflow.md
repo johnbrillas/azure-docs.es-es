@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901205"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593965"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flujos de trabajo de acciones de GitHub para la versión preliminar de Azure Static Web Apps
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -87,16 +87,16 @@ Las acciones de GitHub de tipo [desencadenador](https://help.github.com/actions/
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Mediante la configuración asociada a la propiedad `on`, puede definir qué ramas desencadenan un trabajo y establecer desencadenadores para que se activen con diferentes estados de solicitud de incorporación de cambios ("pull request").
 
-En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _master_. Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
+En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _main_. Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
 
 ## <a name="jobs"></a>Trabajos
 
@@ -107,7 +107,7 @@ En el archivo de flujo de trabajo de Static Web Apps, hay dos trabajos disponibl
 | Nombre  | Descripción |
 |---------|---------|
 |`build_and_deploy_job` | Se ejecuta al insertar ("push") confirmaciones o abrir una solicitud de incorporación de cambios ("pull request") en la rama mostrada en la propiedad `on`. |
-|`close_pull_request_job` | SOLO se ejecuta cuando se cierra una solicitud de incorporación de cambios que quita el entorno de ensayo creado a partir de solicitudes de incorporación de cambios. |
+|`close_pull_request_job` | SOLO se ejecuta cuando se cierra una solicitud de incorporación de cambios, lo que quita el entorno de ensayo creado a partir de solicitudes de incorporación de cambios. |
 
 ## <a name="steps"></a>Pasos
 
@@ -194,6 +194,54 @@ jobs:
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Compatibilidad con monorrepositorios
+
+Un monorrepositorio es un repositorio que contiene código para más de una aplicación. De manera predeterminada, un archivo de flujo de trabajo de Static Web Apps hace un seguimiento de todos los archivos de un repositorio, pero se puede ajustar para que tenga como destino una sola aplicación. Por lo tanto, para los monorrepositorios, cada aplicación estática tiene su propio archivo de configuración que vive en paralelo en la carpeta *.github/workflows* del repositorio.
+
+```files
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── README.md
+```
+
+Para que un archivo de flujo de trabajo tenga como destino una única aplicación, especifique las rutas de acceso en las secciones `push` y `pull_request`.
+
+En el ejemplo siguiente se muestra cómo agregar un nodo `paths` a las secciones `push` y `pull_request` de un archivo denominado _azure-static-web-apps-purple-pond.yml_.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+En esta instancia, solo los cambios realizados en los siguientes archivos desencadenan una nueva compilación:
+
+- Cualquier archivo dentro de la carpeta *app1*
+- Cualquier archivo dentro de la carpeta *api1*
+- Cambios en el archivo de flujo de trabajo *azure-static-web-apps-purple-pond.yml* de la aplicación
 
 ## <a name="next-steps"></a>Pasos siguientes
 

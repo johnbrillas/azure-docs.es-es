@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743605"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626162"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -57,10 +57,13 @@ Azure AD le permite elegir los métodos de autenticación que se pueden usar du
 Siga estos pasos para habilitar el método de autenticación para el inicio de sesión en teléfono sin contraseña:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de *administrador global*.
-1. Busque *Azure Active Directory*, selecciónelo y vaya luego a **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
-1. En **Inicio de sesión telefónico sin contraseña**, elija las opciones siguientes:
+1. Busque y seleccione *Azure Active Directory*, a continuación, vaya a **Seguridad** > **Métodos de autenticación** > **Directivas**.
+1. En **Microsoft Authenticator (versión preliminar)** , elija las opciones siguientes:
    1. **Habilitar**: Sí o No
    1. **Destino**: Todos los usuarios o Seleccionar usuarios
+1. Cada grupo o usuario agregado está habilitado de manera predeterminada para usar Microsoft Authenticator en los modos de notificación push y sin contraseña (modo "Cualquiera"). Para cambiar esto, para cada fila:
+   1. Vaya a **…**  > **Configurar**.
+   1. Para **Modo de autenticación**: Cualquiera, Sin contraseña o Inserción.
 1. Para aplicar la nueva directiva, seleccione **Guardar**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Registro de usuarios y administración de Microsoft Authenticator

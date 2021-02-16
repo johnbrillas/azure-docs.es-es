@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8b40be366afe24b960f7419d84cc2a9976b592
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842706"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625708"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introducción a las redes en las aplicaciones de Service Fabric Mesh
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones a través de la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para obtener más información, consulte [Retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 En este artículo se describen los diferentes tipos de equilibradores de carga, cómo se conectan las puertas de enlace a la red con sus aplicaciones a otras redes y cómo se enruta el tráfico entre los servicios en sus aplicaciones.
 
 ## <a name="layer-4-vs-layer-7-load-balancers"></a>Equilibradores de carga de capa 4 frente a capa 7

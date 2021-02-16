@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424753"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626667"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -61,7 +61,7 @@ Teniendo en cuenta que los radios de NVA no están administrados por Virtual WAN
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de enrutamiento: **Valor predeterminado**
 
-Sin embargo, en este escenario debemos pensar en qué rutas estáticas se deben configurar. Cada ruta estática tendrá dos componentes, una parte en el centro de Virtual WAN que indica a los componentes de Virtual WAN qué conexión usar para cada radio, y otra en esa conexión específica que apunta a la dirección IP concreta asignada a la NVA (o a un equilibrador de carga delante de varias NVA), como se muestra en la **Ilustración 1** :
+Sin embargo, en este escenario debemos pensar en qué rutas estáticas se deben configurar. Cada ruta estática tendrá dos componentes, una parte en el centro de Virtual WAN que indica a los componentes de Virtual WAN qué conexión usar para cada radio, y otra en esa conexión específica que apunta a la dirección IP concreta asignada a la NVA (o a un equilibrador de carga delante de varias NVA), como se muestra en la **Ilustración 1**:
 
 **Ilustración 1**
 
@@ -87,7 +87,7 @@ Ahora las redes virtuales de NVA, las redes virtuales que no son de NVA y las ra
 
 ## <a name="architecture"></a><a name="architecture"></a>Arquitectura
 
-En la **Ilustración 2** , hay dos centros: **Hub 1** y **Hub 2**.
+En la **Ilustración 2**, hay dos centros: **Hub 1** y **Hub 2**.
 
 * **Hub 1** y **Hub 2** están conectados directamente a las redes virtuales de NVA **VNet 2** y **VNet 4**.
 
@@ -105,7 +105,7 @@ En la **Ilustración 2** , hay dos centros: **Hub 1** y **Hub 2**.
 
 Para configurar el enrutamiento a través de NVA, estos son los pasos que debe tener en cuenta:
 
-1. Identifique la conexión de red virtual de radio de NVA. En la **Ilustración 2** , son la **conexión VNet 2 (eastusconn)** y la **conexión VNet 4 (weconn)** .
+1. Identifique la conexión de red virtual de radio de NVA. En la **Ilustración 2**, son la **conexión VNet 2 (eastusconn)** y la **conexión VNet 4 (weconn)** .
 
    Asegúrese de que se han configurado rutas definidas por el usuario:
    * De VNet 5 y VNet 6 a la IP de NVA de VNet 2

@@ -1,5 +1,5 @@
 ---
-title: Conversión del almacenamiento de Managed Disks entre SSD estándar y Premium
+title: Conversión del almacenamiento de Managed Disks entre SSD estándar y prémium mediante Azure PowerShell
 description: Conversión de Azure Managed Disks de estándar a Premium o de Premium a estándar mediante Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d81cd0ac57a5a18d90144584e8705cbffcba6f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13159e527fac76a1a79118e9363b94904935a2be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871435"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807502"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 

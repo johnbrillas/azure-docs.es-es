@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881744"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584876"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Desencadenamiento de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
+# <a name="trigger-machine-learning-pipelines"></a>Desencadenamiento de canalizaciones de Machine Learning
 
-En este artículo, aprenderá a programar mediante programación una canalización para que se ejecute en Azure. Puede optar por crear una programación basada en el tiempo transcurrido o en los cambios en el sistema de archivos. Las programaciones basadas en el tiempo se pueden usar para encargarse de tareas rutinarias, como la supervisión del desfase de datos. Las programaciones basadas en los cambios se pueden usar para reaccionar ante cambios irregulares o imprevisibles, como la carga de nuevos datos o la edición de datos antiguos. Después de aprender a crear programaciones, aprenderá a recuperarlas y desactivarlas. Por último, aprenderá a usar Azure Logic Apps para permitir un comportamiento o una lógica de desencadenamiento más complejos.
+En este artículo, aprenderá a programar mediante programación una canalización para que se ejecute en Azure. Puede crear una programación basada en el tiempo transcurrido o en los cambios en el sistema de archivos. Las programaciones basadas en el tiempo se pueden usar para encargarse de tareas rutinarias, como la supervisión del desfase de datos. Las programaciones basadas en los cambios se pueden usar para reaccionar ante cambios irregulares o imprevisibles, como la carga de nuevos datos o la edición de datos antiguos. Después de aprender a crear programaciones, aprenderá a recuperarlas y desactivarlas. Por último, aprenderá a usar otros servicios de Azure, Azure Logic Apps y Azure Data Factory, para ejecutar canalizaciones. Una instancia de Azure Logic Apps permite una lógica o comportamiento de desencadenamiento más complejos. Las canalizaciones de Azure Data Factory permiten llamar a una canalización de Machine Learning como parte de una canalización de orquestación de datos más grande.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a programar mediante programación una canalizaci�
 
 * Un área de trabajo Machine Learning con una canalización publicada. Puede usar la creada en [Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicialización del área de trabajo y obtención de los datos
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Desencadenamiento de canalizaciones con el SDK de Azure Machine Learning para Python
 
 Para programar una canalización, necesitará una referencia al área de trabajo, el identificador de la canalización publicada y el nombre del experimento en el que quiere crear la programación. Puede obtener estos valores con el código siguiente:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Creación de una programación basada en los cambios
 
-Las canalizaciones que se desencadenan por cambios en los archivos pueden ser más eficaces que las basadas en el tiempo. Por ejemplo, puede realizar un paso de preprocesamiento cuando cambie un archivo o cuando se agrega un nuevo archivo a un directorio de datos. Puede supervisar los cambios en un almacén de datos o aquellos que tienen lugar dentro de un directorio específico del almacén de datos. Si supervisa un directorio específico, los cambios en los subdirectorios de ese directorio _no_ desencadenarán una ejecución.
+Las canalizaciones que se desencadenan por cambios en los archivos pueden ser más eficaces que las basadas en el tiempo. Si quiere hacer algo antes de cambiar un archivo, o cuando se agrega un nuevo archivo a un directorio de datos, puede preprocesar ese archivo. Puede supervisar los cambios en un almacén de datos o aquellos que tienen lugar dentro de un directorio específico del almacén de datos. Si supervisa un directorio específico, los cambios en los subdirectorios de ese directorio _no_ desencadenarán una ejecución.
 
 Para crear un elemento `Schedule` reactivo a los archivos, debe establecer el parámetro `datastore` en la llamada a [Schedule.create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para supervisar una carpeta, establezca el argumento `path_on_datastore`.
 
@@ -104,7 +104,7 @@ Además de los argumentos descritos anteriormente, puede establecer el argumento
 
 En el explorador web, vaya a Azure Machine Learning. En la sección **Endpoints** (Puntos de conexión) del panel de navegación, elija **Pipeline endpoints** (Puntos de conexión de la canalización). Esto le llevará a una lista de las canalizaciones publicadas en el área de trabajo.
 
-![Página de canalizaciones de Azure Machine Learning](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Página de canalizaciones de Azure Machine Learning":::
 
 En esta página puede ver información de resumen sobre todas las canalizaciones del área de trabajo: nombres, descripciones, estado, etc. Profundice haciendo clic en la canalización. En la página resultante, hay más detalles sobre la canalización y puede profundizar en cada una de las ejecuciones.
 
@@ -161,11 +161,11 @@ Cuando se haya aprovisionado la aplicación lógica, use estos pasos para config
 
 1. Vaya a la vista del Diseñador de aplicación lógica y seleccione la plantilla de aplicación lógica vacía. 
     > [!div class="mx-imgBorder"]
-    > ![Plantilla vacía](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Plantilla vacía":::
 
 1. En el Diseñador, busque **blob**. Seleccione el desencadenador **When a blob is added or modified (properties only)** (Cuando se agrega o modifica un blob [solo propiedades]) y agregue este desencadenador a la aplicación lógica.
     > [!div class="mx-imgBorder"]
-    > ![Agregar desencadenador](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Agregar desencadenador":::
 
 1. Rellene la información de conexión de la cuenta de almacenamiento de blobs que quiere supervisar para agregar o modificar blobs. Seleccione el contenedor que se va a supervisar. 
  
@@ -177,7 +177,7 @@ Cuando se haya aprovisionado la aplicación lógica, use estos pasos para config
 1. Agregue una acción HTTP que se ejecutará cuando se detecte un blob nuevo o modificado. Seleccione **+ Nuevo paso** y busque y seleccione la acción HTTP.
 
   > [!div class="mx-imgBorder"]
-  > ![Buscar acción HTTP](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Buscar acción HTTP":::
 
   Para configurar la acción, use los siguientes valores:
 
@@ -208,12 +208,18 @@ Cuando se haya aprovisionado la aplicación lógica, use estos pasos para config
     Use el elemento `DataStoreName` que agregó al área de trabajo como [requisito previo](#prerequisites).
      
     > [!div class="mx-imgBorder"]
-    > ![Configuración de HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="Configuración de HTTP":::
 
 1. Seleccione **Guardar** y la programación ya estará lista.
 
 > [!IMPORTANT]
 > Si utiliza el control basado en roles de Azure (Azure RBAC) para administrar el acceso a la canalización, [establezca los permisos del escenario de canalización (entrenamiento o puntuación)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Llamada a canalizaciones de Machine Learning desde canalizaciones de Azure Data Factory
+
+En una canalización de Azure Data Factory, la actividad *Machine Learning Execute Pipeline* (Canalización de ejecución de Machine Learning) ejecuta una canalización de Azure Machine Learning. Puede encontrar esta actividad en la página de creación de la instancia de Data Factory en la categoría *Machine Learning*:
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Captura de pantalla que muestra la actividad de canalización de ML en el entorno de creación de Azure Data Factory":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

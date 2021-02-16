@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 9117474c3cbf5087a5b63512fcc17c4771bf7aa6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b63db3d02b471a577586ecd54f56caa59af504d6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343882"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805519"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adición de un conector de API a un flujo de usuario de registro (versión preliminar)
 
@@ -36,7 +36,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 6. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
 7. Indique la información de autenticación de la API.
 
-   - Actualmente solo se admite la autenticación básica. Si quiere usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se utiliza con una función de Azure y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https []()://contoso.azurewebsites.net/api/endpoint <b>?code=0123456789</b>).
+   - Actualmente solo se admite la autenticación básica. Si quiere usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se usa con una instancia de Azure Functions y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789`).
 
    ![Configuración de un conector de API nuevo](./media/add-api-connector/api-connector-config.png)
 8. Seleccione **Guardar**.
@@ -103,7 +103,7 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de regist
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Después de iniciar sesión con un proveedor de identidades
 
-Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la **_página de recopilación de atributos_* _, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
+Inmediatamente después de que el usuario se autentique con un proveedor de identidades (como Google, Facebook o Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la ***página de recopilación de atributos***, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. Este paso no se invoca si un usuario se registra con una cuenta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Solicitud de ejemplo enviada a la API en este paso
 ```http
@@ -241,7 +241,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como _*Application claim** (Notificación de aplicación).                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | No es necesario que la notificación contenga `_<extensions-app-id>_`. Los valores devueltos pueden sobrescribir los valores recopilados de un usuario. También se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).  |
 
 ### <a name="example-of-a-blocking-response"></a>Ejemplo de una respuesta de bloqueo

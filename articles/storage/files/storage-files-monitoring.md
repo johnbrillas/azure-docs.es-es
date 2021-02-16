@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875151"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574540"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
@@ -589,13 +589,13 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** y luego haga clic en **Listo**. 
 
-4. Haga clic en **Seleccionar condición** y especifique la siguiente información para la alerta: 
+4. Haga clic en **Agregar condición** y especifique la siguiente información para la alerta: 
 
     - **Métrica**
     - **Nombre de dimensión**
     - **Lógica de alerta**
 
-5. Haga clic en **Seleccionar el grupo de acciones** y agregue un grupo de acciones (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+5. Haga clic en **Add action groups** (Agregar grupos de acciones) y agregue un grupo de acciones (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
 
 6. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 
@@ -609,16 +609,31 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección **Supervisión**, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
-4. Haga clic en **Seleccionar condición** para agregar una condición.
+4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
 6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
-7. Haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
+7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los tipos de respuesta adecuados para el recurso compartido de archivos.
+
+    Para recursos compartidos de archivos estándar, seleccione los siguientes tipos de respuesta:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Para recursos compartidos de archivos prémium, seleccione los siguientes tipos de respuesta:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, después, repita el paso 7.
+   > Si los tipos de respuesta no aparecen en la lista desplegable **Valores de dimensión**, significa que el recurso no se ha limitado. Para agregar los valores de dimensión, junto a la lista desplegable **Valores de dimensión**, seleccione **Agregar valor personalizado**, escriba el tipo de respuesta (por ejemplo, **SuccessWithThrottling**), seleccione **Aceptar** y repita estos pasos para agregar todos los tipos de respuesta correspondientes para el recurso compartido de archivos.
 
 8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
+
 
    > [!NOTE]
    > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
@@ -628,8 +643,8 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
     > [!TIP]
     > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
-11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+11. Haga clic en **Add action groups** (Agregar grupos de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Procedimientos para crear una alerta si el tamaño del recurso compartido de archivos de Azure es del 80 % de la capacidad
@@ -637,7 +652,7 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección **Supervisión**, haga clic en **Alertas** y luego en **+ Nueva regla de alertas**.
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es `contoso`, seleccione el recurso `contoso/file`.
-4. Haga clic en **Seleccionar condición** para agregar una condición.
+4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Capacidad de archivo**.
 6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
@@ -647,8 +662,8 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 
 8. Escriba el **Valor de umbral** (en bytes). Por ejemplo, si el tamaño del recurso compartido de archivos es 100 TiB y quiere recibir una alerta cuando su tamaño sea el 80 % de la capacidad, el valor de umbral en bytes es 87960930222080.
 9. Defina los demás **parámetros de alerta** (granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
-10. Haga clic en Seleccionar el grupo de acciones para agregar un grupo de acciones (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-11. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+10. Haga clic en **Add action groups** (Agregar grupos de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+11. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 12. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Procedimientos para crear una alerta si la salida del recurso compartido de archivos de Azure ha superado los 500 GiB en un día
@@ -656,7 +671,7 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
 2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
 3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
-4. Haga clic en **Seleccionar condición** para agregar una condición.
+4. Haga clic en **Agregar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Salida**.
 6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
 7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
@@ -667,8 +682,8 @@ En la tabla siguiente se muestran algunos escenarios de ejemplo que se van a sup
 8. En el Umbral de valor, escriba **536870912000** bytes. 
 9. Haga clic en la lista desplegable **Granularidad de agregación** y seleccione **24 horas**.
 10. Seleccione la **Frecuencia de evaluación** y **haga clic en Listo**.
-11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
-12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción y la **gravedad**.
+11. Haga clic en **Add action groups** (Agregar grupos de acciones) para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 ## <a name="next-steps"></a>Pasos siguientes

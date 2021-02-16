@@ -4,15 +4,15 @@ description: Aprenda a crear y usar conexiones híbridas en Azure App Service pa
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825984"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594238"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
@@ -42,7 +42,7 @@ El uso de la funcionalidad de conexiones híbridas reporta varios beneficios, en
 - Normalmente no requiere vulnerabilidades de seguridad en el firewall, porque todas las conexiones salen a través de puertos web estándar.
 - Dado que la característica está en el nivel de la red, da igual el lenguaje que use la aplicación y la tecnología que emplee el punto de conexión.
 - Se puede utilizar para proporcionar acceso en varias redes desde una única aplicación. 
-- En disponibilidad general se admite para aplicaciones nativas Windows y se encuentra en versión preliminar para aplicaciones Linux. No es compatible con aplicaciones de contenedor de Windows.
+- Se admite en GA para las aplicaciones de Windows y aplicaciones de Linux. No es compatible con aplicaciones de contenedor de Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Cosas que no se pueden hacer con las conexiones híbridas ###
 
@@ -201,9 +201,16 @@ Cualquier persona con `Reader` acceso a la retransmisión podrá _ver_ la conexi
 
 ## <a name="troubleshooting"></a>Solución de problemas ##
 
-El estado "Conectado" significa que hay al menos una instancia de HCM configurada con esa conexión híbrida y es capaz de conectarse a Azure. Si en el estado de la conexión híbrida no indica **Conectado**, la conexión híbrida no está configurada en ningún HCM que tenga acceso a Azure.
+El estado "Conectado" significa que hay al menos una instancia de HCM configurada con esa conexión híbrida y es capaz de conectarse a Azure. Si en el estado de la conexión híbrida no indica **Conectado**, la conexión híbrida no está configurada en ningún HCM que tenga acceso a Azure. Cuando el HCM muestra **No conectado**, hay algunas cosas que deben comprobarse:
 
-La razón principal por la que los clientes no se pueden conectar a su punto de conexión es porque este se especificó mediante una dirección IP en lugar de un nombre DNS. Si la aplicación no puede acceder al punto de conexión deseado y ha usado una dirección IP, utilice un nombre DNS que sea válido en el host en el que se ejecuta HCM. Compruebe también que el nombre DNS se resuelve adecuadamente en el host donde se ejecuta el HCM. Confirme que existe conectividad desde el host donde se ejecuta el HCM al punto de conexión de la conexión híbrida.  
+* ¿Tiene el host acceso de salida a Azure en el puerto 443? Puede probar desde el host de HCM mediante el comando *Test-NetConnection Destination -P Port* de PowerShell. 
+* ¿Es posible que su HCM esté en mal estado? Pruebe a reiniciar el servicio local "Servicio de Administrador de conexiones híbridas de Azure".
+
+Si el estado indica **Conectado**, pero la aplicación no puede comunicarse con su punto de conexión, entonces:
+
+* Asegúrese de estar usando un nombre DNS en la conexión híbrida. Si usa una dirección IP, es posible que no se produzca la búsqueda de DNS de cliente necesaria. Si el cliente que se ejecuta en la aplicación web no realiza una búsqueda de DNS, la conexión híbrida no funcionará.
+* Compruebe que el nombre DNS que se usa en la conexión híbrida pueda resolverse desde el host de HCM. Compruebe la resolución mediante *nslookup EndpointDNSname*, donde EndpointDNSname es una coincidencia exacta con lo que se usa en la definición de la conexión híbrida.
+* Pruebe el acceso desde el host de HCM al punto de conexión mediante el comando *Test-NetConnection EndpointDNSname -P Port* de PowerShell. Si no puede comunicarse con el punto de conexión desde el host de HCM, compruebe los firewalls entre los dos hosts, incluidos los firewalls basados en host en el host de destino.
 
 En App Service, es posible invocar la herramienta de la línea de comandos **tcpping** desde la consola de herramientas avanzadas (Kudu). Esta herramienta puede indicarle si tienen acceso a un punto de conexión TCP, pero no indica si tiene acceso a un punto de conexión híbrida. Cuando usa la herramienta de la consola en un punto de conexión de la conexión híbrida, simplemente confirma que usa una combinación de host:puerto.  
 

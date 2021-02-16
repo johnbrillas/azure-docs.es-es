@@ -2,25 +2,29 @@
 title: CI/CD con Azure Pipelines y plantillas
 description: Describe cómo configurar la integración continua en Azure Pipelines mediante plantillas de Azure Resource Manager. Muestra cómo usar un script de PowerShell o copiar archivos en una ubicación de almacenamiento provisional e implementar desde allí.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233821"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594204"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integración de plantillas de ARM con Azure Pipelines
 
-Puede integrar plantillas de Azure Resource Manager (plantillas de Resource Manager) con Azure Pipelines para la integración continua e implementación continua (CI/CD). En el tutorial [Integración continua de plantillas de Resource Manager en Azure Pipelines](deployment-tutorial-pipeline.md) se muestra cómo usar la [tarea de implementación de la plantilla de Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) para implementar una plantilla desde el repositorio de GitHub. Este enfoque funciona cuando se desea implementar una plantilla directamente desde un repositorio.
+Puede integrar plantillas de Azure Resource Manager (plantillas de Resource Manager) con Azure Pipelines para la integración continua e implementación continua (CI/CD). En este artículo, aprenderá dos formas avanzadas adicionales de implementar plantillas con Azure Pipelines.
 
-En este artículo, aprenderá dos formas adicionales de implementar plantillas con Azure Pipelines. En este artículo se muestra cómo:
+## <a name="select-your-option"></a>Selección de la opción
 
-* **Agregar una tarea que ejecute un script de Azure PowerShell**. Esta opción tiene la ventaja de ofrecer coherencia en todo el ciclo de vida de desarrollo debido a que puede usar el mismo script que usó al ejecutar pruebas locales. El script implementa la plantilla, pero también puede realizar otras operaciones como obtener valores para usarlos como parámetros.
+Antes de avanzar en este artículo, vamos a tener en cuenta las distintas opciones para implementar una plantilla de ARM desde una canalización.
+
+* **Usar la tarea de implementación de plantilla de ARM**. Esta opción es la más sencilla. Este enfoque funciona cuando se desea implementar una plantilla directamente desde un repositorio. Esta opción no se trata en este artículo, sino que se trata en el tutorial [Integración continua de plantillas de ARM con Azure Pipelines](deployment-tutorial-pipeline.md). Muestra cómo usar la [tarea de implementación de plantilla de ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) para implementar una plantilla desde el repositorio de GitHub.
+
+* **Agregar una tarea que ejecute un script de Azure PowerShell**. Esta opción tiene la ventaja de ofrecer coherencia en todo el ciclo de vida de desarrollo debido a que puede usar el mismo script que usó al ejecutar pruebas locales. El script implementa la plantilla, pero también puede realizar otras operaciones como obtener valores para usarlos como parámetros. Esta opción se muestra en este artículo. Consulte [Tarea de Azure PowerShell](#azure-powershell-task).
 
    Visual Studio proporciona el [proyecto de grupo de recursos de Azure](create-visual-studio-deployment-project.md) que incluye un script de PowerShell. El script agrega los artefactos del proyecto al "stage" en una cuenta de almacenamiento a la que Resource Manager puede acceder. Los artefactos son elementos del proyecto tales como plantillas vinculadas, scripts y archivos binarios de aplicación. Si desea seguir usando el script del proyecto, use la tarea Script de PowerShell mostrada en este artículo.
 
-* **Agregar tareas para copiar e implementar tareas**. Esta opción ofrece una alternativa conveniente al script del proyecto. Configure dos tareas en la canalización. Una tarea organiza los artefactos en una ubicación accesible. La otra tarea implementa la plantilla desde esa ubicación.
+* **Agregar tareas para copiar e implementar tareas**. Esta opción ofrece una alternativa conveniente al script del proyecto. Configure dos tareas en la canalización. Una tarea organiza los artefactos en una ubicación accesible. La otra tarea implementa la plantilla desde esa ubicación. Esta opción se muestra en este artículo. Consulte [Tareas de copia y de implementación](#copy-and-deploy-tasks).
 
 ## <a name="prepare-your-project"></a>Preparación del proyecto
 
@@ -101,7 +105,7 @@ En `ScriptArguments`, proporcione los parámetros necesarios para el script. En 
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Al seleccionar **Guardar** , la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
+Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
 
 ![Vista de resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +230,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Al seleccionar **Guardar** , la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
+Al seleccionar **Guardar**, la canalización de compilación se ejecuta automáticamente. Vuelva al resumen de la canalización de compilación y vea el estado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
