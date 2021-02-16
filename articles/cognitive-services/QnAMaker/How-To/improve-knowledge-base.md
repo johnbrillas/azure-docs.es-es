@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164947"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592031"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceptación de preguntas sugeridas de aprendizaje activo en la base de conocimiento
 
@@ -49,28 +49,55 @@ Para ver las preguntas sugeridas, debe [activar el aprendizaje activo](../concep
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>Las sugerencias de aprendizaje activo se guardan en la base de conocimiento exportada
+
+Cuando la aplicación tiene el aprendizaje activo habilitado y exporta la aplicación, la columna `SuggestedQuestions` del archivo tsv conserva los datos de aprendizaje activo.
+
+La columna `SuggestedQuestions` es un objeto JSON de la información de los comentarios implícitos, `autosuggested`, y explícitos, `usersuggested`. Un ejemplo de este objeto JSON para una sola pregunta enviada por un usuario de `help` es:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Cuando se vuelva a importar esta aplicación, el aprendizaje activo continúa para recopilar información y sugerencias recomendadas para la base de conocimiento.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Flujo arquitectónico para usar GenerateAnswer y Train API desde un bot
 
 Un bot u otra aplicación cliente debe usar el siguiente flujo de arquitectura para usar el aprendizaje activo:
 
 * El bot [obtiene la respuesta de la base de conocimiento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) con GenerateAnswer API, utilizando la propiedad `top` para obtener un número de respuestas.
+
+    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Uso de la propiedad top en la solicitud GenerateAnswer para obtener varias respuestas coincidentes
+
+    Al enviar una pregunta a QnA Maker para obtener una respuesta, la propiedad `top` del cuerpo JSON define el número de respuestas a devolver.
+
+    ```json
+    {
+        "question": "wi-fi",
+        "isTest": false,
+        "top": 3
+    }
+    ```
+
 * El bot determina comentarios explícitos:
     * Usando su propia [lógica de negocios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre las puntuaciones bajas.
     * En el bot o aplicación cliente, muestre la lista de posibles respuestas al usuario y obtenga la respuesta seleccionada del usuario.
 * El bot [envía la respuesta seleccionada a QnA Maker](#bot-framework-sample-code) con [Train API](#train-api).
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Uso de la propiedad top en la solicitud GenerateAnswer para obtener varias respuestas coincidentes
-
-Al enviar una pregunta a QnA Maker para obtener una respuesta, la propiedad `top` del cuerpo JSON define el número de respuestas a devolver.
-
-```json
-{
-    "question": "wi-fi",
-    "isTest": false,
-    "top": 3
-}
-```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Uso de la propiedad de puntuación y la lógica de negocios para obtener la lista de respuestas que se mostrará al usuario
 
@@ -309,33 +336,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aprendizaje activo se guarda en la base de conocimiento exportada
-
-Cuando la aplicación tiene el aprendizaje activo habilitado y exporta la aplicación, la columna `SuggestedQuestions` del archivo tsv conserva los datos de aprendizaje activo.
-
-La columna `SuggestedQuestions` es un objeto JSON de la información de los comentarios implícitos, `autosuggested`, y explícitos, `usersuggested`. Un ejemplo de este objeto JSON para una sola pregunta enviada por un usuario de `help` es:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-Cuando se vuelva a importar esta aplicación, el aprendizaje activo continúa para recopilar información y sugerencias recomendadas para la base de conocimiento.
-
-
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

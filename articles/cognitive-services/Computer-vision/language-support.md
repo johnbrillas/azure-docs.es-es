@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736825"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575879"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -25,34 +25,89 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md) para obtener más información.
 
-|Idioma| Código de lenguaje | API de OCR | Read 3.0 y 3.1 | Read v3.2-preview.1 |
+|Idioma| Código de lenguaje | API de OCR | Read 3.0/3.1 | Read v3.2 versión preliminar |
 |:-----|:----:|:-----:|:---:|:---:|
+|Afrikáans|`af`| | |✔ |
+|Albanés |`sq`| | |✔ |
 |Árabe | `ar`|✔ | | |
+|Asturiano |`ast`| | |✔ |
+|Vasco  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Bretón    |`br`| | |✔ |
+|Catalán    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chino (simplificado) | `zh-Hans`|✔ | |✔ |
-|Chino (tradicional) | `zh-Hant`|✔ | | |
-|Checo | `cs` |✔ | | |
-|Danés | `da` |✔ | | |
+|Chino (tradicional) | `zh-Hant`|✔ | |✔ |
+|Córnico     |`kw`| | |✔ |
+|Corso      |`co`| | |✔ |
+|Tártaro de Crimea (Latín)  |`crh`| | |✔ |
+|Checo | `cs` |✔ | |✔ |
+|Danés | `da` |✔ | |✔ |
 |Neerlandés | `nl` |✔ |✔ |✔ |
 |Inglés | `en` |✔ |✔ |✔ |
-|Finés | `fi` |✔ | | |
+|Estonio  |`crh`| | |✔ |
+|Fiyiano |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Finés | `fi` |✔ | |✔ |
 |Francés | `fr` |✔ |✔ |✔ |
+|Friulano  | `fur` | | |✔ |
+|Gallego   | `gl` | | |✔ |
 |Alemán | `de` |✔ |✔ |✔ |
+|Gilbertés    | `gil` | | |✔ |
 |Griego | `el` |✔ | | |
-|Húngaro | `hu` |✔ | | |
+|Groenlandés   | `kl` | | |✔ |
+|Criollo haitiano  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong Daw (Latín) | `mww` | | |✔ |
+|Húngaro | `hu` |✔ | | ✔ |
+|Indonesio   | `id` | | |✔ |
+|Interlingua  | `ia` | | |✔ |
+|Inuktitut (latino)  | `iu` | | |✔ |
+|Irlandés    | `ga` | | |✔ |
 |Italiano | `it` |✔ |✔ |✔ |
 |Japonés | `ja` |✔ | |✔ |
-|Coreano | `ko` |✔ | | |
+|Javanés | `jv` | | |✔ |
+|Caboverdiano | `kea` | | |✔ |
+|Kachin (Latín) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Casubio | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Coreano | `ko` |✔ | |✔ |
+|Quiché  | `quc` | | |✔ |
+|Kurdo (latino) | `kur` | | |✔ |
+|Luxemburgués  | `lb` | | |✔ |
+|Malayo (latino)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Napolitano   | `nap` | | |✔ |
 |Noruego | `nb` |✔ | | |
-|Polaco | `pl` |✔ | | |
+|Noruego | `no` | | |✔ |
+|Occitano | `oc` | | |✔ |
+|Polaco | `pl` |✔ | |✔ |
 |Portugués | `pt` |✔ |✔ |✔ |
 |Rumano | `ro` |✔ | | |
+|Romanche  | `rm` | | |✔ |
 |Ruso | `ru` |✔ | | |
+|Escocés  | `sco` | | |✔ |
+|Gaélico escocés  | `gd` | | |✔ |
 |Serbio (cirílico) | `sr-Cyrl` |✔ | | |
 |Serbio (latino) | `sr-Latn` |✔ | | |
 |Eslovaco | `sk` |✔ | | |
+|Esloveno  | `slv` | | |✔ |
 |Español | `es` |✔ |✔ |✔ |
-|Sueco | `sw` |✔ | | |
-|Turco | `tr` |✔ | | |
+|Swahili (Latín)  | `sw` | | |✔ |
+|Sueco | `sv` |✔ | |✔ |
+|Tártaro (Latín)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Turco | `tr` |✔ | |✔ |
+|Alto sorbio  | `hsb` | | |✔ |
+|Uzbeko (latino)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Frisón occidental | `fy` | | |✔ |
+|Maya Yucateco | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulú  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Análisis de imágenes
 
@@ -65,10 +120,3 @@ Algunas acciones de la API [analizar: imagen](https://westcentralus.dev.cognitiv
 |Japonés | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portugués | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Español | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Conozca el uso de las características de Computer Vision mencionadas en esta guía.
-
-* [Análisis de imágenes locales (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Extracción de texto impreso (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

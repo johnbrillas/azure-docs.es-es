@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845583"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585082"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de factura precompilado de Form Recognizer
 
@@ -107,7 +107,7 @@ El servicio Invoice extraerá el texto, las tablas y los 26 campos de la factu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Pruebe sus propias facturas y ejemplos en la interfaz de usuario de ejemplo de [Form Recognizer](https://fott-preview.azurewebsites.net/).
-- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de facturas con Form Recognizer en el lenguaje de su elección.
+- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de facturas con Form Recognizer en el lenguaje de desarrollo que prefiera.
 
 ## <a name="see-also"></a>Consulte también
 

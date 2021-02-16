@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972666"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569527"
 ---
 ### <a name="standard-and-neural-voices"></a>Voces estándares y neuronales
 
@@ -67,3 +67,14 @@ Si ha creado una fuente de voz personalizada, use el punto de conexión que ha c
 | Oeste de Europa | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste de EE. UU. | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste de EE. UU. 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Voz neuronal personalizada
+
+En la tabla siguiente se describe la compatibilidad regional con las características de Voz neuronal personalizada.
+
+| Característica | Regiones admitidas |
+|---|---|
+| Hospedaje de modelos de voz | Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Este de Australia |
+| Caracteres en tiempo real | Este de EE. UU., Oeste de EE. UU. 2, Centro-sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Este de Australia |
+| Caracteres de audio largos | Este de EE. UU., Oeste de Europa, Sur de Reino Unido, Sudeste Asiático, Centro de la India |
+| Entrenamiento neuronal personalizado | Este de EE. UU., Sur de Reino Unido |

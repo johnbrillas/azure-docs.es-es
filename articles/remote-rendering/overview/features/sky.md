@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9c5ad4b21b428f38bbd4d9f7d19fa633c5161b5c
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701949"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594187"
 ---
 # <a name="sky-reflections"></a>Reflejos del cielo
 
@@ -41,57 +41,41 @@ Para más información sobre el modelo de iluminación, vea el capítulo de [mat
 Para cambiar el mapa de entorno, lo único que tiene que hacer es [cargar una textura](../../concepts/textures.md) y cambiar el valor de `SkyReflectionSettings` de la sesión:
 
 ```cs
-LoadTextureAsync _skyTextureLoad = null;
-void ChangeEnvironmentMap(AzureSession session)
+async void ChangeEnvironmentMap(RenderingSession session)
 {
-    _skyTextureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
-
-    _skyTextureLoad.Completed += (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                try
-                {
-                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
-                }
-                catch (RRException exception)
-                {
-                    System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
-                }
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-        };
+    try
+    {
+        Texture skyTex = await session.Connection.LoadTextureFromSasAsync(new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap));
+        session.Connection.SkyReflectionSettings.SkyReflectionTexture = skyTex;
+    }
+    catch (RRException exception)
+    {
+        System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
+    }
 }
 ```
 
 ```cpp
-void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+void ChangeEnvironmentMap(ApiHandle<RenderingSession> session)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureFromSasOptions params;
     params.TextureType = TextureType::CubeMap;
-    params.TextureUrl = "builtin://VeniceSunset";
-    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-
-    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    params.TextureUri = "builtin://VeniceSunset";
+    session->Connection()->LoadTextureFromSasAsync(params, [&](Status status, ApiHandle<Texture> res) {
+        if (status == Status::OK)
         {
-            if (res->GetIsRanToCompletion())
-            {
-                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
-                settings->SetSkyReflectionTexture(res->GetResult());
-            }
-            else
-            {
-                printf("Texture loading failed!\n");
-            }
-        });
+            ApiHandle<SkyReflectionSettings> settings = session->Connection()->GetSkyReflectionSettings();
+            settings->SetSkyReflectionTexture(res);
+        }
+        else
+        {
+            printf("Texture loading failed!\n");
+        }
+    });
 }
-
 ```
 
-Tenga en cuenta que la variante `LoadTextureFromSASAsync` se usa porque se carga una textura integrada. Si la carga se realiza desde [almacenamientos de blobs vinculados](../../how-tos/create-an-account.md#link-storage-accounts), utilice la variante `LoadTextureAsync`.
+Tenga en cuenta que la variante `LoadTextureFromSasAsync` se usa porque se carga una textura integrada. Si la carga se realiza desde [almacenamientos de blobs vinculados](../../how-tos/create-an-account.md#link-storage-accounts), utilice la variante `LoadTextureAsync`.
 
 ## <a name="sky-texture-types"></a>Tipos de textura de cielo
 
@@ -105,7 +89,7 @@ Como referencia, este es un mapa de cubo desempaquetado:
 
 ![Mapa de cubo desempaquetado](media/Cubemap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync`/ `LoadTextureFromSASAsync` con `TextureType.CubeMap` para cargar texturas de mapa de cubo.
+Use `RenderingSession.Connection.LoadTextureAsync`/ `LoadTextureFromSasAsync` con `TextureType.CubeMap` para cargar texturas de mapa de cubo.
 
 ### <a name="sphere-environment-maps"></a>Mapas de entorno de esfera
 
@@ -113,7 +97,7 @@ Cuando se usa una textura 2D como mapa de entorno, la imagen tiene que estar en
 
 ![Una imagen de cielo en coordenadas esféricas](media/spheremap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync` con `TextureType.Texture2D` para cargar mapas de entorno esféricos.
+Use `RenderingSession.Connection.LoadTextureAsync` con `TextureType.Texture2D` para cargar mapas de entorno esféricos.
 
 ## <a name="built-in-environment-maps"></a>Mapas de entorno integrados
 
@@ -138,8 +122,8 @@ Azure Remote Rendering proporciona una serie de mapas de entorno integrados que 
 
 ## <a name="api-documentation"></a>Documentación de la API
 
-* [Propiedad RemoteManager.SkyReflectionSettings de C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
-* [RemoteManager::SkyReflectionSettings() de C++](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+* [Propiedad RenderingConnection.SkyReflectionSettings de C#](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.skyreflectionsettings)
+* [RenderingConnection::SkyReflectionSettings() de C++](/cpp/api/remote-rendering/renderingconnection#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: d529e74614a4fd5ee49d7e6161c65f68e8e76fce
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845565"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585065"
 ---
 # <a name="form-recognizer-layout-service"></a>Servicio Layout de Form Recognizer
 
@@ -89,7 +89,7 @@ Layout también extrae marcas de selección de los documentos. Entre las marcas 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Pruebe su propia extracción de diseño mediante el [interfaz de usuario de ejemplo de Form Recognizer](https://fott-preview.azurewebsites.net/)
-- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a extraer diseños en el lenguaje que prefiera.
+- Realice un [inicio rápido de Form Recognizer](quickstarts/client-library.md) para empezar a extraer diseños en el lenguaje de desarrollo que prefiera.
 
 ## <a name="see-also"></a>Consulte también
 

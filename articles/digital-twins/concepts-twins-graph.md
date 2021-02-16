@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071722"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576555"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -58,9 +58,9 @@ También puede usar una clase auxiliar denominada `BasicDigitalTwin` para almace
 
 ### <a name="create-relationships"></a>Crear relaciones
 
-A continuación se incluye un ejemplo de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una relación entre un gemelo digital de tipo *Floor* denominado *GroundFloor* y un gemelo digital de tipo *Room* denominado *Cafe*.
+Este es un ejemplo de código de cliente que usa las [API de DigitalTwins](/rest/api/digital-twins/dataplane/twins) para crear una relación entre un gemelo digital (el gemelo de "origen") y otro gemelo digital (el gemelo de "destino").
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representaciones JSON de elementos de grafo
 

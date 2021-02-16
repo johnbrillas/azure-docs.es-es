@@ -3,12 +3,12 @@ title: 'Consulta a una base de conocimiento: QnA Maker'
 description: Se debe publicar una base de conocimiento. Una vez publicada, se consulta la base de conocimiento a través del punto de conexión de predicción del tiempo de ejecución mediante generateAnswer API.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346212"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820388"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta a una base de conocimiento para obtener respuestas
 
@@ -31,7 +31,7 @@ El proceso se explica en la tabla siguiente.
 |1|La aplicación cliente envía la consulta de usuario a [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesa la consulta de usuario con la detección del idioma, los correctores ortográficos y los separadores de palabras.|
 |3|Este preprocesamiento se realiza para modificar la consulta de usuario y obtener los mejores resultados de la búsqueda.|
-|4|Esta consulta modificada se envía al índice de Azure Cognitive Search, que recibe el número `top` de resultados. Si no se encuentra la respuesta correcta en estos resultados, aumente levemente el valor de `top`. Por lo general, un valor de 10 para `top` funciona en el 90 % de las consultas.|
+|4|Esta consulta modificada se envía al índice de Azure Cognitive Search, que recibe el número `top` de resultados. Si no se encuentra la respuesta correcta en estos resultados, aumente levemente el valor de `top`. Por lo general, un valor de 10 para `top` funciona en el 90 % de las consultas. En este paso, la búsqueda de Azure filtra las [palabras reservadas](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).|
 |5|QnA Maker usa características sintácticas y semánticas para determinar las similitudes entre la consulta de usuario y los resultados de QnA capturados.|
 |6|El modelo de clasificador con aprendizaje automático usa las diferentes características del paso 5 para determinar las puntuaciones de confianza y el nuevo orden de clasificación.|
 |7|Los resultados nuevos se devuelven a la aplicación cliente en el orden de clasificación.|
@@ -54,7 +54,7 @@ El proceso se explica en la tabla siguiente.
 |1|La aplicación cliente envía la consulta de usuario a [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesa la consulta de usuario con la detección del idioma, los correctores ortográficos y los separadores de palabras.|
 |3|Este preprocesamiento se realiza para modificar la consulta de usuario y obtener los mejores resultados de la búsqueda.|
-|4|Esta consulta modificada se envía al índice de Azure Cognitive Search, que recibe el número `top` de resultados. Si no se encuentra la respuesta correcta en estos resultados, aumente levemente el valor de `top`. Por lo general, un valor de 10 para `top` funciona en el 90 % de las consultas.|
+|4|Esta consulta modificada se envía al índice de Azure Cognitive Search, que recibe el número `top` de resultados. Si no se encuentra la respuesta correcta en estos resultados, aumente levemente el valor de `top`. Por lo general, un valor de 10 para `top` funciona en el 90 % de las consultas. En este paso, la búsqueda de Azure filtra las [palabras reservadas](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).|
 |5|QnA Maker usa un modelo basado en un innovador convertidor para determinar la similitud entre la consulta del usuario y los resultados de las instancias de QnA candidatas capturadas desde Azure Cognitive Search. El modelo basado en un convertidor es un modelo multilingüe de aprendizaje profundo, que funciona horizontalmente para todos los idiomas con el fin de determinar las puntuaciones de confianza y el nuevo orden de clasificación.|
 |6|Los resultados nuevos se devuelven a la aplicación cliente en el orden de clasificación.|
 |||

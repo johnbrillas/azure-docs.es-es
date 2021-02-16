@@ -4,12 +4,12 @@ description: Vea vídeos de demostración sobre cómo trabajar con los servicios
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852615"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550448"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie de vídeos sobre "procedimientos" de Azure Portal
 
@@ -17,17 +17,17 @@ La serie de vídeos de procedimientos de Azure Portal muestra cómo trabajar con
 
 ## <a name="featured-video"></a>Vídeo destacado
 
-En este vídeo destacado se muestra cómo empezar a trabajar en Azure mediante el Centro de inicio rápido de Azure.
+En este vídeo destacado se muestra cómo usar las vistas de Azure Cost Management.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Cómo empezar a usar Azure con el Centro de inicio rápido de Azure](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[Uso de las vistas de Azure Cost Management](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Póngase al día con estos vídeos recientes que puede que haya perdido:
 
-| [Cómo administrar aplicaciones en Azure Kubernetes Service](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Cómo compilar libros de Azure mediante registros y parámetros](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Cómo agregar y proteger un dominio personalizado en la aplicación web de App Service](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [Uso de píldoras para filtrar en Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Obtención de una vista de visualización de los recursos](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Anclaje del contenido al panel de Azure Portal](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Imagen de vídeo de YouTube sobre cómo administrar aplicaciones en Azure Kubernetes Service](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Imagen de vídeo de YouTube sobre cómo compilar libros de Azure mediante registros y parámetros](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Imagen de un vídeo de YouTube sobre cómo agregar y proteger un dominio personalizado en la aplicación web de App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![Imagen del vídeo de YouTube sobre cómo usar los píldoras para filtrar en Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Imagen del vídeo de YouTube sobre cómo obtener una vista de visualización de los recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Imagen del vídeo de YouTube sobre cómo anclar contenido al panel de Azure Portal](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>Lista de reproducción de vídeo
 

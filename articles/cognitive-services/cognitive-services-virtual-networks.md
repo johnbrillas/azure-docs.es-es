@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940044"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989079"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -59,7 +59,7 @@ Se admiten redes virtuales en [regiones en las que Cognitive Services está disp
 
 
 > [!NOTE]
-> Si usa LUIS, la etiqueta **CognitiveServicesManagement** solo le permite usar el servicio mediante el SDK o la API REST. Para obtener acceso al portal LUIS y usarlo desde una red virtual, deberá usar las siguientes etiquetas:  
+> Si usa LUIS o los servicios de voz, la etiqueta **CognitiveServicesManagement** solo le permite usar el servicio mediante el SDK o la API REST. Para acceder al portal de LUIS o a Speech Studio y usarlos desde una red virtual, deberá utilizar las siguientes etiquetas:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Puede administrar las reglas predeterminadas de acceso a redes para los recursos
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concesión de acceso desde una red virtual
 
@@ -169,7 +169,7 @@ Cada recurso de Cognitive Services admite hasta 100 reglas de red virtual, que s
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
-Para aplicar una regla de red virtual a un recurso de Cognitive Services, el usuario debe tener permisos apropiados para las subredes que se agregan. El permiso requerido es el rol _Colaborador* predeterminado, o bien el rol *Colaborador de Cognitive Services*. También se pueden agregar los permisos necesarios a las definiciones de roles personalizados.
+Para aplicar una regla de red virtual a un recurso de Cognitive Services, el usuario debe tener permisos apropiados para las subredes que se agregan. El permiso necesario es el rol *Colaborador* predeterminado, o bien el rol *Colaborador de Cognitive Services*. También se pueden agregar los permisos necesarios a las definiciones de roles personalizados.
 
 El recurso de Cognitive Services y las redes virtuales a las que se concedió acceso pueden estar en distintas suscripciones, incluidas las suscripciones que forman parte de un inquilino de Azure AD diferente.
 
@@ -325,10 +325,10 @@ Puede administrar las reglas de red virtual para los recursos de Cognitive Servi
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) en _*deny** o las reglas de red no tendrán ningún efecto.
+> Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) en **denegar** o, de lo contrario, las reglas de red no tendrán ningún efecto.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concesión de acceso desde un intervalo IP de Internet
 
@@ -472,10 +472,10 @@ Puede administrar las reglas de red IP para los recursos de Cognitive Services a
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) en _*deny** o las reglas de red no tendrán ningún efecto.
+> Asegúrese de [establecer la regla predeterminada](#change-the-default-network-access-rule) en **denegar** o, de lo contrario, las reglas de red no tendrán ningún efecto.
 
 ## <a name="use-private-endpoints"></a>Usar puntos de conexión privados
 

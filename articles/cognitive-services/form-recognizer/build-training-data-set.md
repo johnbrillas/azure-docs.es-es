@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845589"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585116"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
 Cuando se usa el modelo personalizado de Form Recognizer, puede proporcionar sus propios datos de entrenamiento a la operación [Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) (Entrenar modelo personalizado), para que el modelo pueda entrenar según los formularios específicos del sector. Siga esta guía para obtener información sobre cómo recopilar y preparar los datos para entrenar el modelo de forma eficaz.
 
-Si está realizando el entrenamiento sin etiquetas manuales, puede usar cinco formularios rellenados o un formulario vacío (tiene que incluir la palabra "empty" [vacío] en el nombre del archivo) más dos formularios rellenados. Incluso si tiene los formularios rellenados suficientes, agregar al conjunto de datos de aprendizaje un formulario vacío puede mejorar la precisión del modelo.
+Necesita al menos cinco formularios rellenados del mismo tipo.
 
-Si quiere usar datos de entrenamiento etiquetados manualmente, tiene que empezar con al menos cinco formularios del mismo tipo. Podrá seguir usando formularios sin etiquetar y un formulario vacío además del conjunto de datos requerido.
+Si quiere usar datos de entrenamiento etiquetados manualmente, tiene que empezar con al menos cinco formularios del mismo tipo. Podrá seguir usando formularios sin etiquetar además del conjunto de datos requerido.
 
 ## <a name="custom-model-input-requirements"></a>Requisitos de entrada del modelo personalizado
 

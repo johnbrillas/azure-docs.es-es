@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: entorno local, Docker, contenedor
-ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703333"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575795"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalación y ejecución de contenedores de Docker para las API del servicio de voz 
 
@@ -41,10 +41,10 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 | Contenedor | Características | Más reciente |
 |--|--|--|
-| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.7.0 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.7.0 |
-| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.9.0 |
-| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.9.0 |
+| Voz a texto | Analice opiniones y transcriba grabaciones continuas de audio por lotes o de voz en tiempo real con resultados intermedios.  | 2.9.0 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.9.0 |
+| Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.11.0 |
+| Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.11.0 |
 | Detección de idioma de Voz | Detecte el idioma que se habla en los archivos de audio. | 1,0 |
 | Texto a voz neuronal | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. | 1.3.0 |
 
@@ -316,6 +316,28 @@ Este comando:
 > [!NOTE]
 > Los contenedores admiten la entrada de audio comprimida al SDK de voz mediante GStreamer.
 > Para instalar GStreamer en un contenedor, siga las instrucciones de Linux para GStreamer en [Uso de entradas de audio comprimido con códec con el SDK de voz](how-to-use-codec-compressed-audio-input-streams.md).
+
+#### <a name="diarization-on-the-speech-to-text-output"></a>Diarización en la salida de voz a texto
+La diarización está habilitada de forma predeterminada. Para obtener diarización en la respuesta, use `diarize_speech_config.set_service_property`.
+
+1. Establezca el formato de salida de la frase en `Detailed`.
+2. Establezca el modo de diarización. Los modos admitidos son `Identity` y `Anonymous`.
+```python
+diarize_speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Format',
+    value='Detailed',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+
+diarize_speech_config.set_service_property(
+    name='speechcontext-phraseDetection.speakerDiarization.mode',
+    value='Identity',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+> [!NOTE]
+> El modo "Identity" devuelve `"SpeakerId": "Customer"` o `"SpeakerId": "Agent"`.
+> El modo "Anonymous" devuelve `"SpeakerId": "Speaker 1"` o `"SpeakerId": "Speaker 2"`.
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Análisis de la opinión sobre la salida de voz a texto 

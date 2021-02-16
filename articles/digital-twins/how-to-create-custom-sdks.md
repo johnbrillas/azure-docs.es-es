@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051571"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980667"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
@@ -112,6 +112,9 @@ En el patrón de paginación sin consultas se incluye un método de ejemplo que 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 El segundo patrón solo se genera para la API de consulta. Usa `continuationToken` explícitamente.
+
+>[!TIP]
+> Una de las razones principales de obtener páginas es calcular los [cargos por unidad de consulta](concepts-query-units.md) por una llamada a la API de consulta.
 
 A continuación, se indica un ejemplo con este patrón:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088945"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537803"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedimientos: Uso de Text Analytics para el estado (versión preliminar)
 
@@ -113,6 +113,9 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento. Para
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Estructura de la solicitud de API para la API web asincrónica hospedada
 
 Tanto para el contenedor como para la API web hospedada, debe crear una solicitud POST. Puede [usar Postman](text-analytics-how-to-call-api.md), un comando de cURL o la **consola de prueba de API** en la [referencia de la API hospedada Text Analytics for Health](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) para construir y enviar rápidamente una solicitud POST a la API web hospedada en la región deseada. 
+
+> [!NOTE]
+> Los puntos de conexión `/analyze` y `/health` asincrónicos solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.  Para realizar solicitudes correctas a estos puntos de conexión, asegúrese de que el recurso se crea en una de estas regiones.
 
 A continuación hay un ejemplo de un archivo JSON adjunto al cuerpo de POST de la solicitud de la API Text Analytics for Health:
 

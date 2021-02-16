@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202895"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593408"
 ---
 # <a name="entities"></a>Entidades
 
@@ -23,7 +23,7 @@ Las entidades tienen una transformación definida por una posición, rotación y
 
 El aspecto más importante de la propia entidad es la jerarquía y la transformación jerárquica resultante. Por ejemplo, cuando se asocian varias entidades como elementos secundarios a una entidad primaria compartida, todas estas entidades se pueden mover, girar y reducir horizontalmente al unísono cambiando la transformación de la entidad primaria. Además, se puede usar el estado `enabled` de la entidad para desactivar la visibilidad y las respuestas para las proyecciones de rayo de un subgráfico completo de la jerarquía.
 
-Una entidad es propiedad exclusiva de su elemento primario, lo que significa que cuando el elemento primario se destruye con `Entity.Destroy()`, lo mismo ocurre con sus elementos secundarios y todos los [componentes](components.md) conectados. Por lo tanto, para quitar un modelo de la escena se realiza una llamada a `Destroy` en el nodo raíz de un modelo, devuelto por `AzureSession.Actions.LoadModelAsync()` o su variante `AzureSession.Actions.LoadModelFromSASAsync()` de SAS.
+Una entidad es propiedad exclusiva de su elemento primario, lo que significa que cuando el elemento primario se destruye con `Entity.Destroy()`, lo mismo ocurre con sus elementos secundarios y todos los [componentes](components.md) conectados. Por lo tanto, para quitar un modelo de la escena se realiza una llamada a `Destroy` en el nodo raíz de un modelo, devuelto por `RenderingSession.Connection.LoadModelAsync()` o su variante `RenderingSession.Connection.LoadModelFromSasAsync()` de SAS.
 
 Las entidades se crean cuando el servidor carga el contenido o cuando el usuario desea agregar un objeto a la escena. Por ejemplo, si un usuario desea agregar un plano de corte para visualizar el interior de una malla, el usuario puede crear una entidad donde debe existir el plano y, a continuación, agregarle el componente de plano de corte.
 
@@ -32,19 +32,19 @@ Las entidades se crean cuando el servidor carga el contenido o cuando el usuario
 Para agregar una nueva entidad a la escena, por ejemplo, para pasarla como objeto raíz para cargar modelos o para adjuntarle componentes, use el código siguiente:
 
 ```cs
-Entity CreateNewEntity(AzureSession session)
+Entity CreateNewEntity(RenderingSession session)
 {
-    Entity entity = session.Actions.CreateEntity();
+    Entity entity = session.Connection.CreateEntity();
     entity.Position = new LocalPosition(1, 2, 3);
     return entity;
 }
 ```
 
 ```cpp
-ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+ApiHandle<Entity> CreateNewEntity(ApiHandle<RenderingSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
-    if (auto entityRes = session->Actions()->CreateEntity())
+    if (auto entityRes = session->Connection()->CreateEntity())
     {
         entity = entityRes.value();
         entity->SetPosition(Double3{ 1, 2, 3 });
@@ -106,33 +106,24 @@ Los metadatos son datos adicionales almacenados en objetos que el servidor omite
 Las consultas de metadatos son llamadas asincrónicas en una entidad específica. La consulta solo devuelve los metadatos de una sola entidad, no la información combinada de un subgrafo.
 
 ```cs
-MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
-metaDataQuery.Completed += (MetadataQueryAsync query) =>
-{
-    if (query.IsRanToCompletion)
-    {
-        ObjectMetaData metaData = query.Result;
-        ObjectMetaDataEntry entry = metaData.GetMetadataByName("MyInt64Value");
-        System.Int64 intValue = entry.AsInt64;
-
-        // ...
-    }
-};
+Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
+ObjectMetadata metaData = await metaDataQuery;
+ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
+System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp
-ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
-metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData) 
+{
+    if (status == Status::OK)
     {
-        if (query->GetIsRanToCompletion())
-        {
-            ApiHandle<ObjectMetaData> metaData = query->GetResult();
-            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->GetAsInt64();
+        ApiHandle<ObjectMetadataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+        int64_t intValue = *entry->GetAsInt64();
 
-            // ...
-        }
-    });
+        // ...
+    }
+});
 ```
 
 La consulta se realizará correctamente incluso si el objeto no contiene metadatos.
@@ -140,9 +131,9 @@ La consulta se realizará correctamente incluso si el objeto no contiene metadat
 ## <a name="api-documentation"></a>Documentación de la API
 
 * [Clase Entity de C#](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [RemoteManager.CreateEntity() de C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [RenderingConnection.CreateEntity() de C#](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
 * [Clase Entity de C++](/cpp/api/remote-rendering/entity)
-* [RemoteManager::CreateEntity() de C++](/cpp/api/remote-rendering/remotemanager#createentity)
+* [RenderingConnection::CreateEntity() de C++](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

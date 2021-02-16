@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573095"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007302"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -66,6 +66,18 @@ Para crear su primer proyecto, seleccione la pestaña **Text-to-Speech/Custom Vo
 
 > [!IMPORTANT]
 > El [portal de Voz personalizada](https://aka.ms/custom-voice) se ha actualizado recientemente. Si creó datos, modelos y pruebas anteriores y publicó puntos de conexión en el portal CRIS.ai o con API, debe crear un nuevo proyecto en el nuevo portal para conectarse a estas entidades antiguas.
+
+## <a name="how-to-migrate-to-custom-neural-voice"></a>Migración a Voz neuronal personalizada
+
+Si usa la voz personalizada no neuronal (o estándar), considere la posibilidad de migrar a Voz neuronal personalizada inmediatamente siguiendo los pasos que se indican a continuación. Se recomienda pasar a Voz neuronal personalizada para desarrollar voces más realistas dirigidas a interfaces de conversación más naturales y permitir que clientes y usuarios finales se beneficien de la tecnología de texto a voz más moderna, de forma responsable. 
+
+1. Obtenga más información sobre nuestra [directiva sobre la limitación de acceso](https://aka.ms/gating-overview) y [haga una solicitud aquí](https://aka.ms/customneural). Tenga en cuenta que el acceso al servicio Voz neuronal personalizada está sujeto a la exclusiva discreción de Microsoft de acuerdo con sus criterios de idoneidad. Los clientes pueden obtener acceso a la tecnología solo después de que se haya revisado su solicitud y se les haya confirmado su uso de acuerdo con los [principios de IA responsable](https://microsoft.com/ai/responsible-ai) y el [código de conducta](https://aka.ms/custom-neural-code-of-conduct). 
+2. Una vez aprobada la solicitud, se le proporcionará acceso a la característica de entrenamiento "neuronal". Asegúrese de iniciar sesión en el [portal de Voz personalizado](https://speech.microsoft.com/customvoice) con la misma suscripción de Azure que facilita en la aplicación. 
+    > [!IMPORTANT]
+    > Para proteger al actor de voz y evitar el entrenamiento de modelos de voz con grabaciones no autorizadas o sin el consentimiento de dicha persona, es necesario que el cliente cargue una declaración grabada del actor de voz en la que dé su consentimiento. Cuando prepare el script de grabación, asegúrese de incluir esta oración. "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice." ("Yo [indique su nombre y apellido] acepto que [indique el nombre de empresa] use grabaciones de mi voz para crear y usar una versión sintética de la voz").
+    > Esta oración debe cargarse en la pestaña **Voice Talent** (Actor de voz) como archivo de consentimiento verbal. Se usará para comprobar si las grabaciones de los conjuntos de datos de entrenamiento se corresponden con la persona que otorga el consentimiento.
+3. Una vez creado el modelo de Voz neuronal personalizada, implemente el modelo de voz en un nuevo punto de conexión. Para crear un punto de conexión de voz personalizado con el modelo de voz neuronal, vaya a **Texto a voz > Voz personalizada > Implementación**. Seleccione **Implementar modelo** y escriba un **nombre** y una **descripción** para el punto de conexión personalizado. A continuación, seleccione el modelo de voz neuronal personalizada que le gustaría asociar a este punto de conexión y confirme la implementación.  
+4. Si ha creado un punto de conexión con un nuevo modelo, actualice el código de las aplicaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
