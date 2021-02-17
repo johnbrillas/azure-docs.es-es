@@ -3,7 +3,7 @@ title: 'Solución de problemas de la administración de derechos: Azure AD'
 description: Aprenda sobre algunos elementos que debe comprobar para solucionar los problemas de administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca78195d4fb7bb265c4a7fd8d78ea49a35335b6
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516896"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -47,7 +47,6 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Cuando se quita un miembro de un equipo, también se quita del grupo de Microsoft 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](/microsoftteams/office-365-groups#group-membership).
 
-* Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Paquetes de acceso
 

@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186368"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552667"
 ---
 #### <a name="to-create-a-volume"></a>Para crear un volumen
-1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione el dispositivo. Haga clic en **+ Agregar volumen**.
+1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione el dispositivo. Haga clic en **+ Agregar volumen**.<!--Note to reviewer. No screen updates. Had to rename screens to be able to correct a formatting error.-->
 
-    ![Adición de un nuevo volumen](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
+    ![Adición de un nuevo volumen](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
 
 2. En la hoja **Agregar un volumen**:
    
@@ -35,10 +35,10 @@ ms.locfileid: "67186368"
        Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB. Como el espacio local del dispositivo es necesario para hospedar el espacio de trabajo de los volúmenes en capas, la creación de volúmenes localmente anclados afectará el espacio disponible para aprovisionar volúmenes en capas. Por lo tanto, si crea un volumen anclado localmente, se reduce el espacio disponible para la creación de volúmenes en capas. De forma similar, si se crea un volumen en capas, se reducirá el espacio disponible para la creación de volúmenes anclados localmente.
       
        Si se aprovisiona un volumen anclado localmente de 8,5 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No puede crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de aproximadamente 106 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
-
+ 
       1. En el campo **Hosts conectados**, haga clic en la flecha. 
 
-         ![Hosts conectados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Hosts conectados](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
 
       1. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un nuevo ACR realizando los pasos siguientes:
 
@@ -47,7 +47,7 @@ ms.locfileid: "67186368"
 
       1. Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
 
-         ![Haga clic en Crear.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Haga clic en Crear.](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
 
          > [!NOTE]
          > Tenga en cuenta que el volumen que ha creado aquí no está protegido. Debe crear y asociar las directivas de copia de seguridad con este volumen para realizar copias de seguridad programadas. 

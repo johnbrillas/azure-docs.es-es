@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837273"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522740"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
@@ -203,6 +203,6 @@ Puede que el administrador haya definido reglas de exclusión de alertas. Dichas
 
 Es decir, que las reglas de reenvío que defina podrían omitirse en función de las reglas de exclusión que haya creado el administrador. Las reglas de exclusión se definen en la consola de administración local.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Aceleración de los flujos de trabajo de alertas](how-to-accelerate-alert-incident-response.md)

@@ -4,16 +4,24 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 49b18b83c778a990398c4443d508743566ecfb20
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511306"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834193"
 ---
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con varios componentes, cómo conectarla al centro de IoT y cómo usar la CLI de Azure para ver los datos de telemetría que envía. La aplicación de ejemplo se escribe en Java y se incluye en el SDK de dispositivo IoT de Azure para Java. Un generador de soluciones puede usar la CLI de Azure para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con componentes, cómo conectarla a un centro de IoT y cómo usar la herramienta Azure IoT Explorer para ver la información que envía al centro. La aplicación de ejemplo se escribe en Java y se incluye en el SDK de dispositivo IoT de Azure para Java. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
+
+En este tutorial, hizo lo siguiente:
+
+> [!div class="checklist"]
+> * Descargue el código de ejemplo.
+> * Ha creado el código de ejemplo.
+> * Ha ejecutado la aplicación del dispositivo de ejemplo y confirmar que se conecta al centro de IoT.
+> * Ha revisado el código fuente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -135,5 +143,3 @@ Use la herramienta Azure IoT Explorer para ver los datos de telemetría y las pr
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Dispositivo de varios componentes en Azure IoT Explorer":::
 
 También puede usar la herramienta Azure IoT Explorer para llamar a comandos en cualquiera de los dos componentes de termostato o en el componente predeterminado.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

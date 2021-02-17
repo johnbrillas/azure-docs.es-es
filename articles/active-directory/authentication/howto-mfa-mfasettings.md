@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027006"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361628"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -65,9 +65,7 @@ Para bloquear a un usuario, complete los siguientes pasos:
 
 1. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **bloqueo/desbloqueo de usuarios**.
 1. Seleccione **Agregar** para bloquear a un usuario.
-1. Seleccione el **Grupo de replicación** y elija el *valor predeterminado de Azure*.
-
-    Escriba el nombre de usuario del usuario bloqueado como `username\@domain.com` y proporcione un comentario en el campo *Motivo*.
+1. Escriba el nombre de usuario del usuario bloqueado como `username@domain.com` y proporcione un comentario en el campo *Motivo*.
 1. Cuando esté listo, seleccione **Aceptar** para bloquear al usuario.
 
 ### <a name="unblock-a-user"></a>Desbloquear a un usuario

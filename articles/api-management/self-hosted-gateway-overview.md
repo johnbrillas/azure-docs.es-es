@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232979"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989090"
 ---
 # <a name="self-hosted-gateway-overview"></a>Introducción a la puerta de enlace autohospedada
 
@@ -49,7 +49,7 @@ Las siguientes funcionalidades de las puertas de enlace administradas **no está
 
 - Registros de Azure Monitor
 - Administración de cifrado y de la versión de TLS ascendente (back-end)
-- La validación de los certificados de servidor y cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en el servicio de API Management. Para agregar compatibilidad con CA personalizadas, agregue una capa a la imagen de contenedor de puerta de enlace autohospedada que instala el certificado raíz de la CA.
+- La validación de los certificados de servidor y cliente mediante [certificados raíz de CA](api-management-howto-ca-certificates.md) cargados en el servicio de API Management. Para más información, consulte [Validación de certificados en una puerta de enlace autohospedada](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Integración con [Service Fabric](../service-fabric/service-fabric-api-management-overview.md).
 - Reanudación de la sesión TLS.
 - Renegociación del certificado de cliente. Esto significa que, para que la [autenticación de certificados de cliente](api-management-howto-mutual-certificates-for-clients.md) funcione, los consumidores de la API de trabajo deben presentar sus certificados como parte del protocolo de enlace TLS inicial. Para garantizar este escenario, habilite la configuración Negociar certificado de cliente cuando configure un nombre de host personalizado de puerta de enlace autohospedada.

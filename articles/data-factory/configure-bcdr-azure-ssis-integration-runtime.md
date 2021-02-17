@@ -1,23 +1,19 @@
 ---
 title: Configuración de Azure-SSIS Integration Runtime para la conmutación por error de SQL Database
 description: En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database para la base de datos SSISDB.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: 6b37a0df994546762abbcf3452d8e7b52dec6847
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: e12939d1003ce708889ca0b3dbc710096f9ee955
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331420"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364450"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configuración de Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de SQL Database
 

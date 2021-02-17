@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178745"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104152"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedimientos: Restricción de la aplicación de Azure AD a un conjunto de usuarios de un inquilino de Azure AD
 
@@ -47,7 +47,7 @@ Hay dos maneras de crear una aplicación con la asignación de usuarios habilita
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicaciones empresariales (necesita el rol Administrador global)
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> como **administrador global**.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> como **Administrador global**.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
@@ -59,7 +59,7 @@ Hay dos maneras de crear una aplicación con la asignación de usuarios habilita
 
 ### <a name="app-registration"></a>Registro de la aplicación
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.

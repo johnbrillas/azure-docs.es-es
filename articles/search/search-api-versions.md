@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: feca2e83646264b28e42125b3fdebf41266c06bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 489c6be7bf977d01207fee4d1bd1fda13dc12025
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422729"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820524"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versiones de API en Azure Cognitive Search
 
@@ -87,7 +87,7 @@ En la tabla siguiente se proporcionan vínculos a versiones más recientes del S
 
 | Versión del SDK | Estado | Descripción |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nueva biblioteca cliente del SDK de .NET de Azure, publicada en julio de 2020. Tiene como destino la API REST de búsqueda api-version = 2020-06-30, pero aún no admite filtros geográficos. |
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | Nueva biblioteca cliente del SDK de .NET de Azure, publicada en julio de 2020. Tiene como destino la API REST de búsqueda api-version = 2020-06-30, pero aún no admite filtros geográficos. Se recomienda el paquete [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) para las operaciones geográficas. Hay disponibles ejemplos de [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) y [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md). |
 | [Microsoft.Azure.Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Publicada en mayo de 2019. Tiene como destino la API REST del servicio Search api-version=2019-05-06.|
 | [Microsoft.Azure.Management.Search 4.0.0](/dotnet/api/overview/azure/search/management) | Stable | Tiene como destino la API REST de administración api-version=2020-08-01.  |
 | Microsoft.Azure.Management.Search 3.0.0 | Stable | Tiene como destino la API de REST de administración api-version=2015-08-19.  |

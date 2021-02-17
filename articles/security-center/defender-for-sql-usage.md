@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2020
+ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: d741aad2e97b211e42dc6c8b6176f102703acc5b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916496"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391086"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL en máquinas 
 
@@ -70,7 +70,7 @@ Ambos métodos se describen a continuación.
 
 1. Establezca la opción del plan **Azure Defender para servidores SQL en máquinas**  en **Activada**. 
 
-    ![Página de precios de Security Center con planes opcionales](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Página de precios de Security Center con planes opcionales":::
 
     El plan se habilitará en todos los servidores SQL conectados al área de trabajo seleccionada. La protección de datos estará totalmente activa después del primer reinicio de la instancia de SQL Server.
 

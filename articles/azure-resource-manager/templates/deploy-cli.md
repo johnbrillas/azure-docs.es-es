@@ -3,12 +3,12 @@ title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6a8efcebcd6ae18eaf91c6ec1e7df184db8c244c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881306"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378679"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -106,7 +106,7 @@ En el ejemplo anterior, se requiere un identificador URI accesible públicamente
 
 Para implementar plantillas vinculadas remotas con una ruta de acceso relativa que estén almacenadas en una cuenta de almacenamiento, use `query-string` para especificar el token de SAS:
 
-```azurepowershell
+```azurecli-interactive
 az deployment group create \
   --name linkedTemplateWithRelativePath \
   --resource-group myResourceGroup \

@@ -1,19 +1,17 @@
 ---
 title: Estrategias de acceso a datos
 description: Azure Data Factory admite ahora intervalos de direcciones IP estáticas.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632777"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389253"
 ---
 # <a name="data-access-strategies"></a>Estrategias de acceso a datos
 
@@ -39,10 +37,10 @@ Esto debería funcionar en muchos escenarios, y sabemos que es deseable una dire
 
 * **[Private Link](../private-link/private-link-overview.md)** : puede crear una instancia de Azure Integration Runtime en la red virtual administrada de Azure Data Factory y aprovechará los puntos de conexión privados para conectarse de forma segura a los almacenes de datos compatibles. El tráfico entre la red virtual administrada y los orígenes de datos viaja por la red troncal de Microsoft y no se exponen a la red pública.
 * **[Servicio de confianza](../storage/common/storage-network-security.md#exceptions)** : Azure Storage (BLOB, ADLS Gen2) admite la configuración del firewall que permite seleccionar servicios de la plataforma de Azure de confianza para acceder a la cuenta de almacenamiento de forma segura. Los servicios de confianza aplican la autenticación de identidad administrada, lo que garantiza que ninguna otra factoría de datos pueda conectarse a este almacenamiento, a menos que tenga la aprobación para hacerlo mediante su identidad administrada. Puede encontrar más información en **[este blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Por lo tanto, es muy seguro y recomendado. 
-* **IP estática única** : deberá configurar una instancia de entorno de ejecución de integración autohospedado para obtener una dirección IP estática para los conectores de Data Factory. Este mecanismo garantiza que puede bloquear el acceso desde todas las demás direcciones IP. 
+* **IP estática única**: deberá configurar una instancia de entorno de ejecución de integración autohospedado para obtener una dirección IP estática para los conectores de Data Factory. Este mecanismo garantiza que puede bloquear el acceso desde todas las demás direcciones IP. 
 * **[Intervalo de direcciones IP estáticas](./azure-integration-runtime-ip-addresses.md)** : puede usar las direcciones IP de Azure Integration Runtime para permitir que se muestren en el almacenamiento (por ejemplo, S3, Salesforce, etc.). Ciertamente, restringe las direcciones IP que se pueden conectar a los almacenes de datos, pero también se basa en las reglas de autenticación y autorización.
 * **[Etiqueta de servicio](../virtual-network/service-tags-overview.md)** : una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado (como Azure Data Factory). Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Resulta útil al filtrar el acceso a los datos de los almacenes de datos hospedados por IaaS en Virtual Network.
-* **Permitir servicios de Azure** : algunos servicios admiten permitir que todos los servicios de Azure se conecten a él en caso de que elija esta opción. 
+* **Permitir servicios de Azure**: algunos servicios admiten permitir que todos los servicios de Azure se conecten a él en caso de que elija esta opción. 
 
 Para obtener más información sobre los mecanismos de seguridad de red admitidos en los almacenes de datos de Azure Integration Runtime y Integration Runtime autohospedado, consulte las dos tablas siguientes.  
 * **Azure Integration Runtime**

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872899"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391027"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure
 
@@ -30,9 +30,6 @@ Las imágenes de Red Hat Enterprise Linux (RHEL) están disponibles en Azure a t
 - Las máquinas virtuales aprovisionadas a partir de imágenes de Red Hat Gold Image no tienen las tarifas de RHEL asociadas a las imágenes de Pago por uso de RHEL.
 - Las imágenes no están autorizadas, por lo que debe usar el administrador de suscripciones de Red Hat para registrarse y suscribirse a las máquinas virtuales para obtener actualizaciones de Red Hat directamente.
 - Es posible cambiar de las imágenes de pago por uso a BYOS mediante la [Ventaja híbrida de Azure](../../linux/azure-hybrid-benefit-linux.md). Sin embargo, no es posible cambiar de una BYOS implementada inicialmente a modelos de facturación de pago por uso si se trata de imágenes de Linux. Para cambiar el modelo de facturación de BYOS a pago por uso, es necesario volver a implementar la máquina virtual a partir la imagen correspondiente.
-
->[!NOTE]
-> Las imágenes de BYOS de RHEL de generación 2 no están disponibles actualmente en la oferta de Marketplace. Si necesita una imagen de BYOS de RHEL de generación 2, visite el panel de acceso a la nube en la administración de suscripciones de Red Hat. Para más información, consulte la [documentación de Red Hat](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Requisitos y condiciones para acceder a las imágenes de Red Hat Gold Image
 

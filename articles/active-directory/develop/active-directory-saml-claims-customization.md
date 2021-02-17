@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756079"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102706"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -81,10 +81,8 @@ Para obtener más información, consulte [Tabla 3: Valores de Id. válidos por o
 
 También puede asignar cualquier valor constante (estático) a cualquier notificación que defina en Azure AD. Siga los pasos que se indican a continuación para asignar un valor constante:
 
-1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario), haga clic en el **icono de edición** para modificar las notificaciones.
-
+1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, en la sección **Atributos y notificaciones de usuario**, haga clic en el icono de **edición** para modificar las notificaciones.
 1. Haga clic en la notificación que desea modificar.
-
 1. Escriba el valor constante sin comillas en el **Atributo de origen** según su organización y haga clic en **Guardar**.
 
     ![Sección Org Attributes & Claims (Atributos y notificaciones de organización) de Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: c28e2f1c24d39ceb915be9f4f6f222d70de9ee73
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509493"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522230"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Informes de tendencias y estadísticas del sensor
 
@@ -93,7 +93,7 @@ En el menú lateral, seleccione **Tendencias y estadísticas**.
 
 De forma predeterminada, los resultados se muestran para las detecciones de los últimos 7 días. Puede usar las herramientas de filtro para cambiar este intervalo. Por ejemplo, una búsqueda de texto libre.
 
-## <a name="see-also"></a>Vea también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Informes de evaluación de riesgos](how-to-create-risk-assessment-reports.md)
 [Consultas de minería de datos del sensor](how-to-create-data-mining-queries.md)

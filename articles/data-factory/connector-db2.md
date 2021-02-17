@@ -1,22 +1,17 @@
 ---
 title: Copia de datos de DB2 mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde DB2 a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381127"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -79,16 +74,16 @@ Propiedades habituales dentro de la cadena de conexión:
 |:--- |:--- |:--- |
 | server |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`.<br>El conector de DB2 usa el protocolo DDM/DRDA y, de forma predeterminada, usa el puerto 50000 si no se especifica. El puerto que usa su base de datos DB2 específica podría ser diferente según la versión y la configuración establecida; por ejemplo, para DB2 LUW el puerto predeterminado es 50000, para AS400 el puerto predeterminado es 446, o 448 cuando se habilita TLS. Consulte los siguientes documentos de DB2 sobre la forma en que se configura normalmente el puerto: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) y [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Sí |
 | database |Nombre de la base de datos DB2. |Sí |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico** . |Sí |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |Sí |
 | username |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| packageCollection | Especifique en dónde crea ADF automáticamente los paquetes necesarios al consultar la base de datos. Si no se establece, Data Factory utiliza {username} como valor predeterminado. | No |
+| packageCollection    | Especifique en dónde crea ADF automáticamente los paquetes necesarios al consultar la base de datos. Si no se establece, Data Factory utiliza {username} como valor predeterminado. | No |
 | certificateCommonName | Al usar el cifrado de Capa de sockets seguros (SSL) o de Seguridad de la capa de transporte (TLS), debe escribir un valor para el nombre común del certificado. | No |
 
 > [!TIP]
 > Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De forma predeterminada, ADF intentará crear un paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que ADF cree los paquetes necesarios al consultar la base de datos.
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 {
@@ -204,7 +199,7 @@ Para copiar datos desde DB2, en la sección **source** de la actividad de copia 
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **Db2Source** | Sí |
 | Query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (si se especifica "tableName" en el conjunto de datos) |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities":[

@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a71e854f03bee75b757e0a0aa02e7aa2c24469b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747853"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626567"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Actualización de una aplicación de Service Fabric que se ejecuta en Azure Service Fabric Mesh
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones mediante la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para más información, consulte este artículo sobre la [retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial es la tercera parte de una serie. Obtendrá información sobre cómo actualizar una aplicación de Service Fabric que estaba [implementada previamente en Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) mediante el aumento de los recursos de CPU asignados.  Cuando haya terminado, tendrá un servicio de front-end web que se ejecuta con recursos de CPU superiores.
 
@@ -26,7 +31,7 @@ En la tercera parte de la serie, se aprende a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * [Implementar una aplicación en Service Fabric Mesh mediante una plantilla](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Escalar una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Escala de una aplicación que se ejecuta en Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
 > * Actualizar una aplicación que se ejecuta en Service Fabric Mesh
 > * [Eliminar una aplicación](service-fabric-mesh-tutorial-template-remove-app.md)
 
@@ -50,7 +55,7 @@ Este tutorial usa el ejemplo To Do List, que se [implementó previamente](servic
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-En la plantilla de implementación del recurso de aplicación, cada servicio tiene una propiedad *cpu* que se puede usar para establecer los recursos de CPU solicitados. Una aplicación puede constar de varios servicios, cada uno con un único valor de *cpu* , que se implementan y administran de forma conjunta. Para aumentar los recursos de CPU del servicio de front-end web, modifique el valor de *cpu* en la plantilla de implementación o el archivo de parámetros.  Después, actualice la aplicación.
+En la plantilla de implementación del recurso de aplicación, cada servicio tiene una propiedad *cpu* que se puede usar para establecer los recursos de CPU solicitados. Una aplicación puede constar de varios servicios, cada uno con un único valor de *cpu*, que se implementan y administran de forma conjunta. Para aumentar los recursos de CPU del servicio de front-end web, modifique el valor de *cpu* en la plantilla de implementación o el archivo de parámetros.  Después, actualice la aplicación.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificación de los parámetros de la plantilla de implementación
 
@@ -80,7 +85,7 @@ El parámetro *frontEndCpu* se declara en la sección *parameters* de la [planti
 }
 ```
 
-La propiedad *codePackages->resources->requests->cpu* del servicio WebFrontEnd hace referencia al parámetro *frontEndCpu* :
+La propiedad *codePackages->resources->requests->cpu* del servicio WebFrontEnd hace referencia al parámetro *frontEndCpu*:
 
 ```json
     "services": [

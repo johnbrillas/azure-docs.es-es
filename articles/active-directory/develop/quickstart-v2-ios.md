@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d2c5af6aeccfbae0851513ff575bde3c39e3ca5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754303"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103794"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -46,7 +46,7 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opción 1: Registrar y configurar de modo automático la aplicación y, luego, descargar el código de ejemplo
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Registro de aplicaciones
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
@@ -55,7 +55,7 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.    
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -69,7 +69,7 @@ Este inicio rápido va dirigido a las aplicaciones de iOS y macOS. Algunos pasos
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Paso 1: Configuración de la aplicación
-> Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar un identificador URI de redirección compatible con el agente de autenticación.
+> Para que el código de ejemplo de este inicio rápido funcione, agregue un **identificador URI de redirección** compatible con el agente de autenticación.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >
@@ -118,7 +118,7 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 >     ```
 > 1. Abra la configuración del proyecto. En la sección **Identidad**, escriba el **identificador de agrupación** que especificó en el portal.
 > 1. Haga clic con el botón derecho en **Info.plist** y seleccione **Abrir como** > **Código fuente**.
-> 1. En el nodo raíz dict, reemplace `Enter_the_bundle_Id_Here` por el **_identificador de agrupación_* que usó en el portal.
+> 1. En el nodo raíz dict, reemplace `Enter_the_bundle_Id_Here` por el ***identificador de agrupación*** que usó en el portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Donde: | Descripción |
 > |---------|---------|
-> | `clientId` | El identificador de aplicación de la aplicación registrada en portal.azure.com* |
+> | `clientId` | El identificador de aplicación de la aplicación registrada en *portal.azure.com* |
 > | `authority` | La plataforma de identidad de Microsoft. En la mayoría de los casos, será `https://login.microsoftonline.com/common`. |
 > | `redirectUri` | URI de redireccionamiento de la aplicación. Puede pasar "nil" para usar el valor predeterminado o su URI de redireccionamiento personalizado. |
 
@@ -214,7 +214,7 @@ La aplicación también debe tener lo siguiente en `AppDelegate`. Esto permite q
     }
  ```
 
-Por último, la aplicación debe tener una entrada `LSApplicationQueriesSchemes` en ***Info.plist** junto con `CFBundleURLTypes`. El ejemplo incluye esto.
+Por último, la aplicación debe tener una entrada `LSApplicationQueriesSchemes` en ***Info.plist*** junto con `CFBundleURLTypes`. El ejemplo incluye esto.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ MSAL tiene dos métodos para adquirir tokens: `acquireToken` y `acquireTokenSile
 
 Algunas situaciones requieren que los usuarios interactúen con la plataforma de identidad de Microsoft. En estos casos, puede que sea necesario que el usuario final seleccione su cuenta, escriba sus credenciales o dé su consentimiento a los permisos de la aplicación. Por ejemplo,
 
-La primera vez que los usuarios inician sesión en la aplicación
+* La primera vez que los usuarios inician sesión en la aplicación
 * Si un usuario restablece su contraseña, deberá escribir sus credenciales.
 * Cuando la aplicación solicita acceso a un recurso por primera vez.
 * Cuando se requieren MFA u otras directivas de acceso condicional.

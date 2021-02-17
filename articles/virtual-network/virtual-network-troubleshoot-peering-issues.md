@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096396"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518171"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -233,7 +233,7 @@ Para resolver esta incidencia, elimine el emparejamiento de ambas redes virtuale
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>No se pudo emparejar una red virtual de Databricks
 
-Para resolver esta incidencia, configure el emparejamiento de red virtual en **Azure Databricks** y, después, especifique la red virtual de destino mediante el **Id. de recurso**. Para obtener más información, consulte [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2) (Emparejamiento de una red virtual de Databricks con una red virtual remota).
+Para resolver esta incidencia, configure el emparejamiento de red virtual en **Azure Databricks** y, después, especifique la red virtual de destino mediante el **Id. de recurso**. Para obtener más información, consulte [Peer a Databricks virtual network to a remote virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2) (Emparejamiento de una red virtual de Databricks con una red virtual remota).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>La red virtual remota no tiene una puerta de enlace
 

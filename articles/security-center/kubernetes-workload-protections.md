@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526742"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546268"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -39,7 +39,7 @@ Security Center ofrece más características de seguridad del contenedor si habi
 |Precios:|Gratuito|
 |Roles y permisos necesarios:|**Propietario** o **administrador de seguridad** para editar una asignación<br>**Lector** para ver las recomendaciones|
 |Requisitos del entorno:|Se requiere la versión 1.14 (o posterior) de Kubernetes<br>Ningún recurso PodSecurityPolicy (antiguo modelo de PSP) en los clústeres<br>No se admiten nodos de Windows|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
 
 

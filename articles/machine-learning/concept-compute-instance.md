@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862144"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099802"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -51,7 +51,7 @@ La estancia de proceso Azure Machine Learning permite crear, formar e implementa
 
 Puede ejecutar cuadernos de Jupyter en [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) mediante la instancia de proceso como el servidor remoto sin necesidad de SSH. También puede habilitar la integración de VS Code a través de la [extensión de SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Puede [instalar paquetes](how-to-create-manage-compute-instance.md#install-packages) y [agregar kernels](how-to-create-manage-compute-instance.md#add-new-kernels) a su instancia de proceso.  
+Puede [instalar paquetes](how-to-access-terminal.md#install-packages) y [agregar kernels](how-to-access-terminal.md#add-new-kernels) a su instancia de proceso.  
 
 Las herramientas y los entornos siguientes ya están instalados en la instancia de proceso: 
 
@@ -77,7 +77,7 @@ Las herramientas y los entornos siguientes ya están instalados en la instancia 
 |Anaconda Python||
 |Jupyter y extensiones||
 |Jupyterlab y extensiones||
-[SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>desde PyPI|Incluye la mayoría de los paquetes adicionales de azureml.  Para ver la lista completa, [abra una ventana de terminal en la instancia de proceso](how-to-run-jupyter-notebooks.md#terminal) y ejecute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>desde PyPI|Incluye la mayoría de los paquetes adicionales de azureml.  Para ver la lista completa, [abra una ventana de terminal en la instancia de proceso](how-to-access-terminal.md) y ejecute <br/> `conda list -n azureml_py36 azureml*` |
 |Otros paquetes de PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Paquetes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Paquetes de aprendizaje profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|

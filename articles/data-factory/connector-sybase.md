@@ -1,22 +1,17 @@
 ---
 title: Copia de datos desde Sybase mediante Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Sybase en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef63eded5403c1cf5faddec71ed3503c3ae2138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669841"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384816"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copia de datos desde Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

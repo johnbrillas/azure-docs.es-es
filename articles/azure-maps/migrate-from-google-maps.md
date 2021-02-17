@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: decf289614179718d5c3424f6d4482a5ce2c43e1
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6241f6156b01c3c90f00578ae5416e4e77270930
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680728"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386805"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>Tutorial: Migración de Google Maps a Azure Maps
 
@@ -48,7 +48,7 @@ En la tabla se proporciona una lista general de las características de Azure Ma
 | API REST del servicio           | ✓                                      |
 | Direcciones (cálculo de ruta)        | ✓                                      |
 | Matriz de distancia             | ✓                                      |
-| Elevation                   | Planeado                                |
+| Elevation                   | ✓ (vista previa)                            |
 | Geocodificación (directa o inversa) | ✓                                      |
 | Geolocalización                 | N/D                                    |
 | Carreteras más cercanas               | ✓                                      |

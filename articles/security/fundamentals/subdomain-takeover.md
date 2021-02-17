@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559240"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389457"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar las entradas DNS pendientes y la adquisición de subdominios
 
@@ -119,7 +119,7 @@ Si es un administrador global del inquilino de su organización, eleve los privi
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
-Obtenga más información sobre el script de PowerShell, **Get-DanglingDnsRecords.ps1** y descárguelo desde GitHub: https://aka.ms/DanglingDNSDomains.
+Obtenga más información sobre el script de PowerShell, **Get-DanglingDnsRecords.ps1** y descárguelo desde GitHub: https://aka.ms/Get-DanglingDnsRecords.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corrección de las entradas DNS pendientes 
 

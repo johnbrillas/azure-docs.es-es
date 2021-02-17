@@ -1,22 +1,18 @@
 ---
 title: Copia de archivos de varios contenedores
 description: Aprenda a usar una plantilla de solución para copiar archivos de varios contenedores con Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629432"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376095"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copia de varias carpetas con Azure Data Factory
 
@@ -37,8 +33,8 @@ La plantilla contiene tres actividades:
 - **Copy** copia cada carpeta desde el almacén de almacenamiento de origen al almacén de destino.
 
 La plantilla define los parámetros siguientes:
-- *SourceFileFolder* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory* , donde puede obtener una lista de las subcarpetas. 
-- *SourceFileDirectory* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory* , donde puede obtener una lista de las subcarpetas. 
+- *SourceFileFolder* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory*, donde puede obtener una lista de las subcarpetas. 
+- *SourceFileDirectory* forma parte de la ruta de acceso de la carpeta principal del almacén de origen de datos: *SourceFileFolder/SourceFileDirectory*, donde puede obtener una lista de las subcarpetas. 
 - *DestinationFileFolder* forma parte de la ruta de acceso de la carpeta principal: *DestinationFileFolder/DestinationFileDirectory* donde se copiarán los archivos en el almacén de destino. 
 - *DestinationFileDirectory* forma parte de la ruta de acceso de la carpeta principal: *DestinationFileFolder/DestinationFileDirectory* donde se copiarán los archivos en el almacén de destino. 
 
@@ -46,7 +42,7 @@ Si quiere copiar varios contenedores debajo de carpetas raíz entre almacenes de
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
-1. Vaya a la plantilla **Copy multiple files containers between File Stores** (Copiar varios contenedores de archivos entre almacenes de archivos). Cree una **nueva** conexión con el almacén de almacenamiento de origen. El almacén de almacenamiento de origen es desde donde se van a copiar los archivos de varios contenedores.
+1. Vaya a la plantilla **Copy multiple files containers between File Stores**(Copiar varios contenedores de archivos entre almacenes de archivos). Cree una **nueva** conexión con el almacén de almacenamiento de origen. El almacén de almacenamiento de origen es desde donde se van a copiar los archivos de varios contenedores.
 
     ![Creación de una nueva conexión con el origen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
@@ -62,7 +58,7 @@ Si quiere copiar varios contenedores debajo de carpetas raíz entre almacenes de
 
     ![Visualización de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Seleccione **Depurar** , escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
+5. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
     ![Ejecución de la canalización](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

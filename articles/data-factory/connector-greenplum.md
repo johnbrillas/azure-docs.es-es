@@ -1,22 +1,17 @@
 ---
 title: Copiar datos de Greenplum con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos de Greenplum en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 858db354564bf3c3ef6dba9b04d57f887bcec56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02d69cd3d7d09f016fda44f835c7cc544f0ffff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388386"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar datos de Greenplum con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,13 +76,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Greenplu
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

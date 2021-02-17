@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537313"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097643"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Información general de seguridad para Azure Cognitive Search
 
@@ -113,12 +113,6 @@ Se han definido [tres roles básicos](search-security-rbac.md#management-tasks-b
 
 > [!Note]
 > Mediante el uso de mecanismos de aplicación en todo el sistema de Azure, puede bloquear una suscripción o un recurso para evitar la eliminación accidental o no autorizada del servicio de búsqueda por parte de usuarios con derechos de administrador. Para obtener más información, vea [Bloqueo de recursos para impedir eliminación inesperada](../azure-resource-manager/management/lock-resources.md).
-
-## <a name="threat-protection"></a>Protección contra amenazas
-
-El acceso al contenido de un servicio de búsqueda se realiza exclusivamente a través de consultas. Si el servicio de búsqueda es el destino de un ataque de consulta, el sistema eliminará las consultas a medida que el sistema se aproxime a la capacidad máxima. 
-
-La limitación se comporta de forma diferente para las distintas API. Las API de consulta (Search/Suggest/Autocomplete) y las de indexación se limitan dinámicamente en función de la carga del servicio. Las API de índice y las API de operaciones de servicio tienen límites estáticos de frecuencia de solicitud. Puede revisar los límites de solicitudes de frecuencia estática en [Limitaciones](search-limits-quotas-capacity.md#throttling-limits). Para obtener más información sobre el comportamiento de limitación, consulte [Supervisión de solicitudes de consulta](search-monitor-queries.md).
 
 <a name="encryption"></a>
 

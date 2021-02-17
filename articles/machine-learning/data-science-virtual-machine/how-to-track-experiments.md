@@ -3,18 +3,17 @@ title: Seguimiento de experimentos e implementación de modelos
 titleSuffix: Azure Data Science Virtual Machine
 description: Obtenga información sobre cómo realizar el seguimiento y el registro de experimentos desde Data Science Virtual Machine con Azure Machine Learning o MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704547"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518545"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Seguimiento de experimentos e implementación de modelos en Azure Machine Learning
 
@@ -30,7 +29,7 @@ En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un
 
 ## <a name="create-a-new-notebook"></a>Creación un nuevo cuaderno
 
-Los SDK de Azure Machine Learning y MLFlow están preinstalados en Data Science VM y se puede acceder a ellos desde el entorno de Conda **azureml_py36_\** _. En JupyterLab, haga clic en el selector y seleccione el siguiente kernel:
+Los SDK de Azure Machine Learning y de MLFlow están preinstalados en Data Science VM y se puede acceder a ellos en el entorno de Conda **azureml_py36_\*** . En JupyterLab, haga clic en el selector y seleccione el siguiente kernel:
 
 ![selección de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ En el menú de la izquierda de [AzureML Studio](https://ml.azure.com), haga clic
 
 En el panel __Nuevo clúster de inferencia__, rellene los detalles siguientes:
 
-_ Nombre del proceso
+* Nombre del proceso.
 * Kubernetes Service: seleccione Crear.
 * Seleccione la región.
 * Seleccione el tamaño de la máquina virtual (para los fines de este tutorial, el valor predeterminado Standard_D3_v2 es suficiente).

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725135"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365368"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Control del acceso mediante etiquetas de confidencialidad 
 
@@ -66,7 +66,7 @@ A la hora de pensar en regular el acceso externo al contenido, determine lo sigu
 
 * ¿Qué valores predeterminados deberían aplicarse a los datos de alto impacto de negocio (HBI), los sitios o los grupos de Microsoft 365?
 
-* ¿En qué casos usará las etiquetas de confidencialidad con fines de [etiquetado y supervisión](/microsoft-365/compliance/label-analytics?view=o365-worldwide) frente al [cifrado](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) o para [aplicar restricciones de acceso a contenedores](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* ¿En qué casos usará las etiquetas de confidencialidad con fines de [etiquetado y supervisión](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) frente al [cifrado](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) o para [aplicar restricciones de acceso a contenedores](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
 
 **En cuanto al correo electrónico y el contenido**
 

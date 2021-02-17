@@ -3,15 +3,15 @@ title: 'Administración de una instancia de Confluent Cloud: soluciones de partn
 description: En este artículo se describe la administración de una instancia de Confluent Cloud en Azure Portal. Cómo configurar el inicio de sesión único, eliminar una organización de Confluent y obtener soporte técnico.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253277"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989135"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Administración del recurso de Confluent Cloud
 
@@ -66,13 +66,23 @@ Para enviar una solicitud de soporte técnico a Confluent, póngase en contacto 
 > [!NOTE]
 > Para los nuevos usuarios, restablezca la contraseña antes de iniciar sesión en el portal de soporte técnico de Confluent. Si no dispone de una cuenta con Confluent Cloud, envíe un correo electrónico a `cloud-support@confluent.io` para obtener más ayuda.
 
+En el portal, puede enviar una solicitud a través de Ayuda y soporte técnico de Azure, o directamente desde su instancia de Apache Kafka para Confluent Cloud en Azure.
+
+Para enviar una solicitud a través de Ayuda y soporte técnico de Azure:
+
+1. Seleccione **Ayuda y soporte técnico**.
+1. Seleccione **Crear solicitud de soporte técnico**.
+1. En el formulario, seleccione **Técnico** en **Tipo de problema**. Seleccione su suscripción. En la lista de servicios, seleccione **Confluent on Azure** (Confluente en Azure).
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Crear una solicitud de soporte técnico desde la ayuda.":::
+
 Para enviar una solicitud desde el recurso, siga estos pasos:
 
 1. En Azure Portal, seleccione la organización de Confluent.
 1. En el menú del lado izquierdo de la pantalla, seleccione **Nueva solicitud de soporte técnico**.
 1. Para crear una solicitud de soporte técnico, seleccione el vínculo al **portal de Confluent**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Creación de una solicitud de soporte técnico.":::
+    :::image type="content" source="media/support-request.png" alt-text="Crear una solicitud de soporte técnico desde una instancia.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
