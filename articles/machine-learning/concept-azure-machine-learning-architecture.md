@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540195"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091676"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -46,19 +46,6 @@ Un área de trabajo incluye otros recursos de Azure que se usan en el área de t
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): almacena secretos que usan los destinos de proceso y otra información confidencial que el área de trabajo necesita.
 
 Puede compartir un área de trabajo con otros usuarios.
-
-### <a name="create-workspace"></a>Creación del espacio de trabajo
-
-En el siguiente diagrama se muestra el flujo de trabajo de creación del área de trabajo.
-
-* El usuario inicia sesión en Azure AD desde cualquiera de los clientes de Azure Machine Learning admitidos (la CLI de Azure, el SDK de Python o Azure Portal) y solicita el token de Azure Resource Manager adecuado.
-* El usuario llama a Azure Resource Manager para crear el área de trabajo. 
-* Azure Resource Manager se pone en contacto con el proveedor de recursos de Azure Machine Learning para aprovisionar el área de trabajo.
-* Si no especifica los recursos existentes, se crearán los recursos adicionales necesarios en su suscripción.
-
-También puede aprovisionar otros destinos de proceso que estén asociados a un área de trabajo (como Azure Kubernetes Service o máquinas virtuales) según sea necesario.
-
-[![Creación del flujo de trabajo del área de trabajo](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Procesos
 
@@ -126,10 +113,6 @@ Para encontrar ejemplos de configuraciones de ejecución, consulte [Configuraci�
 [Área de trabajo](#workspace) > [Experimentos](#experiments) > [Ejecutar](#runs) > **Instantánea**
 
 Al enviar una ejecución, Azure Machine Learning comprime el directorio que contiene el script como un archivo zip y lo envía al destino de proceso. A continuación, el archivo .zip se extrae y el script se ejecuta. Azure Machine Learning también almacena el archivo .zip como una instantánea como parte del registro de ejecución. Cualquier persona con acceso al área de trabajo puede buscar un registro de ejecución y descargar la instantánea.
-
-En el siguiente diagrama se muestra el flujo de trabajo de la instantánea de código.
-
-[![Flujo de trabajo de instantánea de código](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Registro
 

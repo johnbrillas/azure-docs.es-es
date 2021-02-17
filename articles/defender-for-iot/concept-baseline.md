@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548892"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102247"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Defender para IoT
 
@@ -35,9 +35,13 @@ Las comprobaciones personalizadas de base de referencia establecen una lista de 
 ## <a name="setting-baseline-properties"></a>Establecimiento de propiedades de línea de base
 
 1. En su IoT Hub, busque y seleccione el dispositivo que quiera cambiar.
+
 1. Haga clic en el dispositivo y, después, en el módulo **azureiotsecurity**.
+
 1. Haga clic en **Identidad de módulo gemela**.
+
 1. Cargue el archivo de **comprobaciones personalizadas de línea de base** en el dispositivo.
+
 1. Agregue propiedades de línea de base al módulo de seguridad y haga clic en **Guardar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Ejemplo de archivo de comprobación personalizada de línea de base

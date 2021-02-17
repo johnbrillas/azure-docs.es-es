@@ -1,21 +1,18 @@
 ---
 title: Copia de los datos de un entorno local a Azure con PowerShell
 description: El script de PowerShell copia datos de una base de datos de SQL Server local en otra instancia de Azure Blob Storage.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632239"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373392"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Use PowerShell para crear una canalización de factoría de datos para copiar datos de SQL Server a Azure
 
@@ -27,9 +24,9 @@ Este script de PowerShell de ejemplo crea una canalización en Azure Data Factor
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **SQL Server** . Use una base de datos de SQL Server como almacén de datos de **origen** en este ejemplo.
-- **Cuenta de Azure Storage** . Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este ejemplo. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) para ver los pasos para su creación.
-- **Integration Runtime autohospedado** . Descargue el archivo MSI desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y ejecútelo para instalar un Integration Runtime autohospedado en la máquina.  
+- **SQL Server**. Use una base de datos de SQL Server como almacén de datos de **origen** en este ejemplo.
+- **Cuenta de Azure Storage**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este ejemplo. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-account-create.md) para ver los pasos para su creación.
+- **Integration Runtime autohospedado**. Descargue el archivo MSI desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y ejecútelo para instalar un Integration Runtime autohospedado en la máquina.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creación de una base de datos de ejemplo en SQL Server
 1. En la base de datos de SQL Server, cree una tabla llamada **emp** usando el siguiente script SQL:

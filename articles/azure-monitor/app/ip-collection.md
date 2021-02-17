@@ -4,12 +4,12 @@ description: Información acerca de cómo controlar las direcciones IP y la ubic
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333314"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521924"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -241,7 +241,7 @@ requests
 
 Las direcciones IP recién recopiladas aparecerán en la columna `customDimensions_client-ip`. La columna `client-ip` predeterminada seguirá teniendo los cuatro octetos establecidos en cero. 
 
-Si se prueba desde localhost y el valor de `customDimensions_client-ip` es `::1`, este valor es el comportamiento esperado. `::1` representa la dirección de bucle invertido en IPv6. Es equivalente a `127.0.01` en IPv4.
+Si se prueba desde localhost y el valor de `customDimensions_client-ip` es `::1`, este valor es el comportamiento esperado. `::1` representa la dirección de bucle invertido en IPv6. Es equivalente a `127.0.0.1` en IPv4.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

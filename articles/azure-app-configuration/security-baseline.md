@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4af00b2e0e5445ecc904f603d813d843a9c54b93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b160f6641cced1e4ea6af1eac225d92abe26a631
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380277"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Línea de base de seguridad de Azure para Azure App Configuration
 
@@ -437,7 +437,7 @@ Para más información, consulte las siguientes referencias:
 
 - [Autorización del acceso a Azure App Configuration con Azure Active Directory](concept-enable-rbac.md)
 
-- [Cifrado de datos de App Configuration](faq.md#does-app-configuration-encrypt-my-data)
+- [Cifrado de datos de App Configuration](faq.yml#does-app-configuration-encrypt-my-data)
 
 - [Control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md) 
 

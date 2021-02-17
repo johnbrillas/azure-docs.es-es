@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346204"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831304"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación del centro de distribución digital
-
-
 
 En este tutorial se muestra cómo implementar una plantilla de aplicación de **digital distribution center** de IoT Central. Aprenderá cómo implementar la plantilla, qué elementos se incluyen de fábrica y qué podría hacer a continuación.
 
 En este tutorial, aprenderá lo siguiente: 
-* Creación de una aplicación del centro de distribución digital. 
-* Recorrido por la aplicación. 
+
+> [!div class="checklist"]
+> Creación de una aplicación del centro de distribución digital. Recorrido por la aplicación. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 * No se necesitan requisitos previos específicos para implementar esta aplicación.
@@ -110,8 +109,8 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicació
 > ![Captura de pantalla que muestra cómo eliminar la aplicación cuando haya terminado con ella](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre la arquitectura de la solución de centro de distribución digital. 
+
+Más información sobre la arquitectura de la solución de centro de distribución digital:
+
 > [!div class="nextstepaction"]
 > [concepto de centro de distribución digital](./architecture-digital-distribution-center.md)
-* Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail.md).
-* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

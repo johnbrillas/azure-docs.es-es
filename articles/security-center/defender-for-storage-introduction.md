@@ -3,19 +3,18 @@ title: 'Azure Defender para Storage: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para Storage.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916428"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558558"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introducción a Azure Defender para Storage
-
 
 **Azure Defender para Storage** es una capa de inteligencia de seguridad nativa de Azure que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. Utiliza las funcionalidades avanzadas de inteligencia artificial de seguridad y [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) para ofrecer recomendaciones y alertas de seguridad contextuales.
 
@@ -68,7 +67,40 @@ Cuando se sospecha que un archivo contiene malware, Security Center muestra una 
 >
 > Puede habilitar **Azure Defender para Storage** en el nivel de suscripción o de recursos.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Desencadenamiento de una alerta de prueba para Azure Defender para Storage
 
+Para probar las alertas de seguridad de Azure Defender para Storage en su entorno, genere la alerta "Access from a Tor exit node to a storage account" (Acceso desde un nodo de salida de Tor a una cuenta de almacenamiento) con los pasos siguientes:
+
+1. Abra una cuenta de almacenamiento con Azure Defender para Storage habilitado.
+1. En la barra lateral, seleccione "Contenedores" y abra un contenedor existente o cree uno.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Apertura de un contenedor de blobs desde una cuenta de Azure Storage" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Cargue un archivo en ese contenedor.
+
+    > [!CAUTION]
+    > No cargue un archivo que contenga datos confidenciales.
+
+1. Use el menú contextual del archivo cargado para seleccionar "Generar SAS".
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="La opción Generar SAS de un archivo en un contenedor de blobs":::
+
+1. Deje las opciones predeterminadas y seleccione **Generar URL y token de SAS**.
+
+1. Copie la dirección URL de SAS generada.
+
+1. En la máquina local, abra el explorador Tor.
+
+    > [!TIP]
+    > Puede descargar Tor desde el sitio del proyecto Tor [https://www.torproject.org/download/](https://www.torproject.org/download/).
+
+1. En el explorador Tor, vaya a la dirección URL de SAS.
+
+1. Descargue el archivo que cargó en el paso 3.
+
+    Al cabo de dos horas, recibirá la siguiente alerta de seguridad de Security Center:
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerta de seguridad respecto al acceso desde un nodo de salida de Tor":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

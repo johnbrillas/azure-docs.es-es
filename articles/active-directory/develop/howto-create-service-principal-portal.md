@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581761"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104219"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -75,7 +75,7 @@ Para comprobar los permisos de su suscripción:
 
 Vamos a saltar directamente a la creación de la identidad. Si experimenta un problema, compruebe los [permisos necesarios](#permissions-required-for-registering-an-app) para asegurarse de que su cuenta puede crear la identidad.
 
-1. Inicie sesión en su cuenta de Azure mediante <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en su cuenta de Azure mediante <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Seleccione **Azure Active Directory**.
 1. Seleccione **App registrations** (Registros de aplicaciones).
 1. Seleccione **Nuevo registro**.
@@ -181,7 +181,7 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
 ## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
 Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.
 
-1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, vaya al almacén de claves y seleccione **Directivas de acceso**.
+1. En <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, vaya al almacén de claves y seleccione **Directivas de acceso**.
 1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.
 1. Seleccione **Agregar** para agregar la directiva de acceso y, luego, **Guardar** para confirmar los cambios.
     ![Agregar directiva de acceso](./media/howto-create-service-principal-portal/add-access-policy.png)

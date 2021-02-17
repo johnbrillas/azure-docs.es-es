@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373715"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Configuración de un laboratorio para ArcMap\ArcGIS Desktop
 
@@ -55,7 +55,7 @@ Los pasos de esta sección muestran cómo configurar la VM de plantilla:
 1.  Inicie la VM de plantilla y conéctese a la máquina con RDP.
 
 2.  Descargue e instale los componentes de ArcGIS Desktop siguiendo las instrucciones de ESRI.  Estos pasos incluyen la asignación del administrador de licencias para la concesión de licencias de uso simultáneo: 
-    - [Introducción a la instalación y configuración de ArcGIS Desktop](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Introducción a la instalación y configuración de ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Configure el almacenamiento de copia de seguridad externo para los alumnos.  Los alumnos pueden guardar los archivos directamente en la VM asignada, ya que todos los cambios que hagan se guardan entre sesiones.  Sin embargo, se recomienda que los alumnos hagan copias de seguridad de su trabajo en un almacenamiento externo a su VM por varias razones:
     - Para permitir que los alumnos tengan acceso a su trabajo una vez finalizada la clase y el laboratorio.  

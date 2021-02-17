@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931951"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806942"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Referencia del esquema de normalización de datos de Azure Sentinel
 
 ## <a name="terminology"></a>Terminología
 
-La siguiente terminología se usa en los esquemas de Sentinel:
+La siguiente terminología se usa en los esquemas de Azure Sentinel:
 
 | Término | Definición |
 | ---- | ---------- |
@@ -82,7 +82,7 @@ Este es el esquema de la tabla de sesiones de red, versión 1.0.0:
 | EventStartTime | Fecha y hora | Consulte los tipos de datos. | Hora a la que se comunicó el evento | evento |
 | TimeGenerated | Fecha y hora | Consulte los tipos de datos. | Hora en que se produjo el evento, tal y como lo notifica el origen de informes. | Campo personalizado |
 | EventTimeIngested | Fecha y hora | Consulte los tipos de datos. | Hora a la que se ingirió el evento en Azure Sentinel. La agregará Azure Sentinel. | evento |
-| EventUid | Guid (cadena) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificador único usado por Sentinel para marcar una fila. | evento |
+| EventUid | Guid (cadena) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificador único que usa Azure Sentinel para marcar una fila. | evento |
 | NetworkApplicationProtocol | String | HTTPS | Protocolo de la capa de aplicación usado por la conexión o la sesión. | Red |
 | DstBytes | int | 32455 | Número de bytes enviados desde el destino hasta el origen en la conexión o la sesión. | Destination |
 | SrcBytes | int | 46536 | Número de bytes enviados desde el origen hasta el destino en la conexión o la sesión. | Source |

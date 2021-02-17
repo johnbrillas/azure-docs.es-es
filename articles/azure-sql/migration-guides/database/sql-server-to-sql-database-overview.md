@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357337"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368054"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Información general sobre la migración: SQL Server a SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ La configuración manual de características de alta disponibilidad de SQL Serve
 Además de la arquitectura de alta disponibilidad que se incluye en SQL Database, también existe la característica de [grupos de conmutación por error automática](../../database/auto-failover-group-overview.md), que permite administrar la replicación y la conmutación por error de las bases de datos de una instancia administrada en otra región. 
 
 #### <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
-Los trabajos del Agente SQL no se admiten directamente en Azure SQL Database y deberán implementarse en [trabajos de Base de datos elástica (versión preliminar)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+Los trabajos del Agente SQL no se admiten directamente en Azure SQL Database y deberán implementarse en [trabajos de Base de datos elástica (versión preliminar)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Inicios de sesión y grupos
 Mueva los inicios de sesión de SQL de la instancia de SQL Server de origen a Azure SQL Database mediante Database Migration Service (DMS) en el modo sin conexión.  Use la hoja **Inicios de sesión seleccionados** del **Asistente para migración** para migrar inicios de sesión a la instancia de SQL Database de destino. 
