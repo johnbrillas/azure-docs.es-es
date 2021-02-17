@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535668"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520602"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
@@ -21,7 +21,7 @@ La puntuación hace referencia al cálculo de una puntuación de búsqueda de to
 
 De forma predeterminada, se devuelven los 50 mejores en la respuesta, pero puede usar el parámetro **$top** para devolver un número mayor o menor de elementos (hasta 1000 en una sola respuesta) y **$skip** para obtener el siguiente conjunto de resultados.
 
-La puntuación de búsqueda se calcula en función de las propiedades estadísticas de los datos y la consulta. Azure Cognitive Search busca documentos que coinciden con los términos de búsqueda (algunos o todos, dependiendo de [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), lo cual favorece a los documentos que contienen muchas instancias del término de búsqueda. La puntuación de búsqueda aumenta todavía más si el término es poco frecuente en el índice de datos, pero común dentro del documento. La base de este enfoque de relevancia informática se denomina *TF-IDF* o frecuencia de documento inverso de la frecuencia del término.
+La puntuación de búsqueda se calcula en función de las propiedades estadísticas de los datos y la consulta. Azure Cognitive Search busca documentos que coinciden con los términos de búsqueda (algunos o todos, dependiendo de [searchMode](/rest/api/searchservice/search-documents#query-parameters)), lo cual favorece a los documentos que contienen muchas instancias del término de búsqueda. La puntuación de búsqueda aumenta todavía más si el término es poco frecuente en el índice de datos, pero común dentro del documento. La base de este enfoque de relevancia informática se denomina *TF-IDF* o frecuencia de documento inverso de la frecuencia del término.
 
 Los valores de puntuación de búsqueda pueden repetirse a lo largo de un conjunto de resultados. Cuando varios resultados tienen la misma puntuación de búsqueda, el orden de estos elementos puntuados no se define y no es estable. Vuelva a ejecutar la consulta y podrá ver que los elementos cambian de posición, especialmente si usa el servicio gratuito o un servicio facturable con varias réplicas. Si dos elementos disponen de la misma puntuación, no hay ninguna garantía de cuál aparecerá en primer lugar.
 

@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584726"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364807"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -228,7 +228,7 @@ Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
 Opcionalmente, puede establecer el tipo de datos esperado para cada etiqueta. Abra el menú contextual a la derecha de una etiqueta y seleccione un tipo del menú. Esta característica permite que el algoritmo de detección realice determinadas suposiciones que mejorarán la precisión de la detección de texto. También garantiza que los valores detectados se devuelvan en un formato estandarizado en la salida JSON final. La información del tipo de valor se guarda en el archivo *fields.json* en la misma ruta de acceso que los archivos de etiqueta.
 
 > [!div class="mx-imgBorder"]
-> ![Selección del tipo de valor con la herramienta de etiquetado de ejemplo](../media/whats-new/formre-value-type.png)
+> ![Selección del tipo de valor con la herramienta de etiquetado de ejemplo](../media/whats-new/value-type.png)
 
 Actualmente se admiten los siguientes tipos de valor y variaciones:
 * `string`

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062110"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806229"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examen de datos con Azure Purview (versión preliminar)
 
@@ -91,7 +91,9 @@ Antes de ejecutar los scripts de PowerShell para arrancar el catálogo, obtenga 
    1. Seleccione la sección **Información general** guarde el GUID para el **Id. de la suscripción**.
 
    > [!NOTE]
-   > Asegúrese de que está usando la misma suscripción donde creó la cuenta de Azure Purview. Se trata de la misma suscripción que se colocó en la lista de permitidos.
+   > - Asegúrese de que está usando la misma suscripción donde creó la cuenta de Azure Purview. Se trata de la misma suscripción que se colocó en la lista de permitidos.
+   > - El linaje de datos podría faltar a veces en Azure Purview después de ejecutar Starter Kit. Esto se debe a que faltan permisos en Purview para la instancia de Data Factory creada por Starter Kit. Seleccione [**este vínculo al documento**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections) para asegurarse de que la instancia de Data Factory está configurada correctamente y se le ha asignado el rol adecuado en faltan permisos para Starter Kit en Purview.
+
 
 * CatalogName: nombre de la cuenta de Azure Purview que creó en [Creación de una cuenta de Azure Purview](create-catalog-portal.md).
 

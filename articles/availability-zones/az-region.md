@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226631"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557018"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -55,7 +55,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 | Este de EE. UU.            | Norte de Europa         |                     | Este de Australia |
 | Este de EE. UU. 2          | Sur de Reino Unido             |                     |                |
 | Centro y Sur de EE. UU. | Oeste de Europa          |                     |                |
-| US Gov Virginia* |                      |                     |                |
+| US Gov - Virginia    |                      |                     |                |
 | Oeste de EE. UU. 2        |                      |                     |                |
 
 

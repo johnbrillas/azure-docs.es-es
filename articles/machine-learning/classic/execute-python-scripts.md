@@ -3,22 +3,22 @@ title: 'ML Studio (clásico): Ejecución de scripts de Python: Azure'
 description: Obtenga información sobre cómo usar el módulo Ejecutar script de Python para usar código Python en servicios web y experimentos de Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310209"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519990"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Ejecución de scripts de Python en Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python es una valiosa herramienta de la caja de herramientas de muchos científicos de datos. Se utiliza en cada etapa de flujos de trabajo típicos de aprendizaje automático, incluida la exploración de datos, la extracción de características, el entrenamiento y la validación del modelo, y la implementación.
@@ -81,7 +81,7 @@ A continuación, creamos un archivo Hello.zip que contiene Hello.py:
 
 ![Archivo ZIP que contiene código Python definido por el usuario.](./media/execute-python-scripts/figure5.png)
 
-Cargue el archivo ZIP como un conjunto de datos en Studio (clásico). Luego cree y ejecute un experimento que use el código Python del archivo Hello.zip al asociarlo al tercer puerto de entrada del módulo **Ejecutar script de Python** , como se muestra en la siguiente imagen.
+Cargue el archivo ZIP como un conjunto de datos en Studio (clásico). Luego cree y ejecute un experimento que use el código Python del archivo Hello.zip al asociarlo al tercer puerto de entrada del módulo **Ejecutar script de Python**, como se muestra en la siguiente imagen.
 
 ![Experimento de ejemplo con Hello.zip como entrada a un módulo Ejecutar script de Python](./media/execute-python-scripts/figure6a.png)
 

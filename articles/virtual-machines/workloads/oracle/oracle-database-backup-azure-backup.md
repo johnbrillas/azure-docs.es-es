@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072411"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806416"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Backup
 
@@ -697,7 +697,7 @@ Para restaurar toda la máquina virtual, complete estos pasos:
 
    1. En Azure Portal, seleccione **+ Crear un recurso** y busque y seleccione **Cuenta de almacenamiento**.
     
-      ![Página de adición de cuenta de almacenamiento](./media/oracle-backup-recovery/storage-1.png)
+      ![Captura de pantalla que muestra dónde se crean los recursos.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. En la página Crear cuenta de almacenamiento, elija el grupo de recursos existente **rg-oracle**, asigne el nombre **oracrestore** a la cuenta de almacenamiento y elija **Storage V2 (generalpurpose V2)** para el tipo de cuenta. Cambie la Replicación a **Almacenamiento con redundancia local (LRS)** y establezca el Rendimiento en **Estándar**. Asegúrese de que la ubicación está establecida en la misma región que todos los demás recursos del grupo. 
@@ -877,7 +877,7 @@ Una vez restaurada la máquina virtual, debe reasignar la dirección IP original
 
 5.  Ahora debe desasociar el adaptador de red que se creó con la operación de restauración de la máquina virtual, ya que está configurado como interfaz principal. Haga clic en **Desasociar interfaz de red** y elija el nuevo adaptador de red similar a **vmoracle19c-NIC-XXXXXXXXXXXX** y, a continuación, haga clic en **Aceptar**.
 
-    ![Valor de la dirección IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Captura de pantalla que muestra dónde se selecciona Desasociar interfaz de red.](./media/oracle-backup-recovery/create-ip-05.png)
     
     La máquina virtual recreada tendrá ahora el adaptador de red original, que está asociado con la dirección IP y las reglas de grupo de seguridad de red originales.
     

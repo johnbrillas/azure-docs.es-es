@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885995"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625271"
 ---
 # <a name="chat-client-library-overview"></a>Información general de la biblioteca cliente de chat
 
@@ -53,6 +53,17 @@ En la lista siguiente se presenta el conjunto de características que están dis
 | Supervisión        | Supervisar el uso en términos de los mensajes enviados                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Supervisar la calidad y el estado de las solicitudes de API realizadas por la aplicación y configurar las alertas a través del portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Características adicionales | Usar [Cognitive Services APIs](../../../cognitive-services/index.yml) junto con la biblioteca cliente de chat para habilitar las características inteligentes de *traducción de idioma y análisis de opinión de los mensajes entrantes en un cliente, conversión de voz en texto para redactar un mensaje mientras un miembro habla, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Compatibilidad de la biblioteca cliente de chat de JavaScript por sistema operativo y explorador
+
+En la tabla siguiente se representa el conjunto de exploradores y versiones compatibles que están disponibles actualmente.
+
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | SO de iPad|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Biblioteca cliente de chat** | Firefox *, Chrome*, nuevo Edge | Firefox *, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+
+
+\* Tenga en cuenta que se admite la versión más reciente además de las dos versiones anteriores.<br/>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

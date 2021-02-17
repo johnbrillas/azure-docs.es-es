@@ -3,22 +3,22 @@ title: 'ML Studio (clásico): Administración de servicios web: Azure'
 description: Administre los servicios web nuevos y clásicos de Machine Learning mediante el portal de servicios web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8b04119f4a9ff702356f942cec5bebed1e23926b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322348"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515944"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -64,8 +64,8 @@ Para administrar un servicio web, haga clic en Servicios web. En la página Serv
 
 Al hacer clic en un servicio web, se abrirá la correspondiente página Inicio rápido. Esta página tiene dos opciones de menú que le permiten administrar el servicio web:
 
-* **PANEL** : permite ver el uso del servicio web.
-* **CONFIGURAR** : permite agregar texto descriptivo, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
+* **PANEL**: permite ver el uso del servicio web.
+* **CONFIGURAR**: permite agregar texto descriptivo, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Supervisión del uso del servicio web
 Haga clic en la pestaña **Panel** .
@@ -131,8 +131,8 @@ En la página de puntos de conexión del servicio web clásico puede agregar y e
 
 Haga clic en uno de los puntos de conexión para abrir la página Inicio rápido del servicio web. En la página Inicio rápido hay dos opciones de menú que permiten administrar el servicio web:
 
-* **PANEL** : permite ver el uso del servicio web.
-* **CONFIGURAR** : permite agregar texto descriptivo, activar y desactivar el registro de errores, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
+* **PANEL**: permite ver el uso del servicio web.
+* **CONFIGURAR**: permite agregar texto descriptivo, activar y desactivar el registro de errores, actualizar la clave de la cuenta de almacenamiento asociada con el servicio web, y habilitar y deshabilitar datos de ejemplo.
 
 ### <a name="monitoring-how-the-web-service-is-being-used"></a>Supervisión del uso del servicio web
 Haga clic en la pestaña **Panel** .

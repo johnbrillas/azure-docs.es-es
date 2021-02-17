@@ -1,22 +1,17 @@
 ---
 title: Copiar datos de Concur con Azure Data Factory (versión preliminar)
 description: Obtenga información sobre cómo copiar datos de Concur en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030805"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383677"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar datos de Concur con Azure Data Factory (versión preliminar)
 
@@ -53,7 +48,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Concur:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Concur** | Sí |
 | connectionProperties | Grupo de propiedades que define cómo conectarse a Concur. | Sí |
-| **_En `connectionProperties`:_* _ | | |
+| ***En`connectionProperties`:*** | | |
 | authenticationType | Los valores permitidos son `OAuth_2.0_Bearer` y `OAuth_2.0` (heredado). La opción de autenticación OAuth 2.0 funciona con la antigua API de Concur que está en desuso desde febrero de 2017. | Sí |
 | host | El punto de conexión del servidor de Concur, por ejemplo, `implementation.concursolutions.com`.  | Sí |
 | baseUrl | Dirección URL base de su dirección URL de autorización de Concur. | Sí para la autenticación `OAuth_2.0_Bearer` |
@@ -65,7 +60,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Concur:
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 
-_ *Ejemplo:* *
+**Ejemplo**:
 
 ```json
 { 

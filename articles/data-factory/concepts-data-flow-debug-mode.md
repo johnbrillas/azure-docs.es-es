@@ -3,17 +3,16 @@ title: Modo de depuración de flujos de datos de asignación
 description: Inicio de una sesión de depuración interactiva al crear flujos de datos
 ms.author: makromer
 author: kromerm
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/04/2020
-ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621658"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369839"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 

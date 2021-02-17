@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5c8bd335832a950385f88f13dc31eb7f6159f831
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978533"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548138"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Se produce un error interno al intentar conectarse a una máquina virtual de Azure a través de Escritorio remoto
 
@@ -120,7 +120,7 @@ Para empezar, conéctese a la [consola serie y abra una instancia de PowerShell]
 2. Si no puede renovarlo mediante este método, pruebe a hacerlo de forma remota:
 
     1. Desde una máquina virtual que tenga conectividad con la máquina con problemas, escriba **mmc** en el cuadro **Ejecutar** para abrir Microsoft Management Console.
-    2. En el menú **Archivo**, seleccione **Agregar o quitar complemento**, seleccione **Certificados**y, después, seleccione **Agregar**.
+    2. En el menú **Archivo**, seleccione **Agregar o quitar complemento**, seleccione **Certificados** y, después, seleccione **Agregar**.
     3. Seleccione **Cuentas de equipo** , seleccione **Otro equipo** y, después, agregue la dirección IP de la máquina virtual con problemas.
     4. Vaya a la carpeta **Escritorio remoto/Certificados**, haga clic con el botón derecho en el certificado y seleccione **Eliminar**.
     5. En una instancia de PowerShell, desde la consola serie, reinicie el servicio de configuración de Escritorio remoto:
@@ -134,7 +134,7 @@ Para empezar, conéctese a la [consola serie y abra una instancia de PowerShell]
 3. Restablezca el permiso para la carpeta MachineKeys.
 
     ```powershell
-    remove-module psreadline icacls
+    remove-module psreadline 
 
     md c:\temp
 

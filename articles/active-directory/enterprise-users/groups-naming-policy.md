@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894a90c50f968c892a76160a7375f11fe09390d6
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785006"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365708"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Aplicación de una directiva de nomenclatura en los grupos de Microsoft 365 en Azure Active Directory
 
@@ -78,8 +78,6 @@ Para configurar la directiva de nomenclatura, se necesita uno de los roles sigui
 Algunos administradores pueden quedar excluidos de estas directivas, en todas las cargas de trabajo de grupo y puntos de conexión, de forma que pueden crear grupos mediante palabras bloqueadas y con sus propias convenciones de nomenclatura. A continuación se muestra la lista de roles de administrador excluidos de la directiva de nomenclatura de grupos.
 
 - Administrador global
-- Soporte técnico de asociado de nivel 1
-- Soporte técnico de asociado de nivel 2
 - Administrador de usuarios
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configuración de la directiva de nomenclatura en Azure Portal

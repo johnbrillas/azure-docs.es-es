@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845250"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523148"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Uso de los comandos de la CLI de Defender para IoT
 
@@ -290,6 +290,6 @@ Cuando use la herramienta:
 
 - Confirme con TI el dominio del dispositivo (tal como aparece en el certificado) con el servidor DNS y la dirección IP correspondiente. 
     
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [API del sensor y la consola de administración de Defender para IoT](references-work-with-defender-for-iot-apis.md)

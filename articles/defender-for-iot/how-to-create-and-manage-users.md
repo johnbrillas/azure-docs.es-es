@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977020"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522349"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Acerca de los usuarios de la consola de Defender para IoT
 
@@ -265,7 +265,7 @@ Para restablecer la contraseña de un usuario en la consola de administración l
 
 1. Selecciona **Actualización**.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Activación y configuración del sensor](how-to-activate-and-set-up-your-sensor.md)
 [Activación y configuración de la consola de administración local](how-to-activate-and-set-up-your-on-premises-management-console.md)

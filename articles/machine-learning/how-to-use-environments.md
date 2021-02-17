@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2da90a2c8950d85d8db2a414bbe63dfc7b94cf01
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4388c1a43cf958133356ed9d1ac80aec3ba0ce16
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601330"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093648"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 
@@ -398,7 +398,7 @@ service = Model.deploy(
 
 ## <a name="notebooks"></a>Cuaderno
 
-En este [artículo](./how-to-run-jupyter-notebooks.md#add-new-kernels) se proporciona información sobre cómo instalar un entorno de Conda como kernel en un cuaderno.
+En este [artículo](./how-to-access-terminal.md#add-new-kernels) se proporciona información sobre cómo instalar un entorno de Conda como kernel en un cuaderno.
 
 En [Implementación de un modelo mediante una imagen base personalizada de Docker](how-to-deploy-custom-docker-image.md), se muestra cómo implementar un modelo mediante una imagen base personalizada de Docker.
 

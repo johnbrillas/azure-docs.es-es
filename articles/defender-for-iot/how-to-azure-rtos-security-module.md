@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2b7810c0829859f4a104c62b6df2ca0495bac7
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931978"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809208"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Configuración y personalización de un módulo de seguridad para Azure RTOS (versión preliminar)
 
@@ -73,7 +73,7 @@ El módulo de seguridad para Azure RTOS admite alertas y recomendaciones de segu
 
 ## <a name="log-analytics-optional"></a>Log Analytics (opcional)
 
-Aunque es opcional y no se requiere, la habilitación y configuración de Log Analytics puede resultar de utilidad cuando quiere investigar aún más las actividades y los eventos de los dispositivos. Lea sobre cómo configurar y usar [Log Analytics con el servicio Defender para IoT](how-to-security-data-access.md#log-analytics) para obtener más información. 
+Aunque es opcional y no se requiere, la habilitación y configuración de Log Analytics puede resultar de utilidad cuando quiere investigar aún más las actividades y los eventos de los dispositivos. Para más información, consulte cómo configurar y usar [Log Analytics con el servicio Defender para IoT](how-to-security-data-access.md#log-analytics). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

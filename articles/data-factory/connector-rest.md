@@ -1,22 +1,17 @@
 ---
 title: Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 description: Aprenda a copiar datos desde un origen REST local o en la nube hacia almacenes de datos receptores compatibles, o desde almacenes de datos de origen admitidos hacia un receptor de REST mediante una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223109"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369890"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -385,7 +380,7 @@ Las **reglas de paginación** se definen como un diccionario en el conjunto de d
 
 **Ejemplo**:
 
-Graph API de Facebook devuelve la respuesta en la siguiente estructura, en cuyo caso la dirección URL de la siguiente página se representa en **_paging.next_*:
+Facebook Graph API devuelve la respuesta en la siguiente estructura, en cuyo caso la dirección URL de la siguiente página se representa en ***paging.next***:
 
 ```json
 {
@@ -440,7 +435,7 @@ En esta sección se describe cómo usar una plantilla de solución para copiar d
 ### <a name="about-the-solution-template"></a>Acerca de la plantilla de solución
 
 La plantilla contiene dos actividades:
-- La actividad *web** recupera el token de portador y, luego, lo pasa a la actividad de copia posterior como autorización.
+- La actividad **web** recupera el token de portador y, a continuación, lo pasa a la actividad de copia posterior como autorización.
 - La actividad de **copia** se encarga de copiar los datos de REST en Azure Data Lake Storage.
 
 La plantilla define dos parámetros:

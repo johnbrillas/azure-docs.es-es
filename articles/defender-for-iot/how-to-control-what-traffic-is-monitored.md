@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624691"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522400"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Control del tráfico que se supervisa
 
@@ -295,7 +295,7 @@ Para ver los resultados del examen:
 
 1. Una vez finalizado el examen, en el panel **Acciones**, seleccione **Ver resultados del examen**. Se descarga en el equipo el archivo CSV con los resultados del examen.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Investigación de las detecciones del sensor en un inventario de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Investigación de las detecciones del sensor en el mapa de dispositivos](how-to-work-with-the-sensor-device-map.md)

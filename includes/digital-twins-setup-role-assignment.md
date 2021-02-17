@@ -5,18 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: cbcaf4b4ad1b6c00f8c452582b986b6ee3b2806e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478870"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551949"
 ---
 Azure Digital Twins usa [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) para el control de acceso basado en roles (RBAC). Esto significa que antes de que un usuario pueda hacer llamadas al plano de datos a la instancia de Azure Digital Twins, se debe asignar un rol a ese usuario con los permisos adecuados.
 
 En el caso de Azure Digital Twins, este rol es _**Propietario de datos de Azure Digital Twins**_. Puede leer más sobre los roles y la seguridad en [*Conceptos: Seguridad para las soluciones de Azure Digital Twins*](../articles/digital-twins/concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
 
 En esta sección se muestra cómo crear una asignación de roles para un usuario en la instancia de Azure Digital Twins, mediante el correo electrónico del usuario en el inquilino de Azure AD de la suscripción de Azure. En función del rol de su organización, puede configurar este permiso para usted mismo o en nombre de otra persona que vaya a administrar la instancia de Azure Digital Twins.
 

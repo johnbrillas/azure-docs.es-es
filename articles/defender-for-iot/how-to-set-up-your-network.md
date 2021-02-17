@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621319"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526517"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Acerca de la configuración de red de Azure Defender para IoT
 
@@ -534,24 +534,23 @@ Revise esta lista antes de la implementación del sitio:
 
 | **#** | **Tarea o actividad** | **Estado** | **Comentarios** |
 |--|--|--|--|
-| 1 | Proporcionar implementación global. | ☐ |  |
-| 3 | Pedir dispositivos. | ☐ |  |
-| 4 | Preparar una lista de subredes en la red. | ☐ |  |
-| 5 | Proporcionar una lista de VLAN de las redes de producción. | ☐ |  |
-| 6 | Proporcionar una lista de modelos de conmutadores en la red. | ☐ |  |
-| 7 | Proporcionar una lista de proveedores y protocolos del equipo industrial. | ☐ |  |
-| 8 | Proporcionar los detalles de la red para los sensores (dirección IP, subred, D-GW, DNS). | ☐ |  |
-| 9 | Crear las reglas de firewall necesarias y la lista de acceso. | ☐ |  |
-| 10 | Crear puertos de expansión en conmutadores para la supervisión de puertos o configurar los TAP de red, tal como se desee. | ☐ |  |
-| 11 | Preparar el espacio del bastidor para los dispositivos del sensor. | ☐ |  |
-| 12 | Preparar una estación de trabajo para el personal. | ☐ |  |
-| 13 | Proporcionar un teclado, un monitor y un mouse para los dispositivos del bastidor de Defender para IoT. | ☐ |  |
-| 14 | Colocar en el bastidor y cablear los dispositivos. | ☐ |  |
-| 15 | Asignar recursos de sitio para admitir la implementación. | ☐ |  |
-| 16 | Crear grupos de Active Directory o usuarios locales. | ☐ |  |
-| 17 | Configurar el aprendizaje (autoaprendizaje). | ☐ |  |
-| 18 | Ir o no ir. | ☐ |  |
-| 19 | Programar la fecha de implementación. | ☐ |  |
+| 1 | Pedir dispositivos. | ☐ |  |
+| 2 | Preparar una lista de subredes en la red. | ☐ |  |
+| 3 | Proporcionar una lista de VLAN de las redes de producción. | ☐ |  |
+| 4 | Proporcionar una lista de modelos de conmutadores en la red. | ☐ |  |
+| 5 | Proporcionar una lista de proveedores y protocolos del equipo industrial. | ☐ |  |
+| 6 | Proporcionar los detalles de la red para los sensores (dirección IP, subred, D-GW, DNS). | ☐ |  |
+| 7 | Crear las reglas de firewall necesarias y la lista de acceso. | ☐ |  |
+| 8 | Crear puertos de expansión en conmutadores para la supervisión de puertos o configurar los TAP de red, tal como se desee. | ☐ |  |
+| 9 | Preparar el espacio del bastidor para los dispositivos del sensor. | ☐ |  |
+| 10 | Preparar una estación de trabajo para el personal. | ☐ |  |
+| 11 | Proporcionar un teclado, un monitor y un mouse para los dispositivos del bastidor de Defender para IoT. | ☐ |  |
+| 12 | Colocar en el bastidor y cablear los dispositivos. | ☐ |  |
+| 13 | Asignar recursos de sitio para admitir la implementación. | ☐ |  |
+| 14 | Crear grupos de Active Directory o usuarios locales. | ☐ |  |
+| 15 | Configurar el aprendizaje (autoaprendizaje). | ☐ |  |
+| 16 | Ir o no ir. | ☐ |  |
+| 17 | Programar la fecha de implementación. | ☐ |  |
 
 
 | **Fecha** | **Note** | **Fecha de implementación** | **Note** |

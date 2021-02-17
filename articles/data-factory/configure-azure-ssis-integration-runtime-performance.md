@@ -1,21 +1,17 @@
 ---
 title: Configuración del rendimiento para Azure-SSIS Integration Runtime
 description: Aprenda a configurar las propiedades de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364399"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -118,11 +114,11 @@ El eje Y es el número de paquetes que completaron la ejecución en una hora. Te
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** ajusta la escalabilidad de Integration Runtime. El rendimiento de Integration Runtime es proporcional al valor de **AzureSSISNodeNumber** . Establezca **AzureSSISNodeNumber** en un valor pequeño al principio, supervise el rendimiento de Integration Runtime y, a continuación, ajuste el valor para su escenario. Para volver a configurar el recuento de nodos de trabajo, consulte [Administración de una instancia de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** ajusta la escalabilidad de Integration Runtime. El rendimiento de Integration Runtime es proporcional al valor de **AzureSSISNodeNumber**. Establezca **AzureSSISNodeNumber** en un valor pequeño al principio, supervise el rendimiento de Integration Runtime y, a continuación, ajuste el valor para su escenario. Para volver a configurar el recuento de nodos de trabajo, consulte [Administración de una instancia de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. Si quiere aumentar el valor máximo, debe usar Azure PowerShell para actualizar **AzureSSISMaxParallelExecutionsPerNode** . Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/sizes-general.md).
+Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. Si quiere aumentar el valor máximo, debe usar Azure PowerShell para actualizar **AzureSSISMaxParallelExecutionsPerNode**. Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/sizes-general.md).
 
 | Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. NIC / rendimiento de red esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +141,7 @@ Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquete
 | Estándar\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/ 96 x 500                       | 8 / 16000                                      |
 | Estándar\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32/ 192 x 500                      | 8 / 30 000                                      |
 
-Estas son las instrucciones para configurar el valor correcto de la propiedad **AzureSSISMaxParallelExecutionsPerNode** : 
+Estas son las instrucciones para configurar el valor correcto de la propiedad **AzureSSISMaxParallelExecutionsPerNode**: 
 
 1. Establézcala en un valor pequeño en un primer momento.
 2. Auméntelo un poco para comprobar si se ha mejorado el rendimiento global.

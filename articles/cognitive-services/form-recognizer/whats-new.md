@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581268"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364699"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
 
@@ -148,7 +148,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
   La siguiente imagen es un ejemplo de cómo se reconocen y extraen las tablas:
 
   > [!div class="mx-imgBorder"]
-  > ![Visualización de tablas mediante la herramienta de etiquetado de ejemplo](./media/whats-new/formre-table-viz.png)
+  > ![Visualización de tablas mediante la herramienta de etiquetado de ejemplo](./media/whats-new/table-viz.png)
 
     Las tablas extraídas están disponible en la salida JSON en `"pageResults"`.
 

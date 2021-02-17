@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 04dfd731f1dcf0e9e7c045e0f7ef335c8db5b359
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805628"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544823"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -54,7 +54,7 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 
 |**Característica**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas habilitadas para Azure Arc**|**Azure Defender necesario**
 |----|:----:|:----:|:----:|:----:|
-|[Integración de Microsoft Defender for Endpoint](security-center-wdatp.md)|-|-|-|Sí|
+|[Integración de Microsoft Defender for Endpoint](security-center-wdatp.md)|-|-|-|-|
 |[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](./azure-defender.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Sí|
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|-|-|-|Sí|
 |[Alertas de seguridad basadas en la red](other-threat-protections.md#network-layer)|✔|✔|-|Sí|
@@ -96,10 +96,8 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 | Trend Micro: Deep Security | Familia de Windows Server  | No | Sí |
 | Symantec v12.1.1100+| Familia de Windows Server  | No | Sí |
 | McAfee v10 o posterior | Familia de Windows Server  | No | Sí |
-| McAfee v10 o posterior | Familia de Linux Server  | No | Sí * *\** _ |
-| Sophos V9+| Familia de Linux Server  | No | Sí  _*\**_  |
-
- _*\**_ El estado de cobertura y los datos auxiliares solo están disponibles en el área de trabajo de Log Analytics que se asocia a las suscripciones protegidas. No se refleja en el portal de Azure Security Center.
+| McAfee v10 o posterior | Familia de Linux Server  | No | Sí |
+| Sophos V9+| Familia de Linux Server  | No | Sí |
 
 > [!NOTE]
 > La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 0 (v3.0 o una versión superior).
@@ -120,7 +118,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |[Conexión de cuentas de AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conexión de cuentas de GCP](quickstart-onboard-gcp.md) (1)|-|-|
 |[Exportación continua](continuous-export.md)|✔|✔ (2)|
-|[Automatización de flujos de trabajo (versión preliminar)](workflow-automation.md)|✔|✔|
+|[Automatización de flujos de trabajo (versión preliminar)](workflow-automation.md)|✔ (2)|✔|
 |[Reglas de exención de recomendaciones](exempt-resource.md)|-|-|
 |[Reglas de eliminación de alertas](alerts-suppression-rules.md)|✔|✔|
 |[Notificaciones de correo electrónico para alertas de seguridad](security-center-provide-security-contact-details.md)|✔|✔|
@@ -132,11 +130,11 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender para registros de contenedor](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Protección de cargas de trabajo de Kubernetes](kubernetes-workload-protections.md)|-|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
+|[Protección de cargas de trabajo de Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
-(1) Se requiere _ *Azure Defender para servidores**.
+(1) Se requiere **Azure Defender para servidores**.
 
 (2) Parcial.
 
