@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906310"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807299"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Creación automática de incidentes a partir de alertas de seguridad de Microsoft
 
-Las alertas desencadenadas en las soluciones de seguridad de Microsoft que están conectadas a Azure Sentinel, como Microsoft Cloud App Security y Microsoft Defender for Identity (anteriormente Azure ATP), no crean automáticamente incidentes en Azure Sentinel. De forma predeterminada, cuando se conecta una solución de Microsoft a Azure Sentinel, todas las alertas que se generen en ese servicio se almacenarán como datos sin procesar en Azure Sentinel, en la tabla Alerta de seguridad del área de trabajo de Azure Sentinel. Después, puede usar esos datos como cualquier otro dato sin procesar que conecte a Sentinel.
+Las alertas desencadenadas en las soluciones de seguridad de Microsoft que están conectadas a Azure Sentinel, como Microsoft Cloud App Security y Microsoft Defender for Identity (anteriormente Azure ATP), no crean automáticamente incidentes en Azure Sentinel. De forma predeterminada, cuando se conecta una solución de Microsoft a Azure Sentinel, todas las alertas que se generen en ese servicio se almacenarán como datos sin procesar en Azure Sentinel, en la tabla Alerta de seguridad del área de trabajo de Azure Sentinel. Después, puede usar esos datos como cualquier otro dato sin procesar que conecte a Azure Sentinel.
 
 Si sigue las instrucciones de este artículo, puede configurar fácilmente Azure Sentinel para crear automáticamente incidentes cada vez que se desencadene una alerta en una solución de seguridad de Microsoft conectada.
 

@@ -1,22 +1,18 @@
 ---
 title: Carga de datos de SAP Business Warehouse
 description: Use Azure Data Factory para copiar datos desde SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360810"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370706"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,7 +57,7 @@ En Azure Portal, vaya a la factoría de datos. Seleccione **Author & Monitor** (
 
    1. Desde la lista **Connect via integration runtime** (Conectar a través del entorno de ejecución de integración), seleccione un IR autohospedado existente. O si no tiene ninguno, seleccione la creación de uno.
 
-      Para crear un nuevo IR autohospedado, seleccione **+Nuevo**y, a continuación, seleccione **Autohospedado**. Escriba un **Nombre** y, a continuación, seleccione **Siguiente**. Seleccione **Configuración rápida** para instalar en el equipo actual, o siga en **Configuración manual** los pasos que se proporcionan.
+      Para crear un nuevo IR autohospedado, seleccione **+Nuevo** y, a continuación, seleccione **Autohospedado**. Escriba un **Nombre** y, a continuación, seleccione **Siguiente**. Seleccione **Configuración rápida** para instalar en el equipo actual, o siga en **Configuración manual** los pasos que se proporcionan.
 
       Como se mencionó en los [Requisitos previos](#prerequisites), asegúrese de que tiene el conector de SAP para Microsoft .NET 3.0 instalado en el mismo equipo en el que se ejecuta el IR autohospedado.
 

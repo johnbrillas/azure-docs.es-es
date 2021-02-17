@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582237"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104355"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -34,7 +34,7 @@ Use esta característica si la aplicación espera roles personalizados en la res
 
 ## <a name="create-roles-for-an-application"></a>Creación de roles para una aplicación
 
-1. En el panel izquierdo de <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>, seleccione el icono **Azure Active Directory**.
+1. En el panel izquierdo de <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>, seleccione el icono **Azure Active Directory**.
 
     ![Icono de Azure Active Directory][1]
 

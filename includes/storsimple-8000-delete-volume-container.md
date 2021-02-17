@@ -5,15 +5,15 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 06/08/2018
+ms.date: 02/09/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 386a39d76bf47da45f07054124886e174104849e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102986"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545412"
 ---
 Para eliminar un contenedor de volúmenes, debe
  - eliminar volúmenes del contenedor de volúmenes. Si el contenedor de volúmenes tiene volúmenes asociados, desconecte primero estos volúmenes. Siga los pasos de [Desconexión de un volumen](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Una vez que los volúmenes estén desconectados, puede eliminarlos. 
@@ -22,20 +22,19 @@ Para eliminar un contenedor de volúmenes, debe
 Si el contenedor de volúmenes no tiene volúmenes asociados, directivas de copia de seguridad ni instantáneas en la nube, puede eliminarlo. Realice el siguiente procedimiento para eliminar un contenedor de volúmenes.
 
 #### <a name="to-delete-a-volume-container"></a>Para eliminar un contenedor de volúmenes
+
 1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. Seleccione y haga clic en el dispositivo y, a continuación, vaya a **Configuración > Administrar > Contenedores de volúmenes**.
 
-    ![Hoja Contenedores de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Hoja Contenedores de volúmenes](./media/storsimple-8000-delete-volume-container/create-volume-container.png)
 
 2. En la lista tabular de contenedores de volúmenes, seleccione el contenedor que desea eliminar, haga clic con el botón derecho en **...**  y, a continuación, seleccione **Eliminar**.
 
-    ![Eliminación de un contenedor de volúmenes](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
+    ![Eliminación de un contenedor de volúmenes](./media/storsimple-8000-delete-volume-container/delete-volume-container-01.png)
 
 3. Si un contenedor de volúmenes no tiene volúmenes asociados, directivas de copia de seguridad ni instantáneas en la nube, puede eliminarlo. Cuando se le pida confirmación, revise y seleccione la casilla que indica el impacto de la eliminación del contenedor de volúmenes. Haga clic en **Eliminar** y, a continuación, elimine el contenedor de volúmenes.
 
-    ![Confirmar eliminación](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
+    ![Confirmar eliminación](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)
 
 La lista de contenedores de volúmenes se actualiza para reflejar el contenedor eliminado.
 
-![Captura de pantalla de la página Contenedor de volúmenes. La lista tabular de contenedores de volúmenes ya no contiene el contenedor eliminado.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
-
-
+![Captura de pantalla de la página Contenedor de volúmenes. La lista tabular de contenedores de volúmenes ya no contiene el contenedor eliminado.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)

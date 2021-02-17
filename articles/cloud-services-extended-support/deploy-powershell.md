@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d6d988b4dd71fadccba056e501ba7c799b46d0d9
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508902"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832701"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implementación de un servicio en la nube (soporte extendido) mediante Azure PowerShell
 
@@ -44,7 +44,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
 
     ```powershell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
-    $container = New-AzStorageContainer -Name “ContosoContainer” -Context $storageAccount.Context -Permission Blob 
+    $container = New-AzStorageContainer -Name “contosocontainer” -Context $storageAccount.Context -Permission Blob 
     ```
 
 4. Cargue el paquete de servicios en la nube (cspkg) en la cuenta de almacenamiento.
@@ -52,8 +52,8 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     ```powershell
     $tokenStartTime = Get-Date 
     $tokenEndTime = $tokenStartTime.AddYears(1) 
-    $cspkgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cspkg” -Container “ContosoContainer” -Blob “ContosoApp.cspkg” -Context $storageAccount.Context 
-    $cspkgToken = New-AzStorageBlobSASToken -Container “ContosoContainer” -Blob $cspkgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
+    $cspkgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cspkg” -Container “contosocontainer” -Blob “ContosoApp.cspkg” -Context $storageAccount.Context 
+    $cspkgToken = New-AzStorageBlobSASToken -Container “contosocontainer” -Blob $cspkgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
     $cspkgUrl = $cspkgBlob.ICloudBlob.Uri.AbsoluteUri + $cspkgToken 
     ```
  
@@ -61,8 +61,8 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
 5.  Cargue la configuración de servicios en la nube (cscfg) en la cuenta de almacenamiento. 
 
     ```powershell
-    $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container ContosoContainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context 
-    $cscfgToken = New-AzStorageBlobSASToken -Container “ContosoContainer” -Blob $cscfgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
+    $cscfgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cscfg” -Container contosocontainer -Blob “ContosoApp.cscfg” -Context $storageAccount.Context 
+    $cscfgToken = New-AzStorageBlobSASToken -Container “contosocontainer” -Blob $cscfgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken 
     ```
 
@@ -91,13 +91,13 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
 9. Crear un almacén de claves. Este almacén de claves se usará para almacenar los certificados asociados a los roles del servicio en la nube (soporte extendido). Asegúrese de que haya habilitado las "directivas de acceso" (en el portal) para el acceso a "Azure Virtual Machines para la implementación" y "Azure Resource Manager para la implementación de plantillas". El almacén de claves debe estar vinculado a la misma región y suscripción que el servicio en la nube y tener un nombre único. Para más información, consulte [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
 
     ```powershell
-    New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US” 
+    New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
 10. Actualice la directiva de acceso de Key Vault y conceda permisos de certificados a la cuenta de usuario. 
 
     ```powershell
-    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 
     Como alternativa, establezca la directiva de acceso mediante ObjectId, que puede obtener al ejecutar `Get-AzADUser`. 
@@ -136,12 +136,19 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     ```powershell
     $credential = Get-Credential 
     $expiration = (Get-Date).AddYears(1) 
-    $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1' 
+    $rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1' 
 
     $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
     $configFile = "<WAD public configuration file path>"
-    $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
+    $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
     $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
+    ```
+    Tenga en cuenta que configFile solo debe tener etiquetas PublicConfig y debe incluir un espacio de nombres. tal y como se muestra a continuación:
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+        ...............
+    </PublicConfig>
     ```
 15. Si lo desea, defina etiquetas, como en una tabla hash de PowerShell, que desee agregar al servicio en la nube. 
 

@@ -9,37 +9,33 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a98a77b9cc89b7a1a05e676048775aa38c83733
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6cb490408cd66d5747156ef48ea9b4b2daa92abf
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672136"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integración de Azure Active Directory con Adobe Experience Manager
 
-En este tutorial, aprenderá a integrar Adobe Experience Manager con Azure Active Directory (Azure AD).
-La integración de Adobe Experience Manager con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Adobe Experience Manager con Azure Active Directory (Azure AD). Al integrar Adobe Experience Manager con Azure AD, puede hacer lo siguiente:
 
-* En Azure AD puede controlar quién tiene acceso a Adobe Experience Manager.
-* Puede habilitar que los usuarios inicien sesión automáticamente en Adobe Experience Manager (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Adobe Experience Manager.
+* Habilitar que los usuarios inicien sesión automáticamente en Adobe Experience Manager con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con Adobe Experience Manager, necesita los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en Adobe Experience Manager
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Suscripción habilitada para inicio de sesión único (SSO) en Adobe Experience Manager
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Adobe Experience Manager admite el inicio de sesión único iniciado por **SP y IDP**
 
@@ -49,59 +45,38 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Adobe Experience Manager en Azure AD, será preciso que lo agregue desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Adobe Experience Manager desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Adobe Experience Manager** en el cuadro de búsqueda.
+1. Seleccione **Adobe Experience Manager** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-adobe-experience-manager"></a>Configuración y prueba del inicio de sesión único de Azure AD para Adobe Experience Manager
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Configure y pruebe el inicio de sesión único de Azure AD con Adobe Experience Manager mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Adobe Experience Manager.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+Para configurar el inicio de sesión único de Azure AD con Adobe Experience Manager, siga estos pasos:
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+2. **[Configuración del inicio de sesión único de Adobe Experience Manager](#configure-adobe-experience-manager-sso)** : para configurar los valores de inicio de sesión único en el lado de la aplicación.
+    1. **[Creación de un usuario de prueba en Adobe Experience Manager](#create-adobe-experience-manager-test-user)** : para tener un homólogo de Britta Simon en Adobe Experience Manager que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-4. En el cuadro de búsqueda, escriba **Adobe Experience Manager** , seleccione **Adobe Experience Manager**  en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-    ![Adobe Experience Manager en la lista de resultados](common/search-new-app.png)
+1. En Azure Portal, en la página de integración de aplicaciones de **Adobe Experience Manager**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con [nombre de aplicación] utilizando usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de [nombre de aplicación].
-
-Para configurar y probar el inicio de sesión único de Azure AD con [nombre de aplicación], es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Adobe](#configure-adobe-experience-manager-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Adobe Experience Manager](#create-adobe-experience-manager-test-user)** : para tener un homólogo de Britta Simon en Adobe Experience Manager que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con [nombre de aplicación], siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración aplicaciones de **Adobe Experience Manager**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
-
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
-
-    ![Captura de pantalla que muestra la sección Configuración básica de SAML y resalta los cuadros de texto Identificador y Dirección URL de respuesta.](common/idp-intiated.png)
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
     a. En el cuadro de texto **Identificador**, escriba un valor único que se define también en el servidor AEM.
 
@@ -111,8 +86,6 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
     > El valor de dirección URL de respuesta no es real. Actualice la dirección URL de respuesta con la dirección URL de respuesta real. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    ![Información de direcciones URL de inicio de sesión único y dominio de Adobe Experience Manager](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL de servidor de Adobe Experience Manager.
 
@@ -124,59 +97,77 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-adobe-experience-manager-single-sign-on"></a>Configuración del inicio de sesión único en Adobe Experience Manager
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a B.Simon para que use el inicio de sesión único de Azure, para lo cual le concederá acceso a Adobe Experience Manager.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Adobe Experience Manager**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-adobe-experience-manager-sso"></a>Configuración del inicio de sesión único de Adobe Experience Manager
 
 1. En otra ventana del explorador, abra el portal de administración de **Adobe Experience Manager**.
 
 2. Seleccione **Settings** >  (Configuración) **Security** >  (Seguridad) **Users** (Usuarios).
 
-    ![Captura de pantalla que muestra el icono Usuarios en Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Captura de pantalla que muestra el icono Usuarios en Adobe Experience Manager.](./media/adobe-experience-manager-tutorial/user-1.png)
 
 3. Seleccione **Administrator** (Administrador) o cualquier otro usuario pertinente.
 
-    ![Captura de pantalla que resalta el usuario Administrator (Administrador).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Captura de pantalla que resalta el usuario Administrator (Administrador).](./media/adobe-experience-manager-tutorial/tutorial-admin-6.png)
 
 4. Seleccione **Account Settings** > **Manage TrustStore** (Configuración de la cuenta > Administrar TrustStore).
 
-    ![Captura de pantalla que muestra Manage TrustStore (Administrar TrustStore) en Account settings (Configuración de cuenta).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Captura de pantalla que muestra Manage TrustStore (Administrar TrustStore) en Account settings (Configuración de cuenta).](./media/adobe-experience-manager-tutorial/manage-trust.png)
 
 5. En **Add Certificate from CER file** (Agregar certificado desde archivo CER), haga clic en **Select Certificate File** (Seleccionar archivo de certificado). Busque el archivo de certificado que ha descargado de Azure Portal y selecciónelo.
 
-    ![Captura de pantalla que resalta el botón Select Certificate File (Seleccionar archivo de certificado).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Captura de pantalla que resalta el botón Select Certificate File (Seleccionar archivo de certificado).](./media/adobe-experience-manager-tutorial/user-2.png)
 
 6. El certificado se agrega a TrustStore. Anote el alias del certificado.
 
-    ![Captura de pantalla que muestra que el certificado se ha agregado a TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Captura de pantalla que muestra que el certificado se ha agregado a TrustStore.](./media/adobe-experience-manager-tutorial/tutorial-admin-7.png)
 
 7. En la página **Users** (Usuarios), seleccione **authentication-service**.
 
-    ![Captura que resalta el servicio de autenticación en la pantalla.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Captura que resalta el servicio de autenticación en la pantalla.](./media/adobe-experience-manager-tutorial/tutorial-admin-8.png)
 
 8. Seleccione **Account Settings** >  (Configuración de la cuenta) **Create/Manage KeyStore** (Crear o administrar KeyStore). Proporcione una contraseña para crear KeyStore.
 
-    ![Captura de pantalla que resalta Manage KeyStore (Administrar KeyStore).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Captura de pantalla que resalta Manage KeyStore (Administrar KeyStore).](./media/adobe-experience-manager-tutorial/tutorial-admin-9.png)
 
 9. Vuelva a la pantalla de administración. Después, seleccione **Settings** > **Operations** > **Web Console** (Configuración > Operaciones > Consola web).
 
-    ![Captura de pantalla que resalta Web Console (Consola web) en Operations (Operaciones) en la sección Settings (Configuración).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Captura de pantalla que resalta Web Console (Consola web) en Operations (Operaciones) en la sección Settings (Configuración).](./media/adobe-experience-manager-tutorial/tutorial-admin-1.png)
 
     Se abre la página de configuración.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/adobe-experience-manager-tutorial/tutorial-admin-2.png)
 
 10. Busque **Adobe Granite SAML 2.0 Authentication Handler** (Controlador de autenticación de Adobe Granite SAML 2.0). Después, seleccione el botón **Agregar**.
 
-    ![Captura de pantalla que resalta Adobe Granite SAML 2.0 Authentication Handler (Controlador de autenticación de Adobe Granite SAML 2.0).](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Captura de pantalla que resalta Adobe Granite SAML 2.0 Authentication Handler (Controlador de autenticación de Adobe Granite SAML 2.0).](./media/adobe-experience-manager-tutorial/tutorial-admin-3.png)
 
 11. En esta página, realice las acciones siguientes.
 
-    ![Botón Configurar inicio de sesión único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
+    ![Botón Configurar inicio de sesión único](./media/adobe-experience-manager-tutorial/tutorial-admin-4.png)
 
     a. En el cuadro **Path** (Ruta de acceso), escriba **/** .
 
@@ -198,73 +189,29 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     j. Seleccione **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, se habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Adobe Experience Manager.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Adobe Experience Manager**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **Adobe Experience Manager**.
-
-    ![Vínculo a Adobe Experience Manager en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-
 ### <a name="create-adobe-experience-manager-test-user"></a>Creación de un usuario de prueba de Adobe Experience Manager
 
 En esta sección, se crea un usuario denominado Britta Simon en Adobe Experience Manager. Si ha seleccionado la opción **Autocreate CRX Users** (Crear automáticamente usuarios de CRX), los usuarios se crearán automáticamente tras la autenticación correcta.
 
 Si desea crear los usuarios manualmente, trabaje con el [equipo de soporte técnico de Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) para agregar los usuarios en la plataforma de Adobe Experience Manager.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Adobe Experience Manager en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Adobe Experience Manager para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Adobe Experience Manager, desde donde puede poner en marcha el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Adobe Experience Manager y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Adobe Experience Manager para la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Adobe Experience Manager en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Adobe Experience Manager para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que haya configurado Adobe Experience Manager, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

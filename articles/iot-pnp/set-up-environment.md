@@ -1,24 +1,26 @@
 ---
-title: Configuración de los recursos de IoT necesarios para IoT Plug and Play | Microsoft Docs
-description: Cree una instancia de IoT Hub y otra del servicio Device Provisioning para usarlas con las guías de inicio rápido y los tutoriales de IoT Plug and Play.
+title: 'Inicio rápido: Configuración de los recursos de IoT necesarios para IoT Plug and Play | Microsoft Docs'
+description: 'Inicio rápido: Creación de una instancia de IoT Hub y otra del servicio Device Provisioning para usarlas con los inicios rápidos y tutoriales de IoT Plug and Play.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004269"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831916"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configuración del entorno para los tutoriales y las guías de inicio rápido de IoT Plug and Play
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Inicio rápido: Configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play
 
 Antes de poder completar cualquiera de los tutoriales y las guías de inicio rápido de IoT Plug and Play, debe configurar un centro de IoT y el servicio Device Provisioning (DPS) en la suscripción de Azure. También necesitará copias locales de los archivos de modelo utilizados por las aplicaciones de ejemplo y la herramienta Azure IoT Explorer.
 
-Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="prerequisites"></a>Prerrequisitos
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 Para evitar el requisito de instalar la CLI de Azure localmente, puede usar Azure Cloud Shell para configurar los servicios en la nube.
 
@@ -130,7 +132,7 @@ Configure la herramienta para usar los archivos de modelo que descargó anterior
 
 Para obtener más información, consulte [Instalación y uso del explorador de Azure IoT](howto-use-iot-explorer.md).
 
-## <a name="remove-the-resources"></a>Eliminación de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Puede usar el centro de IoT y la instancia de DPS para todos los tutoriales y las guías de inicio rápido de IoT Plug and Play, por lo que solo necesita completar los pasos de este artículo una vez. Cuando haya terminado, puede quitarlos de la suscripción con el siguiente comando:
 

@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 68a4703cc2dc1b2898057e138fda7de9eff146e7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368668"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807469"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure PowerShell
+# <a name="use-powershell-to-create-a-private-endpoint"></a>Uso de PowerShell para crear un punto de conexión privado
 
 Comience a trabajar con Azure Private Link usando un punto de conexión privado para conectarse de forma segura a una aplicación web de Azure.
 
@@ -240,7 +240,7 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
 
 4. Seleccione **myVM**.
 
-5. En la página de información general para **myVM** , seleccione **Conectar** y, luego, **Bastion**.
+5. En la página de información general para **myVM**, seleccione **Conectar** y, luego, **Bastion**.
 
 6. Seleccione el botón **Usar bastión** azul.
 
@@ -262,7 +262,7 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
 
     Se devuelve la dirección IP privada **10.0.0.5** para el nombre de la aplicación web.  Esta dirección se encuentra en la subred de la red virtual que creó anteriormente.
 
-10. En la conexión bastión a **myVM** , abra Internet Explorer.
+10. En la conexión bastión a **myVM**, abra Internet Explorer.
 
 11. Escriba la dirección URL de la aplicación web, **https://\<your-webapp-name>.azurewebsites.net**.
 

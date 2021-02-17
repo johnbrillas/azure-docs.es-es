@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Obtenga información sobre las utilidades y herramientas de ingesta de datos instaladas previamente en Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 21a6efa8108bfd0a317eb955e8b3ffcfba0862a2
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308974"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519378"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Herramientas de ingesta de datos de Data Science Virtual Machine
 

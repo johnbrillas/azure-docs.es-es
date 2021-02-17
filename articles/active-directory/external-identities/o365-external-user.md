@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515513"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008135"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Uso compartido externo de Microsoft 365 y colaboración B2B de Azure Active Directory (Azure AD)
 
@@ -32,8 +32,7 @@ OneDrive y SharePoint Online tiene un administrador de invitaciones independient
 
 - Los usuarios invitados a la colaboración B2B de Azure AD se pueden seleccionar en los cuadros de diálogo de uso compartido de OneDrive y SharePoint Online. Los usuarios invitados a OneDrive y SharePoint Online también se muestran en Azure AD después de que canjean sus invitaciones.
 
-- Los requisitos de concesión de licencia son diferentes. Para más información sobre licencias, consulte [Concesión de licencias B2B de Azure AD](./external-identities-pricing.md) y ["¿Qué es un usuario externo?" en la introducción al uso compartido externo de SharePoint Online](/sharepoint/external-sharing-overview#what-happens-when-users-share).
-
+- Los requisitos de concesión de licencia son diferentes. Para más información sobre licencias, consulte [Concesión de licencias de Azure AD External Identities](./external-identities-pricing.md) y la [introducción al uso compartido externo de SharePoint Online](/sharepoint/external-sharing-overview).
 Para administrar el uso compartido externo en OneDrive o SharePoint Online con la colaboración B2B de Azure AD, establezca la configuración de uso compartido externo de OneDrive o SharePoint Online en **Allow sharing only with the external users that already exist in your organization's directory** (Permitir uso compartido solo con los usuarios externos que ya existan en el directorio de la organización). Los usuarios pueden acceder a los sitios compartidos externamente y elegir entre colaboradores externos que haya agregado el administrador. El administrador puede agregar los colaboradores externos a través de la API de invitación de colaboración B2B.
 
 

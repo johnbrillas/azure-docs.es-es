@@ -1,23 +1,18 @@
 ---
 title: Puerta de enlace de administración de datos para Data Factory
 description: Uso de Data Management Gateway en Azure Data Factory para mover los datos.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c1bed8d94f73bc7794037b307618f4c36c4518
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450601"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375211"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -380,7 +375,7 @@ En esta página, verá que algunos valores de configuración tienen más sentido
 ### <a name="gateway-status"></a>Estado de la puerta de enlace
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**:
 
-Estado  | Comentarios/Escenarios
+Estado    | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.

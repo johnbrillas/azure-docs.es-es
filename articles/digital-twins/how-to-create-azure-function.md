@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701178"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546081"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Configuración de aplicaciones de funciones de Azure para procesar datos
 
@@ -121,8 +121,6 @@ Puede configurar el acceso de seguridad para la aplicación de funciones mediant
 El esqueleto de la función de los ejemplos anteriores requiere que se le pase un token de portador para poder autenticarse con Azure Digital Twins. Para asegurarse de que se pasa este token de portador, debe configurar [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para la aplicación de funciones. Esto solo debe realizarse una vez para cada aplicación de funciones.
 
 Puede crear una identidad administrada por el sistema y asignar la identidad de la aplicación de funciones al rol _**Propietario de datos de Azure Digital Twins**_ para la instancia de Azure Digital Twins. Esto proporcionará el permiso de la aplicación de funciones en la instancia para realizar actividades del plano de datos. A continuación, haga que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función mediante la definición de una variable de entorno.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Use [Azure Cloud Shell](https://shell.azure.com) para ejecutar los comandos.
 

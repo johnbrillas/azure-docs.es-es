@@ -3,21 +3,21 @@ title: 'ML Studio (clásico): Administración del ciclo de vida de las aplicacio
 description: Aplicación de procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio (clásico)
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 82d6f1fd250621ec34015970e1339ccfbd134675
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308818"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518409"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (clásico) es una herramienta para desarrollar experimentos de aprendizaje automático que se aplican en la plataforma de nube de Azure. Es como IDE de Visual Studio y servicio en la nube escalable combinados en una sola plataforma. Es posible incorporar a Azure Machine Learning Studio (clásico) procedimientos estándar de administración del ciclo de vida de las aplicaciones (ALM), desde el control de versiones de diversos recursos a la ejecución e implementación automatizadas. En este artículo se analizan algunas de las opciones y enfoques.

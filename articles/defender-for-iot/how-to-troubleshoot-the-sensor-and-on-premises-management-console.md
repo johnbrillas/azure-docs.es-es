@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955440"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523726"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
@@ -283,7 +283,7 @@ Los registros exportados se agregan a la lista **Registros archivados**. Envíe 
 
 La lista de registros archivados puede contener hasta cinco elementos. Si el número de elementos de la lista va más allá de ese número, se eliminará el elemento más antiguo.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Visualización de alertas](how-to-view-alerts.md)
 

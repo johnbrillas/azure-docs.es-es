@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879837"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361560"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,6 @@ El cambio del modelo de licencia:
    - Solo se admite en las ediciones Standard Edition y Enterprise Edition de SQL Server. No se admiten los cambios de licencia para Express, Web ni Developer. 
    - Solo se admite en máquinas virtuales implementadas mediante el modelo de Azure Resource Manager. No se admiten las máquinas virtuales implementadas con el modelo clásico. 
    - Solo está disponible para las nubes públicas o Azure Government. 
-   - Solo se admite en máquinas virtuales que tienen una sola interfaz de red (NIC). 
 
 > [!Note]
 > Únicamente las licencias basadas en núcleo de SQL Server con Software Assurance o las licencias de suscripción son válidas para la Ventaja híbrida de Azure. Si usa una licencia Server + CAL para SQL Server y tiene Software Assurance, puede usar el modelo "traiga su propia licencia" para una imagen de máquina virtual de Azure SQL Server a fin de aprovechar la movilidad de licencias para estos servidores, pero no puede aprovechar las otras características de la Ventaja híbrida de Azure. 
@@ -136,10 +135,6 @@ Este error se produce al intentar cambiar el modelo de licencia en una VM con SQ
 
 Tendrá que registrar la suscripción con el proveedor de recursos y, después, [registrar la VM con SQL Server con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**La máquina virtual "\<vmname\>" tiene más de un adaptador de red asociado**
-
-Este error se produce en máquinas virtuales que tienen más de una NIC. Quite una de las NIC antes de cambiar el modelo de licencia. Aunque puede volver a agregar la NIC a la máquina virtual después de cambiar el modelo de licencia, ya no se admitirán operaciones en Azure Portal como la copia de seguridad y la revisión automáticas. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

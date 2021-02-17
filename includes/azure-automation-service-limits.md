@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 4a6b21d3782931e3bee4a13ff95e7f313dcc1af2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379849"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974448"
 ---
 #### <a name="process-automation"></a>Automatización de procesos
 
@@ -22,9 +22,10 @@ ms.locfileid: "92379849"
 | Cantidad máxima de trabajos nuevos que se puede enviar cada 30 segundos por cuenta de Automation (trabajos no programados) |100 |Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. El cliente recibe una respuesta de error.|
 | Cantidad máxima de trabajos en ejecución simultáneos en la misma instancia de tiempo por cuenta de Automation (trabajos no programados) |200 |Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. El cliente recibe una respuesta de error.|
 | Tamaño máximo de almacenamiento de metadatos de trabajo para un período sucesivo de 30 días | 10 GB (aproximadamente, 4 millones de trabajos)|Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. |
-| Límite de flujo de trabajo máximo|1 MiB|Una sola secuencia no puede ser superior a 1 MB.|
+| Límite de flujo de trabajo máximo|1 MiB|Una sola secuencia no puede mayor que 1 MiB.|
 | Cantidad máxima de módulos que se puede importar cada 30 segundos por cuenta de Automation |5 ||
 | Tamaño máximo de un módulo |100 MB ||
+| Tamaño máximo de un archivo de configuración de nodo | 1 MB | Se aplica a la configuración de estado |
 | Tiempo de ejecución de trabajos, nivel Gratis |500 minutos por suscripción por mes del calendario ||
 | Cantidad máxima de espacio en disco permitida por espacio aislado<sup>1</sup> |1 GB |Se aplica solo a los espacios aislados de Azure.|
 | Cantidad máxima de memoria que se asigna a un espacio aislado<sup>1</sup> |400 MB |Se aplica solo a los espacios aislados de Azure.|

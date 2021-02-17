@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar un servicio en varias 
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333212"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627506"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar prácticas de implementación segura con Azure Deployment Manager (versión preliminar pública)
 
@@ -21,19 +21,19 @@ Azure Deployment Manager está en versión preliminar. Sus [comentarios](https:/
 
 Para usar Deployment Manager, es preciso crear cuatro archivos:
 
-* Plantilla de topología
-* Plantilla de lanzamiento
-* Archivo de parámetros para topología
-* Archivo de parámetros para lanzamiento
+* Plantilla de topología.
+* Plantilla de lanzamiento.
+* Archivo de parámetros de la topología.
+* Archivo de parámetros del lanzamiento.
 
 La plantilla de topología se implementar antes que la de lanzamiento.
 
 Recursos adicionales:
 
-- La [referencia de API REST de Azure Deployment Manager](/rest/api/deploymentmanager/).
-- [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
-- [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-- [Un ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
+* [Referencia de la API REST de Azure Deployment Manager](/rest/api/deploymentmanager/).
+* [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
+* [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidad y acceso
 
@@ -49,10 +49,10 @@ La plantilla de topología describe los recursos de Azure que componen el servic
 
 La plantilla de topología incluye los siguientes recursos:
 
-* Origen del artefacto: donde se almacenan los parámetros y las plantillas de Resource Manager
-* Topología del servicio: apunta al origen del artefacto
-  * Servicios: especifica la ubicación y el identificador de la suscripción de Azure
-    * Unidades de servicio: especifica el grupo de recursos, el modo de implementación y ruta de acceso al archivo de plantillas y parámetros
+* Origen del artefacto: donde se almacenan los parámetros y las plantillas de Resource Manager.
+* Topología del servicio: apunta al origen del artefacto.
+  * Servicios: especifica la ubicación y el identificador de la suscripción de Azure.
+    * Unidades de servicio: especifica el grupo de recursos, el modo de implementación y ruta de acceso al archivo de plantillas y parámetros.
 
 Para saber lo que sucede en cada nivel, es útil ver los valores que proporciona.
 
@@ -87,7 +87,7 @@ Para más información, consulte la [referencia de la plantilla artifactSources]
 
 ### <a name="service-topology"></a>Topología del servicio
 
-En el siguiente ejemplo se muestra el formato general del recurso de la topología del servicio. Especifique el identificador de recurso del origen de artefacto que contiene los archivos de plantillas y de parámetros. La topología del servicio incluye todos los recursos del servicio. Para asegurarse de que el origen del artefacto está disponible, la topología del servicio depende de él.
+En el siguiente ejemplo se muestra el formato general del recurso de la topología del servicio. Especifique el identificador de recurso del origen de artefacto que contiene los archivos de plantillas y de parámetros. La topología del servicio incluye todos los recursos del servicio. Asegúrese de que el origen del artefacto está disponible, ya que la topología del servicio depende de él.
 
 ```json
 {
@@ -175,11 +175,11 @@ Para más información, consulte la [referencia de la plantilla serviceUnits](/a
 
 La plantilla de lanzamiento describe los pasos que se deben seguir al implementar un servicio. Especifique la topología del servicio que va a usar y defina el orden de implementación de las unidades de servicio. Incluye un origen de artefacto para almacenar los archivos binarios de la implementación. En la plantilla de lanzamiento, se define la siguiente jerarquía:
 
-* Origen de artefacto
-* Paso
-* Lanzamiento
-  * Grupos de pasos
-    * Operaciones de implementación
+* Origen del artefacto.
+* Paso.
+* Lanzamiento.
+  * Grupos de pasos.
+    * Operaciones de implementación.
 
 La siguiente imagen muestra la jerarquía de la plantilla de lanzamiento:
 
@@ -193,9 +193,9 @@ En la plantilla de lanzamiento, cree un origen de artefacto para los archivos bi
 
 ### <a name="steps"></a>Pasos
 
-Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo están disponibles los pasos `wait` y "healthCheck".
+Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo están disponibles los pasos `wait` y `healthCheck`.
 
-El paso de espera detiene la implementación antes de continuar. Permite comprobar que el servicio se ejecuta según lo esperado antes de implementar la siguiente unidad de servicio. En el siguiente ejemplo se muestra el formato general de un paso de espera.
+El paso `wait` detiene temporalmente la implementación antes de continuar. Permite comprobar que el servicio se ejecuta según lo esperado antes de implementar la siguiente unidad de servicio. En el siguiente ejemplo se muestra el formato general de un paso `wait`.
 
 ```json
 {
@@ -214,13 +214,13 @@ El paso de espera detiene la implementación antes de continuar. Permite comprob
 
 La propiedad duration usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). El ejemplo anterior especifica una espera un minuto.
 
-Para obtener más información sobre el paso de comprobación de estado, consulte [Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager (versión preliminar pública)](./deployment-manager-health-check.md) y [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Para obtener información sobre las comprobaciones del estado, consulte [Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager (versión preliminar pública)](./deployment-manager-health-check.md) y [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Para más información, consulte la [referencia de la plantilla de pasos](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lanzamientos
 
-Para asegurarse de que el origen del artefacto está disponible, el lanzamiento depende de él. El lanzamiento define los grupos de pasos de cada unidad de servicio que se implementa. Puede definir las acciones que se realizan antes o después de la implementación. Por ejemplo, puede especificar que la implementación espere después de que la unidad de servicio se haya implementado. Puede definir el orden de los grupos de pasos.
+Asegúrese de que el origen del artefacto está disponible, ya que el lanzamiento depende de él. El lanzamiento define los grupos de pasos de cada unidad de servicio que se implementa. Puede definir las acciones que se realizan antes o después de la implementación. Por ejemplo, puede especificar que la implementación espere después de que la unidad de servicio se haya implementado. Puede definir el orden de los grupos de pasos.
 
 El objeto de identidad especifica la [identidad administrada asignada por el usuario](#identity-and-access) que realiza las acciones de implementación.
 
@@ -270,7 +270,7 @@ Cree dos archivos de parámetros. Uno de los archivos de parámetros se utiliza 
 
 Con las implementaciones con control de versiones, la ruta de acceso a los artefactos cambia con cada nueva versión. La primera vez que se ejecuta una implementación la ruta de acceso puede ser `https://<base-uri-blob-container>/binaries/1.0.0.0`. La segunda vez puede ser `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifica la obtención de la ruta de acceso raíz correcta para la implementación actual mediante el uso de la variable `$containerRoot`. Este valor cambia con cada versión y no se conoce antes de la implementación.
 
-Use la variable `$containerRoot` en el archivo de parámetros de la plantilla para implementar los recursos de Azure. En el momento de la implementación, esta variable se reemplaza por los valores reales del lanzamiento.
+Use la variable `$containerRoot` en el archivo de parámetros de la plantilla que implementa los recursos de Azure. En el momento de la implementación, esta variable se reemplaza por los valores reales del lanzamiento.
 
 Por ejemplo, durante el lanzamiento crea un origen de artefacto para los artefactos de binarios.
 
@@ -296,7 +296,7 @@ Por ejemplo, durante el lanzamiento crea un origen de artefacto para los artefac
 
 Observe las propiedades `artifactRoot` y `sasUri`. Para la raíz del artefacto se puede seleccionar un valor como `binaries/1.0.0.0`. El identificador URI de SAS es el identificador URI para el contenedor de almacenamiento con un token de SAS para el acceso. Deployment Manager construye automáticamente el valor de la variable `$containerRoot`. Combina estos valores con el formato `<container>/<artifactRoot>`.
 
-La plantilla y el archivo de parámetros necesitan conocer la ruta de acceso correcta para obtener los archivos binarios con control de versiones. Por ejemplo, para implementar archivos para una aplicación web, cree el siguiente archivo de parámetros con la variable $containerRoot. Debe usar dos barras diagonales inversas (`\\`) en la ruta de acceso, ya que la primera es un carácter de escape.
+La plantilla y el archivo de parámetros necesitan conocer la ruta de acceso correcta para obtener los archivos binarios con control de versiones. Por ejemplo, para implementar archivos para una aplicación web, cree el siguiente archivo de parámetros con la variable `$containerRoot`. Debe usar dos barras diagonales inversas (`\\`) en la ruta de acceso, ya que la primera es un carácter de escape.
 
 ```json
 {
@@ -330,7 +330,7 @@ Luego, use dicho parámetro en la plantilla:
 }
 ```
 
-Para administrar las implementaciones con control de versiones, cree carpetas nuevas y use esa raíz durante el lanzamiento. La ruta de acceso llega hasta la plantilla que implementa los recursos.
+Para administrar las implementaciones con control de versiones, cree carpetas y use esa ruta de acceso raíz durante el lanzamiento. La ruta de acceso llega hasta la plantilla que implementa los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

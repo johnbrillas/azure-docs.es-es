@@ -4,14 +4,21 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 3a7bcbba99595468aa69d852493308a5a77851d8
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 5e0fa474412815a1ce830267ac2f09830a6353d3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511296"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834199"
 ---
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con componentes, cómo conectarla a un centro de IoT y cómo usar la herramienta Azure IoT Explorer para ver la información que envía al centro. La aplicación de ejemplo está escrita en Python y se incluye en el SDK de dispositivo IoT de Azure para Python. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
+
+En este tutorial, hizo lo siguiente:
+
+> [!div class="checklist"]
+> * Descargue el código de ejemplo.
+> * Ha ejecutado la aplicación del dispositivo de ejemplo y confirmar que se conecta al centro de IoT.
+> * Ha revisado el código fuente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

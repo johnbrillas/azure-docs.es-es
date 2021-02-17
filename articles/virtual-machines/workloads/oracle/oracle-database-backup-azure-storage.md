@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064458"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806280"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 19c en una máquina virtual Linux de Azure mediante Azure Storage
 
@@ -31,19 +31,19 @@ En este artículo se muestra el uso de Azure Storage como un medio para hacer u
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Cambie al usuario **_root_* _:
+2. Cambie al usuario ***root***:
  
    ```bash
    sudo su -
    ```
     
-3. Agregue el usuario de Oracle al archivo _*_ /etc/sudoers_*_:
+3. Agregue el usuario de Oracle al archivo ***/etc/sudoers***:
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. En este paso se presupone que tiene una instancia de Oracle (test) que se ejecuta en una máquina virtual denominada _vmoracle19c*.
+4. En este paso se presupone que tiene una instancia de Oracle (test) que se ejecuta en una máquina virtual denominada *vmoracle19c*.
 
    Cambie el usuario al usuario *oracle*:
 
@@ -182,31 +182,31 @@ En primer lugar, configure la cuenta de almacenamiento.
 
 1. Configuración de File Storage en Azure Portal
 
-    En Azure Portal, seleccione * **+ Crear un recurso** _ y busque y seleccione _*_Cuenta de almacenamiento_*_.
+    En Azure Portal, seleccione * **+ Crear un recurso** _ y busque y seleccione *_Cuenta de almacenamiento_**.
     
-    ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/storage-1.png)
+    ![Captura de pantalla que muestra dónde se crean los recursos y se selecciona Cuenta de almacenamiento.](./media/oracle-backup-recovery/storage-1.png)
     
-2. En la página Crear cuenta de almacenamiento, elija el grupo de recursos existente _*_rg-oracle_*_, asigne el nombre _*_oracbkup1_*_ a la cuenta de almacenamiento y elija _*_Storage V2 (generalpurpose v2)_*_ para el tipo de cuenta. Cambie la Replicación a _*_Almacenamiento con redundancia local (LRS)_*_ y establezca el Rendimiento en _*_Estándar_*_. Asegúrese de que la ubicación está establecida en la misma región que todos los demás recursos del grupo. 
+2. En la página Crear cuenta de almacenamiento, elija el grupo de recursos existente ***rg-oracle** _, asigne el nombre _*_oracbkup1_*_ a la cuenta de almacenamiento y elija _*_Storage V2 (generalpurpose v2)_*_  en Tipo de cuenta. Cambie el valor de Replicación a _*_Almacenamiento con redundancia local (LRS)_*_ y en Rendimiento seleccione _*_Estándar_**. Asegúrese de que la ubicación está establecida en la misma región que todos los demás recursos del grupo. 
     
-    ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Captura de pantalla que muestra dónde se elige un grupo de recursos existente.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Haga clic en la pestaña _*_Avanzado_*_ y, en Azure Files, establezca _*_Recursos compartidos de archivos grandes_*_ en _*_Habilitados_*_. Haga clic en Revisar y crear y, a continuación, en Crear.
+3. Haga clic en la pestaña ***Avanzado** _ y, en Azure Files, en _*_Large file shares_*_ (Recursos compartidos de archivos grandes), seleccione _*_Enabled_** (Habilitado). Haga clic en Revisar y crear y, a continuación, en Crear.
     
-    ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Una vez creada la cuenta de almacenamiento, vaya al recurso y elija _*_Recursos compartidos de archivos_*_.
-    
-    ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Haga clic en _*_ + Recurso compartido de archivos_ *_ y, en la hoja _* _Nuevo recurso compartido de archivos_ *_, asígnele el nombre _* _orabkup1_ *_ al recurso compartido de archivos. Establezca _* _Cuota_ *_ en _* _10240_ *_ GiB y active la casilla _* _Transacción optimizada_ *_ como el nivel. La cuota refleja un límite superior hasta el que puede crecer el recurso compartido de archivos. Debido a que se usa el almacenamiento Estándar, los recursos son de tipo Pago por uso y no se aprovisionan, por lo que si establece el almacenamiento en 10 TiB no generará costos más allá de lo que use. Si la estrategia de copia de seguridad requiere más almacenamiento, debe establecer la cuota en un nivel adecuado que permita contener todas las copias de seguridad.   Cuando haya completado la hoja Nuevo recurso compartido de archivos, haga clic en _* _Crear_*_.
-    
-    ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Captura de pantalla en la que se muestra dónde seleccionar Enabled (Habilitado) en Large file shares (Recursos compartidos de archivos grandes).](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Después de la creación, haga clic en _*_orabkup1_*_ en la página de configuración del recurso compartido de archivos. 
-    Haga clic en la pestaña _*_Conectar_*_ para abrir la hoja Conectar y, luego, haga clic en la pestaña _*_Linux_*_. Copie los comandos proporcionados para montar el recurso compartido de archivos mediante el protocolo SMB. 
+4. Una vez creada la cuenta de almacenamiento, vaya al recurso y elija ***Recursos compartidos de archivos***.
+    
+    ![Captura de pantalla que muestra dónde seleccionar Recursos compartidos de archivos.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Haga clic en * **+ Recurso compartido de archivos** __ y, en la hoja _*_Nuevo recurso compartido de archivos_*_ asigne al recurso compartido de archivos el nombre _*_orabkup1_*_. En _*_Cuota_*_, especifique _*_10240_*_ GiB y active la casilla _*_Transacción optimizada_*_ como nivel. La cuota refleja un límite superior hasta el que puede crecer el recurso compartido de archivos. Debido a que se usa el almacenamiento Estándar, los recursos son de tipo Pago por uso y no se aprovisionan, por lo que si establece el almacenamiento en 10 TiB no generará costos más allá de lo que use. Si la estrategia de copia de seguridad requiere más almacenamiento, debe establecer la cuota en un nivel adecuado que permita contener todas las copias de seguridad.   Cuando haya completado la hoja Nuevo recurso compartido de archivos, haga clic en _*_Crear_**.
+    
+    ![Captura de pantalla en la que se muestra dónde agregar un recurso compartido de archivos nuevo.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Después de la creación, haga clic en ***orabkup1*** en la página de configuración del recurso compartido de archivos. 
+    Haga clic en la pestaña ***Conectar** _ para abrir la hoja Conectar y, después, haga clic en la pestaña _ *_Linux_**. Copie los comandos proporcionados para montar el recurso compartido de archivos mediante el protocolo SMB. 
     
     ![Página para agregar una cuenta de almacenamiento](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ Aunque el uso de RMAN y Azure File Storage para hacer la copia de seguridad de l
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. Los comandos siguientes usan RMAN para restaurar los archivos de datos que faltan y recuperar la base de datos:

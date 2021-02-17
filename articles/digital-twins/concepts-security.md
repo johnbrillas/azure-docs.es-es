@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934528"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547169"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -54,11 +54,6 @@ Azure proporciona **dos roles integrados de Azure** para autorizar el acceso a l
 | Propietario de datos de Azure Digital Twins | Proporciona acceso completo a los recursos de Azure Digital Twins. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Lector de datos de Azure Digital Twins | Proporciona acceso de solo lectura a los recursos de Azure Digital Twins. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
->[!NOTE]
-> Se ha cambiado el nombre de estos roles recientemente respecto a los nombres anteriores en la versión preliminar:
-> * *Propietario de datos de Azure Digital Twins* era anteriormente *Propietario de Azure Digital Twins (versión preliminar)* .
-> * *Lector de datos de Azure Digital Twins* era anteriormente *Lector de Azure Digital Twins (versión preliminar)* .
-
 Puede asignar roles de dos maneras:
 * mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
@@ -97,7 +92,7 @@ Azure admite dos tipos de identidades administradas: asignadas por el sistema y 
 
 Puede usar una identidad administrada asignada por el sistema para que la instancia de Azure Digital Twins se autentique en un [punto de conexión definido por el usuario](concepts-route-events.md#create-an-endpoint). Azure Digital Twins admite la autenticación basada en identidades asignadas por el sistema en los puntos de conexión de destinos de [centro de eventos](../event-hubs/event-hubs-about.md) y  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , y en un punto de conexión de [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)  para los [eventos de mensajes con problemas de entrega](concepts-route-events.md#dead-letter-events). Actualmente, los puntos de conexión de [Event Grid](../event-grid/overview.md) no se admiten para las identidades administradas.
 
-Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)* ](how-to-enable-managed-identities.md).
+Para obtener instrucciones sobre cómo habilitar una identidad administrada por el sistema para Azure Digital Twins y usarla para enrutar eventos, vea [*Procedimiento para habilitar una identidad administrada para el enrutamiento de eventos (versión preliminar)*](how-to-enable-managed-identities.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acceso a redes privadas con Azure Private Link (versión preliminar)
 
@@ -111,7 +106,7 @@ El punto de conexión privado usa una dirección IP del espacio de direcciones 
 
 La configuración de un punto de conexión privado para la instancia de Azure Digital Twins le permite protegerla y eliminar la exposición pública, además de evitar la filtración de datos desde la red virtual.
 
-Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [*Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)* ](how-to-enable-private-link.md).
+Para obtener instrucciones sobre cómo configurar Private Link para Azure Digital Twins, vea [*Procedimiento para habilitar el acceso privado con Private Link (versión preliminar)*](how-to-enable-private-link.md).
 
 ### <a name="design-considerations"></a>Consideraciones de diseño 
 

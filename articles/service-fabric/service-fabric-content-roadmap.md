@@ -3,12 +3,12 @@ title: Más información acerca de Azure Service Fabric
 description: Obtenga información acerca de los conceptos básicos y las áreas principales de Azure Service Fabric. Proporciona información general ampliada de Service Fabric y cómo crear microservicios.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 011ddf5db1555e83a1a61a349cc19ed791ab900b
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485457"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526773"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -87,7 +87,7 @@ Un [ejecutable de invitado](service-fabric-guest-executables-introduction.md) es
 ## <a name="application-lifecycle"></a>Ciclo de vida de aplicación
 Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa por las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. En [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md) se proporciona información general de las API y cómo las utilizan los distintos roles durante todas las fases del ciclo de vida de la aplicación de Service Fabric. 
 
-El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/overview/azure/servicefabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
+El ciclo de vida completo de la aplicación se puede administrar con [cmdlets de PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), [comandos de la CLI](service-fabric-sfctl.md), [API de C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API de Java](/java/api/overview/azure/servicefabric) y [API de REST](/rest/api/servicefabric/). También puede configurar canalizaciones de implementación continua e integración continua con herramientas como [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
 ## <a name="test-applications-and-services"></a>Prueba de aplicaciones y servicios
 Para crear verdaderos servicios de escala en la nube, es fundamental comprobar que las aplicaciones y los servicios pueden admitir errores reales. El servicio de análisis de errores se ha diseñado para probar los servicios incorporados en Service Fabric. Con el [servicio de análisis de errores](service-fabric-testability-overview.md), puede provocar errores significativos y ejecutar escenarios de prueba completos con sus aplicaciones. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
@@ -160,7 +160,7 @@ Desde el principio, los componentes de Service Fabric informan del estado de tod
 
 Service Fabric permite [ver los informes de estado](service-fabric-view-entities-aggregated-health.md) agregados al almacén de estado de varias formas:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y otras herramientas de visualización.
-* Consultas de estado (a través de [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [API FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient) y [API FabricClient de Java](/java/api/system.fabric) o [API de REST](/rest/api/servicefabric)).
+* Consultas de estado (a través de [PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), [CLI](service-fabric-sfctl.md), [API FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient) y [API FabricClient de Java](/java/api/system.fabric) o [API de REST](/rest/api/servicefabric)).
 * Consultas generales que devuelven una lista de entidades con el estado como una de las propiedades (a través de PowerShell, CLI, las API o REST).
 
 ## <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico

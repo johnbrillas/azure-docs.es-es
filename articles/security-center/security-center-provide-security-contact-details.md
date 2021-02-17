@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920416"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988564"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -26,8 +26,8 @@ Las alertas de seguridad deben llegar a las personas adecuadas de la organizaci�
 
 Para definir sus propias preferencias para los correos electrónicos de notificación, la página de configuración **Notificaciones por correo electrónico** de Azure Defender le permite elegir:
 
-- **_A quién_ se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
-- **_Qué_ se les debe notificar**: modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
+- ***A quién* se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
+- ***Qué* se les debe notificar**: modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
 
 Para evitar un exceso de alertas, Security Center limita el volumen de correos salientes. Para cada suscripción, Security Center envía:
 
@@ -48,8 +48,7 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>Personalización de notificaciones de alertas de seguridad por correo electrónico<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>Personalización de las notificaciones de alertas de seguridad por correo electrónico mediante el portal<a name="email"></a>
 Puede enviar notificaciones por correo electrónico a individuos o a todos los usuarios con roles de Azure específicos.
 
 1. En el área **Precios y configuración** de Defender, seleccione la suscripción correspondiente y **Notificaciones de correo electrónico**.
@@ -60,6 +59,28 @@ Puede enviar notificaciones por correo electrónico a individuos o a todos los u
     - Escriba direcciones de correo electrónico específicas, separadas por comas. No hay ningún límite en el número de direcciones de correo electrónico que se pueden escribir.
 
 1. Seleccione **Guardar** para aplicar la información de contacto de seguridad a su suscripción.
+
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personalización de las notificaciones de alertas por correo electrónico mediante la API
+También puede administrar las notificaciones por correo electrónico mediante la API REST proporcionada. Para información completa, consulte la [documentación de la API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+
+Este es un cuerpo de solicitud de ejemplo para la solicitud PUT al crear una configuración de contacto de seguridad:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
 
 
 ## <a name="see-also"></a>Consulte también

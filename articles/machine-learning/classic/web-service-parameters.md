@@ -4,23 +4,22 @@ description: Cómo utilizar parámetros de servicio web de Azure Machine Learnin
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308621"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518341"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Uso de los parámetros de servicio web de Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Se crea un servicio web de Azure Machine Learning mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
@@ -51,8 +50,8 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Export Data][
 1. En Machine Learning Studio (clásico), haga clic en el módulo [Exportar datos][writer] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
 2. Especifique el tipo de almacenamiento:
    
-   * En **Especifique el destino de los datos** , seleccione Azure Blob Storage.
-   * En **Especifique el tipo de autenticación** , seleccione "Cuenta".
+   * En **Especifique el destino de los datos**, seleccione Azure Blob Storage.
+   * En **Especifique el tipo de autenticación**, seleccione "Cuenta".
    * Escriba la información de cuenta para el almacenamiento de blobs de Azure. 
 
 3. Haga clic en el icono situado a la derecha de la **ruta de acceso que comienza con el parámetro de contenedor de blobs**. Su aspecto es similar a este:

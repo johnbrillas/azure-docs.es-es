@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a3aacd1d07ff068fe50312b2c1d47ac080e5c2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 736d135323e2a2df38a13dc46189e2a243fbe381
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391730"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097541"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Prueba y reentrenamiento de un modelo con Custom Vision Service
 
@@ -59,4 +59,4 @@ Para usar la imagen enviada anteriormente para el entrenamiento, siga estos paso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Mejora del clasificador](getting-started-improving-your-classifier.md)
+[Mejora del modelo](getting-started-improving-your-classifier.md)

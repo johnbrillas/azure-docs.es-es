@@ -1,23 +1,18 @@
 ---
 title: Invocación del procedimiento almacenado desde la actividad de copia de Azure Data Factory
 description: Obtenga información sobre cómo invocar un procedimiento almacenado en Azure SQL Database o SQL Server desde una actividad de copia de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f06b84ac0807a37c7adc603a557894be85a4cea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637860"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374973"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory
 > [!NOTE]
@@ -29,7 +24,7 @@ Cuando se copian datos en [SQL Server](data-factory-sqlserver-connector.md) o [A
 En el ejemplo siguiente se muestra cómo invocar un procedimiento almacenado en una base de datos SQL Server desde una canalización de Data Factory (actividad de copia):  
 
 ## <a name="output-dataset-json"></a>JSON de conjunto de datos de salida
-En el JSON de conjunto de datos de salida, establezca el **tipo** en **SqlServerTable** . Establézcalo en **AzureSqlTable** para usarlo con Azure SQL Database. El valor de la propiedad **tableName** debe coincidir con el nombre del primer parámetro del procedimiento almacenado.  
+En el JSON de conjunto de datos de salida, establezca el **tipo** en **SqlServerTable**. Establézcalo en **AzureSqlTable** para usarlo con Azure SQL Database. El valor de la propiedad **tableName** debe coincidir con el nombre del primer parámetro del procedimiento almacenado.  
 
 ```json
 {
@@ -49,7 +44,7 @@ En el JSON de conjunto de datos de salida, establezca el **tipo** en **SqlServer
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>Sección SqlSink del JSON de actividad de copia
-Defina la sección **SqlSink** en el JSON de actividad de copia como se indica a continuación. Para invocar un procedimiento almacenado mientras se insertan datos en la base de datos de receptor/destino, especifique los valores de las propiedades **SqlWriterStoredProcedureName** y **SqlWriterTableType** . Para las descripciones de estas propiedades, consulte la [sección SqlSink del artículo sobre el conector de SQL Server](data-factory-sqlserver-connector.md#sqlsink).
+Defina la sección **SqlSink** en el JSON de actividad de copia como se indica a continuación. Para invocar un procedimiento almacenado mientras se insertan datos en la base de datos de receptor/destino, especifique los valores de las propiedades **SqlWriterStoredProcedureName** y **SqlWriterTableType**. Para las descripciones de estas propiedades, consulte la [sección SqlSink del artículo sobre el conector de SQL Server](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -68,7 +63,7 @@ Defina la sección **SqlSink** en el JSON de actividad de copia como se indica a
 ```
 
 ## <a name="stored-procedure-definition"></a>Definición del procedimiento almacenado 
-En la base de datos, defina el procedimiento almacenado con el mismo nombre que **SqlWriterStoredProcedureName** . El procedimiento almacenado controla los datos de entrada desde el almacén de datos de origen e inserta datos en una tabla en la base de datos de destino. El nombre del primer parámetro del procedimiento almacenado debe coincidir con el valor tableName definido en el JSON de base de datos (marketing).
+En la base de datos, defina el procedimiento almacenado con el mismo nombre que **SqlWriterStoredProcedureName**. El procedimiento almacenado controla los datos de entrada desde el almacén de datos de origen e inserta datos en una tabla en la base de datos de destino. El nombre del primer parámetro del procedimiento almacenado debe coincidir con el valor tableName definido en el JSON de base de datos (marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +76,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Definición de tipo de tabla
-En la base de datos, defina el tipo de tabla con el mismo nombre como **SqlWriterTableType** . El esquema del tipo de tabla debe coincidir con el esquema del conjunto de datos de entrada.
+En la base de datos, defina el tipo de tabla con el mismo nombre como **SqlWriterTableType**. El esquema del tipo de tabla debe coincidir con el esquema del conjunto de datos de entrada.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

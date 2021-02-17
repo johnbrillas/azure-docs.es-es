@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359534"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627732"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -55,7 +55,7 @@ Un centro de conectividad es una red virtual que puede contener puertas de enlac
 
 ## <a name="create-a-site"></a><a name="site"></a>Creación de un sitio
 
-Ahora está listo para crear los sitios correspondientes a sus ubicaciones físicas. Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios por cada centro de conectividad virtual en una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de asociado de Virtual WAN (link insert), consulte con su asociado para obtener información sobre su automatización de Azure. Normalmente, la automatización implica simplemente hacer clic para exportar información de una rama a gran escala en Azure y configurar la conectividad desde el CPE a la puerta de enlace de VPN de Azure Virtual WAN. Para más información, consulte la [guía de automatización de Azure para asociados de CPE](virtual-wan-configure-automation-providers.md).
+En esta sección, va a crear un sitio. Los sitios se corresponden con las ubicaciones físicas. Puede crear tantos sitios como necesite. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios en cada centro de conectividad virtual de una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de un asociado de Virtual WAN, hable con él para conocer en qué consiste su automatización de Azure. Normalmente, la automatización implica que, con un simple clic, se puede exportar a Azure la información de las ramas a gran escala y configurar la conectividad entre el CPE y la puerta de enlace de VPN de Azure Virtual WAN. Para más información, consulte la [guía de automatización de Azure para asociados de CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -74,23 +74,23 @@ En este paso, conectará el sitio VPN al centro de conectividad.
 Use la configuración del dispositivo VPN para configurar el dispositivo VPN local.
 
 1. En la página de la red virtual WAN, haga clic en **Introducción**.
-2. En la parte superior de la página **Centro de conectividad ->VPNSite** , haga clic en **Descargar la configuración de VPN**. Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[ubicación]", donde ubicación es la ubicación de la red WAN. Una vez que haya aplicado la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
+2. En la parte superior de la página **Centro de conectividad ->VPNSite**, haga clic en **Descargar la configuración de VPN**. Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[ubicación]", donde ubicación es la ubicación de la red WAN. Una vez que haya aplicado la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
 3. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
 4. Aplique la configuración al dispositivo VPN local.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Información sobre el archivo de configuración del dispositivo VPN
+### <a name="about-the-vpn-device-configuration-file"></a>Archivo de configuración del dispositivo VPN
 
 El archivo de configuración de dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
 
-* **vpnSiteConfiguration** : en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
-* **vpnSiteConnections** : en esta sección se proporciona información sobre la siguiente configuración:
+* **vpnSiteConfiguration**: en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
+* **vpnSiteConnections**: en esta sección se proporciona información sobre la siguiente configuración:
 
-    * **Espacio de direcciones** de la red virtual de concentradores virtuales<br>Ejemplo:
+    * **Espacio de direcciones** de la red virtual de concentradores virtuales.<br>Ejemplo:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espacio de direcciones** de las redes virtuales que están conectadas al concentrador<br>Ejemplo:
+    * **Espacio de direcciones** de las redes virtuales que están conectadas al concentrador.<br>Ejemplo:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -227,7 +227,7 @@ Puede ver y configurar los valores de la puerta de enlace de VPN en cualquier mo
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Captura de pantalla que muestra la página &quot;VPN (sitio a sitio)&quot; con una flecha que apunta a la acción &quot;Ver/configurar&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
-En la página **Editar VPN Gateway** , puede ver los valores siguientes:
+En la página **Editar VPN Gateway**, puede ver los valores siguientes:
 
 * Dirección IP pública de VPN Gateway (la asigna Azure).
 * Dirección IP privada de VPN Gateway (la asigna Azure).

@@ -2,19 +2,16 @@
 title: Formato Avro en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato Avro en Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4be499e8e304f34b1cab10aed41b5b98a5f24e9b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010561"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392602"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro en Azure Data Factory
 
@@ -67,7 +64,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="avro-as-source"></a>Avro como origen
 
-En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,7 +73,7 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 
 ### <a name="avro-as-sink"></a>Avro como receptor
 
-En la sección **_\_sink\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |

@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601522"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979440"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -80,7 +80,7 @@ No puede haber más de una solicitud de transferencia activa en un momento dado.
 Para cancelar una solicitud de transferencia:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Vaya a **Suscripciones**, seleccione la suscripción a la que envió la solicitud de transferencia y, a continuación, **Transferir propiedad de facturación**.
+1. Vaya a **Suscripciones**, seleccione la suscripción a la que envió la solicitud de transferencia y, a continuación, seleccione **Transferir propiedad de facturación**.
 1. En la parte inferior de la página, seleccione **Cancelar la solicitud de transferencia**.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Ejemplo que muestra la ventana Transferir propiedad de facturación, con la opción Cancelar la solicitud de transferencia" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,20 @@ Para cancelar una solicitud de transferencia:
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Use la siguiente información de solución de problemas si tiene problemas para transferir suscripciones.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>El propietario de la facturación de la suscripción de Azure original deja la organización
+
+Es posible que el propietario de la facturación original que creó una cuenta de Azure y una suscripción de Azure abandone la organización. Si esto ocurre, su identidad de usuario ya no estará en la instancia de Azure Active Directory de la organización. Por tanto, la suscripción de Azure no tendrá un propietario de facturación. Esta situación impide que puedan realizarse operaciones de facturación en la cuenta, incluida la visualización y el pago de facturas. Así, la suscripción podría vencer. Posteriormente, la suscripción podría deshabilitarse por impago. En última instancia, la suscripción podría eliminarse, lo que afectaría a todos los servicios que se ejecutan basados en la suscripción.
+
+Cuando una suscripción ya no tiene un propietario de facturación válido, Azure envía un correo electrónico a otros propietarios de facturación, administradores de servicios, coadministradores y propietarios de suscripción que les informa de la situación y les proporciona un vínculo para aceptar la propiedad de facturación de la suscripción. Cualquiera de los usuarios puede seleccionar el vínculo para aceptar la propiedad de la facturación. Para más información sobre los roles de facturación, consulte [Roles de facturación](understand-mca-roles.md) y [Roles clásicos y roles de RBAC de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+El correo electrónico es similar al siguiente.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Captura de pantalla que muestra un correo electrónico de ejemplo para aceptar la propiedad de la facturación." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Azure también muestra un banner en la ventana de detalles de la suscripción de Azure Portal a los propietarios de facturación, los administradores de servicios, los coadministradores y los propietarios de suscripción. Seleccione el vínculo en el banner para aceptar la propiedad de la facturación.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Captura de pantalla que muestra un ejemplo de una suscripción sin un propietario de facturación válido." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>La opción "Transferir suscripción" no está disponible
 

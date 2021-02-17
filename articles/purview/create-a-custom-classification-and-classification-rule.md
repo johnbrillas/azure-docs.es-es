@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
-ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 2/5/2021
+ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693454"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988376"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Clasificaciones personalizadas en Azure Purview 
 
@@ -39,7 +39,7 @@ Para crear una clasificación personalizada, haga lo siguiente:
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="Nueva clasificación" border="true":::
 
 Se abrirá el panel **Add new classification** (Agregar nueva clasificación), donde puede asignar un nombre y una descripción a la clasificación. Se recomienda usar una convención de espacio de nombres, como `your company name.classification name`.
-Las clasificaciones del sistema de Microsoft se agrupan en el espacio de nombres reservado `MS.`. Por ejemplo, **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
+Las clasificaciones del sistema de Microsoft se agrupan en el espacio de nombres reservado `MICROSOFT.`. Por ejemplo, **MICROSOFT.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
 El nombre de la clasificación debe empezar con una letra seguida de una secuencia de letras, números y caracteres de punto (.) o de guion bajo.
 No se permiten espacios. A medida que escribe, la experiencia de usuario genera automáticamente un nombre descriptivo. Este nombre descriptivo es lo que ven los usuarios cuando se aplica a un recurso en el catálogo.

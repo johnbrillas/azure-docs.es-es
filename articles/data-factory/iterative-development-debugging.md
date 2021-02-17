@@ -4,17 +4,14 @@ description: Obtenga información sobre cómo desarrollar y depurar de manera it
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: 9b28fb24439354e09e5262281a99cd9dc0153a04
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392534"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

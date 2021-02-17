@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 38130ef666de5e77ddb277d67841aa5fcfef08df
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225840"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102604"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -38,7 +38,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
 >
@@ -47,7 +47,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -62,7 +62,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> El código de ejemplo de este inicio rápido requiere un **URI de redirección**  de `https://localhost:44321/` y `https://localhost:44321/signin-oidc`, y un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc`. El punto de conexión de autorización emitirá los tokens de identificador de solicitud.
+> Para que el código de ejemplo de este inicio rápido funcione, agregue un **URI de redirección**  de `https://localhost:44321/` y `https://localhost:44321/signin-oidc`, y un valor para **Front-channel logout URL** (Dirección URL de cierre de sesión del canal frontal) de `https://localhost:44321/signout-oidc`. El punto de conexión de autorización emitirá los tokens de identificador de solicitud.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >

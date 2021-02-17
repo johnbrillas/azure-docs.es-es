@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023881"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096453"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Conexión de datos de VMware Carbon Black Cloud Endpoint Standard a Azure Sentinel a Azure Functions
 
@@ -47,7 +47,7 @@ Azure Functions puede integrar y extraer eventos y registros directamente de VMw
 Una vez establecida una conexión correcta, los datos aparecen en Log Analytics en las tablas **CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** y ****CarbonBlackEvents_CL****.
 
 ## <a name="validate-connectivity"></a>Validar conectividad
-Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir más de 20 minutos. 
+Los registros pueden tardar hasta 20 minutos en empezar a aparecer en Log Analytics. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
