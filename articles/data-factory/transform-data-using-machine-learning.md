@@ -3,19 +3,16 @@ title: Creación de canalizaciones de datos predictivos
 description: 'Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning Studio (clásico): actividad de ejecución de lotes en Azure Data Factory.'
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637741"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375670"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning Studio (clásico) y Azure Data Factory
 
@@ -27,9 +24,9 @@ ms.locfileid: "92637741"
 
 [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
 
-1. **Crear un experimento de entrenamiento** . Este paso se lleva a cabo utilizando Azure Machine Learning Studio (clásico). Azure Machine Learning Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
-2. **Convertirlo en un experimento predictivo** . Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
-3. **Implementarlo como un servicio web** . Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
+1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo utilizando Azure Machine Learning Studio (clásico). Azure Machine Learning Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
+2. **Convertirlo en un experimento predictivo**. Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
+3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory y Azure Machine Learning Studio (clásico) juntos
 Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning) publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio (clásico) para realizar predicciones sobre los datos en el lote.
@@ -68,7 +65,7 @@ Un servicio vinculado de **Azure Machine Learning Studio (clásico)** se crea pa
 
 Vea en el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de proceso) una descripción de las propiedades en la definición de JSON.
 
-Azure Machine Learning Studio (clásico) admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning Studio (clásico), vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir** . Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint** .
+Azure Machine Learning Studio (clásico) admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning Studio (clásico), vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir**. Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint**.
 
 ![Servicios web de Azure Machine Learning Studio (clásico)](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +127,7 @@ El siguiente fragmento JSON define una actividad de ejecución de lotes de Azure
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nombre de la actividad en la canalización     | Sí      |
 | description       | Texto que describe para qué se usa la actividad.  | No       |
-| type              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution** . | Sí      |
+| type              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution**. | Sí      |
 | linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning Studio (clásico). Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | No       |
 | webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | No       |

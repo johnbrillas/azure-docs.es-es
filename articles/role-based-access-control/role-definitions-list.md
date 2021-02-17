@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369283"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555952"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -479,4 +479,4 @@ El siguiente texto muestra un ejemplo de la salida:
 - [Roles integrados en los recursos de Azure](built-in-roles.md)
 - [Roles personalizados en los recursos de Azure](custom-roles.md)
 - [Enumeración de asignaciones de roles de Azure mediante Azure Portal](role-assignments-list-portal.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure Portal](role-assignments-portal.md)

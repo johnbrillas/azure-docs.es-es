@@ -1,22 +1,18 @@
 ---
 title: Consideraciones sobre la seguridad
 description: En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos de Azure Data Factory para ayudar a proteger los datos.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 08a20349d012652fb15dc1818d0201d93175aed8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550596"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371335"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 

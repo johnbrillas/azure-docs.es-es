@@ -1,22 +1,18 @@
 ---
 title: Carga de datos en Azure Data Lake Storage Gen1
 description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Storage Gen1
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: 0a111a1a44b508d721f16a038d0919334383d2c5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d307a279bee56440f7354ad2c92664fd2af86b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125009"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370774"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory
 
@@ -28,10 +24,10 @@ Azure Data Factory es un servicio de integración de datos en la nube totalmente
 
 Azure Data Factory ofrece las siguientes ventajas para cargar datos en Data Lake Storage Gen1:
 
-* **Fácil de configurar** : con un asistente intuitivo en cinco pasos sin necesidad de scripting.
-* **Amplia compatibilidad para el almacenamiento de datos** : compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Seguro y compatible** : los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
-* **Alto rendimiento** : hasta 1 GB/s de velocidad de carga de datos en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+* **Fácil de configurar**: con un asistente intuitivo en cinco pasos sin necesidad de scripting.
+* **Amplia compatibilidad para el almacenamiento de datos**: compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Seguro y compatible**: los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
+* **Alto rendimiento**: hasta 1 GB/s de velocidad de carga de datos en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
 En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Factory para _cargar datos de Amazon S3 en Data Lake Storage Gen1_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
@@ -46,22 +42,22 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory** :
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**:
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. En la página **Nueva factoría de datos** , proporcione los valores de los campos que se muestran en la imagen siguiente: 
+2. En la página **Nueva factoría de datos**, proporcione los valores de los campos que se muestran en la imagen siguiente: 
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Name** : escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSG1Demo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
-    * **Suscripción** : seleccione la suscripción de Azure donde desea crear la factoría de datos. 
-    * **Grupo de recursos** : seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
-    * **Versión** : seleccione **V2**.
-    * **Ubicación** : Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database, etc.
+    * **Name**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSG1Demo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
+    * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
+    * **Versión**: seleccione **V2**.
+    * **Ubicación**: Seleccione la ubicación de la factoría de datos. Solo las ubicaciones admitidas se muestran en la lista desplegable. Los almacenes de datos que las factorías de datos usan pueden estar en otras ubicaciones y regiones. Estos almacenes de datos incluyen Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database, etc.
 
 3. Seleccione **Crear**.
-4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos** , tal y como se muestra en la siguiente imagen: 
+4. Una vez completada la creación, vaya a la factoría de datos. Verá la página principal de **Factoría de datos**, tal y como se muestra en la siguiente imagen: 
    
    ![Página principal Factoría de datos](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)
 
@@ -75,7 +71,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 2. En la página **Properties** (Propiedades), especifique **CopyFromAmazonS3ToADLS** en el campo **Task name** (Nombre de la tarea) y seleccione **Next** (Siguiente):
 
     ![Página de propiedades](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. En la página **Almacén de datos de origen** , haga clic en **+ Crear nueva conexión** :
+3. En la página **Almacén de datos de origen**, haga clic en **+ Crear nueva conexión**:
 
     ![Página Source data store (Almacén de datos de origen)](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
     
@@ -98,11 +94,11 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 
     ![Elegir archivo o carpeta de entrada](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. Elija el comportamiento de copia seleccionando las opciones **Copy files recursively** (Copiar archivos de forma recursiva) y **Binary copy** (Copia binaria). Seleccione **Siguiente** :
+6. Elija el comportamiento de copia seleccionando las opciones **Copy files recursively** (Copiar archivos de forma recursiva) y **Binary copy** (Copia binaria). Seleccione **Siguiente**:
 
     ![Captura de pantalla que muestra la opción para elegir el archivo o la carpeta de entrada donde puede optar por copiar el archivo de forma recursiva o realizar una copia binaria.](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     
-7. En la página **Almacén de datos de destino** , haga clic en **+Crear nueva conexión** y después seleccione **Azure Data Lake Storage Gen1** y **Continuar** :
+7. En la página **Almacén de datos de destino**, haga clic en **+Crear nueva conexión** y después seleccione **Azure Data Lake Storage Gen1** y **Continuar**:
 
     ![Página Destination data store (Almacén de datos de destino)](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 

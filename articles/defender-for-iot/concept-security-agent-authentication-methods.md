@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: aa5a8a842a750e44d4beeb915008f86c6b5bbb70
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: c72fa87201fb0d7fdd526f0e6f4eeb2c35192fc2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809259"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521652"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticación del agente de seguridad
 
@@ -101,8 +101,7 @@ Edite _LocalConfiguration.json_ con los siguientes parámetros:
     "HostName" : ""
 }
 ```
-
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de los agentes de seguridad](security-agent-architecture.md)
 - [Implementación de un agente de seguridad](how-to-deploy-agent.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: d11154e26e2ffe97a1ea102a11dddb746db9433a
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809276"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521873"
 ---
 # <a name="security-recommendations"></a>Recomendaciones de seguridad
 
@@ -60,7 +60,6 @@ Las alertas de recomendación proporcionan información y sugerencias relativas 
 | Media | La directiva del filtro de IP predeterminada debe ser Denegar. | IoT Hub | La configuración del filtro IP debe tener reglas definidas para el tráfico permitido y debe denegar el resto del tráfico de forma predeterminada. |
 | Media | La regla del filtro IP incluye un amplio intervalo de IP | IoT Hub | Un intervalo IP de origen de la regla de filtro IP permitido es demasiado grande. Las reglas excesivamente permisivas podrían exponer su instancia de IoT Hub a agentes malintencionados. |
 | Bajo | Habilitar registros de diagnóstico en IoT Hub | IoT Hub | Habilite los registros y consérvelos por hasta un año. Conservar los registros le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

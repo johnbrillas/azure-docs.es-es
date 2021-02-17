@@ -7,21 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: fbafed60019005fe2d81c96fb9557e3c307669ac
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233770"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834043"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas versiones y características de Azure Migrate.
 
 ## <a name="update-january-2021"></a>Actualización (enero de 2021)
--  La migración de máquinas virtuales de VMware a máquinas virtuales de Azure que usan discos cifrados mediante el cifrado doble con claves administradas por el cliente (CMK) y administradas por la plataforma mediante Azure Migrate Server Migration (replicación sin agente) ahora está disponible mediante Azure Portal.
-- La migración de máquinas virtuales de VMware a máquinas virtuales de Azure que usan discos cifrados mediante el cifrado del laso servidor (SSE) con claves administradas por el cliente (CMK) y el cifrado doble con claves administradas por la plataforma y claves administrada por el cliente mediante Azure Migrate Server Migration (replicación sin agente) ahora está disponible mediante Azure Portal.
-- La migración de servidores físicos y máquinas virtuales de otras nubes (como AWS y GCP) a máquinas virtuales de Azure que usan discos cifrados mediante el cifrado del laso servidor (SSE) con claves administradas por el cliente (CMK) y el cifrado doble con claves administradas por la plataforma y claves administrada por el cliente mediante Azure Migrate Server Migration (replicación sin agente) ahora está disponible mediante Azure Portal.
+-  Azure Migrate: Server Migration ahora permite migrar máquinas virtuales de VMware, servidores físicos y máquinas virtuales de otras nubes a máquinas virtuales de Azure con discos con cifrado del lado servidor con claves administradas por el cliente (CMK).
 
 ## <a name="update-december-2020"></a>Actualización (diciembre de 2020)
 - Azure Migrate ahora instala automáticamente el agente de máquina virtual de Azure en las máquinas virtuales de VMware al migrarlas a Azure mediante el método sin agente de la migración de VMware.

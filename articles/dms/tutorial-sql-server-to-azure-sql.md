@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785370"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820796"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migración de SQL Server a Azure SQL Database sin conexión mediante DMS
 
@@ -237,6 +237,9 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 1. En la pantalla **Seleccionar destino**, especifique los detalles de conexión de la base de datos de Azure SQL Database de destino, que es la que se aprovisionó previamente, en la que el esquema de **Adventureworks2016** se implementó mediante Data Migration Assistant.
 
     ![Selección del destino](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > Azure Database Migration Service admite las conexiones de punto de conexión privado a la instancia de Azure SQL Database de destino, excepto cuando se usa un nombre DNS personalizado. 
 
 2. Seleccione **Siguiente: Asignar a las bases de datos de destino**, asigne la base de datos de origen y de destino para la migración.
 

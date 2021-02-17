@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181451"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103590"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Smartsheet para el aprovisionamiento automático de usuarios
 
@@ -137,22 +137,20 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Smartsheet en la sección **Attribute Mapping** (Asignación de atributos). Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Smartsheet con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-   |Atributo|Tipo|
-   |---|---|
+   |Atributo|Tipo|Compatible con el filtrado|
+   |---|---|---|
+   |userName|String|&check;|
    |active|Boolean|
    |title|String|
-   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
+   |emails[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
    |roles|String|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
@@ -188,6 +186,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 ## <a name="change-log"></a>Registro de cambios
 
 * 16/06/2020: se ha agregado compatibilidad con los atributos de extensión de empresa "Centro de costo", "División", "Administrador" y "Departamento" para los usuarios.
+* 10/02/2021: se ha agregado compatibilidad con los atributos principales "emails[type eq "work"]" para los usuarios.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

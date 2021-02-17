@@ -1,22 +1,18 @@
 ---
 title: Direcciones IP de Azure Integration Runtime
 description: Obtenga información sobre las direcciones IP a las que debe autorizar el tráfico de entrada con el fin de configurar correctamente los firewalls para proteger el acceso de red a los almacenes de datos.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638302"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371403"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Direcciones IP de Azure Integration Runtime
 
@@ -31,7 +27,7 @@ Las direcciones IP que usa Azure Integration Runtime dependen de la región en l
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Direcciones IP de Azure Integration Runtime: Regiones específicas
 
-Permita el tráfico desde las direcciones IP enumeradas para Azure Integration Runtime en la región específica en la que se encuentran los recursos. Puede obtener una lista de intervalos de IP de etiquetas de servicio en el [vínculo de descarga de intervalo IP de etiquetas de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Por ejemplo, si la región de Azure es **AustraliaEast** , puede obtener una lista de intervalos IP en **DataFactory. AustraliaEast** .
+Permita el tráfico desde las direcciones IP enumeradas para Azure Integration Runtime en la región específica en la que se encuentran los recursos. Puede obtener una lista de intervalos de IP de etiquetas de servicio en el [vínculo de descarga de intervalo IP de etiquetas de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Por ejemplo, si la región de Azure es **AustraliaEast**, puede obtener una lista de intervalos IP en **DataFactory. AustraliaEast**.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problema conocido con Azure Storage

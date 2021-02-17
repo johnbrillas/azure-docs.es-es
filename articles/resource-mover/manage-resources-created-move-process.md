@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602360"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388488"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Administración de recursos creados para el movimiento de máquinas virtuales
 
@@ -28,7 +28,7 @@ Elimine manualmente la colección de movimientos y los recursos de Site Recovery
 2. Compruebe que la máquina virtual y todos los demás recursos de origen de la colección de movimientos se han movido o eliminado. De este modo, se garantiza que no haya recursos pendientes que los utilicen.
 2. Elimine estos recursos.
 
-    - El nombre de la colección de traslado es ```movecollection-<sourceregion>-<target-region>```.
+    - El nombre de la colección de traslado es ```movecollection-<sourceregion>-<target-region>-<metadata-region>```.
     - El nombre de la cuenta de almacenamiento en caché es ```resmovecache<guid>```.
     - El nombre del almacén es ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 
