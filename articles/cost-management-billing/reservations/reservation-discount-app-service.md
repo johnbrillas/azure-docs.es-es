@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577412"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369737"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Aplicación de descuentos de reserva a instancias de Premium v3 y timbres en entorno aislado de Azure App Service.
 
@@ -40,10 +40,6 @@ El descuento de reserva de Azure se aplica a las instancias de Premium v3 en ej
 4.  Durante la hora 4, la instancia 1 se ejecuta durante 0,5 horas y la instancia 2 se ejecuta durante 1 hora. La instancia 1 está cubierta al completo por la reserva y 0,5 horas de la instancia 2 también. Se le cobrará según la tarifa de pago por uso por las 0,5 horas restantes.
 
 Para comprender y ver la aplicación de Azure Reservations en los informes de uso de facturación consulte [Información sobre el uso de reservas](understand-reserved-instance-usage-ea.md).
-
-### <a name="discount-can-apply-to-different-sizes"></a>Se puede aplicar el descuento a los distintos tamaños
-
-Si se compra una instancia reservada de Premium v3 y selecciona **Optimized for instance size flexibility** (Optimización en la flexibilidad de tamaño de la instancia), la cobertura del descuento se aplica al tamaño de las instancia de Premium v3 que seleccione. También se puede aplicar a otros tamaños de instancia que se encuentren en el mismo grupo de flexibilidad de tamaño de instancia de la serie.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>Aplicación de los descuentos de reserva a los timbres en entorno aislado
 

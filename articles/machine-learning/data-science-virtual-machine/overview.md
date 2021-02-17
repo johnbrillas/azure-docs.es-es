@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 'Información general de Azure Data Science Virtual Machine: una máquina virtual fácil de usar en la plataforma de la nube de Azure, con herramientas y bibliotecas preinstaladas y configuradas para la práctica de la ciencia de datos.'
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322500"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518766"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>¿Qué es Azure Data Science Virtual Machine de Azure para Linux y Windows?
 
@@ -44,7 +43,7 @@ DSVM es una imagen de máquina virtual personalizada para la ciencia de datos, e
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparación con instancias de proceso de AzureML
 
-Las [instancias de Proceso de Azure Machine Learning](../concept-compute-instance.md) son una imagen de máquina virtual totalmente configurada y __administrada__ , mientras que DSVM es una máquina virtual __no administrada__.
+Las [instancias de Proceso de Azure Machine Learning](../concept-compute-instance.md) son una imagen de máquina virtual totalmente configurada y __administrada__, mientras que DSVM es una máquina virtual __no administrada__.
 
 A continuación se detallan las diferencias principales entre estas dos ofertas de productos:
 
