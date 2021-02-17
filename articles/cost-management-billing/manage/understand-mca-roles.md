@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 ms.author: banders
-ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673838"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593593"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 
@@ -100,6 +100,8 @@ En las tablas siguientes se muestra qué rol necesita para completar las tareas 
 |Actualizar las propiedades del perfil de facturación |✔|✔|✘|✘|✘|✘|✘|
 |Ver las directivas aplicadas en el perfil de facturación, como habilitar las compras de reservas de Azure, habilitar las compras de Azure Marketplace, y mucho más|✔|✔|✔|✔|✔|✔|✔|
 |Aplicar las directivas en el perfil de facturación |✔|✔|✘|✘|✘|✘|✘|
+|Administrar pedidos de reserva |✔|✔|✘|✘|✘|✘|✘|
+|Ver pedidos de reserva |✔|✔|✔|✘|✘|✘|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Administrar las facturas para el perfil de facturación
 

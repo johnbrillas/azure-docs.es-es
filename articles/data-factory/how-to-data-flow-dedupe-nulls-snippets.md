@@ -1,19 +1,17 @@
 ---
 title: Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de código de flujo de datos
 description: Aprenda a desduplicar filas y buscar valores NULL mediante fragmentos de código de flujos de datos.
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: makromer
-ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1b49b2584c4cb462c7c0f520fe8d1b5bf69c8674
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632454"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393673"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de código de flujo de datos
 
@@ -29,7 +27,7 @@ Si utiliza fragmentos de código en los flujos de datos de asignación, puede re
 
 1. Agregue una actividad de flujo de datos.
 
-1. Seleccione la pestaña **Configuración de origen** , agregue una transformación de origen y conéctela a uno de los conjuntos de datos.
+1. Seleccione la pestaña **Configuración de origen**, agregue una transformación de origen y conéctela a uno de los conjuntos de datos.
 
     ![Captura de pantalla del panel "Configuración de origen" para agregar un tipo de origen.](media/data-flow/snippet-adf-2.png)
 

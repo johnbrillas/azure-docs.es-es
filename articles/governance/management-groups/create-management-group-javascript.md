@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con JavaScript'
 description: En este inicio rápido, se usa JavaScript para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886607"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099156"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Inicio rápido: Creación de un grupo de administración con JavaScript
 
@@ -21,7 +21,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-- Antes de empezar, asegúrese de tener instalada la versión 12 de [Node.js](https://nodejs.org/).
+- Antes de empezar, asegúrese de tener instalada la versión 12 o posterior de [Node.js](https://nodejs.org/).
 
 - Si la [protección de jerarquías](./how-to/protect-resource-hierarchy.md#setting---require-authorization) no está habilitada, cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin tener el permiso de escritura del grupo de administración asignado. Este nuevo grupo de administración pasa a ser un elemento secundario del grupo de administración raíz o del [grupo de administración predeterminado](./how-to/protect-resource-hierarchy.md#setting---default-management-group) y al creador se le asigna el rol de "Propietario". El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea. Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel raíz.
 
@@ -29,7 +29,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 ## <a name="application-setup"></a>Configuración de la aplicación
 
-Para permitir que JavaScript consulte Azure Resource Graph, debe configurarse el entorno. Este programa de instalación funciona siempre que se pueda usar JavaScript, incluido [bash en Windows 10](/windows/wsl/install-win10).
+Para permitir que JavaScript administre grupos de administración, debe configurarse el entorno. Este programa de instalación funciona siempre que se pueda usar JavaScript, incluido [bash en Windows 10](/windows/wsl/install-win10).
 
 1. Configure un nuevo proyecto de Node.js ejecutando el siguiente comando.
 

@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936216"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592337"
 ---
 # <a name="app-service-overview"></a>Información general de App Service
 
@@ -50,13 +50,13 @@ Los entornos de ejecución obsoletos se eliminan periódicamente de las hojas de
 
 Cuando se oculta un entorno de ejecución en el portal, cualquier sitio existente que use esa versión seguirá ejecutándose. Si se elimina un entorno de ejecución completamente de la plataforma App Service, los propietarios de la suscripción de Azure recibirán un aviso por correo electrónico antes de la eliminación.
 
-Si tiene que crear otra aplicación web con una versión del entorno de ejecución obsoleta que ya no aparece en el portal, consulte las guías de configuración de lenguaje para obtener instrucciones sobre cómo obtener la versión del entorno de ejecución de su sitio. Puede usar la CLI de Azure para crear otro sitio con el mismo entorno de ejecución. O bien, puede usar el botón **Exportar plantilla** de la hoja de la aplicación web en el portal para exportar una plantilla de Resource Manager del sitio. Puede volver a usar esta plantilla para implementar un nuevo sitio con el mismo entorno de ejecución y configuración.
+Si tiene que crear otra aplicación web con una versión del entorno de ejecución obsoleta que ya no aparece en el portal, consulte las guías de configuración de lenguaje para obtener instrucciones sobre cómo obtener la versión del entorno de ejecución de su sitio. Puede usar la CLI de Azure para crear otro sitio con el mismo entorno de ejecución. O bien, puede usar el botón **Exportar plantilla** de la hoja de la aplicación web en el portal para exportar una plantilla de Resource Manager del sitio. Puede volver a usar esta plantilla para implementar un nuevo sitio con los mismos entorno de tiempo de ejecución y configuración.
 
 ### <a name="limitations"></a>Limitaciones
 
 - App Service en Linux no se admite en el plan de tarifa [Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). 
 - No se pueden mezclar las aplicaciones Windows y Linux en el mismo plan de App Service.  
-- Dentro del mismo grupo de recursos, no se pueden mezclar aplicaciones Windows y Linux en la misma región.
+- Históricamente, no se pueden mezclar aplicaciones Windows y Linux en el mismo grupo de recursos. Sin embargo, todos los grupos de recursos creados a partir del 21 de enero de 2021 admiten este escenario. Con los grupos de recursos creados antes del 21 de enero de 2021, la capacidad de agregar implementaciones de plataforma mixtas se implementará en breve en las regiones de Azure (incluidas las regiones de nube nacional).
 - Azure Portal solo muestra las características que funcionan actualmente para las aplicaciones Linux. A medida que se habiliten las características, se activarán en el portal.
 - Cuando se implementen en imágenes integradas, el código y el contenido se asignarán a un volumen de almacenamiento para el contenido web, respaldado por Azure Storage. La latencia de disco de este volumen es mayor y más variable que la del sistema de archivos del contenedor. Las aplicaciones que requieran muchos accesos de solo lectura a archivos de contenido pueden beneficiarse de la implementación de contenedores personalizados, que permite colocar los archivos en el sistema de archivos de contenedor en lugar de en el volumen de contenido.
 

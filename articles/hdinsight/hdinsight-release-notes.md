@@ -4,13 +4,13 @@ description: Notas más recientes de la versión de Azure HDInsight. Obtenga sug
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/08/2021
+ms.openlocfilehash: f6b7000812f1adfe6ff7bd93711c9b8fe4ff9adc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092241"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988356"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -22,45 +22,43 @@ Azure HDInsight es uno de los servicios más populares entre los clientes de emp
 
 Si quiere suscribirse a las notas de la versión, vea las versiones de [este repositorio de GitHub](https://github.com/hdinsight/release-notes/releases).
 
-## <a name="release-date-11182020"></a>Fecha de lanzamiento: 18/11/2020
+## <a name="release-date-02052021"></a>Fecha de lanzamiento: 05/02/2021
 
 Esta versión se aplica a HDInsight 3.6 y HDInsight 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
 
 ## <a name="new-features"></a>Nuevas características
-### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>Rotación de claves automática para el cifrado de claves administradas por el cliente en reposo
-A partir de esta versión, los clientes pueden usar las direcciones URL de clave de cifrado sin versión de Azure Key Vault para el cifrado de clave administrado por el cliente en reposo. HDInsight rotará automáticamente las claves a medida que expiren o se reemplacen por versiones nuevas. Consulte más detalles [aquí](./disk-encryption.md).
+### <a name="dav4-series-support"></a>Compatibilidad con la serie Dav4
+HDInsight ha agregado compatibilidad con la serie Dav4 en esta versión. Obtenga más información sobre la [serie Dav4 aquí](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series).
 
-### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Posibilidad de seleccionar diferentes tamaños de máquina virtual de Zookeeper para Spark, Hadoop y Machine Learning Services
-Anteriormente, HDInsight no admitía la personalización del tamaño de nodo de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. De manera predeterminada, serán tamaños de máquina virtual A2_v2 o A2, que se proporcionan de forma gratuita. A partir de esta versión, puede seleccionar el tamaño de máquina virtual de Zookeeper que sea más adecuado para su escenario. Se cobrarán los nodos de Zookeeper con un tamaño de máquina virtual que no sea A2_v2 o A2. Las máquinas virtuales A2_v2 y A2 todavía se proporcionan de forma gratuita.
+### <a name="kafka-rest-proxy-ga"></a>Disponibilidad general del proxy de REST de Kafka 
+El proxy REST de Kafka le permite interactuar con el clúster de Kafka mediante una API REST a través de HTTPS. El proxy de REST de Kafka está disponible con carácter general a partir de esta versión. Obtenga más información sobre el [proxy de REST de Kafka aquí](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy).
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movimiento a conjuntos de escalado de máquinas virtuales
-Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. A partir de esta versión, el servicio se migrará gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
+Ahora HDInsight usa máquinas virtuales de Azure para aprovisionar el clúster. El servicio se migra gradualmente a [conjuntos de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/overview.md). Todo el proceso puede tardar meses. Después de migrar las regiones y las suscripciones, los clústeres de HDInsight recién creados se ejecutarán en conjuntos de escalado de máquinas virtuales sin acciones del cliente. No se espera ningún cambio importante.
 
 ## <a name="deprecation"></a>Desuso
-### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Desuso del clúster de Machine Learning de HDInsight 3.6
-El soporte técnico del tipo de clúster de servicios de Machine Learning de HDInsight 3.6 finalizará el 31 de diciembre de 2020. A partir de entonces, los clientes no podrán crear clústeres de servicios de Machine Learning de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Compruebe la expiración del soporte técnico de las versiones y los tipos de clúster de HDInsight [aquí](./hdinsight-component-versioning.md#available-versions).
-
 ### <a name="disabled-vm-sizes"></a>Tamaños de máquina virtual deshabilitados
-A partir del 16 de noviembre de 2020, HDInsight impide que los nuevos clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Esta medida no afectará a los clientes existentes que hayan usado estos tamaños de máquina virtual en los últimos tres meses. A partir del 9 de enero de 2021, HDInsight impedirá que todos los clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Los clústeres existentes se ejecutarán tal cual. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
+A partir del 9 de enero de 2021, HDInsight impedirá que todos los clientes creen clústeres con los tamaños de máquina virtual standand_A8, standand_A9, standand_A10 y standand_A11. Los clústeres existentes se ejecutarán tal cual. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
 
 ## <a name="behavior-changes"></a>Cambios de comportamiento
-### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Incorporación de comprobaciones de las reglas de NSG antes de la operación de escalado
-HDInsight ha incorporado comprobaciones de los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) en la operación de escalado. Esta misma validación se realiza durante el escalado de clústeres, así como durante su creación. Gracias a estas pruebas, se pueden evitar errores imprevisibles. Si no se superan correctamente, se producirán errores en el escalado. Para más información acerca de cómo configurar correctamente los NSG y las UDR, consulte este artículo sobre las [direcciones IP de administración de HDInsight](./hdinsight-management-ip-addresses.md).
+### <a name="default-cluster-vm-size-changes-to-ev3-series"></a>El tamaño de la máquina virtual del clúster predeterminado cambia en la serie Ev3 
+Los tamaños de máquinas virtuales de clústeres predeterminados se cambiarán de la serie D a la serie Ev3. Este cambio se aplica a los nodos principales y los nodos de trabajo. Para evitar que este cambio afecte a los flujos de trabajo probados, especifique los tamaños de máquina virtual que desea usar en la plantilla de Resource Manager.
+
+### <a name="network-interface-resource-not-visible-for-clusters-running-on-azure-virtual-machine-scale-sets"></a>El recurso de la interfaz de red no es visible para clústeres que se ejecutan en conjuntos de escalado de máquinas virtuales de Azure.
+HDInsight se está migrando gradualmente a conjuntos de escalado de máquinas virtuales de Azure. Los clientes ya no pueden ver las interfaces de red de las máquinas virtuales de los clústeres que usan conjuntos de escalado de máquinas virtuales de Azure.
+
+
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Cambio importante de .NET para Apache Spark 1.0.0
+HDInsight introducirá la primera versión principal oficial de .NET para Apache Spark en la próxima versión. Proporciona la integridad de la API DataFrame para Spark 2.4.x y Spark 3.0.x junto con otras características. Habrá cambios importantes en esta versión principal. Consulte [esta guía de migración](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para comprender los pasos necesarios para actualizar el código y las canalizaciones. Obtenga más información [aquí](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 En las próximas versiones, se realizarán los siguientes cambios.
 
-### <a name="breaking-change-for-net-for-apache-spark-100"></a>Cambio importante de .NET para Apache Spark 1.0.0
-HDInsight introducirá la primera versión principal oficial de .NET para Apache Spark en la próxima versión. Proporciona la integridad de la API DataFrame para Spark 2.4.x y Spark 3.0.x junto con otras características. Habrá cambios importantes en esta versión principal. Consulte [este GUID de migración](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) para comprender los pasos necesarios para actualizar el código y las canalizaciones. Obtenga más información [aquí](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
-
-### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>El tamaño de la máquina virtual del clúster predeterminado se cambiará a la familia Ev3.
-A partir de la próxima versión (a finales de enero), los tamaños de la máquina virtual del clúster predeterminados se cambiarán de la familia D a la familia Ev3. Este cambio se aplica a los nodos principales y los nodos de trabajo. Para evitar este cambio, especifique los tamaños de máquina virtual que desea usar en la plantilla de ARM.
-
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>La versión predeterminada del clúster cambiará a la 4.0
-A partir de febrero de 2021, la versión predeterminada del clúster de HDInsight cambiará de la 3.6 a la 4.0. Para más información sobre las versiones disponibles, consulte [este artículo](./hdinsight-component-versioning.md#available-versions). Más información sobre las novedades de [HDInsight 4.0](./hdinsight-version-release.md)
+A partir de febrero de 2021, la versión predeterminada del clúster de HDInsight cambiará de la 3.6 a la 4.0. Para más información sobre las versiones disponibles, consulte [este artículo](./hdinsight-component-versioning.md#available-versions). Más información sobre las novedades de [HDInsight 4.0](./hdinsight-version-release.md).
 
 ### <a name="os-version-upgrade"></a>Actualización de la versión del sistema operativo
-HDInsight está actualizando la versión del sistema operativo de 16.04 a 18.04. La actualización se completará antes de abril de 2021.
+HDInsight está actualizando la versión del sistema operativo de Ubuntu 16.04 a 18.04. La actualización se completará antes de abril de 2021.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Fin del soporte técnico de HDInsight 3.6 el 30 de junio de 2021
 El soporte técnico para HDInsight 3.6 finaliza. A partir del 30 de junio de 2021, los clientes no pueden crear clústeres de HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere pasar a HDInsight 4.0 para evitar la posible interrupción del sistema o del soporte técnico.
@@ -71,16 +69,3 @@ HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del 
 ## <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](./hdinsight-component-versioning.md) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
 
-## <a name="known-issues"></a>Problemas conocidos
-### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedir que las máquinas virtuales del clúster de HDInsight se reinicien periódicamente
-
-A partir de mediados de noviembre de 2020, es posible que haya observado que las máquinas virtuales del clúster de HDInsight se reinician periódicamente. Esto puede deberse a las siguientes razones:
-
-1.  Clamav está habilitado en el clúster. El nuevo paquete azsec-clamav consume una gran cantidad de memoria que desencadena el reinicio del nodo. 
-2.  Hay un trabajo cron programado diariamente que supervisa los cambios en la lista de entidades de certificación que usan los servicios de Azure. Cuando hay disponible un nuevo certificado de la entidad de certificación, el script agrega el certificado al almacén de confianza de JDK y programa un reinicio.
-
-HDInsight está implementando correcciones y aplicando revisiones para todos los clústeres en ejecución para solucionar ambos problemas. Para aplicar la corrección inmediatamente y evitar el reinicio inesperado de las máquinas virtuales, puede ejecutar las acciones de script siguientes en todos los nodos del clúster como una acción de script persistente. HDInsight publicará otro aviso después de completar la corrección y aplicar la revisión.
-```
-https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
-https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
-```

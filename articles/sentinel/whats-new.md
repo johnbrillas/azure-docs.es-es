@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 8154e1adff8d8c2bdfe7fedc9309f95e5c5880bd
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 02/04/2021
+ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99499460"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007370"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -32,6 +32,7 @@ Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la
 
 ## <a name="january-2021"></a>Enero de 2021
 
+- [Asistente para reglas de análisis: mejora en la edición de consultas (versión preliminar pública)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Módulo de PowerShell Az.SecurityInsights (versión preliminar pública)](#azsecurityinsights-powershell-module-public-preview)
 - [Conector de SQL Database](#sql-database-connector)
 - [Mejora en los comentarios de incidentes](#improved-incident-comments)
@@ -40,13 +41,23 @@ Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la
 - [Mejora en el ajuste de reglas con los grafos en versión preliminar de las reglas de análisis](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Asistente para reglas de análisis: mejora en la edición de consultas (versión preliminar pública)
+
+Ahora, el Asistente para reglas de análisis programado de Azure Sentinel ofrece las siguientes mejoras para escribir y editar consultas:
+
+-   Una ventana de edición que se puede expandir y que proporciona más espacio en la pantalla para ver la consulta.
+-   Resaltado de palabras clave en el código de la consulta.
+-   Compatibilidad con Autocompletar expandida.
+-   Validaciones de consultas en tiempo real. Los errores en la consulta ahora se muestran en forma de bloque rojo en la barra de desplazamiento y en forma de punto rojo en el nombre de la pestaña **Establecer la lógica de la regla**. Además, las consultas que tengan errores no se pueden guardar.
+
+Para más información, consulte el [Tutorial: Detección de amenazas integrada](tutorial-detect-threats-built-in.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Módulo de PowerShell Az.SecurityInsights (versión preliminar pública)
 
 Azure Sentinel ya admite el nuevo módulo de PowerShell [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
 
 El módulo **Az.SecurityInsights** admite casos de uso comunes de Azure Sentinel, como la interacción con incidentes para cambiar los estados, la gravedad, el propietario, etc., la incorporación de comentarios y etiquetas a incidentes, y la creación de marcadores.
 
-Aunque se recomienda usar las plantillas de [Azure Resource Manager](/azure/azure-resource-manager/templates/) para la canalización de CI/CD, el módulo **Az.SecurityInsights** es útil para las tareas posteriores a la implementación y está específicamente destinado a la automatización de SOC.  Por ejemplo, la automatización de SOC puede incluir los pasos necesarios para configurar conectores de datos, crear reglas de análisis o agregar acciones de automatización a las reglas de análisis.
+Aunque se recomienda usar las plantillas de [Azure Resource Manager](/azure/azure-resource-manager/templates/) para la canalización de CI/CD, el módulo **Az.SecurityInsights** es útil para las tareas posteriores a la implementación y está destinado a la automatización de SOC.  Por ejemplo, la automatización de SOC puede incluir los pasos necesarios para configurar conectores de datos, crear reglas de análisis o agregar acciones de automatización a las reglas de análisis.
 
 Para más información, incluida una lista completa de los cmdlets disponibles y una descripción de los mismos, las descripciones y ejemplos de parámetros, consulte la [documentación de Az.SecurityInsights de PowerShell](/powershell/module/az.securityinsights/).
 
@@ -123,7 +134,7 @@ Esta actualización de Azure Sentinel incluye nuevas consultas de búsqueda que 
 
 Las consultas de búsqueda agregadas están diseñadas para ayudarle a encontrar actividades sospechosas en su entorno. Aunque pueden devolver actividades legítimas y actividades potencialmente malintencionadas, pueden resultar útiles como guía para la búsqueda. 
 
-Si, después de ejecutar estas consultas, confía en los resultados, puede que desee convertirlos en reglas de análisis o agregar resultados de búsqueda a los incidentes nuevos o existentes.
+Si, después de ejecutar estas consultas, confía en los resultados, puede convertirlos en reglas de análisis, o bien agregar resultados de búsqueda a los incidentes nuevos o existentes.
 
 Todas las consultas agregadas están disponibles a través de la página de búsqueda de Azure Sentinel. Para más información, consulte [Búsqueda de amenazas con Azure Sentinel](hunting.md).
 

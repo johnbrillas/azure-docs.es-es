@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326127"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832970"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: Supervisión de rendimiento
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 La funcionalidad Monitor de rendimiento de [Network Performance Monitor](network-performance-monitor.md) ayuda a supervisar la conectividad de red en varios puntos de esta. Puede supervisar la conectividad de red en implementaciones en la nube y ubicaciones locales, varios centros de datos y sucursales, y aplicaciones o microservicios críticos de varios niveles. Con el Monitor de rendimiento, puede detectar problemas de red antes de recibir quejas de los usuarios. Las principales ventajas son que se puede: 
 
@@ -65,7 +68,7 @@ Para crear reglas de supervisión personalizadas:
 6. Elija las condiciones de supervisión. Para establecer umbrales personalizados para la generación de eventos de mantenimiento, escriba valores de umbral. Siempre que el valor de la condición supere el umbral seleccionado para el par de red/subred seleccionado, se generará un evento de mantenimiento. 
 7. Para guardar la configuración, seleccione **Guardar**. 
 
-Después de guardar una regla de supervisión, puede integrar esa regla con Alert Management; para ello, seleccione **Crear alerta**. Con la consulta de búsqueda se crea automáticamente una regla de alerta. Otros parámetros necesarios se rellenan automáticamente. Mediante una regla de alerta, puede recibir alertas de correo electrónico, además de las alertas existentes dentro de Network Performance Monitor. Las alertas también pueden desencadenar acciones correctoras con runbooks o se pueden integrar con soluciones de administración de servicios existentes mediante webhooks. Seleccione **Administrar alertas** para editar la configuración de las alertas. 
+Después de guardar una regla de supervisión, puede integrar esa regla con Alert Management; para ello, seleccione **Crear alerta**. Con la consulta de búsqueda se crea automáticamente una regla de alerta. Otros parámetros necesarios se rellenan automáticamente. Mediante una regla de alerta, puede recibir alertas de correo electrónico, además de las alertas existentes dentro de Network Performance Monitor. Las alertas también pueden desencadenar acciones correctoras con runbooks, o bien se pueden integrar con las soluciones de Service Management existentes mediante webhooks. Seleccione **Administrar alertas** para editar la configuración de las alertas. 
 
 Ahora puede crear más reglas de supervisión del rendimiento o trasladarse al panel de la solución para comenzar a usar esta funcionalidad.
 
@@ -129,4 +132,3 @@ En la siguiente imagen, la causa principal de las áreas problemáticas de la se
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Buscar registros](../log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
-

@@ -1,29 +1,25 @@
 ---
 title: Automatización de la instalación del entorno de ejecución de integración autohospedado mediante scripts locales de PowerShell
 description: Para automatizar la instalación del entorno de ejecución de integración autohospedado en máquinas locales.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636976"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376214"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatización de la instalación del entorno de ejecución de integración autohospedado mediante scripts locales de PowerShell
 Para automatizar la instalación del entorno de ejecución de integración autohospedado en máquinas locales (que no sean VM de Azure en las que podamos aprovechar la plantilla de Resource Manager en su lugar), puede usar scripts locales de PowerShell. En este artículo se presentan dos scripts que puede usar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Inicie PowerShell en la máquina local. Para ejecutar los scripts, debe elegir **Ejecutar como administrador** .
+* Inicie PowerShell en la máquina local. Para ejecutar los scripts, debe elegir **Ejecutar como administrador**.
 * [Descargue](https://www.microsoft.com/download/details.aspx?id=39717) el software del entorno de ejecución de integración autohospedado. Copie la ruta de acceso donde se encuentra el archivo descargado. 
 * También necesita una **clave de autenticación** para registrar el entorno de ejecución de integración autohospedado.
 * Para automatizar las actualizaciones manuales, debe tener un entorno de ejecución de integración autohospedado preconfigurado.
@@ -38,13 +34,13 @@ Para automatizar la instalación del entorno de ejecución de integración autoh
 
 * Para automatizar las actualizaciones manuales: actualice el nodo de IR autohospedado con una versión específica o a la versión más reciente **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** . Esto también se admite en caso de que haya desactivado la actualización automática o quiera tener más control sobre las actualizaciones. El script se puede usar para actualizar el nodo del entorno de ejecución de integración autohospedado a la versión más reciente o a una versión superior especificada (el cambio a una versión anterior no funciona). Acepta un argumento para especificar el número de versión (ejemplo: -version 3.13.6942.1). Cuando no se especifica ninguna versión, siempre actualiza la instancia de IR autohospedada a la última versión que se encuentra en las [descargas](https://www.microsoft.com/download/details.aspx?id=39717).
     > [!NOTE]
-    > Solo se pueden especificar las tres últimas versiones. Idealmente, esto se usa para actualizar un nodo existente a la versión más reciente. **SE ASUME QUE TIENE UN IR AUTOHOSPEDADO REGISTRADO** . 
+    > Solo se pueden especificar las tres últimas versiones. Idealmente, esto se usa para actualizar un nodo existente a la versión más reciente. **SE ASUME QUE TIENE UN IR AUTOHOSPEDADO REGISTRADO**. 
 
 ## <a name="usage-examples"></a>Ejemplos de uso
 
 ### <a name="for-automating-setup"></a>Para automatizar la configuración
 1. Descargue el IR autohospedado desde [aquí](https://www.microsoft.com/download/details.aspx?id=39717). 
-1. Especifique la ruta de acceso donde se encuentra el SHIR MSI descargado (archivo de instalación). Por ejemplo, si la ruta de acceso es *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi* , puede usar el siguiente ejemplo de línea de comandos de PowerShell para esta tarea:
+1. Especifique la ruta de acceso donde se encuentra el SHIR MSI descargado (archivo de instalación). Por ejemplo, si la ruta de acceso es *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi*, puede usar el siguiente ejemplo de línea de comandos de PowerShell para esta tarea:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

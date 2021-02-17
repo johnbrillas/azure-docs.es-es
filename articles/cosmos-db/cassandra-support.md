@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134235"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576488"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,7 +43,7 @@ Cassandra API de Azure Cosmos DB admite las siguientes versiones de los controla
 
 Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 
-|Get-Help  |Compatible |
+|Tipo  |Compatible |
 |---------|---------|
 | ascii  | Sí |
 | bigint  | Sí |
@@ -82,13 +82,14 @@ Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
 |Get-Help  |Compatible |
 |---------|---------|
 | Token * | Sí |
-| ttl | Sí |
-| writetime | Sí |
+| ttl *** | Sí |
+| writetime *** | Sí |
 | cast ** | Sí |
 
 > [!NOTE] 
 > \* Cassandra API admite el token como proyección o selector y solo permite token(pk) en el lado izquierdo de una cláusula WHERE. Por ejemplo, se admite `WHERE token(pk) > 1024`, pero `WHERE token(pk) > token(100)` **no** se admite.  
-> \*\* La función `cast()` no es anidable en Cassandra API. Por ejemplo, se admite `SELECT cast(count as double) FROM myTable`, pero `SELECT avg(cast(count as double)) FROM myTable` **no** se admite.
+> \*\* La función `cast()` no es anidable en Cassandra API. Por ejemplo, se admite `SELECT cast(count as double) FROM myTable`, pero `SELECT avg(cast(count as double)) FROM myTable` **no** se admite.    
+> \*\*\* Las marcas de tiempo y el TTL personalizados especificados con la opción `USING` se aplican a nivel de fila (y no por celda).
 
 
 
@@ -159,7 +160,6 @@ Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas d
 | CREATE ROLE | No |
 | CREATE USER (en desuso en Apache Cassandra nativo) | No |
 | Delete | Sí |
-| DELETE (transacciones ligeras con condición IF)| Sí |
 | DISTINCT | No |
 | DROP AGGREGATE | No |
 | .DROP FUNCTION | No |
@@ -173,17 +173,25 @@ Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas d
 | DROP USER (en desuso en Apache Cassandra nativo) | No |
 | GRANT | No |
 | INSERT | Sí |
-| INSERT (transacciones ligeras con condición IF)| Sí |
 | LIST PERMISSIONS | No |
 | LIST ROLES | No |
 | LIST USERS (en desuso en Apache Cassandra nativo) | No |
 | REVOKE | No |
 | SELECT | Sí |
-| SELECT (transacciones ligeras con condición IF)| No |
 | UPDATE | Sí |
-| UPDATE (transacciones ligeras con condición IF)| No |
 | TRUNCATE | No |
 | USE | Sí |
+
+## <a name="lightweight-transactions-lwt"></a>Transacciones ligeras (LWT)
+
+| Componente  |Compatible |
+|---------|---------|
+| DELETE IF EXISTS | Sí |
+| DELETE conditions | No |
+| INSERT IF NOT EXISTS | Sí |
+| UPDATE IF EXISTS | Sí |
+| UPDATE IF NOT EXISTS | Sí |
+| UPDATE conditions | No |
 
 ## <a name="cql-shell-commands"></a>Comandos de shell de CQL
 

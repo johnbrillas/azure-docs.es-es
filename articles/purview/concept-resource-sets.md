@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539474"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387859"
 ---
 # <a name="understanding-resource-sets"></a>Descripción de los conjuntos de recursos
 
@@ -86,19 +86,19 @@ Cuando Azure Purview coincide con un grupo de activos en un conjunto de recursos
 
 ### <a name="example-1"></a>Ejemplo 1
 
-Nombre completo: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Nombre completo: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Nombre para mostrar: "name of spark output"
 
 ### <a name="example-2"></a>Ejemplo 2
 
-Nombre completo: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Nombre completo: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Nombre para mostrar: "my partitioned data"
 
 ### <a name="example-3"></a>Ejemplo 3
 
-Nombre completo: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Nombre completo: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nombre para mostrar: "data"
 

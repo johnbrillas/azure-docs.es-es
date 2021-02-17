@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763050"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592796"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
+
+El ejemplo de la llamada web es una aplicación web que sirve como tutorial detallado de las distintas funcionalidades que proporciona la biblioteca cliente de llamadas web de Communication Services. 
+
+Este ejemplo se ha creado para desarrolladores y hace que sea muy fácil empezar a trabajar con Communication Services. Su interfaz de usuario se divide en varias secciones, y cada una de ellas incluye un botón "Mostrar código" que permite copiar código directamente desde el explorador en su propia aplicación de Communication Services.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Este ejemplo está disponible en GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-En el **ejemplo de llamada web** de Azure Communication Services se muestra cómo se puede usar la biblioteca cliente web de llamadas de Communication Services para crear una experiencia de llamada con JavaScript.
-
-En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
-
-## <a name="overview"></a>Información general
-
-El ejemplo de la llamada web es una aplicación web que sirve como tutorial detallado de las distintas funcionalidades que proporciona la biblioteca cliente de llamadas web de Communication Services. 
-
-Este ejemplo se ha creado para desarrolladores y hace que sea muy fácil empezar a trabajar con Communication Services. Su interfaz de usuario se divide en varias secciones, y cada una de ellas incluye un botón "Mostrar código" que permite copiar código directamente desde el explorador en su propia aplicación de Communication Services.
-
+Siga /Project/readme.md para configurar el proyecto y ejecutarlo en la máquina de manera local.
 Cuando el [ejemplo de llamada web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) se esté ejecutando en la máquina, verá la página de aterrizaje siguiente:
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Tutorial de llamadas web 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Tutorial de llamadas web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Aprovisionamiento de usuario e inicialización de SDK 
-
-Para empezar a usar la demostración, escriba la cadena de conexión del [recurso de Communication Services](../quickstarts/create-communication-resource.md) en `config.json`. Se usará para aprovisionar un [token de acceso de usuario](../concepts/authentication.md) para que se pueda inicializar el SDK que realiza la llamada.
-
-Escriba su propio identificador personal en la entrada Identidad del usuario. Si no se especifica nada, se generará una identidad de usuario aleatoria. 
 
 Haga clic en "Provisioning user and initialize SDK" (Aprovisionamiento de usuario e inicialización del SDK) para inicializar el SDK mediante un token aprovisionado por el servicio de aprovisionamiento de tokens de back-end. Este servicio de back-end está en `/project/webpack.config.js`.
 

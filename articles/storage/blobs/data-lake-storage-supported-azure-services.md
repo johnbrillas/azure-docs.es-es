@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: caa0390dfd3a98e6537a7a60a2895461e2efd52a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0dd011d6c1ff631d537dbcadf9a77bbe6d89aa45
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518806"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servicios de Azure que admiten Azure Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ En esta tabla se enumeran los servicios de Azure que puede usar con Azure Data L
 |Servicio de Azure |Nivel de compatibilidad |Azure AD |Clave compartida| Artículos relacionados |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Disponibilidad general|Sí|Sí|[Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure Databricks|Disponibilidad general|Sí|Sí|[Uso con Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark](data-lake-storage-use-databricks-spark.md)|
+|Azure Databricks|Disponibilidad general|Sí|Sí|[Uso con Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) <br> [Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark](data-lake-storage-use-databricks-spark.md)|
 |Centro de eventos de Azure|Disponibilidad general|No|Sí|[Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md)|
 |Azure Event Grid|Disponibilidad general|Sí|Sí|[Tutorial: Implementación del patrón de captura de Data Lake para actualizar una tabla de Databricks Delta](data-lake-storage-events.md)|
 |Azure Logic Apps|Disponibilidad general|No|Sí|[Introducción: ¿Qué es Azure Logic Apps?](../../logic-apps/logic-apps-overview.md)|

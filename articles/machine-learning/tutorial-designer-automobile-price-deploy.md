@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246475"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576064"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
 
-Puede implementar el modelo predictivo desarrollado en la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para que otros usuarios puedan usarlo. En la parte 1, ha entrenado el modelo. Ahora, es momento de generar predicciones basadas en los datos que escriba el usuario. En esta parte del tutorial, va a realizar lo siguiente:
+Puede implementar el modelo predictivo desarrollado en la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para que otros usuarios puedan usarlo. En la parte 1, ha entrenado el modelo. Ahora, es el momento de generar predicciones basadas en los datos especificados por el usuario. En esta parte del tutorial, va a realizar lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una canalización de inferencia en tiempo real.
@@ -122,17 +122,19 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 > También puede realizar la implementación en **Instancia de Azure Container** (ACI) mediante la selección de **Instancia de Azure Container** en **Tipo de proceso** en el cuadro de configuración de puntos de conexión en tiempo real.
 > Instancia de Azure Container se usa con fines de pruebas o desarrollo. Use ACI con cargas de trabajo basadas en CPU a pequeña escala que requieran menos de 48 GB de RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Visualización del punto de conexión en tiempo real
+## <a name="test-the-real-time-endpoint"></a>Prueba del punto de conexión en tiempo real
 
 Una vez finalizada la implementación, puede ver el punto de conexión en tiempo real; para ello, vaya a la página **Endpoints** (Puntos de conexión).
 
 1. En la página **Puntos de conexión**, seleccione el punto de conexión que implementó.
 
-1. En la pestaña **Details** (Detalles), puede ver más información, como el identificador URI de REST, el estado y las etiquetas.
+    En la pestaña **Detalles**, puede ver más información, como el identificador URI de REST, la definición de Swagger, el estado y las etiquetas.
 
-1. En la pestaña **Consume** (Consumir), puede encontrar las claves de seguridad y establecer los métodos de autenticación.
+    En la pestaña **Consumir**, encontrará código de consumo de ejemplo y claves de seguridad. Además, podrá establecer los métodos de autenticación.
 
-1. En la pestaña **Registros de implementación**, puede encontrar los registros de implementación detallados del punto de conexión en tiempo real. 
+    En la pestaña **Registros de implementación**, puede encontrar los registros de implementación detallados del punto de conexión en tiempo real.
+
+1. Para probar el punto de conexión, vaya a la pestaña **Prueba**. Aquí puede especificar los datos de prueba y seleccionar **Probar** para verificar la salida del punto de conexión.
 
 Para más información sobre cómo utilizar el servicio web, consulte [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md).
 

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754807"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580853"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Diferencias entre MSAL.js y ADAL.js
 
@@ -48,7 +48,7 @@ Sin embargo, aun así deberá usar ADAL.js si la aplicación necesita iniciar se
 
 En la versión 1.0, si se usa la autoridad `https://login.microsoftonline.com/common` se permitirá que los usuarios inicien sesión con cualquier cuenta de Azure AD (para cualquier organización).
 
-En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/common`, se permitirá que los usuarios inicien sesión con cualquier cuenta de organización o con una cuenta personal de Microsoft (MSA). Para restringir el inicio de sesión solo a cuentas de Azure AD (el mismo comportamiento que con ADAL.js), debe usar `https://login.microsoftonline.com/organizations`. Si necesita conocer detalles, consulte la opción de configuración `authority` en el artículo sobre la [inicialización con MSAL.js](msal-js-initializing-client-applications.md).
+En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/common`, se permitirá que los usuarios inicien sesión con cualquier cuenta de organización o con una cuenta personal de Microsoft (MSA). Para restringir el inicio de sesión solo a cuentas de Azure AD (el mismo comportamiento que con ADAL.js), use `https://login.microsoftonline.com/organizations`. Si necesita conocer detalles, consulte la opción de configuración `authority` en el artículo sobre la [inicialización con MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Ámbitos para la adquisición de tokens
 * Ámbito en lugar de parámetro de recurso en solicitudes de autenticación para adquirir tokens

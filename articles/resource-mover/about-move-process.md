@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522959"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980565"
 ---
 # <a name="about-the-move-process"></a>Acerca del proceso de traslado
 
@@ -46,7 +46,7 @@ A cada recurso de traslado se le aplican los pasos resumidos.
 **Paso 4: Inicio del traslado** | Inicie el proceso de traslado. El método de traslado depende del tipo de recurso:<br/><br/> - **Sin estado**: normalmente, para los recursos sin estado, el proceso de traslado implementa una plantilla importada en la región de destino. La plantilla se basa en la configuración del recurso de origen y en cualquier edición manual que realice en la configuración de destino.<br/><br/> - **Con estado**: en el caso de los recursos con estado, el proceso de traslado puede implicar la creación del recurso o la habilitación de una copia en la región de destino.<br/><br/>  Solo en el caso de los recursos con estado, el inicio de un traslado podría provocar un tiempo de inactividad en los recursos de origen. Por ejemplo, máquinas virtuales y SQL. | Al iniciar el traslado, el estado cambia a *La acción "Iniciar movimiento" está en curso*.<br/><br/> Un inicio de traslado correcto cambia el estado de los recursos a *La acción "Confirmar movimiento" está pendiente*, sin problemas detectados. <br/><br/> Un proceso de traslado incorrecto cambia el estado a *Error en la acción "Iniciar movimiento"* .
 **Paso 5, opción 1: Descarte del traslado** | Después del traslado inicial, puede decidir si desea continuar con un traslado completo. Si no lo desea, puede descartar el traslado y Resource Mover elimina los recursos creados en el destino. El proceso de replicación de los recursos con estado continúa después del proceso de descarte. Esta opción es útil para realizar pruebas. | Al descartar los recursos, se cambia el estado a *La acción "Descartar movimiento" está en curso*.<br/><br/> Un descarte correcto cambia el estado a *La acción "Iniciar movimiento" está pendiente*, sin problemas detectados.<br/><br/> Un error en el descarte cambia el estado a *Error en la acción "Descartar movimiento"* . 
 **Paso 5, opción 2: Confirmación del traslado** | Después del traslado inicial, si desea continuar con un traslado completo, compruebe los recursos de la región de destino y, cuando esté listo, confirme el traslado.<br/><br/> Solo para los recursos con estado, la confirmación puede dar lugar a que los recursos de origen, como las máquinas virtuales o SQL, sean inaccesibles. | Si confirma el traslado, el estado del recurso cambia a *La acción "Confirmar movimiento" está en curso**.<br/><br/> Una vez confirmado correctamente, el estado del recurso muestra *Commit move completed* (La acción "Confirmar movimiento" ha finalizado), sin problemas detectados.<br/><br/> Una confirmación con error cambia el estado a *Error en la acción "Confirmar movimiento"* .
-**Paso 6: Eliminación en el origen** | Después de confirmar el traslado y comprobar los recursos en la región de destino, puede eliminar el recurso de origen. | Una vez confirmado el traslado, los recursos tendrán el estado *La acción "Eliminar origen" está pendiente*.
+**Paso 6: Eliminación en el origen** | Después de confirmar el traslado y comprobar los recursos en la región de destino, puede eliminar el recurso de origen. | Una vez confirmado, los recursos tendrán el estado *La acción "Eliminar origen" está pendiente*. Después, puede seleccionar el recurso de origen y eliminarlo.<br/><br/> -Solo se pueden eliminar recursos con el estado *La acción "Eliminar origen" está pendiente*. | No se admite la eliminación de un grupo de recursos o SQL Server en el portal de Resource Mover. Estos recursos solo se pueden eliminar desde la página de propiedades del recurso.
 
 
 ## <a name="move-region-states"></a>Estados del traslado de región

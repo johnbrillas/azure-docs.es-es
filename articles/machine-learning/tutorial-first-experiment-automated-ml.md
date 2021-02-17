@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879787"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549192"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -102,8 +102,8 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
         Encabezados de columna| Indica cómo se tratarán los encabezados del conjunto de datos, si existen.| Todos los archivos tienen los mismos encabezados
         Omitir filas | Indica el número de filas, si hay alguna, que se omiten en el conjunto de datos.| None
 
-    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, no se realiza ninguna selección. Seleccione **Next** (Siguiente).
-
+    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el conmutador de alternancia de la característica **day_of_week** para excluirla. Seleccione **Next** (Siguiente).
+         ![Formulario de esquema](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. En el formulario **Confirm details** (Confirmar detalles), compruebe que la información coincide con lo rellenado anteriormente en los formularios **Basic info** (Información básica), Datastore and file selection (Selección del archivo y el almacén de datos) y **Settings and preview** (Configuración y vista previa).
     
     1. Seleccione **Create** (Crear) para completar la creación del conjunto de datos.
@@ -170,12 +170,6 @@ Una vez cargados y configurados los datos, puede configurar el experimento. Este
         
         Seleccione **Guardar**.
     
-    1. Seleccione **View featurization settings** (Ver configuración de caracterización). En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week**, de modo que no se incluya para la caracterización de este experimento.
-
-        ![Selección de caracterización](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Seleccione **Guardar**.
-
 1. Para ejecutar el experimento, seleccione **Finalizar**. La pantalla **Run Details** (Detalles de ejecución) se abrirá con **Run status** (Estado de ejecución) al comenzar la preparación del experimento. Este estado se actualiza a medida que el experimento progresa. También aparecen notificaciones en la esquina superior derecha de Studio, para informarle del estado de su experimento.
 
 >[!IMPORTANT]

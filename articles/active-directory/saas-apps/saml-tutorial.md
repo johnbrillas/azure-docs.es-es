@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 0b15d560e2678772cefdf3d87c047013b24ed467
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7b6273c504edfd96b61fe3fc9ea35baa6f1e08f3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010289"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integración de Azure Active Directory con una aplicación de línea de negocio (LOB) habilitada para el token SAML 1.1
 
-En este tutorial aprenderá a integrar una aplicación de línea de negocio (LOB) habilitada para el token SAML 1.1 con Azure Active Directory (Azure AD).
-La integración de la aplicación LOB habilitada para el token SAML 1.1 con Azure AD le proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar una aplicación de línea de negocio (LOB) habilitada para tokens de SAML 1.1 con Azure Active Directory (Azure AD). Al integrar la aplicación de línea de negocio habilitada para tokens de SAML 1.1 con Azure AD, puede hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a la aplicación LOB habilitada para el token SAML 1.1.
-* Puede permitir que los usuarios inicien sesión automáticamente en la aplicación LOB habilitada para el token SAML 1.1 (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a la aplicación de línea de negocio habilitada para tokens de SAML 1.1.
+* Permitir que los usuarios inicien sesión automáticamente en la aplicación de línea de negocio habilitada para tokens de SAML 1.1 con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con la aplicación LOB habilitada para el token SAML 1.1, necesita los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único de la aplicación LOB habilitada para el token SAML 1.1
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en la aplicación de línea de negocio habilitada para tokens de SAML 1.1.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -43,63 +39,44 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * La aplicación LOB habilitada para el token SAML 1.1 admite el inicio de sesión único iniciado por **SP**
 
-## <a name="adding-saml-11-token-enabled-lob-app-from-the-gallery"></a>Adición de la aplicación LOB habilitada para el token SAML 1.1 desde la galería
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
+
+## <a name="add-saml-11-token-enabled-lob-app-from-the-gallery"></a>Adición de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 desde la galería
 
 Para configurar la integración de la aplicación LOB habilitada para el token SAML 1.1 en Azure AD, tiene que agregar la aplicación LOB habilitada para el token SAML 1.1 desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar la aplicación LOB habilitada para el token SAML 1.1 desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Aplicación de línea de negocio habilitada para tokens de SAML 1.1** en el cuadro de búsqueda.
+1. Seleccione **Aplicación de línea de negocio habilitada para tokens de SAML 1.1** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-saml-11-token-enabled-lob-app"></a>Configuración y prueba del inicio de sesión único de Azure AD para la aplicación de línea de negocio habilitada para tokens de SAML 1.1
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con la aplicación de línea de negocio habilitada para tokens de SAML 1.1 mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de la aplicación de línea de negocio habilitada para tokens de SAML 1.1.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con la aplicación de línea de negocio habilitada para tokens de SAML 1.1, siga estos pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en la aplicación de línea de negocio habilitada para tokens de SAML 1.1](#configure-saml-11-token-enabled-lob-app-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de la aplicación de línea de negocio habilitada para tokens de SAML 1.1](#create-saml-11-token-enabled-lob-app-test-user)** : para tener un homólogo de B.Simon en la aplicación de línea de negocio habilitada para tokens de SAML 1.1 vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **SAML 1.1 Token enabled LOB App** (Aplicación LOB habilitada para el token SAML 1.1), seleccione **SAML 1.1 Token enabled LOB App** (aplicación LOB habilitada para el token SAML 1.1) desde el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En Azure Portal, en la página de integración de la aplicación **Aplicación de línea de negocio habilitada para tokens de SAML 1.1**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-     ![Aplicación LOB habilitada para el token SAML 1.1 en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con la aplicación LOB habilitada para el token SAML 1.1 con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de la aplicación LOB habilitada para el token SAML 1.1.
-
-Para configurar y probar el inicio de sesión único de Azure AD con la aplicación LOB habilitada para el token SAML 1.1, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de la aplicación LOB habilitada para el token SAML 1.1](#configure-saml-11-token-enabled-lob-app-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba de la aplicación LOB habilitada para el token SAML 1.1](#create-saml-11-token-enabled-lob-app-test-user)** : para tener un homólogo de Britta Simon en la aplicación LOB habilitada para el token SAML 1.1 vinculado a la representación del usuario de Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con la aplicación LOB habilitada para el token SAML 1.1, siga estos pasos:
-
-1. En la página de integración de la [aplicación LOB habilitada para el token SAML 1.1](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
-
-    ![Información de dominio y direcciones URL de inicio de sesión único de la aplicación LOB habilitada para el token SAML 1.1](common/sp-identifier.png)
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://your-app-url`
 
@@ -108,7 +85,7 @@ Para configurar el inicio de sesión único de Azure AD con la aplicación LOB h
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el equipo de soporte técnico de clientes de la aplicación LOB habilitada para el token SAML 1.1. para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -116,81 +93,48 @@ Para configurar el inicio de sesión único de Azure AD con la aplicación LOB h
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
-### <a name="configure-saml-11-token-enabled-lob-app-single-sign-on"></a>Configuración del inicio de sesión único de la aplicación LOB habilitada para el token SAML 1.1
-
-Para configurar el inicio de sesión único en la **aplicación LOB habilitada para el token SAML 1.1**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al equipo de soporte técnico de la aplicación LOB habilitada para el token SAML 1.1. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a la aplicación LOB habilitada para el token SAML 1.1 para que use el inicio de sesión único de Azure.
+En esta sección, va a permitir que B.Simon acceda a la aplicación de línea de negocio habilitada para tokens de SAML 1.1 mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **SAML 1.1 Token enabled LOB App** (Aplicación LOB habilitada para el token SAML 1.1).
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **SAML 1.1 Token enabled LOB App** (Aplicación LOB habilitada para el token SAML 1.1).
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+## <a name="configure-saml-11-token-enabled-lob-app-sso"></a>Configuración del inicio de sesión único de la aplicación de línea de negocio habilitada para tokens de SAML 1.1
 
-2. En la lista de aplicaciones, escriba y seleccione **SAML 1.1 Token enabled LOB App** (Aplicación LOB habilitada para el token SAML 1.1).
-
-    ![El vínculo a la aplicación LOB habilitada para el token SAML 1.1 en la lista Aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+Para configurar el inicio de sesión único en la **aplicación LOB habilitada para el token SAML 1.1**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al equipo de soporte técnico de la aplicación LOB habilitada para el token SAML 1.1. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-saml-11-token-enabled-lob-app-test-user"></a>Creación del usuario de prueba de la aplicación LOB habilitada para el token SAML 1.1
 
 En esta sección, creará el usuario Britta Simon en la aplicación LOB habilitada para el token SAML 1.1. Trabaje con el equipo de soporte técnico de la aplicación LOB habilitada para el token SAML 1.1 para agregar los usuarios a la plataforma de esta. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de la aplicación LOB habilitada para el token SAML 1.1 en el panel de acceso, debería iniciar sesión automáticamente en la aplicación LOB habilitada para el token SAML 1.1 para la cual configuró el iniciar sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1, donde puede iniciar el flujo de inicio de sesión. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Vaya directamente a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 e inicie el flujo de inicio de sesión desde allí.
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+Una vez configurado la aplicación de línea de negocio habilitada para tokens de SAML 1.1, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
