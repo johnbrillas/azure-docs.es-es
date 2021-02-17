@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/24/2020
+ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 45f02850797582f97220e91d1582b04b3be711c0
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f0508f903cf2daa4c387ff51ecba2f5af7d99694
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882490"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007949"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -40,7 +40,7 @@ Los precios predeterminados de Log Analytics son de un modelo de **Pago por uso*
   
 Además del modelo de pago por uso, Log Analytics tiene niveles de **Reserva de capacidad** que le permiten ahorrar hasta un 25 % en comparación con el precio de pago por uso. Los precios de la reserva de capacidad permiten comprar una reserva a partir de 100 GB/día. Cualquier uso por encima del nivel de reserva se facturará según la tarifa de pago por uso. Los niveles de Reserva de capacidad tienen un período de compromiso de 31 días. Durante el período de compromiso, puede cambiar a un nivel de Reserva de capacidad de nivel superior (que reiniciará el período de compromiso de 31 días), pero no podrá volver a la versión de pago por uso o a un nivel de Reserva de capacidad inferior hasta que el período de compromiso finalice. La facturación de los niveles de reserva de capacidad se realiza cada día. [Más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de Pago por uso y de Reserva de capacidad de Log Analytics. 
 
-En todos los planes de tarifa, el tamaño de los datos de un evento se calcula a partir de una representación de cadena de las propiedades que se almacenan en Log Analytics para ese evento, tanto si los datos se envían desde un agente como si se agregan durante el proceso de ingesta. Esto incluye cualquier [campo personalizado](custom-fields.md) que se agregue a medida que se recopilen datos y luego se almacenen en Log Analytics. Varias propiedades comunes a todos los tipos de datos, incluidas algunas [propiedades estándar de Log Analytics](./log-standard-columns.md), se excluyen del cálculo del tamaño del evento. Esto incluye `_ResourceId`, `_ItemId`, `_IsBillable`, `_BilledSize` y `Type`. Todas las demás propiedades almacenadas en Log Analytics se incluyen en el cálculo del tamaño del evento. Algunos tipos de datos están libres de los cargos de ingesta de datos, por ejemplo, los tipos AzureActivity, Latido y Uso. Para determinar si un evento se ha excluido de la facturación relacionada con la ingesta de datos, puede usar la propiedad `_IsBillable`, como se muestra [más adelante](#data-volume-for-specific-events). El uso se informa en GB (1,0E9 bytes). 
+En todos los planes de tarifa, el tamaño de los datos de un evento se calcula a partir de una representación de cadena de las propiedades que se almacenan en Log Analytics para ese evento, tanto si los datos se envían desde un agente como si se agregan durante el proceso de ingesta. Esto incluye cualquier [campo personalizado](custom-fields.md) que se agregue a medida que se recopilen datos y luego se almacenen en Log Analytics. Varias propiedades comunes a todos los tipos de datos, incluidas algunas [propiedades estándar de Log Analytics](./log-standard-columns.md), se excluyen del cálculo del tamaño del evento. Esto incluye `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` y `Type`. Todas las demás propiedades almacenadas en Log Analytics se incluyen en el cálculo del tamaño del evento. Algunos tipos de datos están libres de los cargos de ingesta de datos, por ejemplo, los tipos AzureActivity, Latido y Uso. Para determinar si un evento se ha excluido de la facturación relacionada con la ingesta de datos, puede usar la propiedad `_IsBillable`, como se muestra [más adelante](#data-volume-for-specific-events). El uso se informa en GB (1,0E9 bytes). 
 
 Además, tenga en cuenta que algunas soluciones, como [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) y [Administración de configuración](https://azure.microsoft.com/pricing/details/automation/) tienen sus propios modelos de precios. 
 
@@ -66,11 +66,11 @@ Si aún no usa los registros de Azure Monitor, puede usar la [calculadora de pre
 
 Si ya usa los registros de Azure Monitor ahora, es fácil comprender cuáles serán probablemente los costos según los patrones de uso recientes. Para ello, utilice **Uso y costos estimados de Log Analytics** a fin de revisar y analizar el uso de datos. Muestra la cantidad de datos que recopila cada solución, la cantidad de datos que se retienen y una estimación de los costos según la cantidad de datos ingeridos y cualquier retención adicional más allá de la cantidad incluida.
 
-![Uso y costos estimados](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
+:::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Información útil del uso y los costos estimados":::
 
 Para explorar los datos más detalladamente, haga clic en el icono situado en el extremo superior derecho de cualquiera de los gráficos de la página **Uso y costos estimados**. Ahora puede trabajar con esta consulta para explorar más detalles sobre su uso.  
 
-![Visualización de registros](media/manage-cost-storage/logs.png)
+:::image type="content" source="media/manage-cost-storage/logs.png" alt-text="Visualización de registros":::
 
 En la página **Uso y costos estimados** puede revisar el volumen de datos del mes. Esto incluye todos los datos recibidos y retenidos facturables en el área de trabajo de Log Analytics.  
  
@@ -90,8 +90,8 @@ Para cambiar el plan de tarifa de Log Analytics del área de trabajo,
 
 2. Revise los costos estimados para cada uno de los planes de tarifa. Esta estimación se basa en los últimos 31 días de uso, por lo que esta estimación de costos se basa en los últimos 31 días lo que es representativo de su uso habitual. En el ejemplo siguiente puede ver cómo, en función de los patrones de datos de los últimos 31 días, esta área de trabajo costaría menos en el nivel de pago por uso (n.° 1) en comparación con el nivel de Reserva de capacidad de 100 GB/día (n.° 2).  
 
-    ![Planes de tarifa](media/manage-cost-storage/pricing-tier-estimated-costs.png)
-
+:::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Planes de tarifa":::
+    
 3. Después de revisar los costos estimados en función de los últimos 31 días de uso, si decide cambiar el plan de tarifa, haga clic en **Seleccionar**.  
 
 También puede [establecer el plan de tarifa mediante Azure Resource Manager](../samples/resource-manager-workspace.md) con el parámetro `sku` (`pricingTier` en la plantilla de Azure Resource Manager). 
@@ -132,7 +132,7 @@ La facturación de [Azure Security Center](../../security-center/index.yml) est�
 
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
 
-Los pasos siguientes describen cómo configurar cuánto tiempo se conservan los datos de registro en el área de trabajo. La retención de datos a nivel de área de trabajo se puede configurar entre 30 y 730 días (2 años) para todas las áreas de trabajo a menos que usen el plan de tarifa Gratis heredado. [Más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios para una retención de datos más prolongada. La retención de tipos de datos individuales se puede establecer en un valor mínimo de 4 días. 
+Los pasos siguientes describen cómo configurar cuánto tiempo se conservan los datos de registro en el área de trabajo. La retención de datos en el nivel de área de trabajo se puede configurar entre 30 y 730 días (2 años) para todas las áreas de trabajo a menos que usen el plan de tarifa gratuito heredado. La retención de tipos de datos individuales se puede establecer en un valor mínimo de 4 días. [Obtenga más información](https://azure.microsoft.com/pricing/details/monitor/) sobre los precios de la retención de datos de mayor duración.  Para conservar los datos de más de 730 días, considere la posibilidad de usar la [exportación de datos del área de trabajo de Log Analytics](logs-data-export.md).
 
 ### <a name="workspace-level-default-retention"></a>Retención predeterminada de nivel de área de trabajo
 
@@ -142,11 +142,11 @@ Para establecer la retención predeterminada del área de trabajo,
 2. En la página **Uso y costos estimados**, haga clic en **Retención de datos** en la parte superior de la página.
 3. En el panel, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Aceptar**.  Si el nivel es *gratuito*, no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.
 
-    ![Cambio de la configuración de retención de datos del área de trabajo](media/manage-cost-storage/manage-cost-change-retention-01.png)
+:::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Cambio de la configuración de retención de datos del área de trabajo":::
 
 Cuando se reduce la retención, hay un período de gracia de varios días antes de que se quiten los datos más antiguos que la nueva configuración de retención. 
 
-La retención también se puede [configurar a través de Azure Resource Manager](../samples/resource-manager-workspace.md) mediante el parámetro `retentionInDays`. Al configurar la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que elimina el período de gracias de varios días. Esto puede ser útil para escenarios relacionados con el cumplimiento en los que la eliminación de datos inmediata es imperativa. Esta funcionalidad de purga inmediata solo está expuesta a través de Azure Resource Manager. 
+La página **Retención de datos** permite la configuración de una retención de 30, 31, 60, 90, 120, 180, 270, 365, 550 y 730 días. Si se requiere otra configuración, se puede configurar mediante [Azure Resource Manager](../samples/resource-manager-workspace.md) con el parámetro `retentionInDays`. Al configurar la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que elimina el período de gracias de varios días. Esto puede ser útil para escenarios relacionados con el cumplimiento en los que la eliminación de datos inmediata es imperativa. Esta funcionalidad de purga inmediata solo está expuesta a través de Azure Resource Manager. 
 
 Las áreas de trabajo con una retención de 30 días en realidad pueden conservar los datos durante 31 días. Si es imperativo que los datos se conserven solo durante 30 días, use Azure Resource Manager para establecer la retención en 30 días y con el parámetro `immediatePurgeDataOn30Days`.  
 
@@ -230,7 +230,7 @@ Los pasos siguientes describen cómo configurar un límite para administrar el v
 2. En la página **Usage and estimated costs** (Uso y costos estimados) del área de trabajo seleccionada, haga clic en **Límite de datos** en la parte superior de la página. 
 3. ¿Está el límite diario **desactivado** de forma predeterminada? Haga clic en **ON** (ACTIVADO) para habilitarlo y, luego, establezca el límite de volumen diario en GB/día.
 
-    ![Configuración del límite de datos con Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+:::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Configuración del límite de datos con Log Analytics":::
     
 El límite diario se puede configurar mediante ARM si se establece el parámetro `dailyQuotaGb` en `WorkspaceCapping`, como se describe en [Áreas de trabajo: creación o actualización](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
@@ -245,8 +245,10 @@ Usage
 | extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
 | where TimeGenerated > startofday(ago(31d))
 | where IsBillable
-| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
 ```
+
+(En el tipo de datos de uso, las unidades de `Quantity` están en MB).
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerta cuando se alcanza el límite diario
 
@@ -485,6 +487,9 @@ Algunas sugerencias para reducir el volumen de registros recopilados incluyen:
 | syslog                     | Cambie la [configuración de syslog](data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |
 | AzureDiagnostics           | Cambie la [colección de registros de recursos](./diagnostic-settings.md#create-in-azure-portal) para: <br> - Reducir el número de registros de recursos enviados a Log Analytics <br> - Recopilar solo los registros necesarios |
 | Datos de la solución procedentes de equipos que no necesitan la solución | Use la [selección de destino de solución](../insights/solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios. |
+| Application Insights | Revisión de las opciones de [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) para ajustar la configuración de auditoría. |
+| Azure Sentinel | Revise los [orígenes de datos de Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que ha habilitado recientemente como orígenes del volumen de datos adicional. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtención de nodos facturados en el plan de tarifa Por nodo
 

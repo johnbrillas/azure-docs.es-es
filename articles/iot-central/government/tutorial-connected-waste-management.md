@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Creación de una aplicación de administración de residuos conectada con Azure IoT Central'
-description: Aprenda a crear una aplicación de administración de residuos conectada con las plantillas de aplicación de Azure IoT Central.
+description: 'Tutorial: Aprenda a crear una aplicación de administración de residuos conectada con las plantillas de aplicación de Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881351"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820086"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Creación de una aplicación de administración de residuos conectada
 
@@ -20,13 +20,13 @@ En este tutorial se muestra cómo usar Azure IoT Central para crear una aplicaci
 
 Específicamente, aprenderá sobre lo siguiente: 
 
-* Usar la plantilla *Administración de residuos conectada* de Azure IoT Central para crear la aplicación.
-* Explorar y personalizar el panel del operador. 
-* Explorar la plantilla de dispositivo de cubo de basura conectado.
-* Explorar los dispositivos simulados
-* Explorar y configurar reglas
-* Configurar trabajos
-* Personalización de marca de la aplicación.
+> [!div class="checklist"]
+> Usar la plantilla *Administración de residuos conectada* de Azure IoT Central para crear la aplicación.
+> Explorar y personalizar el panel del operador. Explorar la plantilla de dispositivo de cubo de basura conectado.
+> Explorar los dispositivos simulados
+> Explorar y configurar reglas
+> Configurar trabajos
+> Personalización de marca de la aplicación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

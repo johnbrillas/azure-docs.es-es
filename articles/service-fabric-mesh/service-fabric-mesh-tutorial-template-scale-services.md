@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747860"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625389"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Escala de una aplicación que se ejecuta en Service Fabric Mesh
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones mediante la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para más información, consulte este artículo sobre la [retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial es la segunda parte de una serie. Aprenda a escalar manualmente el número de instancias de servicio de una aplicación que se [implementó previamente en Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Cuando haya terminado, tendrá un servicio front-end que ejecuta tres instancias y un servicio de datos que ejecuta dos.
 
@@ -32,7 +37,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este tutorial:
 
@@ -56,7 +61,7 @@ Para ver el número de réplicas en ejecución para el servicio ToDoService, eje
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-En la plantilla de implementación para el recurso de aplicación, cada servicio tiene una propiedad *replicaCount* que puede usarse para establecer el número de veces que desea que ese servicio se implemente. Una aplicación puede constar de varios servicios, cada uno con un único número de *replicaCount* , que se implementan y administran de forma conjunta. Para escalar el número de réplicas de servicio, modifique el valor de *replicaCount* para cada servicio que desee escalar en el archivo de parámetros o la plantilla de implementación.  Después, actualice la aplicación.
+En la plantilla de implementación para el recurso de aplicación, cada servicio tiene una propiedad *replicaCount* que puede usarse para establecer el número de veces que desea que ese servicio se implemente. Una aplicación puede constar de varios servicios, cada uno con un único número de *replicaCount*, que se implementan y administran de forma conjunta. Para escalar el número de réplicas de servicio, modifique el valor de *replicaCount* para cada servicio que desee escalar en el archivo de parámetros o la plantilla de implementación.  Después, actualice la aplicación.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificación de los parámetros de la plantilla de implementación
 
@@ -88,7 +93,7 @@ Guarde los cambios del archivo de parámetros.  Los parámetros *frontEndReplica
     }
 ```
 
-La propiedad *replicaCount* del servicio WebFrontEnd hace referencia al parámetro *frontEndReplicaCount* y la propiedad *replicaCount* del servicio ToDoService hace referencia al parámetro *serviceReplicaCount* :
+La propiedad *replicaCount* del servicio WebFrontEnd hace referencia al parámetro *frontEndReplicaCount* y la propiedad *replicaCount* del servicio ToDoService hace referencia al parámetro *serviceReplicaCount*:
 
 ```json
     "services": [

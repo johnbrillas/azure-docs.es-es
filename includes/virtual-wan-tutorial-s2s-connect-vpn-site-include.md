@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856740"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627729"
 ---
 1. Seleccione **Conectar sitios de VPN** para abrir la página **Conectar sitios**.
 
@@ -26,13 +26,13 @@ ms.locfileid: "91856740"
    * Seleccione la opción adecuada para **Propagar la ruta predeterminada**. La opción **Habilitar** permite que el centro de conectividad propague una ruta predeterminada aprendida a esta conexión. Esta marca habilita la propagación de la ruta predeterminada a una conexión, solamente si el centro de Virtual WAN ya ha aprendido la ruta predeterminada como resultado de la implementación de un firewall en el centro, o en caso de que otro sitio conectado tenga habilitada la tunelización forzada. La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN.
 
 2. Seleccione **Conectar**.
-3. En unos minutos, el sitio mostrará la conexión y el estado de conectividad.
+3. Después de unos minutos, en el sitio aparecerá la conexión y el estado de conectividad.
 
-   ![Captura de pantalla que muestra el estado de una conexión de sitio a sitio VPN y la conectividad.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Instantánea en la que se muestra una conexión entre sitios y el estado de conectividad.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **Estado de la conexión:** Este es el estado del recurso de Azure para la conexión que conecta el sitio VPN a la puerta de enlace de VPN del centro de conectividad de Azure. Una vez que esta operación de plano de control se realiza correctamente, la puerta de enlace de VPN de Azure y el dispositivo VPN local procederán a establecer la conectividad.
+   **Estado de la conexión:** este es el estado del recurso de Azure de la conexión que conecta el sitio de VPN con la puerta de enlace de VPN del centro de conectividad de Azure. Una vez que esta operación de plano de control se realiza correctamente, la puerta de enlace de VPN de Azure y el dispositivo VPN local procederán a establecer la conectividad.
 
-   **Estado de conectividad:** Este es el estado de conectividad real (ruta de acceso a datos) entre la puerta de enlace de VPN de Azure en el centro de conectividad y el sitio VPN. Puede mostrar cualquiera de los siguientes estados:
+   **Estado de conectividad:** Este es el estado de conectividad real (la ruta de acceso a los datos) entre la puerta de enlace de VPN de Azure del centro de conectividad y el sitio VPN. Puede mostrar cualquiera de los siguientes estados:
 
     * **Desconocido**: Este estado suele observarse si los sistemas de back-end están trabajando en una transición a otro estado.
     * **Conectando**: La puerta de enlace de VPN de Azure está intentando ponerse en contacto con el sitio VPN local.

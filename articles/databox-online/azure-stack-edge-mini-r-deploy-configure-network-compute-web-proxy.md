@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465032"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594457"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Configuración de red para Azure Stack Edge Mini R
 
@@ -108,7 +108,7 @@ Siga estos pasos para configurar la red en el dispositivo.
 
     !["Port WiFi Network settings" (Configuración de red del puerto Wi-Fi) de la interfaz de usuario web local 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-6. Seleccione el perfil de Wi-Fi que agregó en el paso anterior y seleccione **Apply** (Aplicar). 
+6. Seleccione el perfil de Wi-Fi que agregó en el paso anterior y haga clic en **Aplicar**. 
 
     !["Port WiFi Network settings" (Configuración de red del puerto Wi-Fi) de la interfaz de usuario web local 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
@@ -126,6 +126,7 @@ Siga estos pasos para configurar la red en el dispositivo.
    - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. Se asignan automáticamente una dirección IP, la subred, la puerta de enlace y DNS.
    - Si DHCP no está habilitado, puede asignar direcciones IP estáticas si es necesario.
    - Puede configurar la interfaz de red como IPv4.
+   - Azure Stack Edge no admite la agregación de vínculos ni la formación de equipos en las tarjetas de interfaz de red (NIC).
    - El número de serie de cualquier puerto corresponde al número de serie del nodo. Para un dispositivo de la serie K, solo se muestra un número de serie.
 
      >[!NOTE] 
@@ -152,7 +153,7 @@ Siga estos pasos para habilitar el proceso y configurar la red de proceso.
     > Kubernetes en Azure Stack Edge utiliza la subred 172.27.0.0/16 para los pods y la subred 172.28.0.0/16 para el servicio. Asegúrese de que no están en uso en la red. Si estas subredes ya están en uso en la red, ejecute el cmdlet `Set-HcsKubeClusterNetworkInfo` desde la interfaz de PowerShell del dispositivo para cambiar estas subredes. Para más información, consulte [Cambio de las subredes de pods y de servicio de Kubernetes](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Asigne las **IP del servicio externo de Kubernetes**. También son las direcciones IP de equilibrio de carga. Estas direcciones IP contiguas son para los servicios que desea exponer fuera del clúster de Kubernetes y debe especificar el rango de direcciones IP estáticas en función del número de servicios expuestos. 
+1. Asigne las **IP del servicio externo de Kubernetes**. También hay direcciones IP de equilibrio de carga. Estas direcciones IP contiguas son para los servicios que desea exponer fuera del clúster de Kubernetes, y debe especificar el rango de direcciones IP estáticas en función del número de servicios expuestos. 
     
     > [!IMPORTANT]
     > Le recomendamos que especifique un mínimo de una dirección IP para que el servicio del centro de Azure Stack Edge Mini R acceda a los módulos de proceso. Opcionalmente, puede especificar direcciones IP adicionales para otros módulos de servicios o IoT Edge (1 por servicio o módulo) a los que es necesario acceder desde fuera del clúster. Las direcciones IP de servicio se pueden actualizar más adelante. 
@@ -161,7 +162,7 @@ Siga estos pasos para habilitar el proceso y configurar la red de proceso.
 
     ![Página Proceso en la interfaz de usuario local 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
-1. La configuración tarda un par de minutos en aplicarse y puede que tenga que actualizar el explorador. Puede ver que el puerto especificado está habilitado para el proceso. 
+1. La configuración tarda algunos minutos en aplicarse, y es posible que tenga que actualizar el explorador. Puede ver que el puerto especificado está habilitado para el proceso. 
  
     ![Página Proceso en la interfaz de usuario local 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 

@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180037"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558923"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -57,7 +57,6 @@ Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), 
 Después de seleccionar la ranura, configure las opciones de publicación para realizar lo siguiente:
 
 * análisis de opiniones
-* [Corrección ortográfica](luis-tutorial-bing-spellcheck.md)
 * Preparación para la voz
 
 Después de la publicación, esta configuración estará disponible para su revisión en la página de **configuración de publicación** de la sección **Administrar**. La configuración se puede cambiar en cada publicación. Si cancela una publicación, también se cancelarán los cambios realizados durante la misma.
@@ -79,37 +78,6 @@ No tiene que proporcionar una clave de Text Analytics y no se carga ningún cost
 Los datos de opinión son una puntuación entre 1 y 0 que indica el valor de opinión positiva (más cercano a 1) o negativa (más cercano a 0) de los datos. La etiqueta de opinión de `positive`, `neutral` y `negative` es por referencia cultural admitida. Actualmente, solo se admites etiquetas de opinión en inglés.
 
 Para obtener más información acerca de la respuesta del punto de conexión JSON con análisis de sentimiento, consulte [Análisis de sentimiento](luis-reference-prebuilt-sentiment.md).
-
-## <a name="spelling-correction"></a>Corrección ortográfica
-
-Prediction API V3 ahora es compatible con Bing Spellcheck API. Para agregar la revisión ortográfica a la aplicación, incluya la clave del recurso de búsqueda de Bing en el encabezado de las solicitudes. Puede usar esta característica con un recurso de Bing existente, si ya tiene uno, o [crear otro](https://portal.azure.com/#create/Microsoft.BingSearch). 
-
-|Clave del encabezado|Valor de encabezado|
-|--|--|
-|`mkt-bing-spell-check-key`|Claves que se encuentran en la hoja **Keys and Endpoint** (Claves y punto de conexión) del recurso|
-
-Ejemplo de salida de predicción de una consulta mal escrita:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Las correcciones de ortografía se realizan antes que la predicción de expresiones de usuario de LUIS. Puede ver cualquier cambio en la expresión original (incluida la ortografía) en la respuesta.
 
 ## <a name="speech-priming"></a>Preparación para la voz
 

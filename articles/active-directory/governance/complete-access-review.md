@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779557"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008247"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Realización de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -48,15 +48,22 @@ Puede hacer un seguimiento del progreso de las revisiones a medida que los revis
 
     Para ver las futuras instancias de una revisión de acceso, vaya a la revisión de acceso y seleccione las revisiones programadas.
 
-    En la página **Información general**, puede ver el progreso. Los derechos de acceso no se cambian en el directorio hasta que la revisión finaliza.
+    En la página **Información general**, puede ver el progreso de la instancia actual. Los derechos de acceso no se cambian en el directorio hasta que la revisión finaliza.
 
-    ![Progreso de las revisiones de acceso](./media/complete-access-review/overview-progress.png)
-    
-    Si ve una revisión de acceso que revisa el acceso de invitados en varios grupos de Microsoft 365 (versión preliminar), en la hoja Información general se mostrará cada grupo de la revisión.  
+     ![Revisión del grupo Todas las empresas](./media/complete-access-review/all-company-group.png)
 
-   ![revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    Todas las hojas situadas en Actual solo se pueden ver mientras dure cada instancia de revisión. 
 
-    Haga clic en un grupo para ver el progreso de la revisión en ese grupo.
+    La página de resultados proporciona más información sobre cada usuario en revisión de la instancia, incluida la capacidad de detener, restablecer y descargar resultados.
+
+    ![Revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/all-company-group-results.png)
+
+
+    Si ve una revisión de acceso que revisa el acceso de invitados en varios grupos de Microsoft 365 (versión preliminar), en la hoja Información general se mostrará cada grupo de la revisión. 
+   
+    ![revisión del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Haga clic en un grupo para ver el progreso de la revisión en ese grupo, o para detenerla, restablecerla, aplicarla o eliminarla.
 
    ![revisión detallada del acceso de invitados en varios grupos de Microsoft 365](./media/complete-access-review/progress-group-review.png)
 
@@ -68,15 +75,20 @@ Puede hacer un seguimiento del progreso de las revisiones a medida que los revis
 
 ## <a name="apply-the-changes"></a>Aplicación de cambios
 
-Si la opción **Aplicar automáticamente los resultados al recurso** estaba habilitado y basada en sus selecciones de **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando esta se detenga manualmente.
+Si la opción **Aplicar automáticamente los resultados al recurso** estaba habilitada según sus selecciones de **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando esta se detenga manualmente.
 
-Si **Aplicar automáticamente los resultados al recurso** no estaba habilitado para la revisión, haga clic en **Aplicar** para aplicar los cambios manualmente. Si el acceso de un usuario se denegó en la revisión, al hacer clic en **Aplicar**, Azure AD quita la asignación de pertenencia o de la aplicación.
+Si la opción **Aplicar automáticamente los resultados al recurso** no estaba habilitada para la revisión, vaya a **Historial de revisiones** en **Serie** una vez finalizada la revisión o una vez que la revisión se haya detenido, y haga clic en la instancia de la revisión que desea aplicar.
 
 ![Aplicación de cambios de la revisión de acceso](./media/complete-access-review/apply-changes.png)
 
+Haga clic en **Aplicar** para aplicar manualmente los cambios. Si el acceso de un usuario se denegó en la revisión, al hacer clic en **Aplicar**, Azure AD quita la asignación de pertenencia o de la aplicación.
+
+![Botón Aplicar cambios de la revisión de acceso](./media/complete-access-review/apply-changes-button.png)
+
+
 El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Resultado aplicado**. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
 
-Una revisión de aplicación automática configurada o la selección de **Aplicar** no tiene ningún efecto en un grupo que se origina en un directorio local o en un grupo dinámico. Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
+Aplicar los resultados de manera manual o automática no tiene ningún efecto en un grupo que se origina en un directorio local o en un grupo dinámico. Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
 
 ## <a name="retrieve-the-results"></a>Recuperación de los resultados
 

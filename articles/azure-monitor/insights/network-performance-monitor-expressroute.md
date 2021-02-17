@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326161"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833089"
 ---
 # <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Puede usar la funcionalidad de Supervisión de Azure ExpressRoute en [Network Performance Monitor](network-performance-monitor.md) para supervisar la conectividad de un extremo a otro y el rendimiento entre sus sucursales y Azure, a través de Azure ExpressRoute. Las principales ventajas son: 
 
@@ -141,4 +144,3 @@ Puede ver los códigos de notificación y establecer alertas para ellos a travé
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Buscar registros](../log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
-

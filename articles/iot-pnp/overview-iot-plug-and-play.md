@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486303"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594576"
 ---
 # <a name="what-is-iot-plug-and-play"></a>¿Qué es IoT Plug and Play?
 
@@ -45,11 +45,13 @@ IoT Plug and Play es útil para dos tipos de desarrolladores:
 
 ## <a name="use-iot-plug-and-play-devices"></a>Uso de dispositivos IoT Plug and Play
 
-Como generador de soluciones, puede desarrollar una solución de IoT hospedada en la nube que use dispositivos IoT Plug and Play. Use [IoT Hub](../iot-hub/about-iot-hub.md), un servicio en la nube administrado que actúa como centro de mensajes para una comunicación bidireccional segura entre la aplicación de IoT y los dispositivos.
+Como generador de soluciones, puede usar [IoT Central](../iot-central/core/overview-iot-central.md) o [IoT Hub](../iot-hub/about-iot-hub.md) para desarrollar una solución IoT hospedada en la nube que use dispositivos IoT Plug and Play.
 
-Al conectar un dispositivo IoT Plug and Play a un centro de IoT, puede usar la herramienta [Azure IoT Explorer](./howto-use-iot-explorer.md) para ver los datos de telemetría, las propiedades y los comandos definidos en las interfaces que componen el modelo.
+La interfaz de usuario web de IoT Central le permite supervisar las condiciones del dispositivo, crear reglas y administrar millones de dispositivos y sus datos a lo largo de su ciclo de vida. Los dispositivos IoT Plug and Play se conectan directamente a las aplicaciones IoT Central en las que se pueden usar paneles personalizables para supervisar y controlar los dispositivos. También se pueden usar plantillas de dispositivo en la interfaz de usuario web de IoT Central para crear y editar modelos DTDL.
 
-Si tiene sensores acoplados a una puerta de enlace de Windows o Linux, puede usar un [puente IoT Plug and Play](./concepts-iot-pnp-bridge.md) para conectar estos sensores y crear dispositivos IoT Plug and Play sin necesidad de escribir software o firmware (para los [protocolos compatibles](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
+IoT Hub: un servicio en la nube administrado que actúa como centro de mensajes para que haya una comunicación bidireccional segura entre la aplicación de IoT y los dispositivos. Al conectar un dispositivo IoT Plug and Play a un centro de IoT, puede usar la herramienta [Azure IoT Explorer](./howto-use-iot-explorer.md) para ver los datos de telemetría, las propiedades y los comandos definidos en el modelo de DTDL.
+
+Si tiene sensores acoplados a una puerta de enlace de Windows o Linux, puede usar un [puente IoT Plug and Play](./concepts-iot-pnp-bridge.md) para conectar estos sensores y crear dispositivos IoT Plug and Play sin necesidad de escribir software o firmware de dispositivo (para [protocolos admitidos](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)).
 
 ## <a name="develop-an-iot-device-application"></a>Desarrollo de una aplicación de dispositivo IoT
 

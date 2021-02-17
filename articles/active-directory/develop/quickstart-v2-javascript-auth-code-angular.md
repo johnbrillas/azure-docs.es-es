@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0a4421ed548e6066338977260ed062e6ab14893f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754210"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103709"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión y obtención de un token de acceso en una SPA de Angular mediante el flujo de código de autorización
 
@@ -39,7 +39,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1 (Rápido): registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación.
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Seleccione **Registrar**.
@@ -49,7 +49,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 >
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -65,7 +65,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que el código de ejemplo de este inicio rápido funcione, tiene que agregar un valor de `redirectUri` de `http://localhost:4200/`.
+> Para que el código de ejemplo de este inicio rápido funcione, agregue un **URI de redirección** de `http://localhost:4200/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
 >

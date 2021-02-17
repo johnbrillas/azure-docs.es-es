@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: eff21545ab56b1ff3d1126f862fa7293a38abb39
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b19b55945d3c252d01cf3544f8931580b7fc6710
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188365"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552595"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para C++ en el escritorio de Windows.
 
@@ -23,6 +23,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 Esta guía de inicio rápido requiere:
 
+* En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Creación de un proyecto de Visual Studio e instalación del SDK de Voz

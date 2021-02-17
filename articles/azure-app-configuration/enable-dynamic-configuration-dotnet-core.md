@@ -15,16 +15,16 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012363"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979868"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Core
 
-La biblioteca cliente de .NET Core de App Configuration admite la actualización de un conjunto de ajustes de configuración a petición sin causar el reinicio de una aplicación. Para implementarla, obtenga primero una instancia de `IConfigurationRefresher` entre las opciones para el proveedor de configuración y, después, llame a `TryRefreshAsync` en esa instancia en cualquier lugar del código.
+La biblioteca cliente .NET Core de App Configuration admite la actualización de la configuración a petición sin provocar el reinicio de una aplicación. Para implementarla, obtenga primero una instancia de `IConfigurationRefresher` entre las opciones para el proveedor de configuración y, después, llame a `TryRefreshAsync` en esa instancia en cualquier lugar del código.
 
 Con el fin de mantener la configuración actualizada y evitar demasiadas llamadas al almacén de configuración, se usa una caché para cada configuración. Hasta que haya expirado el valor almacenado en caché de una configuración, la operación no actualiza el valor, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado para cada solicitud es de 30 segundos, pero puede reemplazarse si es necesario.
 

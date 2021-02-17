@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653340"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820170"
 ---
 # <a name="what-is-azure-resource-mover"></a>¿Qué es Azure Resource Mover?
 
@@ -29,8 +29,6 @@ Puede trasladar recursos a otras regiones de Azure para:
 - **Respuesta a requisitos de implementación**: mueva recursos que se implementaron por error, o como respuesta a necesidades de capacidad.
 - **Respuesta al desmantelamiento**: traslade los recursos por el desmantelamiento de una región.
 
-> [!IMPORTANT]
-> Azure Resource Mover se encuentra actualmente en versión preliminar pública.
 
 ## <a name="why-use-resource-mover"></a>¿Por qué usar Resource Mover?
 
@@ -41,7 +39,7 @@ Resource Mover proporciona:
 - Una experiencia sencilla y coherente para trasladar distintos tipos de recursos de Azure.
 - Una manera fácil de identificar las dependencias entre los recursos que desee trasladar. Esto le ayuda a trasladar los recursos relacionados de forma conjunta, de modo que todo funciona según lo previsto en la región de destino, después del traslado.
 - La limpieza automática de los recursos de la región de origen, si desea eliminarlos después del traslado.
-- Pruebas: Puede probar un traslado y, a continuación, descartarlo si no desea completarlo.
+- Pruebas. Puede probar un traslado y, a continuación, descartarlo si no desea completarlo.
 
 ## <a name="move-across-regions"></a>Traslado entre regiones
 
@@ -62,15 +60,16 @@ Puede trasladar los recursos entre regiones en el centro de Resource Mover o des
 Actualmente, con Resource Mover puede trasladar los siguientes recursos entre regiones:
 
 - Máquinas virtuales de Azure y discos asociados
+- Máquinas virtuales de Azure y discos asociados cifrados Esto incluye las máquinas virtuales con Azure Disk Encryption habilitado y las máquinas virtuales de Azure con cifrado del lado del servidor predeterminado (tanto para las claves administradas por la plataforma como para las claves administradas por el cliente).
 - NIC
 - Conjuntos de disponibilidad 
 - Redes virtuales de Azure 
 - Direcciones IP públicas
-- Grupos de seguridad de red (NSG):
+- Grupos de seguridad de red (NSG)
 - Equilibradores de carga internos y públicos 
 - Bases de datos de Azure SQL y grupos de bases de datos elásticas
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información](about-move-process.md) sobre los componentes de Resource Mover y el proceso de traslado.
+[Más información](about-move-process.md) sobre los componentes de Resource Mover y el proceso de movimiento.

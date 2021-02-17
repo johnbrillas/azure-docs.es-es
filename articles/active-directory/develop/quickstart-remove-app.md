@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 8953f9ca174414c55e6e06774167d3951d0bbd41
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090245"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103896"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft.
 
@@ -39,9 +39,10 @@ Las aplicaciones que el usuario o la empresa han registrado están representadas
 
 Para eliminar una aplicación, debe aparecer como propietario de la aplicación o tener privilegios de administrador.
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> con una cuenta personal, profesional o educativa de Microsoft.
-1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino donde está registrada la aplicación.
+1. Busque y seleccione **Azure Active Directory**. 
+1. En **Administrar**, seleccione **Registros de aplicaciones** y, a continuación, la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
 1. En la página **Introducción**, seleccione **Eliminar**.
 1. Seleccione **Sí** para confirmar que quiere eliminar la aplicación.
 

@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493827"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981500"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -36,7 +36,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 **Notas:**
 
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.  
-<a name="azprovider">2</a>: Cuando se especifica como un origen de datos de *proveedor* en los modelos tabulares 1200 y posteriores, los modelos en memoria y de DirectQuery requieren Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 o Proveedor de datos .NET Framework para SQL Server.  
+<a name="azprovider">2</a>: Cuando se especifica como un origen de datos de *proveedor* en los modelos tabulares 1200 y posteriores, los modelos en memoria y de DirectQuery requieren Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado) o Proveedor de datos .NET Framework para SQL Server.  
 <a name="azsqlmanaged">3</a>: Compatible con Instancia administrada de Azure SQL. Dado que SQL Managed Instance se ejecuta dentro de una red virtual de Azure con una dirección IP privada, el punto de conexión público debe estar habilitado en la instancia. Si no está habilitado, se requiere una [puerta de enlace de datos local](analysis-services-gateway.md).  
 <a name="databricks">4</a>: Actualmente no se admite Azure Databricks con el conector de Spark.  
 <a name="gen2">5</a>: el conector ADLS Gen2 no se admite actualmente; no obstante, se puede usar el conector de Azure Blob Storage con un origen de datos ADLS Gen2.
@@ -118,13 +118,6 @@ Para orígenes de datos en la nube:
 
 * Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
 
-## <a name="service-principal-authentication"></a>Autenticación de la entidad de servicio
-
-Cuando se especifica como un origen de datos del *proveedor*, Azure Analysis Services admite la autenticación de entidad de servicio de Azure Active Directory [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) para los orígenes de datos de Azure SQL Database y Azure Synapse.
-
-`
-Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
-`
 
 ## <a name="oauth-credentials"></a>Credenciales de OAuth
 

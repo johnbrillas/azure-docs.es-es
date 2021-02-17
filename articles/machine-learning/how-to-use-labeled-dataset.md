@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987378"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981517"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -39,6 +39,9 @@ Al completar un proyecto de etiquetado de datos, puede exportar los datos de las
 ### <a name="coco"></a>COCO 
 
  El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning, en una carpeta dentro de *export/coco*. 
+ 
+>[!NOTE]
+>En los proyectos de detección de objetos, los valores exportados de "bbox: [x,y,width,height] "del archivo COCO se normalizan. Se modifica su escala a 1. Ejemplo: un rectángulo delimitador que se encuentre en la ubicación (10, 10) y tenga 30 píxeles de ancho y 60 de alto, en una imagen de 640 x 480 píxeles se anotará como (0,015625, 0,02083, 0,046875, 0,125). Como las coordenadas están normalizadas, se mostrarán como "0,0" como "width" (ancho) y "height" (alto) en todas las imágenes. El ancho y el alto reales se pueden obtener mediante una biblioteca de Python, como OpenCV o Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Conjunto de datos de Azure Machine Learning
 
