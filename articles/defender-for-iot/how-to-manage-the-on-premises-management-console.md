@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539348"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523947"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Administración de la consola de administración local
 
@@ -415,7 +415,7 @@ En el procedimiento siguiente se describe cómo actualizar la versión de softwa
 
 1. Seleccione el archivo que descargó de la página **Actualizaciones** de Defender para IoT.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Administración de sensores desde la consola de administración](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

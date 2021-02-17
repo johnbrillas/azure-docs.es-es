@@ -1,5 +1,5 @@
 ---
-title: Creación de soluciones energéticas con IoT Central | Microsoft Docs
+title: ¿Cuáles son las soluciones energéticas de Azure IoT Central? | Microsoft Docs
 description: Aprenda a crear soluciones inteligentes con plantillas de la aplicación de Azure IoT Central.
 author: op-ravi
 ms.author: omravi
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9adf9822bb63be6372de140c775370010614b6e4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516656"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832477"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Creación de soluciones de energía con IoT Central 
+# <a name="what-are-the-iot-central-energy-solutions"></a>¿Cuáles son las soluciones energéticas de IoT Central?
 
 Los paneles solares y los medidores inteligentes desempeñan un papel importante en la transformación del sector energético. Los medidores inteligentes proporcionan más controles e información en tiempo real sobre los consumos energéticos, y el aumento de los paneles solares está impulsando un gran avance en la generación de energía renovable. Las aplicaciones de supervisión de paneles solares y medidores inteligentes son plantillas de ejemplo que muestran distintas funcionalidades. Los asociados pueden aprovechar estas plantillas para crear soluciones energéticas con IoT Central que satisfagan sus necesidades específicas. No se requiere ningún nuevo código ni costo adicional para implementar y usar estas aplicaciones. Obtenga más información acerca de las plantillas de aplicaciones energéticas y sus funcionalidades.
 
@@ -61,8 +61,9 @@ Después de implementar la aplicación, verá los datos de los paneles solares s
 > ![Panel de la aplicación de paneles solares](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para empezar a crear una solución energética:
+
 * Cree plantillas de aplicación de forma gratuita: [aplicación de medidores inteligentes](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [aplicación de paneles solares](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Más información sobre [conceptos de aplicaciones de supervisión de medidores inteligentes](./concept-iot-central-smart-meter-app.md)
 * Más información sobre [conceptos de aplicaciones de supervisión del paneles solares](./concept-iot-central-solar-panel-app.md)
-* Más información sobre la [plataforma de IoT Central](../index.yml)

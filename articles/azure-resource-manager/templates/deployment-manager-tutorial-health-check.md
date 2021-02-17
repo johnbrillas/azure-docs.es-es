@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058034"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626633"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 
@@ -19,7 +19,7 @@ Aprenda a integrar la comprobación de estado en [Azure Deployment Manager](./de
 La plantilla de lanzamiento que utilizó en [Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md), contaba con un paso de espera. En este tutorial, el paso de espera se reemplaza por un paso de comprobación de estado.
 
 > [!IMPORTANT]
-> Si la suscripción está marcada para Canary para probar las nuevas características de Azure, Azure Deployment Manager solo se puede usar para realizar implementaciones en las regiones de Canary. 
+> Si la suscripción está marcada para Canary para probar las nuevas características de Azure, Azure Deployment Manager solo se puede usar para realizar implementaciones en las regiones de Canary.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -35,26 +35,23 @@ En este tutorial se describen las tareas siguientes:
 
 Recursos adicionales:
 
-* La [referencia de API REST de Azure Deployment Manager](/rest/api/deploymentmanager/).
+* [Referencia de la API REST de Azure Deployment Manager](/rest/api/deploymentmanager/).
 * [Un ejemplo de Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar este artículo, necesitará lo siguiente:
+Para realizar este tutorial, necesita:
 
+* Suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Completar [Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
 ## <a name="install-the-artifacts"></a>Instalación de los artefactos
 
-Descargue [las plantillas y los artefactos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip), y descomprímalos en el entorno local si no lo ha hecho aún. A continuación, ejecute el script de PowerShell que se encuentra en [Preparación de los artefactos](./deployment-manager-tutorial.md#prepare-the-artifacts). El script crea un grupo de recursos, un contenedor de almacenamiento y un contenedor de blobs, carga los archivos descargados y crea un token de SAS.
+Si aún no ha descargado los ejemplos que se usan en el tutorial de requisitos previos, puede descargar [las plantillas y los artefactos](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) y descomprimirlos en el entorno local. A continuación, ejecute el script de PowerShell que encontrará en la sección [Preparación de los artefactos](./deployment-manager-tutorial.md#prepare-the-artifacts) de dicho tutorial. El script crea un grupo de recursos, un contenedor de almacenamiento y un contenedor de blobs; carga los archivos descargados, y crea un token de SAS.
 
-Copie la dirección URL con el token de SAS. Esta dirección URL es necesaria para rellenar un campo en los dos archivos de parámetros, el archivo de parámetros de topología y el archivo de parámetros de lanzamiento.
-
-Abra CreateADMServiceTopology.Parameters.json y actualice los valores de **projectName** y **artifactSourceSASLocation**.
-
-Abra CreateADMRollout.Parameters.json y actualice los valores de **projectName** y **artifactSourceSASLocation**.
+* Copie la dirección URL con el token de SAS. Esta dirección URL es necesaria para rellenar un campo en los dos archivos de parámetros: el archivo de parámetros de topología y el archivo de parámetros de lanzamiento.
+* Abra _CreateADMServiceTopology.Parameters.json_ y actualice los valores de `projectName` y `artifactSourceSASLocation`.
+* Abra _CreateADMRollout.Parameters.json_ y actualice los valores de `projectName` y `artifactSourceSASLocation`.
 
 ## <a name="create-a-health-check-service-simulator"></a>Creación de un simulador del servicio de comprobación de estado
 
@@ -65,40 +62,40 @@ Los dos archivos siguientes se usan para implementar la función de Azure. Para 
 * Una plantilla de Resource Manager se encuentra en [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Implemente esta plantilla para crear una función de Azure.
 * Un archivo zip del código fuente de la función de Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). La plantilla de Resource Manager llama a este archivo zip.
 
-Para implementar la función de Azure, seleccione **Pruébelo** para abrir Azure Cloud Shell y pegue el siguiente script en la ventana del shell.  Para pegar el código, haga clic con el botón derecho en la ventana del shell y seleccione **Pegar**.
+Si desea implementar la función de Azure, seleccione **Pruébelo** para abrir Azure Cloud Shell y pegue el siguiente script en la ventana del shell. Para pegar el código, haga clic con el botón derecho en la ventana del shell y seleccione **Pegar**.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Para comprobar y probar la función de Azure:
 
 1. Abra [Azure Portal](https://portal.azure.com).
-1. Abra el grupo de recursos.  El nombre predeterminado es el nombre del proyecto con **rg** anexado.
-1. Seleccione el servicio de aplicaciones en el grupo de recursos.  El nombre predeterminado del servicio de aplicaciones es el nombre del proyecto con **webapp** anexado.
+1. Abra el grupo de recursos. El nombre predeterminado es el nombre del proyecto con **rg** anexado.
+1. Seleccione el servicio de aplicaciones en el grupo de recursos. El nombre predeterminado del servicio de aplicaciones es el nombre del proyecto con **webapp** anexado.
 1. Expanda **Functions** y seleccione **HttpTrigger1**.
 
     ![Función de Azure de la comprobación de estado de Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
 1. Seleccione **&lt;/> Obtener la dirección URL de la función**.
-1. Seleccione **Copiar** para copiar la dirección URL en el Portapapeles.  La dirección URL es similar a:
+1. Seleccione **Copiar** para copiar la dirección URL en el Portapapeles. La dirección URL es similar a:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Reemplace `{healthStatus}` en la dirección URL por un código de estado. En este tutorial, use **unhealthy** para probar el escenario incorrecto y use **healthy** o **warning** para probar el escenario correcto. Cree dos direcciones URL, una con el estado incorrecto y la otra con el estado correcto. Por ejemplo:
+    Reemplace `{healthStatus}` en la dirección URL por un código de estado. En este tutorial, use *unhealthy* para probar el escenario incorrecto y use *healthy* o *warning* para probar el escenario correcto. Cree dos direcciones URL, una con el estado *incorrecto* y la otra con el estado *correcto*. Por ejemplo:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Para completar este tutorial, necesita ambas direcciones URL.
+    Para completar este tutorial, necesitará las dos direcciones URL.
 
-1. Para probar el simulador de comprobación de estado, abra las direcciones URL que creó en el último paso.  Los resultados del estado incorrecto deberán ser similares a:
+1. Para probar el simulador de seguimiento de estado, abra las direcciones URL que creó en el paso anterior. Los resultados del estado incorrecto serán similares a:
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -106,7 +103,7 @@ Para comprobar y probar la función de Azure:
 
 El propósito de esta sección es mostrar cómo incluir un paso de comprobación de estado en la plantilla de lanzamiento.
 
-1. Abra el archivo **CreateADMRollout.json** que creó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md). Este archivo JSON forma parte de la descarga.  Consulte [Requisitos previos](#prerequisites).
+1. Abra el archivo _CreateADMRollout.json_ que creó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md). Este archivo JSON forma parte de la descarga.  Consulte [Requisitos previos](#prerequisites).
 1. Agregue dos parámetros más:
 
     ```json
@@ -175,7 +172,7 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
 
     Según la definición, el lanzamiento continúa si el estado de mantenimiento es *healthy* o *warning*.
 
-1. Actualice la sección **dependsON** de la definición del lanzamiento para incluir el paso de comprobación del estado recién definido:
+1. Actualice la sección `dependsOn` de la definición del lanzamiento para incluir el paso de comprobación del estado que acaba de definir:
 
     ```json
     "dependsOn": [
@@ -184,7 +181,7 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
     ],
     ```
 
-1. Actualice **stepGroups** para incluir el paso de comprobación del estado. **healthCheckStep** se llama en **postDeploymentSteps** de **stepGroup2**. **stepGroup3** y **stepGroup4** solo se implementan si el estado es *healthy* o *warning*.
+1. Actualice `stepGroups` para incluir el paso de comprobación del estado. Se llama a `healthCheckStep` en la sección `postDeploymentSteps` de `stepGroup2`. `stepGroup3` y `stepGroup4` solo se implementan si el estado de mantenimiento es *healthy* (correcto) o *warning* (advertencia).
 
     ```json
     "stepGroups": [
@@ -222,15 +219,15 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
     ]
     ```
 
-    Si compara la sección **stepGroup3** sección antes y después de que se revise, se observará que sección ahora depende de **stepGroup2**.  Esto es necesario cuando tanto **stepGroup3** como los grupos de pasos posteriores dependen de los resultados del seguimiento del estado.
+    Si compara la sección `stepGroup3` antes y después de revisarla, verá que la sección ahora depende de `stepGroup2`. Esto es necesario cuando `stepGroup3` y los grupos de pasos posteriores dependen de los resultados del seguimiento de estado.
 
-    La siguiente captura de pantalla ilustra las áreas modificadas y cómo se usa el paso de comprobación del estado:
+    En la siguiente instantánea, se ilustran las áreas modificadas y cómo se usa el paso de comprobación de estado:
 
     ![Plantilla de comprobación del estado de Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## <a name="deploy-the-topology"></a>Implementación de la topología
 
-Ejecute el siguiente script de PowerShell para implementar la topología. Necesita los mismos archivos **CreateADMServiceTopology.json** y **CreateADMServiceTopology.Parameters.json** que usó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md).
+Ejecute el siguiente script de PowerShell para implementar la topología. Necesita los mismos archivos _CreateADMServiceTopology.json_ y _CreateADMServiceTopology.Parameters.json_ que usó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +245,7 @@ Se debe seleccionar **Mostrar tipos ocultos** para ver los recursos.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementación del lanzamiento con estado incorrecto
 
-Use la dirección URL del estado incorrecto que creó en [Creación de un simulador del servicio de comprobación de estado](#create-a-health-check-service-simulator). Necesita el archivo **CreateADMServiceTopology.json** revisado y el mismo **CreateADMServiceTopology.Parameters.json** que usó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md).
+Use la dirección URL del estado incorrecto que creó en [Creación de un simulador del servicio de comprobación de estado](#create-a-health-check-service-simulator). Necesita el archivo _CreateADMServiceTopology.json_ revisado y el mismo _CreateADMServiceTopology.Parameters.json_ que usó en [Uso del Administrador de implementaciones de Azure con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -283,7 +280,7 @@ Get-AzDeploymentManagerRollout `
 
 La siguiente salida de ejemplo muestra el error de la implementación debido al estado incorrecto:
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -340,32 +337,32 @@ Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc04
 Tags                    :
 ```
 
-Una vez que se complete el lanzamiento, verá que se ha creado un grupo de recursos adicional para Oeste de EE. UU.
+Una vez que se complete el lanzamiento, verá que se ha creado un grupo de recursos adicional para Oeste de EE. UU.
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>Implementación del lanzamiento con estado correcto
 
-Repita esta sección para volver a implementar el lanzamiento con la dirección URL de estado correcto.  Una vez que se complete el lanzamiento, verá que se ha creado un grupo de recursos más para Este de EE. UU.
+Repita esta sección para volver a implementar el lanzamiento con la dirección URL de estado correcto. Una vez que se complete el lanzamiento, verá que se ha creado un grupo de recursos más para Este de EE. UU.
 
 ## <a name="verify-the-deployment"></a>Comprobar la implementación
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Vaya a las aplicaciones web recién creadas en los grupos de recursos creados mediante la implementación de lanzamiento.
-3. Abra la aplicación web en un explorador web. Compruebe la ubicación y la versión del archivo index.html.
+1. Vaya a las nuevas aplicaciones web de los nuevos grupos de recursos que se han creado al implementar el lanzamiento.
+1. Abra la aplicación web en un explorador web. Compruebe la ubicación y la versión del archivo _index.html_.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Use el campo **Filtrar por nombre** para limitar los grupos de recursos creados en este tutorial. Habrá 3 o 4:
+1. Use el campo **Filtrar por nombre** para limitar los grupos de recursos creados en este tutorial.
 
     * **&lt;projectName>rg**: contiene los recursos del Administrador de implementaciones.
     * **&lt;projectName>ServiceWUSrg**: contiene los recursos definidos por ServiceWUS.
     * **&lt;projectName>ServiceEUSrg**: contiene los recursos definidos por ServiceEUS.
     * El grupo de recursos de la identidad administrada definida por el usuario.
-3. Seleccione el nombre del grupo de recursos.
-4. Seleccione **Eliminar grupo de recursos** del menú superior.
-5. Repita los dos últimos pasos para eliminar otros grupos de recursos creados en este tutorial.
+1. Seleccione el nombre del grupo de recursos.
+1. Seleccione **Eliminar grupo de recursos** del menú superior.
+1. Repita los dos últimos pasos para eliminar otros grupos de recursos creados en este tutorial.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

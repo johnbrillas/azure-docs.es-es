@@ -3,12 +3,12 @@ title: Entrega de eventos, identidad de servicio administrado y vínculo privado
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054424"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007778"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
 En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) para temas o dominios personalizados de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Uso de la CLI de Azure: cola de Azure Storage 
-En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a una cola de Azure Storage. La identidad debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** de la cuenta de almacenamiento.
+En esta sección, aprenderá a usar la CLI de Azure para habilitar el uso de una identidad asignada por el sistema para enviar eventos a una cola de Azure Storage. La identidad debe ser miembro del rol **Emisor de mensajes de datos de la cola de Storage** de la cuenta de almacenamiento. También debe ser miembro del rol **Colaborador de datos de blobs de almacenamiento** en la cuenta de almacenamiento que se usa para la cola de mensajes fallidos.
 
 #### <a name="define-variables"></a>Definición de variables  
 

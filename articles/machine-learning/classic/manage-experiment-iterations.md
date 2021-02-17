@@ -3,22 +3,22 @@ title: 'ML Studio (clásico): Visualización y repetición de ejecuciones de exp
 description: Administre las ejecuciones de experimentos en Azure Machine Learning Studio (clásico). Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312874"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515961"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Administración de las ejecuciones de experimentos en Azure Machine Learning Studio (clásico)
 
-**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**SE APLICA A:**  ![Se aplica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![No se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a medida que se modifican las diversas funciones y los parámetros de su experimento, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo. La clave de este proceso es realizar un seguimiento de las iteraciones de los parámetros de su experimento y sus configuraciones.
@@ -33,7 +33,7 @@ Puede revisar las ejecuciones anteriores de sus experimentos en cualquier moment
 ## <a name="view-the-prior-run"></a>Visualización de la ejecución previa
 Al abrir un experimento que ha ejecutado al menos una vez, puede ver la ejecución anterior del experimento haciendo clic en **Ejecución anterior** en el panel Propiedades.
 
-Por ejemplo, suponga que crea un experimento y ejecuta versiones de este a las 11:23, 11:42 y 11:55. Si abre la última ejecución del experimento (11:55) y hace clic en **Ejecución anterior** , se abrirá la versión que se ejecutó a las 11:42.
+Por ejemplo, suponga que crea un experimento y ejecuta versiones de este a las 11:23, 11:42 y 11:55. Si abre la última ejecución del experimento (11:55) y hace clic en **Ejecución anterior**, se abrirá la versión que se ejecutó a las 11:42.
 
 ## <a name="view-the-run-history"></a>Revisión del historial de ejecución
 Puede ver todas las ejecuciones anteriores de un experimento haciendo clic en **Ver historial de ejecución** en un experimento abierto.
@@ -47,7 +47,7 @@ Por ejemplo, suponga que crea un experimento con el módulo [Regresión lineal][
 | 0,4 |9/11/2014 4:28:36 PM |
 | 0.5 |9/11/2014 4:33:31 PM |
 
-Si hace clic en **VER HISTORIAL DE EJECUCIONES** , verá una lista de todas estas ejecuciones:
+Si hace clic en **VER HISTORIAL DE EJECUCIONES**, verá una lista de todas estas ejecuciones:
 
 ![Historial de ejecución de ejemplo](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,10 +58,10 @@ Haga clic en cualquiera de estas ejecuciones para ver una instantánea del exper
 > 
 > 
 
-La lista de experimentos de la pestaña **EXPERIMENTOS** de Machine Learning Studio (clásico) muestra siempre la versión más reciente de un experimento. Si abre una ejecución anterior del experimento (mediante **Ejecución anterior** o **VER HISTORIAL DE EJECUCIÓN** ), puede volver a la versión de borrador haciendo clic en **VER HISTORIAL DE EJECUCIÓN** y seleccionando la iteración que tiene un **ESTADO** **Modificable**.
+La lista de experimentos de la pestaña **EXPERIMENTOS** de Machine Learning Studio (clásico) muestra siempre la versión más reciente de un experimento. Si abre una ejecución anterior del experimento (mediante **Ejecución anterior** o **VER HISTORIAL DE EJECUCIÓN**), puede volver a la versión de borrador haciendo clic en **VER HISTORIAL DE EJECUCIÓN** y seleccionando la iteración que tiene un **ESTADO** **Modificable**.
 
 ## <a name="run-a-previous-experiment"></a>Ejecución de un experimento anterior
-Al hacer clic en **Ejecución anterior** o en **VER HISTORIAL DE EJECUCIÓN** , puede ver un experimento terminado en modo de solo lectura.
+Al hacer clic en **Ejecución anterior** o en **VER HISTORIAL DE EJECUCIÓN**, puede ver un experimento terminado en modo de solo lectura.
 
 Si desea iniciar una iteración del experimento a partir de la configuración de una ejecución anterior, puede hacerlo abriendo la ejecución y haciendo clic en **GUARDAR COMO**. Esto crea un nuevo experimento, con un título nuevo, un historial de ejecución vacío y todos los componentes y valores de parámetros de la ejecución anterior. Este nuevo experimento aparece en la pestaña **EXPERIMENTOS** en la página principal de Machine Learning Studio (clásico), y puede modificarlo y ejecutarlo iniciando un nuevo historial de ejecución para esta iteración del experimento. 
 

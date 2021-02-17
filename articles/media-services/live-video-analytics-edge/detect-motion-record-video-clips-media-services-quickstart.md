@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo en Azure Media Services
 description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632731"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575541"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
 
@@ -540,10 +540,15 @@ El grafo de elementos multimedia que creó usa el nodo del procesador de detecci
 
 1. Abra el panel del explorador en Visual Studio Code y busque Azure IoT Hub en la esquina inferior izquierda.
 1. Expanda el nodo Devices (Dispositivos).
-1. Haga clic con el botón derecho en Iva-sample-device y elija la opción "Iniciar la supervisión del punto de conexión de eventos integrado".
+1. Haga clic con el botón derecho en Iva-sample-device y elija la opción "Start Monitoring Built-in Event Endpoint" (Iniciar la supervisión del punto de conexión de eventos integrado).
 
     ![Iniciar la supervisión de eventos integrados de supervisión](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > Es posible que se le pida que proporcione información del punto de conexión integrado del centro de IoT. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     En cuestión de segundos, verá los siguientes mensajes en la ventana de salida:
 
 ```

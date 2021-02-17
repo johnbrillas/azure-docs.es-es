@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937672"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515655"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegación y roles en la administración de derechos de Azure AD
 
@@ -133,9 +133,6 @@ Para que un usuario que no sea administrador global o administrador de usuarios 
 | [Administrador de aplicaciones](../roles/permissions-reference.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | [Administrador de aplicaciones en la nube](../roles/permissions-reference.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | Usuario | Propietario del catálogo | Solo si es propietario del grupo | Solo si es propietario del grupo | Solo si es propietario de la aplicación |  |
-
-> [!NOTE]
-> Si un usuario agrega un grupo de seguridad o un grupo de Microsoft 365, el grupo al que no se pueden asignar roles. Si el usuario agrega un grupo al que se pueden asignar roles cuando crea el paquete de acceso, también debe ser el propietario de ese grupo al que se pueden asignar roles. Para más información, consulte [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../roles/groups-create-eligible.md).
 
 Para determinar el rol con menos privilegios de una tarea, también puede hacer referencia a los [roles de administrador por tarea de administrador en Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 

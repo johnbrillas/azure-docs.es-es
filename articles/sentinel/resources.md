@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a6e31115fb2548f8248f741213970605f230036
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920027"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390732"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -75,15 +75,6 @@ Puede ver estos datos transmitiéndolos desde el registro de actividades de Azur
     ```
 
 
-
-## <a name="vendor-documentation"></a>Documentación del proveedor
-
-| **Proveedor**  | **Uso de incidentes en Azure Sentinel** | **Vínculo**|
-|----|----|----|
-| GitHub| Utilizado para acceder a la página de la comunidad| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configuración de CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Curso del lenguaje de consulta Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
-
 ## <a name="blogs-and-forums"></a>Blogs y foros
 
 ¡Nos encanta tener escuchar a nuestros usuarios!
@@ -96,8 +87,6 @@ Puede ver estos datos transmitiéndolos desde el registro de actividades de Azur
 
     - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
     - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
-Para información adicional sobre la seguridad y el cumplimiento de Azure, consulte el [blog sobre seguridad y cumplimiento de Microsoft Azure](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

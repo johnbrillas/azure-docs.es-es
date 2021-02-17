@@ -1,22 +1,17 @@
 ---
 title: Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
 description: Aprenda a reconfigurar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory después de haberlo aprovisionado.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 724411dc12654aec1614230c943923062b334cd2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636279"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370689"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
 
@@ -28,10 +23,10 @@ En este artículo se describe cómo reconfigurar un entorno de ejecución existe
 Puede usar la interfaz de usuario de Data Factory para detener, editar y volver a configurar o eliminar un entorno de ejecución de integración de SSIS de Azure. 
 
 1. Para abrir la interfaz de usuario de Data Factory, seleccione el icono **Author & Monitor** (Creación y supervisión) de la página principal de la factoría de datos.
-2. Seleccione el centro **Administrar** debajo de los centros **Inicio** , **Editar** y **Supervisar** para mostrar el panel **Conexiones** .
+2. Seleccione el centro **Administrar** debajo de los centros **Inicio**, **Editar** y **Supervisar** para mostrar el panel **Conexiones**.
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Para reconfigurar un entorno de ejecución de integración de SSIS de Azure
-En el panel **Connections** (Conexiones) del **centro de administración** , cambie a la página **Integration Runtimes** (Entornos de ejecución de integración) y seleccione **Refresh** (Actualizar). 
+En el panel **Connections** (Conexiones) del **centro de administración**, cambie a la página **Integration Runtimes** (Entornos de ejecución de integración) y seleccione **Refresh** (Actualizar). 
 
    ![Panel Connections (Conexiones)](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 

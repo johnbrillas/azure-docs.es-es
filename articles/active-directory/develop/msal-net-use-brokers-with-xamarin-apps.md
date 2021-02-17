@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063491"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583848"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Uso de Microsoft Authenticator o el Portal de empresa de Intune en aplicaciones de Xamarin
 
@@ -91,7 +91,7 @@ Este método se invoca cada vez que se inicia la aplicación. Se usa como una op
 
 ### <a name="step-4-set-uiviewcontroller"></a>Paso 4: Establecer UIViewController()
 
-En el archivo *AppDelegate.cs*, debe establecer una ventana de objeto. Normalmente, no es necesario que establezca la ventana de objeto para Xamarin iOS, pero necesitará una para enviar y recibir respuestas del agente.
+En el archivo *AppDelegate.cs*, establezca una ventana de objeto. Normalmente, no es necesario que establezca la ventana de objeto para Xamarin iOS, pero necesitará una para enviar y recibir respuestas del agente.
 
 Para configurar la ventana de objeto:
 
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Paso 4: Adición de un identificador URI de redirección al registro de la aplicación
 
-MSAL usa las direcciones URL para invocar al agente y regresar a la aplicación. Para completar este recorrido de ida y vuelta, debe registrar un **URI de redirección** para la aplicación mediante [Azure Portal](https://portal.azure.com).
+MSAL usa las direcciones URL para invocar al agente y regresar a la aplicación. Para completar este recorrido de ida y vuelta, registre un **URI de redirección** para la aplicación desde [Azure Portal](https://portal.azure.com).
 
 El formato del URI de redirección para la aplicación depende del certificado que se use para firmar el archivo APK. Por ejemplo:
 

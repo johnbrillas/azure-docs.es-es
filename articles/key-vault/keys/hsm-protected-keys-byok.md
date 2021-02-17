@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222224"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581013"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importación de claves protegidas con HSM a Key Vault (BYOK)
 
@@ -65,16 +65,19 @@ En la tabla siguiente se enumeran los requisitos previos para el uso de BYOK en 
 |Cryptomathic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Consulte el [sitio de Cryptomathic para obtener más información](https://www.cryptomathic.com/azurebyok).|[Herramienta BYOK y documentación de Cryptomathic](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|Fabricante, HSM como servicio|Familia Primus HSM, Securosys Clouds HSM|[Herramienta y documentación de BYOK de Primus](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (sistema de administración de claves empresariales)|Varias marcas y modelos de HSM, como<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte el [sitio web de StorMagic para más información](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm).|[BYOK de SvKMS y Azure Key Vault](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
-|IBM|Fabricante|IBM 476x, CryptoExpress|[Base de administración de claves empresariales de IBM](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
 ## <a name="supported-key-types"></a>Tipos de clave admitidos
 
-|Nombre de clave|Tipo de clave|Tamaño de clave|Origen|Descripción|
+|Nombre de clave|Tipo de clave|Tamaño o curva de la clave|Origen|Descripción|
 |---|---|---|---|---|
 |Clave de intercambio de claves (KEK)|RSA| 2048 bits<br />3072 bits<br />4096 bits|HSM de Azure Key Vault|Un par de claves RSA respaldadas por HSM generado en Azure Key Vault.|
-|Clave de destino|RSA|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM de Azure Key Vault.|
+|Clave de destino|
+||RSA|2048 bits<br />3072 bits<br />4096 bits|HSM del proveedor|La clave que se va a transferir al HSM de Azure Key Vault.|
+||EC|P-256<br />P-384<br />P-521|HSM del proveedor|La clave que se va a transferir al HSM de Azure Key Vault.|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Generación y transferencia de la clave a un HSM de Key Vault
 
@@ -120,7 +123,7 @@ Consulte la documentación del proveedor del HSM para descargar e instalar la he
 Transfiera el archivo BYOK al equipo conectado.
 
 > [!NOTE] 
-> No se admite la importación de claves RSA de 1024 bits. Actualmente no se admite la importación de una clave de curva elíptica (EC).
+> No se admite la importación de claves RSA de 1024 bits. No se admite la importación de la clave de curva elíptica con la curva P-256K.
 > 
 > **Problema conocido**: La importación de una clave de destino RSA 4K desde los HSM Luna solo se admite con el firmware 7.4.0 o una versión más reciente.
 
@@ -128,8 +131,15 @@ Transfiera el archivo BYOK al equipo conectado.
 
 Para completar la importación de claves, transfiera el paquete de transferencia de claves (un archivo BYOK) del equipo desconectado al equipo conectado a Internet. Use el comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) para cargar el archivo BYOK en el HMS de Key Vault.
 
+Para importar una clave RSA, use el comando siguiente. Parámetro: KTY es opcional y su valor predeterminado es "RSA-HSM".
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+Para importar una clave EC, debe especificar el tipo de clave y el nombre de la curva.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 Si la carga se realiza correctamente, la CLI de Azure muestra las propiedades de la clave importada.

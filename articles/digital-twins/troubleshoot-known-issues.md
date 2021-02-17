@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 118b869cb97a7dd3ce65566a994a27d2a65a7402
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184941"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545690"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -30,8 +30,6 @@ En este artículo se proporciona información sobre los problemas conocidos asoc
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Asignación de roles que faltan después de la instalación con script
 
 **Descripción del problema:** Algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en el tutorial [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de datos de Azure Digital Twins* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 | ¿Cómo me afecta esto? | Causa | Solución |
 | --- | --- | --- |

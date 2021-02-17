@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756037"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104287"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -138,7 +138,7 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 
 Puede configurar notificaciones opcionales para la aplicación mediante la interfaz de usuario o el manifiesto.
 
-1. Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Vaya a <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>. 
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
@@ -246,7 +246,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
 **Configuración de notificaciones opcionales de grupo mediante la interfaz de usuario:**
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.
@@ -259,7 +259,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
 **Configuración de notificaciones opcionales de grupo mediante el manifiesto de aplicación:**
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales.
@@ -388,7 +388,7 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 **Configuración en la interfaz de usuario:**
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 
 1. Busque y seleccione **Azure Active Directory**.
@@ -411,7 +411,7 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 **Configuración en el manifiesto:**
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.
 1. Busque y seleccione **Azure Active Directory**.
 1. Busque la aplicación para la que quiera configurar notificaciones opcionales en la lista y selecciónela.

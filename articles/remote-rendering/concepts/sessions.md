@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593712"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530559"
 ---
 # <a name="remote-rendering-sessions"></a>Sesiones de Remote Rendering
 
@@ -39,9 +39,9 @@ Cada sesión experimenta varias fases.
 
 ### <a name="session-startup"></a>Inicio de una sesión
 
-Cuando solicita a ARR que [cree una sesión](../how-tos/session-rest-api.md#create-a-session), lo primero que hace es devolver un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) de la sesión. Este UUID permite consultar información sobre la sesión. El UUID y la información básica sobre la sesión se conservan durante 30 días, por lo que puede consultar esa información incluso después de que se haya finalizado la sesión. En este momento, el **estado de sesión** se notificará como **Iniciando**.
+Cuando solicita a ARR que [cree una sesión](../how-tos/session-rest-api.md), lo primero que hace es devolver un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) de la sesión. Este UUID permite consultar información sobre la sesión. El UUID y la información básica sobre la sesión se conservan durante 30 días, por lo que puede consultar esa información incluso después de que se haya finalizado la sesión. En este momento, el **estado de sesión** se notificará como **Iniciando**.
 
-A continuación, Azure Remote Rendering intenta encontrar un servidor que puede hospedar la sesión. Hay dos parámetros para esta búsqueda. Primero, solo reservará servidores que se encuentren en su [región](../reference/regions.md). Esto se debe a que la latencia de red entre regiones puede ser demasiado alta para garantizar una experiencia decente. El segundo factor es el *tamaño* deseado que haya especificado. En cada región hay un número limitado de servidores que pueden completar la solicitud de tamaño [*Estándar*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md). Por lo tanto, si todos los servidores del tamaño solicitado están usándose actualmente en su región, la sesión no podrá crearse. El motivo del error [se puede consultar](../how-tos/session-rest-api.md#get-sessions-properties).
+A continuación, Azure Remote Rendering intenta encontrar un servidor que puede hospedar la sesión. Hay dos parámetros para esta búsqueda. Primero, solo reservará servidores que se encuentren en su [región](../reference/regions.md). Esto se debe a que la latencia de red entre regiones puede ser demasiado alta para garantizar una experiencia decente. El segundo factor es el *tamaño* deseado que haya especificado. En cada región hay un número limitado de servidores que pueden completar la solicitud de tamaño [*Estándar*](../reference/vm-sizes.md) o [*Premium*](../reference/vm-sizes.md). Por lo tanto, si todos los servidores del tamaño solicitado están usándose actualmente en su región, la sesión no podrá crearse. El motivo del error [se puede consultar](../how-tos/session-rest-api.md).
 
 > [!IMPORTANT]
 > Si solicita un tamaño de servidor *Estándar* y se produce un error en la solicitud debido a una demanda elevada, no implica que no se vaya a poder solicitar tampoco un servidor *Premium*. Por lo tanto, si es viable, puede intentar revertir a un tamaño de servidor *Premium*.
@@ -77,7 +77,7 @@ En todos los casos, no se le facturará más una vez que se finalice una sesión
 
 #### <a name="extend-a-sessions-lease-time"></a>Ampliación del tiempo de la concesión de una sesión
 
-Puede [ampliar el tiempo de la concesión](../how-tos/session-rest-api.md#modify-and-query-session-properties) de una sesión activa, en caso de que deje de ser necesaria.
+Puede [ampliar el tiempo de la concesión](../how-tos/session-rest-api.md) de una sesión activa, en caso de que deje de ser necesaria.
 
 ## <a name="example-code"></a>Ejemplo de código
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594034"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530593"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Inicio rápido: Implementación de un ejemplo de C++ nativo en HoloLens
 
@@ -81,7 +81,7 @@ Puesto que las credenciales de la cuenta están codificadas de forma rígida en 
 En concreto, cambie los valores siguientes:
 * `init.AccountId`, `init.AccountKey` e `init.AccountDomain` para usar los datos de la cuenta. Consulte el párrafo sobre cómo [recuperar información de una cuenta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Especifique dónde desea crear la sesión de representación remota; para ello, modifique la parte correspondiente a la región de la cadena `init.RemoteRenderingDomain` para otras regiones distintas a `westus2`, por ejemplo `"westeurope.mixedreality.azure.com"`.
-* Además, `m_sessionOverride` se puede cambiar a un identificador de sesión existente. Se pueden crear sesiones fuera de este ejemplo, por ejemplo, mediante [el script de PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o mediante la [API REST de la sesión](../../../how-tos/session-rest-api.md#create-a-session) directamente.
+* Además, `m_sessionOverride` se puede cambiar a un identificador de sesión existente. Se pueden crear sesiones fuera de este ejemplo, por ejemplo, mediante [el script de PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) o mediante la [API REST de la sesión](../../../how-tos/session-rest-api.md) directamente.
 Se recomienda crear una sesión fuera del ejemplo cuando este deba ejecutarse varias veces. Si no se devuelve ninguna sesión, el ejemplo creará una en cada inicio, lo que puede tardar varios minutos.
 
 Ya se puede compilar la aplicación.

@@ -1,22 +1,18 @@
 ---
 title: Copia de datos en Azure Databricks Delta Lake como origen y destino
 description: Aprenda a copiar datos en Azure Databricks Delta Lake como origen o destino mediante una actividad de copia en una canalización de Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221166"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364246"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copia de datos con Azure Databricks Delta Lake como origen o destino mediante Azure Data Factory
 
@@ -151,8 +147,8 @@ Para copiar datos de Azure Databricks Delta Lake, se admiten las siguientes prop
 | type                         | Propiedad type del origen de la actividad de copia, que debe establecerse en: **AzureDatabricksDeltaLakeSource**. | Sí      |
 | Query          | Especifique la consulta SQL para leer los datos. Para el control de viaje en el tiempo, use el siguiente patrón:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | No       |
 | exportSettings | Configuración avanzada utilizada para recuperar datos de la tabla de Delta. | No       |
-| ***En `exportSettings`:** _ |  |  |
-| type | Tipo del comando de exportación, establecido en _*AzureDatabricksDeltaLakeExportCommand**. | Yes |
+| ***En`exportSettings`:*** |  |  |
+| type | Propiedad type del comando de exportación, establecida en **AzureDatabricksDeltaLakeExportCommand**. | Yes |
 | dateFormat | Da formato de cadena con formato de fecha a un elemento de tipo date. Los formatos de fecha personalizados siguen los formatos del [patrón de datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Si no se especifica, el valor predeterminado es `yyyy-MM-dd`. | No |
 | timestampFormat | Da formato de cadena con formato de marca de tiempo a un elemento de tipo timestamp. Los formatos de fecha personalizados siguen los formatos del [patrón de datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Si no se especifica, el valor predeterminado es `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | No |
 
@@ -265,8 +261,8 @@ Para copiar datos a Azure Databricks Delta Lake, se admiten las siguientes propi
 | type          | Propiedad type del receptor de la actividad de copia, establecida en **AzureDatabricksDeltaLakeSink**. | Sí      |
 | preCopyScript | Especifica una consulta SQL para que la ejecute la actividad de copia antes de escribir datos en la tabla de Databricks Delta en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente, o agregar una instrucción TRUNCATE TABLE o VACUUM. | No       |
 | importSettings | Configuración avanzada usada para escribir datos en la tabla de Delta. | No |
-| **_En `importSettings`:_* _ |                                                              |  |
-| type | Tipo del comando de importación, establecido en _*AzureDatabricksDeltaLakeImportCommand**. | Yes |
+| ***En`importSettings`:*** |                                                              |  |
+| type | Propiedad type del comando de importación, establecida en **AzureDatabricksDeltaLakeImportCommand**. | Yes |
 | dateFormat | Da formato de tipo date con formato de fecha a una cadena. Los formatos de fecha personalizados siguen los formatos del [patrón de datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Si no se especifica, el valor predeterminado es `yyyy-MM-dd`. | No |
 | timestampFormat | Da formato de tipo timestamp con formato de marca de tiempo a una cadena. Los formatos de fecha personalizados siguen los formatos del [patrón de datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Si no se especifica, el valor predeterminado es `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | No |
 

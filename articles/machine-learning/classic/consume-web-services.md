@@ -3,18 +3,18 @@ title: 'ML Studio (clásico): Consumo de servicios web: Azure'
 description: Una vez implementado un servicio de aprendizaje automático desde Azure Machine Learning Studio (clásico), se puede consumir el servicio web RESTFul como servicio de solicitud-respuesta en tiempo real o como servicio de ejecución por lotes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: eaf0131877e7a333fe2a6f157523da5ad7bcf07b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0dc49265c0ea799e194e4ac7004b558d8a9d4dd8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500006"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519276"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Consumo de un servicio web de Azure Machine Learning Studio (clásico)
 

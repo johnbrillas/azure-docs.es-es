@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 01a69dbf9230154b74145f932b678d6bbebbde08
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583966"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102502"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -70,7 +70,7 @@ Para habilitar la aplicación MSAL.js para nubes soberanas:
 
 ### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 
-1. Inicie sesión en <a href="https://portal.azure.us/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.us/" target="_blank">Azure Portal</a>.
 
    Para buscar los puntos de conexión de Azure Portal para otras nubes nacionales, consulte [Puntos de conexión de registro de aplicaciones](authentication-national-cloud.md#app-registration-endpoints).
 

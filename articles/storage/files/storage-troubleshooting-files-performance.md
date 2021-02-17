@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574438"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393860"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solución de problemas de rendimiento de recursos compartidos de archivos de Azure
 
@@ -22,7 +22,7 @@ En este artículo se enumeran algunos problemas habituales relacionados con los 
 
 ### <a name="cause-1-share-was-throttled"></a>Causa 1: Se ha limitado el recurso compartido de archivos
 
-Las solicitudes se limitan cuando se alcanzan los límites de operaciones de E/S por segundo (IOPS), entradas o salidas de un recurso compartido de archivos. Para conocer los límites de los recursos compartidos de archivos de nivel Estándar y Premium, consulte [Objetivos de escalabilidad de archivos y recursos compartidos de archivos](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+Las solicitudes se limitan cuando se alcanzan los límites de operaciones de E/S por segundo (IOPS), entradas o salidas de un recurso compartido de archivos. Para conocer los límites de los recursos compartidos de archivos de nivel Estándar y Premium, consulte [Objetivos de escalabilidad de archivos y recursos compartidos de archivos](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 Para confirmar si se está limitando el recurso compartido, puede acceder y usar las métricas de Azure en el portal.
 

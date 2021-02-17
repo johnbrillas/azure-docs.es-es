@@ -8,18 +8,22 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/25/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256414"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091115"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
 Microsoft Azure AD proporciona soporte técnico para el aprovisionamiento de usuarios en aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si habilita el aprovisionamiento de usuarios para una aplicación SaaS de terceros, Azure Portal controla sus valores de atributo en forma de una asignación de atributos.
+
+Antes de empezar, debe conocer lo que significa la administración de aplicaciones y el **inicio de sesión único (SSO)** . Consulte los vínculos siguientes:
+- [Series de guías de inicio rápido sobre la administración de aplicaciones en Azure AD](../manage-apps/view-applications-portal.md)
+- [¿Qué es el inicio de sesión único (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Además de los usuarios, algunas aplicaciones administran otros tipos de objetos, como los grupos.
 

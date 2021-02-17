@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652881"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548733"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Uso de Twilio para capacidades de voz y SMS en Java
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps) .
@@ -76,7 +76,7 @@ Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Creación de una aplicación Java
 1. Obtenga el archivo JAR de Twilio y agréguelo a su ruta de acceso de compilación de Java y a su ensamblado de implementación de WAR. En [https://github.com/twilio/twilio-java][twilio_java], puede descargar los orígenes de GitHub y crear su propio JAR, o bien descargar un JAR previamente generado (con o sin dependencias).
-2. Asegúrese de que el almacén (KeyStore) de **cacerts** de JDK contiene el certificado de la entidad de certificación Equifax Secure con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [https://api.twilio.com][twilio_api_service], al que se llama cuando se usan API de Twilio. Para obtener información sobre cómo asegurarse de que el almacén de claves **cacerts** del JDK contiene el certificado de entidad de certificación correcto, vea [Incorporación de un certificado raíz al almacén de certificados CA de Java][add_ca_cert].
+2. Asegúrese de que el almacén (KeyStore) de **cacerts** de JDK contiene el certificado de la entidad de certificación Equifax Secure con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [https://api.twilio.com][twilio_api_service], al que se llama cuando se usan API de Twilio.
 
 Puede obtener instrucciones detalladas sobre el uso de la biblioteca de cliente de Twilio para Java en [Realización de una llamada telefónica con Twilio en una aplicación Java en Azure][howto_phonecall_java].
 
@@ -133,7 +133,7 @@ Para obtener más información sobre los parámetros pasados al método **Call.c
 Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. En lugar de lo anterior, podría utilizar su propio sitio web para proporcionar la respuesta de TwiML; si desea obtener más información, consulte [Procedimientos: Suministro de respuestas de TwiML desde su propio sitio web](#howto_provide_twiml_responses).
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Envío de un mensaje SMS
-A continuación se muestra cómo enviar un mensaje SMS con la clase **Message**. Twilio proporciona el número **from** **4155992671**, para que las cuentas de evaluación puedan enviar mensajes SMS. El número **to** se debe comprobar en su cuenta de Twilio antes de ejecutar el código.
+A continuación se muestra cómo enviar un mensaje SMS con la clase **Message**. Twilio proporciona el número **from****4155992671**, para que las cuentas de evaluación puedan enviar mensajes SMS. El número **to** se debe comprobar en su cuenta de Twilio antes de ejecutar el código.
 
 ```java
     // Use your account SID and authentication token instead
@@ -161,7 +161,7 @@ Cuando la aplicación inicia una llamada a la API de Twilio, por ejemplo a trav�
 
 En lugar de confiar en la URL que Twilio proporciona, puede crear su propio sitio URL que devuelve procesos HTTP. Puede crear el sitio en cualquier lenguaje que devuelva respuestas HTTP; en este tema se asume que hospedará la URL en una página de JSP.
 
-La siguiente página JSP da como resultado una respuesta de TwiML que dice **Hello World!** en la llamada.
+La siguiente página JSP da como resultado una respuesta de TwiML que dice **Hello World!**  en la llamada.
 
 ```xml
     <%@ page contentType="text/xml" %>
@@ -217,7 +217,6 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message

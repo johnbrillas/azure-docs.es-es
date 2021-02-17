@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 81ede3506337e76c84e20203ac27a3d441fdcef8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624649"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522281"
 ---
 # <a name="define-global-access-control"></a>Definición del control de acceso global
 
@@ -88,6 +88,6 @@ Cuando cree reglas, tenga en cuenta la información siguiente:
 
 - Si no hay ninguna unidad de negocio o región seleccionada, los usuarios tendrán acceso a todas las unidades de negocio y regiones definidas.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Acerca de los usuarios de la consola de Defender para IoT](how-to-create-and-manage-users.md)

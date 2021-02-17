@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896369"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834092"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
 > [!NOTE]
 > Este tutorial trata sobre Connection Monitor (clásico). Pruebe la versión nueva y mejorada de [Connection Monitor](connection-monitor-overview.md) para aprovechar la supervisión mejorada de la conectividad.
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevos monitores de conexión en Connection Monitor (clásico), pero puede seguir usando los monitores de conexión existentes creados antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre desde Connection Monitor (clásico) a la nueva versión de Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) de Azure Network Watcher antes del 29 de febrero de 2024.
 
 La comunicación correcta entre una máquina virtual (VM) y un punto de conexión, como otra máquina virtual, puede ser crítica para una organización. En ocasiones, se introducen cambios de configuración que pueden interrumpir la comunicación. En este tutorial, aprenderá a:
 
@@ -53,12 +56,12 @@ Cree dos VM.
 2. Seleccione **Compute** y, a continuación, seleccione un sistema operativo. En este tutorial usaremos **Windows Server 2016 Datacenter**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    |Configuración|Value|
+    |Configuración|Valor|
     |---|---|
     |Nombre|myVm1|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Seleccione su suscripción.|
+    |Suscripción| Seleccione su suscripción.|
     |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
@@ -75,7 +78,7 @@ Cree dos VM.
 
 Complete los pasos de [Creación de la primera máquina virtual](#create-the-first-vm) nuevamente, con los siguientes cambios:
 
-|Paso|Configuración|Value|
+|Paso|Configuración|Valor|
 |---|---|---|
 | 1 | Seleccione una versión de **Ubuntu Server**. |                                                                         |
 | 3 | Nombre                                  | myVm2                                                                   |
@@ -95,7 +98,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 4. Seleccione **+Agregar**.
 5. Escriba o seleccione la información para la conexión que desea supervisar y seleccione **Agregar**. En el ejemplo que se muestra en la imagen siguiente, la conexión supervisada va de la VM *myVm1* a *myVm2* a través del puerto 22:
 
-    | Configuración                  | Value               |
+    | Configuración                  | Valor               |
     | ---------                | ---------           |
     | Nombre                     | myVm1-myVm2(22)     |
     | Source                   |                     |
@@ -119,7 +122,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 
     Tenga en cuenta la información siguiente:
 
-    | Elemento                     | Value                      | Detalles                                                     |
+    | Elemento                     | Valor                      | Detalles                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Estado                   | Accesible                  | Le permite saber si el punto de conexión es accesible o no.|
     | AVG. ROUND-TRIP          | Le permite conocer el tiempo de ida y vuelta para hacer la conexión, en milisegundos. El monitor de conexión sondea la conexión cada 60 segundos, por lo que puede controlar la latencia a lo largo del tiempo.                                         |

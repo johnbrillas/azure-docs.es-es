@@ -1,22 +1,18 @@
 ---
 title: Migración de datos desde un clúster de Hadoop local a Azure Storage
 description: Aprenda a usar Azure Data Factory para migrar datos de un clúster de Hadoop local a Azure Storage.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638132"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367799"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Use Azure Data Factory para migrar datos de un clúster de Hadoop local a Azure Storage 
 
@@ -27,7 +23,7 @@ Azure Data Factory proporciona un mecanismo eficaz, sólido y rentable para migr
 Data Factory ofrece dos enfoques básicos para la migración de datos desde una versión local de HDFS a Azure. Seleccione el enfoque en función de su escenario. 
 
 - **modo Distcp de Data Factory** (recomendado): En Data Factory, puede usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuida) para copiar archivos tal cual a Azure Blob Storage (incluida la [copia almacenada provisionalmente](./copy-activity-performance.md#staged-copy)) o a Azure Data Lake Store Gen2. Use Data Factory integrado con DistCp para aprovechar el clúster eficaz existente para lograr el mejor rendimiento de copia. También obtendrá las ventajas de la programación flexible y una experiencia de supervisión unificada de Data Factory. En función de la configuración de Data Factory, la actividad de copia crea automáticamente un comando DistCp, envía los datos a un clúster de Hadoop y supervisa el estado de la copia. Se recomienda el modo DistCp de Data Factory para la migración de datos desde un clúster de Hadoop local a Azure.
-- **Modo del entorno ejecución de integración nativo de Data Factory** : DistCp no es una opción en todos los escenarios. Por ejemplo, en un entorno de Azure Virtual Networks, la herramienta DistCp no admite el emparejamiento privado de Azure ExpressRoute con un punto de conexión de red virtual de Azure Storage. Además, en algunos casos, no deseará usar el clúster de Hadoop existente como motor de migración de datos con el fin de evitar las cargas pesadas en el clúster, que afectan al rendimiento de los trabajos de extracción, transformación y carga de datos existentes. En su lugar, puede usar la funcionalidad nativa del entorno de ejecución de integración de Data Factory como motor para copiar los datos de la versión local de HDFS a Azure.
+- **Modo del entorno ejecución de integración nativo de Data Factory**: DistCp no es una opción en todos los escenarios. Por ejemplo, en un entorno de Azure Virtual Networks, la herramienta DistCp no admite el emparejamiento privado de Azure ExpressRoute con un punto de conexión de red virtual de Azure Storage. Además, en algunos casos, no deseará usar el clúster de Hadoop existente como motor de migración de datos con el fin de evitar las cargas pesadas en el clúster, que afectan al rendimiento de los trabajos de extracción, transformación y carga de datos existentes. En su lugar, puede usar la funcionalidad nativa del entorno de ejecución de integración de Data Factory como motor para copiar los datos de la versión local de HDFS a Azure.
 
 En este artículo se proporciona la siguiente información sobre los dos enfoques:
 > [!div class="checklist"]
@@ -110,9 +106,9 @@ Si se produce un error en alguno de los trabajos de copia debido a una incidenci
 
 En el modo DistCp de Data Factory, puede usar el parámetro de la línea de comandos de DistCp `-update`, escribir datos cuando el tamaño del archivo de origen no sea el mismo que el de destino, para la migración de datos diferencial.
 
-En el modo de integración nativo de Data Factory, la manera más eficaz de identificar los archivos nuevos o modificados de HDFS es mediante una convención de nomenclatura con particiones de tiempo. Cuando se han realizado particiones de tiempo en los datos de HDFS con la información del segmento de tiempo en el nombre de archivo o carpeta (por ejemplo, */aaaa/mm/dd/archivo. csv* ), la canalización puede identificar fácilmente qué archivos y carpetas copiar de forma incremental.
+En el modo de integración nativo de Data Factory, la manera más eficaz de identificar los archivos nuevos o modificados de HDFS es mediante una convención de nomenclatura con particiones de tiempo. Cuando se han realizado particiones de tiempo en los datos de HDFS con la información del segmento de tiempo en el nombre de archivo o carpeta (por ejemplo, */aaaa/mm/dd/archivo. csv*), la canalización puede identificar fácilmente qué archivos y carpetas copiar de forma incremental.
 
-Como alternativa, si los datos de HDFS no tienen particiones de tiempo, Data Factory puede identificar los archivos nuevos o modificados por el valor de **LastModifiedDate** . Data Factory examina todos los archivos de HDFS y copia solo los archivos nuevos y actualizados que tengan una marca de tiempo de última modificación mayor que el valor establecido. 
+Como alternativa, si los datos de HDFS no tienen particiones de tiempo, Data Factory puede identificar los archivos nuevos o modificados por el valor de **LastModifiedDate**. Data Factory examina todos los archivos de HDFS y copia solo los archivos nuevos y actualizados que tengan una marca de tiempo de última modificación mayor que el valor establecido. 
 
 Si tiene un gran número de archivos en HDFS, el análisis de archivos inicial podría tardar mucho tiempo, independientemente de la cantidad de archivos que cumplan la condición de filtro. En este escenario, se recomienda dividir primero los datos con la misma partición que usó para la migración de la instantánea inicial. Después, el análisis de archivos puede realizarse en paralelo.
 
