@@ -1,24 +1,24 @@
 ---
-title: 'Inicio rápido: Configuración de la solución'
+title: Adición de recursos de Azure a una solución de IoT
 description: En esta guía de inicio rápido, aprenda a configurar la solución de IoT de un extremo a otro mediante Azure Defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: Shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 01/25/2021
+ms.author: shhazam
+ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092093"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809045"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Inicio rápido: Configuración de la solución de Azure Defender para IoT
 
@@ -36,16 +36,19 @@ Además de la detección automática de relaciones, se pueden elegir los otros g
 
 Las opciones que se seleccionen permiten agregar suscripciones completas, grupos de recursos o recursos individuales.
 
-Después de definir todas las relaciones de los recursos, Defender para IoT aprovecha Defender para generar alertas y recomendaciones de seguridad relativas a estos recursos.
+Después de definir todas las relaciones de los recursos, Defender para IoT utiliza Defender para generar alertas y recomendaciones de seguridad relativas a estos recursos.
 
 ## <a name="add-azure-resources-to-your-iot-solution"></a>Adición de recursos de Azure a una solución de IoT
 
-Para agregar un recurso nuevo a la solución de IoT, siga estos pasos:
+Para agregar un nuevo recurso a la solución de IoT:
 
 1. Abra **IoT Hub** en Azure Portal.
-1. En **Seguridad** , seleccione **Información general** seguido de **Configuración** y, luego, elija **Recursos supervisados** .
+
+1. En **Seguridad**, seleccione **Información general** seguido de **Configuración** y, luego, elija **Recursos supervisados**.
+
 1. Seleccione **Editar** y los recursos supervisados que pertenezcan a la solución de IoT.
-1. Haga clic en **Agregar** .
+
+1. Seleccione **Agregar**.
 
 Felicidades. Ha agregado un nuevo grupo de recursos a la solución de IoT.
 

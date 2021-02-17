@@ -2,13 +2,13 @@
 title: Importación de imágenes de contenedor
 description: Importe imágenes de contenedor en un registro de contenedor de Azure mediante las API de Azure, sin necesidad de ejecutar comandos de Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019980"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988240"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importación de imágenes de contenedor en un registro de contenedor
 
@@ -35,6 +35,11 @@ Para importar imágenes de contenedor, este artículo requiere que ejecute la CL
 > [!NOTE]
 > Si tiene que distribuir imágenes de contenedor idénticas en varias regiones de Azure, Azure Container Registry también admite la [replicación geográfica](container-registry-geo-replication.md). Mediante la replicación geográfica de un registro (es necesario el nivel de servicio Premium), puede atender varias regiones con nombres idénticos de imagen y etiqueta desde un único registro.
 >
+
+> [!IMPORTANT]
+> Se han producido cambios en la importación de imágenes entre dos registros de contenedor de Azure a partir de enero de 2021:
+> * La importación hacia un registro de contenedor de Azure con restricción de red, o desde este, requiere que el registro restringido [**permita el acceso por parte de servicios de confianza**](allow-access-trusted-services.md) para omitir la red. De forma predeterminada, la opción está habilitada, lo que permite la importación. Si el valor no está habilitado en un registro recién creado con un punto de conexión privado o con reglas de firewall de registro, se producirá un error en la importación. 
+> * En un registro de contenedor de Azure con restricción de red existente que se use como origen o destino de la importación, la habilitación de esta característica de seguridad de red es opcional pero recomendable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,13 +68,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-El siguiente ejemplo importa una imagen pública del repositorio `tensorflow` en el Docker Hub:
+Si tiene una [cuenta de Docker Hub](https://www.docker.com/pricing), se recomienda usar las credenciales al importar una imagen desde Docker Hub. Pase el nombre de usuario y la contraseña de Docker Hub o un [token de acceso personal](https://docs.docker.com/docker-hub/access-tokens/) como parámetros a `az acr import`. En el siguiente ejemplo se importa una imagen pública del repositorio `tensorflow` en Docker Hub mediante las credenciales de este:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Importación desde el Registro de contenedor de Microsoft
@@ -92,6 +99,8 @@ Puede importar una imagen desde un registro de contenedor de Azure del mismo inq
 * El registro puede estar en la misma suscripción de Azure, u otra diferente, en el mismo inquilino de Active Directory.
 
 * El [acceso público](container-registry-access-selected-networks.md#disable-public-network-access) al registro de origen puede estar deshabilitado. Si el acceso público está deshabilitado, use el identificador del recurso para especificar el registro de origen, en lugar del nombre del servidor de inicio de sesión del registro.
+
+* Si el registro de origen o el de destino tienen un punto de conexión privado o se aplican reglas de firewall de registro, asegúrese de que el registro restringido [permita que los servicios de confianza](allow-access-trusted-services.md) accedan a la red.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importación desde un registro en la misma suscripción
 

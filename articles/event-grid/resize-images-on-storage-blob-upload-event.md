@@ -3,12 +3,12 @@ title: 'Tutorial: Usar Azure Event Grid para automatizar el cambio de tamaño de
 description: 'Tutorial: Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326616"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550526"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -43,7 +43,7 @@ Para completar este tutorial:
 
 Debes haber completado el tutorial anterior sobre el almacenamiento de blobs: [Carga de datos de imagen en la nube con Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Necesita una [suscripción de Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Este tutorial no funciona con la suscripción **gratuita**. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,7 +263,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
 
 1.  Seleccione **Integración**, elija el **Desencadenador de la cuadrícula de eventos** y, después, seleccione **Crear suscripción a Event Grid**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Elección de la función Miniatura en el portal" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Vaya a la suscripción a Event Grid en Azure Portal" :::
 
 1. Use la configuración de suscripción de eventos que se especifica en la tabla.
     
@@ -283,7 +283,7 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
 
 1. Cambie a la pestaña **Filtros** y realice las siguientes acciones:
     1. Seleccione la opción **Habilitar el filtrado del asunto**.
-    1. En **El asunto comienza por**, escriba el siguiente valor: **/blobServices/default/containers/images/blobs/** .
+    1. En **El asunto comienza por**, escriba este valor: **/blobServices/default/containers/images/** .
 
         ![Especificación del filtro para la suscripción a eventos](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

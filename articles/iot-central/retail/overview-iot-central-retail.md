@@ -1,5 +1,5 @@
 ---
-title: Creación de soluciones para el comercio minorista con Azure IoT Central | Microsoft Docs
+title: ¿Cuáles son las soluciones para el comercio minorista de Azure IoT Central? | Microsoft Docs
 description: Obtenga más información sobre el uso de las plantillas de aplicación de Azure IoT Central para crear soluciones de logística conectada, de centro de distribución digital, de análisis en el almacén, de supervisión de condiciones, de finalización de la compra, de administración inteligente de inventarios y soluciones para el comercio minorista.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124969"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832290"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>¿Cuáles son las soluciones para el comercio minorista de IoT Central?
 
 Azure IoT Central es una plataforma de aplicaciones de IoT que reduce la carga y el costo asociado con el desarrollo, la administración y el mantenimiento de soluciones de IoT de nivel empresarial. La elección de compilar con Azure IoT Central ofrece la oportunidad de centrar su tiempo, dinero y energía en transformar su negocio con datos de IoT, en lugar de simplemente mantener y actualizar una infraestructura de IoT compleja y continuamente en constante evolución.
 
@@ -41,9 +41,9 @@ Entre las ventajas de la solución de logística conectada se incluyen:
 
 Las siguientes capturas de pantallas muestran el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Captura de pantalla que muestra la mitad superior del panel de operaciones de la aplicación de logística conectada.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Captura de pantalla que muestra la mitad inferior del panel de operaciones de la aplicación de logística conectada.":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación de logística conectada](./tutorial-iot-central-connected-logistics.md).
 
@@ -64,7 +64,7 @@ Entre las ventajas de un centro de distribución digital se incluyen las siguien
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Panel Digital Distribution Center":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center.md).
 
@@ -86,7 +86,7 @@ La plantilla de aplicación incluye un conjunto de plantillas de dispositivo y u
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="In-Store Analytics Condition Monitoring":::
 
 Para más información, consulte el tutorial para [crear una aplicación de análisis en el almacén en Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -108,7 +108,7 @@ La plantilla de aplicación incluye un conjunto de plantillas de dispositivo y u
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="In-Store Analytics Checkout":::
 
 Para más información, consulte el tutorial para [crear una aplicación de análisis en el almacén en Azure IoT Central](./tutorial-in-store-analytics-create-app.md).
 
@@ -128,7 +128,7 @@ Esta plantilla de aplicación se centra en la conectividad de dispositivos y en 
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Panel de Smart Inventory Management":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación de administración inteligente](./tutorial-iot-central-smart-inventory-management.md).
 
@@ -148,7 +148,7 @@ La plantilla de aplicación le permite:
 
 En la captura de pantalla siguiente se muestra el panel integrado en la plantilla de aplicación. El panel es totalmente personalizable para satisfacer los requisitos específicos de la solución:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centro de micrologística":::
 
 Para más información, consulte el tutorial para [implementar y recorrer la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md).
 
@@ -165,7 +165,7 @@ La plantilla de la aplicación incluye cuatro paneles de la aplicación:
 * **Administración de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden administrar las cámaras desde la aplicación.
 * **Supervisión de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden supervisar las cámaras desde la aplicación.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Introducción a Azure IoT para el comercio minorista":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análisis de vídeo: detección de objetos y movimiento":::
 
 Para más información sobre la arquitectura de la solución, consulte [arquitectura de la aplicación de análisis de vídeo](architecture-video-analytics.md).
 
@@ -180,9 +180,5 @@ Para aprender a implementar la solución, consulte el tutorial [Creación de una
 Para empezar a crear una solución para el comercio minorista:
 
 * Empiece con el tutorial para [crear una aplicación de análisis en el almacén en Azure IoT Central](./tutorial-in-store-analytics-create-app.md) que le ayudará a crear una solución con una de las plantillas de aplicación de análisis en el almacén.
-* [Implementación y recorrido por la plantilla de aplicación de logística conectada](./tutorial-iot-central-connected-logistics.md)
-* [Implementación y recorrido por la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center.md)
-* [Implementación y recorrido de la plantilla de aplicación de administración de inventario inteligente](./tutorial-iot-central-smart-inventory-management.md)
-* [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md)
 * [Implementación y recorrido por la plantilla de aplicación de análisis de vídeo](./tutorial-video-analytics-deploy.md).
-* Para más información sobre IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).
+* [Implementación y recorrido por la plantilla de aplicación de logística conectada](./tutorial-iot-central-connected-logistics.md)

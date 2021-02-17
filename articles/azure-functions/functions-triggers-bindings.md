@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353551"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627606"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -39,16 +39,19 @@ Estos ejemplos no pretenden ser exhaustivos, pero sirven para ilustrar cómo se 
 
 ###  <a name="trigger-and-binding-definitions"></a>Definiciones de desencadenador y enlace
 
-Los desencadenadores y enlaces se definen de forma diferente en función del enfoque de desarrollo.
+Los desencadenadores y enlaces se definen de forma diferente en función del lenguaje de desarrollo.
 
-| Plataforma | Los desencadenadores y enlaces se configuran por... |
+| Idioma | Los desencadenadores y enlaces se configuran por... |
 |-------------|--------------------------------------------|
 | Biblioteca de clases de C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la decoración de métodos y parámetros con atributos de C# |
-| Todos los demás (incluido Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la actualización de [function.json](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la decoración de métodos y parámetros con anotaciones de Java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la actualización de [function.json](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
 
-El portal proporciona una interfaz de usuario para esta configuración, pero puede editar el archivo directamente; para ello, abra el **Editor avanzado** disponible mediante la pestaña **Integrar** de la función.
+Para los lenguajes que dependen de function.json, el portal proporciona una interfaz de usuario para agregar enlaces en la pestaña **Integration** (Integración). También se puede editar el archivo directamente en el portal, en la pestaña **Code + test** (Código y prueba) de la función. Visual Studio Code permite [agregar enlaces a un archivo function.json](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) de manera sencilla, solo hay que seguir un conjunto práctico de mensajes. 
 
-En .NET, el tipo de parámetro define el tipo de datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola, una matriz de bytes que se lee como binaria y un tipo personalizado para deserializar a un objeto.
+En .NET y Java, el tipo de parámetro define el tipo de datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola, una matriz de bytes para leerla como binaria y un tipo personalizado para deserializar a un objeto. Dado que ni las funciones de la biblioteca de clases de .NET ni las funciones de Java utilizan *function.json* para las definiciones de enlace, no se pueden crear ni editar en el portal. La edición del portal en C# se basa en un script en C#, que usa *function.json*, en lugar de los atributos.
+
+Para más información sobre cómo agregar enlaces a funciones existentes, consulte [Conexión de funciones a servicios de Azure mediante enlaces](add-bindings-existing-function.md).
 
 Para los lenguajes que se escriben dinámicamente, como JavaScript, use la propiedad `dataType` del archivo *function.json*. Por ejemplo, para leer el contenido de una solicitud HTTP en formato binario, establezca `dataType` en `binary`:
 

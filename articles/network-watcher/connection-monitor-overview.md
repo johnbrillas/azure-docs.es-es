@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898018"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833106"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Supervisión de conectividad de red con Connection Monitor
+
+> [!IMPORTANT]
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Tampoco podrá agregar nuevos monitores de conexión en Connection Monitor (clásico). Puede seguir usando las pruebas y los monitores de conexión creados antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) o [desde Connection Monitor (clásico)](migrate-to-connection-monitor-from-connection-monitor-classic.md) a la nueva instancia de Connection Monitor en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Connection Monitor proporciona una supervisión de conexión unificada de un extremo a otro en Azure Network Watcher. La característica Connection Monitor admite implementaciones híbridas y en la nube de Azure. Network Watcher proporciona herramientas para supervisar, diagnosticar y ver las métricas relacionadas con la conectividad de las implementaciones de Azure.
 
@@ -111,7 +114,7 @@ Connection Monitor incluye estas entidades:
 
  ![Diagrama que muestra un monitor de conexión y donde se define la relación entre los grupos de prueba y las pruebas](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Puede crear un monitor de conexión mediante [Azure Portal](./connection-monitor-create-using-portal.md) o [ARMClient](./connection-monitor-create-using-template.md).
+Puede crear un monitor de conexión mediante [Azure Portal](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md) o [PowerShell](connection-monitor-create-using-powershell.md)
 
 Todos los orígenes, destinos y configuraciones de prueba que se agregan a un grupo de prueba se dividen en pruebas individuales. Este un ejemplo de cómo se dividen los orígenes y destinos:
 
@@ -273,10 +276,11 @@ Cuando use métricas, establezca el tipo de recurso como Microsoft.Network/netwo
 
 | Métrica | Nombre para mostrar | Unidad | Tipo de agregación | Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % de sondeos con error | Porcentaje | Average | Porcentaje de sondeos de supervisión de conectividad con error. | Sin dimensiones |
-| AverageRoundtripMs | Prom. Tiempo de ida y vuelta (ms) | Milisegundos | Average | RTT de red promedio para los sondeos de supervisión de conectividad que se envían entre el origen y el destino. |             Sin dimensiones |
-| ChecksFailedPercent (versión preliminar) | Comprobaciones erróneas (%) (versión preliminar) | Porcentaje | Average | Porcentaje de comprobaciones con error de una prueba. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (versión preliminar) | Tiempo de ida y vuelta (ms) (versión preliminar) | Milisegundos | Average | RTT para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent (clásico) | % de sondeos con error (clásico) | Porcentaje | Average | Porcentaje de sondeos de supervisión de conectividad con error. | Sin dimensiones |
+| AverageRoundtripMs (clásico) | Prom. Tiempo de ida y vuelta (ms) (clásico) | Milisegundos | Average | RTT de red promedio para los sondeos de supervisión de conectividad que se envían entre el origen y el destino. |             Sin dimensiones |
+| ChecksFailedPercent | Porcentaje de comprobaciones con error | Porcentaje | Average | Porcentaje de comprobaciones con error de una prueba. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs | Tiempo de ida y vuelta (ms) | Milisegundos | Average | RTT para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| TestResult | Resultado de pruebas | Count | Average | Recurso de la prueba de Connection Monitor | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas basadas en métricas de Connection Monitor
 

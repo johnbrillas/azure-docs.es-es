@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127641"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820269"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,9 @@ La compatibilidad de Windows Server con el grupo de nodos incluye algunas limit
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>¿AKS ofrece un Acuerdo de Nivel de Servicio?
 
-AKS proporciona garantías de Acuerdo de Nivel de Servicio como una característica opcional de complemento con [Acuerdo de Nivel de Servicio de tiempo de actividad][uptime-sla].
+AKS proporciona garantías de Acuerdo de Nivel de Servicio como una característica opcional de complemento con [Acuerdo de Nivel de Servicio de tiempo de actividad][uptime-sla]. 
+
+El Acuerdo de Nivel de Servicio gratuito que se ofrece de forma predeterminada no garantiza un punto de conexión de servidor de API de alta disponibilidad (nuestro objetivo de nivel de servicio es 99,5%). Podría suceder aparecieran problemas de conectividad transitorios en el caso de actualizaciones, nodos subyacentes incorrectos, mantenimiento de la plataforma, etc. Si la carga de trabajo no tolera reinicios de APIServer, se recomienda usar el Acuerdo de nivel de servicio de tiempo de actividad.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>¿Puedo aplicar descuentos de las reservas de Azure en mis nodos de agente de AKS?
 

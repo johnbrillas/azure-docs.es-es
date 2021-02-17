@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633254"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380141"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
@@ -24,7 +24,7 @@ Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [P
 >
 > * Para saber qué conectores de Power Automate carecen de equivalente en Logic Apps, vea [Conectores de Power Automate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Para saber qué conectores de Logic Apps carecen de equivalente en Power Automate, vea [Conectores de Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para saber qué conectores de Logic Apps carecen de equivalente en Power Automate, vea [Conectores de Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

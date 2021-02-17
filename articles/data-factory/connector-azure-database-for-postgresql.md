@@ -1,22 +1,18 @@
 ---
 title: Copia y transformación de datos en Azure Database for PostgreSQL
 description: Aprenda a copiar y transformar datos en Azure Database for PostgreSQL mediante Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021
-ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 32c65a3e1063b29ab6458151aec42e4415a73b62
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223104"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381331"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Database for PostgreSQL mediante Azure Data Factory
 
@@ -73,7 +69,7 @@ Una cadena de conexión típica es `Server=<server>.postgres.database.azure.com;
 
 **Ejemplo**:
 
-**_Guardar la contraseña en Azure Key Vault_* _
+***Guardar la contraseña en Azure Key Vault***
 
 ```json
 {
@@ -99,7 +95,7 @@ Una cadena de conexión típica es `Server=<server>.postgres.database.azure.com;
 
 Si quiere ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que Azure Database for PostgreSQL admite en los conjuntos de datos.
 
-Para copiar datos de Azure Database for PostgreSQL, establezca la propiedad type del conjunto de datos en _*AzurePostgreSqlTable**. Se admiten las siguientes propiedades:
+Para copiar datos de Azure Database for PostgreSQL, establezca la propiedad type del conjunto de datos en **AzurePostgreSqlTable**. Se admiten las siguientes propiedades:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |

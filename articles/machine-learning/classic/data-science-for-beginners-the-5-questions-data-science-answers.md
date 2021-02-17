@@ -3,22 +3,22 @@ title: 'ML Studio (clásico): Ciencia de datos para principiantes: Azure'
 description: Ciencia de datos para principiantes explica los conceptos básicos en 5 vídeos breves, empezando por las 5 preguntas a las que responde la ciencia de datos. De Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307489"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520398"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 
-Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes* , con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
+Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.
 
 Este primer vídeo trata de los tipos de preguntas a los que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
@@ -45,7 +45,7 @@ En este primer vídeo, hablaremos sobre "Las cinco preguntas a las que responde 
 
 La ciencia de datos utiliza números y nombres (también denominados categorías o etiquetas) y predice respuestas a preguntas.
 
-Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia de datos* :
+Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia de datos*:
 
 * ¿Esto es A o B?
 * ¿Es extraño?

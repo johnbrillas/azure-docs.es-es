@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737208"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371556"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -92,7 +92,7 @@ App Configuration es el servicio regional. En el caso de las aplicaciones con di
 
 ## <a name="client-applications-in-app-configuration"></a>Aplicaciones cliente en App Configuration 
 
-Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargos por superar el límite de ancho de banda o el de uso. Las aplicaciones aprovechan el almacenamiento en caché y la actualización inteligente disponible actualmente para optimizar el número de solicitudes que envían. Este proceso se puede reflejar en el elevado volumen de aplicaciones cliente, ya que se evitan las conexiones directas al almacén de configuración. En cambio, las aplicaciones cliente se conectan a un servicio personalizado y este servicio se comunica con el almacén de configuración. Esta solución proxy puede garantizar que las aplicaciones cliente no se aproximan al límite en el almacén de configuración. Para más información sobre el límite, consulte [las preguntas frecuentes](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargos por superar el límite de ancho de banda o el de uso. Las aplicaciones aprovechan el almacenamiento en caché y la actualización inteligente disponible actualmente para optimizar el número de solicitudes que envían. Este proceso se puede reflejar en el elevado volumen de aplicaciones cliente, ya que se evitan las conexiones directas al almacén de configuración. En cambio, las aplicaciones cliente se conectan a un servicio personalizado y este servicio se comunica con el almacén de configuración. Esta solución proxy puede garantizar que las aplicaciones cliente no se aproximan al límite en el almacén de configuración. Para más información sobre el límite, consulte [las preguntas frecuentes](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

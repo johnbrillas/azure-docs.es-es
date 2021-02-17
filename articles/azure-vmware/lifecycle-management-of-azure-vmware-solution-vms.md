@@ -2,13 +2,13 @@
 title: Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
 description: Aprenda a administrar todos los aspectos del ciclo de vida de las máquinas virtuales de Azure VMware Solution con herramientas nativas de Microsoft Azure.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062903"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988540"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Administración del ciclo de vida de las máquinas virtuales de Azure VMware Solution
 
@@ -110,3 +110,11 @@ Azure Monitor es una solución completa para recopilar, analizar y actuar en la 
     - [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../azure-monitor/platform/alerts-log.md).
     - [Reglas de acción](../azure-monitor/platform/alerts-action-rules.md) para establecer acciones y notificaciones automatizadas.
     - [Conexión de Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## <a name="next-steps"></a>Pasos siguientes
+
+Ahora que ha tratado el uso de las herramientas nativas de Azure para administrar las máquinas virtuales de Azure VMware Solution durante todo su ciclo de vida, puede que desee obtener información sobre:
+
+- [Protección de máquinas virtuales de Azure VMware Solution con Azure Security Center](azure-security-integration.md).
+- [Configuración de Azure Backup Server para Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integración de Azure VMware Solution en una arquitectura en estrella tipo hub-and-spoke](concepts-hub-and-spoke.md).

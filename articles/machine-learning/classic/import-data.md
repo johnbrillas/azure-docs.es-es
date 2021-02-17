@@ -3,18 +3,18 @@ title: 'ML Studio (clásico): Importación de datos de entrenamiento: Azure'
 description: Cómo importar los datos en Azure Machine Learning Studio (clásico) desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302771"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520381"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos
 
@@ -73,12 +73,12 @@ Studio (clásico) reconoce los siguientes tipos de datos:
 * DateTime
 * TimeSpan
 
-Studio usa un tipo de datos interno llamado ***tabla de datos** _ para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
+Studio usa un tipo de datos interno llamado ***tabla de datos*** para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
 
 Todo módulo que acepta formatos distintos de tabla de datos convertirá los datos a tabla de datos de manera silenciosa antes de pasarlos al módulo siguiente.
 
 En caso de ser necesario, puede convertir el formato tabla de datos de vuelta al formato CSV, TSV, ARFF o SVMLight mediante otros módulos de conversión.
-Consulte la sección _ *Conversiones de formatos de datos** de la paleta de módulos para ver los módulos que realizan estas funciones.
+Consulte la sección **Conversiones de formatos de datos** de la paleta de módulos para ver los módulos que realizan estas funciones.
 
 ## <a name="data-capacities"></a>Capacidades de datos
 

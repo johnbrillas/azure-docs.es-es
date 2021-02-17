@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881408"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981092"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -98,6 +98,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver las alertas de las suscripciones delegadas, con la capacidad de ver y actualizar alertas en todas las suscripciones
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - [Log Analytics](../../azure-monitor/platform/service-providers.md): consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
+- [Cree, vea y administre las alertas del registro de actividad](../../azure-monitor/platform/alerts-activity-log.md) en los inquilinos del cliente
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
 - Creación de una [configuración de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
@@ -142,7 +143,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - Administración de recursos de Azure Sentinel [en inquilinos de clientes](../../sentinel/multiple-tenants-service-providers.md)
 - [Seguimiento de ataques y visualización de alertas de seguridad en varios inquilinos](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Visualización de incidentes](../../sentinel/multiple-workspace-view.md) entre varias áreas de trabajo de Sentinel distribuidas entre inquilinos
+- [Visualización de incidentes](../../sentinel/multiple-workspace-view.md) entre varias áreas de trabajo de Azure Sentinel distribuidas entre inquilinos
 
 [Azure Service Health](../../service-health/index.yml):
 
@@ -164,6 +165,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 Solicitudes de soporte técnico:
 
 - [Apertura de solicitudes de soporte desde la sección **Ayuda y soporte técnico**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) en Azure Portal para los recursos delegados (selección del plan de soporte técnico disponible para el ámbito delegado)
+- Use [Azure Quota API](/rest/api/reserved-vm-instances/quotaapi) para ver y administrar las cuotas de servicio de Azure para los recursos de cliente delegados
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 

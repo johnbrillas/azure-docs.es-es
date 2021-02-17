@@ -5,22 +5,20 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520448"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979749"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Traslado de máquinas virtuales de Azure entre regiones
 
 En este artículo, aprenderá a trasladar las máquinas virtuales de Azure, junto con los recursos de red y almacenamiento relacionados, a otra región de Azure mediante [Azure Resource Mover](overview.md).
-
-> [!NOTE]
-> Azure Resource Mover se encuentra actualmente en versión preliminar pública.
+.
 
 
 En este tutorial, aprenderá a:
@@ -40,26 +38,21 @@ En este tutorial, aprenderá a:
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar. Luego, inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Requisitos previos
-
--  Compruebe que tiene acceso como *propietario* a la suscripción que contiene los recursos que desea trasladar.
-    - La primera vez que agregue un recurso de un par de origen y destino específicos a una suscripción de Azure, Azure Resource Mover creará una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), anteriormente llamada identidad de servicio administrado (MSI), en la que confiará la suscripción.
-    - Para crear la identidad y asignarle el rol requerido (Colaborador o Administrador de acceso de usuario en la suscripción de origen), la cuenta que utilice para agregar recursos necesita permisos de *propietario* para la suscripción. [Obtenga más información](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre los roles de Azure.
-- La suscripción necesita tener cuota suficiente para crear los recursos que va a trasladar a la región de destino. Si no dispone de cuota suficiente, [solicite límites adicionales](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Compruebe los precios y los cargos asociados con la región de destino a la que va a trasladar las máquinas virtuales. El uso de la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) le resultará útil.
+**Requisito** | **Descripción**
+--- | ---
+**Permisos de suscripción** | Compruebe que tiene acceso de *Propietario* a la suscripción que contiene los recursos que desea trasladar.<br/><br/> **¿Por qué necesito acceso de Propietario?** La primera vez que agregue un recurso de un par de origen y destino específicos a una suscripción de Azure, Azure Resource Mover creará una [identidad administrada asignada por el sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), anteriormente llamada identidad de servicio administrado (MSI), en la que confiará la suscripción. Para crear la identidad y asignarle el rol requerido (Colaborador o Administrador de acceso de usuario en la suscripción de origen), la cuenta que utilice para agregar recursos necesita permisos de *propietario* para la suscripción. [Obtenga más información](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sobre los roles de Azure.
+**Soporte técnico de máquina virtual** |  Asegúrese de que las máquinas virtuales que desea trasladar están admitidas.<br/><br/> - [Compruebe](support-matrix-move-region-azure-vm.md#windows-vm-support) las máquinas virtuales Windows admitidas.<br/><br/> - [Compruebe](support-matrix-move-region-azure-vm.md#linux-vm-support) las máquinas virtuales Linux y las versiones de kernel admitidas.<br/><br/> - Compruebe la configuración admitida de [proceso](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [almacenamiento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) y [redes](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings).
+**Suscripción de destino** | La suscripción de la región de destino debe tener cuota suficiente para crear los recursos que va a trasladar a la región de destino. Si no dispone de cuota suficiente, [solicite límites adicionales](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Cargos de la región de destino** | Compruebe los precios y los cargos asociados con la región de destino a la que va a trasladar las máquinas virtuales. El uso de la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) le resultará útil.
     
 
-## <a name="check-vm-requirements"></a>Comprobación de los requisitos de máquina virtual
+## <a name="prepare-vms"></a>Preparación de máquinas virtuales
 
-1. Asegúrese de que las máquinas virtuales que desea trasladar están admitidas.
-
-    - [Compruebe](support-matrix-move-region-azure-vm.md#windows-vm-support) las máquinas virtuales Windows admitidas.
-    - [Compruebe](support-matrix-move-region-azure-vm.md#linux-vm-support) las máquinas virtuales Linux y las versiones de kernel admitidas.
-    - Compruebe la configuración admitida de [proceso](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [almacenamiento](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) y [redes](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings).
-2. Compruebe que las máquinas virtuales que desea trasladar están encendidas.
-3. Asegúrese de que las máquinas virtuales dispongan de los certificados raíz de confianza más recientes, así como de una lista actualizada de revocación de certificados (CRL). Para ello, siga estos pasos:
+1. Después de comprobar que las máquinas virtuales cumplen los requisitos, asegúrese de que las máquinas virtuales que desea trasladar estén activadas. Todos los discos de las máquinas virtuales que desea que estén disponibles en la región de destino deben estar conectados e inicializados en la máquina virtual.
+1. Asegúrese de que las máquinas virtuales dispongan de los certificados raíz de confianza más recientes, así como de una lista actualizada de revocación de certificados (CRL). Para ello, siga estos pasos:
     - En las máquinas virtuales Windows, instale las actualizaciones de Windows más recientes.
     - En las máquinas virtuales Linux, siga las indicaciones del distribuidor para que las máquinas dispongan de los certificados y la lista de revocación de certificados más recientes. 
-4. Permita la conectividad saliente desde las máquinas virtuales:
+1. Permita la conectividad saliente desde las máquinas virtuales:
     - Si utiliza un servidor proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe facilitar el acceso a estas [URL](support-matrix-move-region-azure-vm.md#url-access).
     - Si utiliza reglas de grupo de seguridad de red para determinar la conectividad saliente, cree estas [reglas de etiquetas de servicio](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Seleccione los recursos que desea trasladar.
     ![Página para seleccionar las regiones de origen y de destino](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. En **Recursos que se van a mover** , haga clic en **Seleccionar recursos**.
-7. En **Seleccionar recursos**, seleccione la máquina virtual. Solo es posible agregar [recursos que se puedan mover](#check-vm-requirements). A continuación, haga clic en **Hecho**.
+7. En **Seleccionar recursos**, seleccione la máquina virtual. Solo es posible agregar [recursos que se puedan mover](#prepare-vms). A continuación, haga clic en **Hecho**.
 
     ![Página para seleccionar las máquinas virtuales que se van a trasladar](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  En **Recursos que se van a mover**, haga clic en **Siguiente**.
-9. En **Revisar + agregar**, compruebe la configuración de origen y de destino. 
+9. En **Review** (Revisar), compruebe la configuración de origen y la de destino. 
 
     ![Página para revisar la configuración y realizar el traslado de los recursos](./media/tutorial-move-region-virtual-machines/review.png)
 10. Haga clic en **Continuar** para empezar a agregar recursos.
@@ -99,25 +92,27 @@ Seleccione los recursos que desea trasladar.
 
 > [!NOTE]
 > - Los recursos agregados tienen el estado *Prepare pending* (Preparación pendiente).
+> - El grupo de recursos de las máquinas virtuales se agrega automáticamente.
 > - Si desea quitar un recurso de una colección de traslado, el método para hacerlo dependerá del punto en el que se encuentre en dicha operación. [Más información](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>Resolución de dependencias
 
 1. Si los recursos muestran el mensaje *Validar dependencias* en la columna **Problemas**, haga clic en el botón **Validar dependencias**. Se iniciará el proceso de validación.
 2. Si se encuentran dependencias, haga clic en **Agregar dependencias**. 
-3. En **Agregar dependencias**, seleccione los recursos dependientes > **Agregar dependencias**. Compruebe el progreso en el área de notificaciones.
+3. En **Add dependencies** (Agregar dependencias), deje la opción predeterminada **Show all dependencies** (Mostrar todas las dependencias).
+
+    - La opción Show all dependencies (Mostrar todas las dependencias) recorre en iteración todas las dependencias directas e indirectas de un recurso. Por ejemplo, para una máquina virtual, muestra la NIC, la red virtual, los grupos de seguridad de red (NSG), etc.
+    - La opción Show first level dependencies only (Mostrar solo dependencias de primer nivel) muestra solo las dependencias directas. Por ejemplo, para una máquina virtual, muestra la NIC, pero no la red virtual.
+
+
+4. Seleccione los recursos dependientes que desea agregar y, a continuación, seleccione **Add dependencies** (Agregar dependencias). Compruebe el progreso en el área de notificaciones.
 
     ![Adición de dependencias](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Agregue más dependencias si es necesario y vuelva a validarlas. 
+4. Vuelva a validar las dependencias. 
     ![Página para agregar otras dependencias](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. En la página **Entre regiones**, compruebe que los recursos tienen ahora el estado *Prepare pending* (Preparación pendiente) y que no presentan problemas.
 
-    ![Página que muestra los recursos que tienen el estado de preparación pendiente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Si desea editar la configuración de destino antes de trasladar los recursos, seleccione el vínculo en la columna **Destination configuration** (Configuración de destino) para el recurso y edite la configuración. Si edita la configuración de la máquina virtual de destino, el tamaño de esta máquina virtual no puede ser inferior al tamaño de la máquina virtual de origen.  
 
 ## <a name="move-the-source-resource-group"></a>Traslado del grupo de recursos de origen 
 
@@ -158,9 +153,17 @@ Para confirmar y finalizar el proceso de traslado:
 
 ## <a name="prepare-resources-to-move"></a>Preparación de los recursos que se van a trasladar
 
+Ahora que el grupo de recursos de origen se ha trasladado, puede preparar el traslado de otros recursos que tengan el estado *Prepare pending* (Preparación pendiente).
+
+1. En **Across regions** (Entre regiones), compruebe que los recursos ahora tienen el estado *Prepare pending* (Preparación pendiente) y que no presentan problemas. Si no es así, vuelva a validar y resuelva los problemas pendientes.
+
+    ![Página que muestra los recursos que tienen el estado de preparación pendiente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Si desea editar la configuración de destino antes de trasladar los recursos, seleccione el vínculo en la columna **Destination configuration** (Configuración de destino) para el recurso y edite la configuración. Si edita la configuración de la máquina virtual de destino, el tamaño de esta máquina virtual no puede ser inferior al tamaño de la máquina virtual de origen.  
+
 Ahora que el grupo de recursos de origen se ha trasladado, puede preparar el traslado de los demás recursos.
 
-1. En **Entre regiones**, seleccione los recursos que desea preparar. 
+3. Seleccione los recursos que desea preparar. 
 
     ![Página para seleccionar la preparación de otros recursos](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -238,12 +241,16 @@ Si desea completar la operación de traslado, confírmela.
 - El servicio Mobility no se desinstala automáticamente de las máquinas virtuales. Puede desinstalarlo manualmente, o bien mantenerlo si tiene previsto trasladar el servidor de nuevo.
 - Modifique las reglas de control de acceso basado en rol (RBAC) de Azure después de la migración.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Eliminación de los recursos de origen después de la confirmación
 
 Después del traslado, puede eliminar los recursos de la región de origen si lo desea. 
 
-1. En **Entre regiones**, haga clic en el nombre de los recursos de origen que desee eliminar.
-2. En la página Propiedades de cada recurso, seleccione **Eliminar**.
+> [!NOTE]
+> Algunos recursos, como los servidores SQL Server y los almacenes de claves, no se pueden eliminar del portal y se deben eliminar desde la página de propiedades del recurso.
+
+1. En **Across Regions** (Entre regiones), haga clic en el nombre del recurso de origen que desea eliminar.
+2. Seleccione **Delete source** (Eliminar origen).
 
 ## <a name="delete-additional-resources-created-for-move"></a>Eliminación de recursos adicionales creados para el traslado
 

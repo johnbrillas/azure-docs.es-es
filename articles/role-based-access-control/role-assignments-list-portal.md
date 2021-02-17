@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964378"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556169"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de roles de Azure mediante Azure Portal
 
@@ -185,5 +185,5 @@ Siga estos pasos para descargar asignaciones de roles en un ámbito.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure Portal](role-assignments-portal.md)
 - [Solución de problemas de Azure RBAC](troubleshooting.md)

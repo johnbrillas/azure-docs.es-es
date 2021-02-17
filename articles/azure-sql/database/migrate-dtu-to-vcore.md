@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 05/28/2020
-ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/09/2021
+ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790396"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361662"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migración de Azure SQL Database del modelo basado en DTU al modelo basado en núcleo virtual.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,24 +52,33 @@ Ejecute esta consulta en el contexto de la base de datos que se va a migrar, en 
 ```SQL
 WITH dtu_vcore_map AS
 (
-SELECT TOP (1) rg.slo_name,
-               CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
-                    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
-               END AS dtu_hardware_gen,
-               s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
-               CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
+SELECT rg.slo_name,
+       DATABASEPROPERTYEX(DB_NAME(), 'Edition') AS dtu_service_tier,
+       CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG7%' THEN 'Gen5'
+       END AS dtu_hardware_gen,
+       s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
+       CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
 WHERE dtu_limit > 0
       AND
       DB_NAME() <> 'master'
+      AND
+      rg.database_id = DB_ID()
 )
 SELECT dtu_logical_cpus,
        dtu_hardware_gen,
        dtu_memory_per_core_gb,
+       dtu_service_tier,
+       CASE WHEN dtu_service_tier = 'Basic' THEN 'General Purpose'
+            WHEN dtu_service_tier = 'Standard' THEN 'General Purpose or Hyperscale'
+            WHEN dtu_service_tier = 'Premium' THEN 'Business Critical or Hyperscale'
+       END AS vcore_service_tier,
        CASE WHEN dtu_hardware_gen = 'Gen4' THEN dtu_logical_cpus
             WHEN dtu_hardware_gen = 'Gen5' THEN dtu_logical_cpus * 0.7
        END AS Gen4_vcores,
@@ -97,7 +106,7 @@ Además del número de núcleos virtuales (CPU lógicas) y la generación de har
 - Para la misma generación de hardware y el mismo número de núcleos virtuales, los límites de recursos de rendimiento del registro de transacciones e IOPS para las bases de datos de núcleo virtual suelen ser mayores que para las bases de datos de DTU. En el caso de las cargas de trabajo enlazadas a E/S, es posible reducir el número de núcleos virtuales en el modelo de núcleo virtual para lograr el mismo nivel de rendimiento. Los límites de recursos para las bases de datos de DTU y núcleo virtual en valores absolutos se exponen en la vista [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). La comparación de estos valores entre la base de datos de DTU que se va a migrar y una base de datos de núcleo virtual con un objetivo de servicio de coincidencia aproximada le ayudará a seleccionar el objetivo de servicio de núcleo virtual con mayor precisión.
 - La consulta de asignación también devuelve la cantidad de memoria por núcleo para el grupo elástico o la base de datos de DTU que se va a migrar, y para cada generación de hardware del modelo de núcleo virtual. Garantizar una memoria total similar o superior después de la migración a núcleo virtual es importante para las cargas de trabajo que requieren una memoria caché de datos de gran tamaño para lograr un rendimiento suficiente o para cargas de trabajo que requieren concesiones de memoria grandes para el procesamiento de consultas. En el caso de estas cargas de trabajo, en función del rendimiento real, puede ser necesario aumentar el número de núcleos virtuales para obtener suficiente memoria total.
 - La [utilización de recursos históricos](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de la base de datos de DTU se debe tener en cuenta al elegir el objetivo de servicio de núcleo virtual. Es posible que las bases de datos de DTU con recursos de CPU infrautilizados de forma constante necesiten menos núcleos virtuales que el número devuelto por la consulta de asignación. Por el contrario, las bases de datos de DTU en las que el uso de CPU elevado constante provoca un rendimiento inadecuado de la carga de trabajo pueden requerir más núcleos virtuales de los que devuelve la consulta.
-- Si migra bases de datos con patrones de uso intermitentes o imprevisibles, tenga en cuenta el uso del nivel de proceso [Sin servidor](serverless-tier-overview.md).  Tenga en cuenta que el número máximo de trabajos simultáneos (solicitudes) en la opción sin servidor es el 75 % del límite en el proceso aprovisionado para el mismo número de núcleos virtuales máximo configurado.  Además, la memoria máxima disponible en la opción sin servidor expresada en GB es 3 veces el número máximo de núcleos virtuales configurados; por ejemplo, la memoria máxima será de 120 GB cuando se configura un máximo de 40 núcleos virtuales.   
+- Si migra bases de datos con patrones de uso intermitentes o imprevisibles, tenga en cuenta el uso del nivel de proceso [Sin servidor](serverless-tier-overview.md). Tenga en cuenta que el número máximo de trabajos simultáneos (solicitudes) en la opción sin servidor es el 75 % del límite en el proceso aprovisionado para el mismo número de núcleos virtuales máximo configurado. Además, la memoria máxima disponible en la opción sin servidor expresada en GB es 3 veces el número máximo de núcleos virtuales configurados; por ejemplo, la memoria máxima será de 120 GB cuando se configura un máximo de 40 núcleos virtuales.   
 - En el modelo de núcleo virtual, el tamaño máximo admitido de la base de datos puede variar en función de la generación de hardware. En el caso de las bases de datos de gran tamaño, compruebe los tamaños máximos admitidos en el modelo de núcleo virtual para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).
 - En el caso de los grupos elásticos, los modelos de [DTU](resource-limits-dtu-elastic-pools.md) y [núcleo virtual](resource-limits-vcore-elastic-pools.md) presentan diferencias en el número máximo de bases de datos admitidas por grupo. Esto se debe tener en cuenta al migrar grupos elásticos con muchas bases de datos.
 - Es posible que algunas generaciones de hardware no estén disponibles en todas las regiones. Compruebe la disponibilidad en [Generaciones de hardware](service-tiers-vcore.md#hardware-generations).
@@ -122,7 +131,7 @@ La consulta de asignación devuelve el resultado siguiente (algunas columnas no 
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |24,00|Gen5|5,40|16,800|7|24,000|5,05|
 
-Vemos que la base de datos de DTU tiene 24 CPU lógicas (núcleos virtuales), con 5,4 GB de memoria por núcleo virtual y que usa hardware Gen5. La coincidencia directa correspondiente es una base de datos de uso general y 24 núcleos virtuales en hardware Gen5, es decir, el objetivo de servicio de núcleo virtual **GP_Gen5_24** .
+Vemos que la base de datos de DTU tiene 24 CPU lógicas (núcleos virtuales), con 5,4 GB de memoria por núcleo virtual y que usa hardware Gen5. La coincidencia directa correspondiente es una base de datos de uso general y 24 núcleos virtuales en hardware Gen5, es decir, el objetivo de servicio de núcleo virtual **GP_Gen5_24**.
 
 **Migración de una base de datos S0 estándar**
 
@@ -132,7 +141,7 @@ La consulta de asignación devuelve el resultado siguiente (algunas columnas no 
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |0,25|Gen4|0,42|0,250|7|0,425|5,05|
 
-Vemos que la base de datos de DTU tiene el equivalente de 0,25 CPU lógicas (núcleos virtuales), con 0,42 GB de memoria por núcleo virtual y que usa hardware Gen4. Los objetivos de servicio de núcleo virtual inferiores de las generaciones de hardware Gen4 y Gen5, **GP_Gen4_1** y **GP_Gen5_2** , proporcionan más recursos de proceso que la base de datos S0 estándar, por lo que no es posible una coincidencia directa. Dado que el hardware Gen4 se está [retirando](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), se prefiere la opción **GP_Gen5_2** . Además, si la carga de trabajo es adecuada para el nivel de proceso [Sin servidor](serverless-tier-overview.md), **GP_S_Gen5_1** sería una coincidencia más aproximada.
+Vemos que la base de datos de DTU tiene el equivalente de 0,25 CPU lógicas (núcleos virtuales), con 0,42 GB de memoria por núcleo virtual y que usa hardware Gen4. Los objetivos de servicio de núcleo virtual inferiores de las generaciones de hardware Gen4 y Gen5, **GP_Gen4_1** y **GP_Gen5_2**, proporcionan más recursos de proceso que la base de datos S0 estándar, por lo que no es posible una coincidencia directa. Dado que el hardware Gen4 se está [retirando](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/), se prefiere la opción **GP_Gen5_2**. Además, si la carga de trabajo es adecuada para el nivel de proceso [Sin servidor](serverless-tier-overview.md), **GP_S_Gen5_1** sería una coincidencia más aproximada.
 
 **Migración de una base de datos P15 prémium**
 
@@ -152,7 +161,7 @@ La consulta de asignación devuelve el resultado siguiente (algunas columnas no 
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |4.00|Gen5|5,40|2,800|7|4,000|5,05|
 
-Vemos que el grupo elástico de DTU tiene 4 CPU lógicas (núcleos virtuales), con 5,4 GB de memoria por núcleo virtual y que usa hardware Gen5. La coincidencia directa del modelo de núcleo virtual es un grupo elástico **GP_Gen5_4** . Sin embargo, este objetivo de servicio admite un máximo de 200 bases de datos por grupo, mientras que el grupo elástico básico de 200 eDTU admite hasta 500 bases de datos. Si el grupo elástico que se va a migrar tiene más de 200 bases de datos, el objetivo de servicio de núcleo virtual coincidente tendría que ser **GP_Gen5_6** , que admite hasta 500 bases de datos.
+Vemos que el grupo elástico de DTU tiene 4 CPU lógicas (núcleos virtuales), con 5,4 GB de memoria por núcleo virtual y que usa hardware Gen5. La coincidencia directa del modelo de núcleo virtual es un grupo elástico **GP_Gen5_4**. Sin embargo, este objetivo de servicio admite un máximo de 200 bases de datos por grupo, mientras que el grupo elástico básico de 200 eDTU admite hasta 500 bases de datos. Si el grupo elástico que se va a migrar tiene más de 200 bases de datos, el objetivo de servicio de núcleo virtual coincidente tendría que ser **GP_Gen5_6**, que admite hasta 500 bases de datos.
 
 ## <a name="migrate-geo-replicated-databases"></a>Migración de bases de datos con replicación geográfica
 

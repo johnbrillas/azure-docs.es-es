@@ -3,12 +3,12 @@ title: Formatos de contenido compatibles
 description: Obtenga información sobre los formatos de contenido que admite Azure Container Registry, como imágenes de contenedor compatibles con Docker, gráficos de Helm, e imágenes y artefactos OCI.
 ms.topic: article
 ms.date: 08/30/2019
-ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84695273"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008339"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de contenido admitidos en Azure Container Registry
 
@@ -20,11 +20,11 @@ Se admiten los siguientes formatos de imagen de contenedor de Docker:
 
 * [Manifiesto de imagen de Docker V2, esquema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Manifiesto de imagen de Docker V2, esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/): incluye listas de manifiesto que permiten que los registros almacenen imágenes multiplataforma en una referencia "image: tag" única.
+* [Manifiesto de imagen de Docker V2, esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/): incluye listas de manifiesto que permiten que los registros almacenen [imágenes con varias arquitecturas](push-multi-architecture-images.md) en una referencia `image:tag` única.
 
 ## <a name="oci-images"></a>Imágenes OCI
 
-Azure Container Registry admite imágenes que cumplen la [especificación de formato de imagen de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Entre los formatos de empaquetado se incluye [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry admite imágenes que cumplen la [especificación de formato de imagen de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md) que incluyen la especificación de [índice de imágenes](https://github.com/opencontainers/image-spec/blob/master/image-index.md) opcional. Entre los formatos de empaquetado se incluye [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## <a name="oci-artifacts"></a>Artefactos de OCI
 

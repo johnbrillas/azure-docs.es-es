@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: fb38140f09fc7c1eb2c40fc02e8c113cbc6f94a0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178214"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103522"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 
@@ -40,7 +40,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación.
 >
@@ -50,7 +50,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **nombre** de la aplicación, por ejemplo `python-webapp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -65,7 +65,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > 1. Escriba una descripción de la clave (por ejemplo, secreto de aplicación), deje el valor de expiración predeterminado y seleccione **Agregar**.
 > 1. Anote el **valor** de **Secreto de cliente** para usarlo más adelante.
 > 1. En **Administrar**, seleccione **Permisos de API** > **Add a permission** (Agregar un permiso).
->1.  Asegúrese de que la pestaña **API de Microsoft** esté seleccionada.
+> 1. Asegúrese de que la pestaña **API de Microsoft** esté seleccionada.
 > 1. En la sección *API de Microsoft más usadas*, seleccione **Microsoft Graph**.
 > 1. En la sección **Permisos delegados**, asegúrese de que estén marcados los permisos correctos: **User.ReadBasic.All**. Si es necesario, utilice el cuadro de búsqueda.
 > 1. Seleccione el botón **Agregar permisos**.
@@ -74,7 +74,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
 >
-> Para que el código de ejemplo de este inicio rápido funcione, es preciso:
+> Para que el código de ejemplo de este inicio rápido funcione:
 >
 > 1. Agregue una dirección URL de respuesta como `http://localhost:5000/getAToken`.
 > 1. Cree un secreto de cliente.

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f63c97fd23d56ff508de8d5953eefac6b15ae1aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1a9faf24c5a82b815b40afe15769480b69074dc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188456"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552758"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para .NET Framework en Windows. Si desea simplemente que el nombre del paquete comience por su cuenta, ejecute `Install-Package Microsoft.CognitiveServices.Speech` en la consola de NuGet.
 
@@ -26,6 +26,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
 
 Esta guía de inicio rápido requiere:
 
+* En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para su plataforma. Durante la primera instalación es posible que deba reiniciar.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Creación de un proyecto de Visual Studio e instalación del SDK de Voz
@@ -40,7 +41,7 @@ El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https:/
 
 1. En la ventana **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** y seleccione **Siguiente**.
 
-1. En la ventana **Configure su nuevo proyecto**, escriba *helloworld* en **Nombre del proyecto** , elija o cree la ruta de acceso del directorio en **Ubicación** y seleccione **Crear**.
+1. En la ventana **Configure su nuevo proyecto**, escriba *helloworld* en **Nombre del proyecto**, elija o cree la ruta de acceso del directorio en **Ubicación** y seleccione **Crear**.
 
 1. En la barra de menús de Visual Studio, seleccione **Herramientas** > **Obtener herramientas y características**, que abre el Instalador de Visual Studio y muestra el cuadro de diálogo **Modificando**.
 
@@ -56,7 +57,7 @@ El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https:/
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **helloworld** y seleccione **Administrar paquetes NuGet** para mostrar el Administrador de paquetes NuGet.
 
-   ![Administrador de paquetes NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![Administrador de paquetes de NuGet](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. En la esquina superior derecha, busque el cuadro desplegable **Origen del paquete** y asegúrese de que **`nuget.org`** está seleccionado.
 

@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080839"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627784"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -36,10 +36,13 @@ No existen límites en el número de particiones lógicas que puede tener el con
 
 Un contenedor se escala mediante la distribución de los datos y el rendimiento entre particiones físicas. De forma interna, a cada partición física se asignan una o varias particiones lógicas. Normalmente, los contenedores más pequeños tienen muchas particiones lógicas, pero solo necesitan una partición física. A diferencia de las particiones lógicas, las particiones físicas son una implementación interna del sistema y es Azure Cosmos DB quien se encarga en exclusiva de su administración.
 
-El número de particiones físicas del contenedor depende de la siguiente configuración:
+El número de particiones físicas del contenedor depende de los siguientes factores:
 
 * La cantidad de rendimiento aprovisionado (cada partición física individual puede proporcionar un rendimiento de hasta 10 000 unidades de solicitud por segundo).
 * El almacenamiento de datos total (cada partición física individual puede almacenar hasta 50 GB de datos).
+
+> [!NOTE]
+> Las particiones físicas son una implementación interna del sistema y es Azure Cosmos DB quien se encarga en exclusiva de su administración. Al desarrollar las soluciones, no se centre en las particiones físicas porque no las puede controlar. En su lugar, céntrese en las claves de las particiones. Si elige una clave de partición que distribuya uniformemente el consumo del rendimiento por las particiones lógicas, tendrá la seguridad de que el consumo del rendimiento está equilibrado entre las particiones físicas.
 
 No existen límites en el número de particiones físicas que puede tener el contenedor. A medida que aumente el tamaño de los datos o el rendimiento aprovisionado, Azure Cosmos DB creará nuevas particiones físicas automáticamente dividiendo las particiones existentes. Las divisiones de las particiones físicas no afectan a la disponibilidad de la aplicación. Cuando una partición física se divide, todos los datos que estén en una partición lógica específica se guardarán en la misma partición física. Las divisiones de las particiones físicas simplemente crean una nueva asignación entre las particiones lógicas y las particiones físicas.
 
@@ -49,12 +52,9 @@ Puede ver las particiones físicas de un contenedor en la sección **Almacenamie
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Consulta del número de particiones físicas" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-En la captura de pantalla anterior, un contenedor tiene `/foodGroup` como clave de partición. Cada una de las tres barras del grafo representa una partición física. En la imagen, el **intervalo de claves de partición** es el mismo que el de una partición física. La partición física seleccionada contiene tres particiones lógicas: `Beef Products`, `Vegetable and Vegetable Products` y `Soups, Sauces, and Gravies`.
+En la captura de pantalla anterior, un contenedor tiene `/foodGroup` como clave de partición. Cada una de las tres barras del grafo representa una partición física. En la imagen, el **intervalo de claves de partición** es el mismo que el de una partición física. La partición física seleccionada contiene las tres particiones lógicas de mayor tamaño: `Beef Products`, `Vegetable and Vegetable Products` y `Soups, Sauces, and Gravies`.
 
 Si se aprovisiona un rendimiento de 18 000 unidades de solicitud por segundo (RU/s), cada una de las tres particiones físicas puede usar un tercio del rendimiento aprovisionado total. Dentro de la partición física seleccionada, las claves de partición lógicas `Beef Products`, `Vegetable and Vegetable Products` y `Soups, Sauces, and Gravies` podrán, en conjunto, utilizar 6 000 RU/s aprovisionadas de la partición física. Como el rendimiento aprovisionado se reparte uniformemente entre las particiones físicas del contenedor, es importante distribuir uniformemente el consumo del rendimiento [eligiendo la clave de partición lógica adecuada](#choose-partitionkey). 
-
-> [!NOTE]
-> Si elige una clave de partición que distribuya uniformemente el consumo del rendimiento por las particiones lógicas, tendrá la seguridad de que el consumo del rendimiento está equilibrado entre las particiones físicas.
 
 ## <a name="managing-logical-partitions"></a>Administración de particiones lógicas
 
@@ -70,7 +70,7 @@ Puede obtener más información sobre [cómo Azure Cosmos DB administra las par
 
 Cada partición física se compone de un [*conjunto de réplicas*](global-dist-under-the-hood.md). Cada conjunto de réplicas hospeda una instancia del motor de base de datos. Un conjunto de réplicas hace que los datos almacenados en la partición física sean duraderos, coherentes y tengan una alta disponibilidad. Cada réplica que compone la partición física hereda la cuota de almacenamiento. Y todas las réplicas de una partición física admiten colectivamente el rendimiento asignado a la partición física. Azure Cosmos DB administra automáticamente los conjuntos de réplicas.
 
-Normalmente, los contenedores más pequeños solo necesitan una partición física, pero siguen teniendo al menos cuatro réplicas.
+Normalmente, los contenedores pequeños solo necesitan una partición física, pero siguen teniendo al menos cuatro réplicas.
 
 La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222805"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980497"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
@@ -116,7 +116,7 @@ Extensiones | No compatible | Las extensiones no se copian en la máquina virtua
 Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco de datos y el disco temporal de Azure VM. Es importante respetar los límites y destinos de los discos de VM de los [discos administrados](../virtual-machines/disks-scalability-targets.md) para evitar cualquier problema de rendimiento.
 
 > [!NOTE]
-> El tamaño de la máquina virtual de destino debe ser igual o mayor que el de la máquina virtual de origen. Los parámetros usados para la validación son: Número de discos de datos, Número de NIC, CPU disponibles, Memoria en GB. Si no es así, se emite un error.
+> El tamaño de la máquina virtual de destino debe ser igual o mayor que el de la máquina virtual de origen. Los parámetros usados para la validación son: Número de discos de datos, Número de NIC, CPU disponibles, Memoria en GB. Si no es así, se genera un error.
 
 
 **Componente** | **Soporte técnico** | **Detalles**
@@ -134,6 +134,8 @@ Disco administrado (Premium) | Compatible |
 SSD estándar | Compatible |
 Generación 2 (Arranque UEFI) | Compatible
 Cuenta de almacenamiento de diagnóstico de arranque | No compatible | Vuelva a habilitarla después de migrar la máquina virtual a la región de destino.
+Máquinas virtuales con el cifrado de disco de Azure habilitado | Compatible | [Más información](tutorial-move-region-encrypted-virtual-machines.md)
+Máquinas virtuales que usan el cifrado del servidor con una clave administrada por el cliente | Compatible | [Más información](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Límites y tasas de cambio de datos
 

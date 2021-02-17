@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575812"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545945"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
@@ -124,8 +124,6 @@ De vuelta en la ventana de Visual Studio en la que está abierto el proyecto _*
 ### <a name="assign-permissions-to-the-function-app"></a>Asignación de permisos a la aplicación de funciones
 
 Para permitir que la aplicación de funciones acceda a Azure Digital Twins, el siguiente paso es establecer una configuración de la aplicación, asignar a la aplicación una identidad de Azure AD administrada por el sistema y asignar a esta identidad el rol *Propietario de Azure Digital Twins* en la instancia de Azure Digital Twins. Este rol es necesario para cualquier usuario o función que desee realizar muchas actividades en el plano de datos en la instancia. Más información sobre la seguridad y las asignaciones de roles en [*Conceptos: Seguridad para las soluciones de Azure Digital Twins*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de Azure Digital Twins. Rellene los marcadores de posición con los detalles de los recursos (recuerde que la dirección URL de la instancia de Azure Digital Twins es su nombre de host precedido por *https://* ).
 

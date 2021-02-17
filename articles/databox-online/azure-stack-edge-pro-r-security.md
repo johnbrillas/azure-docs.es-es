@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465891"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548648"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Seguridad y protección de datos para Azure Stack Edge Pro R y Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 La seguridad es una gran preocupación para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. Azure Stack Edge Pro R y Azure Stack Edge Mini R le ayudan a asegurarse de que solo las entidades autorizadas puedan ver, modificar o eliminar sus datos.
 
@@ -77,7 +77,7 @@ Puede:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Establecer la confianza con el dispositivo mediante certificados
 
-El dispositivo resistente Azure Stack Edge le permite traer sus propios certificados e instalar los que se van a usar para todos los puntos de conexión públicos. Para obtener más información, vaya a [cargar el certificado](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Para obtener una lista de todos los certificados que se pueden instalar en el dispositivo, vaya al artículo sobre cómo [administrar certificados en el dispositivo](azure-stack-edge-j-series-manage-certificates.md).
+El dispositivo resistente Azure Stack Edge le permite traer sus propios certificados e instalar los que se van a usar para todos los puntos de conexión públicos. Para obtener más información, vaya a [cargar el certificado](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Para obtener una lista de todos los certificados que se pueden instalar en el dispositivo, vaya al artículo sobre cómo [administrar certificados en el dispositivo](azure-stack-edge-gpu-manage-certificates.md).
 
 - Cuando se configura el proceso en el dispositivo, se crea un dispositivo IoT y un dispositivo IoT Edge. A estos dispositivos se les asigna automáticamente claves de acceso simétricas. Como procedimiento recomendado de seguridad, estas claves se rotan de manera periódica a través del servicio IoT Hub.
 
