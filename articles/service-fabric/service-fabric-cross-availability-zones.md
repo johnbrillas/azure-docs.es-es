@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918930"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007047"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -374,8 +374,8 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 * El primer valor es **multipleAvailabilityZones**, que se debe establecer en true para el elemento nodeType.
 * El segundo valor es **sfZonalUpgradeMode** y es opcional. Esta propiedad no se puede modificar si ya existe un elemento NodeType con varias zonas de disponibilidad en el clúster.
       La propiedad controla la agrupación lógica de máquinas virtuales en los dominios de actualización.
-          Si el valor se establece en false (modo plano): las máquinas virtuales bajo el tipo de nodo se agruparán en el dominio de actualización y omitirán la información de la zona en 5 dominios de actualización.
-          Si se omite el valor o se establece en true (modo jerárquico): las máquinas virtuales se agruparán para reflejar la distribución de zonas en hasta 15 dominios de actualización. Cada una de las 3 zonas tendrá 5 dominios de actualización.
+          Si el valor se establece en "Parallel" (Paralelo): las máquinas virtuales que se encuentren bajo el elemento NodeType se agruparán en dominios de actualización y omitirán la información de la zona en cinco dominios de actualización.
+          Si el valor se omite o se establece en "Hierarchical" (Jerárquico): las máquinas virtuales se agruparán para reflejar la distribución de zonas en hasta 15 dominios de actualización. Cada una de las 3 zonas tendrá 5 dominios de actualización.
           Esta propiedad solo define el comportamiento de actualización de la aplicación ServiceFabric y las actualizaciones de código. Las actualizaciones del conjunto de escalado de máquinas virtuales subyacente seguirán siendo paralelas en todas las zonas de disponibilidad.
       Esta propiedad no afectará la distribución del dominio de actualización para los tipos de nodo que no tienen varias zonas habilitadas.
 * El tercer valor es **vmssZonalUpgradeMode = Parallel**. Se trata de una propiedad *obligatoria* que se va a configurar en el clúster, si se agrega un elemento nodeType con varias zonas de disponibilidad. Esta propiedad define el modo de actualización para las actualizaciones del conjunto de escalado de máquinas virtuales que se producirán en paralelo en todas las zonas de disponibilidad de una vez.

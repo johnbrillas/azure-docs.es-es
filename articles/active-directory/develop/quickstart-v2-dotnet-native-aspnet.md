@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9dc787c57ef3ab84d9a2b90cfe059594b0a31d08
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754326"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102519"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Inicio rápido: Llamada a una instancia de ASP.NET Web API protegida por una plataforma de identidad de Microsoft
 
@@ -48,13 +48,12 @@ En esta sección va a registrar su API web en **Registros de aplicaciones**, en 
 
 Para registrar las aplicaciones manualmente, elija el inquilino de Azure Active Directory (Azure AD) en el que desea crear las aplicaciones.
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> con una cuenta profesional o educativa, o una cuenta Microsoft.
-1. Si su cuenta está presente en más de un inquilino de Azure AD, seleccione su perfil en el menú de la parte superior derecha y, luego, **Cambiar directorio**.
-1. Cambie la sesión del portal al inquilino de Azure AD que desee usar.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que desea utilizar.
 
 ### <a name="register-the-todolistservice-app"></a>Registro de la aplicación TodoListService
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.

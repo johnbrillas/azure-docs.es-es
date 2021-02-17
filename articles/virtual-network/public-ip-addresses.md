@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223234"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806974"
 ---
 # <a name="public-ip-addresses"></a>Direcciones IP públicas
 
@@ -54,7 +54,7 @@ Las direcciones IP públicas de SKU estándar:
 - Tiene un tiempo espera de inactividad del flujo originado de entrada ajustable de entre 4 y 30 minutos, y un valor predeterminado de 4 minutos, y el valor predeterminado del tiempo de espera del flujo originado es de 4 minutos.
 - Son seguras de forma predeterminada y se cierran al tráfico de entrada. Permiten mostrar el tráfico de entrada con un [grupo de seguridad de red](./network-security-groups-overview.md#network-security-groups).
 - Se asignan a interfaces de red, equilibradores de carga estándar públicos o puertas de enlace de aplicaciones. Para más información sobre Standard Load Balancer, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Puede ser con redundancia de zona (publicitado desde las tres zonas) o zonal (se pueden crear zonal y garantizada en una zona de disponibilidad específica). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en regiones de [en las que haya tres zonas de disponibilidad](../availability-zones/az-region.md) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
+- Pueden tener redundancia de zona (haberse anunciado desde las tres zonas), ser zonales (garantizadas en una zona de disponibilidad preseleccionada específica) o no tener zona (no asociadas a ninguna zona de disponibilidad preseleccionada concreta). Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad). **Las direcciones IP con redundancia de zona solo se pueden crear en regiones de [en las que haya tres zonas de disponibilidad](../availability-zones/az-region.md) activas.** Las direcciones IP creadas antes de que las zonas estén activas no tendrán redundancia de zona.
 - Se puede usar como dirección IP de front-end de difusión por proximidad (anycast) para [equilibradores de carga entre regiones](../load-balancer/cross-region-overview.md) (funcionalidad de versión preliminar).
  
 > [!NOTE]
@@ -62,6 +62,9 @@ Las direcciones IP públicas de SKU estándar:
 
 > [!NOTE]
 > Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay direcciones IP públicas con SKU básica disponibles. No se admiten las SKU estándar.
+
+> [!NOTE]
+> La configuración de diagnóstico no aparece en la hoja del recurso cuando se usa una dirección IP pública del SKU estándar. Para habilitar el registro en un recurso de dirección IP pública estándar, vaya a la configuración de diagnóstico en la hoja Azure Monitor y seleccione el recurso de dirección IP.
 
 ### <a name="basic"></a>Básica
 

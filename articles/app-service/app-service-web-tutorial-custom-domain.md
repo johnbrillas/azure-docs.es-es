@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608272"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096351"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -309,17 +309,20 @@ Si recibe un error HTTP 404 (No se encuentra) al ir a la dirección URL del domi
 - En el dominio personalizado configurado falta un registro A o un registro CNAME.
 - El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la memoria caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## <a name="migrate-an-active-domain"></a>Migración de un dominio activo
 
 Para migrar un sitio en vivo y su nombre de dominio DNS a App Service sin tiempo de inactividad, consulte [Migración de un nombre DNS activo a Azure App Service](manage-custom-dns-migrate-domain.md).
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="redirect-to-a-custom-directory"></a>Redirección a un directorio personalizado
 
 De forma predeterminada, App Service dirige las solicitudes web al directorio raíz del código de la aplicación. Sin embargo, algunos marcos web no se inician en el directorio raíz. Por ejemplo, [Laravel](https://laravel.com/) se inicia en el subdirectorio `public`. Para continuar con el ejemplo de DNS de `contoso.com`, se podría acceder a la aplicación en `http://contoso.com/public`, pero, en su lugar, quiere redirigir `http://contoso.com` al directorio `public`. Este paso no implica la resolución DNS, sino que trata de personalizar el directorio virtual.
 
-Para personalizar un directorio virtual, seleccione **Configuración de la aplicación** en el panel izquierdo de la página de la aplicación web.
+Para personalizar un directorio virtual para aplicaciones de Windows, seleccione **Configuración de la aplicación** en el panel izquierdo de la página de la aplicación web. 
+
+> [!NOTE]
+> Las aplicaciones de Linux no tienen esta página. Para cambiar la raíz del sitio para las aplicaciones de Linux, consulte las guías de configuración específicas del lenguaje ([PHP](configure-language-php.md?pivots=platform-linux#change-site-root), por ejemplo).
 
 En la parte inferior de la página, el directorio virtual raíz `/` apunta a `site\wwwroot` de forma predeterminada, que es el directorio raíz del código de la aplicación. Cambie esta configuración para que, en su lugar, apunte, por ejemplo, a `site\wwwroot\public` y después guarde los cambios.
 

@@ -4,12 +4,12 @@ description: Aprenda a controlar la interacción humana y los tiempos de espera 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: dd7f8416b2f4520ec8e94c8608f753f7412afc4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028310"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627379"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -37,6 +37,9 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 
 * `E4_SmsPhoneVerification`: [función de orquestador](durable-functions-bindings.md#orchestration-trigger) que realiza el proceso de comprobación telefónica, incluida la administración de tiempos de espera y reintentos.
 * `E4_SendSmsChallenge`: [función de actividad](durable-functions-bindings.md#activity-trigger) que envía un código mediante un mensaje de texto.
+
+> [!NOTE]
+> La función `HttpStart` de la [aplicación de ejemplo y el inicio rápido](#prerequisites) actúa como [cliente de orquestación](durable-functions-bindings.md#orchestration-client) que desencadena la función de orquestador.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>Función de orquestador E4_SmsPhoneVerification
 

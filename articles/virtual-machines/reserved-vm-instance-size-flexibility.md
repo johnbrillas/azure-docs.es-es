@@ -1,25 +1,25 @@
 ---
 title: 'Flexibilidad en el tamaño de las máquinas virtuales: Azure Reserved VM Instances'
 description: Obtenga información sobre a qué serie de tamaño se aplica un descuento de reserva cuando compra una instancia reservada de máquina virtual.
-author: manish-shukla01
+author: yashesvi
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/03/2018
-ms.author: manshuk
-ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.author: yashar
+ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855506"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980446"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances
 
 Al comprar una instancia reservada de VM, puede elegir entre optimizar la flexibilidad de tamaño de instancia o la prioridad de capacidad. Para obtener más información acerca de cómo establecer o cambiar la configuración de optimización de instancias reservadas de VM, consulte [Cambiar la configuración de optimización para instancias reservadas de máquina virtual](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-Con una instancia reservada de máquina virtual optimizada para conseguir flexibilidad en el tamaño de la instancia, la reserva que adquiera se puede aplicar a los tamaños de las máquinas virtuales del mismo grupo de flexibilidad de tamaño de instancia. Por ejemplo, si compra una reserva para un tamaño de máquina virtual de la serie DSv2 como, por ejemplo, Standard_DS5_v2, el descuento por la reserva se puede aplicar a los otros cuatro tamaños que aparecen en el mismo grupo de flexibilidad de tamaño de instancia:
+Con una instancia reservada de máquina virtual optimizada para conseguir flexibilidad en el tamaño de la instancia, la reserva que adquiera se puede aplicar a los tamaños de las máquinas virtuales del mismo grupo de flexibilidad de tamaño de instancia. Por ejemplo, si compra una reserva para un tamaño de máquina virtual de la serie DSv2 como, por ejemplo, Standard_DS3_v2, el descuento por la reserva se puede aplicar a los otros tamaños que aparecen en el mismo grupo de flexibilidad de tamaño de instancia:
 
 - Standard_DS1_v2
 - Standard_DS2_v2

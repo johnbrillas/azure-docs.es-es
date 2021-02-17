@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 10/02/2020
+ms.date: 02/04/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e79bbb2ac6febb39fec27aa6ac3c82ff58f81122
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619154"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575828"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 
@@ -42,14 +42,14 @@ Para completar este artículo, necesita los siguientes recursos:
 
 ## <a name="create-required-azure-ad-resources"></a>Creación de los recursos de Azure AD necesarios
 
-Azure AD DS requiere una entidad de servicio y un grupo de Azure AD. Estos recursos permiten al dominio administrado de Azure AD DS sincronizar los datos y definir qué usuarios tienen permisos administrativos en él.
+Azure AD DS necesita una entidad de servicio para autenticarse y comunicarse, así como un grupo de Azure AD para definir qué usuarios tienen permisos administrativos en el dominio administrado.
 
-En primer lugar, cree una entidad de servicio de Azure AD para Azure AD DS para comunicarse y autenticarse. Se usa un identificador de aplicación específico denominado *Servicios de controlador de dominio* con un identificador de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. No cambie este identificador de aplicación.
+En primer lugar, cree una entidad de servicio de Azure AD utilizando un identificador de aplicación específico llamado *Servicios de controlador de dominio*. En Public Azure, el valor del identificador es *2565bd9d-da50-47d4-8b85-4c97f669dc36*. En otras nubes, el valor es *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. No cambie este identificador de aplicación.
 
 Cree una entidad de servicio de Azure AD con el cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 Ahora, cree un grupo de Azure AD denominado *Administradores de controlador de dominio de AAD*. A los usuarios agregados a este grupo se les conceden permisos para realizar tareas de administración en el dominio administrado.
@@ -145,18 +145,6 @@ Los siguientes cmdlets de PowerShell usan [New-AzNetworkSecurityRuleConfig][New-
 ```powershell
 $NSGName = "aaddsNSG"
 
-# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
-$nsg101 = New-AzNetworkSecurityRuleConfig `
-    -Name AllowSyncWithAzureAD `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 101 `
-    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443
-
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
 $nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
     -Access Allow `
@@ -183,7 +171,7 @@ $nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
 $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -ResourceGroupName $ResourceGroupName `
     -Location $AzureLocation `
-    -SecurityRules $nsg101,$nsg201,$nsg301
+    -SecurityRules $nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
 $vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
@@ -252,7 +240,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -307,18 +295,6 @@ $Vnet=New-AzVirtualNetwork `
   
 $NSGName = "aaddsNSG"
 
-# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
-$nsg101 = New-AzNetworkSecurityRuleConfig `
-    -Name AllowSyncWithAzureAD `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 101 `
-    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443
-
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
 $nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
     -Access Allow `
@@ -345,7 +321,7 @@ $nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
 $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -ResourceGroupName $ResourceGroupName `
     -Location $AzureLocation `
-    -SecurityRules $nsg101,$nsg201,$nsg301
+    -SecurityRules $nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
 $vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName

@@ -1,14 +1,14 @@
 ---
 title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949503"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593932"
 ---
 # <a name="what-are-the-azure-management-areas"></a>¿Qué son las áreas de administración de Azure?
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: ba58af8d3d28efcc7f97be01a96202a2203a3459
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 1290a13f23f49a99d5b9d962d93d91bc3331356d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796937"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093139"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Tutorial: Configuración del inicio de sesión único entre Azure Active Directory y F5
 
@@ -26,7 +26,8 @@ En este tutorial, obtendrá información sobre cómo integrar F5 con Azure Acti
 * Permitir que los usuarios inicien sesión automáticamente en F5 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información acerca de la integración de aplicaciones SaaS con el inicio de sesión único en Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> [!NOTE]
+> BIG-IP APM de F5 [Comprar ahora](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -113,18 +114,18 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 Para configurar la integración de F5 en Azure AD, será preciso agregar F5 desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **F5** en el cuadro de búsqueda.
 1. Seleccione **F5** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Configuración y prueba del inicio de sesión único de Azure AD para F5
+## <a name="configure-and-test-azure-ad-sso-for-f5"></a>Configuración y prueba del inicio de sesión único de Azure AD para F5
 
 Configure y pruebe el inicio de sesión único de Azure AD con F5 mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de F5.
 
-Para configurar y probar el inicio de sesión único de Azure AD con F5, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con F5, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -137,7 +138,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con F5, es pre
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **F5**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de aplicaciones de **F5**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -183,19 +184,10 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **F5**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-1. Haga clic en **Acceso condicional**.
-1. Haga clic en **Nueva directiva**.
-1. Ahora puede ver la aplicación F5 como un recurso para la directiva de acceso condicional y aplicar cualquier acceso condicional, como la autenticación multifactor, el control de acceso basado en dispositivo o la directiva de protección de identidades.
 
 ## <a name="configure-f5-sso"></a>Configuración del inicio de sesión único de F5
 
@@ -355,9 +347,9 @@ Esta sección está pensada para emplearse si no puede usar la Configuración gu
 
     f. **Matching Source   =  %{session.server.landinguri}** 
 
-    g. **Matching Value     = /** _
+    g. **Matching Value     = /** *
 
-    h. Haga clic en _ *update**
+    h. Haga clic en **Update** (Actualizar).
 
     i. Haga clic en **Aceptar**
 
@@ -449,26 +441,24 @@ En esta sección, creará un usuario llamado B.Simon en F5. Trabaje con el [equi
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de F5 en el panel de acceso, debería iniciar sesión automáticamente en la versión de F5 para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de F5, donde puede poner en marcha el flujo de inicio de sesión.  
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de F5 y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en F5 para la que ha configurado el inicio de sesión único. 
 
-- [Prueba de F5 con Azure AD](https://aad.portal.azure.com/)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de F5 en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de F5 para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Configuración del inicio de sesión único de F5 para la aplicación Kerberos](kerbf5-tutorial.md)
+> [!NOTE]
+> BIG-IP APM de F5 [Comprar ahora](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
 
-- [Configuración del inicio de sesión único de F5 para la aplicación Kerberos avanzada](advance-kerbf5-tutorial.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Integración de F5 BIG-IP APM y Azure AD para el acceso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+Una vez configurado F5, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-- [Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
-
-- [Tutorial para la integración del inicio de sesión único de Azure Active Directory con F5 BIG-IP para una VPN sin contraseña](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn) 

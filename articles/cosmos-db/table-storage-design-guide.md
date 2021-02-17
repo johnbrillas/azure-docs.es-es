@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943892"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988428"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Table Storage: Tablas escalables y eficaces
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -632,7 +632,7 @@ Para esta opción, utilice las entidades de índice que almacenan los datos sigu
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Captura de pantalla que muestra la entidad de índice de empleado que contiene una lista de identificadores de empleado para los empleados con el apellido almacenado en RowKey y PartitionKey":::.
 
-La propiedad `EmployeeIDs` contiene una lista de identificadores de empleado para los empleados cuyo apellido está almacenado en `RowKey` y `PartitionKey`.  
+La propiedad `EmployeeDetails` contiene una lista de identificadores de empleados y pares de nombres de departamentos para los empleados cuyo apellido está almacenado en `RowKey`.
 
 No puede utilizar las EGT para mantener la coherencia porque las entidades del índice están en una partición distinta que las entidades de empleado. Asegúrese de que las entidades de índice son coherentes finalmente con las entidades "employee".  
 

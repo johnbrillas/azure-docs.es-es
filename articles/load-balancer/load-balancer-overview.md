@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: d5d2f83ddb4f37e1379bb7d60a76ddc70d61f99a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6f83df22465a2dc5fb871ae4e2c6dedd75e00075
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785844"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834228"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -56,7 +56,7 @@ Entre los escenarios clave que puede realizar con Standard Load Balancer se incl
 
 - Habilitación de la compatibilidad con el **[equilibrio de carga](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ipv6-overview.md)** .
 
-- Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](../azure-monitor/overview.md).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio. [Información para Azure Load Balancer] (https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) ofrece un panel preconfigurado con visualizaciones útiles para estas métricas.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
+- Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](../azure-monitor/overview.md).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio. [Información para Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) ofrece un panel preconfigurado con visualizaciones útiles para estas métricas.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
 
 - Servicios de equilibrio de carga en **[varios puertos, varias direcciones IP, o en ambos](./load-balancer-multivip-overview.md)** .
 

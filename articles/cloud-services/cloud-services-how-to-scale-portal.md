@@ -1,6 +1,6 @@
 ---
 title: Escalado automático de un servicio en la nube (clásico) en el portal | Microsoft Docs
-description: Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure.
+description: Aprenda a usar el portal para configurar reglas de escalado automático para los roles del servicio en la nube (clásico) en Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743362"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980837"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Obtenga información sobre cómo configurar el escalado automático para un servicio en la nube (clásico) en el portal.
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743362"
 Las condiciones se pueden definir para un rol de trabajo de servicio en la nube que desencadene una operación de reducción horizontal y de escalabilidad horizontal. Las condiciones del rol pueden basarse en la CPU, el disco o la carga de red del rol. También puede establecer una condición basada en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
 > [!NOTE]
-> Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Puede escalar una máquina virtual estándar asociándola con un [conjunto de disponibilidad](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) y activándola o desactivándola manualmente.
+> Este artículo se centra en el servicio en la nube (clásico). Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Puede escalar una máquina virtual estándar asociándola con un [conjunto de disponibilidad](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) y activándola o desactivándola manualmente.
 
 ## <a name="considerations"></a>Consideraciones
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 81a5f28f0bf2f7f7ea005a4d9fe8d42337f6d0b9
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753994"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103403"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -36,7 +36,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
@@ -45,7 +45,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -59,7 +59,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que el código de ejemplo de este inicio rápido funcione, es preciso agregar una dirección URL de respuesta como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Para que el código de ejemplo de este inicio rápido funcione, agregue un **URI de redirección** de `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >

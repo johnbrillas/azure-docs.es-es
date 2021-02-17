@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593655"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809548"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -58,7 +58,8 @@ Al copiar archivos binarios entre los almacenes, puede habilitar la tolerancia a
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true     
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +84,7 @@ skipErrorFile | Un grupo de propiedades para especificar los tipos de errores qu
 fileMissing | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos que se están eliminando en otras aplicaciones mientras ADF realiza la copia. <br/> -True: desea copiar el resto omitiendo los archivos que eliminan otras aplicaciones. <br/> -False: desea anular la actividad de copia una vez que se eliminan los archivos del almacén de origen en medio del movimiento de datos. <br/>Tenga en cuenta que esta propiedad está establecida en true como valor predeterminado. | True (valor predeterminado) <br/>False | No
 fileForbidden | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos concretos, cuando los ACL de esos archivos o carpetas requieren un nivel de permiso superior al de la conexión configurada en ADF. <br/> -True: desea copiar el resto omitiendo los archivos. <br/> -False: desea anular la actividad de copia una vez que recibe el problema de los permisos en las carpetas o los archivos. | True <br/>False (valor predeterminado) | No
 dataInconsistency | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los datos incoherentes entre el almacén de origen y el de destino. <br/> -True: desea copiar el resto omitiendo los datos incoherentes. <br/> - False: desea anular la actividad de copia una vez que se encuentren datos incoherentes. <br/>Tenga en cuenta que esta propiedad solo es válida cuando se establece validateDataConsistency como True. | True <br/>False (valor predeterminado) | No
+invalidFileName | Uno de los pares clave-valor dentro del contenedor de propiedades de skipErrorFile para determinar si desea omitir los archivos particulares, cuando los nombres de archivo no son válidos para el almacén de destino. <br/> -True: desea copiar el resto omitiendo los archivos que tengan nombres no válidos. <br/> -False: desea anular la actividad de copia cuando cualquier archivo tenga un nombre no válido. <br/>Tenga en cuenta que esta propiedad solo funciona al copiar archivos binarios de cualquier almacén de almacenamiento a ADLS Gen2, o bien al copiar archivos binarios de AWS S3 a cualquier almacén de almacenamiento. | True <br/>False (valor predeterminado) | No
 logSettings  | Un grupo de propiedades que puede especificarse cuando quiere registrar los nombres de los objetos omitidos. | &nbsp; | No
 linkedServiceName | El servicio vinculado de [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar los archivos de registro de sesión. | Nombre de un servicio vinculado de tipo `AzureBlobStorage` o `AzureBlobFS`, que hace referencia a la instancia que usa para almacenar el archivo de registro. | No
 path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acceso que se utiliza para almacenar los archivos de registro. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
@@ -166,7 +168,7 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
     Por ejemplo: Copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
 >[!NOTE]
->- Para cargar datos en Azure Synapse Analytics (antes SQL Data Warehouse) mediante PolyBase, defina la configuración de tolerancia a errores nativa de PolyBase especificando directivas de rechazo a través de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia. Aún puede habilitar la redirección de filas incompatibles de PolyBase a Blob o ADLS de la forma habitual, como se muestra a continuación.
+>- Para cargar datos en Azure Synapse Analytics mediante PolyBase, defina la configuración de tolerancia a errores nativa de PolyBase especificando directivas de rechazo a través de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" en la actividad de copia. Aún puede habilitar la redirección de filas incompatibles de PolyBase a Blob o ADLS de la forma habitual, como se muestra a continuación.
 >- Esta característica no se aplica cuando la actividad de copia está configurada para invoca el mecanismo [Unload de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Esta característica no se aplica cuando la actividad de copia se configura para invocar un [procedimiento almacenado desde un receptor de SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 

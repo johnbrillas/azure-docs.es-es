@@ -4,15 +4,15 @@ description: En este artículo se describe cómo Azure Cosmos DB ofrece una alta
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600552"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627389"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Durante una interrupción de la región de lectura, las cuentas de Azure Cosmos mediante un nivel de coherencia o coherencia alta con tres o más regiones de lectura seguirán teniendo una alta disponibilidad para lecturas y escrituras.
 
-* Las cuentas de Azure Cosmos que usen una coherencia alta con dos o menos regiones de lectura (que incluye la región de lectura y escritura) perderán la disponibilidad de escritura durante una interrupción de la región de lectura.
+* Las cuentas de Azure Cosmos que usen una coherencia alta con tres regiones en total (una de escritura y dos de lectura), o menos, perderán la disponibilidad de escritura durante las interrupciones de la región de lectura. Sin embargo, los clientes que con un total de cuatro regiones, o más, pueden optar por usar cuórum de lectura dinámica mediante el envío de una incidencia de soporte técnico. Las cuentas que mantienen al menos dos regiones de lectura en esta configuración conservarán la disponibilidad de escritura.
 
 * La región afectada se desconecta automáticamente y se marcará como sin conexión. Los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigirán las llamadas de lectura a la siguiente región disponible en la lista de regiones preferidas.
 
@@ -112,15 +112,15 @@ En la tabla siguiente se resume la funcionalidad de alta disponibilidad de varia
 |Errores de zona: disponibilidad | Pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad | Sin pérdida de disponibilidad |
 |Interrupción regional: pérdida de datos | Pérdida de datos |  Pérdida de datos | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md). | Depende del nivel de coherencia. Para más información, consulte el artículo que explica el [equilibrio entre coherencia, disponibilidad y rendimiento](consistency-levels-tradeoffs.md).
 |Interrupción regional: disponibilidad | Pérdida de disponibilidad | Pérdida de disponibilidad | No hay pérdida de disponibilidad en caso de error de la región de lectura y temporal en caso de error de la región de escritura | Sin pérdida de disponibilidad |
-|Precio (**_1_* _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x 1,25 (_*_2_*_) | Velocidad de operaciones de escritura en varias regiones |
+|Precio (***1** _) | N/D | Unidades de solicitud aprovisionadas x 1,25 | Unidades de solicitud aprovisionadas x 1,25 (_*_2_**) | Velocidad de operaciones de escritura en varias regiones |
 
-_*_1_*_ En el caso de las cuentas sin servidor, las unidades de solicitud se multiplican por un factor de 1,25.
+***1*** En el caso de las cuentas sin servidor, las unidades de solicitud se multiplican por un factor de 1,25.
 
-_*_2_*_ La velocidad 1,25 solo se aplica a las regiones en que está habilitada la zona de disponibilidad.
+***2*** La velocidad 1,25 solo se aplica a las regiones en que está habilitada la zona de disponibilidad.
 
 Availability Zones se puede habilitar mediante:
 
-_ [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

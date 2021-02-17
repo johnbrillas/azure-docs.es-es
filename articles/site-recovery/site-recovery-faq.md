@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746482"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820203"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -188,7 +188,7 @@ Sí, [se puede usar ExpressRoute](concepts-expressroute-with-site-recovery.md) p
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Si se replica a Azure, ¿qué tipo de cuenta de almacenamiento o disco administrado necesito?
 
-Necesita un almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Recovery Services. Al implementar Site Recovery en Azure Portal, Premium Storage es compatible con máquinas virtuales de VMware, máquinas virtuales de Hyper-V y con la replicación de servidores físicos. Los discos administrados solo con compatibles con LRS.
+Azure Site Recovery no admite el uso de cuentas de almacenamiento como almacenamiento de destino. En su lugar, se recomienda usar discos administrados como almacenamiento de destino de las máquinas. Los discos administrados solo admiten el tipo LRS para favorecer la resistencia de los datos.
 
 ### <a name="how-often-can-i-replicate-data"></a>¿Con qué frecuencia se pueden replicar los datos?
 * **Hyper-V:** Las máquinas virtuales de Hyper-V se pueden replicar cada 30 segundos (excepto en el caso de Premium Storage), cinco minutos o 15 minutos.

@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c5c89b285e8ef98f83d0bfa923aaca402491315d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 99dcd81cd24f762a5c2b55f5f2977aaf61bc26e8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754230"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103543"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -39,7 +39,7 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
@@ -49,7 +49,7 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</span></a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
@@ -65,7 +65,7 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > ### <a name="download-and-configure-your-quickstart-app"></a>Descarga y configuración de la aplicación de inicio rápido
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
-> Para que el ejemplo de código de esta guía de inicio rápido funcione, debe crear un secreto de cliente y agregar el permiso de aplicación **User.Read.All** de Graph API.
+> Para que el ejemplo de código de este inicio rápido funcione, cree un secreto de cliente y agregue el permiso de aplicación **User.Read.All** de Graph API.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
 >
@@ -130,7 +130,7 @@ Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403
 
 ##### <a name="standard-user"></a>Usuario estándar
 
-Si es usuario estándar de su inquilino, deberá pedir a un administrador global que conceda consentimiento del administrador para su aplicación. Para ello, proporcione la siguiente dirección URL a su administrador:
+Si es usuario estándar de su inquilino, pídale a un administrador global que conceda consentimiento del administrador para su aplicación. Para ello, proporcione la siguiente dirección URL a su administrador:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here

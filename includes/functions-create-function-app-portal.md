@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187167"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980950"
 ---
 1. En el menú de Azure Portal o en la página **Principal**, seleccione **Crear un recurso**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187167"
     | **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
     | **Nombre de la aplicación de función** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z` (no distingue mayúsculas de minúsculas), `0-9` y `-`.  |
     |**Publicar**| Código | Opción para publicar archivos de código o un contenedor de Docker. |
-    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Actualmente no se admite la edición en el portal para el [desarrollo con Python](../articles/azure-functions/functions-reference-python.md). |
+    | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. La edición en el portal solo está disponible para JavaScript, PowerShell, TypeScript y el script de C#. Las funciones de la biblioteca de clases de C#, Java y Python deben estar [desarrolladas en el entorno local](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Versión**| Número de la versión | Elija la versión del entorno de ejecución instalado. |
     |**Región**| Región preferida | Elija una [región](https://azure.microsoft.com/regions/) cerca de usted o cerca de otros servicios a los que tendrán acceso las funciones. |
 

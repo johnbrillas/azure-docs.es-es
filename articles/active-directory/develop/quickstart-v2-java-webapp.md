@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: a7337175241834cef862b4af07c7bcf7c8b845d0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178576"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103777"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -38,7 +38,7 @@ Para ejecutar esta muestra, necesita:
 >
 > ### <a name="option-1-register-and-automatically-configure-your-app-and-then-download-the-code-sample"></a>Opción 1: Registrar y configurar de modo automático una aplicación y, luego, descargar el código de ejemplo
 >
-> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones de la experiencia de inicio rápido del portal para descargar el código de aplicación configurado automáticamente.
 >
@@ -48,7 +48,7 @@ Para ejecutar esta muestra, necesita:
 >
 > Para registrar una aplicación y agregarle manualmente información del registro de la aplicación, siga estos pasos:
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar la aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones**.
@@ -68,7 +68,7 @@ Para ejecutar esta muestra, necesita:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
 >
-> Para usar el código de ejemplo en este inicio rápido, necesita:
+> Para usar el código de ejemplo en este inicio rápido:
 >
 > 1. Agregar las direcciones URL de respuesta `https://localhost:8443/msal4jsample/secure/aad` y `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Crear un secreto de cliente.
@@ -161,7 +161,7 @@ Para ejecutar la aplicación web en un entorno de desarrollo integrado, seleccio
 
 ##### <a name="running-the-project-from-tomcat"></a>Ejecución del proyecto desde Tomcat
 
-Si desea implementar el ejemplo web en Tomcat, necesita hacer un par de cambios en el código fuente.
+Si desea implementar el ejemplo web en Tomcat, realice un par de cambios en el código fuente.
 
 1. Abra *ms-identity-java-webapp/pom.xml*.
     - En `<name>msal-web-sample</name>`, agregue `<packaging>war</packaging>`.

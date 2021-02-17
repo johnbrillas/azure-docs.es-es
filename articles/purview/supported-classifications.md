@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551167"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988314"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
 En este artículo se enumeran las clasificaciones del sistema admitidas y definidas en Azure Purview (versión preliminar).
+
+
+- **Umbral de coincidencia único**: es el número total de valores de datos únicos que deben encontrarse en una columna antes de que el escáner ejecute el patrón de datos en ella. Nuestras reglas de clasificación del sistema requieren que haya al menos 8 valores distintos en cada columna para someterlos a clasificación. Asimismo, el sistema necesita este valor para asegurarse de que la columna contiene suficientes datos para que el escáner pueda clasificarla con precisión. Por ejemplo, una columna que contenga varias filas con el valor 1 no se clasificará. Tampoco se clasificarán las columnas que contengan una fila con un valor y el resto de las filas con valores NULL. Recuerde que si especifica varios patrones, este valor se aplica a cada uno de ellos.
+
+- **Umbral de coincidencia mínimo**: es el porcentaje mínimo de coincidencias de valores de datos que debe encontrar el escáner en una columna para que se aplique la clasificación. El valor de clasificación del sistema se establece en 60 %.
+
 
 ## <a name="defined-system-classifications"></a>Clasificaciones del sistema definidas
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Número de cuenta del seguro médico de Australia
+## <a name="australian-medicare-number"></a>Número de Medicare en Australia
 
 ### <a name="format"></a>Formato
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Palabras clave
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details

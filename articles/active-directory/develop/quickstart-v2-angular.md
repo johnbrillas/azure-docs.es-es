@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225806"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103862"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
 
@@ -35,9 +35,7 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opción 1 (rápido): Registrar y configurar de modo automático la aplicación y, luego, descargar el código de ejemplo
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Si la cuenta tiene acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Active Directory (Azure AD) que desee utilizar.
-> 1. Abra el nuevo panel de [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) de Azure Portal.
+> 1. Vaya a la experiencia de inicio rápido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal: Registros de aplicaciones</a>.
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Vaya al panel de inicio rápido y vea el inicio rápido de Angular. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación.
 >
@@ -45,15 +43,15 @@ En este inicio rápido descargará y ejecutará un código de ejemplo que muestr
 >
 > #### <a name="step-1-register-the-application"></a>Paso 1: Registro de la aplicación
 >
-> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Si la cuenta tiene acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
+> 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Siga las instrucciones para [registrar una aplicación de página única](./scenario-spa-app-registration.md) en Azure Portal.
 > 1. Agregue una nueva plataforma en el panel **Autenticación** del registro de la aplicación y registre el identificador URI de redireccionamiento: `http://localhost:4200/`.
 > 1. En este inicio rápido se usa el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En **Implicit grant and hybrid flows** (Flujos de concesión implícita e híbridos), seleccione **Tokens de id.** y **Tokens de acceso**. Tanto los tokens de identificador como los tokens de acceso son obligatorios, ya que esta aplicación inicia la sesión de los usuarios y llama a una API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Paso 1: Configurar la aplicación en Azure Portal
-> Para que el código de ejemplo de este inicio rápido funcione, tiene que agregar un URI de redirección como **http://localhost:4200/** y habilitar ****Concesión implícita**.
+> Para que el código de ejemplo de este inicio rápido funcione, tiene que agregar un URI de redirección como **http://localhost:4200/** y habilitar **Concesión implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
 >

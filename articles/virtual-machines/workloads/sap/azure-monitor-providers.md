@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968611"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007421"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Proveedores de Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -41,7 +41,7 @@ Si los clientes no configuran ningún proveedor en el momento de implementar el 
 
 Los clientes pueden configurar uno o varios proveedores del tipo *SAP HANA* para habilitar la recopilación de datos de la base de datos de SAP HANA. El proveedor de SAP HANA se conecta a la base de datos de SAP HANA a través del puerto de SQL, extrae datos de telemetría de la base de datos y los envía al área de trabajo de Log Analytics en la suscripción del cliente. El proveedor de SAP HANA recopila datos cada minuto de la base de datos de SAP HANA.  
 
-En la versión preliminar pública, los clientes deberían ver los datos siguientes con el proveedor de SAP HANA: uso de la infraestructura subyacente, estado del host de SAP HANA, replicación del sistema de SAP HANA y datos de telemetría de la copia de seguridad de SAP HANA. Para configurar el proveedor de SAP HANA, se requiere la dirección IP del host, el número de puerto de SQL de HANA y el nombre de usuario y la contraseña de SYSTEMDB. Se recomienda a los clientes configurar el proveedor de SAP HANA con SYSTEMDB, pero se pueden configurar proveedores adicionales con otros inquilinos de base de datos.
+En la versión preliminar pública, los clientes deberían ver los datos siguientes con el proveedor de SAP HANA: uso de la infraestructura subyacente, estado del host de SAP HANA, replicación del sistema de SAP HANA y datos de telemetría de la copia de seguridad de SAP HANA. Para configurar el proveedor de SAP HANA, se requiere la dirección IP del host, el número de puerto de SQL de HANA y el nombre de usuario y la contraseña de SYSTEMDB. Se recomienda a los clientes configurar el proveedor de SAP HANA con SYSTEMDB, pero se pueden configurar más proveedores con otros inquilinos de base de datos.
 
 ![Proveedores de Azure Monitor para soluciones de SAP: SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
@@ -68,10 +68,38 @@ Para configurar al proveedor de clúster de alta disponibilidad, se deben llevar
    Para configurar al proveedor de clústeres de alta disponibilidad, se requiere la siguiente información:
    
    - **Nombre**. Nombre del proveedor. Debe ser único para esta instancia Azure Monitor para soluciones de SAP.
-   - **Punto de conexión de Prometheus**. Normalmente, http\://\<servername or ip address\>:9664/metrics.
+   - **Punto de conexión de Prometheus**. http\://\<servername or ip address\>:9664/metrics.
    - **SID**. En el caso de los sistemas SAP, use el SID de SAP. En el caso de otros sistemas (por ejemplo, clústeres NFS), use un nombre de tres caracteres para el clúster. El SID debe ser distinto de otros clústeres que se vayan a supervisar.   
    - **Nombre del clúster**. Nombre de clúster que se usó al crear el clúster. El nombre del clúster se puede encontrar en la propiedad `cluster-name` del clúster.
    - **Hostname**. Nombre de host Linux de la máquina virtual.  
+
+
+## <a name="provider-type-os-linux"></a>Sistema operativo del tipo de proveedor (Linux)
+Los clientes pueden configurar uno o varios proveedores del tipo SO (Linux) para habilitar la recopilación de datos de BareMetal o VM Node. El proveedor del sistema operativo (Linux) se conecta a instancias de BareMetal o de VM Node mediante el punto de conexión  [Node_Exporter](https://github.com/prometheus/node_exporter) , extrae datos de telemetría de los nodos y los envía al área de trabajo de Log Analytics de la suscripción del cliente. El proveedor del sistema operativo (Linux) recopila datos cada 60 segundos para la mayoría de las métricas de Nodes. 
+
+En la versión preliminar pública, los clientes deberían ver los datos siguientes con el proveedor del sistema operativo (Linux): 
+   - Uso de CPU, uso de CPU por proceso 
+   - Uso de disco, lectura y escritura de E/S 
+   - Distribución de la memoria, uso de la memoria, uso de la memoria de intercambio 
+   - Uso de red, detalles del tráfico de entrada y salida de la red. 
+
+Para configurar un proveedor de sistema operativo (Linux), se deben llevar a cabo dos pasos principales:
+1. Instale [Node_Exporter](https://github.com/prometheus/node_exporter) en todas las instancias de BareMetal o VM Node.
+   Tiene dos opciones para instalar [Node_exporter](https://github.com/prometheus/node_exporter): 
+      - Para la instalación de Automation con Ansible, use [Node_Exporter](https://github.com/prometheus/node_exporter) en las instancias de BareMetal o VM Node para instalar el proveedor del sistema operativo (Linux).  
+      - Realice una  [instalación manual](https://prometheus.io/docs/guides/node-exporter/).
+
+2. Configure un proveedor de sistema operativo (Linux) para cada instancia de BareMetal o VM Node en su entorno. 
+   Para configurar al proveedor de sistema operativo (Linux), se requiere la siguiente información: 
+      - Name (Nombre). Nombre del proveedor. Debe ser único para esta instancia Azure Monitor para soluciones de SAP. 
+      - Punto de conexión de Node Exporter. Normalmente, http://<servername or ip address>:9100/metrics 
+
+> [!NOTE]
+> 9100 es un puerto expuesto para el punto de conexión de Node_Exporter.
+
+> [!Warning]
+> Asegúrese de que Node Exporter sigue ejecutándose después del reinicio del nodo. 
+
 
 ## <a name="provider-type-microsoft-sql-server"></a>Tipo de proveedor de Microsoft SQL Server
 
@@ -79,7 +107,7 @@ Los clientes pueden configurar uno o varios proveedores del tipo *Microsoft SQL 
 
 En la versión preliminar pública, los clientes deberían ver los datos siguientes con el proveedor de SQL Server: uso de la infraestructura subyacente, principales instrucciones SQL, tabla de mayor tamaño, problemas detectados en los registros de errores de SQL Server, procesos de bloqueo, etc.  
 
-Para configurar el proveedor de Microsoft SQL Server, se necesitan el identificador del sistema SAP, la dirección IP del host y el número del puerto de SQL Server, así como el nombre de inicio de sesión y la contraseña de SQL Server.
+Para configurar el proveedor de Microsoft SQL Server, se necesitan el identificador del sistema SAP, la dirección IP del host, el número del puerto de SQL Server y el nombre de inicio de sesión y la contraseña de SQL Server.
 
 ![Proveedores de Azure Monitor para soluciones de SAP: SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 

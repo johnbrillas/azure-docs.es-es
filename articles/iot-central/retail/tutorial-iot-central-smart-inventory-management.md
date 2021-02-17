@@ -7,22 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463260"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832188"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implementación y recorrido de la plantilla de aplicación de administración inteligente
 
-
-
 En este tutorial se muestra cómo implementar una plantilla de aplicación de **Smart Inventory Management** de IoT Central. Aprenderá cómo implementar la plantilla, qué elementos se incluyen de fábrica y qué podría hacer a continuación.
 
-En este tutorial, aprenderá lo siguiente: 
-* Creación de una aplicación de administración inteligente de inventario. 
-* Recorrido por la aplicación. 
+En este tutorial, aprenderá lo siguiente:
+
+> [!div class="checklist"]
+> Creación de una aplicación de administración de inventario inteligente.
+> Navegación por la aplicación. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -110,8 +110,8 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicació
 > ![Captura de pantalla que muestra cómo eliminar la aplicación cuando haya terminado con ella](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre la administración inteligente del inventario 
+
+Más información sobre la administración inteligente del inventario:
+
 > [!div class="nextstepaction"]
 > [Concepto de administración inteligente del inventario](./architecture-smart-inventory-management.md)
-* Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail.md).
-* Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

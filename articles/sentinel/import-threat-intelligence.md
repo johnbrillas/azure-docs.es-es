@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660787"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807146"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importación de inteligencia sobre amenazas en Azure Sentinel
 
@@ -36,7 +36,7 @@ Puede integrar la inteligencia sobre amenazas (TI) en Azure Sentinel a través d
 - Use las plantillas de reglas de **análisis** integradas para generar alertas e incidentes de seguridad mediante la inteligencia sobre amenazas importada.
 - Visualice información clave sobre la inteligencia sobre amenazas en Azure Sentinel con el **libro de inteligencia sobre amenazas**.
 
-La inteligencia sobre amenazas también proporciona contexto útil dentro de otras experiencias de Azure Sentinel como **Búsqueda** y **Notebooks** y, aunque no se trata en este artículo, se hace mención a estas experiencias en [esta excelente entrada de blog de Ian Hellen sobre las instancias de Jupyter Notebook en Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que trata el uso de CTI en Notebooks.
+Inteligencia sobre amenazas también proporciona contexto útil dentro de otras experiencias de Azure Sentinel como **Búsqueda** y **Notebooks** y, aunque no se trata en este artículo, se hace mención a estas experiencias en [esta excelente entrada de blog de Ian Hellen sobre los cuadernos de Jupyter Notebook en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que trata el uso de CTI en Notebooks.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Conectores de datos de Azure Sentinel para la inteligencia sobre amenazas
 

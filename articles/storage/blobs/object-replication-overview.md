@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 391c33e72f45e7c0c0b56128b32a8e73399e417a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762884"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834330"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -42,6 +42,8 @@ La replicación de objetos requiere que también estén habilitadas las caracter
 - [Control de versiones de blobs](versioning-overview.md): debe estar habilitado en la cuenta de origen y en la cuenta de destino. Para información sobre cómo habilitar el control de versiones, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 
 Habilitar la fuente de cambios y el control de versiones de blob puede suponer costos adicionales. Para más información, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+
+La replicación de objetos sólo es compatible con las cuentas de almacenamiento v2 de uso general. Tanto la cuenta de origen como la de destino deben ser de uso general v2. 
 
 ## <a name="how-object-replication-works"></a>Funcionamiento de la replicación de objetos
 

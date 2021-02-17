@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: a7dc6a6b11d3bfacf0aac5472a872ffaa7acc92b
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 5be0bf21514dd92c2f980081bb57d873895bbb91
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748712"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099938"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for MySQL con la opción Servidor flexible (versión preliminar)
 
@@ -97,7 +97,7 @@ Cree el archivo _mysql-flexible-server-template.json_ y copie este script JSON e
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -204,6 +204,22 @@ read serverName &&
 echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
+```
+## <a name="exporting-arm-template-from-the-portal"></a>Exportación de una plantilla de ARM desde el portal
+Puede [exportar una plantilla de ARM](../../azure-resource-manager/templates/export-template-portal.md) desde Azure Portal. Hay dos maneras de exportar una plantilla:
+
+- [Exportar desde el grupo de recursos o el recurso](../../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Esta opción genera una plantilla nueva a partir de los recursos existentes. La plantilla exportada es una "instantánea" del estado actual del grupo de recursos. Puede exportar un grupo de recursos completo o recursos específicos dentro de ese grupo de recursos.
+- [Exportar antes de la implementación o desde el historial](../../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
+
+Al exportar la plantilla, en la sección ```"parameters":{ }``` de la plantilla observará que ```administratorLogin``` y ```administratorLoginPassword``` no se incluyen por motivos de seguridad. **DEBE** agregar estos parámetros a la plantilla antes de implementarla o, de lo contrario, se producirá un error en la plantilla.
+
+```
+"administratorLogin": {
+      "type": "String"
+    },
+"administratorLoginPassword": {
+      "type": "SecureString"
+    },
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

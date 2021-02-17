@@ -1,5 +1,5 @@
 ---
-title: Creación de soluciones gubernamentales con Azure IoT Central
+title: ¿Cuáles son las soluciones gubernamentales de Azure IoT Central?
 description: Aprenda a crear soluciones inteligentes para la ciudad con plantillas de la aplicación de Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590824"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834347"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Creación de soluciones gubernamentales con Azure IoT Central
+# <a name="what-are-the-iot-central-government-solutions"></a>¿Cuáles son las soluciones gubernamentales de IoT Central?
 
 Empiece con la creación de soluciones inteligentes para la ciudad mediante las plantillas de aplicación de Azure IoT Central. Empiece ahora con la **supervisión de la calidad del agua**, la **supervisión del consumo de agua** y la **administración de residuos conectados**.
 
@@ -71,8 +71,6 @@ Empiece a trabajar con el [tutorial de la aplicación Connected Waste Management
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Pruebe cualquiera de las plantillas de la aplicación Government en IoT Central de forma gratuita [crear aplicación](https://apps.azureiotcentral.com/build/government)
 * Más información sobre los [conceptos de la supervisión de la calidad del agua](./concepts-waterqualitymonitoring-architecture.md)
 * Más información sobre los [conceptos de la supervisión del consumo de agua](./concepts-waterconsumptionmonitoring-architecture.md)
 * Más información sobre los [conceptos de administración de residuos conectados](./concepts-connectedwastemanagement-architecture.md)  
-* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md)

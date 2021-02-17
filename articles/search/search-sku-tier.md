@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693458"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987888"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -60,7 +60,8 @@ La mayoría de las características están disponibles en todos los niveles, inc
 | [Identidades administradas o de confianza para el acceso saliente (indexador)](search-howto-managed-identities-data-sources.md) | No disponibles en el nivel Gratis.|
 | [Claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) | No disponibles en el nivel Gratis. |
 | [Acceso al firewall de IP](service-configure-firewall.md) | No disponibles en el nivel Gratis. |
-| [Punto de conexión privado (integración con Azure Private Link)](service-create-private-endpoint.md) | En el caso de las conexiones entrantes a un servicio de búsqueda, no está disponible en el nivel Gratis. En el caso de las conexiones salientes de indexadores a otros recursos de Azure, no es´ta disponible en el nivel Gratis ni S3 HD. Para los indexadores que usan conjuntos de aptitudes, no está disponible en los niveles Gratis, Básico, S1 o S3 HD.|
+| [Punto de conexión privado (integración con Azure Private Link)](service-create-private-endpoint.md) | En el caso de las conexiones entrantes a un servicio de búsqueda, no está disponible en el nivel Gratis. En el caso de las conexiones salientes de indexadores a otros recursos de Azure, no es´ta disponible en el nivel Gratis ni S3 HD. Para los indexadores que usan conjuntos de aptitudes, no está disponible en los niveles Gratis, Básico, S1 o S3 HD.| 
+| [Zonas de disponibilidad](search-performance-optimization.md) | No disponibles en el nivel Gratis ni en el Básico. |
 
 Es posible que las características que consumen muchos recursos no funcionen bien a menos que se le proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 

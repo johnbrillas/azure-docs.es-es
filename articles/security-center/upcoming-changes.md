@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475597"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555148"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -31,39 +31,9 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 
 ## <a name="planned-changes"></a>Cambios planeados
 
-- [Pronto se publicarán recomendaciones de protección de cargas de trabajo de Kubernetes para disponibilidad general (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Mejoras en la recomendación de clasificación de datos de SQL](#enhancements-to-sql-data-classification-recommendation)
-
-
-### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Pronto se publicarán recomendaciones de protección de cargas de trabajo de Kubernetes para disponibilidad general (GA)
-
-**Fecha estimada del cambio:** Febrero de 2021
-
-Las recomendaciones de protección de cargas de trabajo de Kubernetes que se describen en [Protección de cargas de trabajo de Kubernetes](kubernetes-workload-protections.md) se encuentran actualmente en versión preliminar. Mientras una recomendación está en versión preliminar no representa un recurso incorrecto y no se incluye en los cálculos de puntuación segura.
-
-Pronto se publicarán estas recomendaciones para la disponibilidad general (GA), por lo que se *incluirán* en el cálculo de puntuaciones. Si aún no ha hecho nada al respecto, esto podría afectar negativamente a su puntuación segura.
-
-Corríjalas siempre que sea posible (aprenda cómo en [Recomendaciones de corrección en Azure Security Center](security-center-remediate-recommendations.md)).
-
-Estas son las recomendaciones de protección de cargas de trabajo de Kubernetes:
-
-- El complemento Azure Policy para Kubernetes debe estar instalado y habilitado en sus clústeres
-- Debe aplicar los límites de CPU y memoria de los contenedores.
-- Deben evitarse los contenedores con privilegios.
-- El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores.
-- Debe evitar los contenedores con elevación de privilegios.
-- Debe evitar la ejecución de contenedores como usuario raíz.
-- Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.
-- Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores
-- El uso de montajes de volúmenes HostPath de pod debe estar restringido a una lista conocida.
-- Los contenedores solo deben escuchar en los puertos permitidos.
-- Los servicios solo deben escuchar en los puertos permitidos.
-- El uso de puertos y redes de hosts debe estar restringido.
-- La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida.
-- Las imágenes de contenedor solo deben implementarse desde registros de confianza.             
-
-Obtenga más información sobre estas recomendaciones en [Protección de cargas de trabajo de Kubernetes](kubernetes-workload-protections.md).
+- [Desuso de 11 alertas de Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entran en desuso 
 
@@ -83,11 +53,38 @@ Más información sobre estas recomendaciones en la [página de referencia de la
 
 **Fecha estimada del cambio:** Segundo trimestre de 2021
 
-La versión actual de la recomendación **Se deben clasificar los datos confidenciales de las bases de datos SQL** del control de seguridad **Aplicar clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado:
+La recomendación **Los datos confidenciales de las bases de datos SQL deben clasificarse** del control de seguridad **Aplicación de la clasificación de datos** se reemplazará por una nueva versión que esté más alineada con la estrategia de clasificación de datos de Microsoft. Como resultado, el identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
-- La recomendación ya no afectará a la puntuación de seguridad.
-- El control de seguridad ("Aplicar clasificación de datos") ya no afectará a la puntuación de seguridad.
-- El identificador de la recomendación también cambiará (actualmente es b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+### <a name="deprecation-of-11-azure-defender-alerts"></a>Desuso de 11 alertas de Azure Defender
+
+**Fecha estimada del cambio:** marzo de 2021
+
+El mes que viene, las once alertas de Azure Defender que se enumeran a continuación dejarán de usarse.
+
+- Las nuevas alertas reemplazarán estas dos y proporcionarán una mejor cobertura:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | VERSIÓN PRELIMINAR: Se detectó la ejecución de la función "Get-AzureDomainInfo" del kit de herramientas de MicroBurst. |
+    | ARM_MicroBurstRunbook    | VERSIÓN PRELIMINAR: Se detectó la ejecución de la función "Get-AzurePasswords" del kit de herramientas de MicroBurst.  |
+    |                          |                                                                          |
+
+- Estas nueve alertas se refieren a un conector de Azure Active Directory Identity Protection que ya está en desuso:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Propiedades de inicio de sesión desconocidas |
+    | AnonymousLogin      | Dirección IP anónima          |
+    | InfectedDeviceLogin | Dirección IP vinculada al malware     |
+    | ImpossibleTravel    | Viaje atípico               |
+    | MaliciousIP         | Dirección IP malintencionada          |
+    | LeakedCredentials   | Credenciales con fugas            |
+    | PasswordSpray       | Difusión de contraseñas                |
+    | LeakedCredentials   | Inteligencia de Azure AD sobre amenazas  |
+    | AADAI               | IA de Azure AD                   |
+    |                     |                               |
+ 
 
 
 

@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682078"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627001"
 ---
 # <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
+
+> [!IMPORTANT]
+> Se ha retirado la versión preliminar de Azure Service Fabric Mesh. Ya no se permitirán nuevas implementaciones a través de la API de Service Fabric Mesh. La compatibilidad con las implementaciones existentes continuará hasta el 28 de abril de 2021.
+> 
+> Para más información, consulte [Retirada de la versión preliminar de Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin la administración de máquinas virtuales, almacenamiento o redes. La supervisión y el diagnóstico para Service Fabric mesh se clasifican en tres tipos principales de datos de diagnóstico:
 
 - Registros de aplicación: se definen como registros de aplicaciones en contenedores, según cómo haya instrumentado la aplicación (por ejemplo, registros de Docker)
@@ -58,7 +64,7 @@ El entorno de Mesh expone una serie de métricas que indican el rendimiento de l
 | RestartCount | Número de reinicios de contenedor | N/D |
 
 > [!NOTE]
-> Los valores de ServiceStatus y ServiceReplicaStatus son los mismos que [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) en Service Fabric. 
+> Los valores de ServiceStatus y ServiceReplicaStatus son los mismos que [HealthState](/dotnet/api/system.fabric.health.healthstate) en Service Fabric.
 
 Cada métrica está disponible en distintas dimensiones para que pueda ver agregados en distintos niveles. La lista actual de las dimensiones es la siguiente:
 

@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063559"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583949"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Creación de una instancia de una aplicación cliente confidencial con opciones de configuración mediante MSAL.NET
 
@@ -60,7 +60,7 @@ La configuración de una aplicación de ASP.NET Core se describe en un archivo *
 
 A partir de MSAL.NET v3.x, puede configurar la aplicación cliente confidencial a partir del archivo de configuración.
 
-En la clase en la que desee configurar y crear la instancia de la aplicación, deberá declarar un objeto `ConfidentialClientApplicationOptions`.  Enlace la configuración leída desde el origen (incluido el archivo appconfig.json) a la instancia de las opciones de la aplicación, mediante el método `IConfigurationRoot.Bind()` desde el [paquete de NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+En la clase en la que desee configurar y crear la instancia de la aplicación, declare un objeto `ConfidentialClientApplicationOptions`.  Enlace la configuración leída desde el origen (incluido el archivo appconfig.json) a la instancia de las opciones de la aplicación, mediante el método `IConfigurationRoot.Bind()` desde el [paquete NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

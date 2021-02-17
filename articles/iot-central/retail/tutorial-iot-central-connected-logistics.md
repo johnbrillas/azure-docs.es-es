@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7c6c50b6fd8200726aa11f120d9748cc1b40aa22
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346221"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831627"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación de logística conectada
 
@@ -130,8 +130,8 @@ Si no va a seguir usando esta aplicación, elimine la plantilla de aplicación. 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Limpieza de la plantilla":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información acerca de 
+
+Más información sobre :
+
 > [!div class="nextstepaction"]
-> [Concepto de logística conectada](./architecture-connected-logistics.md)
-* Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail.md).
-* Más información acerca de la [introducción a IoT Central](../core/overview-iot-central.md).
+> [Conceptos de logística conectada](./architecture-connected-logistics.md)
