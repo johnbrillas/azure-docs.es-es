@@ -4,12 +4,12 @@ description: Más información sobre los grupos de administración, el funcionam
 ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9843b824c62e0f9919d7a71a717d9aad03dcbd9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736329"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590842"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -184,7 +184,7 @@ Para que un grupo de administración o una suscripción sean un elemento secunda
 Si va a realizar la acción de movimiento, necesitará lo siguiente: 
 
 - Permisos de escritura de grupos de administración y de escritura de la asignación de roles en la suscripción o en el grupo de administración secundarios.
-  - Ejemplo de rol integrado: **Propietario**
+  - Ejemplo del rol integrado **Propietario**
 - Acceso de escritura de grupos de administración en el grupo de administración primario de destino.
   - Ejemplo de rol integrado: **Propietario**, **Colaborador**, **Colaborador de grupo de administración**
 - Acceso de escritura de grupos de administración en el grupo de administración primario existente.
@@ -196,7 +196,7 @@ Si el rol de propietario de la suscripción se hereda del grupo de administraci�
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 
-Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md). Puede buscar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure. Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
+Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md). Puede buscar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure. Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Captura de pantalla de los registros de actividad y las operaciones relacionadas con el grupo de administración seleccionado." border="false":::
 
