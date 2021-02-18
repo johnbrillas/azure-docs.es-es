@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c18814230eda6624e8ab1040797c66108f630e30
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001327"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581737"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs
 
@@ -309,4 +309,4 @@ Ahora ya ha configurado el centro de notificaciones con APNs. Tiene también la 
 
 En este tutorial, creó y configuró un centro de notificaciones en Azure y lo configuró para permitir el envío de notificaciones a la aplicación mediante Apple Push Notification Service (APNs). A continuación, crearemos una aplicación iOS de ejemplo e integraremos el SDK de Azure Notification Hubs para que pueda recibir notificaciones push enviadas a través de Azure Portal. Continúe en el siguiente tutorial en función del lenguaje que elija:
 
-- [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](ios-sdk-300.md)
+- [Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs](ios-sdk-current.md)

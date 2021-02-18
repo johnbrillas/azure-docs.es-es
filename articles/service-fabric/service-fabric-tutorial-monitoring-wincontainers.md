@@ -4,12 +4,12 @@ description: En este tutorial, configurará los registros de Azure Monitor para 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840683"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588241"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Supervisión de contenedores de Windows en Service Fabric mediante los registros de Azure Monitor
 
@@ -230,6 +230,6 @@ En este tutorial, ha aprendido a:
 Ahora que ha configurado la supervisión de la aplicación en contenedores, pruebe lo siguiente:
 
 * Configure los registros de Azure Monitor para un clúster Linux, siguiendo pasos similares a los de este tutorial. Haga referencia a [esta plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para realizar cambios en su plantilla de Resource Manager.
-* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/platform/alerts-overview.md) que ayuden a la detección y el diagnóstico.
+* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/alerts/alerts-overview.md) que ayuden a la detección y el diagnóstico.
 * Explore la lista de Service Fabric de [contadores de rendimiento recomendados](service-fabric-diagnostics-event-generation-perf.md) para configurar sus clústeres.
-* Familiarícese con las característica de [búsqueda de registros y consulta](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las característica de [búsqueda de registros y consulta](../azure-monitor/logs/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
