@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834092"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570838"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -137,7 +137,7 @@ Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecut
 2. Haga clic en **Seleccionar destino** y, a continuación, seleccione los recursos que desea establecer como destino. Seleccione la **Suscripción** y establezca el **Tipo de recurso** para filtrar hasta encontrar el monitor de conexión que desea usar.
 
     ![pantalla de alerta con el destino seleccionado](./media/connection-monitor/set-alert-rule.png)
-1. Una vez haya seleccionado un recurso de destino, seleccione **Agregar criterios**. Network Watcher tiene [métricas sobre las que puede crear alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Establezca **Señales disponibles** en las métricas ProbesFailedPercent y AverageRoundtripMs:
+1. Una vez haya seleccionado un recurso de destino, seleccione **Agregar criterios**. Network Watcher tiene [métricas sobre las que puede crear alertas](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Establezca **Señales disponibles** en las métricas ProbesFailedPercent y AverageRoundtripMs:
 
     ![página de alertas con señales seleccionadas](./media/connection-monitor/set-alert-signals.png)
 1. Rellene los detalles de la alerta, como el nombre de la regla de alertas, la descripción y la gravedad. También puede agregar un grupo de acciones a la alerta para automatizar y personalizar la respuesta de la alerta.

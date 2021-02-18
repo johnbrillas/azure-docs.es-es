@@ -3,16 +3,16 @@ title: 'Tutorial: Supervisión de una máquina híbrida con Azure Monitor para V
 description: Aprenda a recopilar y analizar los datos de una máquina híbrida en Azure Monitor.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738091"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587689"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Supervisión de una máquina híbrida con Azure Monitor para VM
 
-[Azure Monitor](../overview.md) puede recopilar datos directamente de las máquinas híbridas en un área de trabajo de Log Analytics para lograr una correlación y un análisis detallados. Normalmente, esto implicaría la instalación del [agente de Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) en la máquina mediante un script, un método manual o automatizado, según los estándares de administración de la configuración. Los servidores habilitados para Arc han incorporado recientemente compatibilidad para instalar las [extensiones de VM](../manage-vm-extensions.md) del agente de Log Analytics y de Dependency Agent para Windows y Linux, lo que permite a Azure Monitor recopilar datos de VM que no son de Azure.
+[Azure Monitor](../overview.md) puede recopilar datos directamente de las máquinas híbridas en un área de trabajo de Log Analytics para lograr una correlación y un análisis detallados. Normalmente, esto implicaría la instalación del [agente de Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) en la máquina mediante un script, un método manual o automatizado, según los estándares de administración de la configuración. Los servidores habilitados para Arc han incorporado recientemente compatibilidad para instalar las [extensiones de VM](../manage-vm-extensions.md) del agente de Log Analytics y de Dependency Agent para Windows y Linux, lo que permite a Azure Monitor recopilar datos de VM que no son de Azure.
 
 En este tutorial se muestra cómo configurar y recopilar datos de máquinas Linux o Windows mediante la habilitación de Azure Monitor para VM siguiendo un conjunto simplificado de pasos, lo que optimiza la experiencia y exige un tiempo menor.  
 
@@ -22,9 +22,9 @@ En este tutorial se muestra cómo configurar y recopilar datos de máquinas Linu
 
 * La funcionalidad de la extensión de VM solo está disponible en la lista de [regiones admitidas](../overview.md#supported-regions).
 
-* Consulte [Sistemas operativos admitidos](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para asegurarse de que el sistema operativo de los servidores que está habilitando sea compatible con Azure Monitor para VM.
+* Consulte [Sistemas operativos admitidos](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) para asegurarse de que el sistema operativo de los servidores que está habilitando sea compatible con Azure Monitor para VM.
 
-* Revise los requisitos de firewall para el agente de Log Analytics, que se proporcionan en el artículo sobre [información general del agente de Log Analytics](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). La extensión Dependency Agent para Service Map de Azure Monitor para VM no transmite ningún dato y no requiere ningún cambio en firewalls o puertos.
+* Revise los requisitos de firewall para el agente de Log Analytics, que se proporcionan en el artículo sobre [información general del agente de Log Analytics](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). La extensión Dependency Agent para Service Map de Azure Monitor para VM no transmite ningún dato y no requiere ningún cambio en firewalls o puertos.
 
 ## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
 

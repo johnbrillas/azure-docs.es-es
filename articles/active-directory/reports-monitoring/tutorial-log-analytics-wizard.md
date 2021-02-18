@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343848"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574385"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 Familiarícese con estos artículos:
 
-- [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [Integración de registros de actividad con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -49,7 +49,7 @@ Familiarícese con estos artículos:
 
 - [Referencia rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 
