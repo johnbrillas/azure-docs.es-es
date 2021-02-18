@@ -1,22 +1,19 @@
 ---
 title: Bifurcación de la canalización de Azure Data Factory
 description: Obtenga información sobre cómo controlar el flujo de datos en Azure Data Factory mediante la bifurcación y el encadenamiento de actividades.
-services: data-factory
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 111fff6e35bed9c2af9c638549362039f25def12
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496966"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386023"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -610,7 +607,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +750,7 @@ Press any key to exit...
 En este tutorial ha realizado las tareas siguientes:
 
 > [!div class="checklist"]
-> Creación de una factoría de datos
+> * Crear una factoría de datos
 > * Creación de un servicio vinculado de Azure Storage
 > * Creación de un conjunto de datos del blob de Azure
 > * Creación de una canalización que contiene una actividad de copia y una actividad web

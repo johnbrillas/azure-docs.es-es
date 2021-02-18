@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893412"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365776"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -82,7 +82,7 @@ Si no usa WPAD, puede configurar el proxy en WinHTTP a partir de la versión 170
 
 Si la organización requiere acceso a Internet mediante un servidor proxy saliente autenticado, asegúrese de que los equipos con Windows 10 pueden autenticarse correctamente en el proxy de salida. Debido a que los equipos con Windows 10 ejecutan el registro de dispositivos mediante el contexto del equipo, configure la autenticación del proxy de salida mediante el contexto del equipo. Realice un seguimiento con su proveedor de proxy de salida en relación a los requisitos de configuración.
 
-Compruebe si el dispositivo puede acceder a los recursos de Microsoft anteriores con la cuenta del sistema; para ello, utilice el script para [Probar la conectividad del registro de dispositivos](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0).
+Compruebe si el dispositivo puede acceder a los recursos de Microsoft anteriores con la cuenta del sistema; para ello, utilice el script para [Probar la conectividad del registro de dispositivos](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configuración de la unión a Azure AD híbrido
 
