@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: eff73888a449de20b2b460d519b36c0f03c4ea77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcef40dad9c67e9e2c6d6c4a051045999487027
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691143"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531722"
 ---
 Cuando se ejecuta el grafo multimedia, los resultados del nodo del procesador de detección del movimiento pasan a través del nodo de receptor de IoT Hub al centro de IoT. Los mensajes que aparecen en la ventana **SALIDA** de Visual Studio Code contienen una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -61,21 +61,12 @@ A continuación se muestra un ejemplo de este mensaje:
         }  
       }  
     ]  
-  },  
-  "applicationProperties": {  
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
-    "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",
-    "dataVersion": "1.0"  
-  }  
+  } 
 }  
 ```
 
 En este ejemplo: 
 
-* En `applicationProperties`, `subject` hace referencia al nodo del grafo multimedia desde el que se generó el mensaje. En este caso, el mensaje se origina en el procesador de detección del movimiento.
-* En `applicationProperties`, `eventType` indica que este es un evento de análisis.
 * El valor `eventTime` es la hora en que se produjo el evento.
 * El valor `body` son datos sobre el evento de análisis. En este caso, el evento es un evento de inferencia, por lo que el cuerpo contiene los datos `timestamp` y `inferences`.
 * Los datos de `inferences` indican que el valor de `type` es `motion`. Tiene datos adicionales sobre el evento `motion`.

@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131469"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593395"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
 El control de costos es un componente esencial para maximizar el valor de su inversión en la nube. Hay varios escenarios donde la orquestación en función del costo, los informes y la visibilidad del costo resultan fundamentales para la continuidad de las operaciones empresariales. [Las API de Azure Cost Management](/rest/api/consumption/) proporcionan un conjunto de API para admitir cada uno de estos escenarios. Las API proporcionan detalles de uso, lo que le permite ver los costos a un nivel de instancia pormenorizado.
 
-Los presupuestos normalmente se usan como parte del control de costos. Se pueden seguir en Azure. Por ejemplo, podría restringir la vista de presupuesto en función de una colección de recursos, grupos de recursos o una suscripción. Además de utilizar la API de presupuestos para recibir notificaciones por correo electrónico cuando se alcanza un umbral de presupuesto, puede usar [grupos de acciones de Azure Monitor](../../azure-monitor/platform/action-groups.md) para desencadenar un conjunto organizado de acciones que resultan en un evento de presupuesto.
+Los presupuestos normalmente se usan como parte del control de costos. Se pueden seguir en Azure. Por ejemplo, podría restringir la vista de presupuesto en función de una colección de recursos, grupos de recursos o una suscripción. Además de utilizar la API de presupuestos para recibir notificaciones por correo electrónico cuando se alcanza un umbral de presupuesto, puede usar [grupos de acciones de Azure Monitor](../../azure-monitor/alerts/action-groups.md) para desencadenar un conjunto organizado de acciones que resultan en un evento de presupuesto.
 
 Un escenario habitual en el que un cliente que ejecuta una carga de trabajo que no resulta fundamental tiene en cuenta los presupuestos podría ser cuando se desea llevar a cabo la administración en función de uno concreto y también no superar un costo predecible al recibir la factura mensual. Este escenario requiere cierta organización en función del costo de los recursos que forman parte del entorno de Azure. En este escenario, se establece un presupuesto mensual de 1000 USD para la suscripción. Además, se establecen umbrales de notificación para desencadenar algunas orquestaciones. Este escenario comienza con un umbral de costo del 80 %, que, si se supera, implicará detener todas las máquinas virtuales en el grupo de recursos **Opcional**. A continuación, en el umbral de costo del 100 %, se detendrán todas las instancias de máquina virtual.
 

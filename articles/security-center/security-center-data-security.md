@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0c21c916d152188031212b47704dfb41d3f64a82
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339482"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596283"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Defender
 
@@ -82,8 +82,8 @@ Los clientes pueden acceder a los datos relacionados de Defender desde los sigui
 
 | STREAM                                                                                | Tipos de datos                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Registro de actividad de Azure](../azure-monitor/platform/activity-log.md)                       | Todas las alertas de seguridad, las solicitudes de acceso [Just-In-Time](security-center-just-in-time.md) aprobadas de Defender y todas las alertas generadas por los [controles de aplicaciones adaptables](security-center-adaptive-application.md).|
-| [Registros de Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todas las alertas de seguridad.                                                                                                                                                                                                |
+| [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)                       | Todas las alertas de seguridad, las solicitudes de acceso [Just-In-Time](security-center-just-in-time.md) aprobadas de Defender y todas las alertas generadas por los [controles de aplicaciones adaptables](security-center-adaptive-application.md).|
+| [Registros de Azure Monitor](../azure-monitor/data-platform.md)                      | Todas las alertas de seguridad.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Las alertas de seguridad, las recomendaciones de seguridad, los resultados de la evaluación de vulnerabilidades, la información de puntuación segura, el estado de las comprobaciones de cumplimiento, etc.                                                                       |
 | [API REST de Azure Security Center](/rest/api/securitycenter/) | Las alertas de seguridad, las recomendaciones de seguridad y mucho más.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
