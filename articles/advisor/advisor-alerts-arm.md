@@ -4,12 +4,12 @@ description: Aprenda a configurar una alerta para nuevas recomendaciones de Azur
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629903"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590055"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Inicio rápido: Creación de alertas de Azure Advisor para nuevas recomendaciones mediante una plantilla de Resource Manager
 
@@ -17,7 +17,7 @@ En este artículo se muestra cómo configurar una alerta para nuevas recomendaci
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Cada vez que Azure Advisor detecta una nueva recomendación para uno de los recursos, se almacena un evento en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Puede configurar alertas para estos eventos desde Azure Advisor creando alertas específicas para la recomendación. Puede seleccionar una suscripción y, si lo desea, un grupo de recursos para especificar los recursos sobre los que desea recibir alertas.
+Cada vez que Azure Advisor detecta una nueva recomendación para uno de los recursos, se almacena un evento en el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md). Puede configurar alertas para estos eventos desde Azure Advisor creando alertas específicas para la recomendación. Puede seleccionar una suscripción y, si lo desea, un grupo de recursos para especificar los recursos sobre los que desea recibir alertas.
 
 También puede determinar los tipos de recomendaciones mediante el uso de estas propiedades:
 
@@ -30,7 +30,7 @@ También puede configurar la acción que tendrá lugar cuando se desencadene una
 - Selecciona un grupo de acciones existente.
 - Crea un nuevo grupo de acciones.
 
-Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
+Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Las alertas de Advisor solo están disponibles para las recomendaciones de alta disponibilidad, rendimiento y costo. No se admiten recomendaciones de seguridad.
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.
-- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).
+- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/alerts/alerts-overview.md) y aprenda cómo puede recibir alertas.
+- Más información sobre los [grupos de acciones](../azure-monitor/alerts/action-groups.md).

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a169b93b20df14e536d8764b5fb4c889d645a1fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807774"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570412"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Inicio rápido: Incorporación de Azure Sentinel
 
@@ -32,7 +32,7 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
 
 - Suscripción activa de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 
-- Área de trabajo de Log Analytics. Aprenda a [crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md). Para obtener más información sobre las áreas de trabajo de Log Analytics, consulte [Diseño de su implementación de Azure Monitor Logs](../azure-monitor/platform/design-logs-deployment.md).
+- Área de trabajo de Log Analytics. Aprenda a [crear un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md). Para obtener más información sobre las áreas de trabajo de Log Analytics, consulte [Diseño de su implementación de Azure Monitor Logs](../azure-monitor/logs/design-logs-deployment.md).
 
 - Para habilitar Azure Sentinel, necesita permisos de colaborador en la suscripción en la que reside el área de trabajo de Azure Sentinel. 
 - Para usar Azure Sentinel, necesita permisos de colaborador o lector en el grupo de recursos al que pertenece el área de trabajo.
@@ -47,7 +47,7 @@ Después de conectar los orígenes de datos, puede elegir de una galería de lib
 
     | Geografía del área de trabajo | Geografía de datos generados por Azure Sentinel |
     | --- | --- |
-    | Estados Unidos<br>India<br>Brasil<br>África<br>Corea | Estados Unidos |
+    | Estados Unidos<br>India<br>Brasil<br>África<br>Corea<br>Emiratos Árabes Unidos | Estados Unidos |
     | Europa<br>Francia<br>Suiza | Europa |
     | Australia | Australia |
     | Reino Unido | Reino Unido |

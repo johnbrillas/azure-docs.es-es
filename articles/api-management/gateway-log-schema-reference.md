@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379996"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582508"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Referencia: Esquema del registro de recursos de API Management
 
-En este artículo se proporciona referencia del esquema para el registro de recursos GatewayLogs de Azure API Management. Las entradas de registro también incluyen campos en el [esquema común de nivel superior](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+En este artículo se proporciona referencia del esquema para el registro de recursos GatewayLogs de Azure API Management. Las entradas de registro también incluyen campos en el [esquema común de nivel superior](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Para habilitar la recopilación del registro de recursos en API Management, consulte [Supervisión de las API publicadas](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Se registran las siguientes propiedades para cada solicitud de API.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre las API de supervisión en API Management, consulte [Supervisión de las API publicadas](api-management-howto-use-azure-monitor.md)
-* Obtenga más información en [Esquema específico de servicio y común para los registros de recursos de Azure](../azure-monitor/platform/resource-logs-schema.md).
+* Obtenga más información en [Esquema específico de servicio y común para los registros de recursos de Azure](../azure-monitor/essentials/resource-logs-schema.md).
 

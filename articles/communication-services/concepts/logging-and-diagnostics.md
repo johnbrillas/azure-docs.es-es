@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1c803ed24542cbc4a2f0aaaee82ac0f57559cb9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033126"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591862"
 ---
 # <a name="communication-services-logs"></a>Registros de Communication Services
 
@@ -30,7 +30,7 @@ La nueva configuración surte efecto en unos diez minutos. Los registros comenza
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opciones de configuración de diagnóstico de ACS":::.
 
-Para más información sobre la configuración de diagnóstico, consulte la información general sobre los [registros de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para más información sobre la configuración de diagnóstico, consulte la información general sobre los [registros de los recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorías del registro de recursos
 

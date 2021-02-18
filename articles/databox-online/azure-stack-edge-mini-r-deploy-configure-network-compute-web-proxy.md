@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594457"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546778"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Configuración de red para Azure Stack Edge Mini R
 
@@ -50,7 +50,7 @@ Siga estos pasos para configurar la red en el dispositivo.
 
 2. Si se necesita una actualización de día cero, puede hacerlo aquí mediante la configuración de un puerto de datos con una conexión con cable. Para más instrucciones sobre cómo configurar una conexión con cable para este dispositivo, consulte [Cableado del dispositivo](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Una vez finalizada la actualización, puede quitar la conexión con cable.
 
-3. Cree certificados para la red Wi-Fi y la cadena de firma. Tanto la cadena de firma como el certificado para la red Wi-Fi deben tener el formato DER con una extensión de archivo *.cer*. Para obtener instrucciones, consulte [Uso de certificados con el dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-manage-certificates.md).
+3. Cree certificados para la red Wi-Fi y la cadena de firma. Tanto la cadena de firma como el certificado para la red Wi-Fi deben tener el formato DER con una extensión de archivo *.cer*. Para obtener instrucciones, consulte [Uso de certificados con el dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-manage-certificates.md).
 
 4. En la interfaz de usuario web local, vaya a **Get started** (Comenzar). En el icono **Security** (Seguridad), seleccione **Certificates** (Certificados) y, a continuación, seleccione **Configure** (Configurar). 
 

@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 65c97f04213acfe707a39be11c74b852885f7203
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 04c19ca8fbdaed85225b5af128c72d393e5350e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493906"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573264"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Uso de PowerShell para supervisar y escalar una base de datos única en Azure SQL Database
 
@@ -35,7 +35,7 @@ Si decide instalar y usar PowerShell de manera local, en este tutorial se requie
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!NOTE]
-> Para obtener una lista completa de las métricas, consulte [Métricas compatibles](../../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
+> Para obtener una lista completa de las métricas, consulte [Métricas compatibles](../../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases).
 > [!TIP]
 > Use [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) para obtener el estado de las operaciones de base de datos y utilice [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) para cancelar una operación de actualización de la base de datos.
 
