@@ -66,12 +66,12 @@
         - name: Agregación de eventos (versión preliminar)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
-        - name: Alertas de seguridad
+        - name: Alertas integradas para IoT Hub
           displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
-        - name: Alertas de seguridad personalizadas
+        - name: Alertas de seguridad personalizadas para IoT Hub
           href: concept-customizable-security-alerts.md
-        - name: Recomendaciones de seguridad
+        - name: Recomendaciones de seguridad para IoT Hub
           href: concept-recommendations.md
         - name: Clásico
           items:
@@ -94,6 +94,12 @@
             - name: Agregación de eventos clásica del módulo de seguridad
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
+            - name: Alertas de seguridad basadas en agente
+              href: agent-based-security-alerts.md
+            - name: Alertas personalizadas de seguridad basadas en agente
+              href: agent-based-security-custom-alerts.md
+            - name: Recomendaciones basadas en agente
+              href: agent-based-recommendations.md
 - name: Guías paso a paso
   items:
     - name: Una solución sin agente para organizaciones

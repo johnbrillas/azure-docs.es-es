@@ -38,7 +38,7 @@
     - name: Proceso de contenedor
       expanded: true
       items:
-        - name: Contenedores confidenciales (del tipo lift-and-shift)
+        - name: Contenedores confidenciales
           items:
             - name: Introducción
               href: confidential-containers.md
