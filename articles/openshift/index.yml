@@ -4,18 +4,17 @@ summary: Red Hat OpenShift en Azure proporciona clústeres de Kubernetes de inqu
 metadata:
   title: Documentación de Red Hat OpenShift en Azure
   description: Red Hat OpenShift en Microsoft Azure permite implementar un clúster de Red Hat OpenShift preparado para producción en Azure. Aprenda cómo se hace con estos tutoriales y guías paso a paso.
-  ms.service: container-service
-  services: container-service
+  ms.service: azure-redhat-openshift
   ms.topic: landing-page
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 74ba5f8270e366621a0fd352bd76747077d9cc08
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.openlocfilehash: 06c6b14d62bb471ecc6dee50d72f11469e3cd161
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94411327"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100633213"
 landingContent:
 - title: Acerca de Red Hat OpenShift en Azure
   linkLists:
