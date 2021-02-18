@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250137"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650458"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de VuePress en Azure Static Web Apps (versión preliminar)
 
@@ -100,7 +100,7 @@ Necesita un repositorio en GitHub para conectarse a Azure Static Web Apps. En lo
 1. Inserte el repositorio local en GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Implementación de la aplicación web
@@ -127,7 +127,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de Static Web App
 
 1. En _SKU_, seleccione **Gratis**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Detalles rellenados":::
 
 1. Haga clic en el botón **Iniciar sesión con GitHub**.
 
@@ -135,9 +135,9 @@ En los pasos siguientes se muestra cómo crear una aplicación de Static Web App
 
 1. Seleccione **vuepress-static-app** como _Repositorio_.
 
-1. En _Rama_, seleccione **maestra**.
+1. En _Rama_, seleccione **principal**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Información de GitHub completada":::
 
 ### <a name="build"></a>Build
 
@@ -151,7 +151,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Configuración de la compilación":::
 
 ### <a name="review-and-create"></a>Revisar y crear
 
@@ -163,7 +163,7 @@ No es necesario un valor para _Ubicación de la API_, ya que por el momento no e
 
 1. En la pantalla del recurso, haga clic en el vínculo _Dirección URL_ para abrir la aplicación implementada. Es posible que tenga que esperar uno o dos minutos para que se complete la Acción de GitHub.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Aplicación implementada":::
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
 
