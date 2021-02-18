@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954536"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571861"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
 
@@ -42,11 +42,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 > * [Una suscripción de Azure](how-to-set-azure-subscription.md)
 > * Una cuenta y grupo de recursos de [Media Services](create-account-howto.md).
 > * Una instalación de [FFmpeg](https://ffmpeg.org/download.html) para su sistema operativo.
-> * Un área de trabajo de [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md)
+> * Un área de trabajo de [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>Suscripción a un evento de Media Services con una aplicación lógica
 
-1. En Azure Portal, si aún no lo ha hecho, cree un área de trabajo de [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Necesitará el id. del área de trabajo y una de las claves, por lo que debe mantener abierta la ventana del explorador. A continuación, abra el portal en otra pestaña o ventana.
+1. En Azure Portal, si aún no lo ha hecho, cree un área de trabajo de [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). Necesitará el id. del área de trabajo y una de las claves, por lo que debe mantener abierta la ventana del explorador. A continuación, abra el portal en otra pestaña o ventana.
 
 1. Vaya a la cuenta de Azure Media Services y seleccione **Eventos**. Esto mostrará todos los métodos para suscribirse a los eventos de Azure Media Services.
     > [!div class="mx-imgBorder"]
@@ -230,4 +230,4 @@ Si no quiere seguir usando los recursos que creó en este tutorial, asegúrese d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede crear consultas diferentes y guardarlas. Estas se podrán agregar al [panel de Azure](../../azure-monitor/learn/tutorial-logs-dashboards.md).
+Puede crear consultas diferentes y guardarlas. Estas se podrán agregar al [panel de Azure](../../azure-monitor/visualize/tutorial-logs-dashboards.md).

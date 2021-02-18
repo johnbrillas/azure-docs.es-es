@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736599"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570113"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
 
@@ -86,18 +86,18 @@ Para habilitar la supervisión de la máquina virtual de Azure con Azure Monitor
 
 3. En la página **Insights (versión preliminar)** , seleccione **Probar ahora**.
 
-    ![Habilitar Azure Monitor para VM para una máquina virtual](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Habilitar Azure Monitor para VM para una máquina virtual](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. En la página **Azure Monitor Insights Onboarding** (Incorporación a Insights de Azure Monitor), si tiene un área de trabajo de Log Analytics existente en la misma suscripción, selecciónela en la lista desplegable.  
 
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa la VM en la suscripción. 
 
     >[!NOTE]
-    >Para crear un área de trabajo de Log Analytics nueva para almacenar los datos de supervisión de la VM, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md). El área de trabajo debe pertenecer a una de las [regiones admitidas](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >Para crear un área de trabajo de Log Analytics nueva para almacenar los datos de supervisión de la VM, vea [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md). El área de trabajo debe pertenecer a una de las [regiones admitidas](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 Después de habilitar la supervisión, puede que tenga que esperar unos minutos para ver las métricas de rendimiento de la máquina virtual.
 
-![Habilitar el procesamiento de implementación de supervisión de Azure Monitor para VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Habilitar el procesamiento de implementación de supervisión de Azure Monitor para VM](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Visualización de las métricas de rendimiento de la máquina virtual
 

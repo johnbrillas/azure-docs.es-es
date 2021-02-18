@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631166"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571024"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
@@ -99,7 +99,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
 ## <a name="may-2020"></a>Mayo de 2020
 
-* [Usuarios de la directiva de copia de seguridad](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (versión preliminar)
+* [Usuarios de la directiva de copia de seguridad](create-active-directory-connections.md) (versión preliminar)
 
     Azure NetApp Files le permite incluir cuentas adicionales que requieran privilegios elevados para la cuenta de equipo creada para Azure NetApp Files. Se permitirá a las cuentas especificadas cambiar los permisos de NTFS en el nivel de archivo o carpeta. Por ejemplo, puede especificar una cuenta de servicio sin privilegios que se usa para migrar los datos a un recurso compartido de archivos de SMB en Azure NetApp Files. La característica Usuarios de la directiva de copia de seguridad se encuentra actualmente en la versión preliminar.
 
