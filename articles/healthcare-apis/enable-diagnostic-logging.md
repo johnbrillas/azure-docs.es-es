@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 02/03/2021
-ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581966"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitación del registro de diagnóstico en Azure API for FHIR
 
-En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR y podrá revisar algunas consultas de ejemplo de estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR que permite los registros de diagnóstico es [**Configuración de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) de Azure Portal. 
+En este artículo aprenderá a habilitar el registro de diagnóstico en Azure API for FHIR y podrá revisar algunas consultas de ejemplo de estos registros. El acceso a los registros de diagnóstico es esencial para cualquier servicio del sector sanitario en el que el cumplimiento de los requisitos normativos (como HIPAA) es imprescindible. La característica de Azure API for FHIR que permite los registros de diagnóstico es [**Configuración de diagnóstico**](../azure-monitor/essentials/diagnostic-settings.md) de Azure Portal. 
 
 ## <a name="enable-audit-logs"></a>Habilitación de los registros de auditoría
 1. Para habilitar el registro de diagnóstico en Azure API for FHIR, seleccione el servicio Azure API for FHIR en Azure Portal. 
@@ -45,7 +45,7 @@ En este artículo aprenderá a habilitar el registro de diagnóstico en Azure AP
 > [!Note] 
 > Los primeros registros pueden tardar hasta quince minutos en mostrarse en Log Analytics.  
  
-Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para más información sobre cómo trabajar con los registros de diagnóstico, consulte la [documentación del registro de recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="audit-log-details"></a>Detalles del registro de auditoría
 En este momento, el servicio Azure API for FHIR devuelve los campos siguientes en el registro de auditoría: 

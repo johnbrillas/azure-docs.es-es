@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, correo electrónico o webhook cuando
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594957"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Inicio rápido: Creación de alertas del registro de actividad en notificaciones del servicio mediante una plantilla de Resource Manager
 
@@ -17,7 +17,7 @@ En este artículo se explica cómo configurar las alertas del registro de activi
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio.
+Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md). Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio.
 
 Puede recibir una alerta cuando Azure envía notificaciones de estado del servicio a la suscripción de Azure. Puede configurar la alerta en función de:
 
@@ -34,7 +34,7 @@ También puede configurar a quién se debe enviar la alerta:
 - Seleccione un grupo de acciones existente.
 - Cree un nuevo grupo de acciones (que puede usarse para futuras alertas).
 
-Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
+Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Obtenga información sobre cómo [configurar notificaciones de inserción móviles de Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Más información acerca de las [Notificaciones del estado del servicio](service-notifications.md).
-- Más información sobre la [Limitación del número de notificaciones](../azure-monitor/platform/alerts-rate-limiting.md).
-- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.
-- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).
+- Más información sobre la [Limitación del número de notificaciones](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Consulte la [introducción a las alertas del registro de actividad](../azure-monitor/alerts/alerts-overview.md) y aprenda cómo puede recibir alertas.
+- Más información sobre los [grupos de acciones](../azure-monitor/alerts/action-groups.md).
