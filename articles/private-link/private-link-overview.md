@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986489"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577025"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -70,7 +70,7 @@ Azure Private Link proporciona las ventajas siguientes:
 | Azure Automation  | Todas las regiones públicas<br/> Todas las regiones de Azure Government |  | Vista previa </br> [Aprenda a crear un punto de conexión privado para Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Todas las regiones públicas    |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | ESTE DE EE. UU, CENTRO-SUR DE EE. UU,<br/>OESTE DE EE. UU. 2, todas las regiones de China      |  | Vista previa   <br/> [Aprenda a crear un punto de conexión privado para Azure SignalR Service.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics y Application Insights) | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics y Application Insights) | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | Todas las regiones públicas, excepto: CENTRO DE Alemania, NORDESTE DE Alemania <br/> Todas las regiones de Azure Government  | | Disponibilidad general <br/> [Aprenda a crear un punto de conexión privado para Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | Las credenciales deben almacenarse en un almacén de claves de Azure| Disponibilidad general   <br/> [Aprenda a crear un punto de conexión privado para Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Azure Managed Disks | Todas las regiones públicas<br/> Todas las regiones de Azure Government<br/>Todas las regiones de China    | [Haga clic aquí para ver las limitaciones conocidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Aprenda a crear un punto de conexión privado para Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

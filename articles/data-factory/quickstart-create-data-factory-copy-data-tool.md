@@ -1,22 +1,17 @@
 ---
 title: Copia de datos mediante la herramienta Copy Data de Azure
 description: Cree una instancia de Azure Data Factory y, luego, use la herramienta Copy Data para copiar los datos de una ubicación de Azure Blob Storage a otra.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 48624e415649be2fb76aed99c5cb0e1b3b12f04b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013520"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372865"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 

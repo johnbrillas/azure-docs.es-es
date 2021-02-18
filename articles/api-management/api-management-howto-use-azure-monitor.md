@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 1cb902c4b59193c46dbeca47bb355f0695a0f2c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779250"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572793"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutorial: Supervisión de las API publicadas
 
@@ -39,7 +39,7 @@ También puede usar el [análisis](howto-use-analytics.md) integrado de API Mana
 
 ## <a name="view-metrics-of-your-apis"></a>Visualización de las métricas de las API
 
-API Management emite [métricas](../azure-monitor/platform/data-platform-metrics.md) cada minuto, lo que le ofrece visibilidad casi en tiempo real sobre el estado y el mantenimiento de las API. Las siguientes son las dos métricas que se usan con más frecuencia. Para obtener una lista de todas las métricas disponibles, consulte las [métricas compatibles](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
+API Management emite [métricas](../azure-monitor/essentials/data-platform-metrics.md) cada minuto, lo que le ofrece visibilidad casi en tiempo real sobre el estado y el mantenimiento de las API. Las siguientes son las dos métricas que se usan con más frecuencia. Para obtener una lista de todas las métricas disponibles, consulte las [métricas compatibles](../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
 
 * **Capacity** (Capacidad): ayuda a tomar decisiones acerca de cómo actualizar o degradar los servicios de APIM. La métrica se emite por minuto y refleja la capacidad de la puerta de enlace en el momento del informe. La métrica oscila entre 0 y 100, y se calcula en función de los recursos de la puerta de enlace, como el uso de la CPU y de la memoria.
 * **Requests** (Solicitudes): ayuda a analizar el tráfico de API que pasa por los servicios API Management. La métrica se emite por minuto y notifica el número de solicitudes de puerta de enlace con dimensiones que incluyen los códigos de respuesta, la ubicación, el nombre de host y los errores. 
@@ -62,7 +62,7 @@ Para acceder a la métrica:
 
 ## <a name="set-up-an-alert-rule"></a>Configuración de una regla de alerta 
 
-Puede recibir [alertas](../azure-monitor/platform/alerts-metric-overview.md) basadas en métricas y registros de actividad. Azure Monitor permite [configurar una alerta](../azure-monitor/platform/alerts-metric.md) que haga lo siguiente cuando se desencadena:
+Puede recibir [alertas](../azure-monitor/alerts/alerts-metric-overview.md) basadas en métricas y registros de actividad. Azure Monitor permite [configurar una alerta](../azure-monitor/alerts/alerts-metric.md) que haga lo siguiente cuando se desencadena:
 
 * Enviar una notificación por correo electrónico
 * Llamar a un webhook
@@ -140,7 +140,7 @@ Para configurar los registros de recurso:
 
    Los registros de recurso se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a un área de trabajo de Log Analytics. 
 
-Para más información, consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../azure-monitor/platform/diagnostic-settings.md).
+Para más información, consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="view-diagnostic-data-in-azure-monitor"></a>Visualización de datos de diagnóstico en Azure Monitor
 
@@ -151,7 +151,7 @@ Si habilita la recopilación de registros de GatewayLogs o métricas en un área
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Captura de pantalla del elemento Registros en el menú de supervisión":::
 
-Ejecute consultas para ver los datos. Se proporcionan varias [consultas de ejemplo](../azure-monitor/log-query/example-queries.md), pero también puede ejecutar la suya propia. Por ejemplo, la consulta siguiente recupera las 24 horas de datos más recientes de la tabla GatewayLogs:
+Ejecute consultas para ver los datos. Se proporcionan varias [consultas de ejemplo](../azure-monitor/logs/example-queries.md), pero también puede ejecutar la suya propia. Por ejemplo, la consulta siguiente recupera las 24 horas de datos más recientes de la tabla GatewayLogs:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -160,9 +160,9 @@ ApiManagementGatewayLogs
 
 Para más información acerca del uso de registros de recursos para API Management, consulte:
 
-* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md), o bien pruebe el [entorno de demostración de Log Analytics](https://portal.loganalytics.io/demo).
+* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md), o bien pruebe el [entorno de demostración de Log Analytics](https://portal.loganalytics.io/demo).
 
-* [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+* [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 El siguiente JSON indica una entrada de ejemplo en GatewayLogs para una solicitud de API correcta. Para más información, consulte la [referencia del esquema](gateway-log-schema-reference.md). 
 

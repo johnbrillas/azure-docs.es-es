@@ -4,12 +4,12 @@ description: En este inicio rápido aprenderá a configurar la supervisión de s
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611337"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583436"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Inicio rápido: Empezar a supervisar un sitio web con Azure Monitor Application Insights
 
@@ -110,7 +110,7 @@ Application Insights puede recopilar datos de telemetría desde cualquier aplica
 
    ![Gráfico de Analytics con las solicitudes de usuario durante un período de tiempo](./media/website-monitoring/analytics-query.png)
 
-1. Vuelva a la página **Introducción**. En el encabezado **Investigar**, seleccione **Explorador**y, después, seleccione **Rendimiento**.  Aparecen las métricas relacionadas con el rendimiento de su sitio web. Hay una vista correspondiente para analizar los errores y excepciones del sitio web. Puede seleccionar **Ejemplos** para acceder a los [detalles de la transacción de un extremo a otro](./transaction-diagnostics.md).
+1. Vuelva a la página **Introducción**. En el encabezado **Investigar**, seleccione **Explorador** y, después, seleccione **Rendimiento**.  Aparecen las métricas relacionadas con el rendimiento de su sitio web. Hay una vista correspondiente para analizar los errores y excepciones del sitio web. Puede seleccionar **Ejemplos** para acceder a los [detalles de la transacción de un extremo a otro](./transaction-diagnostics.md).
 
    ![Gráfico de las métricas del servidor](./media/website-monitoring/browser-performance.png)
 
@@ -137,5 +137,5 @@ Si planea seguir trabajando con otros inicios rápidos o tutoriales, no limpie l
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Búsqueda y diagnóstico de problemas de rendimiento](../log-query/log-query-overview.md)
+> [Búsqueda y diagnóstico de problemas de rendimiento](../logs/log-query-overview.md)
 

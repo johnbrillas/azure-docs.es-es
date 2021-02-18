@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188588"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570592"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -52,7 +52,7 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
 ## <a name="use-built-in-workbooks"></a>Uso de libros integrados<a name="dashboards"></a>
 
-Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/platform/workbooks-overview.md).
+Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/visualize/workbooks-overview.md).
 
 1. En **Configuración**, seleccione **Libros**. En **Instalados**, puede ver todos los libros instalados. En **Todos**, puede ver toda la galería entera de libros integrados disponibles para su instalación. 
 2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 
@@ -66,14 +66,14 @@ Los libros integrados proporcionan datos integrados procedentes de orígenes de 
       ![Panel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Puede personalizar los libros mediante la edición de la consulta principal ![botón Editar consulta](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![botón Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/log-analytics-tutorial.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono**, que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
+Puede personalizar los libros mediante la edición de la consulta principal ![botón Editar consulta](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![botón Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/logs/log-analytics-tutorial.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono**, que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
 
-Para más información sobre cómo trabajar con consultas, consulte [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Para más información sobre cómo trabajar con consultas, consulte [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Agregar un nuevo icono
 
 Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o uno integrado en Azure Sentinel). 
-1. En Log Analytics, cree un icono mediante las instrucciones que encontrará en [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. En Log Analytics, cree un icono mediante las instrucciones que encontrará en [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Después de crear el icono, en **Anclar**, seleccione el libro en el que desee que aparezca.
 
 ## <a name="create-new-workbooks"></a>Creación de libros
