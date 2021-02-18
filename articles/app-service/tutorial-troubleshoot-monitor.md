@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183207"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586284"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solución de problemas de una aplicación de App Service con Azure Monitor
 
@@ -78,7 +78,7 @@ Las configuraciones de diagnóstico se pueden usar para recopilar métricas para
 Ejecute los siguientes comandos para crear la configuración de diagnóstico para AppServiceConsoleLogs (error y salida estándar) y AppServiceHTTPLogs (registros del servidor web). Reemplace _\<app-name>_ y _\<workspace-name>_ por sus valores. 
 
 > [!NOTE]
-> Los dos primeros comandos, `resourceID` y `workspaceID`, son variables que se utilizarán en el comando `az monitor diagnostic-settings create`. Consulte [Creación de una configuración de diagnóstico con la CLI de Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para más información sobre este comando.
+> Los dos primeros comandos, `resourceID` y `workspaceID`, son variables que se utilizarán en el comando `az monitor diagnostic-settings create`. Consulte [Creación de una configuración de diagnóstico con la CLI de Azure](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) para más información sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ En Azure Portal, seleccione el área de trabajo de Log Analytics.
 
 ### <a name="log-queries"></a>Consultas de registros
 
-Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](../azure-monitor/log-query/log-query-overview.md) para más información sobre las consultas de registro.
+Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](../azure-monitor/logs/log-query-overview.md) para más información sobre las consultas de registro.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualización de AppServiceHTTPLogs con una consulta de registro
 
@@ -269,6 +269,6 @@ az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 > * Ha utilizado consultas de registro para identificar y solucionar problemas de errores de la aplicación web
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
-* [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

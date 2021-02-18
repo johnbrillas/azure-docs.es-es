@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f0b5325ff95d2c2f34572239967151986621bcb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2448840fcbbea686972f8f948d428bda7b3c2bf2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937192"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391752"
 ---
 # <a name="sms-client-library-overview"></a>Información general de la biblioteca cliente de SMS
 
@@ -49,4 +49,4 @@ Puede que los siguientes documentos le resulten interesantes:
 
 - Familiarización con los [conceptos de SMS](../telephony-sms/concepts.md) generales
 - Obtención de un [número de teléfono](../../quickstarts/telephony-sms/get-phone-number.md) compatible con SMS
-- [Planeación de una solución de SMS](../telephony-sms/plan-solution.md)
+- [Tipos de número de teléfono en Azure Communication Services](../telephony-sms/plan-solution.md)

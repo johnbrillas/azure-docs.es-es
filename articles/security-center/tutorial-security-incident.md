@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787166"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635581"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Evaluación de prioridades, investigación y respuesta a alertas de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado y la inteligencia sobre amenazas para alertarle de cualquier actividad potencialmente malintencionada en los recursos en la nube. También puede integrar alertas de otros productos y servicios de seguridad en Security Center. Una vez que se genera una alerta, es necesario investigarla y corregir el posible problema de seguridad. 
@@ -40,9 +40,9 @@ Para recorrer las características descritas en este tutorial, debe tener habili
 ## <a name="triage-security-alerts"></a>Evaluación de las prioridades de las alertas de seguridad
 Security Center proporciona una vista unificada de todas las alertas de seguridad. Las alertas de seguridad se clasifican en función de la gravedad de la actividad detectada. 
 
-Evalúe la prioridad de las alertas en la página **Alertas de seguridad** :
+Evalúe la prioridad de las alertas en la página **Alertas de seguridad**:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página Lista de alertas de seguridad" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de seguridad de Security Center":::
 
 Esta página se usa para revisar las alertas de seguridad activas en su entorno para decidir qué alerta hay que investigar primero.
 

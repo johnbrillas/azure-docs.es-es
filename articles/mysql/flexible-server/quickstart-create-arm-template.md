@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 5be0bf21514dd92c2f980081bb57d873895bbb91
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: def9e4f1b3f1c4e8f88f77dfe6906a8c96a94744
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099938"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389474"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for MySQL con la opción Servidor flexible (versión preliminar)
 
@@ -204,22 +204,6 @@ read serverName &&
 echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
-```
-## <a name="exporting-arm-template-from-the-portal"></a>Exportación de una plantilla de ARM desde el portal
-Puede [exportar una plantilla de ARM](../../azure-resource-manager/templates/export-template-portal.md) desde Azure Portal. Hay dos maneras de exportar una plantilla:
-
-- [Exportar desde el grupo de recursos o el recurso](../../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Esta opción genera una plantilla nueva a partir de los recursos existentes. La plantilla exportada es una "instantánea" del estado actual del grupo de recursos. Puede exportar un grupo de recursos completo o recursos específicos dentro de ese grupo de recursos.
-- [Exportar antes de la implementación o desde el historial](../../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
-
-Al exportar la plantilla, en la sección ```"parameters":{ }``` de la plantilla observará que ```administratorLogin``` y ```administratorLoginPassword``` no se incluyen por motivos de seguridad. **DEBE** agregar estos parámetros a la plantilla antes de implementarla o, de lo contrario, se producirá un error en la plantilla.
-
-```
-"administratorLogin": {
-      "type": "String"
-    },
-"administratorLoginPassword": {
-      "type": "SecureString"
-    },
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
