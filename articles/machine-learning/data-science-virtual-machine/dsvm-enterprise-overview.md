@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Patrones para implementar Data Science VM como entorno de equipos de empresa.
 keywords: aprendizaje profundo, AI, herramientas de ciencia de datos, data science virtual machine, análisis geoespacial, proceso de ciencia de datos en equipo
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 9126dbcfbfe9e3a94514ebf45685bdfc55dd0306
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 28dea7c28f47a9850486877571672cbd717e9f1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596767"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Entorno de análisis de equipo e IA basado en Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) ofrece un completo entorno en la plataforma Azure con software pregenerado de inteligencia artificial (IA) y análisis de datos.
@@ -38,7 +37,7 @@ Algunos de los principales bloques de creación de un entorno de análisis de eq
 En esta serie se proporcionan instrucciones y referencias para cada uno de los elementos anteriores. No se tratan todas las consideraciones y requisitos de implementación de DSVM en configuraciones empresariales de gran tamaño. A continuación se incluyen algunos otros recursos de Azure que puede usar al implementar instancias de DSVM en su empresa:
 
 * [Seguridad de las redes](../../security/fundamentals/network-overview.md)
-* [Supervisión](../../azure-monitor/insights/monitor-vm-azure.md) y [administración](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Supervisión](../../azure-monitor/vm/monitor-vm-azure.md) y [administración](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Registro y auditoría](../../security/fundamentals/log-audit.md)
 * [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Cumplimiento y configuración de directivas](../../governance/policy/overview.md)
