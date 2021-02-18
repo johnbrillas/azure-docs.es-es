@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590854"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementación de aplicaciones de ASP.NET Core en Azure Kubernetes Service con Azure DevOps Starter
 
@@ -24,7 +24,7 @@ DevOps Starter también:
 * Crea automáticamente recursos de Azure, como Azure Kubernetes Service (AKS).
 * Crea y configura una canalización de versión en Azure DevOps que configura una canalización de compilación y de versión de CI/CD.
 * Crea un recurso de Azure Application Insights para la supervisión.
-* Habilita [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para supervisar el rendimiento de las cargas de trabajo del contenedor en el clúster de AKS
+* Habilita [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) para supervisar el rendimiento de las cargas de trabajo del contenedor en el clúster de AKS
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -55,7 +55,7 @@ DevOps Starter crea una canalización de CI/CD en Azure Pipelines. Puede crear u
 
 1. En **Elegir un marco de trabajo de la aplicación**, seleccione **ASP.NET Core** y, después, seleccione **Siguiente**.
 
-1. Seleccione **Servicio de Kubernetes**y, después, **Siguiente**. 
+1. Seleccione **Servicio de Kubernetes** y, después, **Siguiente**. 
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure
 
@@ -134,7 +134,7 @@ DevOps Starter crea y configura automáticamente los pasos necesarios para imple
 
 A partir de ese momento ya puede empezar a colaborar con un equipo en una aplicación mediante el uso de un proceso de CI/CD que implemente automáticamente el trabajo más reciente en su sitio web. Cada cambio que se realiza en el repositorio de Git inicia una compilación en Azure DevOps y una canalización de CD ejecuta una implementación en Azure. Siga el procedimiento descrito en esta sección o utilice otra técnica para confirmar los cambios en el repositorio. Por ejemplo, puede clonar el repositorio de Git en su herramienta favorita o IDE, y luego insertar los cambios en este repositorio.
 
-1. En el menú de Azure DevOps, seleccione **Código** > **Archivos**y, a continuación, vaya al repositorio.
+1. En el menú de Azure DevOps, seleccione **Código** > **Archivos** y, a continuación, vaya al repositorio.
 
 1. Vaya al directorio *Views\Home*, seleccione los puntos suspensivos (...) que hay junto al archivo *Index.cshtml* y seleccione **Editar**.
 
