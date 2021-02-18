@@ -1,23 +1,18 @@
 ---
 title: 'Tutorial: creación de una canalización con el Asistente para copia '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante el Asistente para copia compatible con Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 60a575fc211c512c8657bffd567c96f98cc3d69a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128409"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377013"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -52,7 +47,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 2. En la hoja **Nueva factoría de datos** :
    
    1. Escriba **ADFTutorialDataFactory** como **nombre**.
-       El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name “ADFTutorialDataFactory” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
+       El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name "ADFTutorialDataFactory" is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
       
        ![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selección la **suscripción** de Azure.

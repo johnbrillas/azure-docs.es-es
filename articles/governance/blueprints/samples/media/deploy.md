@@ -3,12 +3,12 @@ title: Implementación del ejemplo de plano técnico de Media
 description: Pasos de implementación para el ejemplo de plano técnico de Media, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035009"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577297"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Media
 
@@ -93,12 +93,12 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Linux |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Linux |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito. |Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: `[]` |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito. |Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: `[]` |
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Windows |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Windows |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Versión preliminar\]: Auditoría de los controles de Media e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría |Asignación de directiva |Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales |Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales. |
-|\[Versión preliminar\]: Auditoría de los controles de Media e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Versión preliminar\]: Auditoría de los controles de Media e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados |Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Versión preliminar\]: Auditoría de los controles de Media e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría |Asignación de directiva |Grupo de administradores |Grupo. Ejemplo: `Administrator; myUser1; myUser2` |
 |\[Versión preliminar\]: Auditoría de los controles de Media e implementación de las extensiones de VM específicas para admitir los requisitos de auditoría |Asignación de directiva |Lista de usuarios que deben incluirse en el grupo de administradores de máquinas virtuales Windows |Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Ejemplo: `Administrator; myUser1; myUser2` |
 |Implementar Advanced Threat Protection en las cuentas de almacenamiento |Asignación de directiva |Efecto |Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md). |
