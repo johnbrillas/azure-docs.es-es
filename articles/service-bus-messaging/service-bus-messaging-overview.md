@@ -2,13 +2,13 @@
 title: Información general sobre la mensajería de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajes de integración empresarial totalmente administrado.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219169"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570466"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 Microsoft Azure Service Bus es un agente de mensajes empresarial totalmente administrado que incluye colas de mensajes y temas que se pueden publicar y a los que es posible suscribirse. Service Bus se usa para desacoplar aplicaciones de servicios, lo que proporciona las siguientes ventajas:
@@ -118,11 +118,10 @@ El procesamiento por lotes del lado cliente permite que el cliente de una cola o
 Una transacción agrupa dos o más operaciones en un *ámbito de ejecución*. Service Bus permite agrupar las operaciones en varias entidades de mensajería dentro del ámbito de una única transacción. Una entidad de mensaje puede ser una cola, un tema o una suscripción. Para más información, consulte [Información general sobre el procesamiento de transacciones de Service Bus](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Eliminación automática en estado inactivo
-
-La eliminación automática en modo inactivo le permite especificar un intervalo de inactividad después del cual se elimina automáticamente la suscripción a una cola o tema. La duración mínima es de 5 minutos. Para más información, consulte la [propiedadQueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+La eliminación automática en modo inactivo le permite especificar un intervalo de inactividad después del cual se elimina automáticamente la suscripción a una cola o tema. La duración mínima es de 5 minutos. 
 
 ### <a name="duplicate-detection"></a>Detección de duplicados
-La característica de detección de duplicados permite al remitente volver a enviar el mismo mensaje y al agente quitar un posible duplicado. Esta característica se basa en el seguimiento de la propiedad `message-id` de un mensaje, lo que significa que la aplicación debe tener cuidado de usar el mismo valor al reenviar el mensaje; este valor podría obtenerse directamente de algún contexto específico de la aplicación. Para más información, consulte [Detección de duplicados](duplicate-detection.md).
+La característica de detección de duplicados permite al remitente volver a enviar el mismo mensaje y al agente quitar un posible duplicado. Para más información, consulte [Detección de duplicados](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperación ante desastres geográfica
 

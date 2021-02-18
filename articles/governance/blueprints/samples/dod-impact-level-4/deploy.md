@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Pasos de implementación para el ejemplo de plano técnico de nivel 4 de impacto del DoD, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033768"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594799"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -109,7 +109,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Miembros que se deben incluir en el grupo Administradores local|Lista separada por punto y coma de los miembros que se deben excluir en el grupo Administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Miembros que se deben excluir en el grupo Administradores local|Lista separada por punto y coma de los miembros que deben incluirse en el grupo de administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|
-|\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Identificación del área de trabajo de Log Analytics para el que deberían configurarse las máquinas virtuales|Este es el identificador (GUID) del área de trabajo de Log Analytics para el que deberían estar configuradas las máquinas virtuales.|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|La copia de seguridad con redundancia geográfica a largo plazo debe estar habilitada para las instancias de Azure SQL Database.|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|

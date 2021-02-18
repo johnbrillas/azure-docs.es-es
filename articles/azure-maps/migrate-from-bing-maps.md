@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 52768874ef27bf87846d4abbd68e9e8c1972f996
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679452"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388964"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Tutorial: Migración de Mapas de Bing a Azure Maps
 
@@ -47,8 +47,8 @@ En la tabla siguiente se proporciona una lista general de las características d
 | SDK web                               | ✓                  |
 | SDK de Android                           | ✓                  |
 | SDK de iOS                               | Planeado            |
-| SDK de UWP                               | Planeado            |
-| SDK de WPF                               | Planeado            |
+| SDK de UWP                               | N/D                 |
+| SDK de WPF                               | N/D                 |
 | API REST del servicio                     | ✓                  |
 | Autosuggest                           | ✓                  |
 | Direcciones (incluido el camión)          | ✓                  |
