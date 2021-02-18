@@ -1,21 +1,17 @@
 ---
 title: Creación de una factoría de datos de Azure con la interfaz de usuario de Azure Data Factory
 description: Cree una factoría de datos con una canalización que copie los datos de una ubicación de Azure Blob Storage a otra.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 0f22d4695a6324b0f0cde466e252b1a3a504f433
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e7d4770af38081353fc58eec9957f50e2b6a7348
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632756"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372797"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory 
 

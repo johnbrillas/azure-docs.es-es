@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6d5198f47b6089730ff345eb12ab522fc5ce58a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028725"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575381"
 ---
 # <a name="analyze-unexpected-charges"></a>Análisis de cargos inesperados
 
@@ -76,7 +76,7 @@ A menudo, el equipo responsable de un recurso determinado conocerá los cambios 
 
 ### <a name="analyze-the-audit-logs-for-the-resource"></a>Análisis de los registros de auditoría para el recurso
 
-Si tiene permisos para ver un recurso, debe poder acceder a sus registros de auditoría. Revise los registros para buscar el usuario responsable de los cambios más recientes en un recurso. Para más información, consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log).
+Si tiene permisos para ver un recurso, debe poder acceder a sus registros de auditoría. Revise los registros para buscar el usuario responsable de los cambios más recientes en un recurso. Para más información, consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Análisis de los permisos de usuario en el ámbito principal del recurso
 
