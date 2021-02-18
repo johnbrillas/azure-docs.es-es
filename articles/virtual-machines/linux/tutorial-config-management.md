@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3210829b3281aa862cdf0dbdc9c915249a55e423
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518012"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592989"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión de los cambios y actualización de una máquina virtual Linux en Azure
 
@@ -73,7 +73,7 @@ Habilite la administración de actualizaciones para la máquina virtual:
 Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual.
 La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
 
-Un área de trabajo de [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Update Management.
+Un área de trabajo de [Log Analytics](../../azure-monitor/logs/log-query-overview.md) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Update Management.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar runbooks en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
 
@@ -83,7 +83,7 @@ Para habilitar la solución, elija el área de trabajo de Log Analytics y la cue
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
-* Área de trabajo de [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* Área de trabajo de [Log Analytics](../../azure-monitor/logs/log-query-overview.md)
 * [Cuenta de Automation](../../automation/index.yml)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
@@ -112,7 +112,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | Nombre |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
 | Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/update-management/configure-groups.md).|
-| Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
+| Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/logs/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
 |Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|

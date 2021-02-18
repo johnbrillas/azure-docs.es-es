@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4cc8130d34b5f51728fb2e7fb47c1fb0717d2138
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852649"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595129"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -37,10 +37,10 @@ En el caso de un entorno de Azure activado en una suscripción de Azure, Azure S
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Security Center depende del [agente de Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Asegúrese de que las máquinas ejecutan uno de los sistemas operativos compatibles con este agente, como se describe en las siguientes páginas:
+Security Center depende del [agente de Log Analytics](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Asegúrese de que las máquinas ejecutan uno de los sistemas operativos compatibles con este agente, como se describe en las siguientes páginas:
 
-* [Sistemas operativos Windows compatibles con el agente de Log Analytics](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Sistemas operativos Linux compatibles con el agente de Log Analytics](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Sistemas operativos Windows compatibles con el agente de Log Analytics](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Sistemas operativos Linux compatibles con el agente de Log Analytics](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Asegúrese también de que el agente de Log Analytics esté [configurado correctamente para enviar datos a Security Center](security-center-enable-data-collection.md#manual-agent)
 
