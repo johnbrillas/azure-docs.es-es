@@ -1,0 +1,127 @@
+### YamlMime:Landing
+title: Documentación de Azure Front Door Standard/Premium (versión preliminar)
+summary: Azure Front Door Standard/Premium (versión preliminar) es una plataforma de red de entrega de aplicaciones moderna y segura que proporciona CDN, DSA y GLB escalables para las aplicaciones web globales.
+metadata:
+  title: Documentación de Azure Front Door Standard/Premium
+  description: Azure Front Door Standard/Premium (versión preliminar) proporciona un punto de entrada seguro y escalable para la entrega rápida de aplicaciones web globales. Obtenga información sobre cómo usar Front Door con nuestros inicios rápidos, tutoriales y ejemplos.
+  services: frontdoor
+  ms.service: frontdoor
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 02/18/2020
+  ms.openlocfilehash: b11cf6b0fe8c0f1cdf711ee3b9ef6c92e5bc71bb
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101097595"
+landingContent:
+- title: Información sobre Azure Front Door Standard/Premium (versión preliminar)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Front Door Standard/Premium (versión preliminar)?
+      url: overview.md
+- title: Creación de un perfil de Front Door
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un perfil de Front Door Standard/Premium
+      url: create-front-door-portal.md
+- title: Configuración de Endpoint Manager
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Endpoint Manager
+      url: concept-endpoint-manager.md
+    - text: Ruta
+      url: concept-route.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de Endpoint Manager
+      url: how-to-configure-endpoint-manager.md
+- title: Adición de dominios personalizados
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Adición de un dominio personalizado
+      url: how-to-add-custom-domain.md
+- title: Administración de grupos de origen
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Origen
+      url: concept-origin.md
+    - text: Sondeos de estado
+      url: concept-health-probes.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de un grupo de origen
+      url: how-to-create-origin.md
+- title: Configuración de un conjunto de reglas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es un conjunto de reglas?
+      url: concept-rule-set.md
+    - text: Condiciones de coincidencia de un conjunto de reglas
+      url: concept-rule-set-match-conditions.md
+    - text: Acciones de un conjunto de reglas
+      url: concept-rule-set-actions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de un conjunto de reglas
+      url: how-to-configure-rule-set.md
+- title: Protección de la aplicación
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Private Link
+      url: concept-private-link.md
+    - text: Firewall de aplicaciones web en Azure Front Door Standard/Premium
+      url: ../../web-application-firewall/afds/afds-overview.md
+    - text: DDoS Protection
+      url: concept-ddos.md
+  - linkListType: how-to-guide
+    links:
+    - text: Habilitación de Private Link
+      url: how-to-enable-private-link.md
+    - text: Configuración de directiva de firewall de aplicaciones web
+      url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
+- title: Informes, métricas y registros
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Informes
+      url: how-to-reports.md
+    - text: Supervisión de métricas y alertas
+      url: how-to-monitor-metrics.md
+    - text: Registro
+      url: how-to-logs.md
+- title: Almacenamiento en caché y optimización
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Almacenamiento en memoria caché
+      url: concept-caching.md
+  - linkListType: how-to-guide
+    links:
+    - text: Purga de la memoria caché
+      url: how-to-cache-purge.md
+    - text: Compresión
+      url: how-to-compression.md
+- title: Solución de problemas de Azure Front Door
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Problemas de enrutamiento comunes
+      url: troubleshoot-route-issues.md
+    - text: Entidades de certificación permitidas
+      url: troubleshoot-allowed-certificate-authority.md
+- title: Información sobre Azure Front Door
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Front Door?
+      url: ../front-door-overview.md
