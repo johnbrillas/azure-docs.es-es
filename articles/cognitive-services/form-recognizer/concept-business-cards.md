@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585099"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546030"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer 
 
@@ -76,7 +76,11 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 
 ### <a name="sample-json-output"></a>Salida de JSON de ejemplo
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResults" contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo "documentResults" contiene los valores específicos de la tarjeta de presentación que el modelo ha detectado. Aquí encontrará información de contacto útil como el nombre, el apellido, el nombre de la compañía y más.
+La respuesta a la operación Get Analyze Business Card Result será la representación estructurada de la tarjeta de presentación con toda la información extraída.  Aquí encontrará un [archivo con una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) y su salida estructurada, [salida de una tarjeta de presentación de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
+Consulte el siguiente ejemplo de una respuesta JSON correcta:
+* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. 
+* El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará información de contacto útil como el nombre, el apellido, el nombre de la compañía y más.
 
 ```json
 {

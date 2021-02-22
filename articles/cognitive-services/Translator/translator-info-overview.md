@@ -6,26 +6,26 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: translator-text
 ms.topic: overview
-ms.date: 09/11/2020
+ms.subservice: translator-text
+ms.date: 02/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service
-ms.openlocfilehash: 37f0d64879493abcf3e5b9448068b86b7a36dccb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 12f6d22f263747a8c43b2d98e6ade1de78aea1ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896704"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556261"
 ---
 # <a name="what-is-the-translator-service"></a>¿Qué es el servicio Translator?
 
-Translator es un servicio de traducción automática basado en la nube que forma parte de la familia de API de [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) utilizadas para crear aplicaciones inteligentes. Translator se integra con facilidad en cualquier aplicación, sitio web, herramienta y solución. Permite agregar experiencias de usuario multilingüe en [más de 70 idiomas](./language-support.md) y se puede usar en cualquier plataforma de hardware con cualquier sistema operativo para la traducción de texto.
+Translator es un servicio de traducción automática basado en la nube que forma parte de la familia de API de [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) utilizadas para crear aplicaciones inteligentes. Translator se integra con facilidad en cualquier aplicación, sitio web, herramienta y solución. Permite agregar experiencias de usuario en [más de 70 idiomas](./language-support.md). Se puede usar en cualquier plataforma de hardware y con cualquier sistema operativo para la traducción de texto.
 
 ## <a name="about-microsoft-translator"></a>Acerca de Microsoft Translator
 
-Translator da servicio a diversos productos y servicios de Microsoft, y lo utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
+Translator da servicio a muchos productos y servicios de Microsoft, y lo utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo.
 
 La traducción de voz, con la tecnología de Translator, también está disponible mediante el [servicio de Voz de Azure](../speech-service/index.yml). Combina la funcionalidad de Translator Speech API y Custom Speech Service en un servicio totalmente personalizable y unificado. 
 
@@ -45,15 +45,15 @@ Más información en [¿Qué es la traducción automática?](https://www.microso
 
 ## <a name="improve-translations-with-custom-translator"></a>Mejora de las traducciones con Traductor personalizado
 
-Custom Translator es una extensión del servicio Translator que se puede usar en combinación con Translator como ayuda para personalizar el sistema de traducción neuronal y mejorar la traducción para su terminología y estilo específicos.
+ Traductor personalizado es una extensión del servicio Translator que se puede usar en combinación con Translator como ayuda para personalizar el sistema de traducción neuronal y mejorar la traducción con su terminología y estilo específicos.
 
-Con Custom Translator puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo y sitios web ya existentes, en varios tipos de dispositivos, mediante el componente normal Translator, por medio del parámetro de categoría.
+Con Traductor personalizado puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo, sitios web y dispositivos ya existentes, mediante el componente normal Translator, por medio del parámetro de categoría.
 
 Más información acerca de [Traductor personalizado](customization.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Regístrese](./translator-how-to-signup.md) para obtener una clave de acceso.
+- [Cree una instancia del servicio Translator](./translator-how-to-signup.md) para obtener las claves de acceso y el punto de conexión.
 - Pruebe nuestra [Guía de inicio rápido](quickstart-translator.md) para aprender a llamar rápidamente al servicio Translator.
 - [Referencia de API](./reference/v3-0-reference.md) proporciona la documentación técnica de las API.
 - [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: entorno local, reconocimiento óptico de caracteres, Docker, contenedor
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008594"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391784"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalación de contenedores de Docker de OCR de Read desde Computer Vision (versión preliminar) 
 
@@ -41,7 +41,7 @@ El contenedor OCR Read 3.2-preview proporciona:
 * Puntuaciones de confianza.
 * Compatibilidad con documentos con texto impreso y manuscrito.
 * Capacidad de extraer texto solo de páginas seleccionadas en un documento.
-* Elija el orden de salida de la línea de texto, desde predeterminado a un orden de lectura más natural.
+* Elija el orden de salida de la línea de texto, desde un orden predeterminado a un orden de lectura más natural para los idiomas procedentes del latín.
 * Clasificación de línea de texto como estilo manuscrito o no solo para idiomas latinos.
 
 Si actualmente usa contenedores de Read 2.0, consulte la [guía de migración](read-container-migration-guide.md) para obtener información sobre los cambios en las nuevas versiones.

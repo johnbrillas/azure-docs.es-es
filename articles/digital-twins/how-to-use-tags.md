@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045417"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555153"
 ---
 # <a name="add-tags-to-digital-twins"></a>Incorporación de etiquetas a gemelos digitales 
 
@@ -91,7 +91,7 @@ Esta es una consulta para obtener todas las entidades que son "small" (etiqueta 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el diseño y la administración de modelos de gemelos digitales:
-* [*Procedimiento: Administración de modelos personalizados*](how-to-manage-model.md)
+* [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md)
 
 Más información sobre la consulta del grafo gemelo:
 * [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)

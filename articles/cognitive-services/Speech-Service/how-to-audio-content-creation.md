@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024966"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388590"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -125,7 +125,7 @@ Una vez que haya revisado la salida de audio y esté satisfecho con la optimizac
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Incorporación o eliminación de usuarios de Creación de contenido de audio
 
-Si más de un usuario desea usar Creación de contenido de audio, puede compartir su cuenta y contraseña de Azure con el usuario, o bien conceder acceso de usuario a la suscripción de Azure y al recurso de voz. Si agrega un usuario a una suscripción de Azure, este puede acceder a todos los recursos de esa suscripción. Pero si agrega solo un usuario a un recurso de voz, este solo tendrá acceso a dicho recurso y no podrá acceder a otros recursos de esta suscripción de Azure. Un usuario con acceso al recurso de voz puede utilizar Creación de contenido de audio.
+Si más de un usuario desea usar Creación de contenido de audio, puede conceder acceso de usuario a la suscripción de Azure y al recurso de voz. Si agrega un usuario a una suscripción de Azure, este puede acceder a todos los recursos de esa suscripción. Pero si agrega solo un usuario a un recurso de voz, este solo tendrá acceso a dicho recurso y no podrá acceder a otros recursos de esta suscripción de Azure. Un usuario con acceso al recurso de voz puede utilizar Creación de contenido de audio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Incorporación de usuarios a un recurso de voz
 

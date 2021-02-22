@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 3112c93e0877a8441875e3c7627c2a7b84ac8ab1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8ba24d5a59beade1429b9d86ed549f1dae3c2f1f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808518"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552134"
 ---
 > [!NOTE]
 > En esta guía se usa cURL para ejecutar llamadas a la API REST. También hay [código de ejemplo en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) que muestra cómo llamar a las API REST con Python.
@@ -85,9 +85,14 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeR
 
 Recibirá una respuesta `200 (success)` con contenido JSON.
 
-Consulte la siguiente imagen de una factura y su correspondiente salida JSON. La salida se ha abreviado por motivos de simplicidad. El nodo `"readResults"` contiene cada línea de texto con su correspondiente posición de cuadro de límite en la página. El nodo `"selectionMarks"` (en la versión preliminar v2.1) muestra todas las casillas de selección (casilla, botón de opción) y si su estado es "seleccionado" o "no seleccionado". En la sección `"pageResults"` se incluyen las tablas extraídas. Para cada tabla, se extraen el texto, el índice de filas y columnas, la expansión de filas y columnas, el rectángulo de selección, etc.
+Consulte la siguiente imagen de una factura y su correspondiente salida JSON.
+* El nodo `"readResults"` contiene cada línea de texto con su correspondiente posición de cuadro de límite en la página. 
+* El nodo `"selectionMarks"` (en la versión preliminar v2.1) muestra todas las casillas de selección (casilla, botón de opción) y si su estado es "seleccionado" o "no seleccionado". 
+* En la sección `"pageResults"` se incluyen las tablas extraídas. Para cada tabla, se extraen el texto, el índice de filas y columnas, la expansión de filas y columnas, el rectángulo de selección, etc.
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="Documento de instrucciones de proyecto de Contoso con una tabla.":::
+
+Esta salida se ha abreviado por motivos de simplicidad. Consulte la [salida de ejemplo completa en GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout-output.json).
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 ```json
@@ -355,11 +360,16 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoic
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
 
-Recibirá una respuesta `200 (Success)` con la salida JSON. El campo `"readResults"` contiene todas las líneas de texto que se extrajeron de la factura, el `"pageResults"` incluye las tablas y marcas de selecciones, y el `"documentResults"` contiene información del par clave-valor de las partes más importantes de la factura.
+Recibirá una respuesta `200 (Success)` con la salida JSON. 
+* El campo `"readResults"` contiene todas las líneas de texto que se extrajeron de la factura.
+* El campo `"pageResults"` incluye las marcas de tablas y selecciones extraídas de la factura.
+* El campo `"documentResults"` contiene información de pares clave-valor para las partes más importantes de la factura.
 
-Consulte la siguiente factura y su correspondiente salida JSON. El contenido JSON se ha abreviado para facilitar la lectura.
+Consulte la siguiente factura y su correspondiente salida JSON. 
 
 * [Factura de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
+
+Este contenido JSON se ha abreviado para facilitar la lectura. Consulte la [salida de ejemplo completa en GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json).
 
 ```json
 {
@@ -716,7 +726,7 @@ Recibirá una respuesta `200 (Success)` con un cuerpo JSON con el formato siguie
 
 En los modelos personalizados entrenados sin etiquetas, las tablas y asociaciones de pares clave-valor se encuentran en el nodo `"pageResults"` de la salida JSON. En los modelos personalizados entrenados con etiquetas, las asociaciones de pares clave-valor se encuentran en el nodo `"documentResults"`. Si también especificó la extracción de texto sin formato mediante el parámetro de URL *includeTextDetails*, el nodo `"readResults"` mostrará el contenido y las posiciones de todo el texto del documento.
 
-Esta salida JSON de ejemplo se ha abreviado por motivos de simplicidad.
+Esta salida JSON de ejemplo se ha abreviado por motivos de simplicidad. Consulte la [salida de ejemplo completa en GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/analyze-result-invoice-6.pdf.json).
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 ```JSON
@@ -1041,13 +1051,15 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/a
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
 
-Recibirá una respuesta `200 (Success)` con la salida JSON. El primer campo, `"status"`, indica el estado de la operación. Si la operación se ha completado, e campo `"readResults"` contiene todas las líneas de texto que se ha extrajeron del recibo y el campo `"documentResults"` contiene información de del par clave-valor de las partes más importantes del recibo. Si la operación no está completa, el valor de `"status"` será `"running"` o `"notStarted"`, y debe llamar a la API de nuevo, ya sea manualmente o a través de un script. Se recomienda un intervalo de uno o varios segundos entre llamadas.
+Recibirá una respuesta `200 (Success)` con la salida JSON. El primer campo, `"status"`, indica el estado de la operación. Si la operación no está completa, el valor de `"status"` será `"running"` o `"notStarted"`, y debe llamar a la API de nuevo, ya sea manualmente o a través de un script. Se recomienda un intervalo de uno o varios segundos entre llamadas.
 
-Consulte la siguiente imagen del recibo y su correspondiente salida JSON. La salida se ha abreviado para que se pueda leer mejor.
+El nodo `"readResults"` contiene todo el texto reconocido (si el parámetro *includeTextDetails* opcional se ha establecido en `true`). El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `"documentResults"` contiene los valores específicos del recibo que el modelo ha descubierto. Aquí encontrará pares clave-valor útiles como los impuestos, el total, la dirección del vendedor, etc.
+
+Consulte la siguiente imagen del recibo y su correspondiente salida JSON.
 
 ![Un recibo del almacén de Contoso](../../media/contoso-allinone.jpg)
 
-El nodo `"readResults"` contiene todo el texto reconocido (si el parámetro *includeTextDetails* opcional se ha establecido en `true`). El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `"documentResults"` contiene los valores específicos del recibo que el modelo ha descubierto. Aquí encontrará pares clave-valor útiles como los impuestos, el total, la dirección del vendedor, etc.
+Esta salida se ha abreviado para que se pueda leer mejor. Consulte la [salida de ejemplo completa en GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
 ```json
 {
@@ -1386,11 +1398,11 @@ El nodo `"readResults"` contiene todo el texto reconocido (si el parámetro *inc
 En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md). Para empezar a analizar una tarjeta de presentación, llame a la API **[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** con el siguiente comando cURL. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{Endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
-1. Reemplace `{your receipt URL}` por la dirección URL de una imagen del recibo.
+1. Reemplace `{your business card URL}` por la dirección URL de una imagen del recibo.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your business card URL}'}"
 ```
 
 Recibirá una respuesta `202 (Success)` que incluye un encabezado **Operation-Location**. El valor de este encabezado contiene un identificador de operación que puede usar para consultar el estado de la operación asincrónica y obtener los resultados.
@@ -1414,11 +1426,13 @@ curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
 
-Recibirá una respuesta `200 (Success)` con la salida JSON. El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará información de contacto útil, como el nombre de la empresa, el nombre de pila, el apellido, el número de teléfono, etc.
+Recibirá una respuesta `200 (Success)` con la salida JSON. 
+
+El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará información de contacto útil, como el nombre de la empresa, el nombre de pila, el apellido, el número de teléfono, etc.
 
 ![Una tarjeta de presentación de la compañía Contoso](../../media/business-card-english.jpg)
 
-Este ejemplo muestra la salida JSON que Form Recognizer devuelve. Esta salida se ha truncado para facilitar la lectura.
+Esta salida JSON de ejemplo se ha abreviado para que se pueda leer mejor. Consulte la [salida de ejemplo completa en GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
 ```json
 {

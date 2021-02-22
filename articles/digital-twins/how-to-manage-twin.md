@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600515"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530440"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -86,7 +86,7 @@ Puede acceder a los detalles de cualquier gemelo digital mediante una llamada al
 
 Esta llamada devuelve los datos del gemelo en forma de un tipo de objeto fuertemente tipado, como `BasicDigitalTwin`. `BasicDigitalTwin` es una clase auxiliar de serialización que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con el método `GetDigitalTwin()`.
 
@@ -208,9 +208,9 @@ Las dos llamadas que modifican *Gemelo1* se ejecutan una tras otra, y se generan
 
 Puede eliminar gemelos con el método `DeleteDigitalTwin()`. Sin embargo, solo puede eliminar un gemelo si este no tiene más relaciones. Por lo tanto, elimine primero las relaciones de entrada y salida del gemelo.
 
-Este es un ejemplo de código para eliminar gemelos y sus relaciones:
+Este es un ejemplo de código para eliminar gemelos y sus relaciones. La llamada al SDK `DeleteDigitalTwin` está resaltada para aclarar dónde se encuentra en el contexto de un ejemplo más amplio.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Eliminación de todos los gemelos digitales
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.custom: contperf-fy21q2; references_regions
+ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854900"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388658"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -26,25 +26,26 @@ ms.locfileid: "97854900"
 
 Para utilizar Custom Speech, necesitará una cuenta de Azure y una suscripción al Servicio de voz. Una vez que tenga una cuenta, podrá preparar los datos, entrenar y probar sus modelos, inspeccionar la calidad del reconocimiento, evaluar la precisión y, en última instancia, implementar y utilizar el modelo de conversión de voz a texto personalizado.
 
-Este diagrama resalta las partes que componen el [portal de Habla personalizada](https://aka.ms/customspeech). Use los siguientes vínculos para obtener más información sobre cada paso.
+Este diagrama resalta las partes que componen el [portal de Habla personalizada de Speech Studio](https://aka.ms/customspeech). Use los siguientes vínculos para obtener más información sobre cada paso.
 
-![Diagrama que resalta los componentes que constituyen el portal de Custom Speech.](./media/custom-speech/custom-speech-overview.png)
+![Diagrama que resalta los componentes que constituyen el área de Habla personalizada de Speech Studio.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Suscripción y creación de un proyecto](#set-up-your-azure-account). Cree una cuenta de Azure y suscríbase al servicio de voz. Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el [portal de Habla personalizada](https://speech.microsoft.com/customspeech). Luego, utilice la suscripción al Servicio de voz para crear su primer proyecto de Custom Speech.
+1. [Suscripción y creación de un proyecto](#set-up-your-azure-account). Cree una cuenta de Azure y suscríbase al servicio de voz. Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y [Speech Studio](https://speech.microsoft.com/customspeech). Luego, utilice la suscripción al Servicio de voz para crear su primer proyecto de Custom Speech.
 
 1. [Carga de datos de prueba](./how-to-custom-speech-test-and-train.md). Cargue datos de prueba (archivos de audio) para evaluar la oferta de conversión de voz a texto de Microsoft para sus aplicaciones, herramientas y productos.
 
-1. [Inspección de la calidad del reconocimiento](how-to-custom-speech-inspect-data.md). Use el [portal de Custom Speech](https://speech.microsoft.com/customspeech) para reproducir el audio cargado e inspeccionar la calidad del reconocimiento de voz de los datos de prueba. Para conocer las medidas cuantitativas, consulte [Inspección de los datos](how-to-custom-speech-inspect-data.md).
+1. [Inspección de la calidad del reconocimiento](how-to-custom-speech-inspect-data.md). Use [Speech Studio](https://speech.microsoft.com/customspeech) para reproducir el audio cargado e inspeccionar la calidad del reconocimiento de voz de los datos de prueba. Para conocer las medidas cuantitativas, consulte [Inspección de los datos](how-to-custom-speech-inspect-data.md).
 
-1. [Evaluación y mejora de la precisión](how-to-custom-speech-evaluate-data.md). Evalúe y mejore la precisión del modelo de conversión de voz a texto. El [portal de Custom Speech](https://speech.microsoft.com/customspeech) proporcionará una *tasa de errores de palabras*, que se puede usar para determinar si se necesita más entrenamiento. Si está satisfecho con la precisión, puede usar directamente las API del servicio de voz. Si desea mejorar la precisión en una media relativa entre el 5 y el 20 %, use la pestaña **Entrenamiento** del portal para cargar datos de entrenamiento adicionales, como transcripciones con etiqueta humana y texto relacionado.
+1. [Evaluación y mejora de la precisión](how-to-custom-speech-evaluate-data.md). Evalúe y mejore la precisión del modelo de conversión de voz a texto. [Speech Studio](https://speech.microsoft.com/customspeech) proporcionará una *tasa de errores de palabras*, que se puede usar para determinar si se necesita más entrenamiento. Si está satisfecho con la precisión, puede usar directamente las API del servicio de voz. Si desea mejorar la precisión en una media relativa entre el 5 y el 20 %, use la pestaña **Entrenamiento** del portal para cargar datos de entrenamiento adicionales, como transcripciones con etiqueta humana y texto relacionado.
 
 1. [Entrenamiento e implementación de un modelo](how-to-custom-speech-train-model.md). Mejore la precisión del modelo de conversión de voz a texto incorporando transcripciones escritas (entre 10 y 1000 horas) y texto relacionado (menos de 200 MB) junto con los datos de prueba de audio. Estos datos ayudan a entrenar el modelo de conversión de voz a texto. Después del entrenamiento, vuelva a realizar la prueba. Si el resultado es satisfactorio, puede implementar el modelo en un punto de conexión personalizado.
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Es preciso tener una cuenta de Azure y una suscripción al servicio de voz para poder usar el [portal de Custom Speech](https://speech.microsoft.com/customspeech) para crear un modelo personalizado. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
+Es preciso tener una cuenta de Azure y una suscripción al servicio Voz para poder usar [Speech Studio](https://speech.microsoft.com/customspeech) para crear un modelo personalizado. Si no dispone de una cuenta y una suscripción, [pruebe el servicio de voz de forma gratuita](overview.md#try-the-speech-service-for-free).
 
-Si tiene previsto entrenar un modelo personalizado con datos de audio, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo.
+> [!NOTE]
+> Si tiene previsto entrenar un modelo personalizado con **datos de audio**, elija una de las siguientes regiones que tengan hardware dedicado disponible para el entrenamiento. Esto reducirá el tiempo necesario para entrenar un modelo.
 
 * Este de Australia
 * Centro de Canadá
@@ -64,20 +65,20 @@ Si tiene previsto entrenar un modelo personalizado con datos de audio, elija una
 > [!NOTE]
 > Asegúrese de crear una suscripción estándar (S0). No se admiten las suscripciones Gratis (F0).
 
-Tras crear una cuenta de Azure y una suscripción al servicio de voz, deberá iniciar sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech) y conectarse a su suscripción.
+Tras crear una cuenta de Azure y una suscripción al servicio Voz, deberá iniciar sesión en [Speech Studio](https://speech.microsoft.com/customspeech) y conectarse a su suscripción.
 
-1. Inicie sesión en el [portal de Habla personalizada](https://aka.ms/custom-speech).
+1. Inicie sesión en [Speech Studio](https://aka.ms/custom-speech).
 1. Seleccione la suscripción que necesita para trabajar y crear un proyecto de voz.
 1. Si desea modificarla, seleccione el botón del engranaje en el menú superior.
 
 ## <a name="how-to-create-a-project"></a>Creación de un proyecto
 
-El contenido, como datos, modelos, pruebas y puntos de conexión, se organiza en *proyectos* en el [portal de Custom Speech](https://speech.microsoft.com/customspeech). Cada proyecto es específico de un dominio y un país o idioma. Por ejemplo, puede crear un proyecto para centros de llamadas que usan el inglés en Estados Unidos.
+El contenido, como datos, modelos, pruebas y puntos de conexión, se organiza en *proyectos* en [Speech Studio](https://speech.microsoft.com/customspeech). Cada proyecto es específico de un dominio y un país o idioma. Por ejemplo, puede crear un proyecto para centros de llamadas que usan el inglés en Estados Unidos.
 
 Para crear el primer proyecto, seleccione **Speech-to-text/Custom speech** (Conversión de voz a texto/Conversión de voz personalizada) y, después, haga clic en **New project** (Nuevo proyecto). Siga las instrucciones del asistente para crear el proyecto. Después de crear el proyecto, debería ver cuatro pestañas: **Datos**, **Pruebas**, **Entrenamiento** e **Implementación**. Use los vínculos incluidos en [Pasos siguientes](#next-steps) para aprender a usar cada pestaña.
 
 > [!IMPORTANT]
-> ¡El [portal de Custom Speech](https://aka.ms/custom-speech) se ha actualizado recientemente! Si creó datos, modelos y pruebas anteriores y publicó puntos de conexión en el portal CRIS.ai o con API, debe crear un nuevo proyecto en el nuevo portal para conectarse a estas entidades antiguas.
+> [Speech Studio](https://aka.ms/custom-speech), antes conocido como "portal de Habla personalizada" se ha actualizado recientemente. Si creó datos, modelos y pruebas anteriores y publicó puntos de conexión en el portal CRIS.ai o con API, debe crear un nuevo proyecto en el nuevo portal para conectarse a estas entidades antiguas.
 
 ## <a name="model-lifecycle"></a>Ciclo de vida del modelo
 
@@ -106,7 +107,7 @@ A medida que los nuevos modelos y la nueva funcionalidad pasan a estar disponibl
 * Descodificación: disponible durante dos años después de la creación del modelo. Por consiguiente, el modelo personalizado se puede usar durante dos años (lote, tiempo real y pruebas) una vez creado. Después de dos años, *debe volver a entrenar el modelo*, ya que la mayoría de las veces el modelo base habrá quedado en desuso para la adaptación.  
 * Puntos de conexión: disponibles según la misma escala de tiempo que la descodificación.
 
-Cuando expira un modelo base o un modelo personalizado, siempre se revierte a la *versión más reciente del modelo base*. Por tanto, la implementación nunca se interrumpirá, pero puede ser menos precisa para *sus datos específicos* si los modelos personalizados llegan a expirar. Puede ver la expiración de un modelo en los siguientes lugares del portal de Habla personalizada:
+Cuando expira un modelo base o un modelo personalizado, siempre se revierte a la *versión más reciente del modelo base*. Por tanto, la implementación nunca se interrumpirá, pero puede ser menos precisa para *sus datos específicos* si los modelos personalizados llegan a expirar. Puede ver la expiración de un modelo en los siguientes lugares del portal de Habla personalizada de Speech Studio:
 
 * Resumen del entrenamiento del modelo
 * Detalles del entrenamiento del modelo
@@ -115,7 +116,7 @@ Cuando expira un modelo base o un modelo personalizado, siempre se revierte a la
 
 También puede comprobar las fechas de expiración mediante las API [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) y [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) de habla personalizada, en la propiedad `deprecationDates` de la respuesta JSON.
 
-Tenga en cuenta que puede actualizar el modelo en un punto de conexión de habla personalizada sin tiempo de inactividad si cambia el modelo usado por el punto de conexión en la sección de implementación del portal de Habla personalizada o por medio de la API de habla personalizada.
+Tenga en cuenta que puede actualizar el modelo en un punto de conexión de habla personalizada sin tiempo de inactividad si cambia el modelo usado por el punto de conexión en la sección de implementación de Speech Studio o por medio de la API de habla personalizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

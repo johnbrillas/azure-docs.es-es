@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/12/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 93a0c171497faa9e87457a03da0b78003feaa533
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362274"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Prueba de un modelo mediante archivos de audio en Speech Studio
 
@@ -23,7 +23,7 @@ En este procedimiento, se usa Speech Studio para convertir la voz de un archivo 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de usar el portal de Voz, [siga estas instrucciones para crear una cuenta de Azure y suscribirse al servicio Voz](../custom-speech-overview.md#set-up-your-azure-account). Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Habla personalizada.
+Antes de usar Speech Studio, [siga estas instrucciones para crear una cuenta de Azure y suscribirse al servicio Voz](../custom-speech-overview.md#set-up-your-azure-account). Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y Speech Studio.
 
 ## <a name="download-an-audio-file"></a>Descarga de un archivo de audio
 
@@ -32,7 +32,7 @@ Siga estos pasos para descargar un archivo de audio que contenga voz y empaqueta
 1. Para descargar el **[archivo wav desde este vínculo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** , haga clic con el botón derecho en el vínculo y seleccione **Guardar vínculo como**. Haga clic en **Guardar** para descargar el archivo `whatstheweatherlike.wav`.
 2. Mediante un explorador de archivos o una ventana de terminal con una herramienta de compresión, cree un archivo .zip denominado `whatstheweatherlike.zip` que contenga el archivo `whatstheweatherlike.wav` descargado. En Windows, puede abrir el Explorador de Windows, ir a la carpeta `Downloads`, hacer clic con el botón derecho en `whatstheweatherliike.wav`, hacer clic en **Enviar a**, hacer clic en **Carpeta comprimida (en zip)** y presionar Entrar para aceptar el nombre de archivo predeterminado.
 
-## <a name="create-a-project-in-the-custom-speech-portal"></a>Creación de un proyecto en el portal de Habla personalizada
+## <a name="create-a-project-in-the-speech-studio"></a>Creación de un proyecto en Speech Studio
 
 Siga estos pasos para crear un proyecto que contenga el archivo .zip de un archivo de audio.
 

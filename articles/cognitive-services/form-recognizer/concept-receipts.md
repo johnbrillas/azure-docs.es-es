@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585048"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546013"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
@@ -115,7 +115,12 @@ Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON inclu
 
 ### <a name="sample-json-output"></a>Salida de JSON de ejemplo
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResults" contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo "documentResults" contiene los valores específicos de la tarjeta de presentación que el modelo ha detectado. Aquí encontrará pares clave-valor útiles, como el nombre, el apellido, el nombre de la empresa y más.
+
+La respuesta a la operación Get Analyze Receipt Result será la representación estructurada del recibo con toda la información extraída.  Aquí encontrará un [archivo con un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) y su salida estructurada, una [salida de un recibo de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+
+Consulte el siguiente ejemplo de una respuesta JSON correcta:
+* El nodo `"readResults"` contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. 
+* El nodo `"documentResults"` contiene los valores específicos de la tarjeta de presentción que el modelo haya descubierto. Aquí encontrará pares clave-valor útiles, como el nombre, el apellido, el nombre de la empresa y más.
 
 ```json
 { 

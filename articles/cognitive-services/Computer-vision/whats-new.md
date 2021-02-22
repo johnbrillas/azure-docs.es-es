@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390409"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -26,7 +26,7 @@ Conozca las novedades del servicio. Estos elementos pueden ser notas de la versi
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versión preliminar pública de Read API v3.2 con compatibilidad con OCR para 73 idiomas
 La versión preliminar pública de Read API v3.2 de Computer Vision, disponible como servicio en la nube y como contenedor de Docker, incluye estas actualizaciones:
 * [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) entre los que se incluyen chino simplificado y tradicional, japonés, coreano y los idiomas procedentes del latín.
-* Orden de lectura natural para la salida de la línea de texto.
+* Orden de lectura natural para la salida de la línea de texto (solo para idiomas procedentes del latín).
 * Clasificación de estilos de escritura a mano para líneas de texto junto con una puntuación de confianza (solo para idiomas procedentes del latín).
 * Extracción de texto solo de las páginas seleccionadas de un documento.
 * Disponible como [contenedor sin distribución](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para la implementación local.

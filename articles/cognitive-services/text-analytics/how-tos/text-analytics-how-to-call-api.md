@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654836"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092135"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -34,6 +34,16 @@ Antes de usar la API de Text Analytics, debe crear un recurso de Azure con una c
 2.  Seleccione la región que quiera que use su punto de conexión.  Tenga en cuenta que los puntos de conexión de `/analyze` y `/health` solo están disponibles en las siguientes regiones: Oeste de EE. UU. 2, este de EE. UU. 2, centro de EE. UU., Norte de Europa y Oeste de Europa.
 
 3.  Cree el recurso de Text Analytics y vaya a la "hoja de claves y puntos de conexión" a la izquierda de la página. Copie la clave que va a usar más adelante cuando llame a las API. La agregará más adelante como valor en el encabezado `Ocp-Apim-Subscription-Key` .
+
+## <a name="change-your-pricing-tier"></a>Cambio del plan de tarifa 
+
+Si tiene un recurso de Text Analytics existente que usa el plan de tarifa S0 a S4, puede actualizarlo para que use el [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Estándar:
+
+1. Vaya al recurso de Text Analytics en [Azure Portal](https://portal.azure.com/).
+2. En el menú de navegación de la izquierda, seleccione **Plan de tarifa**. Estará debajo de **ADMINISTRACIÓN DE RECURSOS**. 
+3. Elija el plan de tarifa Estándar (S). Después, haga clic en **Seleccionar**.
+
+También puede crear un nuevo recurso de Text Analytics con el plan de tarifa Estándar (S) y migrar las aplicaciones para que usen las credenciales del nuevo recurso. 
 
 ## <a name="using-the-api-synchronously"></a>Uso de la API de forma sincrónica
 

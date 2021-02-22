@@ -9,18 +9,41 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: f416fe8ef4f6e89d07e6065d4c9435642d9bacb9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179646"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558199"
 ---
-# <a name="correct-misspelled-words-with-bing-search-resource"></a>Corrección de palabras mal escritas con el recurso de Bing Search
+# <a name="correct-misspelled-words-with-bing-resource"></a>Corrección de palabras mal escritas con el recurso de Bing
 
-Se puede integrar la aplicación de LUIS con [Bing Search](https://ms.portal.azure.com/#create/Microsoft.BingSearch) para corregir las palabras incorrectas en las expresiones antes de que LUIS prediga la puntuación y las entidades de la expresión.
+La API de predicción V3 ahora es compatible con [Bing Spellcheck API](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview). Para agregar la revisión ortográfica a la aplicación, incluya la clave del recurso de búsqueda de Bing en el encabezado de las solicitudes. Puede usar esta característica con un recurso de Bing existente, si ya tiene uno, o [crear otro](https://portal.azure.com/#create/Microsoft.BingSearch). 
 
-## <a name="create-endpoint-key"></a>Creación de punto de conexión
+Ejemplo de salida de predicción de una consulta mal escrita:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
+
+Las correcciones de ortografía se realizan antes que la predicción de expresiones de usuario de LUIS. Puede ver cualquier cambio en la expresión original (incluida la ortografía) en la respuesta.
+
+## <a name="create-bing-search-resource"></a>Creación de un recurso de Bing Search
 
 Para crear un recurso de Bing Search en Azure Portal, siga estas instrucciones:
 
@@ -32,7 +55,8 @@ Para crear un recurso de Bing Search en Azure Portal, siga estas instrucciones:
 
 4. Aparece un panel de información a la derecha con información, incluido el Aviso legal. Haga clic en **Crear** para iniciar el proceso de creación de la suscripción.
 
-    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Recurso de la API Bing Spell Check V7":::
+> [!div class="mx-imgBorder"]
+> ![Recurso de la API Bing Spell Check V7](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. En el panel siguiente, escriba la configuración del servicio. Espere a que finalice el proceso de creación del servicio.
 
@@ -40,15 +64,23 @@ Para crear un recurso de Bing Search en Azure Portal, siga estas instrucciones:
 
 7. Copie una de las claves que se van a agregar al encabezado de la solicitud de predicción. Solo necesita una de las dos claves.
 
-8. Agregue la clave a `mkt-bing-spell-check-key` en el encabezado de la solicitud de predicción.
-
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
+## <a name="enable-spell-check-from-ui"></a>Habilitación de la revisión ortográfica desde la interfaz de usuario 
+Puede habilitar la revisión ortográfica para la consulta de ejemplos mediante el [portal de Luis](https://www.luis.ai). Seleccione **Administrar** en la parte superior de la pantalla y **Recursos de Azure** en el panel de navegación izquierdo. Después de asociar un recurso de predicción a la aplicación, puede seleccionar **Cambiar parámetros de consulta** desde la parte inferior de la página y pegar la clave de recurso en el campo **Habilitar revisión de la ortografía**.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Habilitar revisión de la ortografía](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
+
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Agregar la clave a la dirección URL del punto de conexión
 Para cada consulta en la que desee aplicar la corrección ortográfica, la consulta de punto de conexión necesita la clave de recurso de Bing Spellcheck que se pasa en el parámetro del encabezado de la consulta. Es posible que tenga un bot de chat que llama a LUIS o puede llamar directamente a la API de punto de conexión de LUIS. Con independencia de cómo se llame al punto de conexión, cada llamada debe incluir la información necesaria en la solicitud del encabezado para que las correcciones ortográficas funcionen correctamente. Debe establecer el valor con **mkt-bing-spell-check-key** en el valor de clave.
 
+|Clave del encabezado|Valor de encabezado|
+|--|--|
+|`mkt-bing-spell-check-key`|Claves que se encuentran en la hoja **Keys and Endpoint** (Claves y punto de conexión) del recurso|
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar expresiones incorrectas a LUIS
 1. Agregue una expresión incorrecta a la consulta de predicción que va a enviar, como "How far is the mountainn?". En inglés, `mountain`, con una `n`, es la ortografía correcta.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968473"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373375"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entrenamiento e implementación de un modelo de Habla personalizada
 
@@ -40,7 +40,19 @@ El primer paso para entrenar un modelo es cargar los datos de entrenamiento. En 
 3. Seleccione **Entrenar modelo**
 4. Asigne un **nombre** y una **descripción** a su entrenamiento.
 5. En la lista **Scenario and Baseline model** (Escenario y modelo de línea base), seleccione el escenario que más se ajuste a su dominio. Si no está seguro de qué escenario elegir, seleccione **General**. El modelo de línea de base es el punto de partida para el entrenamiento. El modelo más reciente suele ser la mejor opción.
-6. En la página **Select training data** (Seleccionar datos de entrenamiento), elija los conjuntos de datos de texto relacionados de audio y transcripción etiquetada por usuarios que quiera usar para el entrenamiento. Al entrenar un nuevo modelo, empiece con texto relacionado; el entrenamiento con audio y transcripción etiquetada por usuarios puede tardar mucho más (incluso [varios días](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. En la página **Select training data** (Seleccionar datos de entrenamiento), elija los conjuntos de datos de texto relacionados de audio y transcripción etiquetada por usuarios que quiera usar para el entrenamiento.
+
+> [!NOTE]
+> Al entrenar un nuevo modelo, empiece con texto relacionado; el entrenamiento con audio y transcripción etiquetada por usuarios puede tardar mucho más  **(incluso [varios días](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)** ).
+
+> [!NOTE]
+> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
+
+> [!NOTE]
+> En los casos en los que cambia el modelo base utilizado para el entrenamiento y tiene audio en el conjunto de datos de entrenamiento, compruebe *siempre* si el nuevo modelo base seleccionado [admite el entrenamiento con datos de audio](language-support.md#speech-to-text). Si el modelo base usado anteriormente no admitía el entrenamiento con datos de audio, y el conjunto de datos de entrenamiento contiene audio, el tiempo de entrenamiento con el nuevo modelo base aumentará **drásticamente** y puede pasar de horas a días e incluso más. Esto es especialmente cierto si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
+>
+> Si se encuentra con el problema que se describe en el párrafo anterior, puede reducir rápidamente el tiempo de entrenamiento reduciendo la cantidad de audio del conjunto de datos o eliminándolo por completo y dejando solo el texto. La ultima opción es muy recomendable si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
+
 7. Tras finalizar el entrenamiento, puede realizar pruebas de precisión en el modelo recién entrenado. Este paso es opcional.
 8. Seleccione **Create** (Crear) para generar el modelo personalizado.
 

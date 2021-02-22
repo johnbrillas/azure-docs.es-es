@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951334"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385037"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Uso del modo de aprendiz para el entrenamiento de Personalizer sin que ello afecte a la aplicación existente
 
@@ -63,7 +63,7 @@ Aprendizaje cuando el modo de aprendiz difiere del modo en línea de las siguien
 |--|--|--|
 |Impacto en la experiencia del usuario|Puede usar el comportamiento del usuario existente para el entrenamiento de Personalizer. Para ello, permita que observe (sin alterar) cuál habría sido su **acción predeterminada** y la recompensa obtenida. Esto significa que la experiencia de los usuarios y sus resultados empresariales no se verán afectados.|Muestra la acción superior devuelta desde la llamada a Rank para afectar al comportamiento del usuario.|
 |Velocidad de aprendizaje|Personalizer aprenderá más lentamente en el modo de aprendiz que en el modo en línea. El modo de aprendiz solo puede aprender observando las recompensas que ha obtenido la **acción predeterminada**, lo que limita la velocidad de aprendizaje, ya que no se puede realizar ninguna exploración.|Aprende más rápido porque puede aprovechar el modelo actual y explorar nuevas tendencias.|
-|"Tope" de eficacia del aprendizaje|Personalizer puede aproximarse, muy pocas veces igualar y nunca superar el rendimiento de la lógica de negocios base (el total de recompensas logrado por la **acción predeterminada** de cada llamada a Rank).|Personalizer debe superar las aplicaciones de línea de base y, con el tiempo, cuando se detenga, debe realizar una evaluación sin conexión y una evaluación de características para continuar obteniendo mejoras para el modelo. |
+|"Tope" de eficacia del aprendizaje|Personalizer puede aproximarse, muy pocas veces igualar y nunca superar el rendimiento de la lógica de negocios base (el total de recompensas logrado por la **acción predeterminada** de cada llamada a Rank). Este "tope" de aproximación se reduce mediante la exploración. Por ejemplo, con la exploración en un 20%, es muy poco probable que el rendimiento del modo de aprendiz supere el 80% y el 60% es un objetivo razonable en el que pasar al modo en línea.|Personalizer debe superar las aplicaciones de línea de base y, con el tiempo, cuando se detenga, debe realizar una evaluación sin conexión y una evaluación de características para continuar obteniendo mejoras para el modelo. |
 |Valor de Rank API para rewardActionId|La experiencia de los usuarios no se ve afectada, ya que _rewardActionId_ siempre es la primera acción que se envía en la solicitud Rank. En otras palabras, Rank API no hace nada visible para la aplicación durante el modo de aprendiz. Las Reward API de la aplicación no deben cambiar el modo en que se usa Reward API entre un modo y otro.|La experiencia de los usuarios se modificará en función del valor _rewardActionId_ que Personalizer elija para la aplicación. |
 |Evaluaciones|Personalizer mantiene una comparación de los totales de recompensas que la lógica de negocios predeterminada obtiene y los totales de recompensas que Personalizer obtendría en el modo en línea en ese momento. Existe una comparación disponible en Azure Portal para ese recurso.|Evalúe la eficacia de Personalizer mediante [evaluaciones sin conexión](concepts-offline-evaluation.md), que le permiten comparar las recompensas totales que Personalizer ha obtenido con las recompensas potenciales de la línea de base de la aplicación.|
 
