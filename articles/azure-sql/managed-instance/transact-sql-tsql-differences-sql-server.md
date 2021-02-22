@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626281"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378628"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-da
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
 - La habilitación o deshabilitación del Agente SQL Server no se admite actualmente en la Instancia administrada de SQL. El Agente SQL se ejecuta de forma continua.
+- No se admite el desencadenador de programación de trabajos basado en una CPU inactiva.
 - La configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en la Instancia administrada de SQL. 
 - Trabajos
   - Se admiten los pasos de trabajo de T-SQL.
@@ -305,14 +306,8 @@ Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-da
   - Aún no se admiten las alertas.
   - No se admiten los servidores proxy.
 - No se admite EventLog.
-- El usuario debe estar asignado directamente a la entidad de seguridad del servidor (inicio de sesión) de Azure AD para crear, modificar o ejecutar trabajos del Agente SQL. Los usuarios que no estén directamente asignados, por ejemplo, los usuarios que pertenecen a un grupo de Azure AD que tenga derechos para crear, modificar o ejecutar trabajos del Agente SQL, no podrán realizar estas acciones de forma eficaz. Esto se debe a la suplantación de Instancia administrada y las [limitaciones de EXECUTE AS](#logins-and-users).
-
-Actualmente, no se admiten las siguientes características del Agente SQL:
-
-- Servidores proxy
-- Programación de trabajos en una CPU inactiva
-- Habilitar o deshabilitar un agente
-- Alertas
+- El usuario debe estar asignado directamente a la entidad de seguridad del servidor (inicio de sesión) de Azure AD para crear, modificar o ejecutar trabajos del Agente SQL. Los usuarios que no estén directamente asignados, por ejemplo, los que pertenezcan a un grupo de Azure AD que tenga derechos para crear, modificar o ejecutar trabajos del Agente SQL, no podrán realizar estas acciones de forma eficaz. Esto se debe a la suplantación de Instancia administrada y las [limitaciones de EXECUTE AS](#logins-and-users).
+- No se admite la característica de administración multiservidor para los trabajos de maestro y destino (MSX/TSX).
 
 Para más información acerca del Agente SQL Server, consulte [Agente SQL Server](/sql/ssms/agent/sql-server-agent).
 

@@ -1,22 +1,17 @@
 ---
 title: Supervisión de la actividad de copia
 description: Conozca cómo supervisar la ejecución de la actividad de copia en Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440616"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388301"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de la actividad de copia
 
@@ -67,7 +62,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | throughput | Velocidad de transferencia de datos. | Número de punto flotante en KBps |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int32 (sin unidad) |
 | sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia.| Valor Int32 (sin unidad) |
-| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en Azure Synapse Analytics (anteriormente, SQL Data Warehouse). | Boolean |
+| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en Azure Synapse Analytics. | Boolean |
 | redshiftUnload | Si se usará UNLOAD cuando se copian datos de Redshift. | Boolean |
 | hdfsDistcp | Si se usará DistCp cuando se copian datos de HDFS. | Boolean |
 | effectiveIntegrationRuntime | El entorno de ejecución de integración (IR) o los tiempos de ejecución que se usan para aumentar la potencia de la ejecución de la actividad, en el formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadena) |

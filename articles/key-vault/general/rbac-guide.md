@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936250"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527071"
 ---
-# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure (versión preliminar)
+# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure
 
 > [!NOTE]
 > El proveedor de recursos de Key Vault admite dos tipos de recursos: **almacenes** y **HSM administrados**. El control de acceso descrito en este artículo solo se aplica a los **almacenes**. Para más información sobre el control de acceso para HSM administrado, consulte [Control de acceso de HSM administrado](../managed-hsm/access-control.md).
@@ -44,20 +44,20 @@ Para más información acerca de las directrices de administración de Azure Key
 - [Introducción a la seguridad de Azure Key Vault](security-overview.md)
 - [Límites de servicio Azure Key Vault](service-limits.md)
 
-## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Roles integrados de Azure para operaciones del plano de datos de Key Vault (versión preliminar)
+## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Roles integrados de Azure para operaciones del plano de datos de Key Vault
 > [!NOTE]
 > El rol `Key Vault Contributor` es para que las operaciones del plano de administración administren almacenes de claves; no permite el acceso a claves, secretos y certificados.
 
 | Rol integrado | Descripción | ID |
 | --- | --- | --- |
-| Administrador de almacén de claves (versión preliminar) | Permite realizar todas las operaciones de plano de datos en un almacén de claves y en todos los objetos que contiene, incluidos los certificados, las claves y los secretos. No permite administrar los recursos del almacén de claves ni administrar las asignaciones de roles. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Responsable de certificados de almacén de claves (versión preliminar) | Permite realizar cualquier acción en los certificados de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Responsable criptográfico de almacén de claves (versión preliminar)| Permite realizar cualquier acción en las claves de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Cifrado de servicio criptográfico de almacén de claves (versión preliminar) | Permite leer los metadatos de las claves y realizar operaciones de encapsulado/desencapsulado. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Usuario criptográfico de almacén de claves (versión preliminar) | Permite realizar operaciones criptográficas mediante claves. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Lector de almacén de claves (versión preliminar)| Permite leer metadatos de almacenes de claves y sus certificados, claves y secretos. No se pueden leer valores confidenciales, como el contenido de los secretos o el material de las claves. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Responsable de secretos de almacén de claves (versión preliminar)| Permite realizar cualquier acción en los secretos de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Usuario de secretos de almacén de claves (versión preliminar)| Permite leer el contenido de los secretos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Administrador de Key Vault| Permite realizar todas las operaciones de plano de datos en un almacén de claves y en todos los objetos que contiene, incluidos los certificados, las claves y los secretos. No permite administrar los recursos del almacén de claves ni administrar las asignaciones de roles. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Agente de certificados de Key Vault | Permite realizar cualquier acción en los certificados de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Agente criptográfico de Key Vault | Permite realizar cualquier acción en las claves de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Usuario de cifrado de servicio criptográfico de Key Vault | Permite leer los metadatos de las claves y realizar operaciones de encapsulado/desencapsulado. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Usuario criptográfico de Key Vault  | Permite realizar operaciones criptográficas mediante claves. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Lector de Key Vault | Permite leer metadatos de almacenes de claves y sus certificados, claves y secretos. No se pueden leer valores confidenciales, como el contenido de los secretos o el material de las claves. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Responsable de secretos de Key Vault| Permite realizar cualquier acción en los secretos de un almacén de claves, excepto administrar permisos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Usuario de secretos de Key Vault | Permite leer el contenido de los secretos. Solo funciona para almacenes de claves que usan el modelo de permisos "Control de acceso basado en rol de Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Para más información sobre las definiciones de roles de Azure, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -74,8 +74,8 @@ Para agregar asignaciones de roles, debe tener:
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitación de los permisos de Azure RBAC en Key Vault
 
-> [!IMPORTANT]
-> El establecimiento del modelo de permisos de Azure RBAC invalida todos los permisos de las directivas de acceso. Puede provocar interrupciones cuando los roles de Azure equivalentes no se asignen.
+> [!NOTE]
+> El cambio del modelo de permiso requiere el permiso "Microsoft.Authorization/roleAssignments/write", que forma parte de los roles [Propietario](../../role-based-access-control/built-in-roles.md#owner) y [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator). No se admiten roles de administrador de suscripciones clásicas como "Administrador de servicios" y "Coadministrador".
 
 1.  Habilitación de los permisos de Azure RBAC en un almacén de claves nuevo:
 
@@ -85,10 +85,13 @@ Para agregar asignaciones de roles, debe tener:
 
     ![Habilitación de los permisos de Azure RBAC: almacén existente](../media/rbac/image-2.png)
 
+> [!IMPORTANT]
+> El establecimiento del modelo de permisos de Azure RBAC invalida todos los permisos de las directivas de acceso. Puede provocar interrupciones cuando los roles de Azure equivalentes no se asignen.
+
 ### <a name="assign-role"></a>Asignación de un rol
 
 > [!Note]
-> Se recomienda usar el identificador de rol único, en lugar del nombre de rol en los scripts. Por consiguiente, si se cambia el nombre de un rol, los scripts seguirían funcionando. En la versión preliminar, todos los roles tendrían el sufijo "(preview)", pero se eliminaría posteriormente. En este documento, el nombre de rol se usa solo para facilitar la legibilidad.
+> Se recomienda usar el identificador de rol único, en lugar del nombre de rol en los scripts. Por consiguiente, si se cambia el nombre de un rol, los scripts seguirían funcionando. En este documento, el nombre de rol se usa solo para facilitar la legibilidad.
 
 Comando de la CLI de Azure para crear una asignación de roles:
 
@@ -107,13 +110,13 @@ En Azure Portal, la pantalla de asignaciones de roles de Azure está disponible 
 
 2.  Haga clic en Control de acceso (IAM) \> Agregar asignación de roles\>Agregar
 
-3.  Creación de un rol Lector de almacén de claves "Lector de almacén de claves (versión preliminar)" para el usuario actual
+3.  Creación de un rol de lector de Key Vault "Lector de Key Vault" para el usuario actual
 
     ![Adición de rol: grupo de recursos](../media/rbac/image-5.png)
 
 CLI de Azure:
 ```azurecli
-az role assignment create --role "Key Vault Reader (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 
 La asignación de roles anterior brinda la posibilidad de enumerar los objetos de almacén de claves que hay en el almacén de claves.
@@ -124,14 +127,14 @@ La asignación de roles anterior brinda la posibilidad de enumerar los objetos d
 
 2. Haga clic en Agregar asignación de roles\>Agregar.
 
-3. Cree el rol Responsable de secretos de claves "Responsable de secretos del almacén de claves (versión preliminar)" para el usuario actual.
+3. Cree el rol de responsable de secretos de claves "Responsable de secretos de Key Vault" para el usuario actual.
 
     ![Asignación de roles: almacén de claves](../media/rbac/image-6.png)
 
  CLI de Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 Después de crear la asignación de roles anterior puede crear, actualizar o eliminar los secretos.
@@ -142,18 +145,18 @@ Después de crear la asignación de roles anterior puede crear, actualizar o eli
 
 ### <a name="secret-scope-role-assignment"></a>Asignación de roles del ámbito de secreto
 
-1. Abra uno de los secretos creados previamente, observe Información general y control de acceso (IAM) (versión preliminar)
+1. Abra uno de los secretos creados previamente y observe las opciones Información general y Control de acceso (IAM). 
 
-2. Haga clic en la pestaña Control de acceso (IAM) (versión preliminar)
+2. Haga clic en la pestaña Control de acceso (IAM).
 
     ![Asignación de roles: secretos](../media/rbac/image-8.png)
 
-3. Cree el rol Responsable de secretos de claves "Responsable de secretos del almacén de claves (versión preliminar)" para el usuario actual de la misma forma que lo hizo antes para Key Vault.
+3. Cree el rol de responsable de secretos de claves "Responsable de secretos de Key Vault" para el usuario actual de la misma forma que lo hizo antes para Key Vault.
 
 CLI de Azure:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
 ### <a name="test-and-verify"></a>Prueba y comprobación
@@ -164,11 +167,11 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 1. Valide la adición de un secreto nuevo sin el rol "Responsable de secretos del almacén de claves" en el nivel del almacén de claves.
 
-Vaya a la pestaña Control de acceso (IAM) del almacén de claves y elimine la asignación de roles "Responsable de secretos del almacén de claves (versión preliminar)" para este recurso.
+Vaya a la pestaña Control de acceso (IAM) del almacén de claves y elimine la asignación de roles "Responsable de secretos de Key Vault" de este recurso.
 
 ![Eliminación de asignación: almacén de claves](../media/rbac/image-9.png)
 
-Vaya al secreto creado antes. Puede ver todas las propiedades del secreto.
+Vaya al secreto que creó anteriormente. Puede ver todas las propiedades del secreto.
 
 ![Vista de secreto con acceso](../media/rbac/image-10.png)
 
@@ -178,7 +181,7 @@ Crear secreto (Secrets \> +Generate/Import) [(Secretos > +Generar o importar)] d
 
 2.  Valide la edición del secreto sin el rol "Responsable de secretos del almacén de claves" en el nivel del secreto.
 
--   Vaya a la pestaña Control de acceso (IAM) (versión preliminar) del secreto creado antes y elimine la asignación de roles "Responsable de secretos del almacén de claves (versión preliminar)" para este recurso.
+-   Vaya a la pestaña Control de acceso (IAM) del secreto creado antes y elimine la asignación de roles "Responsable de secretos de Key Vault" de este recurso.
 
 -   Vaya al secreto que creó anteriormente. Puede ver las propiedades del secreto.
 
@@ -186,7 +189,7 @@ Crear secreto (Secrets \> +Generate/Import) [(Secretos > +Generar o importar)] d
 
 3. Valide la lectura de los secretos sin el rol de lectura en el nivel del almacén de claves.
 
--   Vaya a la pestaña Control de acceso (IAM) del grupo de recursos del almacén de claves y elimine la asignación de roles "Lector del almacén de claves (versión preliminar)".
+-   Vaya a la pestaña Control de acceso (IAM) del grupo de recursos del almacén de claves y elimine la asignación de roles "Lector de Key Vault".
 
 -   Si va a la pestaña Secretos del almacén de claves, debería aparecer el siguiente error:
 

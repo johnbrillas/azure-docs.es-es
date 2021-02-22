@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936165"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517270"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -27,7 +27,7 @@ Azure Functions necesita una cuenta de Azure Storage para crear una instancia de
 
 ## <a name="storage-account-requirements"></a>Requisitos de la cuenta de almacenamiento
 
-Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Algunas cuentas de almacenamiento no admiten el uso de colas y tablas; por ejemplo, las cuentas de almacenamiento solo para blobs, Azure Premium Storage y las cuentas de almacenamiento de uso general con replicación ZRS.
+Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Algunas cuentas de almacenamiento no admiten el uso de colas y tablas; Estas cuentas incluyen cuentas de almacenamiento solo de blobs y Azure Premium Storage.
 
 Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#core-storage-services). 
 

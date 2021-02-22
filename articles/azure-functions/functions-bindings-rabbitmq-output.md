@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746463"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097320"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Información general sobre los enlaces de salid de RabbitMQ para Azure Functions
 
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-En el ejemplo siguiente se muestra una función de Java que envía un mensaje a la cola de RabbitMQ cuando lo desencadena un desencadenador TimerTrigger cada 5 minutos.
+La siguiente función de Java usa la anotación `@RabbitMQOutput` de los [tipos de RabbitMQ para Java](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) para describir la configuración de un enlace de salida de la cola de RabbitMQ. La función envía un mensaje a la cola de RabbitMQ cuando se desencadena mediante TimerTrigger cada cinco minutos.
 
 ```java
 @FunctionName("RabbitMQOutputExample")

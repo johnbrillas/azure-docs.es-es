@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881930"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378305"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -19,7 +19,7 @@ La configuración de la aplicación en una aplicación de función contiene opci
 Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-run-local.md#local-settings-file).
 
 > [!NOTE]  
-> Puede usar la configuración de la aplicación para reemplazar los valores de la configuración de host.json sin tener que cambiar el propio archivo host.json. Esto es algo que resulta útil cuando hace falta configurar o modificar valores de host.json concretos para un entorno específico. También permite cambiar la configuración de host.json sin tener que volver a publicar el proyecto. Para más información, consulte el [artículo de referencia de host.json](functions-host-json.md#override-hostjson-values).  
+> Puede usar la configuración de la aplicación para reemplazar los valores de la configuración de host.json sin tener que cambiar el propio archivo host.json. Esto es algo que resulta útil cuando hace falta configurar o modificar valores de host.json concretos para un entorno específico. También permite cambiar la configuración de host.json sin tener que volver a publicar el proyecto. Para más información, consulte el [artículo de referencia de host.json](functions-host-json.md#override-hostjson-values). Para aplicar los cambios realizados en la configuración de la aplicación de funciones, es necesario reiniciar la aplicación de funciones.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Valor|Descripción|
+|Clave|Value|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
@@ -55,7 +55,7 @@ De forma predeterminada, [Functions Proxies](functions-proxies.md) usará acceso
 
 Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end. 
 
-|Clave|Valor|Descripción|
+|Clave|Value|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -213,7 +213,7 @@ El valor de esta configuración indica una dirección URL de índice de paquetes
 
 Para más información, vea [Dependencias personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) en la referencia para desarrolladores de Python.
 
-## <a name="scale_controller_logging_enable"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLE
+## <a name="scale_controller_logging_enabled"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
 _Esta configuración se encuentra actualmente en versión preliminar_.  
 
@@ -221,7 +221,7 @@ Esta configuración controla el registro del controlador de escala de Azure Func
 
 |Clave|Valor de ejemplo|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
 
 El valor de esta clave se proporciona en el formato `<DESTINATION>:<VERBOSITY>`, que se define de la siguiente manera:
 
@@ -235,7 +235,7 @@ Cadena de conexión para la cuenta de almacenamiento donde se almacenan el códi
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nombre];AccountKey=[clave]|
 
-Solo se usa cuando se implementa en un plan de consumo o Premium que se ejecuta en Windows. No se admiten para Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
@@ -253,7 +253,7 @@ La ruta de acceso del archivo al código y la configuración de la aplicación d
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Solo la usan las aplicaciones de funciones en un plan de consumo o Premium que se ejecuta en Windows. No se admiten para Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que se ejecuta en Windows. No se admite para los planes de consumo que se ejecutan en Linux. El cambio o la eliminación de esta configuración puede hacer que la aplicación de funciones no se inicie. Para más información, consulte [este artículo de solución de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 Al usar una instancia de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
 

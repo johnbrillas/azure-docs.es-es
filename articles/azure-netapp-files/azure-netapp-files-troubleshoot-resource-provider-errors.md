@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374888"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solución de errores del proveedor de recursos de Azure NetApp Files 
 
 En este artículo se describen los errores comunes del proveedor de recursos de Azure NetApp Files, así como sus causas, soluciones y soluciones alternativas (si las hay).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Errores comunes del proveedor de recursos de Azure NetApp Files
+
+La ***creación de `netAppAccounts` se ha restringido en esta región.***
+
+Esta situación se produce cuando la suscripción se incluye en la lista de espera de Azure NetApp Files y el usuario intenta crear una cuenta de NetApp.
+
+* Causa:   
+El proveedor de recursos de Azure para Azure NetApp Files no se ha registrado correctamente. 
+ 
+* Solución:   
+Después de que la suscripción se haya incluido en la lista de espera, realice todos los pasos descritos en [Registro del proveedor de recursos de Azure NetApp](azure-netapp-files-register.md#resource-provider).
 
 ***No se puede cambiar BareMetalTenantId.***  
 
@@ -45,7 +55,7 @@ Este error se produce al intentar actualizar un grupo de capacidad o aplicarle u
 Intenta actualizar un nivel de servicio del grupo de capacidad cuando el grupo contiene volúmenes.
 * Solución:   
 Elimine todos los volúmenes del grupo de capacidad y, luego, cambie el nivel de servicio.
-* Solución alternativa:   
+* Solución:   
 Cree otro grupo de capacidad y, luego, vuelva a crear los volúmenes en el nuevo grupo de capacidad.
 
 ***No se puede cambiar PoolId***  
@@ -65,7 +75,7 @@ Este error se produce al intentar cambiar la ruta del archivo (`CreationToken`) 
 Intenta cambiar la ruta del archivo (`CreationToken`) después de la creación del volumen, que no es una operación admitida. 
 * Solución:   
 Si no es necesario cambiar la ruta del archivo, considere la posibilidad de quitar el parámetro de la solicitud para descartar el mensaje de error.
-* Solución alternativa:   
+* Solución:   
 Si necesita cambiar la ruta del archivo (`CreationToken`), puede crear un volumen con una nueva ruta de archivo y luego migrar los datos al nuevo volumen.
 
 ***CreationToken debe tener una longitud de al menos 16 caracteres.***
@@ -85,7 +95,7 @@ Este error se produce al intentar cambiar el nombre de dominio en Active Direct
 Intenta actualizar la propiedad de nombre de dominio.
 * Solución:    
 Ninguno. No se puede cambiar el nombre de dominio.
-* Solución alternativa:   
+* Solución:   
 Elimine todos los volúmenes mediante la configuración de Active Directory. A continuación, elimine la configuración de Active Directory y vuelva a crear los volúmenes.
 
 ***Error de valor duplicado del objeto ExportPolicy.Rules[RuleIndex].***
@@ -96,7 +106,7 @@ Este error se produce cuando la directiva de exportación no está definida con 
 La directiva de exportación definida no cumple el requisito de reglas de directivas de exportación. Debe tener como mínimo una regla de directiva de exportación y como máximo cinco reglas de directiva de exportación.
 * Solución:   
 Asegúrese de que el índice no esté en uso y que se encuentre en el rango de 1 a 5.
-* Solución alternativa:   
+* Solución:   
 Use un índice diferente para la regla que está intentando establecer.
 
 ***Error {action} {resourceTypeName}***
@@ -107,7 +117,7 @@ Este error se muestra cuando otro control de errores no ha podido gestionar el e
 Este error es una excepción no controlada de la que se desconoce la causa.
 * Solución:   
 Póngase en contacto con el Centro de soporte técnico de Azure para informar del motivo detallado en los registros.
-* Solución alternativa:   
+* Solución:   
 Ninguno.
 
 ***El nombre de la ruta del archivo solo puede contener letras, números y guiones ("-").***
@@ -118,7 +128,7 @@ Este error se produce cuando la ruta del archivo contiene caracteres no admitido
 La ruta del archivo contiene caracteres no admitidos, por ejemplo, un punto ("."), una coma (","), un carácter de subrayado ("_") o un signo de dólar ("$").
 * Solución:   
 Quite los caracteres que no son letras alfabéticas, números o guiones ("-") de la ruta de acceso de archivo especificado.
-* Solución alternativa:   
+* Solución:   
 Puede reemplazar un carácter de subrayado por un guion o usar mayúsculas y minúsculas en lugar de espacios para indicar el comienzo de nuevas palabras.  Por ejemplo, use "NuevoVolumen" en lugar de "nuevo volumen".
 
 ***No se puede cambiar FileSystemId.***
@@ -156,7 +166,7 @@ Este mensaje indica un error en los campos de `RuleIndex`, `AllowedClients`, `Un
 Hubo un error en la solicitud de validación de entrada para al menos uno de los siguientes campos: `RuleIndex`, `AllowedClients`, `UnixReadOnly`, `UnixReadWrite`, `Nfsv`3 y `Nfsv4`.
 * Solución:   
 Asegúrese de establecer todos los parámetros obligatorios y no conflictivos en la línea de comandos. Por ejemplo, no se pueden establecer los parámetros `UnixReadOnly` y `UnixReadWrite` al mismo tiempo.
-* Solución alternativa:   
+* Solución:   
 Vea la solución anterior.
 
 El ***intervalo IP {0} a {1} de VLAN {2} ya está en uso***
@@ -249,7 +259,7 @@ La API de Azure depende de la API de Azure NetApp Files para administrar volúme
 La API subyacente no responde, lo que resulta en un error interno. Es probable que el error sea temporal.
 * Solución:   
 Es probable que el problema sea temporal. La solicitud debería realizarse correctamente después de un tiempo.
-* Solución alternativa:   
+* Solución:   
 Ninguno. La API subyacente es esencial para la administración de volúmenes.
 
 ***No se encontró ningún id. de resultado de operación para "{0}".***
@@ -260,7 +270,7 @@ Este error indica que un error interno impide la finalización de la operación.
 Hubo un error interno que impidió la finalización de la operación.
 * Solución:   
 Es probable que el error sea temporal. Espere unos minutos y pruebe otra vez. Si el problema persiste, cree una incidencia para que el soporte técnico investigue el problema.
-* Solución alternativa:   
+* Solución:   
 Espere unos minutos y compruebe si el problema persiste.
 
 ***No se permite la combinación de los tipos de protocolo CIFS y NFS***
@@ -271,7 +281,7 @@ Este error se produce al intentar crear un volumen y existen los tipos de protoc
 Los tipos de protocolo CIFS (SMB) y NFS se usan en las propiedades del volumen.
 * Solución:   
 Quite uno de los tipos de protocolo.
-* Solución alternativa:   
+* Solución:   
 Deje la propiedad de tipo de protocolo vacía o con un valor null.
 
 ***El número de elementos: {value} del objeto: ExportPolicy.Rules[RuleIndex] está fuera del intervalo mínimo-máximo.***
@@ -282,7 +292,7 @@ Este error se produce cuando las reglas de directivas de exportación no cumplen
 La directiva de exportación definida no cumple el rango necesario.
 * Solución:   
 Asegúrese de que el índice no esté en uso y que se encuentre en el rango de 1 a 5.
-* Solución alternativa:   
+* Solución:   
 No es obligatorio usar directivas de exportación en los volúmenes. Puede omitir la directiva de exportación por completo si no necesita usar reglas de directiva de exportación.
 
 ***Solo se permite una instancia de Active Directory***
@@ -293,7 +303,7 @@ Este error se produce al intentar crear una configuración de Active Directory 
 Intenta crear (no actualizar) una instancia de Active Directory, pero ya existe una.
 * Solución:   
 Si la configuración de Active Directory no está en uso, primero puede eliminar la configuración existente y, luego, volver a intentar la operación de creación.
-* Solución alternativa:   
+* Solución:   
 Ninguno. Solo se permite una instancia de Active Directory.
 
 ***Operación "{operation}" no admitida.***
@@ -341,7 +351,7 @@ Este error se produce cuando se actualiza el tamaño del grupo de capacidad y es
 Intenta actualizar el grupo de capacidad con un tamaño menor que usedBytes en todos los volúmenes del grupo de capacidad.  O bien, intenta crear un volumen que es mayor que el espacio disponible en el grupo de capacidad.  O también, intenta cambiar el tamaño de un volumen y el nuevo tamaño supera el espacio disponible en el grupo de capacidad.
 * Solución:   
 Establezca el tamaño del grupo de capacidad en un valor mayor o cree un volumen de menor tamaño.
-* Solución alternativa:   
+* Solución:   
 Quite suficientes volúmenes para que el tamaño del grupo de capacidad pueda actualizarse con este tamaño.
 
 ***La propiedad Location de la instantánea debe ser la misma que la del volumen***
@@ -370,7 +380,7 @@ Este error se produce cuando se crea un volumen con un tipo de protocolo descono
 Intenta establecer un valor no válido en la propiedad `protocolType` del volumen.
 * Solución:   
 Establezca una cadena válida en `protocolType`.
-* Solución alternativa:   
+* Solución:   
 Establezca `protocolType` como null.
 
 ***No se pueden cambiar los tipos de protocolo***
@@ -381,7 +391,7 @@ Este error se produce al intentar actualizar el valor de `ProtocolType` de un vo
 La propiedad `ProtocolType` se establece cuando se crea el volumen.  No se puede actualizar.
 * Solución:   
 Ninguno.
-* Solución alternativa:   
+* Solución:   
 Cree otro volumen con nuevos tipos de protocolo.
 
 ***La creación del recurso de tipo {resourceType} ha superado la cuota de recursos de {quota} del tipo {resourceType} por {parentResourceType}. El número actual de recursos es {currentCount}. Elimine algunos recursos de este tipo antes de crear otro.***
@@ -392,7 +402,7 @@ Este error se produce al intentar crear un recurso (`NetAppAccount`, `CapacityPo
 Intenta crear un recurso, pero se ha alcanzado el límite de cuota (ejemplo: `NetAppAccounts` por suscripción `CapacityPools` por `NetAppAccount`).
 * Solución:   
 Aumente el límite de cuota.
-* Solución alternativa:   
+* Solución:   
 Elimine los recursos no usados del mismo tipo y vuelva a crearlos.
 
 ***Recibió un valor para la propiedad de solo lectura "{propertyName}".***
@@ -412,7 +422,7 @@ Este error se produce cuando se intenta hacer referencia a un recurso que no exi
 Intenta hacer referencia a un recurso que no existe (por ejemplo, un volumen o una instantánea) que ya se ha eliminado o que tiene el nombre mal escrito.
 * Solución:   
 Compruebe la solicitud para ver si tiene errores de ortografía y asegurarse de que se hace referencia a ella correctamente.
-* Solución alternativa:   
+* Solución:   
 Consulte la sección Solución anterior.
 
 ***El nivel de servicio "{volumeServiceLevel}" es superior al valor de "{poolServiceLevel}" principal***
@@ -423,7 +433,7 @@ Este error se produce cuando se crea o actualiza un volumen y se establece el ni
 Intenta crear o actualizar un volumen con un nivel de servicio en una posición más alta que la del grupo de capacidad principal.
 * Solución:   
 Establezca el nivel de servicio en una posición igual o menor que la del grupo de capacidad principal.
-* Solución alternativa:   
+* Solución:   
 Cree el volumen en otro grupo de capacidad con un nivel de servicio correcto. Otra opción es eliminar todos los volúmenes del grupo de capacidad y establecer el nivel de servicio del grupo de capacidad en una posición más alta.
 
 ***El nombre del servidor SMB no puede tener más de 10 caracteres.***
@@ -434,7 +444,7 @@ Este error se produce cuando se crea o actualiza una configuración de Active D
 La longitud del nombre del servidor SMB supera los 10 caracteres.
 * Solución:   
 Use un nombre de servidor más corto. La longitud máxima es de 10 caracteres.
-* Solución alternativa:   
+* Solución:   
 Ninguno.  Vea la solución anterior. 
 
 ***No se puede cambiar SubnetId.***
@@ -445,7 +455,7 @@ Este error se produce al intentar cambiar el valor de `subnetId` después de que
 Intenta cambiar el valor de `subnetId` después de la creación del volumen, y esta operación no se admite. 
 * Solución:   
 Si no es necesario cambiar el valor de `subnetId`, considere la posibilidad de quitar el parámetro de la solicitud para descartar el mensaje de error.
-* Solución alternativa:   
+* Solución:   
 Si necesita cambiar el valor de `subnetId`, puede crear un volumen con un nuevo valor de `subnetId` y luego migrar a él los datos.
 
 ***SubnetId tiene un formato no válido.***
@@ -456,7 +466,7 @@ Este error se produce cuando se intenta crear un volumen pero `subnetId` no es u
 Este error se produce cuando se intenta crear un volumen, pero `subnetId` no es un valor de `resourceId` para una subred. 
 * Solución:   
 Compruebe el valor de `subnetId` para asegurarse de que contiene un elemento `resourceId` para la subred usada.
-* Solución alternativa:   
+* Solución:   
 Ninguno. Vea la solución anterior. 
 
 ***La subred debe tener una delegación "Microsoft. NetApp/Volumes".***
@@ -467,7 +477,7 @@ Este error se produce cuando se crea un volumen y la subred seleccionada no se d
 Ha intentado crear el volumen y ha seleccionado una subred no delegada en `Microsoft.NetApp/volumes`.
 * Solución:   
 Seleccione otra subred que se delegue en `Microsoft.NetApp/volumes`.
-* Solución alternativa:   
+* Solución:   
 Agregue una delegación correcta a la subred.
 
 ***El tipo de recurso especificado es desconocido o no es aplicable.***
@@ -478,7 +488,7 @@ Este error se produce cuando se ha solicitado una comprobación de nombre en un 
 Se ha solicitado una comprobación de nombre para un tipo de recurso desconocido o no admitido.
 * Solución:   
 Compruebe que el recurso para el que realiza la solicitud se admita o no contenga errores ortográficos.
-* Solución alternativa:   
+* Solución:   
 Vea la solución anterior.
 
 ***Error desconocido de Azure NetApp Files.***
@@ -489,7 +499,7 @@ La API de Azure depende de la API de Azure NetApp Files para administrar volúme
 La API subyacente está enviando un error desconocido. Es probable que el error sea temporal.
 * Solución:   
 Es probable que el problema sea temporal y la solicitud debería realizarse correctamente después de un tiempo. Si el problema persiste, cree una incidencia de soporte técnico para que el problema se investigue.
-* Solución alternativa:   
+* Solución:   
 Ninguno. La API subyacente es esencial para la administración de volúmenes.
 
 ***Valor recibido para una propiedad desconocida "{propertyName}".***
@@ -500,7 +510,7 @@ Este error se produce cuando se proporcionan propiedades no existentes para un r
 La solicitud tiene un conjunto de propiedades que se pueden usar con cada recurso. No se pueden incluir propiedades inexistentes en la solicitud.
 * Solución:   
 Asegúrese de que todos los nombres de propiedad se hayan escrito correctamente y de que las propiedades estén disponibles para la suscripción y el recurso.
-* Solución alternativa:   
+* Solución:   
 Reduzca el número de propiedades definidas en la solicitud para eliminar la propiedad que provoca el error.
 
 ***No se admite la operación de actualización para este tipo de recurso.***
@@ -511,7 +521,7 @@ Solo los volúmenes se pueden actualizar. Este error se produce cuando se intent
 El recurso que intenta actualizar no admite la operación de actualización. Solo los volúmenes permiten la modificación de sus propiedades.
 * Solución:   
 Ninguno. El recurso que intenta actualizar no admite la operación de actualización. Por lo tanto, no se puede modificar.
-* Solución alternativa:   
+* Solución:   
 Para un volumen, cree un nuevo recurso con la actualización en contexto y migre los datos.
 
 ***No se puede crear el volumen en un grupo con un estado incorrecto.***
@@ -522,7 +532,7 @@ Este error se produce cuando se intenta crear un volumen en un grupo que no est�
 El grupo de capacidad que contiene el nuevo volumen tiene un estado de error.
 * Solución:   
 Compruebe que el grupo de capacidad se ha creado correctamente y que no se encuentra en estado de error.
-* Solución alternativa:   
+* Solución:   
 Cree un grupo de capacidad y cree el volumen en el nuevo grupo.
 
 ***El volumen se está creando y no se puede eliminar en este momento.***
@@ -533,7 +543,7 @@ Este error se produce cuando se intenta eliminar un volumen que aún está en pr
 Intenta eliminar un volumen que aún se encuentra en proceso de creación.
 * Solución:   
 Espere a que termine de crearse el volumen y, luego, vuelva a intentar la eliminación.
-* Solución alternativa:   
+* Solución:   
 Vea la solución anterior.
 
 ***El volumen se está eliminando y no se puede eliminar en ese momento.***
@@ -544,7 +554,7 @@ Este error se produce cuando se intenta eliminar un volumen que ya está en proc
 Intenta eliminar un volumen, pero ya se encuentra en proceso de eliminación.
 * Solución:   
 Espere a que finalice la operación de eliminación actual.
-* Solución alternativa:   
+* Solución:   
 Vea la solución anterior.
 
 ***El volumen se está actualizando y no se puede eliminar en ese momento.***
@@ -555,7 +565,7 @@ Este error se produce cuando se intenta eliminar un volumen que se está actuali
 Intenta eliminar un volumen que está en proceso de actualización.
 * Solución:   
 Espere a que termine la operación de actualización y vuelva a intentar la eliminación.
-* Solución alternativa:   
+* Solución:   
 Vea la solución anterior.
 
 ***No se encontró el volumen o no se creó correctamente.***
@@ -566,7 +576,7 @@ Este error se produce cuando no se ha podido crear el volumen e intenta cambiar 
 El volumen no existe o se ha producido un error en la creación.
 * Solución:   
 Compruebe que cambia el volumen correcto y que la creación del volumen se ha realizado correctamente. O bien, compruebe que exista el volumen para el que se crea una instantánea.
-* Solución alternativa:   
+* Solución:   
 Ninguno.  Vea la solución anterior. 
 
 ***El token de creación especificado ya existe***

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389746"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -153,6 +153,7 @@ Los intervalos de direcciones IP de estos archivos están en notación CIDR.
 ### <a name="tips"></a>Sugerencias 
 - Puede detectar actualizaciones de una publicación a la siguiente si observa los valores *changeNumber* en aumento en el archivo JSON. Cada subsección (por ejemplo, **Storage.WestUS**) tiene su propio *changeNumber* que se incrementa a medida que se producen cambios. El nivel superior de *changeNumber* del archivo aumenta cuando alguna de las subsecciones ha cambiado.
 - Para ver ejemplos de cómo analizar la información de la etiqueta de servicio (por ejemplo, obtener todos los intervalos de direcciones para Storage en Oeste de EE. UU.), consulte la documentación de [PowerShell de Service Tag Discovery API](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Cuando se agreguen nuevas direcciones IP a las etiquetas de servicio, no se usarán en Azure durante al menos una semana. Esto le proporciona tiempo para actualizar cualquier sistema que pueda necesitar para realizar un seguimiento de las direcciones IP asociadas a las etiquetas de servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda a [crear un grupo de seguridad de red](tutorial-filter-network-traffic.md).

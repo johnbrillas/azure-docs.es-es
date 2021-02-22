@@ -1,23 +1,18 @@
 ---
 title: Alta disponibilidad con puerta de enlace de administración de datos en Azure Data Factory
 description: Este artículo explica cómo puede escalar horizontalmente una puerta de enlace de administración de datos mediante la adición de más nodos y escalar verticalmente aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003623"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391735"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -98,7 +93,7 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
         > Consulte la sección [requisitos de los certificados TLS/SSL](#tlsssl-certificate-requirements) para obtener una lista de los requisitos para utilizar un certificado TLS/SSL. 
     5. Después de que la puerta de enlace se ha instalado correctamente, haga clic en Iniciar Configuration Manager:
     
-        ![Instalación manual: iniciar Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Instalación manual: iniciar Configuration Manager](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. Puede ver Configuration Manager de Data Management Gateway en el nodo (máquina de Windows local), que muestra el estado de conectividad, **nombre de puerta de enlace** y **nombre de nodo**.  
 
         ![Data Management Gateway: instalación correcta](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -200,7 +195,7 @@ Role | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son tr
 
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
 
-Status  | Comentarios/Escenarios
+Status    | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -246,7 +241,7 @@ Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la capa
 - No se puede registrar un nodo de puerta de enlace en una puerta de enlace lógica si la versión del nodo es menor que la versión de la puerta de enlace lógica. Elimine todos los nodos de la puerta de enlace lógica desde Azure Portal para poder registrar un nodo con una versión anterior. Si elimina todos los nodos de una puerta de enlace lógica, instale y registre manualmente los nuevos nodos en esa puerta de enlace lógica. La instalación rápida no se admite en este caso.
 - No se puede usar la instalación rápida para instalar nodos en una puerta de enlace lógica existente, que todavía está usando credenciales de la nube. Puede comprobar dónde se almacenan las credenciales en la pestaña Configuración de Configuration Manager de Data Management Gateway.
 - No se puede usar la instalación rápida para instalar nodos en una puerta de enlace lógica existente que tenga habilitado el cifrado nodo a nodo. Dado que establecer el modo de cifrado implica agregar manualmente los certificados, la instalación rápida no es una opción. 
-- Para la copia de archivos desde el entorno local, no debe usar \\localhost o C:\archivos puesto que localhost o la unidad local podrían no ser accesibles en todos los nodos. En su lugar, utilice \\Nombre_del_servidor\archivos para especificar la ubicación de los archivos.
+- Para la copia de archivos desde el entorno local, no debe usar \\localhost o C:\archivos puesto que localhost o la unidad local podrían no ser accesibles en todos los nodos. En su lugar, use \\ServerName\files para especificar la ubicación de los archivos.
 
 
 ## <a name="rolling-back-from-the-preview"></a>Revertir desde la versión preliminar 

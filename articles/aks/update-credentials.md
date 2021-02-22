@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427520"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389015"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer alg
 * Crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales. 
 
 > [!WARNING]
-> Si elige crear una entidad de servicio *nueva* , la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
+> Si elige crear una entidad de servicio *nueva*, la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Comprobación de la fecha de expiración de la entidad de servicio
 
@@ -47,6 +47,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### <a name="reset-the-existing-service-principal-credential"></a>Restablecimiento de las credenciales de una entidad de servicio existente
 
 Para actualizar las credenciales de la entidad de servicio existente, obtenga el identificador de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional. Estos comandos usan la sintaxis de Bash.
+
+> [!WARNING]
+> Al restablecer las credenciales del clúster en un clúster de AKS que usa Azure Virtual Machine Scale Sets, se realiza una [actualización de la imagen del nodo][node-image-upgrade] para actualizar los nodos con la nueva información de credenciales.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -82,7 +85,7 @@ La salida será similar al del ejemplo siguiente: Tome nota de sus valores `appI
 }
 ```
 
-A continuación, defina las variables del identificador de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña* :
+A continuación, defina las variables del identificador de la entidad de servicio y el secreto de cliente; para ello, use el resultado del comando [az ad sp create-for-rbac][az-ad-sp-create], tal como se muestra en el ejemplo siguiente. El valor de *SP_ID* es su *id. de aplicación* y el valor de *SP_SECRET* es su *contraseña*:
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -138,3 +141,4 @@ En este artículo, lo que se ha actualizado es la propia entidad de servicio del
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

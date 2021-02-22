@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozguns
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 504d2eb939758e6045a2af095c66093c8754cb94
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: fbb96fc1d2cb12e1aede07295357abfaa6d6b67f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590756"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385020"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de cola en Azure Portal
 
@@ -28,16 +28,19 @@ Necesitará permisos específicos según cómo quiera autorizar el acceso a los 
 
 ### <a name="use-the-account-access-key"></a>Uso de la clave de acceso de la cuenta
 
-Para acceder a los datos de cola con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de Azure RBAC `Microsoft.Storage/storageAccounts/listkeys/action`. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten `Microsoft.Storage/storageAccounts/listkeys/action` son estos:
+Para acceder a los datos de cola con la clave de acceso a la cuenta, debe tener asignado un rol de Azure que incluya la acción de Azure RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Este rol de Azure puede ser un rol integrado o personalizado. Los roles integrados que admiten **Microsoft.Storage/storageAccounts/listkeys/action** son estos:
 
 - El [rol Propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - El [rol Colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
 - El [rol Colaborador de una cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Al intentar acceder a los datos de cola en Azure Portal, este comprueba primero si tiene asignado un rol con `Microsoft.Storage/storageAccounts/listkeys/action`. Si se le ha asignado un rol con esta acción, Azure Portal usa la clave de cuenta para tener acceso a los datos de cola. Si no tiene un rol asignado con esta acción, Portal intenta obtener acceso a los datos mediante su cuenta de Azure AD.
+Al intentar acceder a los datos de cola en Azure Portal, este comprueba primero si tiene asignado un rol con **Microsoft.Storage/storageAccounts/listkeys/action**. Si se le ha asignado un rol con esta acción, Azure Portal usa la clave de cuenta para tener acceso a los datos de cola. Si no tiene un rol asignado con esta acción, Portal intenta obtener acceso a los datos mediante su cuenta de Azure AD.
+
+> [!IMPORTANT]
+> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios deben usar las credenciales de Azure AD para acceder a los datos de la cola en el portal. Para información sobre el acceso a los datos de la cola en el portal con Azure AD, consulte [Uso de la cuenta de Azure AD](#use-your-azure-ad-account).
 
 > [!NOTE]
-> Los roles clásicos de administrador de suscripciones **Administrador de servicios** y **Coadministrador** incluyen el equivalente del rol [`Owner`](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** engloba todas las acciones (incluida `Microsoft.Storage/storageAccounts/listkeys/action`), por lo que un usuario con uno de estos roles administrativos también puede acceder a datos de cola con la clave de cuenta. Para obtener más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Los roles clásicos de administrador de suscripciones **Administrador de servicios** y **Coadministrador** incluyen el equivalente del rol [`Owner`](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. El rol **Propietario** engloba todas las acciones (incluida **Microsoft.Storage/storageAccounts/listkeys/action**), por lo que un usuario con uno de estos roles administrativos también puede acceder a datos de cola con la clave de cuenta. Para obtener más información, consulte [Roles de administrador de suscripciones clásico, de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Uso de la cuenta de Azure AD
 
@@ -58,7 +61,7 @@ Los roles personalizados pueden admitir diferentes combinaciones de los mismos p
 No se pueden obtener listas de colas con un rol de administrador de suscripciones clásico. Para obtener una lista de colas, el usuario debe tener asignado los roles **Lector**, **Lector de datos de la cola de Storage Blob** o **Colaborador de datos de la cola de Storage Blob** de Azure Resource Manager.
 
 > [!IMPORTANT]
-> La versión preliminar del Explorador de Storage en Azure Portal no admite el uso de credenciales de Azure AD para ver y modificar datos de cola. Explorador de Storage en Azure Portal usa siempre las claves de cuenta para acceder a los datos. Para usar Explorador de Storage en Azure Portal, debe tener asignado un rol que incluya `Microsoft.Storage/storageAccounts/listkeys/action`.
+> La versión preliminar del Explorador de Storage en Azure Portal no admite el uso de credenciales de Azure AD para ver y modificar datos de cola. Explorador de Storage en Azure Portal usa siempre las claves de cuenta para acceder a los datos. Para usar Explorador de Storage en Azure Portal, debe tener asignado un rol que incluya **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Desplazamiento a colas en Azure Portal
 

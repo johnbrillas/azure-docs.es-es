@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673384"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527129"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: Configuración de CybSafe para el aprovisionamiento automático de usuarios
 
@@ -121,6 +121,10 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |locale|String|
    |timezone|String|
    |userType|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   
 
 10. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con CybSafe**.
 
@@ -153,6 +157,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 2. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro de cambios
+
+* 15/02/2021: Se han agregado los atributos de extensión de empresa **departamento**, **división** y **organización**.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

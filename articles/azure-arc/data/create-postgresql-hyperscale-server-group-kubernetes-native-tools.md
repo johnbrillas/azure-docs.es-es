@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 250c1ef837793c2149ff653f395f40272cf43335
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384952"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Creación de un grupo de servidores de Hiperescala de PostgreSQL mediante herramientas de Kubernetes
 
@@ -44,14 +44,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -107,7 +107,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Personalización del nombre
 
-La plantilla tiene un valor de "example" para el atributo name.  Puede cambiarlo, pero deben ser caracteres que sigan los estándares de nomenclatura de DNS.  También debe cambiar el nombre del secreto para que coincida.  Por ejemplo, si cambia el nombre del grupo de servidores de Hiperescala de PostgreSQL a "postgres1", debe cambiar el nombre del secreto de "example-login-secret" a "postgres1-login-secret".
+La plantilla tiene un valor de "pg1" para el atributo de nombre.  Puede cambiarlo, pero deben ser caracteres que sigan los estándares de nomenclatura de DNS.  También debe cambiar el nombre del secreto para que coincida.  Por ejemplo, si cambia el nombre del grupo de servidores de Hiperescala de PostgreSQL a "pg2", debe cambiar el nombre del secreto de "pg1-login-secret" a "pg2-login-secret".
 
 ### <a name="customizing-the-engine-version"></a>Personalización de la versión del motor
 
@@ -152,10 +152,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 La creación del grupo de servidores de Hiperescala de PostgreSQL tardará unos minutos en completarse. Puede supervisar el progreso en otra ventana de terminal con los siguientes comandos:
 
 > [!NOTE]
->  En los siguientes comandos de ejemplo se da por hecho que ha creado un grupo de servidores de Hiperescala de PostgreSQL denominado "postgres1" y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado un nombre de grupo de servidores de Hiperescala de espacio de nombres o de PostgreSQL diferente, puede reemplazar "arc" y "postgres1" por los nombres que quiera.
+>  En los siguientes comandos de ejemplo se da por hecho que ha creado un grupo de servidores de Hiperescala de PostgreSQL denominado "pg1" y un espacio de nombres de Kubernetes con el nombre "arc".  Si ha usado un nombre diferente para el espacio de nombres o el grupo de servidores de Hiperescala de PostgreSQL, puede reemplazar "arc" y "pg1" por los nombres que quiera.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -168,7 +168,7 @@ También puede comprobar el estado de creación de un pod determinado ejecutando
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>Solución de problemas de creación

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/10/2021
 ms.author: tisande
-ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526779"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378815"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -290,7 +290,7 @@ WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true)
 ORDER BY c.firstName, c.lastName
 ```
 
-Las consideraciones siguientes se usan cuando se crean índices compuestos para optimizar una consulta con un filtro y una cláusula `ORDER BY`:
+Las consideraciones siguientes se aplican cuando se crean índices compuestos para optimizar una consulta con un filtro y una cláusula `ORDER BY`:
 
 * Si no define ningún índice compuesto en una consulta con un filtro en una propiedad y una cláusula independiente `ORDER BY` mediante una propiedad diferente, la consulta se realizará correctamente. Sin embargo, el costo de RU de la consulta se puede reducir con un índice compuesto, especialmente si la propiedad de la cláusula `ORDER BY` tiene una cardinalidad alta.
 * Si la consulta aplica filtros en las propiedades, estos deben incluirse en primer lugar en la cláusula `ORDER BY`.
@@ -308,6 +308,26 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
+### <a name="queries-with-a-filter-and-an-aggregate"></a>Consultas con un filtro y un agregado 
+
+Si una consulta aplica filtros por una o varias propiedades y tiene una función del sistema de agregado, puede resultar útil crear un índice compuesto para las propiedades del filtro y de la función del sistema de agregado. Esta optimización se aplica a las funciones del sistema [SUM](sql-query-aggregate-sum.md) y [AVG](sql-query-aggregate-avg.md).
+
+Las consideraciones siguientes se aplican al crear índices compuestos para optimizar una consulta con un filtro o una función del sistema de agregado.
+
+* Los índices compuestos son opcionales cuando se ejecutan consultas con agregados. Sin embargo, a menudo el costo de RU de la consulta se puede reducir considerablemente con un índice compuesto.
+* Si la consulta aplica filtros por varias propiedades, los filtros de igualdad deben ser las primeras propiedades del índice compuesto.
+* Puede tener como máximo un filtro de intervalo por índice compuesto y debe estar en la propiedad de la función del sistema de agregado.
+* La propiedad de la función del sistema de agregado se debe definir en último lugar en el índice compuesto.
+* No importa el elemento `order` (`ASC` o `DESC`).
+
+| **Índice compuesto**                      | **Consulta de ejemplo**                                  | **¿Es compatible con el índice compuesto?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
 ## <a name="index-transformationmodifying-the-indexing-policy"></a><index-transformation>Modificación de la directiva de indexación
 

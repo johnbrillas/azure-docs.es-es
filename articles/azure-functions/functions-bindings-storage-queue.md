@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2d8f3985bc9a726735ebc0af0a3d3422f4fca54a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a1b9d03da29b7c89055303fa97fc38c2ef734b23
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381484"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Introducción al desencadenador y enlaces de Azure Queue Storage para Azure Functions
 
@@ -34,6 +34,13 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 | Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
 | Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 
+#### <a name="storage-extension-5x-and-higher"></a>Extensión de Storage 5.x y versiones posteriores
+
+Hay disponible una nueva versión de la extensión de enlaces de Storage en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `WindowsAzure.Storage` y `Microsoft.Azure.Storage` se reemplazan por otros más recientes de [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
+
+> [!NOTE]
+> El paquete en versión preliminar no se incluye en un conjunto de extensiones y debe instalarse manualmente. En el caso de las aplicaciones .NET, agregue una referencia al paquete. Con el resto de tipos de aplicaciones, consulte [Actualización de las extensiones].
+
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
 [Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
@@ -45,6 +52,40 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>configuración de host.json
+
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo *host.json* de ejemplo contiene solo la configuración de la versión 2.x+ de este enlace. Para más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte [Referencia de host.json para Azure Functions](functions-host-json.md).
+
+> [!NOTE]
+> Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "queues": {
+            "maxPollingInterval": "00:00:02",
+            "visibilityTimeout" : "00:00:30",
+            "batchSize": 16,
+            "maxDequeueCount": 5,
+            "newBatchThreshold": 8,
+            "messageEncoding": "base64"
+        }
+    }
+}
+```
+
+|Propiedad  |Valor predeterminado | Descripción |
+|---------|---------|---------|
+|maxPollingInterval|00:00:01|Intervalo máximo entre sondeos de la cola. El mínimo es 00:00:00.100 (100 ms) y se incrementa hasta 00:01:00 (1 min).  En Functions 2.x y versiones posteriores, el tipo de datos es `TimeSpan`, mientras que en la versión 1.x se encuentra en milisegundos.|
+|visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. |
+|batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor elimina la simultaneidad siempre y cuando la aplicación de funciones se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. |
+|maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.|
+|newBatchThreshold|batchSize/2|Siempre que el número de mensajes que se procesan simultáneamente llega a este número, el runtime recupera otro lote.|
+|messageEncoding|base64| Esta opción solo está disponible en la [versión de extensión 5.0.0 y posteriores](#storage-extension-5x-and-higher). Representa el formato de codificación de los mensajes. Los valores válidos son `base64` y `none`.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

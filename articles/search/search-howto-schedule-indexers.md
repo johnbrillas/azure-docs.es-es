@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063220"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097983"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Programación de indizadores de Azure Cognitive Search
 
 Los indexadores normalmente se ejecutan una vez, inmediatamente después de que se crean. Después, puede volver a ejecutarlos a petición mediante Azure Portal, [Ejecutar indizador (REST)](/rest/api/searchservice/run-indexer) o un SDK de Azure. También puede configurar un indexador para que se ejecute según una programación. Estas son algunas situaciones en las que resulta útil programar el indexador:
 
-* Los datos de origen cambiarán con el tiempo, y desea que el indexador de búsqueda procese automáticamente el archivo delta.
-* Los datos de origen son muy grandes y desea expandir el procesamiento del indexador a lo largo del tiempo. Para más información acerca de la indexación de grandes volúmenes de datos, consulte [Indexación de grandes conjuntos de datos en Azure Cognitive Search](search-howto-large-index.md).
+* Los datos de origen cambiarán con el tiempo, y quiere que el indexador de búsqueda procese automáticamente la diferencia.
+
+* Los datos de origen son muy grandes y desea expandir el procesamiento del indexador a lo largo del tiempo. Los trabajos del indexador están sujetos a un tiempo de ejecución máximo de 24 horas en el caso de los orígenes de datos normales y de 2 horas en el caso de indexadores con conjuntos de aptitudes. Si la indexación no se puede completar en el intervalo máximo, puede configurar una programación que se ejecute cada 2 horas. Los indexadores pueden seleccionar automáticamente en qué punto se quedaron, como indica una marca de límite superior interna que marca dónde finalizó la indexación la última vez. La ejecución de un indexador según una programación periódica de dos horas permite procesar un conjunto de datos muy grande (muchos millones de documentos) más allá del intervalo permitido para un único trabajo. Para más información sobre la indexación de grandes volúmenes de datos, consulte [Indexación de grandes conjuntos de datos en Azure Cognitive Search](search-howto-large-index.md).
+
 * Un índice de búsqueda se rellenará desde varios orígenes de datos y quiere que los indexadores se ejecuten a horas distintas para reducir los conflictos.
 
 De manera visual, una programación podría ser similar a la siguiente: a partir del 1 de enero y en ejecución cada 50 minutos.

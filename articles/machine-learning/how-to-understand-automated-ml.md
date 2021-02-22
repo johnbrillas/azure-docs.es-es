@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388216"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -192,7 +192,7 @@ explained_variance|La varianza explicada calcula la medida en que un modelo da c
 mean_absolute_error|El error absoluto medio es el valor esperado del valor absoluto de la diferencia entre el destino y la predicción.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) <br><br> Tipos: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`: es mean_absolute_error dividido por el intervalo de los datos. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|El error de porcentaje absoluto medio (MAPE) es una medida de la diferencia promedio entre un valor predicho y el valor real.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) ||
 median_absolute_error|El error medio absoluto es la media de todas las diferencias absolutas entre el destino y la predicción. Esta pérdida es estable para los valores atípicos.<br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf)<br><br>Tipos: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: es median_absolute_error dividido por el intervalo de los datos. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R^2 es el coeficiente de determinación o el porcentaje de reducción de los errores cuadráticos en comparación con un modelo de línea base que da como resultado la media. <br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** (-inf, 1]|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R^2 es el coeficiente de determinación o el porcentaje de reducción de los errores cuadráticos en comparación con un modelo de línea base que da como resultado la media. <br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1] <br><br> Nota: R^2 tiene con frecuencia el intervalo (-inf, 1), pero ML automatizado recorta los valores negativos en los modelos muy malos a -1.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |La raíz del error cuadrático medio (RMSE) es la raíz cuadrada de la diferencia cuadrática esperada entre el destino y la predicción. Para un estimador no sesgado, RMSE es igual a la desviación estándar.<br> <br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf)<br><br>Tipos:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: es root_mean_squared_error dividido por el intervalo de los datos. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|La raíz del error logarítmico cuadrático medio es la raíz cuadrada del error logarítmico cuadrático esperado.<br><br>**Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf) <br> <br>Tipos: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: es root_mean_squared_log_error dividido por el intervalo de los datos.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| La correlación de Spearman es una medida no paramétrica de la monotonicidad de la relación entre dos conjuntos de datos. A diferencia de la correlación de Pearson, la correlación de Spearman no asume que los conjuntos de datos se distribuyen normalmente. Como sucede con otros coeficientes de correlación, Spearman varía entre -1 y + 1, y 0 implica que no hay ninguna correlación. Las correlaciones de -1 o 1 implican una relación monotónica exacta. <br><br> Spearman es una métrica de correlación de orden de clasificación, lo que significa que los cambios en los valores predichos o reales no cambiarán el resultado de Spearman si no cambian el orden de clasificación de los valores predichos o reales.<br> <br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1]|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
@@ -234,10 +234,7 @@ En este ejemplo, observe que el mejor modelo tiene una línea de valores predich
 
 Si bien las métricas y los gráficos de evaluación del modelo son buenos para medir la calidad general de un modelo, inspeccionar qué características del conjunto de datos usó para hacer sus predicciones es esencial cuando se practica la IA responsable. Este es el motivo por el que ML automatizado proporciona un panel de interpretación del modelo para medir y notificar las contribuciones relativas de las características del conjunto de datos.
 
-![Importancias de las características](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 Para ver el panel de interpretación en el estudio:
-
 1. [Inicie sesión en el estudio](https://ml.azure.com/) y vaya al área de trabajo.
 2. En el menú de la izquierda, seleccione **Experimentos**.
 3. Seleccione el experimento en la lista de experimentos.
@@ -246,10 +243,11 @@ Para ver el panel de interpretación en el estudio:
 6. En la pestaña **Explicaciones**, puede ver que ya se ha creado una explicación si el modelo era el mejor.
 7. Para crear una nueva explicación, seleccione **Explicar modelo** y seleccione el proceso remoto con el que se van a calcular las explicaciones.
 
+[Más información sobre las explicaciones de modelos en ML automatizado](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > El modelo ForecastTCN no se admite actualmente en las explicaciones de ML automatizado y otros modelos de previsión pueden tener acceso limitado a las herramientas de interpretación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Pruebe los [cuadernos de ejemplo de la explicación del modelo de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* Obtenga más información sobre [ofertas de IA responsable en ML automatizado](how-to-machine-learning-interpretability-automl.md).
 * En el caso de preguntas específicas sobre ML automatizado, puede escribir a askautomatedml@microsoft.com.

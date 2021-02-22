@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551193"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526891"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solución de problemas de las conexiones en Azure Purview
 
@@ -53,7 +53,10 @@ Compruebe que se hayan configurado los permisos correctos para que la identidad 
 Para ello, siga estos pasos:
 
 1. En el almacén de claves, vaya a la sección **Directivas de acceso**.
-1. Compruebe que la identidad administrada de Purview se muestre en la sección *Directivas de acceso actuales* con permisos **GET** en secretos como mínimo.
+
+1. Compruebe que la identidad administrada de Purview se muestra en la sección *Directivas de acceso actuales* con los permisos **Obtener** y **Enumerar** como mínimo en Secretos.
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Imagen que muestra la selección desplegable de las opciones de permiso Obtener y Enumerar":::
 
 Si no ve la identidad administrada de Purview, siga los pasos descritos en [Creación y administración de credenciales para exámenes](manage-credentials.md) para agregarla. 
 

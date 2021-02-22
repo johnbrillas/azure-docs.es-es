@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743622"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530355"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -150,7 +150,7 @@ Hay tres tipos de implementaciones de inicio de sesión sin contraseña disponib
 -    Aplicaciones web de Azure Active Directory en un explorador compatible
 -    Dispositivos de Windows 10 unidos a Azure Active Directory
 -    Dispositivos de Windows 10 unidos a Azure Active Directory híbrido (versión preliminar)
-     -    Proporciona acceso a los recursos locales y a los basados en la nube. Para más información sobre el acceso a los recursos locales, consulte [Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)](./howto-authentication-passwordless-security-key-on-premises.md).
+     -    Proporciona acceso a los recursos locales y a los basados en la nube. Para más información sobre el acceso a los recursos locales, consulte [Inicio de sesión único en los recursos locales mediante claves de FIDO2](./howto-authentication-passwordless-security-key-on-premises.md).
 
 Debe habilitar las **claves de seguridad de FIDO2 compatibles**. Microsoft anunció [importantes asociaciones con los proveedores de claves de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 

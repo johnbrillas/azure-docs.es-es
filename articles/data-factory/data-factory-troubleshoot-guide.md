@@ -1,19 +1,17 @@
 ---
 title: Solución de problemas de Azure Data Factory | Microsoft Docs
 description: Obtenga información acerca de cómo solucionar problemas de actividades de control externo en Azure Data Factory.
-services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.reviewer: craigg
-ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822291"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382810"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 
@@ -1019,7 +1017,7 @@ Para más información, consulte [Introducción a Fiddler](https://docs.telerik.
 
 ### <a name="activity-stuck-issue"></a>Problema de bloqueo de actividad
 
-Si observa que la actividad tarda mucho más tiempo en ejecutarse que sus ejecuciones normales sin apenas progreso, es posible que se haya bloqueado. Puede intentar cancelarla y volver a intentarlo para ver si sirve. Si se trata de una actividad de copia, puede obtener información sobre la solución de problemas y la supervisión de rendimiento en [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md); si se trata de un flujo de datos, obtenga información en Guía de optimización y [rendimiento de la asignación de instancias de Data Flow](concepts-data-flow-performance.md).
+Si observa que la actividad tarda mucho más tiempo en ejecutarse que sus ejecuciones normales sin apenas progreso, es posible que se haya bloqueado. Puede intentar cancelarla y volver a intentarlo para ver si sirve. Si se trata de una actividad de copia, puede encontrar información sobre la solución de problemas y la supervisión de rendimiento en [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md); si se trata de un flujo de datos, puede encontrar información en [Rendimiento de los flujos de datos de asignación](concepts-data-flow-performance.md) y la guía de ajuste.
 
 ### <a name="payload-is-too-large"></a>La carga es demasiado grande
 

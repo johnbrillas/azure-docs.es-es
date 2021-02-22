@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630860"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374990"
 ---
 # <a name="smb-multichannel-performance"></a>Rendimiento de SMB multicanal
 
@@ -110,7 +110,7 @@ La carga se realizó con respecto a un solo archivo de 128 GiB. Con SMB multica
 
 - En una sola NIC con un tamaño medio de E/S mayor (superior a 16 k), había mejoras significativas tanto en las lecturas como en las escrituras.
 - En el caso de los tamaños de E/S más pequeños, hubo un ligero impacto del 10 % en el rendimiento cuando se habilitó SMB multicanal. Esto podría mitigarse mediante la distribución de la carga por varios archivos, o la deshabilitación de la característica.
-- El rendimiento sigue estando limitado por los [límites de un solo archivo](storage-files-scale-targets.md#file-level-limits).
+- El rendimiento sigue estando sujeto a los [límites de un solo archivo](storage-files-scale-targets.md#file-scale-targets).
 
 ## <a name="optimizing-performance"></a>Optimización del rendimiento
 

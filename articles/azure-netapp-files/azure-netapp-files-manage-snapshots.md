@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629670"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379121"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -187,7 +187,9 @@ Si no desea [restaurar la instantánea completa en un volumen](#restore-a-snapsh
 
 El volumen montado contiene un directorio de instantáneas denominado `.snapshot` (en clientes NFS) o `~snapshot` (en clientes SMB) que es accesible para el cliente. El directorio de instantáneas contiene subdirectorios correspondientes a las instantáneas del volumen. Cada subdirectorio contiene los archivos de la instantánea. Si elimina o sobrescribe accidentalmente un archivo, puede restaurarlo en el directorio principal de lectura y escritura copiando el archivo de un subdirectorio de instantánea en el directorio de lectura y escritura. 
 
-Si no ve el directorio de instantáneas, puede estar oculto si la opción Ocultar la ruta de acceso de la instantánea está habilitada. Puede [editar la opción Ocultar la ruta de acceso de la instantánea](#edit-the-hide-snapshot-path-option) para deshabilitarla.  
+Puede controlar el acceso a los directorios de instantáneas mediante la opción [Ocultar la ruta de acceso de la instantánea](#edit-the-hide-snapshot-path-option). Esta opción controla si el directorio debe ocultarse para los clientes. Por lo tanto, también controla el acceso a los archivos y carpetas de las instantáneas.  
+
+NFSv 4.1 no muestra el directorio `.snapshot` (`ls -la`). Sin embargo, aunque no establezca la opción Ocultar la ruta de acceso de la instantánea, todavía puede acceder al directorio `.snapshot` a través de NFSv 4.1 mediante el comando `cd <snapshot-path>` desde la línea de comandos del cliente. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restauración de un archivo mediante un cliente NFS de Linux 
 

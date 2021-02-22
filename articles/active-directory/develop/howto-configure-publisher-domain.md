@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013641"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104185"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos: Configuración del dominio de editor de una aplicación
 
@@ -48,18 +48,12 @@ Si su aplicación se ha registrado antes del 21 de mayo de 2019, en la petición
 
 Para establecer el dominio de editor de la aplicación, siga estos pasos.
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> con una cuenta personal, profesional o educativa de Microsoft.
-
-1. Si su cuenta está presente en más de un inquilino de Azure AD:
-   1. Seleccione su perfil en el menú en la esquina superior derecha de la página y, a continuación, **Cambiar directorio**.
-   1. Cambie la sesión al inquilino de Azure AD en el que desea crear la aplicación.
-
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino donde está registrada la aplicación.
 1. Vaya a [Azure Active Directory > Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) para buscar y seleccionar la aplicación que quiere configurar.
 
    Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
-
-1. En la página **Introducción** de la aplicación, seleccione la sección **Personalización de marca**.
-
+1. En **Administrar**, seleccione **Personalización de marca**.
 1. Busque el campo **Dominio de editor** y seleccione una de las opciones siguientes:
 
    - Seleccione **Configurar un dominio** si aún no ha configurado un dominio.

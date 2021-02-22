@@ -3,14 +3,14 @@ title: Configuración de claves administradas por el cliente para la cuenta de A
 description: Obtenga información sobre cómo cifrar datos de Batch mediante claves administradas.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: 01dc21f067b03ad8e07a05a18aa6312ed7f7189e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789420"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385071"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
 
@@ -21,11 +21,6 @@ Las claves que proporcione deben generarse en [Azure Key Vault](../key-vault/gen
 Hay dos tipos de identidades administradas: [*asignadas por el sistema* y *asignadas por el usuario*](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Puede crear la cuenta de Batch con una identidad administrada asignada por el sistema o crear una identidad administrada asignada por el usuario independiente que tendrá acceso a las claves administradas por el cliente. Revise la [tabla de comparación](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para comprender las diferencias y considerar qué opción funciona mejor para su solución. Por ejemplo, si quiere usar la misma identidad administrada para tener acceso a varios recursos de Azure, se necesitará una identidad administrada asignada por el usuario. Si no es así, es posible que una identidad administrada asignada por el sistema asociada a su cuenta de Batch sea suficiente. El uso de una identidad administrada asignada por el usuario también le ofrece la opción de aplicar claves administradas por el cliente en la creación de la cuenta de Batch, como se muestra [en el ejemplo siguiente](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
-
-> [!IMPORTANT]
-> La compatibilidad con las claves administradas por el cliente de Azure Batch se encuentra actualmente en versión preliminar pública para las regiones Oeste de Europa, Norte de Europa, Norte de Suiza, Centro de EE. UU., Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, US Gov Virginia y US Gov Arizona.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Creación de una cuenta de Batch con la identidad administrada asignada por el sistema
 
@@ -68,7 +63,7 @@ az batch account show \
 ```
 
 > [!NOTE]
-> La identidad administrada asignada por el sistema creada en una cuenta de Batch solo se usa para recuperar las claves administradas por el cliente desde Key Vault. Esta identidad no está disponible en grupos de Batch.
+> La identidad administrada asignada por el sistema creada en una cuenta de Batch solo se usa para recuperar las claves administradas por el cliente desde Key Vault. Esta identidad no está disponible en grupos de Batch. Para usar una identidad administrada asignada por el usuario en un grupo, consulte [Configuración de identidades administradas en grupos de Batch](managed-identity-pools.md).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 
@@ -202,7 +197,7 @@ az batch account set \
 - **Después de restaurar el acceso, ¿cuánto tiempo tardará la cuenta de Batch en volver a funcionar?** La cuenta puede tardar hasta 10 minutos en ser accesible después de restaurar el acceso.
 - **Mientras la cuenta de Batch no está disponible ¿qué sucede con mis recursos?** Los grupos que se estén ejecutando al perder el acceso de Batch a las claves administradas por el cliente seguirán ejecutándose. Sin embargo, los nodos pasarán a un estado no disponible y las tareas dejarán de ejecutarse (y se volverán a poner en cola). Una vez restaurado el acceso, los nodos volverán a estar disponibles y se reiniciarán las tareas.
 - **¿Este mecanismo de cifrado se aplica a los discos de VM de un grupo de Batch?** No. En el caso de los grupos de configuración de servicio en la nube, no se aplica ningún cifrado para el sistema operativo y el disco temporal. En el caso de los grupos de configuración de máquina virtual, el sistema operativo y los discos de datos especificados se cifrarán con una clave administrada de la plataforma Microsoft de forma predeterminada. Actualmente, no puede especificar su propia clave para estos discos. Para cifrar el disco temporal de las VM de un grupo de Batch con una clave administrada de la plataforma Microsoft, debe habilitar la propiedad [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) en el grupo de [configuración de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration). En entornos altamente confidenciales, se recomienda habilitar el cifrado de disco temporal y evitar el almacenamiento de datos confidenciales en discos de datos y del sistema operativo. Para más información, consulte [Creación de un grupo con el cifrado de disco habilitado](./disk-encryption.md).
-- **¿Está disponible en los nodos de proceso la identidad administrada asignada por el sistema de la cuenta de Batch?** No. La identidad administrada asignada por el sistema se usa actualmente solo para acceder a la clave administrada por el cliente en Azure Key Vault.
+- **¿Está disponible en los nodos de proceso la identidad administrada asignada por el sistema de la cuenta de Batch?** No. La identidad administrada asignada por el sistema se usa actualmente solo para acceder a la clave administrada por el cliente en Azure Key Vault. Para usar una identidad administrada asignada por el usuario en nodos de proceso, consulte [Configuración de identidades administradas en grupos de Batch](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

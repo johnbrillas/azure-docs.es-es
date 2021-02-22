@@ -1,22 +1,18 @@
 ---
 title: Solución de problemas de la puerta de enlace de administración de datos
 description: Ofrece sugerencias para solucionar problemas relacionados con la puerta de enlace de administración de datos.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388352"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -99,7 +95,7 @@ Si se trata de la versión más reciente o la actual y existe una puerta de enla
 ### <a name="6-problem"></a>6. Problema
 Puede que vea el siguiente mensaje de error al volver a registrar una puerta de enlace.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![La clave de la puerta de enlace no es válida o está vacía](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -107,9 +103,9 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 Este error puede producirse porque se ha eliminado la puerta de enlace o porque se ha vuelto generar la clave de la puerta de enlace asociada.
 
 #### <a name="resolution"></a>Resolución
-Si se ha eliminado la puerta de enlace, vuelva a crear la puerta de enlace desde el portal, haga clic en **Registrar** , copie la clave desde el portal, péguela y, después, intente registrar la puerta de enlace.
+Si se ha eliminado la puerta de enlace, vuelva a crear la puerta de enlace desde el portal, haga clic en **Registrar**, copie la clave desde el portal, péguela y, después, intente registrar la puerta de enlace.
 
-Si la puerta de enlace aún existe, pero su clave se ha vuelto a generar, use la nueva clave para registrar la puerta de enlace. Si no tiene la clave, vuelva a generar la clave desde el portal.
+Si la puerta de enlace aún existe, pero su clave se ha vuelto a generar, use la nueva clave para registrar la puerta de enlace. Si no tiene la clave, vuelva a generarla desde el portal.
 
 ### <a name="7-problem"></a>7. Problema
 Al registrar una puerta de enlace, es posible que tenga que especificar la ruta de acceso y la contraseña de un certificado.
@@ -233,7 +229,7 @@ Si ve errores relacionados con los controladores o la conexión al almacén de d
 
 1. Inicie el Administrador de configuración de la puerta de enlace de administración de datos en la máquina de la puerta de enlace.
 2. Cambie a la pestaña **Diagnósticos** .
-3. En **Probar conexión** , agregue los valores de grupo de puerta de enlace.
+3. En **Probar conexión**, agregue los valores de grupo de puerta de enlace.
 4. Haga clic en **Probar** para ver si puede conectarse al origen de datos local desde la máquina de la puerta de enlace utilizando las credenciales y la información de conexión. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.
 
 ![Prueba de conexión en la pestaña Diagnósticos](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -256,7 +252,7 @@ Cuando se ponga en contacto con el equipo de soporte técnico de Microsoft para 
 6. Una vez que finalice la operación, verá un cuadro de diálogo como el que se muestra en la siguiente captura de pantalla.
 
     ![Puerta de enlace de administración de datos: Estado del envío de registros](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Guarde el **identificador de informe** y envíelo al equipo de soporte técnico de Microsoft. El identificador de informe sirve para encontrar los registros de la puerta de enlace que ha cargado para solucionar problemas.  Este identificador del informe también se guarda en el Visor de eventos.  Lo encontrará si examina el identificador de evento “25” y comprueba la fecha y la hora.
+7. Guarde el **identificador de informe** y envíelo al equipo de soporte técnico de Microsoft. El identificador de informe sirve para encontrar los registros de la puerta de enlace que ha cargado para solucionar problemas.  Este identificador del informe también se guarda en el Visor de eventos.  Para encontrarlo, examine el identificador de evento "25" y compruebe la fecha y la hora.
 
     ![Puerta de enlace de administración de datos: Identificador de informe del envío de registros](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

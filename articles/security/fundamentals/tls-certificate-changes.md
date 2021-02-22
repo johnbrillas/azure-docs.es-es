@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 9e4edbcfd9e4180e727cd885902d9f0150a967ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389406"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -24,7 +24,7 @@ Microsoft está actualizando los servicios de Azure para que usen los certificad
 
 Los puntos de conexión de Azure existentes han haciendo el cambio de manera escalonada desde el 13 de agosto de 2020. Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz.
 
-Detalles específicos de los distintos servicios:
+Todos los servicios de Azure se ven afectados por este cambio. Estos son algunos detalles adicionales de servicios específicos:
 
 - Los servicios de [Azure Active Directory](../../active-directory/index.yml) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](../../iot-dps/index.yml) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).

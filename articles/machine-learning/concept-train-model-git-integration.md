@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701643"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099479"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -28,7 +28,7 @@ Dado que Azure Machine Learning realiza un seguimiento de la información desde 
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonación de repositorios de Git en el sistema de archivos del área de trabajo
 Azure Machine Learning ofrece un sistema de archivos compartido para todos los usuarios del área de trabajo.
-Para clonar un repositorio de Git a este recurso compartido de archivos, se recomienda crear una instancia de proceso y abrir un terminal.
+Para clonar un repositorio de Git en este recurso compartido de archivos, se recomienda crear una instancia de proceso y [abrir un terminal](how-to-access-terminal.md).
 Una vez abierto el terminal, tendrá acceso a un cliente completo de Git y podrá clonar y trabajar con Git a través de la experiencia de CLI de Git.
 
 Se recomienda clonar el repositorio en el directorio de los usuarios, de modo que otros no generen conflictos directamente en la rama en funcionamiento.
@@ -39,7 +39,7 @@ Para más información sobre la clonación, consulte la guía sobre [cómo usar 
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autenticación de la cuenta de Git con SSH
 ### <a name="generate-a-new-ssh-key"></a>Generación de una nueva clave SSH
-1) [Abra la ventana de terminal](./how-to-run-jupyter-notebooks.md#terminal) en la pestaña Notebook de Azure Machine Learning.
+1) [Abra la ventana de terminal](./how-to-access-terminal.md) en la pestaña Notebook de Azure Machine Learning.
 
 2) Pegue el texto siguiente y sustituya la dirección de correo electrónico.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) Comience en el **paso 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs&preserve-view=true) Comience en el **paso 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Comience en el **paso 4**.
 

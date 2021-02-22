@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288263"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526959"
 ---
-# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migración desde la directiva de acceso de almacén a un modelo de permisos de control de acceso basado en rol de Azure (versión preliminar)
+# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migración desde la directiva de acceso de almacén a un modelo de permisos de control de acceso basado en rol de Azure
 
 El modelo de directiva de acceso de almacén es un sistema de autorización existente integrado en Key Vault que sirve para proporcionar acceso a claves, secretos y certificados. Puede controlar el acceso mediante la asignación de permisos individuales a la entidad de seguridad (usuario, grupo, entidad de servicio e identidad administrada) en el ámbito de Key Vault. 
 
-El control de acceso basado en rol de Azure es un sistema de autorización basado en [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure. Azure RBAC para la administración de acceso a certificados, secretos y claves de Key Vault se encuentra actualmente en versión preliminar pública. Con Azure RBAC, puede controlar el acceso a los recursos mediante la creación de asignaciones de roles, que consta de tres elementos: entidad de seguridad, definición de roles (conjunto predefinido de permisos) y ámbito (grupo de recursos o recurso individual). Para más información, consulte [Control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+El control de acceso basado en rol de Azure es un sistema de autorización basado en [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que proporciona administración de acceso específico a los recursos de Azure. Con Azure RBAC, puede controlar el acceso a los recursos mediante la creación de asignaciones de roles, que consta de tres elementos: entidad de seguridad, definición de roles (conjunto predefinido de permisos) y ámbito (grupo de recursos o recurso individual). Para más información, consulte [Control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Antes de migrar a Azure RBAC, es importante comprender sus ventajas y limitaciones.
 
@@ -39,13 +39,14 @@ Desventajas de Azure RBAC:
 Azure RBAC tiene varios roles integrados de Azure que se pueden asignar a usuarios, grupos, entidades de servicio e identidades administradas. Si los roles integrados no satisfacen las necesidades específicas de la organización, puede crear [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) propios.
 
 Roles integrados de Key Vault para la administración de acceso a secretos, certificados y claves:
-- Administrador de almacén de claves (versión preliminar)
-- Lector de almacén de claves (versión preliminar)
-- Responsable de certificados de almacén de claves (versión preliminar)
-- Responsable criptográfico de almacén de claves (versión preliminar)
-- Usuario criptográfico de almacén de claves (versión preliminar)
-- Responsable de secretos de almacén de claves (versión preliminar)
-- Usuario de secretos de almacén de claves (versión preliminar)
+- Administrador de Key Vault
+- Lector de Key Vault
+- Responsable de certificados de Key Vault
+- Agente criptográfico de Key Vault
+- Usuario criptográfico de Key Vault
+- Usuario de cifrado de servicio criptográfico de Key Vault
+- Responsable de secretos de Key Vault
+- Usuario de secretos de Key Vault
 
 Para más información sobre los roles integrados existentes, vea [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -68,17 +69,17 @@ Plantillas de permisos predefinidas de directivas de acceso:
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Plantillas de directivas de acceso para la asignación de roles de Azure
 | Plantilla de directiva de acceso | Operations | Rol de Azure |
 | --- | --- | --- |
-| Administración de claves, secretos y certificados | Claves: todas las operaciones <br>Certificados: todas las operaciones<br>Secretos: todas las operaciones | Administrador de almacén de claves (versión preliminar) |
-| Administración de claves y secretos | Claves: todas las operaciones <br>Secretos: todas las operaciones| Responsable criptográfico de almacén de claves (versión preliminar)<br> Responsable de secretos de almacén de claves (versión preliminar)|
-| Administración de secretos y certificados | Certificados: todas las operaciones <br>Secretos: todas las operaciones| Responsable de certificados de almacén de claves (versión preliminar)<br> Responsable de secretos de almacén de claves (versión preliminar)|
-| Administración de claves | Claves: todas las operaciones| Responsable criptográfico de almacén de claves (versión preliminar)|
-| Administración de secretos | Secretos: todas las operaciones| Responsable de secretos de almacén de claves (versión preliminar)|
-| Administración de certificados | Certificados: todas las operaciones | Responsable de certificados de almacén de claves (versión preliminar)|
-| Conector de SQL Server | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Cifrado de servicio criptográfico de almacén de claves (versión preliminar)|
+| Administración de claves, secretos y certificados | Claves: todas las operaciones <br>Certificados: todas las operaciones<br>Secretos: todas las operaciones | Administrador de Key Vault |
+| Administración de claves y secretos | Claves: todas las operaciones <br>Secretos: todas las operaciones| Agente criptográfico de Key Vault <br> Responsable de secretos de Key Vault |
+| Administración de secretos y certificados | Certificados: todas las operaciones <br>Secretos: todas las operaciones| Agente de certificados de Key Vault <br> Responsable de secretos de Key Vault|
+| Administración de claves | Claves: todas las operaciones| Agente criptográfico de Key Vault|
+| Administración de secretos | Secretos: todas las operaciones| Responsable de secretos de Key Vault|
+| Administración de certificados | Certificados: todas las operaciones | Agente de certificados de Key Vault|
+| Conector de SQL Server | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
 | Azure Data Lake Storage o Azure Storage | Claves: obtener, enumerar y desencapsular clave | N/D<br> Rol personalizado obligatorio|
 | Azure Backup | Claves: obtener, enumerar y copia de seguridad<br> Certificado: obtener, enumerar y copia de seguridad | N/D<br> Rol personalizado obligatorio|
-| Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Cifrado de servicio criptográfico de almacén de claves (versión preliminar)|
-| Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Cifrado de servicio criptográfico de almacén de claves (versión preliminar)|
+| Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
+| Clave de cliente de Exchange Online | Claves: obtener, enumerar, encapsular clave y desencapsular clave | Usuario de cifrado de servicio criptográfico de Key Vault|
 | BYOK para información de Azure | Claves: obtener, descifrar y firmar | N/D<br>Rol personalizado obligatorio|
 
 
@@ -102,10 +103,13 @@ En general, se recomienda tener un almacén de claves por aplicación y administ
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Pasos para migrar directivas de acceso de almacén a Azure RBAC
 Existen muchas diferencias entre Azure RBAC y el modelo de permisos de la directiva de acceso de almacén. Para evitar interrupciones durante la migración, se recomiendan los pasos siguientes.
  
-1. **Identificar y asignar roles** : identifique roles integrados basados en la tabla de asignación anterior y cree roles personalizados cuando sea necesario. Asigne roles en ámbitos, en función de la guía de asignación de ámbitos. Para más información sobre cómo asignar roles al almacén de claves, vea [Proporcionar acceso a Key Vault con un control de acceso basado en rol de Azure (versión preliminar)](rbac-guide.md).
-1. **Validar la asignación de roles** : las asignaciones de roles en Azure RBAC pueden tardar varios minutos en propagarse. Para obtener instrucciones sobre cómo comprobar las asignaciones de roles, vea [Lista de las asignaciones de rol en un ámbito](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope).
-1. **Configurar la supervisión y las alertas en el almacén de claves** : es importante habilitar las alertas de registro y configuración de las excepciones de acceso denegado. Para más información, vea [Supervisión y alertas de Azure Key Vault](./alert.md).
-1. **Establecer el modelo de permisos de control de acceso basado en rol de Azure en Key Vault** : al habilitar el modelo de permisos de Azure RBAC, se invalidarán todas las directivas de acceso existentes. Si se produce un error, se puede volver a cambiar el modelo de permisos con todas las directivas de acceso existentes que queden intactas.
+1. **Identificar y asignar roles**: identifique roles integrados basados en la tabla de asignación anterior y cree roles personalizados cuando sea necesario. Asigne roles en ámbitos, en función de la guía de asignación de ámbitos. Para más información sobre cómo asignar roles al almacén de claves, consulte [Proporcionar acceso a Key Vault con un control de acceso basado en rol de Azure](rbac-guide.md).
+1. **Validar la asignación de roles**: las asignaciones de roles en Azure RBAC pueden tardar varios minutos en propagarse. Para obtener instrucciones sobre cómo comprobar las asignaciones de roles, vea [Lista de las asignaciones de rol en un ámbito](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope).
+1. **Configurar la supervisión y las alertas en el almacén de claves**: es importante habilitar las alertas de registro y configuración de las excepciones de acceso denegado. Para más información, vea [Supervisión y alertas de Azure Key Vault](./alert.md).
+1. **Establecer el modelo de permisos de control de acceso basado en rol de Azure en Key Vault**: al habilitar el modelo de permisos de Azure RBAC, se invalidarán todas las directivas de acceso existentes. Si se produce un error, se puede volver a cambiar el modelo de permisos con todas las directivas de acceso existentes que queden intactas.
+
+> [!NOTE]
+> El cambio del modelo de permiso requiere el permiso "Microsoft.Authorization/roleAssignments/write", que forma parte de los roles [Propietario](../../role-based-access-control/built-in-roles.md#owner) y [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator). No se admiten roles de administrador de suscripciones clásicas como "Administrador de servicios" y "Coadministrador".
 
 > [!NOTE]
 > Cuando el modelo de permisos de Azure RBAC está habilitado, se producirá un error en todos los scripts que intenten actualizar las directivas de acceso. Es importante actualizar esos scripts para que usen Azure RBAC.

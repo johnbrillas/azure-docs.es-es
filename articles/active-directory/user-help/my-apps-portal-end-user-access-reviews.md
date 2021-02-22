@@ -8,27 +8,32 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124819"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095025"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
 
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para realizar revisiones de acceso para sus aplicaciones y grupos. Las revisiones de acceso le ayudan a administrar el acceso obsoleto o a cambiar los requisitos de acceso y a asegurarse de que se revisan y actualizan.
 
-Si no tiene acceso al portal **Aplicaciones** , póngase en contacto con su departamento de soporte técnico para obtener permiso.
+Si no tiene acceso al portal **Aplicaciones**, póngase en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >Este contenido está pensado para usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).
+>
+> Si observa un error al iniciar sesión con una cuenta Microsoft personal, puede acudir a su administrador para iniciar sesión con el nombre de dominio (por ejemplo, contoso.com) o el **identificador de inquilino** de la organización en una de las siguientes direcciones URL:
+>
+>   - https://myapplications.microsoft.com?tenantId=*su_nombre_de_dominio*
+>   - https://myapplications.microsoft.com?tenant=*su_identificador_de_inquilino*
 
 ## <a name="manage-access-reviews"></a>Administración de revisiones del acceso
 
@@ -41,17 +46,17 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-2. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
+1. Abra el explorador web y vaya a https://myapps.microsoft.com o use el vínculo proporcionado por su organización. Por ejemplo, quizá se le redirija a una página personalizada para la organización, como https://myapps.microsoft.com/contoso.com.
 
-    Aparecerá la página **Aplicaciones** , que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
+    Aparecerá la página **Aplicaciones**, que muestra todas las aplicaciones basadas en la nube disponibles para su uso y propiedad de su organización.
 
     ![Página de aplicaciones en el portal Mis aplicaciones](media/my-apps-portal/my-apps-home.png)
 
-3. Seleccione el icono **Revisiones de acceso** para ver una lista de revisiones de acceso que esperan su aprobación.
+1. Seleccione el icono **Revisiones de acceso** para ver una lista de revisiones de acceso que esperan su aprobación.
 
     ![Página Revisiones de acceso con revisiones de acceso pendientes para la organización](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Seleccione **Comenzar revisión** para iniciar la revisión de acceso.
+1. Seleccione **Comenzar revisión** para iniciar la revisión de acceso.
 
 5. Revise el acceso y determine si sigue siendo necesario.
 
@@ -62,7 +67,7 @@ Si el administrador le ha dado permiso para realizar sus propias revisiones de a
 
 6. Seleccione **Sí** para mantener el acceso o **No** para quitarlo.
 
-    Si selecciona **Sí** , es posible que necesite especificar una justificación en el cuadro **Motivo**.
+    Si selecciona **Sí**, es posible que necesite especificar una justificación en el cuadro **Motivo**.
 
     ![Página Revisión de acceso que se muestra el cuadro Motivo con texto de ejemplo](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 

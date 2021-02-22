@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475259"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099955"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Windows Virtual Desktop
 
@@ -184,7 +184,7 @@ Para resolver este problema, cambie el umbral de latido:
 1. Abra el símbolo del sistema como administrador.
 2. Escriba el comando **qwinsta** y ejecútelo.
 3. Deben mostrarse dos componentes de la pila: **rdp-tcp** y **rdp-sxs**. 
-   - Dependiendo de la versión del sistema operativo que use, **rdp-sxs** puede ir seguido del número de compilación como se muestra en la captura de pantalla siguiente. Si es así, asegúrese de anotar este número para más adelante.
+   - Dependiendo de la versión del sistema operativo que use, **rdp-sxs** puede ir seguido del número de compilación. Si es así, asegúrese de anotar este número para más adelante.
 4. Abra el Editor del Registro.
 5. Vaya a **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 6. En **WinStations** puede ver varias carpetas para distintas versiones de pila. Seleccione la carpeta que coincida con el número de versión del paso 3.
@@ -207,7 +207,7 @@ Para resolver este problema, haga lo siguiente para crear espacio en el disco:
 Abra una ventana de PowerShell como administrador y ejecute el siguiente cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Si el estado que se muestra para el host de sesión o los hosts en el grupo de hosts siempre indica **No disponible** o **Actualizando**, es posible que se haya producido un error en la instalación del agente o la pila.
