@@ -101,20 +101,12 @@
       href: ./workloads/oracle/oracle-database-quick-create.md
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
-    - name: Filtro de paquetes de FreeBSD
-      href: ./linux/freebsd-pf-nat.md
     - name: Rehospedaje del sistema central
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Bases de datos
-      items:
-        - name: MongoDB
-        - name: MS SQL en Linux
-          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: SQL en máquinas virtuales
+      href: 'https://docs.microsoft.com/azure/azure-sql/virtual-machines/'
     - name: Informática de alto rendimiento (HPC)
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Contenedores
-    - name: Visual Studio
-      href: ./windows/using-visual-studio-vm.md
 - name: Instancias
   items:
     - name: Tamaños
@@ -218,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Configuración de controladores de GPU de AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: 'Matriz de puertas programables: proceso acelerado'
+          items:
+            - name: Información general
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: "Serie\_NP"
+              href: np-series.md
         - name: Informática de alto rendimiento
           displayName: H-series
           items:
@@ -329,7 +327,8 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Creación de una pila LAMP
           href: ./linux/tutorial-lamp-stack.md
-        - name: Protección de un servidor web con SSL
+        - name: Protección de servidor web con TLS/SSL
+          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
@@ -592,6 +591,8 @@
               href: ./linux/flatcar-create-upload-vhd.md
             - name: FreeBSD
               href: ./linux/freebsd-intro-on-azure.md
+            - name: Filtro de paquetes de FreeBSD
+              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               href: ./linux/oracle-create-upload-vhd.md
             - name: OpenBSD
@@ -636,6 +637,8 @@
           href: ./windows/capture-image-resource.md
         - name: Creación de una máquina virtual a partir de una imagen administrada
           href: ./windows/create-vm-generalized-managed.md
+        - name: Visual Studio
+          href: ./windows/using-visual-studio-vm.md
     - name: Instancias de Shared Image Gallery
       items:
         - name: Información general
@@ -987,7 +990,7 @@
       href: ephemeral-os-disks.md
     - name: Migración y conversión
       items:
-        - name: Conversión de disco entre Estándar y Premium
+        - name: Conversión del tipo de disco
           items:
             - name: CLI
               href: ./linux/convert-disk-storage.md
@@ -1225,6 +1228,8 @@
       href: maintenance-and-updates.md
     - name: Aplicación de revisiones automáticas a los invitados de la máquina virtual (versión preliminar)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Actualización automática de extensiones (versión preliminar)
+      href: ./automatic-extension-upgrade.md
     - name: Control de mantenimiento
       items:
         - name: Notificaciones de mantenimiento

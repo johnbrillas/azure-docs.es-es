@@ -211,7 +211,7 @@
               items:
                 - name: Azure Portal
                   href: learn/quick-create-workspace.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
@@ -426,8 +426,10 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: Información general
+                - name: Versión 4.0
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                - name: Versión 3.0
+                  href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
                 - name: Recopilación de métricas con Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
         - name: Solución de problemas
@@ -976,10 +978,14 @@
               href: app/sharepoint.md
             - name: Escritorio de Windows
               href: app/windows-desktop.md
-        - name: Otras herramientas
-          items:
-            - name: Análisis de cambios
-              href: app/change-analysis.md
+    - name: Change Analysis
+      items:
+        - name: Información general
+          href: app/change-analysis.md
+        - name: Visualizaciones
+          href: app/change-analysis-visualizations.md
+        - name: Solución de problemas
+          href: app/change-analysis-troubleshoot.md
     - name: Azure Monitor para máquinas virtuales
       items:
         - name: Información general

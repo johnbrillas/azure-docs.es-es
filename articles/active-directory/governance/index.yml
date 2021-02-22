@@ -12,12 +12,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 4bff55dbc2be4ae34ed9385bc41726919a5e86c4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 34ea848a9e376c4babe4fdff27f8693af627c6b7
+  ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87798399"
+  ms.lasthandoff: 02/16/2021
+  ms.locfileid: "100547305"
 landingContent:
 - title: Acerca de Identity Governance
   linkLists:
@@ -37,8 +37,10 @@ landingContent:
       url: entitlement-management-overview.md
   - linkListType: tutorial
     links:
-    - text: Creación del primer paquete de acceso que ayuda a los usuarios a solicitar el acceso que necesiten
+    - text: 'Administración del acceso a los recursos: Azure Portal'
       url: entitlement-management-access-package-first.md
+    - text: 'Administración del acceso a los recursos: Microsoft Graph'
+      url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
   - linkListType: concept
     links:
     - text: Delegación y roles

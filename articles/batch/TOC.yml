@@ -172,6 +172,11 @@
         - name: Creación de un grupo sin direcciones IP públicas
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Uso de extensiones con grupos
+          href: create-pool-extensions.md
+        - name: Configuración de identidades administradas
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: Montaje de un sistema de archivos virtual
           href: virtual-file-mount.md
         - name: Montaje de un recurso compartido de archivos de Azure
@@ -272,7 +277,7 @@
           href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch

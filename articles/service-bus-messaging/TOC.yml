@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -48,7 +48,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Seguridad de las redes
           href: network-security.md
+    - name: Integración con otros servicios
+      items:
+        - name: Integración de Azure Service Bus y Azure Event Grid
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Guías paso a paso
   items:
     - name: Traslado entre regiones
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Expiración de mensajes (período de vida)
               href: message-expiration.md
-            - name: Control de mensajes mediante Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Filtros y acciones de temas
           href: topic-filters.md
         - name: Migración de espacios de nombres de Estándar a Premium

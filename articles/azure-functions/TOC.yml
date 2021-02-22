@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Conceptos
   items:
+    - name: Procedimientos recomendados
+      items:
+        - name: Rendimiento y confiabilidad
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Administración de conexiones
+          href: manage-connections.md
+          displayName: best practices
+        - name: Consideraciones sobre el almacenamiento
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: Control de errores y reintentos de función
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Seguridad
+          href: security-concepts.md
+          displayName: best practices
     - name: Comparación de versiones del runtime
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: Costos según el plan de consumo
       href: functions-consumption-costs.md
-    - name: Consideraciones de rendimiento
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Consideraciones sobre el almacenamiento
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Proxy de funciones
       href: functions-proxies.md
     - name: Opciones de redes
@@ -247,7 +259,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: functions-create-function-app-portal.md
                 - name: Línea de comandos
                   href: ./create-first-function-cli-csharp.md

@@ -113,6 +113,8 @@
                   href: ./security/workspace-data-exfiltration-protection.md
                 - name: Área de trabajo de Synapse con centros de vínculo privado
                   href: ./security/synapse-private-link-hubs.md
+                - name: Conexión a una cuenta de almacenamiento protegida
+                  href: ./security/connect-to-a-secure-storage-account.md
             - name: Autenticación y paso a través
               items:
                 - name: Azure Active Directory
@@ -571,7 +573,11 @@
         - name: Uso de Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
         - name: Administración de bibliotecas
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
+          items:
+            - name: Adición y administración de bibliotecas
+              href: ./spark/apache-spark-azure-portal-add-libraries.md
+            - name: Solución de errores de instalación de biblioteca
+              href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Uso de cuadernos y de herramientas IDE
           items:
             - name: Administración de cuadernos
@@ -1081,7 +1087,7 @@
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Machine Learning
   items:
-    - name: Introducción
+    - name: Información general
       items:
         - name: ¿Qué es el aprendizaje automático en Azure Synapse?
           href: machine-learning/what-is-machine-learning.md

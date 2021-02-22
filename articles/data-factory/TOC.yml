@@ -105,6 +105,8 @@
       items:
         - name: Transformación de datos con Mapping Data Flow
           items:
+            - name: Transformación de datos en el lago con Delta Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Transformación de datos con Mapping Data Flow
               href: tutorial-data-flow.md
             - name: Tutoriales en vídeo del flujo de datos de asignación
@@ -261,7 +263,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL
           href: connector-azure-sql-managed-instance.md
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Nueva rama
           href: data-flow-new-branch.md
+        - name: Analizar
+          href: data-flow-parse.md
         - name: Dinamización
           href: data-flow-pivot.md
         - name: Rango
@@ -732,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Desduplicación y comprobación de valores NULL con fragmentos de código
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Proceso de datos desde modelos aml mediante flujo de datos
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Migración de SSIS desde un entorno local
           items:
             - name: Introducción a la migración de SSIS
@@ -806,6 +812,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Elementos integrados de Azure Policy
+      href: policy-reference.md
 - name: Recursos
   items:
     - name: Notas del producto

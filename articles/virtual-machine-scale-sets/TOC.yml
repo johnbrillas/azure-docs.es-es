@@ -25,25 +25,25 @@
   items:
     - name: 1 - Creación y administración de un conjunto de escalado
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-create-and-manage-cli.md
         - name: Azure PowerShell
           href: tutorial-create-and-manage-powershell.md
     - name: 2 - Uso de discos de datos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-use-disks-cli.md
         - name: Azure PowerShell
           href: tutorial-use-disks-powershell.md
     - name: 3 - Uso de una imagen de máquina virtual personalizada
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-use-custom-image-cli.md
         - name: Azure PowerShell
           href: tutorial-use-custom-image-powershell.md
     - name: 4 - Implementación de aplicaciones en un conjunto de escalado
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
@@ -165,8 +165,13 @@
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: Mantenimiento y actualizaciones
-      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
-      maintainContext: true
+      items:
+        - name: Información general
+          href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+          maintainContext: true
+        - name: Actualización automática de extensiones (versión preliminar)
+          href: ../virtual-machines/automatic-extension-upgrade.md
+          maintainContext: true
     - name: Disk Storage
       items:
         - name: Managed Disks

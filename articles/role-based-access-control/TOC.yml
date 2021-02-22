@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: API DE REST
           href: role-assignments-list-rest.md
-    - name: Adición y eliminación de asignaciones de roles
+    - name: Asignación de roles
       items:
-        - name: Pasos para agregar una asignación de roles
+        - name: Pasos para asignar un rol
           href: role-assignments-steps.md
         - name: Portal
           items:
-            - name: Adición y eliminación de asignaciones de roles
+            - name: Asignación de roles
               href: role-assignments-portal.md
             - name: Administrador de suscripciones
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Plantilla ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Eliminación de asignaciones de rol
+      href: role-assignments-remove.md
     - name: Enumeración de asignaciones de denegación
       items:
         - name: Información general

@@ -41,7 +41,7 @@
   items:
     - name: Ejemplos de código
       href: /samples/browse/?products=azure-functions&term=durable
-    - name: Azure CLI
+    - name: CLI de Azure
       href: ../functions-cli-samples.md
 - name: Conceptos
   items:
@@ -79,6 +79,8 @@
       href: durable-functions-perf-and-scale.md
     - name: Alta disponibilidad
       href: durable-functions-disaster-recovery-geo-distribution.md
+    - name: Persistencia y serialización de datos
+      href: durable-functions-serialization-and-persistence.md
 - name: Referencia
   items:
     - name: Configuración de host.json

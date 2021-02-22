@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Conceptos
   items:
-    - name: Modelos personalizados
+    - name: Modelos de DTDL
       href: concepts-models.md
+    - name: Ontologías
+      items:
+        - name: ¿Qué es una ontología?
+          href: concepts-ontologies.md
+        - name: Adopción de ontologías estándar del sector
+          href: concepts-ontologies-adopt.md
+        - name: Conversión de ontologías
+          href: concepts-ontologies-convert.md
+        - name: Extensión de las ontologías
+          href: concepts-ontologies-extend.md
     - name: Gemelos digitales y el grafo de gemelos
       href: concepts-twins-graph.md
     - name: Lenguaje de consulta
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Diseño de modelos
       items:
-        - name: Administración de modelos personalizados
+        - name: Administración de modelos DTDL
           href: how-to-manage-model.md
-        - name: Integración de modelos estándar del sector
-          href: how-to-integrate-models.md
         - name: Análisis y validación de modelos
           href: how-to-parse-models.md
         - name: Incorporación de etiquetas
@@ -249,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validador de DTDL (ejemplo)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Cargador de modelos (ejemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Visualizador de modelos (ejemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Convertidor OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Ejemplo de integración de DPS e IoT Hub
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Ejemplo de integración con SignalR

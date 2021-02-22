@@ -143,8 +143,10 @@
       items:
         - name: Solicitud de aumento de cuota
           href: database/quota-increase-request.md
-        - name: Automatización de trabajos
+        - name: Automatización de trabajos con trabajos elásticos
           href: database/job-automation-overview.md
+        - name: Automatización de trabajos con Agente SQL
+          href: database/job-automation-managed-instances.md
         - name: Continuidad empresarial
           items:
             - name: Configuración de un grupo de conmutación por error
