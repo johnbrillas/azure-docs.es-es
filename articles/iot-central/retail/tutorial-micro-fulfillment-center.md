@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832137"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390477"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
-En este tutorial, se usa la plantilla de aplicación del centro de micrologística para Azure IoT Central para crear una solución para el comercio minorista. Aprenderá a implementar la plantilla, conocerá los elementos que incluyen y qué puede hacer a continuación.
+En este tutorial, se usa la plantilla de aplicación del centro de micrologística para Azure IoT Central para crear una solución para el comercio minorista.
+
+En este tutorial, aprenderá:
+
+> [!div class="checklist"]
+> * Procedimientos para implementar la plantilla de la aplicación
+> * Procedimientos para usar la plantilla de aplicación
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para completar esta serie de tutoriales, necesitará una suscripción de Azure. Opcionalmente, puede usar una evaluación gratuita de 7 días. Si no tiene una suscripción de Azure, puede crear una en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).

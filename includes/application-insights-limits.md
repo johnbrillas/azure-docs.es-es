@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: application-insights
-author: mrbullwinkle
+author: lgayhardt
 ms.service: application-insights
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: mbullwin
+ms.author: lagayhar
 ms.custom: include file
-ms.openlocfilehash: 76176c72ad77341d7db1c8f4158a90836b74a91c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eda50bb9f65591cd837b7e74e9d783464de43367
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011357"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520701"
 ---
 Hay algunos límites en el número de métricas y eventos por aplicación; es decir, por clave de instrumentación. Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
@@ -21,7 +21,8 @@ Hay algunos límites en el número de métricas y eventos por aplicación; es de
 | --- | --- | --- |
 | Total de datos por día | 100 GB | Se pueden reducir los datos si se establece un límite. Si necesita más datos, puede aumentar el límite en el portal, hasta 1000 GB. Para capacidades mayores de 1000 GB, envíe un correo electrónico a AIDataCap@microsoft.com.
 | Limitaciones | 32 000 eventos por segundo | El límite se mide por minuto.
-| Retención de datos | [Entre 30 y 730 días](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | Este recurso es para [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/log-query/log-query-overview.md) y el [Explorador de métricas](../articles/azure-monitor/platform/metrics-charts.md).
+| Registros de retención de datos | [Entre 30 y 730 días](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | Este recurso es para [Registros](../articles/azure-monitor/log-query/log-query-overview.md).
+| Métricas de retención de datos | 90 días| Este recurso es para el [Explorador de métricas](../articles/azure-monitor/platform/metrics-charts.md).
 | Retención de resultados detallados para la [prueba de disponibilidad de varios pasos](../articles/azure-monitor/app/availability-multistep.md) | 90 días | Este recurso proporciona resultados detallados de cada paso.
 | Tamaño máximo de elementos de telemetría | 64 KB |
 | Número máximo de elementos de telemetría por lote | 64 K |

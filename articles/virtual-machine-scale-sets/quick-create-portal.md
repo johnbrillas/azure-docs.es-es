@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913740"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535287"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -35,9 +35,9 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración                 | Valor   |
+    | Configuración                 | Value   |
     | ---| ---|
-    | Suscripción  | Seleccione su suscripción.    |    
+    | Subscription  | Seleccione su suscripción.    |    
     | Resource group | Seleccione **Crear nuevo** y escriba *myVMSSResourceGroup* en el cuadro de texto.|
     | Nombre           | *myLoadBalancer*         |
     | Region         | Seleccione **Este de EE. UU**.       |
@@ -57,7 +57,7 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 Puede implementar un conjunto de escalado con una imagen de Windows Server o Linux como RHEL, CentOS, Ubuntu o SLES.
 
 1. Escriba **Conjunto de escalado** en el cuadro de búsqueda. En los resultados, en **Marketplace**, seleccione **Conjuntos de escalado de máquinas virtuales**. Seleccione **Crear** en la página **Virtual Machine Scale Sets** y se abrirá la página **Crear un conjunto de escalado de máquinas virtuales**. 
-1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myVMSSResourceGroup* para el nombre y seleccione **Aceptar**. 
+1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y seleccione *myVMSSResourceGroup* en la lista de grupos de recursos. 
 1. Escriba *myScaleSet* como el nombre del conjunto de escalado.
 1. En **Región**, seleccione una región cercana a su área.
 1. Seleccione una imagen de Marketplace para **imagen**. En este ejemplo, hemos elegido *Ubuntu Server 18.04 LTS*.

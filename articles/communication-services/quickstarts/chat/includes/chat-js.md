@@ -10,20 +10,20 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376367"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551379"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, compruebe lo siguiente:
 
 - Cree de una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Instale las versiones de [Node.js](https://nodejs.org/en/download/), Active LTS y Maintenance LTS (se recomiendan 8.11.1 y 10.14.1).
-- Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md). Deberá registrar el **punto de conexión** del recurso para esta guía de inicio rápido.
-- Un [Token de acceso de usuario](../../access-tokens.md). Asegúrese de establecer el ámbito en "chat" y anote la cadena del token, así como la cadena userId.
+- Cree un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md). Para este inicio rápido, tendrá que **registrar el punto de conexión del recurso**.
+- Cree *tres* usuarios de ACS y genéreles un token de acceso de usuario [Token de acceso de usuario](../../access-tokens.md). Asegúrese de establecer el ámbito en **chat** y **anote la cadena del token, así como la cadena userId**. La demo completa crea una conversación con dos participantes iniciales y, después, agrega un tercer participante a la misma.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -40,8 +40,6 @@ Ejecute `npm init -y` para crear un archivo **package.json** con la configuraci�
 ```console
 npm init -y
 ```
-
-Use un editor de texto para crear un archivo denominado **start-chat.js** en el directorio raíz del proyecto. En las secciones siguientes agregará todo el código fuente de esta guía de inicio rápido a este archivo.
 
 ### <a name="install-the-packages"></a>Instalación de los paquetes
 
@@ -70,8 +68,6 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 
 Cree un archivo **index.html** en el directorio raíz del proyecto. Usaremos este archivo como plantilla para agregar la funcionalidad de chat mediante la biblioteca de cliente de chat de comunicación de Azure para JavaScript.
 
-Este es el código:
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -85,32 +81,53 @@ Este es el código:
   </body>
 </html>
 ```
-Cree un archivo en el directorio raíz del proyecto denominado **client.js** que contendrá la lógica de la aplicación para esta guía de inicio rápido. 
+
+Cree un archivo en el directorio raíz del proyecto denominado **client.js** que contendrá la lógica de la aplicación para esta guía de inicio rápido.
 
 ### <a name="create-a-chat-client"></a>Creación de un cliente de chat
 
-Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Los tokens de acceso de usuario permiten compilar aplicaciones cliente que se autentiquen directamente en Azure Communication Services. Después de generar estos tokens en el servidor, vuelva a pasarlos a un dispositivo cliente. Debe usar la clase `AzureCommunicationUserCredential` del `Common client library` para pasar el token al cliente de chat.
+Para crear un cliente de chat en una aplicación web, usará el **punto de conexión** de Communications Services y el **token de acceso** que se generó como parte de los pasos de los requisitos previos. 
 
-Cree un archivo **client.js** en el directorio raíz del proyecto. Usaremos este archivo para agregar la funcionalidad de chat mediante la biblioteca cliente de chat de Azure Communication Services para JavaScript.
+Los tokens de acceso de usuario permiten compilar aplicaciones cliente que se autentiquen directamente en Azure Communication Services.
+
+##### <a name="server-vs-client-side"></a>Lado de servidor frente al lado de cliente
+
+Es aconsejable generar tokens de acceso y usar un componente del servidor que los pase a la aplicación cliente. En este escenario, el servidor sería el responsable no solo de la creación y administración de usuarios, sino también de la emisión de sus tokens. Luego, el cliente puede recibir tokens de acceso del servicio y utilizarlos para autenticar las bibliotecas de Azure Communication Services.
+
+Los tokens también se pueden emitir en el cliente mediante la biblioteca Azure Communication Administration para JavaScript. En este escenario, el cliente debe conocer los usuarios para emitir sus tokens.
+
+Para más información, consulte la siguiente documentación: [Arquitectura de cliente y de servidor](../../../concepts/client-and-server-architecture.md).
+
+En el diagrama siguiente, la aplicación del cliente recibe un token de acceso de un nivel de servicio de confianza. Luego, la aplicación utiliza el token para autenticar las bibliotecas de Communication Services. Una vez autenticadas, la aplicación puede usar las bibliotecas del cliente de Communication Services para realizar operaciones como el uso del chat con otros usuarios.
+
+:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagrama que muestra la arquitectura de token de acceso de usuario.":::
+
+##### <a name="instructions"></a>Instructions
+En esta demostración no se trata la creación de un nivel de servicio para una aplicación de chat. 
+
+Si no ha generado usuarios y sus tokens, siga estas instrucciones para hacerlo: [Token de acceso de usuario](../../access-tokens.md). Recuerde establecer el ámbito en "chat", no en "voip".
+
+En **client.js**, use el punto de conexión y el token de acceso del código siguiente para agregar la funcionalidad de chat mediante la biblioteca cliente Azure Communication Chat para JavaScript.
 
 ```JavaScript
 
 import { ChatClient } from '@azure/communication-chat';
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
+// The user access token generated as part of the pre-requisites
 let userAccessToken = '<USER_ACCESS_TOKEN>';
 
-let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
+let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-Reemplace **ENDPOINT** por el punto de conexión creado anteriormente basado en la documentación de [Creación de un recurso de Azure Communication Services](../../create-communication-resource.md).
-Reemplace **USER_ACCESS_TOKEN** por un token emitido basado en la documentación de [Token de acceso de usuario](../../access-tokens.md).
-Agregue este código al archivo **client.js**.
+- Reemplace **endpointUrl** por el punto de conexión de recurso de Communication Services y consulte [Creación de un recurso de comunicación de Azure](../../create-communication-resource.md) si aún no lo ha hecho.
+- Reemplace **userAccessToken** por el token que ha emitido.
 
 
 ### <a name="run-the-code"></a>Ejecución del código
+
 Utilice `webpack-dev-server` para compilar y ejecutar la aplicación. Ejecute el siguiente comando para agrupar el host de aplicación en un servidor web local:
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -138,55 +155,54 @@ Use el método `createThread` para crear un subproceso de chat.
 `createThreadRequest` se usa para describir la solicitud de subproceso:
 
 - Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateThread`. 
-- Use `members` para enumerar los miembros que se van a agregar al subproceso de chat.
+- Use `participants` para enumerar los participantes que se van a agregar a la conversación del chat.
 
-Una vez resuelto, el método `createChatThread` devuelve `threadId`, que se usa para realizar operaciones en el subproceso de chat recién creado, como agregar miembros al subproceso de chat, enviar mensajes, eliminar un mensaje, etc.
+Cuando se resuelve, el método `createChatThread` devuelve `CreateChatThreadResponse`. Este modelo contiene una propiedad `chatThread` donde se puede acceder al `id` del subproceso recién creado. Luego, se puede utilizar `id` para obtener una instancia de `ChatThreadClient`. A continuación, se puede usar `ChatThreadClient` para realizar una operación dentro del subproceso, como enviar mensajes o enumerar participantes.
 
-```Javascript
+```JavaScript
 async function createChatThread() {
-   let createThreadRequest = {
-       topic: 'Preparation for London conference',
-       members: [{
-                   user: { communicationUserId: '<USER_ID_FOR_JACK>' },
-                   displayName: 'Jack'
-               }, {
-                   user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
-                   displayName: 'Geeta'
-               }]
-   };
-   let chatThreadClient= await chatClient.createChatThread(createThreadRequest);
-   let threadId = chatThreadClient.threadId;
-   return threadId;
-}
+    let createThreadRequest = {
+        topic: 'Preparation for London conference',
+        participants: [{
+                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    displayName: 'Jack'
+                }, {
+                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    displayName: 'Geeta'
+                }]
+    };
+    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createThreadResponse.chatThread.id;
+    return threadId;
+    }
 
 createChatThread().then(async threadId => {
-   console.log(`Thread created:${threadId}`);
-   // PLACEHOLDERS
-   // <CREATE CHAT THREAD CLIENT>
-   // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
-   // <SEND MESSAGE TO A CHAT THREAD>
-   // <LIST MESSAGES IN A CHAT THREAD>
-   // <ADD NEW MEMBER TO THREAD>
-   // <LIST MEMBERS IN A THREAD>
-   // <REMOVE MEMBER FROM THREAD>
-});
+    console.log(`Thread created:${threadId}`);
+    // PLACEHOLDERS
+    // <CREATE CHAT THREAD CLIENT>
+    // <RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>
+    // <SEND MESSAGE TO A CHAT THREAD>
+    // <LIST MESSAGES IN A CHAT THREAD>
+    // <ADD NEW PARTICIPANT TO THREAD>
+    // <LIST PARTICIPANTS IN A THREAD>
+    // <REMOVE PARTICIPANT FROM THREAD>
+    });
 ```
 
-Reemplace **USER_ID_FOR_JACK** y **USER_ID_FOR_GEETA** por los id. de usuario obtenidos en el paso anterior (creación de usuarios y emisión de [tokens de acceso de usuario](../../access-tokens.md))
+Reemplace **USER_ID_FOR_JACK** y **USER_ID_FOR_GEETA** por los identificadores de usuario obtenidos al crear usuarios y tokens ([tokens de acceso de usuario](../../access-tokens.md))
 
-Al actualizar la pestaña del explorador, debería ver lo siguiente en la consola.
+Al actualizar la pestaña del explorador, debería ver lo siguiente en la consola:
 ```console
-Thread created: <threadId>
+Thread created: <thread_id>
 ```
 
 ## <a name="get-a-chat-thread-client"></a>Obtención de un cliente de subproceso de chat
 
-El método `getChatThreadClient` devuelve un `chatThreadClient` para un subproceso que ya existe. Se puede usar para realizar operaciones en el subproceso creado: agregar miembros, enviar un mensaje, etc. thread_id es el id. único del subproceso de chat existente.
+El método `getChatThreadClient` devuelve un `chatThreadClient` para un subproceso que ya existe. Se puede usar para realizar operaciones en el subproceso creado: agregar participantes, enviar un mensaje, etc. threadId es el identificador único de la conversación del chat existente.
 
 ```JavaScript
-
 let chatThreadClient = await chatClient.getChatThreadClient(threadId);
-console.log(`Chat Thread client for threadId:${chatThreadClient.threadId}`);
+console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
 Agregue este código en lugar del comentario `<CREATE CHAT THREAD CLIENT>` en **client.js**, actualice la pestaña del explorador y compruebe la consola. Debería ver lo siguiente:
@@ -207,7 +223,7 @@ Utilice el método `sendMessage` para enviar un mensaje de chat al subproceso re
 - Use `priority` para especificar el nivel de prioridad del mensaje de chat, como "Normal" o "Alta"; esta propiedad se puede usar para que un indicador de la interfaz de usuario haga que el destinatario de la aplicación se fije en el mensaje o para ejecutar la lógica de negocios personalizada.   
 - Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente.
 
-La respuesta `sendChatMessageResult` contiene un "id.", que es el identificador único del mensaje.
+La respuesta `sendChatMessageResult` contiene un identificador, que es el identificador único del mensaje.
 
 ```JavaScript
 
@@ -253,16 +269,16 @@ También puede recuperar mensajes de chat mediante el sondeo del método `listMe
 
 let pagedAsyncIterableIterator = await chatThreadClient.listMessages();
 let nextMessage = await pagedAsyncIterableIterator.next();
- while (!nextMessage.done) {
-     let chatMessage = nextMessage.value;
-     console.log(`Message :${chatMessage.content}`);
-     // your code here
-     nextMessage = await pagedAsyncIterableIterator.next();
- }
+    while (!nextMessage.done) {
+        let chatMessage = nextMessage.value;
+        console.log(`Message :${chatMessage.content}`);
+        // your code here
+        nextMessage = await pagedAsyncIterableIterator.next();
+    }
 
 ```
 Agregue este código en lugar del comentario `<LIST MESSAGES IN A CHAT THREAD>` en **client.js**.
-Actualice la pestaña; en la consola debería encontrar una lista de los mensajes enviados en este subproceso de chat.
+Actualice la pestaña; en la consola debería encontrar la lista de los mensajes enviados en esta conversación del chat.
 
 
 `listMessages` devuelve la versión más reciente del mensaje, incluidas las modificaciones o eliminaciones que se han producido en este mediante `updateMessage` y `deleteMessage`.
@@ -270,46 +286,48 @@ En el caso de los mensajes eliminados, `chatMessage.deletedOn` devuelve un valor
 
 `listMessages` devuelve distintos tipos de mensajes que se pueden identificar mediante `chatMessage.type`. Estos tipos son:
 
-- `Text`: mensaje de chat normal enviado por un miembro del subproceso.
+- `Text`: mensaje de chat normal enviado por un participante de la conversación.
 
 - `ThreadActivity/TopicUpdate`: mensaje del sistema que indica que el tema se ha actualizado.
 
-- `ThreadActivity/AddMember`: mensaje del sistema que indica que uno o más miembros se han agregado al subproceso de chat.
+- `ThreadActivity/AddParticipant`: mensaje del sistema que indica que se han agregado uno o varios miembros a la conversación del chat.
 
-- `ThreadActivity/RemoveMember`: mensaje del sistema que indica que un miembro se han quitado del subproceso de chat.
+- `ThreadActivity/RemoveParticipant`: mensaje del sistema que indica que se ha eliminado un miembro de la conversación del chat.
 
 Para obtener más información, consulte [Tipos de mensajes](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Adición de un usuario como miembro al subproceso de chat
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adición de un usuario como miembro a la conversación del chat
 
-Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para enviar mensajes al subproceso de chat, y agregar o quitar otros miembros. Antes de llamar al método `addMembers`, asegúrese de que ha adquirido un nuevo token de acceso y una identidad para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
+Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para enviar mensajes a la conversación del chat, y agregar o quitar otros participantes.
 
-`addMembersRequest` describe el objeto de solicitud, donde `members` enumera los miembros que se van a agregar al subproceso de chat.
-- El elemento `user` obligatorio es el usuario de comunicación que se va a agregar al subproceso de chat.
-- El elemento opcional `displayName` es el nombre para mostrar del miembro de subproceso.
-- El elemento opcional `shareHistoryTime` es la hora a partir de la cual el historial de chat se compartió con el miembro. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el miembro, establézcala en la fecha actual. Para compartir el historial parcialmente, establezca la opción en la fecha de su elección.
+Antes de llamar al método `addParticipants`, asegúrese de que ha adquirido un nuevo token de acceso y una identidad para el usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
+
+`addParticipantsRequest` describe el objeto de solicitud, donde `participants` enumera los participantes que se van a agregar a la conversación del chat.
+- El elemento `user` es obligatorio y es el usuario de comunicación que se va a agregar al subproceso de chat.
+- `displayName` es opcional y es el nombre para mostrar del participante de la conversación.
+- `shareHistoryTime` es opcional y es la hora a partir de la cual el historial de chat se compartió con el participante. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el participante, establézcala en la fecha actual. Para compartir el historial parcialmente, establezca la opción en la fecha de su elección.
 
 ```JavaScript
 
-let addMembersRequest =
+let addParticipantsRequest =
 {
-    members: [
+    participants: [
         {
-            user: { communicationUserId: '<NEW_MEMBER_USER_ID>' },
+            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]
 };
 
-await chatThreadClient.addMembers(addMembersRequest);
+await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Reemplace **NEW_MEMBER_USER_ID** por un [Id. de nuevo usuario](../../access-tokens.md). Agregue este código en lugar del comentario `<ADD NEW MEMBER TO THREAD>` en **client.js**.
+Reemplace **NEW_PARTICIPANT_USER_ID_USER_ID** por un [identificador de usuario nuevo](../../access-tokens.md). Agregue este código en lugar del comentario `<ADD NEW PARTICIPANT TO THREAD>` en **client.js**
 
 ## <a name="list-users-in-a-chat-thread"></a>Enumeración de usuarios en un subproceso de chat
 ```JavaScript
-async function listThreadMembers() {
-   let pagedAsyncIterableIterator = await chatThreadClient.listMembers();
+async function listParticipants() {
+   let pagedAsyncIterableIterator = await chatThreadClient.listParticipants();
    let next = await pagedAsyncIterableIterator.next();
    while (!next.done) {
       let user = next.value;
@@ -317,20 +335,20 @@ async function listThreadMembers() {
       next = await pagedAsyncIterableIterator.next();
    }
 }
-await listThreadMembers();
+await listParticipants();
 ```
-Agregue este código en lugar del comentario `<LIST MEMBERS IN A THREAD>` en **client.js**, actualice la pestaña del explorador y compruebe la consola; debería ver información acerca de los usuarios de un subproceso.
+Agregue este código en lugar del comentario `<LIST PARTICIPANTS IN A THREAD>` en **client.js**, actualice la pestaña del explorador y compruebe la consola; debería ver información acerca de los usuarios de un subproceso.
 
 ## <a name="remove-user-from-a-chat-thread"></a>Eliminación de un usuario de un subproceso de chat
 
-De forma similar a la adición de un miembro, puede quitar miembros de un subproceso de chat. Para quitarlos, deberá realizar un seguimiento de los identificadores de los miembros que ha agregado.
+En una conversación del chat, los participantes se pueden eliminar de forma similar a como se agregan. Para quitarlos, será preciso realizar un seguimiento de los identificadores de los participantes que se han agregado.
 
-Utilice el método `removeMember`, donde `member` es el usuario de la comunicación que se va a quitar del subproceso.
+Utilice el método `removeParticipant`, donde `participant` es el usuario de la comunicación que se va a quitar del subproceso.
 
 ```JavaScript
 
-await chatThreadClient.removeMember({ communicationUserId: <MEMBER_ID> });
-await listThreadMembers();
+await chatThreadClient.removeParticipant({ communicationUserId: <PARTICIPANT_ID> });
+await listParticipants();
 ```
-Reemplace **MEMBER_ID** por un id. de usuario utilizado en el paso anterior (<NEW_MEMBER_USER_ID>).
-Agregue este código en lugar del comentario `<REMOVE MEMBER FROM THREAD>` en **client.js**.
+Reemplace **PARTICIPANT_ID** por un id. de usuario utilizado en el paso anterior (<NEW_PARTICIPANT_USER_ID>).
+Agregue este código en lugar del comentario `<REMOVE PARTICIPANT FROM THREAD>` en **client.js**.

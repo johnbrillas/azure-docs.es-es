@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033925"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559340"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>¿Qué es el control de acceso basado en rol de Azure (RBAC)?
 
@@ -38,7 +38,7 @@ Estos son algunos ejemplos de lo que puede hacer con Azure RBAC:
 
 ## <a name="how-azure-rbac-works"></a>Funcionamiento de Azure RBAC
 
-La forma en que se controla el acceso a los recursos mediante Azure RBAC es mediante las asignaciones de roles. Este es un concepto clave que es necesario entender: se trata de cómo se aplican los permisos. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito.
+Para controlar el acceso a los recursos que usan Azure RBAC hay que utilizar las asignaciones de roles de Azure. Este es un concepto clave que es necesario entender: se trata de cómo se aplican los permisos. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito.
 
 ### <a name="security-principal"></a>Entidad de seguridad
 
@@ -80,9 +80,9 @@ El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ej
 
 ![Asignación de roles para controlar el acceso](./media/overview/rbac-overview.png)
 
-Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST.
+Para asignar los distintos roles se pueden usar Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API REST.
 
-Para obtener más información, consulte [Pasos para agregar una asignación de rol](role-assignments-steps.md).
+Para más información, consulte [Pasos para asignar roles de Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Asignaciones de varios roles
 
@@ -122,6 +122,6 @@ Los siguientes son los pasos de alto nivel que Azure RBAC usa para determinar si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure Portal](role-assignments-portal.md)
 - [Descripción de los distintos roles](rbac-and-directory-admin-roles.md)
 - [Plataforma de adopción de la nube: Administración del acceso a recursos de Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

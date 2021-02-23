@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979440"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367204"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -91,9 +91,12 @@ Use la siguiente información de solución de problemas si tiene problemas para 
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>El propietario de la facturación de la suscripción de Azure original deja la organización
 
-Es posible que el propietario de la facturación original que creó una cuenta de Azure y una suscripción de Azure abandone la organización. Si esto ocurre, su identidad de usuario ya no estará en la instancia de Azure Active Directory de la organización. Por tanto, la suscripción de Azure no tendrá un propietario de facturación. Esta situación impide que puedan realizarse operaciones de facturación en la cuenta, incluida la visualización y el pago de facturas. Así, la suscripción podría vencer. Posteriormente, la suscripción podría deshabilitarse por impago. En última instancia, la suscripción podría eliminarse, lo que afectaría a todos los servicios que se ejecutan basados en la suscripción.
+> [!Note]
+> Esta sección se aplica en concreto a una cuenta de facturación para un Contrato de cliente de Microsoft. Compruebe si tiene acceso a un [Contrato de cliente de Microsoft](mca-request-billing-ownership.md#check-for-access).
 
-Cuando una suscripción ya no tiene un propietario de facturación válido, Azure envía un correo electrónico a otros propietarios de facturación, administradores de servicios, coadministradores y propietarios de suscripción que les informa de la situación y les proporciona un vínculo para aceptar la propiedad de facturación de la suscripción. Cualquiera de los usuarios puede seleccionar el vínculo para aceptar la propiedad de la facturación. Para más información sobre los roles de facturación, consulte [Roles de facturación](understand-mca-roles.md) y [Roles clásicos y roles de RBAC de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Es posible que el propietario de la cuenta de facturación original que creó una cuenta de Azure y una suscripción de Azure abandone la organización. Si esto ocurre, su identidad de usuario ya no estará en la instancia de Azure Active Directory de la organización. Por tanto, la suscripción de Azure no tendrá un propietario de facturación. Esta situación impide que puedan realizarse operaciones de facturación en la cuenta, incluida la visualización y el pago de facturas. Así, la suscripción podría vencer. Posteriormente, la suscripción podría deshabilitarse por impago. En última instancia, la suscripción podría eliminarse, lo que afectaría a todos los servicios que se ejecutan basados en la suscripción.
+
+Cuando una suscripción deja de tener un propietario de cuenta de facturación válido, Azure envía un correo electrónico a otros propietarios de las cuentas de facturación, administradores de servicios (si hay alguno), coadministradores (si hay alguno) y propietarios de suscripción que les informa de la situación y les proporciona un vínculo para aceptar la propiedad de facturación de la suscripción. Cualquiera de los usuarios puede seleccionar el vínculo para aceptar la propiedad de la facturación. Para más información sobre los roles de facturación, consulte [Roles de facturación](understand-mca-roles.md) y [Roles clásicos y roles de RBAC de Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 El correo electrónico es similar al siguiente.
 

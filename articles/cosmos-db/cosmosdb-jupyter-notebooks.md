@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 8dca9e3e29796618b905c4d266eb674f82565969
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4f57d2793a28f4bbb201764c67af82f31d0b9333
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369805"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Compatibilidad integrada con cuadernos de Jupyter Notebook en Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,5 +61,7 @@ Los cuadernos de Jupyter Notebook pueden incluir varios tipos de componentes y c
 Para empezar a trabajar con cuadernos de Jupyter Notebook integrados en Azure Cosmos DB, consulte los siguientes artículos:
 
 * [Habilitación de cuadernos en una cuenta de Azure Cosmos](enable-notebooks.md)
+* [Exploración de la galería de ejemplos de Notebook](https://cosmos.azure.com/gallery.html)
 * [Uso de características y comandos de cuadernos de Python](use-python-notebook-features-and-commands.md)
 * [Uso de características y comandos de cuadernos de C#](use-csharp-notebook-features-and-commands.md)
+* [Importación de cuadernos desde un repositorio de GitHub](import-github-notebooks.md)

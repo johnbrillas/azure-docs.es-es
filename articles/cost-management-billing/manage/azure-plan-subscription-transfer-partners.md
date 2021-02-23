@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.openlocfilehash: cb9a035217734028df325555cb0954dedd29ac30
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d234227de98beeed6898697fb6ed8e0865546e16
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372296"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555853"
 ---
 # <a name="transfer-subscriptions-under-an-azure-plan-from-one-partner-to-another-preview"></a>Transferencia de suscripciones de un plan de Azure de un asociado a otro (versión preliminar)
 
@@ -22,7 +22,7 @@ En este artículo se describe lo que necesita saber antes y después de transfer
 
 El acceso a los usuarios, grupos o entidades de servicio existentes que se asignaron mediante el control de acceso basado en rol de Azure (Azure RBAC) no se ve afectado durante la transición. [Azure RBAC](../../role-based-access-control/overview.md) ayuda a administrar quién tiene acceso a los recursos de Azure, qué se puede hacer con esos recursos y a qué áreas se tiene acceso. La transferencia de la suscripción no proporciona al nuevo asociado acceso Azure RBAC a los recursos. El asociado anterior conserva su acceso Azure RBAC.
 
-Por lo tanto, es importante retirar el acceso mediante Azure RBAC al asociado anterior y dar acceso al asociado nuevo. Para más información sobre cómo dar acceso a los asociados nuevos, vea [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) Para más información sobre cómo retirar el acceso Azure RBAC al asociado anterior, consulte el apartado [Eliminación de una asignación de rol](../../role-based-access-control/role-assignments-portal.md#remove-a-role-assignment).
+Por lo tanto, es importante retirar el acceso mediante Azure RBAC al asociado anterior y dar acceso al asociado nuevo. Para más información sobre cómo dar acceso a los asociados nuevos, vea [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) Para más información sobre cómo quitar el acceso a Azure RBAC al asociado anterior, consulte el artículo sobre la [eliminación de asignación de roles de Azure](../../role-based-access-control/role-assignments-remove.md).
 
 Además, el asociado nuevo no obtiene automáticamente acceso de [administrador con derechos delegados (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) a las suscripciones. AOBO es necesario para que su asociado administre las suscripciones de Azure en su nombre. Para más información sobre los privilegios de Azure, consulte [Obtención de permisos para administrar el servicio o la suscripción de un cliente](/partner-center/customers-revoke-admin-privileges).
 

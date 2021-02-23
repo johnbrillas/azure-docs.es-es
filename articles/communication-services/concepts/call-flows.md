@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559455"
 ---
-# <a name="call-flows"></a>Flujos de llamadas
+# <a name="call-flow-basics"></a>Conceptos básicos del flujo de llamadas
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ Si la biblioteca cliente no puede usar UDP para los flujos multimedia debido a r
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagrama que muestra el flujo del proceso de multimedia TCP en Communication Services.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: biblioteca cliente de Communication Services y Microsoft Teams en una reunión de Teams programada
+
+Señalización de flujos a través del controlador de señalización. Los elementos multimedia fluyen a través del procesador de multimedia. El controlador de señalización y el procesador de multimedia se comparten entre Communication Services y Microsoft Teams. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama que muestra la biblioteca cliente de Communication Services y el cliente de Teams en una reunión de Teams programada.":::
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ Puede que los siguientes documentos le resulten interesantes:
 
 - Más información sobre los [tipos de llamada](../concepts/voice-video-calling/about-call-types.md)
 - Información sobre la [arquitectura de cliente y servidor](./client-and-server-architecture.md)
+- Información sobre las [topologías de flujo de llamadas](./detailed-call-flows.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Adición de asignaciones de roles de Azure mediante plantillas de Azure Resource Manager: Azure RBAC'
+title: 'Inicio rápido: Asignación de un role de Azure mediante una plantilla de Azure Resource Manager (Azure RBAC)'
 description: Aprenderá a conceder a los usuarios acceso a los recursos de Azure en el ámbito de grupo de recursos mediante plantillas de Azure Resource Manager y el control de acceso basado en rol de Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690449"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559276"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Inicio rápido: Incorporación de una asignación de roles de Azure mediante una plantilla de Resource Manager
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Inicio rápido: Asignación de un rol de Azure mediante una plantilla de Resource Manager
 
 El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este inicio rápido, se crea un grupo de recursos y se concede acceso a un usuario para crear y administrar máquinas virtuales en el grupo de recursos. En este inicio rápido se usa una plantilla de Azure Resource Manager para conceder el acceso.
 
@@ -29,11 +29,11 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para agregar asignaciones de roles, debe tener:
+Para asignar roles de Azure y quitar asignaciones de roles, debe tener:
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Permisos `Microsoft.Authorization/roleAssignments/write` y `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator) o [propietario](built-in-roles.md#owner)
-- Para agregar una asignación de roles, es preciso especificar tres elementos: entidad de seguridad, definición de roles y ámbito. En este inicio rápido, la entidad de seguridad es usted, o cualquier otro usuario de su directorio, la definición de roles es [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) y el ámbito es el grupo de recursos que especifique.
+- Para asignar un rol, es preciso especificar tres elementos: entidad de seguridad, definición de roles y ámbito. En este inicio rápido, la entidad de seguridad es usted, o cualquier otro usuario de su directorio, la definición de roles es [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) y el ámbito es el grupo de recursos que especifique.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 

@@ -9,38 +9,41 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 894f8b17c3c5e9e3147b66854a5809bf82351fb9
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 34d2a18d2e556b7eb9916d058c4d80fe0956ba55
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012395"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554751"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidad de Teams
 
 [!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
 
-Azure Communication Services se puede usar para crear experiencias de reunión personalizadas con interacción con Microsoft Teams. Los usuarios de sus soluciones de Communication Services pueden interactuar con los participantes de Teams mediante la voz, el vídeo y el uso compartido de la pantalla.
+Azure Communication Services se puede usar para crear experiencias de reunión personalizadas con interacción con Microsoft Teams. Los usuarios de sus soluciones de Communication Services pueden interactuar con los participantes de Teams mediante la voz, el vídeo, el chat y el uso compartido de la pantalla.
 
-Esta interoperabilidad permite crear aplicaciones de Azure personalizadas que conectan usuarios a reuniones de Teams. No es necesario que los usuarios de sus aplicaciones personalizadas tengan identidades de Azure Active Directory ni licencias de Teams para disfrutar de esta funcionalidad. Esto es idóneo para que los empleados (quizá ya familiarizados con Teams) y los usuarios externos (mediante una experiencia de aplicación personalizada) se reúnan con una experiencia fluida. Esto permite crear experiencias similares a las siguientes:
+La interoperabilidad de Teams permite crear aplicaciones personalizadas que conectan usuarios a reuniones de Teams. No es necesario que los usuarios de sus aplicaciones personalizadas tengan identidades de Azure Active Directory ni licencias de Teams para disfrutar de esta funcionalidad. Esto es idóneo para que los empleados (quizá ya familiarizados con Teams) y los usuarios externos (mediante una experiencia de aplicación personalizada) se reúnan con una experiencia fluida. Por ejemplo:
 
-1. Los empleados usan Teams para programar una reunión.
-2. La aplicación Communication Services personalizada usa las API de Microsoft Graph para acceder a los detalles de la reunión.
-3. Los detalles de la reunión se comparten con usuarios externos mediante la aplicación personalizada.
-4. Los usuarios externos usan su aplicación personalizada para unirse a la reunión de Teams (mediante la biblioteca cliente de llamada a Communication Services).
+1. Los empleados usan Teams para programar una reunión. 
+1. Los detalles de la reunión se comparten con los usuarios externos mediante una aplicación personalizada.
+   * **Usar Graph API** La aplicación de Communication Services personalizada usa las API de Microsoft Graph para acceder a los detalles de la reunión que se van a compartir. 
+   * **Usar otras opciones** Por ejemplo, el vínculo de la reunión se puede copiar del calendario en Microsoft Teams.
+1. Los usuarios externos utilizan su aplicación personalizada para unirse a la reunión de Teams (mediante las bibliotecas cliente de llamada y chat de Communication Services).
 
 La arquitectura general de este caso de uso tiene el siguiente aspecto: 
 
 ![Arquitectura de la interoperabilidad de Teams](./media/call-flows/teams-interop.png)
 
-Aunque determinadas características de reunión de Teams, como la mano levantada, el modo de reunión y las salas de escape, solo estarán disponibles para los usuarios de Teams, la aplicación personalizada tendrá acceso a las funcionalidades principales de audio, vídeo y uso compartido de la pantalla en las reuniones.
+Aunque determinadas características de las reuniones de Teams, como la posibilidad de levantar la mano, el modo Juntos y las salas de trabajo en grupo, solo estarán disponibles para los usuarios de Teams, la aplicación personalizada tendrá acceso a las funcionalidades principales de audio, vídeo, chat y uso compartido de la pantalla de la reunión.
 
-Cuando un usuario de Communication Services se une a la reunión de Teams, el nombre para mostrar proporcionado mediante la biblioteca cliente de llamada se mostrará a los usuarios de Teams. Por lo demás, en Teams, al usuario de Communication Services se le tratará como usuario anónimo. La aplicación personalizada debe considerar el uso de la autenticación del usuario y otras medidas de seguridad para proteger las reuniones de Teams. Piense en las implicaciones de seguridad de permitir que usuarios anónimos unan a las reuniones y use la [guía de seguridad de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar las funcionalidades disponibles para los usuarios anónimos.
+Cuando un usuario de Communication Services se une a la reunión de Teams, el nombre para mostrar proporcionado mediante la biblioteca cliente de llamada se mostrará a los usuarios de Teams. Por lo demás, en Teams, al usuario de Communication Services se le tratará como usuario anónimo.  La aplicación personalizada debe considerar el uso de la autenticación del usuario y otras medidas de seguridad para proteger las reuniones de Teams. Piense en las implicaciones de seguridad de permitir que usuarios anónimos unan a las reuniones y use la [guía de seguridad de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar las funcionalidades disponibles para los usuarios anónimos.
+
+La interoperabilidad de Teams con Communication Services está actualmente en versión preliminar privada. Cuando esté disponible con carácter general, los usuarios de Communication Services se tratarán como "usuarios de acceso externo". Para más información sobre el acceso externo, consulte [Llamadas, chat y colaboración con personas de fuera de la organización en Microsoft Teams](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations).
 
 Los usuarios de Communication Services pueden unirse a reuniones de Teams programadas siempre y cuando esté habilitado que lo hagan de manera anónima en la [configuración de la reunión](/microsoftteams/meeting-settings-in-teams).
 
 ## <a name="teams-in-government-clouds-gcc"></a>Teams en las nubes de la administración pública (GCC)
-Por ahora no se permite la interoperabilidad de Azure Communication Services en las implementaciones de Teams mediante las [nubes de la administración pública (GCC) de Microsoft 365](/MicrosoftTeams/plan-for-government-gcc). 
+Por ahora la interoperabilidad de Azure Communication Services no es compatible con las implementaciones de Teams mediante las [nubes de la administración pública (GCC) de Microsoft 365](/MicrosoftTeams/plan-for-government-gcc). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

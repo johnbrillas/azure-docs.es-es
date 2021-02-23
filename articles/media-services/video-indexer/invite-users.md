@@ -3,19 +3,19 @@ title: 'Invitación a los usuarios a Video Indexer: Azure'
 titleSuffix: Azure Media Services
 description: En este artículo se muestra cómo invitar a los usuarios a Video Indexer.
 services: media-services
-author: ReutAmior
+author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 02/03/2021
 ms.author: juliako
-ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7d3415ffad4820d8651841398ec6d47352869ce2
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364154"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534786"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Inicio rápido: Invitación a los usuarios a Video Indexer
 
@@ -29,26 +29,33 @@ Para colaborar con sus compañeros, puede invitarlos a su cuenta de Video Indexe
 1. Inicie sesión en el sitio web de [Video Indexer](https://www.videoindexer.ai/). Asegúrese de que está conectado con una cuenta de administrador.
 1. Si es el administrador, verá el botón **Compartir cuenta** en la esquina superior derecha. Haga clic en el botón para invitar a otros usuarios. 
 
-   ![Invitación a nuevos usuarios](./media/invite-users/share-account.png)
-1. Agregue las direcciones de correo electrónico de las personas que quiere agregar a la cuenta de Video Indexer:
+    :::image type="content" source="./media/invite-users/share-account.png" alt-text="Compartir su cuenta":::
+1. En el cuadro de diálogo **Share this account with others** (Compartir esta cuenta con otros usuarios), escriba la dirección de correo electrónico de la persona a la que desea invitar a su cuenta de Video Indexer:
 
-    ![Invitación a los usuarios a esta cuenta](./media/invite-users/invite-to-account.png)
-        
-    >[!NOTE]
-    > Todos los usuarios a los que invite tendrán permisos de lectura y escritura para todos los vídeos de su cuenta.
-1. Los usuarios a los que haya invitado recibirán un correo electrónico con el vínculo **Join Video Indexer** (Unirse a Video Indexer) que les permitirá acceder a la cuenta cuando hagan clic en él:
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invitación a los usuarios a esta cuenta":::  
+1. Cuando pulse **Invite** (Invitar), la persona se agregará a la lista de invitaciones pendientes. <br/>Puede elegir entre dos opciones para cada invitado que todavía no se haya unido a la cuenta: **quitar invitación** o **copiar dirección URL de invitación**.
 
-    ![Confirmación](./media/invite-users/invite-msg.png)
+    :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Invitaciones pendientes":::  
+1. Cuando el invitado se haya unido a la cuenta, verá tres opciones. Dos de ellas tienen que ver con los roles: **colaborador** (valor predeterminado) o **propietario**. O bien, puede optar por eliminar el invitado, para lo que debe pulsar **Remove** (Quitar).
 
-    El usuario debe hacer clic en el vínculo para unirse y así obtener acceso a la cuenta. 
+    :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Invitado conectado":::  
 
-## <a name="removing-existing-users"></a>Eliminación de usuarios existentes
+    Los usuarios no reciben una notificación tras la eliminación. Una vez quitados, los usuarios no tendrán autorización para iniciar sesión.
 
-Si quiere quitar usuarios que tienen acceso a su cuenta, puede hacer clic en el signo **X** junto a su nombre:
+## <a name="manage-roles-invite-more-users"></a>Administración de roles, invitación a más usuarios
 
-![Quitar usuarios](./media/invite-users/remove-users.png)
+El cuadro de diálogo **Share this account with others** (Compartir esta cuenta con otros usuarios), además de abrirse al hacer clic en **Share account** (Compartir cuenta), como ya se ha descrito, se puede abrir desde **Settings** (Configuración).
 
-Los usuarios no reciben una notificación tras la eliminación. Una vez quitados, los usuarios no tendrán autorización para iniciar sesión.
+1. Pulse el botón **Settings** (Configuración) en la cuenta abierta. 
+
+    :::image type="content" source="./media/invite-users/settings.png" alt-text="Configuración de la cuenta":::  
+1. Haga clic en el botón **Manage roles** (Administrar roles).
+1. Para invitar a otro usuario, haga clic en **Invite more people to this account** (Invitar más usuarios a esta cuenta).
+
+    :::image type="content" source="./media/invite-users/invite-more-people.png" alt-text="INVITE MORE USERS":::  
+1. Tras pulsar **Invite more people to this account** (Invitar más usuarios a esta cuenta), aparecerá el cuadro de diálogo Invite (Invitar)
+ 
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invitación a los usuarios a esta cuenta":::  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

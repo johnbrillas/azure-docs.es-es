@@ -1,18 +1,18 @@
 ---
 title: Uso de colas de azure/service-bus en JavaScript
-description: Aprenda a escribir un programa de JavaScript que use la versión preliminar más reciente del paquete @azure/service-bus para enviar mensajes a una cola de Service Bus y recibirlos desde allí.
+description: Aprenda a escribir un programa de JavaScript que use la versión más reciente del paquete @azure/service-bus para enviar mensajes a una cola de Service Bus, y recibirlos desde ella.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: ac24d84176f27170648545bc8044c5dcbc77781a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 27ffbafb92dd3269e38092b64e2b74f17ff9f09f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180020"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373086"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Envío de mensajes a las colas de Azure Service Bus (JavaScript) y recepción desde allí
 En este tutorial aprenderá a usar el paquete [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) de un programa de JavaScript para enviar mensajes a una cola de Service Bus, y recibirlos de ella.
@@ -205,6 +205,7 @@ Seleccione la cola en esta página **Información general** para ir a la página
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la documentación y los ejemplos siguientes: 
 
-- [Biblioteca cliente de Azure Service Bus para JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). La carpeta **javascript** tiene ejemplos de JavaScript y **typescript**, de TypeScript. 
-- [Documentación de referencia de Azure Service Bus](/javascript/api/overview/azure/service-bus)
+- [Biblioteca cliente de Azure Service Bus para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [Ejemplos de JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Ejemplos de TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Documentación de referencia de API](/javascript/api/overview/azure/service-bus)

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108390"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556824"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ En la página de registro o inicio de sesión, Azure AD B2C presenta una lista 
 
 ![Ejemplo de inicio de sesión móvil con una cuenta de redes sociales (Facebook)](media/technical-overview/external-idp.png)
 
-Para ver cómo agregar proveedores de identidades en Azure AD B2C, consulte el [Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C](tutorial-add-identity-providers.md).
+Para ver cómo se agregan proveedores de identidades en Azure AD B2C, consulte [Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C](add-identity-provider.md).
 
 ## <a name="identity-experiences-user-flows-or-custom-policies"></a>Experiencias de identidad: flujos de usuario o directivas personalizadas
 

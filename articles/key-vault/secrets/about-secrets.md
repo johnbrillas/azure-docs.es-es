@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786046"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526651"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -74,7 +74,7 @@ Guías de procedimientos para controlar el acceso en Key Vault:
 - [Asignación de una directiva de acceso de Key Vault mediante la CLI](../general/assign-access-policy-cli.md)
 - [Asignación de una directiva de acceso de Key Vault mediante PowerShell](../general/assign-access-policy-powershell.md)
 - [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../general/assign-access-policy-portal.md)
-- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure (versión preliminar)](../general/rbac-guide.md)
+- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Etiquetas del secreto  
 Puede especificar metadatos específicos de la aplicación adicionales en forma de etiquetas. Key Vault admite hasta 15 etiquetas, cada una de las cuales puede tener un nombre de 256 caracteres y un valor de 256 caracteres.  
@@ -124,7 +124,7 @@ Guías de procedimientos para controlar el acceso en Key Vault:
 - [Asignación de una directiva de acceso de Key Vault mediante la CLI](../general/assign-access-policy-cli.md)
 - [Asignación de una directiva de acceso de Key Vault mediante PowerShell](../general/assign-access-policy-powershell.md)
 - [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../general/assign-access-policy-portal.md)
-- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure (versión preliminar)](../general/rbac-guide.md)
+- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625271"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364841"
 ---
 # <a name="chat-client-library-overview"></a>Información general de la biblioteca cliente de chat
 
@@ -44,7 +44,7 @@ En la lista siguiente se presenta el conjunto de características que están dis
 |                   | Enviar y recibir notificaciones de escritura cuando un miembro está escribiendo un mensaje en una conversación de chat <br/> *No está disponible cuando hay más de 20 miembros en una conversación de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Obtener todos los mensajes de una conversación de chat <br/> *Se admiten los emojis Unicode*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Enviar emojis como parte del contenido del mensaje                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Señalización en tiempo real (habilitada por un paquete de señalización propietario)| Recibir notificaciones cuando el usuario recibe un mensaje nuevo en una conversación de chat a la que pertenece                                     | ✔️   | ❌    | ❌  | ❌  |
+|Señalización en tiempo real (habilitada por un paquete de señalización propietario**)| Recibir notificaciones cuando el usuario recibe un mensaje nuevo en una conversación de chat a la que pertenece                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Recibir notificaciones cuando otro usuario de una conversación de chat a la que pertenece editó un mensaje                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Recibir notificaciones cuando otro usuario de una conversación de chat a la que pertenece eliminó un mensaje                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Recibir una notificación cuando otro miembro de la conversación de chat esté escribiendo                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ En la lista siguiente se presenta el conjunto de características que están dis
 | Supervisión        | Supervisar el uso en términos de los mensajes enviados                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Supervisar la calidad y el estado de las solicitudes de API realizadas por la aplicación y configurar las alertas a través del portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Características adicionales | Usar [Cognitive Services APIs](../../../cognitive-services/index.yml) junto con la biblioteca cliente de chat para habilitar las características inteligentes de *traducción de idioma y análisis de opinión de los mensajes entrantes en un cliente, conversión de voz en texto para redactar un mensaje mientras un miembro habla, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+** El paquete de señalización propietario se implementa mediante sockets web. Si no se admiten los sockets web, se reservará a un sondeo prolongado.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Compatibilidad de la biblioteca cliente de chat de JavaScript por sistema operativo y explorador
 
