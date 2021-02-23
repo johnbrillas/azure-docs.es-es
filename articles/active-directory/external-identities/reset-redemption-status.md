@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576861"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365419"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Restablecimiento del estado de canje para un usuario invitado
 
@@ -26,7 +26,7 @@ Una vez que un usuario invitado ha canjeado su invitación para la colaboración
 - El usuario esté trabajando en otra empresa, pero todavía necesite el mismo acceso a los recursos.
 - Las responsabilidades del usuario se hayan pasado a otro usuario.
 
-Para administrar estos escenarios, anteriormente tenía que eliminar manualmente la cuenta del usuario invitado de su directorio y volver a invitar al usuario. Ahora puede usar PowerShell o la API de invitación de Microsoft Graph para restablecer el estado de canje del usuario y volver a invitarlo, a la vez que conserva el identificador de objeto del usuario, las pertenencias a grupos y las asignaciones de aplicaciones. Cuando el usuario canjea la nueva invitación, la nueva dirección de correo electrónico se convierte en el UPN del usuario. Posteriormente, el usuario puede iniciar sesión con el nuevo correo electrónico o con un correo electrónico que se haya agregado a la propiedad `otherMails` del objeto de usuario.
+Para administrar estos escenarios, anteriormente tenía que eliminar manualmente la cuenta del usuario invitado de su directorio y volver a invitar al usuario. Ahora puede usar PowerShell o la API de invitación de Microsoft Graph para restablecer el estado de canje del usuario y volver a invitarlo, a la vez que conserva el identificador de objeto del usuario, las pertenencias a grupos y las asignaciones de aplicaciones. Cuando el usuario canjea la invitación nueva, el UPN del usuario no cambia, aunque su nombre de inicio de sesión se cambia al nuevo correo electrónico. Posteriormente, el usuario puede iniciar sesión con el nuevo correo electrónico o con un correo electrónico que se haya agregado a la propiedad `otherMails` del objeto de usuario.
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>Uso de PowerShell para restablecer el estado de canje
 

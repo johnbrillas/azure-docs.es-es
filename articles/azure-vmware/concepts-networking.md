@@ -3,12 +3,12 @@ title: 'Conceptos: interconectividad de red'
 description: Conozca los aspectos clave y los casos de uso de redes e interconectividad en Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538982"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364909"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceptos de interconectividad y redes de Azure VMware Solution
 
@@ -39,7 +39,7 @@ Los casos de uso de las nubes privadas de Azure VMware Solution incluyen los sig
 En la implementación de red virtual a nube privada, puede administrar la nube privada de Azure VMware Solution, usar cargas de trabajo de la nube privada y acceder a servicios de Azure mediante la conexión de ExpressRoute. 
 
 En el diagrama siguiente se muestra la interconectividad de red básica establecida al implementar una nube privada. Muestra las redes lógicas basadas en ExpressRoute entre una red virtual de Azure y una nube privada. La interconectividad cumple tres de los casos de uso principales:
-* Acceso de entrada a vCenter Server y a NSX-T Manager que es accesible desde las máquinas virtuales de la suscripción de Azure y no desde los sistemas locales. 
+* Acceso de entrada a vCenter Server y a NSX-T Manager que es accesible desde las VM de la suscripción a Azure y no desde los sistemas locales. 
 * Acceso de salida desde las máquinas virtuales a los servicios de Azure. 
 * Acceso de entrada y consumo de cargas de trabajo que ejecutan una nube privada.
 
@@ -69,4 +69,5 @@ Ahora que ha tratado estos conceptos de red e interconectividad de Azure VMware 
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md

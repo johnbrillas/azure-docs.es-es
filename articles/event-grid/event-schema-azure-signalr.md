@@ -2,21 +2,20 @@
 title: Azure SignalR como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Azure SignalR con Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 2ac391f366c4b9a82741a1b6b3135f5d7b5fe331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/11/2021
+ms.openlocfilehash: 321dc4d21485af23a9cca0d42d74da0a3e121b7c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86106658"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363701"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de eventos de Azure Event Grid para SignalR Service
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos de SignalR Service. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). También proporciona una lista de inicios rápidos y tutoriales para usar Azure SignalR como un origen de eventos.
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de SignalR Service.  Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). También proporciona una lista de inicios rápidos y tutoriales para usar Azure SignalR como un origen de eventos.
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
-### <a name="available-event-types"></a>Tipos de eventos disponibles
+## <a name="available-event-types"></a>Tipos de eventos disponibles
 
 SignalR Service emite los siguientes tipos de eventos:
 
@@ -25,8 +24,9 @@ SignalR Service emite los siguientes tipos de eventos:
 | Microsoft.SignalRService.ClientConnectionConnected | Se genera cuando una conexión de cliente está conectada. |
 | Microsoft.SignalRService.ClientConnectionDisconnected | Se genera cuando una conexión de cliente está desconectada. |
 
-### <a name="example-event"></a>Evento de ejemplo
+## <a name="example-event"></a>Evento de ejemplo
 
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo conectado en la conexión de cliente: 
 
 ```json
@@ -68,30 +68,92 @@ El esquema de un evento de dispositivo desconectado en la conexión de cliente e
 }]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo conectado en la conexión de cliente: 
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/signalr-rg/providers/Microsoft.SignalRService/SignalR/signalr-resource",
+  "subject": "/hub/chat",
+  "type": "Microsoft.SignalRService.ClientConnectionConnected",
+  "time": "2019-06-10T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "timestamp": "2019-06-10T18:41:00.9584103Z",
+    "hubName": "chat",
+    "connectionId": "crH0uxVSvP61p5wkFY1x1A",
+    "userId": "user-eymwyo23"
+  },
+  "specversion": "1.0"
+}]
+```
+
+El esquema de un evento de dispositivo desconectado en la conexión de cliente es parecido: 
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/signalr-rg/providers/Microsoft.SignalRService/SignalR/signalr-resource",
+  "subject": "/hub/chat",
+  "type": "Microsoft.SignalRService.ClientConnectionDisconnected",
+  "time": "2019-06-10T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "timestamp": "2019-06-10T18:41:00.9584103Z",
+    "hubName": "chat",
+    "connectionId": "crH0uxVSvP61p5wkFY1x1A",
+    "userId": "user-eymwyo23",
+    "errorMessage": "Internal server error."
+  },
+  "specversion": "1.0"
+}]
+```
+
+---
+
+
 ### <a name="event-properties"></a>Propiedades de evento
+
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
+Un evento tiene los siguientes datos de nivel superior:
+
+| Propiedad | Tipo | Descripción |
+| -------- | ---- | ----------- |
+| `topic` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `eventType` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `eventTime` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos de eventos de SignalR Service. |
+| `dataVersion` | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| `metadataVersion` | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
 
 Un evento tiene los siguientes datos de nivel superior:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | string | Ruta al asunto del evento definida por el anunciante. |
-| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | string | Identificador único para el evento |
-| datos | object | Datos de eventos de SignalR Service. |
-| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| `source` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `type` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `time` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos de eventos de SignalR Service. |
+| `specversion` | string | Versión de especificación del esquema CloudEvents. |
+
+---
 
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| timestamp | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| hubName | string | El centro al que pertenece la conexión de cliente. |
-| connectionId | string | El identificador único de la conexión de cliente. |
-| userId | string | El identificador de usuario definido en la notificación. |
-| errorMessage | string | El error que provoca el evento de dispositivo desconectado de la conexión. |
+| `timestamp` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `hubName` | string | El centro al que pertenece la conexión del cliente. |
+| `connectionId` | string | El identificador único de la conexión de cliente. |
+| `userId` | string | El identificador de usuario definido en la notificación. |
+| `errorMessage` | string | El error que provoca el evento de dispositivo desconectado de la conexión. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 |Título | Descripción |

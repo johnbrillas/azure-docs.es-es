@@ -1,23 +1,18 @@
 ---
 title: Movimiento de datos de un servidor FTP mediante Azure Data Factory
 description: Aprenda a mover datos de un servidor FTP mediante Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8a8ca44fbdb7610f85bc53c23d502d2efb01c8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001650"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363957"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -76,7 +71,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 | enableServerCertificateValidation |Especifique si desea habilitar la validación de certificados de servidor TLS/SSL al usar FTP sobre el canal SSL/TLS. |No |true |
 
 >[!NOTE]
->El conector FTP permite el acceso al servidor FTP sin cifrado o con cifrado de SSL/TLS explícito, pero no permite el cifrado SSL/TLS implícito.
+>El conector FTP permite el acceso al servidor FTP sin cifrado o con cifrado SSL/TLS explícito, pero no permite el cifrado SSL/TLS implícito.
 
 ### <a name="use-anonymous-authentication"></a>Uso de la autenticación anónima
 
@@ -154,7 +149,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| folderPath |Subtrazado a la carpeta. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en Ejemplos de definiciones de servicio vinculado y conjunto de datos.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
+| folderPath |Subtrazado a la carpeta. Use el carácter de escape "\" en los caracteres especiales de la cadena. Consulte los casos que se exponen en Ejemplos de definiciones de servicio vinculado y conjunto de datos.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
 | fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica **fileName** para un conjunto de datos de salida, el nombre del archivo generado está en el siguiente formato: <br/><br/>`Data.<Guid>.txt` (Ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de **folderPath**, en lugar de todos los archivos.<br/><br/>Valores permitidos son: `*` (varios caracteres) y `?` (un único individual).<br/><br/>Ejemplo 1: `"fileFilter": "*.log"`<br/>Ejemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** es aplicable a un conjunto de datos FileShare de entrada. Esta propiedad no es compatible con el sistema de archivos distribuido de Hadoop (HDFS). |No |
 | partitionedBy |Se usa para especificar una propiedad **folderPath** y **fileName** dinámicos para datos de series temporales. Por ejemplo, puede especificar una propiedad **folderPath** que tenga parámetros para cada hora de datos. |No |

@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 1b9d515c197b56f7e0520539b23be60504059675
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131260"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362767"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Uso de ML automatizado en una canalización de Azure Machine Learning en Python
 
@@ -108,32 +108,15 @@ El código se bloquea hasta que el destino se aprovisiona y luego imprime alguno
 
 ### <a name="configure-the-training-run"></a>Configuración de la ejecución de entrenamiento
 
-El siguiente paso consiste en asegurarse de que la ejecución del entrenamiento remoto tiene todas las dependencias que los pasos de entrenamiento requieren. Las dependencias y el contexto del entorno de ejecución se establecen creando y configurando un objeto `RunConfiguration`. 
+AutoMLStep configura sus dependencias automáticamente durante el envío del trabajo. El contexto del entorno de ejecución se establece mediante la creación y configuración de un objeto `RunConfiguration`. Aquí se establece el destino de proceso.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-
-USE_CURATED_ENV = True
-if USE_CURATED_ENV :
-    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
-    aml_run_config.environment = curated_environment
-else:
-    aml_run_config.environment.python.user_managed_dependencies = False
-    
-    # Add some packages relied on by data prep step
-    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-        conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk[automl]', 'azureml-dataprep[fuse,pandas]'], 
-        pin_sdk_version=False)
 ```
-
-El código anterior muestra dos opciones para administrar las dependencias. Tal como se presenta, con `USE_CURATED_ENV = True`, la configuración se basa en un entorno seleccionado. Los entornos seleccionados están preparados con bibliotecas interdependientes comunes y pueden ser mucho más rápidos para ponerlos en línea. Los entornos seleccionados tienen imágenes de Docker creadas previamente en [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). La ruta de acceso que se toma si cambia `USE_CURATED_ENV` a `False` muestra el patrón para establecer explícitamente las dependencias. En ese escenario, se creará una nueva imagen de Docker personalizada y se registrará en Azure Container Registry dentro del grupo de recursos (consulte [Introducción a los registros de contenedores privados de Docker en Azure](../container-registry/container-registry-intro.md)). La creación y el registro de esta imagen pueden tardar unos minutos. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Preparación de datos para el aprendizaje automático automatizado
 

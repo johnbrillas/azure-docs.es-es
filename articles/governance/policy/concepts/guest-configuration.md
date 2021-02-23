@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre la forma en que Azure Policy usa el cliente de configuración de invitado para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210127"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104814"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -142,11 +142,15 @@ Al asignar definiciones que empiezan por _Configurar_, también debe asignar la 
 
 Las definiciones de directivas de auditoría disponibles para la configuración de invitado incluyen el tipo de recurso **Microsoft.HybridCompute/machines**. Todas las máquinas incorporadas a [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que se encuentran en el ámbito de asignación de directivas se incluyen automáticamente.
 
+## <a name="troubleshooting-guest-configuration"></a>Solución de problemas de la configuración de invitado
+
+Para obtener más información sobre la solución de problemas de la configuración de invitado, consulte [Solución de problemas de Azure Policy](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Asignaciones múltiples
 
 Actualmente, las definiciones de directivas de configuración de invitado solo admiten la asignación de la misma asignación de invitado una vez por cada máquina, incluso si la asignación de directiva usa parámetros diferentes.
 
-## <a name="client-log-files"></a>Archivos de registro de cliente
+### <a name="client-log-files"></a>Archivos de registro de cliente
 
 La extensión de la configuración de invitado escribe archivos de registro en las siguientes ubicaciones:
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>Archivos de cliente
+
+El cliente de configuración de invitado descarga paquetes de contenido en una máquina y extrae el contenido.
+Para comprobar qué contenido se ha descargado y almacenado, consulte las ubicaciones de carpeta que se indican a continuación.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Ejemplos de configuración de invitado
 

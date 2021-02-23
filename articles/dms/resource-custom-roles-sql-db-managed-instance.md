@@ -11,17 +11,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/08/2021
+ms.openlocfilehash: 1228234b6a2904c453ec92f3c09a7b3f55604953
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363770"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Roles personalizados para migraciones en línea de SQL Server a una instancia administrada de Azure SQL
 
-Azure Database Migration Service usa un id. de aplicación para interactuar con los servicios de Azure. El id. de aplicación requiere el rol de colaborador en el nivel de suscripción (que muchos departamentos de seguridad corporativos no permitirán) o la creación de roles personalizados que concedan los permisos específicos que el servicio Azure Database Migrations requiere. Dado que hay un límite de 2000 roles personalizados en Azure Active Directory, es aconsejable combinar todos los permisos que requiere específicamente el id. de aplicación en uno o dos roles personalizados y, a continuación, conceder al id. de aplicación el rol personalizado en objetos o grupos de recursos específicos (frente al nivel de suscripción). Si el número de roles personalizados no es un problema, puede dividir los roles personalizados por tipo de recurso para crear tres roles personalizados en total, como se describe a continuación.
+Azure Database Migration Service usa un id. de aplicación para interactuar con los servicios de Azure. El id. de aplicación requiere el rol de colaborador en el nivel de suscripción (que muchos departamentos de seguridad corporativos no permitirán) o la creación de roles personalizados que concedan los permisos específicos que Azure Database Migration Service requiere. Dado que hay un límite de 2000 roles personalizados en Azure Active Directory, es aconsejable combinar todos los permisos que requiere específicamente el id. de aplicación en uno o dos roles personalizados y, a continuación, conceder al id. de aplicación el rol personalizado en objetos o grupos de recursos específicos (frente al nivel de suscripción). Si el número de roles personalizados no es un problema, puede dividir los roles personalizados por tipo de recurso para crear tres roles personalizados en total, como se describe a continuación.
 
 La sección AssignableScopes de la cadena JSON de definición de roles permite controlar dónde aparecen los permisos en la interfaz de usuario **Agregar asignación de roles** del portal. Probablemente querrá definir el rol en el grupo de recursos o incluso en el nivel de recurso para evitar la saturación de la interfaz de usuario con roles adicionales. Tenga en cuenta que esto no realiza la asignación de roles real.
 
@@ -32,7 +32,7 @@ Actualmente se recomienda crear un mínimo de dos roles personalizados para el i
 > [!NOTE]
 > Es posible que con el tiempo se quite el último requisito de rol personalizado cuando se implemente nuevo código de instancia administrada de SQL en Azure.
 
-**Rol personalizado para el id. de aplicación**. Este rol es necesario para la migración de Azure Database Migration Service en el nivel de *recurso* o *grupo de recursos* (para más información sobre el id. de aplicación, consulte el artículo [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md)).
+**Rol personalizado para el id. de aplicación**. Este rol es necesario para la migración de Azure Database Migration Service en el nivel de *recurso* o *grupo de recursos* que hospeda la instancia de Azure Database Migration Service (para más información sobre el id. de aplicación, consulte el artículo [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md)).
 
 ```json
 {
@@ -63,7 +63,7 @@ Actualmente se recomienda crear un mínimo de dos roles personalizados para el i
 }
 ```
 
-**Rol personalizado para el id. de aplicación: suscripción**. Este rol es necesario para la migración de Azure Database Migration Service en el nivel de *suscripción*.
+**Rol personalizado para el id. de aplicación: suscripción**. Este rol es necesario para la migración de Azure Database Migration Service en el nivel de *suscripción* que hospeda la instancia de SQL Managed Instance.
 
 ```json
 {
@@ -87,8 +87,8 @@ Para más información, consulte el artículo [Roles personalizados de Azure](..
 
 Después de crear estos roles personalizados, debe agregar las asignaciones de roles a los usuarios y los id. de aplicación a los recursos o grupos de recursos adecuados:
 
-* Se debe conceder el rol "DMS Role - App ID" al id. de aplicación que se usará para las migraciones, y también en la cuenta de almacenamiento, la instancia de Azure Database Migration Service y los niveles de recurso de instancia administrada de SQL.
-* El rol "DMS Role - App ID - Sub" debe concederse al id. de aplicación en el nivel de suscripción (se producirá un error si se concede en el recurso o grupo de recursos). Este requisito es temporal hasta que se implemente una actualización de código.
+* Se debe conceder el rol "DMS Role - App ID" al id. de aplicación que se usará para las migraciones, y también en la cuenta de almacenamiento, la instancia de Azure Database Migration Service y los niveles de recurso de instancia administrada de SQL. Se concede en el nivel de recurso o grupo de recursos que hospeda la instancia de Azure Database Migration Service.
+* El rol "DMS Role - App ID - Sub" debe concederse al id. de aplicación en el nivel de suscripción que hospeda la instancia de SQL Managed Instance (se producirá un error si se concede en el recurso o grupo de recursos). Este requisito es temporal hasta que se implemente una actualización de código.
 
 ## <a name="expanded-number-of-roles"></a>Número expandido de roles
 

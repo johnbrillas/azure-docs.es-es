@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/12/2021
+ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055185"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104508"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -123,11 +123,11 @@ En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta 
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Para las llamadas entrantes a un punto de conexión que se haya creado con un desencadenador basado en una solicitud, puede habilitar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) mediante la definición o la incorporación de una directiva de autorización para la aplicación lógica. De este modo, las llamadas entrantes usan [tokens de acceso](../active-directory/develop/access-tokens.md) de OAuth para la autorización.
+Para las llamadas entrantes a un punto de conexión que se haya creado con un desencadenador basado en una solicitud, puede habilitar [Azure AD OAuth](../active-directory/develop/index.yml) mediante la definición o la incorporación de una directiva de autorización para la aplicación lógica. De este modo, las llamadas entrantes usan [tokens de acceso](../active-directory/develop/access-tokens.md) de OAuth para la autorización.
 
 Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de acceso de OAuth, el servicio Azure Logic Apps compara las notificaciones del token con las especificadas en cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
 
-Antes de habilitar Azure AD OAuth, tenga en cuenta los siguientes aspectos:
+#### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Consideraciones antes de habilitar Azure AD OAuth
 
 * Una llamada entrante al punto de conexión de la solicitud solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firma de acceso compartido (SAS)](#sas). Aunque el uso de un esquema no deshabilita el otro, si se utilizan ambos al mismo tiempo se produce un error porque el servicio Logic Apps no sabe cuál elegir.
 
@@ -180,11 +180,15 @@ Antes de habilitar Azure AD OAuth, tenga en cuenta los siguientes aspectos:
    }
    ```
 
+#### <a name="enable-azure-ad-oauth-for-your-logic-app"></a>Habilitación de Azure AD OAuth para la aplicación lógica
+
+Siga estos pasos tanto para Azure Portal como para la plantilla de Azure Resource Manager:
+
 <a name="define-authorization-policy-portal"></a>
 
-#### <a name="define-authorization-policy-in-azure-portal"></a>Definición de una directiva de autorización en Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga estos pasos a fin de agregar una o varias directivas de autorización a la aplicación lógica:
+En [Azure Portal](https://portal.azure.com), agregue una o varias directivas de autorización a la aplicación lógica:
 
 1. En [Azure Portal](https://portal.microsoft.com), busque y abra la aplicación lógica en el Diseñador de aplicación lógica.
 
@@ -216,9 +220,9 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
 
 <a name="define-authorization-policy-template"></a>
 
-#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definición de la directiva de autorización en la plantilla de Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Plantilla de Resource Manager](#tab/azure-resource-manager)
 
-Para habilitar Azure AD OAuth en la plantilla de Resource Manager para implementar la aplicación lógica, siga estos pasos y la sintaxis siguiente:
+En la plantilla de ARM, defina una directiva de autorización con estos pasos y la siguiente sintaxis:
 
 1. En la sección `properties` de la [definición de los recursos de la aplicación lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), agregue un objeto `accessControl`, si no existe ninguno, que contenga un objeto `triggers`.
 
@@ -271,6 +275,8 @@ Esta es la sintaxis que debe seguir:
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### <a name="include-authorization-header-in-request-trigger-outputs"></a>Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud
@@ -310,11 +316,13 @@ Junto con la Firma de acceso compartido (SAS), es posible que quiera especificar
 
 Independientemente de las direcciones IP que se especifiquen, es posible ejecutar una aplicación lógica que tenga un desencadenador basado en una solicitud mediante la [API REST de Logic Apps: desencadenadores de flujo de trabajo: ejecutar](/rest/api/logic/workflowtriggers/run) o de API Management. Sin embargo, en este escenario aún se necesita la [autenticación](../active-directory/develop/authentication-vs-authorization.md) con la API REST de Azure. Todos los eventos aparecen en el registro de auditoría de Azure. Asegúrese de establecer las directivas de control de acceso como corresponda.
 
+Para restringir las direcciones IP de entrada para la aplicación lógica, siga estos pasos tanto para Azure Portal como para la plantilla de Azure Resource Manager:
+
 <a name="restrict-inbound-ip-portal"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restricción de los intervalos IP entrantes en Azure Portal
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Cuando se usa el portal para restringir las direcciones IP entrantes para la aplicación lógica, estas restricciones afectan a los desencadenadores *y* a las acciones, a pesar de la descripción del portal en **Direcciones IP entrantes permitidas**. Para configurar restricciones en los desencadenadores por separado de las acciones, use el [objeto `accessControl` en la plantilla de Azure Resource Manager de la aplicación lógica](#restrict-inbound-ip-template) o la [operación de la API de REST de Logic Apps: Flujo de trabajo: crear o actualizar](/rest/api/logic/workflows/createorupdate).
+En [Azure Portal](https://portal.azure.com), este filtro afecta a los desencadenadores *y* a las acciones, contrariamente a la descripción del portal en **Direcciones IP entrantes permitidas**. Para configurar este filtro por separado para los desencadenadores y las acciones, use el objeto `accessControl` en una plantilla de Azure Resource Manager de la aplicación lógica o la [operación de la API REST de Logic Apps: Flujo de trabajo: crear o actualizar](/rest/api/logic/workflows/createorupdate).
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
@@ -323,23 +331,23 @@ Cuando se usa el portal para restringir las direcciones IP entrantes para la apl
 1. En la sección **Configuración de control de acceso**, en **Direcciones IP entrantes permitidas**, elija la ruta de acceso del escenario:
 
    * Para que pueda llamar a la aplicación lógica solo como una aplicación lógica anidada mediante la [acción integrada de Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), seleccione **Cualquier otra aplicación lógica**, que *solo* funciona cuando se usa la **Azure Logic Apps** para llamar a la aplicación lógica anidada.
-   
+
      Esta opción escribe una matriz vacía en el recurso de aplicación lógica y requiere que solo las llamadas desde aplicaciones lógicas primarias que usan la acción integrada de **Azure Logic Apps** puedan desencadenar la aplicación lógica anidada.
 
    * Para que la aplicación lógica solo se pueda llamar como aplicación anidada mediante la acción HTTP, seleccione **Intervalos IP específicos**, *no* **Cualquier otra aplicación lógica**. Cuando aparezca el cuadro **Intervalos de IP para desencadenadores**, escriba las [direcciones IP de salida](../logic-apps/logic-apps-limits-and-config.md#outbound) de la aplicación lógica primaria. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
-   
+
      > [!NOTE]
      > Si usa la opción **Cualquier otra aplicación lógica** y la acción HTTP para llamar a la aplicación lógica anidada, la llamada se bloqueará y recibirá un error "401 No autorizado".
-        
+
    * En el caso de los escenarios en los que quiere restringir las llamadas entrantes desde otras direcciones IP, cuando aparezca el cuadro **Intervalos de IP para desencadenadores**, especifique los intervalos de direcciones IP que acepta el desencadenador. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
 
 1. Si quiere, en **Restringir las llamadas para obtener mensajes de entrada y salida del historial de ejecución a las direcciones IP proporcionadas**, puede especificar los intervalos de direcciones IP para las llamadas entrantes que pueden acceder a los mensajes de entrada y salida en el historial de ejecución.
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Plantilla de Resource Manager](#tab/azure-resource-manager)
 
-Si [automatiza las implementaciones de aplicaciones lógicas mediante plantillas de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos de direcciones IP entrantes permitidos en la definición de recursos de la aplicación lógica mediante la sección `accessControl`. En esta parte, use las secciones `triggers`, `actions` y la sección `contents` opcional según corresponda, incluida la sección `allowedCallerIpAddresses` con la propiedad `addressRange` y establezca el valor de propiedad en el intervalo de direcciones IP permitido en el formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
+En la plantilla de ARM, especifique los intervalos de direcciones IP de entrada permitidos en la definición de recurso de la aplicación lógica mediante la sección `accessControl`. En esta parte, use las secciones `triggers`, `actions` y la sección `contents` opcional según corresponda, incluida la sección `allowedCallerIpAddresses` con la propiedad `addressRange` y establezca el valor de propiedad en el intervalo IP permitido con el formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x*.
 
 * Si la aplicación lógica anidada usa la opción **Cualquier otra aplicación lógica**, que permite llamadas entrantes solo desde otras aplicaciones lógicas que usan la acción de Azure Logic Apps, establezca la propiedad `addressRange` en una matriz vacía ( **[]** ).
 
@@ -439,6 +447,8 @@ En este ejemplo se muestra una definición de recursos para una aplicación lóg
 }
 ```
 
+---
+
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>Acceso a las operaciones de las aplicaciones lógicas
@@ -473,11 +483,15 @@ Para controlar el acceso a las entradas y salidas del historial de ejecución de
 
 ### <a name="restrict-access-by-ip-address-range"></a>Restringir el acceso por intervalo de direcciones IP
 
-Puede limitar el acceso a las entradas y salidas del historial de ejecución de la aplicación lógica para que solo las solicitudes de intervalos de direcciones IP específicas puedan ver los datos. Por ejemplo, para impedir que alguien tenga acceso a las entradas y salidas, especifique un intervalo de direcciones IP como, por ejemplo, `0.0.0.0-0.0.0.0`. Solo una persona con permisos de administrador puede quitar esta restricción, lo que proporciona la posibilidad de usar el acceso "Just-In-Time" para los datos de la aplicación lógica. Puede especificar los intervalos IP que se van a restringir desde Azure Portal o en una plantilla de Azure Resource Manager que se usa para la implementación de la aplicación lógica.
+Puede limitar el acceso a las entradas y salidas del historial de ejecución de la aplicación lógica para que solo las solicitudes de intervalos de direcciones IP específicas puedan ver los datos.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Restricción de los intervalos IP en Azure Portal
+Por ejemplo, para impedir que alguien tenga acceso a las entradas y salidas, especifique un intervalo de direcciones IP como, por ejemplo, `0.0.0.0-0.0.0.0`. Solo una persona con permisos de administrador puede quitar esta restricción, lo que proporciona la posibilidad de usar el acceso "Just-In-Time" para los datos de la aplicación lógica.
 
-1. En Azure Portal, abra la aplicación lógica en Diseñador de aplicación lógica.
+Para especificar los intervalos IP permitidos, siga estos pasos tanto para Azure Portal como para la plantilla de Azure Resource Manager:
+
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
 1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
@@ -487,9 +501,9 @@ Puede limitar el acceso a las entradas y salidas del historial de ejecución de 
 
    Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager
+#### <a name="resource-manager-template"></a>[Plantilla de Resource Manager](#tab/azure-resource-manager)
 
-Si [automatiza las implementaciones de aplicaciones lógicas mediante una plantilla de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede especificar los intervalos IP mediante la sección `accessControl` con la sección `contents` en la definición de recursos de la aplicación lógica; por ejemplo:
+En la plantilla de ARM, especifique los intervalos IP mediante la sección `accessControl` con la sección `contents` en la definición de recurso de la aplicación lógica; por ejemplo:
 
 ``` json
 {
@@ -528,11 +542,41 @@ Si [automatiza las implementaciones de aplicaciones lógicas mediante una planti
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Protección del historial de ejecución mediante ofuscación
 
-Muchos desencadenadores y acciones cuentan con una configuración para proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica. Antes de usar esta configuración para proteger los datos, [hay algunos aspectos que se deben tener en cuenta](#obfuscation-considerations).
+Muchos desencadenadores y acciones cuentan con una configuración para proteger las entradas, las salidas, o ambas, en el historial de ejecución de una aplicación lógica. Antes de usar esta configuración para proteger los datos, hay algunos aspectos que se deben tener en cuenta:
+
+* Cuando se ocultan las entradas o las salidas de un desencadenador o una acción, Logic Apps no envía los datos protegidos a Azure Log Analytics. Además, no se pueden agregar [propiedades con seguimiento](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) al desencadenador o acción para su supervisión.
+
+* La [API de Logic Apps para controlar el historial del flujo de trabajo](/rest/api/logic/) no devuelve salidas protegidas.
+
+* Para proteger las salidas de una acción que oculta las entradas o explícitamente las salidas, active de forma manual **Salidas seguras** en esa acción.
+
+* Asegúrese de activar las **Entradas seguras** o las **Salidas seguras** en las acciones de nivel inferior en las que espera que el historial de ejecución oculte los datos.
+
+  **Configuración de las salidas seguras**
+
+  Al activar manualmente **Salidas seguras** en un desencadenador o una acción, Logic Apps oculta estas salidas en el historial de ejecución. Si una acción de nivel inferior usa explícitamente estas salidas protegidas como entradas, Logic Apps oculta las entradas de esta acción en el historial de ejecución, pero *no habilita* la opción de **Entradas seguras** de la acción.
+
+  ![Salidas seguras como entradas y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  Las acciones de redacción, análisis JSON y respuesta solo tienen la opción **Entradas seguras**. Cuando está activada, esta opción también oculta las salidas de estas acciones. Si estas acciones usan explícitamente las salidas protegidas de nivel superior como entradas, Logic Apps ocultará las entradas y salidas de estas acciones, pero *no habilitará* la opción **Entradas seguras** de estas acciones. Si una acción de nivel inferior usa explícitamente las salidas ocultas de las acciones de redacción, análisis JSON o respuesta como entradas, Logic Apps *no oculta las entradas o salidas de la acción de nivel inferior*.
+
+  ![Salidas seguras como entradas y repercusión descendente en acciones especificas](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Opción Entradas seguras**
+
+  Al activar manualmente **Entradas seguras** en un desencadenador o una acción, Logic Apps oculta estas entradas en el historial de ejecución. Si en una acción de nivel inferior se usan de forma explícita las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
+
+  ![Entradas seguras y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+
+  Si las acciones de redacción, análisis JSON y respuesta usan explícitamente las salidas visibles del desencadenador o la acción que tiene las entradas protegidas, Logic Apps oculta las entradas y salidas de estas acciones, pero *no habilita* la opción **Entradas seguras** de la acción. Si una acción de nivel inferior usa explícitamente las salidas ocultas de las acciones de redacción, análisis JSON o respuesta como entradas, Logic Apps *no oculta las entradas o salidas de la acción de nivel inferior*.
+
+  ![Entradas seguras y repercusión descendente en determinadas acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>Protección de entradas y salidas en el diseñador
 
@@ -575,8 +619,6 @@ En la definición de desencadenador o acción subyacente, agregue o actualice la
 * `"inputs"`: Protege las entradas en el historial de ejecución.
 * `"outputs"`: Protege las salidas en el historial de ejecución.
 
-Algunas [consideraciones que se deben tener en cuenta](#obfuscation-considerations) al usar esta configuración para proteger los datos son:
-
 ```json
 "<trigger-or-action-name>": {
    "type": "<trigger-or-action-type>",
@@ -594,38 +636,6 @@ Algunas [consideraciones que se deben tener en cuenta](#obfuscation-consideratio
    <other-attributes>
 }
 ```
-
-<a name="obfuscation-considerations"></a>
-
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Consideraciones a la hora de proteger las entradas y salidas
-
-* Cuando se ocultan las entradas o las salidas de un desencadenador o una acción, Logic Apps no envía los datos protegidos a Azure Log Analytics. Además, no se pueden agregar [propiedades con seguimiento](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) al desencadenador o acción para su supervisión.
-
-* La [API de Logic Apps para controlar el historial del flujo de trabajo](/rest/api/logic/) no devuelve salidas protegidas.
-
-* Para proteger las salidas de una acción que oculta las entradas o explícitamente las salidas, active de forma manual **Salidas seguras** en esa acción.
-
-* Asegúrese de activar las **Entradas seguras** o las **Salidas seguras** en las acciones de nivel inferior en las que espera que el historial de ejecución oculte los datos.
-
-  **Configuración de las salidas seguras**
-
-  Al activar manualmente **Salidas seguras** en un desencadenador o una acción, Logic Apps oculta estas salidas en el historial de ejecución. Si una acción de nivel inferior usa explícitamente estas salidas protegidas como entradas, Logic Apps oculta las entradas de esta acción en el historial de ejecución, pero *no habilita* la opción de **Entradas seguras** de la acción.
-
-  ![Salidas seguras como entradas y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  Las acciones de redacción, análisis JSON y respuesta solo tienen la opción **Entradas seguras**. Cuando está activada, esta opción también oculta las salidas de estas acciones. Si estas acciones usan explícitamente las salidas protegidas de nivel superior como entradas, Logic Apps ocultará las entradas y salidas de estas acciones, pero *no habilitará* la opción **Entradas seguras** de estas acciones. Si una acción de nivel inferior usa explícitamente las salidas ocultas de las acciones de redacción, análisis JSON o respuesta como entradas, Logic Apps *no oculta las entradas o salidas de la acción de nivel inferior*.
-
-  ![Salidas seguras como entradas y repercusión descendente en acciones especificas](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-  **Opción Entradas seguras**
-
-  Al activar manualmente **Entradas seguras** en un desencadenador o una acción, Logic Apps oculta estas entradas en el historial de ejecución. Si en una acción de nivel inferior se usan de forma explícita las salidas visibles de ese desencadenador o acción como entradas, Logic Apps oculta las entradas de esta acción de nivel inferior en el historial de ejecución, pero *no habilita* las **Entradas seguras** en esta acción y no oculta las salidas de la acción.
-
-  ![Entradas seguras y repercusión descendente en la mayoría de las acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
-
-  Si las acciones de redacción, análisis JSON y respuesta usan explícitamente las salidas visibles del desencadenador o la acción que tiene las entradas protegidas, Logic Apps oculta las entradas y salidas de estas acciones, pero *no habilita* la opción **Entradas seguras** de la acción. Si una acción de nivel inferior usa explícitamente las salidas ocultas de las acciones de redacción, análisis JSON o respuesta como entradas, Logic Apps *no oculta las entradas o salidas de la acción de nivel inferior*.
-
-  ![Entradas seguras y repercusión descendente en determinadas acciones](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 

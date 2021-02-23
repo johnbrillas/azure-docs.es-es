@@ -4,18 +4,14 @@ description: Describe los roles y permisos necesarios para crear factorías de d
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053778"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364484"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -54,14 +50,13 @@ El rol **Colaborador de Data Factory**, a nivel del grupo de recursos o por enci
 
 Los permisos para Azure Repos y GitHub son independientes de los permisos de Data Factory. Como resultado, un usuario con permisos de repositorio que es solo un miembro del rol de lector puede editar los recursos secundarios de Data Factory y confirmar los cambios en el repositorio, pero no puede publicar estos cambios.
 
+
 > [!IMPORTANT]
 > La implementación de plantillas de Resource Manager con el rol **Colaborador de Data Factory** no eleva sus permisos. Por ejemplo, si implementa una plantilla que crea una máquina virtual de Azure y no tiene permiso para crear máquinas virtuales, la implementación falla con un error de autorización.
 
-> [!IMPORTANT]
-> Se necesita el permiso **Microsoft.DataFactory/factories/write** en ambos modos dentro del contexto de publicación.
-
-- Este permiso solo es necesario en modo activo cuando el cliente modifica los parámetros globales.
-- Este permiso siempre es necesario en el modo Git, ya que cada vez que el cliente realiza una publicación, el objeto de fábrica con el último identificación de confirmación se actualiza.
+   En el contexto de publicación, el permiso **Microsoft.DataFactory/factories/write** se aplica a los siguientes modos.
+- Ese permiso solo es necesario en modo publicado cuando el cliente modifica los parámetros globales.
+- Ese permiso siempre es necesario en el modo Git, ya que cada vez que el cliente realiza una publicación, el objeto factory con el id. de la última confirmación se debe actualizar.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Escenarios personalizados y roles personalizados
 
@@ -95,6 +90,7 @@ Estos son algunos ejemplos que muestran lo que se puede lograr con los roles per
 - Permitir que un usuario actualice una factoría de datos desde PowerShell o el SDK, pero no en Azure Portal.
 
   Asigne el role integrado **colaborador** en el recurso de la factoría de datos para el usuario. Este rol permite al usuario ver los recursos en Azure Portal, pero no tiene acceso a los botones **Publicar** y **Publicar todo**.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

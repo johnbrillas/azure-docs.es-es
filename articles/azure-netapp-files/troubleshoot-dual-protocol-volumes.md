@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de volúmenes de protocolo dual para Azure NetApp Files | Microsoft Docs
-description: Aquí se describen los mensajes de error y propuestas que pueden ayudar a solucionar los problemas de protocolo dual de Azure NetApp Files.
+title: Solución de problemas de volúmenes de protocolo dual o SMB para Azure NetApp Files | Microsoft Docs
+description: Aquí se describen los mensajes de error y propuestas que pueden ayudar a solucionar los problemas de protocolo dual o SMB de Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,30 +12,40 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/22/2021
+ms.date: 02/02/2021
 ms.author: b-juche
-ms.openlocfilehash: fb4233a87231dddb1e3cb2777ac2ef53a61f833e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 237fb514229f370fcba79133232e80a6a655048f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726622"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104423"
 ---
-# <a name="troubleshoot-dual-protocol-volumes"></a>Solución de problemas de volúmenes de protocolo doble
+# <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>Solución de problemas de SMB o de volúmenes de dos protocolos
 
 En este artículo se describen las soluciones a las condiciones de error que pueden darse al crear o administrar volúmenes de protocolo dual.
 
-## <a name="error-conditions-and-resolutions"></a>Condiciones de error y soluciones
+## <a name="errors-for-dual-protocol-volumes"></a>Errores para los volúmenes de protocolo dual
 
-|     Condiciones del error    |     Solución    |
+|     Condiciones del error    |     Soluciones    |
 |-|-|
 | Está habilitado LDAP sobre TLS y se produce un error al crear el volumen de protocolo dual: `This Active Directory has no Server root CA Certificate`.    |     Si este error se produce al crear un volumen de protocolo dual, compruebe que el certificado de la entidad de certificación raíz se haya cargado en su cuenta de NetApp.    |
-| Se produce un error al crear el volumen de protocolo dual: `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa. <br> Por ejemplo, supongamos que la dirección IP de la máquina de AD es `1.1.1.1`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `contoso.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `1.1.1.1` -> `contoso.com`.   |
-| Se produce un error al crear el volumen de protocolo dual: `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE`. |  Este error indica que la contraseña de AD es incorrecta cuando Active Directory está unido a la cuenta de NetApp. Actualice la conexión de AD con la contraseña correcta e inténtelo de nuevo. |
+| Se produce un error al crear el volumen de protocolo dual: `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa. <br> Por ejemplo, supongamos que la dirección IP de la máquina de AD es `10.X.X.X`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `contoso.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `10.X.X.X` -> `contoso.com`.   |
+| Se produce un error al crear el volumen de protocolo dual: `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 10.X.X.X, port 88 using TCP\\n**[ 950] FAILURE`. |     Este error indica que la contraseña de AD es incorrecta cuando Active Directory está unido a la cuenta de NetApp. Actualice la conexión de AD con la contraseña correcta e inténtelo de nuevo. |
 | Se produce un error al crear el volumen de protocolo dual: `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Este error indica que no se puede obtener acceso al servidor DNS. La razón puede ser que la dirección IP del servidor DNS sea incorrecta o que haya un problema de red. Compruebe la dirección IP de DNS especificada en la conexión de AD y asegúrese de que sea correcta. <br> Asegúrese también de que AD y el volumen estén en la misma región y en la misma red virtual. Si están en redes virtuales diferentes, asegúrese de establecer un emparejamiento entre las dos redes virtuales.|
 | Error de denegación de permiso al montar un volumen de protocolo dual. | Un volumen de protocolo dual admite los protocolos NFS y SMB.  Al intentar obtener acceso al volumen montado en el sistema UNIX, el sistema intenta asignar el usuario de UNIX que utiliza a un usuario de Windows. Si no se encuentra ninguna asignación, se produce el error "Permiso denegado". <br> Esta situación se aplica también cuando se usa el usuario "raíz" para obtener acceso. <br> Para evitar el problema de tipo "Permiso denegado", asegúrese de que Active Directory para Windows incluya `pcuser` antes de obtener acceso al punto de montaje. Si agrega `pcuser` después de encontrar el problema "Permiso denegado", espere 24 horas para que la entrada de caché se borre antes de volver a intentar el acceso. |
 
+## <a name="common-errors-for-smb-and-dual-protocol-volumes"></a>Errores comunes de los volúmenes SMB y de protocolo dual
+
+|     Condiciones del error    |     Soluciones    |
+|-|-|
+| Se produce el siguiente error durante la creación del volumen SMB o de protocolo dual: <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available."}]}` | Este error indica que no se puede obtener acceso al servidor DNS. <br> Considere las soluciones siguientes: <ul><li>Compruebe si ADDS y el volumen se están implementando en la misma región.</li> <li>Compruebe si ADDS y el volumen están usando la misma red virtual. Si están usando redes virtuales diferentes, asegúrese de que las redes virtuales estén emparejadas entre sí. Consulte [Instrucciones para el planeamiento de red de Azure NetApp Files](azure-netapp-files-network-topologies.md). </li> <li>Es posible que el servidor DNS tenga aplicados grupos de seguridad de red (NSG).  Por lo tanto, no permite que el tráfico fluya. En este caso, abra los NSG en el DNS o AD para conectarse a varios puertos. Para ver los requisitos de los puertos, consulte [Requisitos para las conexiones de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). </li></ul> <br>Las mismas soluciones se aplican a Azure ADDS. Azure ADDS debe implementarse en la misma región. La red virtual debe estar en la misma región o debe emparejarse con la red virtual que usa el volumen. | 
+| Se produce el siguiente error durante la creación del volumen SMB o de protocolo dual: <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-C1C8\". Reason: Kerberos Error: Invalid credentials were given Details: Error: Machine account creation procedure failed\n [ 563] Loaded the preliminary configuration.\n**[ 670] FAILURE: Could not authenticate as 'test@contoso.com':\n** Unknown user (KRB5KDC_ERR_C_PRINCIPAL_UNKNOWN)\n. "}]}`  |  <ul><li>Asegúrese de que el nombre de usuario especificado sea correcto. </li> <li>Asegúrese de que el usuario forma parte del grupo de administradores que tiene el privilegio para crear cuentas de máquina. </li> <li> Si usa Azure ADDS, asegúrese de que el usuario forma parte del grupo de Azure AD `Azure AD DC Administrators`. </li></ul> | 
+| Se produce el siguiente error durante la creación del volumen SMB o de protocolo dual: <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-A452\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\n [ 567] Loaded the preliminary configuration.\n [ 671] Successfully connected to ip 10.X.X.X, port 88 using TCP\n**[ 1099] FAILURE: Could not authenticate as\n** 'user@contoso.com': CIFS server account password does\n** not match password stored in Active Directory\n** (KRB5KDC_ERR_PREAUTH_FAILED)\n. "}]}` | Asegúrese de que la contraseña especificada para unirse a la conexión de AD sea correcta. |
+| Se produce el siguiente error durante la creación del volumen SMB o de protocolo dual: `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError","message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-D9A2\". Reason: SecD Error: ou not found Details: Error: Machine account creation procedure failed\n [ 561] Loaded the preliminary configuration.\n [ 665] Successfully connected to ip 10.X.X.X, port 88 using TCP\n [ 1039] Successfully connected to ip 10.x.x.x, port 389 using TCP\n**[ 1147] FAILURE: Specifed OU 'OU=AADDC Com' does not exist in\n** contoso.com\n. "}]}` | Asegúrese de que la ruta de acceso de unidad organizativa especificada para unirse a la conexión de AD sea correcta. Si usa Azure ADDS, asegúrese de que la ruta de acceso de unidad organizativa sea `OU=AADDC Computers`. |
+
 ## <a name="next-steps"></a>Pasos siguientes  
 
+* [Creación de un volumen SMB](azure-netapp-files-create-volumes-smb.md)
 * [Creación de un volumen de protocolo dual](create-volumes-dual-protocol.md)
 * [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509391"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360965"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Creación de indizadores en Azure Cognitive Search
 
@@ -142,6 +142,20 @@ Por lo general, el procesamiento programado coincide con una necesidad de indexa
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>Detección de cambios y estado del indizador
+
+Los indizadores pueden detectar cambios en los datos subyacentes y solo procesar los documentos nuevos o actualizados en cada ejecución del indizador. Por ejemplo, si el estado del indizador indica que una ejecución se realizó correctamente con `0/0` documentos procesados, significa que el indizador no encontró filas o blobs nuevos o modificados en el origen de datos subyacente.
+
+La forma en que un indizador admite la detección de cambios varía según el origen de datos:
+
++ Azure Blob Storage, Azure Table Storage y Azure Data Lake Storage Gen2 marcan cada actualización de blob o fila con una fecha y hora. Los distintos indizadores usan esta información para determinar qué documentos se van a actualizar en el índice. La detección de cambios integrada significa que un indizador puede reconocer documentos nuevos y actualizados, sin necesidad de que el usuario realice ninguna configuración adicional.
+
++ Azure SQL y Cosmos DB proporcionan características de detección de cambios en sus plataformas. Puede especificar la directiva de detección de cambios en la definición del origen de datos.
+
+En el caso de las cargas de indexación de gran tamaño, un indizador también realiza un seguimiento del último documento procesado mediante una "marca de límite superior" interna. El marcador nunca se expone en la API, aunque internamente el indizador registra en dónde se detuvo. Cuando se reanuda la indexación, ya sea a través de una ejecución programada o una invocación a petición, el indizador consulta la marca de límite superior para continuar donde se quedó.
+
+Si tiene que borrar la marca de límite superior para volver a indexar en su totalidad, puede usar [restablecer indizador](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Para volver a indexar más selectivamente, use [restablecer aptitudes](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) o [restablecer documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). A través de las API de restablecimiento, puede borrar el estado interno y vaciar la memoria caché si ha habilitado el [enriquecimiento incremental](search-howto-incremental-index.md). Para obtener más información sobre los antecedentes y la comparación de cada opción de restablecimiento, consulte [Ejecución o restablecimiento de indizadores, aptitudes y documentos](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Conozca los datos
 

@@ -3,12 +3,12 @@ title: Azure Media Services como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Media Services con Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: be56c383c8c2d755ef82d4caad5e779bef418a19
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015220"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363362"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como origen de Event Grid
 
@@ -16,7 +16,7 @@ En este artículo se proporcionan los esquemas y las propiedades para los evento
 
 ## <a name="job-related-event-types"></a>Tipos de eventos relacionados con el trabajo
 
-Media Services emite los tipos de eventos relacionados con el **trabajo** que se describen a continuación. Existen dos categorías para los eventos relacionados con el **trabajo**: "supervisión de cambios de estado de trabajo" y "supervisión de cambios de estado de salida de trabajo". 
+Media Services emite los tipos de eventos **relacionados con el trabajo** que se describen a continuación. Existen dos categorías para los eventos **relacionados con el trabajo**: "supervisión de cambios de estado de trabajo" y "supervisión de cambios de estado de salida de trabajo". 
 
 Para registrarse para todos los eventos, puede suscribirse al evento JobStateChange. O bien, puede suscribirse solo a eventos específicos (por ejemplo, estados finales como JobErrored, JobFinished y JobCanceled).   
 
@@ -28,9 +28,8 @@ Para registrarse para todos los eventos, puede suscribirse al evento JobStateCha
 | Microsoft.Media.JobScheduled| Permite obtener un evento cuando el trabajo realiza la transición al estado programado. |
 | Microsoft.Media.JobProcessing| Permite obtener un evento cuando el trabajo realiza la transición al estado de procesamiento en curso. |
 | Microsoft.Media.JobCanceling| Permite obtener un evento cuando el trabajo realiza la transición al estado de cancelación en curso. |
-| Microsoft.Media.JobFinished| Permite obtener un evento cuando el trabajo realiza la transición al estado finalizado. Se trata de un estado final que incluye las salidas del trabajo.|
 | Microsoft.Media.JobCanceled| Permite obtener un evento cuando el trabajo realiza la transición al estado cancelado. Se trata de un estado final que incluye las salidas del trabajo.|
-| Microsoft.Media.JobErrored| Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
+| Microsoft.Media.JobErrored | Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
 
 Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
@@ -40,7 +39,7 @@ Un trabajo puede contener varias salidas de trabajo (si ha configurado la transf
 
 Cada elemento **Job** estará en un nivel superior al de **JobOutput**, por lo que los eventos de salida de trabajo se activan dentro de un trabajo correspondiente. 
 
-Los mensajes de error de `JobFinished`, `JobCanceled`, `JobError` muestran los resultados agregados para cada salida de trabajo, cuando todos han finalizado. Por su parte, los eventos de salida de trabajo se activan cuando finaliza cada tarea. Por ejemplo, si tiene una salida de codificación, seguida de una de análisis de vídeo, obtendría dos eventos que se desencadenan como eventos de salida de trabajo antes de que el evento JobFinished final se desencadene con los datos agregados.
+Los mensajes de error de `JobFinished`, `JobCanceled`, `JobError` muestran los resultados agregados para cada salida de trabajo, cuando todos han finalizado. Por su parte, los eventos de salida del trabajo se activan cuando finaliza cada tarea. Por ejemplo, si tiene una salida de codificación, seguida de una de análisis de vídeo, obtendría dos eventos que se desencadenan como eventos de salida de trabajo antes de que el evento JobFinished final se desencadene con los datos agregados.
 
 | Tipo de evento | Descripción |
 | ---------- | ----------- |
@@ -102,6 +101,8 @@ Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="jobstatechange"></a>JobStateChange
 
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
+
 En el ejemplo siguiente, se muestra el esquema de un evento **JobStateChange**: 
 
 ```json
@@ -122,12 +123,35 @@ En el ejemplo siguiente, se muestra el esquema de un evento **JobStateChange**:
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **JobStateChange**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+    "type": "Microsoft.Media.JobStateChange",
+    "time": "2018-04-20T21:26:13.8978772",
+    "id": "b9d38923-9210-4c2b-958f-0054467d4dd7",
+    "data": {
+      "previousState": "Processing",
+      "state": "Finished"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| previousState | string | El estado del trabajo antes del evento. |
-| state | string | El nuevo estado del trabajo que se notifica en este evento. Por ejemplo, "Programado: el trabajo está listo para comenzar" o "Finalizado: el trabajo ha finalizado".|
+| `previousState` | string | El estado del trabajo antes del evento. |
+| `state` | string | El nuevo estado del trabajo que se notifica en este evento. Por ejemplo, "Programado: el trabajo está listo para comenzar" o "Finalizado: el trabajo ha finalizado".|
 
 Donde el estado del trabajo puede ser uno de los valores siguientes: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*.
 
@@ -135,6 +159,8 @@ Donde el estado del trabajo puede ser uno de los valores siguientes: *Queued*, *
 > *Queued* solo estará presente en la propiedad **previousState** pero no en la propiedad **state**.
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 Para cada cambio de estado de trabajo no final (por ejemplo, JobScheduled, JobProcessing y JobCanceling), el esquema de ejemplo tiene un aspecto similar al siguiente:
 
@@ -192,13 +218,74 @@ Para cada cambio de estado de trabajo final (por ejemplo, JobFinished, JobCancel
 }]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+Para cada cambio de estado de trabajo no final (por ejemplo, JobScheduled, JobProcessing y JobCanceling), el esquema de ejemplo tiene un aspecto similar al siguiente:
+
+```json
+[{
+  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "type": "Microsoft.Media.JobProcessing",
+  "time": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "testKey1": "testValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### <a name="jobfinished-jobcanceled-joberrored"></a>JobFinished, JobCanceled, JobErrored
+
+Para cada cambio de estado de trabajo final (por ejemplo, JobFinished, JobCanceled y JobErrored), el esquema de ejemplo tiene un aspecto similar al siguiente:
+
+```json
+[{
+  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "type": "Microsoft.Media.JobFinished",
+  "time": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "testKey1": "testValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+---
+
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| outputs | Array | Permite obtener las salidas del trabajo.|
+| `outputs` | Array | Permite obtener las salidas del trabajo.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En este ejemplo se muestra el esquema del evento **JobOutputStateChange**:
 
@@ -308,19 +395,130 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventConnectio
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En este ejemplo se muestra el esquema del evento **JobOutputStateChange**:
+
+```json
+[{
+  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "type": "Microsoft.Media.JobOutputStateChange",
+  "time": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "testKey1": "testValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+
+### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
+
+Para cada cambio de estado JobOutput, el esquema de ejemplo tiene un aspecto similar al siguiente:
+
+```json
+[{
+  "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "type": "Microsoft.Media.JobOutputProcessing",
+  "time": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "testKey1": "testValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "specversion": "1.0"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+El esquema de ejemplo es similar al siguiente:
+
+ ```json
+[{
+  "source": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "type": "Microsoft.Media.JobOutputProgress",
+  "time": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
+  },
+  "specversion": "1.0"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventConnectionRejected**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaServices/<account-name>",
+    "subject": "/LiveEvents/MyLiveEvent1",
+    "type": "Microsoft.Media.LiveEventConnectionRejected",
+    "time": "2018-01-16T01:57:26.005121Z",
+    "id": "b303db59-d5c1-47eb-927a-3650875fded1",
+    "data": { 
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
-| ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
-| encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
-| resultCode | string | El motivo por el que se rechazó la conexión. En la tabla siguiente se muestran los códigos de resultados: |
+| `streamId` | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
+| `ingestUrl` | string | Introducir la dirección URL que proporcionó el evento en directo. |  
+| `encoderIp` | string | Dirección IP del codificador. |
+| `encoderPort` | string | Puerto del codificador de donde procede esta transmisión. |
+| `resultCode` | string | El motivo por el que se rechazó la conexión. En la tabla siguiente se muestran los códigos de resultados: |
 
 Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../media-services/latest/live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderConnected**: 
 
@@ -344,16 +542,43 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderCo
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderConnected**: 
+
+```json
+[
+  { 
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventEncoderConnected",
+    "time": "2018-08-07T23:08:09.1710643",
+    "id": "<id>",
+    "data": {
+      "ingestUrl": "http://mle1-amsts03mediaacctgndos-ts031.channel.media.azure-test.net:80/ingest.isml",
+      "streamId": "15864-stream0",
+      "encoderIp": "131.107.147.xxx",
+      "encoderPort": "27485"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de proporcionar este id. en la URL de introducción. |
-| ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
-| encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| `streamId` | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de proporcionar este id. en la URL de introducción. |
+| `ingestUrl` | string | Introducir la dirección URL que proporcionó el evento en directo. |
+| `encoderIp` | string | Dirección IP del codificador. |
+| `encoderPort` | string | Puerto del codificador de donde procede esta transmisión. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderDisconnected**: 
 
@@ -378,15 +603,41 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderDi
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventEncoderDisconnected**: 
+
+```json
+[
+  { 
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventEncoderDisconnected",
+    "time": "2018-08-07T23:08:09.1710872",
+    "id": "<id>",
+    "data": {
+      "ingestUrl": "http://mle1-amsts03mediaacctgndos-ts031.channel.media.azure-test.net:80/ingest.isml",
+      "streamId": "15864-stream0",
+      "encoderIp": "131.107.147.xxx",
+      "encoderPort": "27485",
+      "resultCode": "S_OK"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
-| ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
-| encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
-| resultCode | string | La razón por la cual el codificador se desconecta. Podría ser un cierre estable o un error. En la tabla siguiente se muestran los códigos de resultados: |
+| `streamId` | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
+| `ingestUrl` | string | Introducir la dirección URL que proporcionó el evento en directo. |  
+| `encoderIp` | string | Dirección IP del codificador. |
+| `encoderPort` | string | Puerto del codificador de donde procede esta transmisión. |
+| `resultCode` | string | La razón por la cual el codificador se desconecta. Podría ser un cierre estable o un error. En la tabla siguiente se muestran los códigos de resultados: |
 
 Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../media-services/latest/live-event-error-codes.md).
 
@@ -403,6 +654,8 @@ Los códigos de resultado del cierre estable son:
 | MPI_STREAM_HIT_EOF | La transmisión EOF que envía el codificador. |
 
 ### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingDataChunkDropped**: 
 
@@ -428,18 +681,47 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingD
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingDataChunkDropped**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaServices/<account-name>",
+    "subject": "/LiveEvents/MyLiveEvent1",
+    "type": "Microsoft.Media.LiveEventIncomingDataChunkDropped",
+    "time": "2018-01-16T01:57:26.005121Z",
+    "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
+    "data": { 
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de pista (audio/vídeo). |
-| trackName | string | Nombre de la pista. |
-| bitrate | integer | Velocidad de bits de la pista. |
-| timestamp | string | Marca de tiempo del fragmento de datos proporcionado. |
-| timescale | string | Escala temporal de la marca de tiempo. |
-| resultCode | string | Razón del fragmento de datos proporcionado. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
+| `trackType` | string | Tipo de pista (audio/vídeo). |
+| `trackName` | string | Nombre de la pista. |
+| `bitrate` | integer | Velocidad de bits de la pista. |
+| `timestamp` | string | Marca de tiempo del fragmento de datos proporcionado. |
+| `timescale` | string | Escala temporal de la marca de tiempo. |
+| `resultCode` | string | Razón del fragmento de datos proporcionado. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingStreamReceived**: 
 
@@ -468,20 +750,52 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingS
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingStreamReceived**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventIncomingStreamReceived",
+    "time": "2018-08-07T23:08:10.5069288Z",
+    "id": "7f939a08-320c-47e7-8250-43dcfc04ab4d",
+    "data": {
+      "ingestUrl": "http://mle1-amsts03mediaacctgndos-ts031.channel.media.azure-test.net:80/ingest.isml/Streams(15864-stream0)15864-stream0",
+      "trackType": "video",
+      "trackName": "video",
+      "bitrate": 2962000,
+      "encoderIp": "131.107.147.xxx",
+      "encoderPort": "27485",
+      "timestamp": "15336831655032322",
+      "duration": "20000000",
+      "timescale": "10000000"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de pista (audio/vídeo). |
-| trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocidad de bits de la pista. |
-| ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
-| encoderIp | string  | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
-| timestamp | string | Primera marca de tiempo del fragmento de datos recibido. |
-| timescale | string | Escala temporal en la que se representa la marca de tiempo. |
+| `trackType` | string | Tipo de pista (audio/vídeo). |
+| `trackName` | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
+| `bitrate` | integer | Velocidad de bits de la pista. |
+| `ingestUrl` | string | Introducir la dirección URL que proporcionó el evento en directo. |
+| `encoderIp` | string  | Dirección IP del codificador. |
+| `encoderPort` | string | Puerto del codificador de donde procede esta transmisión. |
+| `timestamp` | string | Primera marca de tiempo del fragmento de datos recibido. |
+| `timescale` | string | Escala temporal en la que se representa la marca de tiempo. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingStreamsOutOfSync**: 
 
@@ -507,18 +821,47 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingS
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingStreamsOutOfSync**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventIncomingStreamsOutOfSync",
+    "time": "2018-08-10T02:26:20.6269183Z",
+    "id": "b9d38923-9210-4c2b-958f-0054467d4dd7",
+    "data": {
+      "minLastTimestamp": "319996",
+      "typeOfStreamWithMinLastTimestamp": "Audio",
+      "maxLastTimestamp": "366000",
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| minLastTimestamp | string | Mínimo de las últimas marcas de tiempo entre todas las pistas (audio o vídeo). |
-| typeOfTrackWithMinLastTimestamp | string | Tipo de pista (audio o vídeo) con la última marca de tiempo mínima. |
-| maxLastTimestamp | string | Máximo de las todas las marcas de tiempo entre todas las pistas (audio o vídeo). |
-| typeOfTrackWithMaxLastTimestamp | string | Tipo de pista (audio o vídeo) con la última marca de tiempo máxima. |
-| timescaleOfMinLastTimestamp| string | Permite obtener la escala temporal en la que se representa “MinLastTimestamp”.|
-| timescaleOfMaxLastTimestamp| string | Permite obtener la escala temporal en la que se representa “MaxLastTimestamp”.|
+| `minLastTimestamp` | string | Mínimo de las últimas marcas de tiempo entre todas las pistas (audio o vídeo). |
+| `typeOfTrackWithMinLastTimestamp` | string | Tipo de pista (audio o vídeo) con la última marca de tiempo mínima. |
+| `maxLastTimestamp` | string | Máximo de las todas las marcas de tiempo entre todas las pistas (audio o vídeo). |
+| `typeOfTrackWithMaxLastTimestamp` | string | Tipo de pista (audio o vídeo) con la última marca de tiempo máxima. |
+| `timescaleOfMinLastTimestamp`| string | Permite obtener la escala temporal en la que se representa “MinLastTimestamp”.|
+| `timescaleOfMaxLastTimestamp`| string | Permite obtener la escala temporal en la que se representa “MaxLastTimestamp”.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingVideoStreamsOutOfSync**: 
 
@@ -543,17 +886,45 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingV
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIncomingVideoStreamsOutOfSync**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaServices/<account-name>",
+    "subject": "/LiveEvents/LiveEvent1",
+    "type": "Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync",
+    "time": "2018-01-16T01:57:26.005121Z",
+    "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
+    "data": {
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
+      "timescale": "10000000"      
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| firstTimestamp | string | Marca de tiempo recibida para una de las pistas o niveles de calidad de tipo de vídeo. |
-| firstDuration | string | Duración del fragmento de datos con la primera marca de tiempo. |
-| secondTimestamp | string  | Marca de tiempo recibida para algún otro nivel de pista o calidad del tipo de vídeo. |
-| secondDuration | string | Duración del fragmento de datos con la segunda marca de tiempo. |
-| timescale | string | Escala de tiempo de marcas de tiempo y duración.|
+| `firstTimestamp` | string | Marca de tiempo recibida para una de las pistas o niveles de calidad de tipo de vídeo. |
+| `firstDuration` | string | Duración del fragmento de datos con la primera marca de tiempo. |
+| `secondTimestamp` | string  | Marca de tiempo recibida para algún otro nivel de pista o calidad del tipo de vídeo. |
+| `secondDuration` | string | Duración del fragmento de datos con la segunda marca de tiempo. |
+| `timescale` | string | Escala de tiempo de marcas de tiempo y duración.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIngestHeartbeat**: 
 
@@ -585,24 +956,60 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIngestHea
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventIngestHeartbeat**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventIngestHeartbeat",
+    "time": "2018-08-07T23:17:57.4610506",
+    "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
+    "data": {
+      "trackType": "audio",
+      "trackName": "audio",
+      "bitrate": 160000,
+      "incomingBitrate": 155903,
+      "lastTimestamp": "15336837535253637",
+      "timescale": "10000000",
+      "overlapCount": 0,
+      "discontinuityCount": 0,
+      "nonincreasingCount": 0,
+      "unexpectedBitrate": false,
+      "state": "Running",
+      "healthy": true
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de pista (audio/vídeo). |
-| trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocidad de bits de la pista. |
-| incomingBitrate | integer | Velocidad de bits calculada en función de los fragmentos de datos procedentes del codificador. |
-| lastTimestamp | string | Última marca de tiempo recibida para una pista en los últimos 20 segundos. |
-| timescale | string | Escala temporal en la que se expresan las marcas de tiempo. |
-| overlapCount | integer | Número de fragmentos de datos que tienen marcas de tiempo superpuestas en los últimos 20 segundos. |
-| discontinuityCount | integer | Número de interrupciones observada en los últimos 20 segundos. |
-| nonIncreasingCount | integer | Número de fragmentos de datos con marcas de tiempo en el pasado que se recibieron en los últimos 20 segundos. |
-| unexpectedBitrate | bool | Si las velocidades de bits esperadas y reales superan el límite permitido en los últimos 20 segundos. Es "true" si, y solo si, la velocidad de bits incomingBitrate >= 2* O incomingBitrate <= bitrate/2 O IncomingBitrate = 0. |
-| state | string | Estado del evento en directo. |
-| healthy | bool | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| `trackType` | string | Tipo de pista (audio/vídeo). |
+| `trackName` | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
+| `bitrate` | integer | Velocidad de bits de la pista. |
+| `incomingBitrate` | integer | Velocidad de bits calculada en función de los fragmentos de datos procedentes del codificador. |
+| `lastTimestamp` | string | Última marca de tiempo recibida para una pista en los últimos 20 segundos. |
+| `timescale` | string | Escala temporal en la que se expresan las marcas de tiempo. |
+| `overlapCount` | integer | Número de fragmentos de datos que tienen marcas de tiempo superpuestas en los últimos 20 segundos. |
+| `discontinuityCount` | integer | Número de interrupciones observada en los últimos 20 segundos. |
+| `nonIncreasingCount` | integer | Número de fragmentos de datos con marcas de tiempo en el pasado que se recibieron en los últimos 20 segundos. |
+| `unexpectedBitrate` | bool | Si las velocidades de bits esperadas y reales superan el límite permitido en los últimos 20 segundos. Es "true" si, y solo si, la velocidad de bits incomingBitrate >= 2* O incomingBitrate <= bitrate/2 O IncomingBitrate = 0. |
+| `state` | string | Estado del evento en directo. |
+| `healthy` | bool | Indica si la ingesta está en buen estado según los recuentos y las marcas. Estará en buen estado si este tiene el valor "true" y si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventTrackDiscontinuityDetected**: 
 
@@ -629,32 +1036,79 @@ En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventTrackDisc
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente, se muestra el esquema de un evento **LiveEventTrackDiscontinuityDetected**: 
+
+```json
+[
+  {
+    "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "type": "Microsoft.Media.LiveEventTrackDiscontinuityDetected",
+    "time": "2018-08-07T23:18:06.1270405Z",
+    "id": "5f4c510d-5be7-4bef-baf0-64b828be9c9b",
+    "data": {
+      "trackName": "video",
+      "previousTimestamp": "15336837615032322",
+      "trackType": "video",
+      "bitrate": 2962000,
+      "newTimestamp": "15336837619774273",
+      "discontinuityGap": "575284",
+      "timescale": "10000000"
+    },
+    "specversion": "1.0"
+  }
+]
+```
+
+---
+
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de pista (audio/vídeo). |
-| trackName | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
-| bitrate | integer | Velocidad de bits de la pista. |
-| previousTimestamp | string | Marca de tiempo del fragmento anterior. |
-| newTimestamp | string | Marca de tiempo del fragmento actual. |
-| discontinuityGap | string | Intervalo entre las dos marcas de tiempo anteriores. |
-| timescale | string | Escala temporal en la que se representan tanto la marca de tiempo como el intervalo de discontinuidad. |
+| `trackType` | string | Tipo de pista (audio/vídeo). |
+| `trackName` | string | Nombre de la pista (lo puede proporcionar el codificador o, en el caso de RTMP, el servidor se genera en formato *TrackType_Bitrate*). |
+| `bitrate` | integer | Velocidad de bits de la pista. |
+| `previousTimestamp` | string | Marca de tiempo del fragmento anterior. |
+| `newTimestamp` | string | Marca de tiempo del fragmento actual. |
+| `discontinuityGap` | string | Intervalo entre las dos marcas de tiempo anteriores. |
+| `timescale` | string | Escala temporal en la que se representan tanto la marca de tiempo como el intervalo de discontinuidad. |
 
 ### <a name="common-event-properties"></a>Propiedades personalizadas del evento
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 Un evento tiene los siguientes datos de nivel superior:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| topic | string | El tema EventGrid. Esta propiedad tiene el id. de recurso de la cuenta de Media Services. |
-| subject | string | La ruta de acceso del recurso del canal de Media Services en la cuenta de Media Services. Al concatenar los temas, obtendrá la identificación del recurso para el trabajo. |
-| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. Por ejemplo, "Microsoft.Media.JobStateChange". |
-| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | string | Identificador único para el evento |
-| datos | object | Datos del evento de Media Services. |
-| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| `topic` | string | Tema de Event Grid. Esta propiedad tiene el id. de recurso de la cuenta de Media Services. |
+| `subject` | string | La ruta de acceso del recurso del canal de Media Services en la cuenta de Media Services. Al concatenar los temas, obtendrá la identificación del recurso para el trabajo. |
+| `eventType` | string | Uno de los tipos de eventos registrados para este origen de eventos. Por ejemplo, "Microsoft.Media.JobStateChange". |
+| `eventTime` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos del evento de Media Services. |
+| `dataVersion` | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| `metadataVersion` | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+Un evento tiene los siguientes datos de nivel superior:
+
+| Propiedad | Tipo | Descripción |
+| -------- | ---- | ----------- |
+| `source` | string | Tema de Event Grid. Esta propiedad tiene el id. de recurso de la cuenta de Media Services. |
+| `subject` | string | La ruta de acceso del recurso del canal de Media Services en la cuenta de Media Services. Al concatenar los temas, obtendrá la identificación del recurso para el trabajo. |
+| `type` | string | Uno de los tipos de eventos registrados para este origen de eventos. Por ejemplo, "Microsoft.Media.JobStateChange". |
+| `time` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos del evento de Media Services. |
+| `specversion` | string | Versión de especificación del esquema CloudEvents. |
+
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

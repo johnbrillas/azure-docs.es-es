@@ -2,21 +2,20 @@
 title: Azure Key Vault como origen de Event Grid
 description: Describe las propiedades y el esquema que se proporcionan para los eventos de Azure Key Vault con Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/11/2021
+ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460399"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363413"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como origen de Event Grid
 
 En este artículo se proporcionan las propiedades y el esquema de los eventos en [Azure Key Vault](../key-vault/index.yml). Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
-### <a name="available-event-types"></a>Tipos de eventos disponibles
+## <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Una cuenta Azure Key Vault genera los siguientes tipos de eventos:
 
@@ -31,9 +30,11 @@ Una cuenta Azure Key Vault genera los siguientes tipos de eventos:
 | Microsoft.KeyVault.SecretNewVersionCreated | Secreto nueva versión creada | Se desencadena cuando se crea una nueva versión de secreto o secreto nuevo. |
 | Microsoft.KeyVault.SecretNearExpiry | El secreto está a punto de expirar | Se desencadena cuando la versión actual de un secreto está a punto de expirar. (El evento se desencadena 30 días antes de la fecha de expiración). |
 | Microsoft.KeyVault.SecretExpired | Secreto expirado | Se desencadena cuando un secreto ha expirado. |
-| Microsoft.KeyVault.VaultAccessPolicyChanged | Directiva de acceso de Vault modificada | Se desencadena cuando cambia una directiva de acceso en Key Vault. Incluye un escenario en el que el modelo de permisos de Key Vault se modifica para o desde Azure RBAC.  |
+| Microsoft.KeyVault.VaultAccessPolicyChanged | Directiva de acceso de Vault modificada | Se desencadena cuando cambia una directiva de acceso en Key Vault. Incluye un escenario en el que el modelo de permisos de Key Vault se modifica para o desde el control de acceso basado en rol de Azure.   |
 
-### <a name="event-examples"></a>Ejemplos de eventos
+## <a name="event-examples"></a>Ejemplos de eventos
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 
 En el ejemplo siguiente se muestra el esquema para **Microsoft.KeyVault.SecretNewVersionCreated**:
 
@@ -60,19 +61,79 @@ En el ejemplo siguiente se muestra el esquema para **Microsoft.KeyVault.SecretNe
 ]
 ```
 
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+
+En el ejemplo siguiente se muestra el esquema para **Microsoft.KeyVault.SecretNewVersionCreated**:
+
+```JSON
+[
+   {
+      "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
+      "source":"/subscriptions/{subscription-id}/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
+      "subject":"newsecret",
+      "type":"Microsoft.KeyVault.SecretNewVersionCreated",
+      "time":"2019-07-25T01:08:33.1036736Z",
+      "data":{
+         "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
+         "vaultName":"sample-kv",
+         "objectType":"Secret",
+         "objectName ":"newsecret",
+         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "nbf":"1559081980",
+         "exp":"1559082102"
+      },
+      "specversion":"1.0"
+   }
+]
+```
+
+---
+
 ### <a name="event-properties"></a>Propiedades de evento
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
+Un evento tiene los siguientes datos de nivel superior:
+
+| Propiedad | Tipo | Descripción |
+| -------- | ---- | ----------- |
+| `topic` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `eventType` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `eventTime` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos del evento de App Configuration. |
+| `dataVersion` | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| `metadataVersion` | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+
+
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
 
 Un evento tiene los siguientes datos de nivel superior:
 
 | Propiedad | Tipo | Descripción |
+| -------- | ---- | ----------- |
+| `source` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `type` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `time` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos del evento de App Configuration. |
+| `specversion` | string | Versión de especificación del esquema CloudEvents. |
+
+---
+ 
+
+El objeto data tiene las siguientes propiedades:
+
+| Propiedad | Tipo | Descripción |
 | ---------- | ----------- |---|
-| id | string | El identificador del objeto que desencadenó este evento |
-| vaultName | string | Nombre del almacén de claves del objeto que desencadenó este evento |
-| objectType | string | El tipo del objeto que desencadenó este evento |
-| objectName | string | El nombre del objeto que desencadenó este evento |
-| version | string | La versión del objeto que desencadenó este evento |
-| nbf | number | La fecha no antes de segundos desde 1970-01-01T00:00:00Z del objeto que desencadenó este evento |
-| exp | number | Fecha de expiración en segundos desde 1970-01-01T00:00:00Z del objeto que desencadenó este evento |
+| `id` | string | El identificador del objeto que desencadenó este evento |
+| `vaultName` | string | Nombre del almacén de claves del objeto que desencadenó este evento |
+| `objectType` | string | El tipo del objeto que desencadenó este evento |
+| `objectName` | string | El nombre del objeto que desencadenó este evento |
+| `version` | string | La versión del objeto que desencadenó este evento |
+| `nbf` | number | La fecha no antes de segundos desde 1970-01-01T00:00:00Z del objeto que desencadenó este evento |
+| `exp` | number | Fecha de expiración en segundos desde 1970-01-01T00:00:00Z del objeto que desencadenó este evento |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 |Título  |Descripción  |
