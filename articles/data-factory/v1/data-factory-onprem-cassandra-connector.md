@@ -1,23 +1,18 @@
 ---
 title: Movimiento de datos desde Cassandra mediante Data Factory
 description: Aprenda a mover los datos de una base de datos de Cassandra local con Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387417"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Movimiento de datos desde una base de datos de Cassandra local con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -290,14 +285,14 @@ Consulte las [propiedades de tipo RelationalSource](#copy-activity-properties) p
 Azure Data Factory utiliza un controlador ODBC integrado para conectarse a una base de datos de Cassandra y copiar datos de dicha base de datos. En el caso de los tipos de colección (como map, set y list), el controlador volverá a normalizar los datos en las tablas virtuales correspondientes. En concreto, si una tabla contiene columnas de colecciones, el controlador generará las siguientes tablas virtuales:
 
 * Una **tabla base**, que contiene los mismos datos que la tabla real, salvo las columnas de colecciones. La tabla base utiliza el mismo nombre que la tabla real a la que representa.
-* Una **tabla virtual** para cada columna de la colección, que ampliará los datos anidados. Para asignar un nombre a las tablas virtuales que representan colecciones, se utiliza el nombre de la tabla real, un separador “*vt*” y el nombre de la columna.
+* Una **tabla virtual** para cada columna de la colección, que ampliará los datos anidados. Para asignar un nombre a las tablas virtuales que representan colecciones, se utiliza el nombre de la tabla real, un separador "*vt*" y el nombre de la columna.
 
 Las tablas virtuales hacen referencia a los datos de la tabla real, lo que permite al controlador obtener acceso a los datos no normalizados. Consulte la sección de ejemplo para más información. Para acceder al contenido de las colecciones de Cassandra, puede crear consultas y combinar las tablas virtuales.
 
 Si usa el [Asistente para copia](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity), podrá consultar una vista intuitiva de la lista de tablas de la base de datos de Cassandra (incluidas las tablas virtuales) y una vista previa de los datos incluidos. También puede crear una consulta en el Asistente para copia y validarla para ver el resultado.
 
 ### <a name="example"></a>Ejemplo
-Por ejemplo, el siguiente “ExampleTable” es una tabla de una base de datos de Cassandra que contiene una columna de clave principal de enteros denominada “pk_int”, una columna de texto denominada “value”, una columna List, una columna Map y una columna Set (denominada “StringSet”).
+Por ejemplo, el siguiente "ExampleTable" es una tabla de una base de datos de Cassandra que contiene una columna de clave principal de enteros denominada “pk_int”, una columna de texto denominada "value", una columna List, una columna Map y una columna Set (denominada "StringSet").
 
 | pk_int | Value | List | Map | StringSet |
 | --- | --- | --- | --- | --- |
@@ -306,16 +301,16 @@ Por ejemplo, el siguiente “ExampleTable” es una tabla de una base de datos d
 
 El controlador generará varias tablas virtuales que representan a esta tabla. Las columnas de clave externa de las tablas virtuales hacen referencia a las columnas de clave principal de la tabla real e indican qué fila de la tabla real se corresponde con la fila de la tabla virtual.
 
-La primera tabla virtual es la tabla base y se denomina “ExampleTable”, tal y como se muestra en la siguiente tabla. La tabla base contiene los mismos datos que la tabla de base de datos original a excepción de las colecciones, que no aparecen en esta tabla, sino que se amplían en otras tablas virtuales.
+La primera tabla virtual es la tabla base y se denomina "ExampleTable", tal y como se muestra en la siguiente tabla. La tabla base contiene los mismos datos que la tabla de base de datos original a excepción de las colecciones, que no aparecen en esta tabla, sino que se amplían en otras tablas virtuales.
 
 | pk_int | Value |
 | --- | --- |
 | 1 |"valor de ejemplo 1" |
 | 3 |"valor de ejemplo 3" |
 
-Las tablas siguientes representan las tablas virtuales que normalizan de nuevo los datos de las columnas List, Map y StringSet. Las columnas cuyos nombres terminan en “_index” o “_key” indican la posición de los datos en la columna List o Map original. Las columnas cuyos nombres terminan en “_value” contienen los datos ampliados de la colección.
+Las tablas siguientes representan las tablas virtuales que normalizan de nuevo los datos de las columnas List, Map y StringSet. Las columnas cuyos nombres terminan en "_index" o "_key" indican la posición de los datos en la columna List o Map original. Las columnas cuyos nombres terminan en "_value" contienen los datos ampliados de la colección.
 
-#### <a name="table-exampletable_vt_list"></a>Tabla “ExampleTable_vt_List”:
+#### <a name="table-exampletable_vt_list"></a>Tabla "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -326,14 +321,14 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletable_vt_map"></a>Tabla “ExampleTable_vt_Map”:
+#### <a name="table-exampletable_vt_map"></a>Tabla "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |Un |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletable_vt_stringset"></a>Tabla “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>Tabla "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |Un |

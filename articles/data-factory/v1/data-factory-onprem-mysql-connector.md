@@ -1,23 +1,18 @@
 ---
 title: Movimiento de datos de MySQL mediante Azure Data Factory
 description: Obtenga información acerca de cómo mover los datos de la base de datos de MySQL mediante Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c39435d2249981a45798ffe0717054fa7b0717
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872109"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387332"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -153,7 +148,7 @@ En primer lugar, configure Data Management Gateway. Las instrucciones se encuent
 
 El ejemplo supone que ha creado una tabla "MyTable" en MySQL y que contiene una columna denominada "timestampcolumn" para los datos de serie temporal.
 
-Si se establece "external": true, se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
+Si se establece "external": "true", se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
 ```JSON
     {

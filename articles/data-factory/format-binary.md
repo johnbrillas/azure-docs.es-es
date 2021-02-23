@@ -2,19 +2,16 @@
 title: Formato binario en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato binario en Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348915"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393690"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario en Azure Data Factory
 
@@ -73,7 +70,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="binary-as-source"></a>Binario como origen
 
-En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -87,8 +84,8 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | El tipo de formatSettings debe establecerse en **BinaryReadSettings**. | Sí      |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
-| preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
+| preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos ZIP de origen para evitar comportamientos acelerados o inesperados.  | No |
+| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
 
 ```json
 "activities": [
@@ -120,7 +117,7 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 
 ### <a name="binary-as-sink"></a>Binario como receptor
 
-En la sección **_\_sink\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |

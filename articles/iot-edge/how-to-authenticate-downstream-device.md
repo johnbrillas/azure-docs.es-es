@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678830"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391990"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -68,6 +68,11 @@ Al crear la identidad del dispositivo, proporcione la información siguiente:
 * Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Siempre puede cambiar el dispositivo primario más adelante.
 
    ![Creación de la identidad del dispositivo con la autenticación de clave simétrica en el portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >La configuración del dispositivo primario solía ser un paso opcional para los dispositivos de nivel inferior que utilizan la autenticación de clave simétrica. Sin embargo, a partir de la versión 1.1.0, de IoT Edge, cada dispositivo de nivel inferior debe estar asignado a un dispositivo primario.
+   >
+   >Puede configurar el centro de IoT Edge para volver al comportamiento anterior estableciendo la variable de entorno **AuthenticationMode** en el valor **CloudAndScope**.
 
 También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) con el fin de completar la misma operación. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación de clave simétrica y asignar un dispositivo principal:
 

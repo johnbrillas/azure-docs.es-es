@@ -1,23 +1,18 @@
 ---
 title: 'Movimiento de datos: puerta de enlace de administración de datos'
 description: Configuración de una puerta de enlace para mover datos entre una infraestructura local y la nube. Uso de Data Management Gateway en Azure Data Factory para mover los datos.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019691"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380294"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -236,7 +231,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
             }
         }
     }     
-    ```     
+    ```       
    Tenga en cuenta los siguientes puntos:
 
    * **type** está establecido en **SqlServerTable**.

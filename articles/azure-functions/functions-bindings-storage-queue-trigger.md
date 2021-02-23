@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001242"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381501"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -357,13 +357,15 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction**| N/D | Solo en el archivo *function.json*. Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D |El nombre de la variable que contiene la carga del elemento de cola en el código de función.  |
 |**queueName** | **QueueName**| Nombre de la cola que se sondea. |
-|**connection** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno de ejecución de Functions busca una configuración de aplicación denominada "MyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.|
+|**connection** | **Connection** |El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí.<br><br>Por ejemplo, si establece `connection` en "MyStorage", el entorno de ejecución de Functions busca una configuración de aplicación denominada "MyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>Si usa [la versión 5.x o superior de la extensión](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Valor predeterminado
 
 Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. Puede enlazar a cualquiera de los siguientes tipos:
 
@@ -374,7 +376,17 @@ Acceda a los datos de mensaje mediante un parámetro de método, como `string pa
 
 Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### <a name="additional-types"></a>Tipos adicionales
+
+Las aplicaciones que usan la [versión 5.0.0 o posterior de la extensión de Azure Storage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) también pueden usar tipos de [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). En esta versión se elimina la compatibilidad con el tipo `CloudQueueMessage` heredado en favor de los siguientes tipos:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+Para obtener ejemplos de uso de estos tipos, consulte el [repositorio de GitHub de la extensión](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
+
+### <a name="default"></a>Valor predeterminado
 
 Acceda a los datos de mensaje mediante un parámetro de método, como `string paramName`. `paramName` es el valor especificado en la propiedad `name` de *function.json*. Puede enlazar a cualquiera de los siguientes tipos:
 
@@ -384,6 +396,14 @@ Acceda a los datos de mensaje mediante un parámetro de método, como `string pa
 * [CloudQueueMessage]
 
 Si intenta enlazar a `CloudQueueMessage` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="additional-types"></a>Tipos adicionales
+
+Las aplicaciones que usan la [versión 5.0.0 o posterior de la extensión de Azure Storage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) también pueden usar tipos de [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). En esta versión se elimina la compatibilidad con el tipo `CloudQueueMessage` heredado en favor de los siguientes tipos:
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+Para obtener ejemplos de uso de estos tipos, consulte el [repositorio de GitHub de la extensión](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -448,7 +468,7 @@ El desencadenador de cola impide automáticamente que una función procese un me
 
 ## <a name="hostjson-properties"></a>Propiedades de host.json
 
-El archivo [host.json](functions-host-json.md#queues) contiene opciones de configuración que controlan el comportamiento de desencadenador de cola. Consulte la sección de [configuración de host.json](functions-bindings-storage-queue-output.md#hostjson-settings) para más información sobre las opciones de configuración disponibles.
+El archivo [host.json](functions-host-json.md#queues) contiene opciones de configuración que controlan el comportamiento de desencadenador de cola. Consulte la sección de [configuración de host.json](functions-bindings-storage-queue.md#hostjson-settings) para más información sobre las opciones de configuración disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

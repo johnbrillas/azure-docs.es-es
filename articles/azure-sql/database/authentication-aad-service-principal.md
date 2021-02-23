@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
-ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 02/11/2021
+ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669812"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380600"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidad de servicio de Azure Active Directory con Azure SQL
 
@@ -52,7 +52,7 @@ La compatibilidad con esta funcionalidad es útil en los procesos de automatizac
 
 Para habilitar la creación de un objeto de Azure AD en SQL Database y Azure Synapse en nombre de una aplicación de Azure AD, se requiere la siguiente configuración:
 
-1. Asignar la identidad del servidor
+1. Asigne la identidad del servidor. La identidad del servidor asignada representa la identidad del sistema administrada (MSI). Actualmente, la identidad del servidor de Azure SQL no admite la identidad administrada por el usuario (UMI).
     - Para un nuevo servidor lógico de Azure SQL, ejecute el siguiente comando de PowerShell:
     
     ```powershell
@@ -83,11 +83,11 @@ Para habilitar la creación de un objeto de Azure AD en SQL Database y Azure Sy
 >
 > Si usa la entidad de servicio para establecer o anular la configuración del administrador de Azure AD, la aplicación también debe tener el permiso de API de aplicación [Directory.Read.All](/graph/permissions-reference#application-permissions-18) en Azure AD. Para más información sobre los [permisos necesarios para establecer un administrador de Azure AD](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin) e instrucciones paso a paso para crear un usuario de Azure AD en nombre de una aplicación de Azure AD, consulte el [Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD](authentication-aad-service-principal-tutorial.md).
 >
-> En la **versión preliminar pública** , puede asignar el rol **Lectores de directorio** a un grupo en Azure AD. A continuación, los propietarios del grupo pueden agregar la identidad administrada como miembro de este grupo, lo que omitiría la necesidad de que un usuario **Administrador global** o **Administrador de roles con privilegios** concedieran el rol **Lectores de directorio**. Para más información sobre esta característica, vea [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
+> En la **versión preliminar pública**, puede asignar el rol **Lectores de directorio** a un grupo en Azure AD. A continuación, los propietarios del grupo pueden agregar la identidad administrada como miembro de este grupo, lo que omitiría la necesidad de que un usuario **Administrador global** o **Administrador de roles con privilegios** concedieran el rol **Lectores de directorio**. Para más información sobre esta característica, vea [Rol Lectores de directorio en Azure Active Directory de Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Solución de problemas y limitaciones de la versión preliminar pública
 
-- Al crear objetos de Azure AD en Azure SQL en nombre de una aplicación de Azure AD sin habilitar la identidad del servidor y conceder el permiso **Lectores de directorio** , se producirá un error en la operación con los siguientes errores posibles. El siguiente error de ejemplo es para la ejecución de un comando de PowerShell para crear un usuario de SQL Database `myapp` en el artículo [Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD](authentication-aad-service-principal-tutorial.md).
+- Al crear objetos de Azure AD en Azure SQL en nombre de una aplicación de Azure AD sin habilitar la identidad del servidor y conceder el permiso **Lectores de directorio**, se producirá un error en la operación con los siguientes errores posibles. El siguiente error de ejemplo es para la ejecución de un comando de PowerShell para crear un usuario de SQL Database `myapp` en el artículo [Tutorial: Creación de usuarios de Azure AD mediante aplicaciones de Azure AD](authentication-aad-service-principal-tutorial.md).
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "'myapp' is not a valid login or you do not have permission. Cannot find the user 'myapp', because it does not exist, or you do not have permission."`
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "Principal 'myapp' could not be resolved.`
     - `User or server identity does not have permission to read from Azure Active Directory.`

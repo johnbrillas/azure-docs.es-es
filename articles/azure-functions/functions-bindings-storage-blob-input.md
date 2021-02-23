@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6ac3a492c5544a4a782871ff50cda9a248fe50f4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 678b6f02245e463870fc5b2c4bfc8b5ffa50de60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882388"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381703"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Enlace de entrada de Azure Blob Storage para Azure Functions
 
@@ -349,7 +349,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Se debe establecer en `in`. Las excepciones se indican en la sección [uso](#usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.|
 |**path** |**BlobPath** | Ruta de acceso al blob. |
-|**connection** |**Connection**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** |**Connection**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Si usa [la versión 5.x o superior de la extensión](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](./functions-reference.md#connections).|
 |**dataType**| N/D | En el caso de los lenguajes con tipos dinámicos, especifica el tipo de datos subyacente. Los valores posibles son `string`, `binary` o `stream`. Para obtener más información, consulte los [conceptos de desencadenadores y enlaces](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
@@ -375,7 +375,7 @@ Acceda a los datos de BLOB mediante `context.bindings.<NAME>` donde `<NAME>` coi
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Acceda a los datos de blob con un parámetro que coincida con el nombre designado por el parámetro del nombre del enlace en el archivo _function.json_.
+Acceda a los datos de blob a través de un parámetro que coincida con el nombre designado por el parámetro del nombre del enlace en el archivo _function.json_.
 
 # <a name="python"></a>[Python](#tab/python)
 

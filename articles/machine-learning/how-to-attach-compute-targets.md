@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033721"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518698"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -66,7 +66,7 @@ Cuando se usa el equipo local para la **inferencia**, debe tener instalado Docke
 
 Azure Machine Learning también admite la posibilidad de que traiga su propio recurso de proceso y lo adjunte a su área de trabajo. Uno de estos tipos de recursos es una máquina virtual remota arbitraria, siempre que se pueda acceder desde Azure Machine Learning. El recurso puede ser una máquina virtual de Azure, un servidor remoto de la organización o local. En concreto, dada la dirección IP y las credenciales (nombre de usuario y contraseña o clave SSH), puede usar cualquier máquina virtual a la que se pueda acceder para las ejecuciones remotas.
 
-Puede usar un entorno de Conda integrado en el sistema, un entorno de Python existente o un contenedor de Docker. Para realizar la ejecución en un contenedor de Docker, el motor de Docker debe estar en ejecución en la máquina virtual. Esta funcionalidad es especialmente útil cuando se desea un entorno de desarrollo o experimentación basado en la nube más flexible que un equipo local.
+Puede usar un [entorno de Conda integrado en el sistema](how-to-use-environments.md), un [entorno de Python](how-to-configure-environment.md#local) existente o un [contenedor de Docker](https://docs.docker.com/engine/install/ubuntu/). Para realizar la ejecución en un contenedor de Docker, el motor de Docker debe estar en ejecución en la máquina virtual. Esta funcionalidad es especialmente útil cuando se desea un entorno de desarrollo o experimentación basado en la nube más flexible que un equipo local.
 
 Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure preferida en este escenario. Esta máquina virtual es un entorno de desarrollo de IA y de ciencia de datos preconfigurados de Azure. La máquina virtual ofrece una selección de herramientas y plataformas mantenidas para el desarrollo del aprendizaje automático a lo largo de todo el ciclo de vida. Para obtener más información sobre cómo usar la DSVM con Azure Machine Learning, consulte [Configuración del entorno de desarrollo](./how-to-configure-environment.md#dsvm).
 
@@ -225,7 +225,7 @@ Para adjuntar Azure Databricks como destino de proceso, proporcione la informaci
 
 * __Nombre del proceso de Databricks__: el nombre que desea asignar a este recurso de proceso.
 * __Nombre de área de trabajo de Databricks__: el nombre del área de trabajo de Azure Databricks.
-* __Token de acceso de Databricks__: el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
+* __Token de acceso de Databricks__: el token de acceso usado para autenticarse en Azure Databricks. Para generar un token de acceso, consulte el documento [Autenticación](/azure/databricks/dev-tools/api/latest/authentication).
 
 En el código siguiente se muestra cómo adjuntar Azure Databricks como un destino de proceso con el SDK de Azure Machine Learning (__el área de trabajo de Databricks debe estar presente en la misma suscripción que el área de trabajo de AML__):
 

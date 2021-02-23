@@ -2,13 +2,13 @@
 title: Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
 description: Configure Azure Application Gateway para exponer de forma segura las aplicaciones web que se ejecutan en Azure VMware Solution.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384204"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Uso de Azure Application Gateway para proteger aplicaciones web en Azure VMware Solution
 
@@ -35,7 +35,7 @@ En el diagrama se muestra el escenario de prueba que se usa para validar Applica
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagrama que muestra el escenario de prueba que se usa para validar Application Gateway con aplicaciones web de Azure VMware Solution." border="false":::
 
-La instancia de Application Gateway se implementa en el centro de una subred dedicada. Tiene una IP pública de Azure. Se recomienda activar la protección contra DDoS estándar para la red virtual. El servidor web se hospeda en una nube privada de Azure VMware Solution detrás de los enrutadores NSX T0 y T1. Azure VMware Solution usa [Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) para habilitar la comunicación con el centro de conectividad y los sistemas locales.
+La instancia de Application Gateway se implementa en el centro de una subred dedicada. Tiene una IP pública de Azure. Se recomienda activar la protección contra DDoS estándar para la red virtual. El servidor web se hospeda en una nube privada de Azure VMware Solution detrás de las puertas de enlace NSX T0 y T1. Azure VMware Solution usa [Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) para habilitar la comunicación con el centro de conectividad y los sistemas locales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,7 +57,7 @@ La instancia de Application Gateway se implementa en el centro de una subred ded
 
 4. Agregue un grupo de back-end de las máquinas virtuales que se ejecutan en la infraestructura de Azure VMware Solution. Proporcione los detalles de los servidores web que se ejecutan en la nube privada de Azure VMware Solution y seleccione **Agregar**.  Después, seleccione **Next: Configuración >** .
 
-1. En la pestaña **Configuración**, seleccione **Agregar una regla de enrutamiento**.
+5. En la pestaña **Configuración**, seleccione **Agregar una regla de enrutamiento**.
 
 6. En la pestaña **Cliente de escucha**, proporcione los detalles del cliente de escucha. Si se selecciona HTTPS, debe proporcionar un certificado, ya sea de un archivo PFX o un certificado existente de Azure Key Vault. 
 
@@ -67,7 +67,7 @@ La instancia de Application Gateway se implementa en el centro de una subred ded
 
 9. Si desea configurar reglas basadas en rutas de acceso, seleccione **Agregar varios destinos para crear una regla basada en ruta de acceso**. 
 
-10. Agregue una regla basada en ruta de acceso y seleccione **Agregar**. Repita este paso para agregar más reglas basadas en rutas de acceso. 
+10. Agregue una regla basada en ruta de acceso y seleccione **Agregar**. Repita para agregar más reglas basadas en rutas de acceso. 
 
 11. Cuando haya terminado de agregar reglas basadas en rutas de acceso, seleccione **Agregar** de nuevo. A continuación, seleccione **Siguiente: Etiquetas >** . 
 
@@ -77,7 +77,7 @@ La instancia de Application Gateway se implementa en el centro de una subred ded
 
 ## <a name="configuration-examples"></a>Ejemplos de configuración
 
-En esta sección, aprenderá a configurar Application Gateway con máquinas virtuales de Azure VMware Solution como grupos de back-end para estos casos de uso: 
+Ahora vamos a configurar Application Gateway con máquinas virtuales de Azure VMware Solution como grupos de back-end para estos casos de uso: 
 
 - [Hospedaje de varios sitios](#hosting-multiple-sites)
 - [Enrutamiento por dirección URL](#routing-by-url)
@@ -94,7 +94,7 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Captura de pantalla que muestra un resumen de los detalles de un servidor web en el cliente de vSphere.":::
 
-    Para ilustrar este tutorial, hemos usado Windows Server 2016 con el rol Internet Information Services (IIS) instalado. Una vez instaladas las máquinas virtuales, ejecute los comandos de PowerShell siguientes para configurar IIS en cada una de ellas. 
+    Hemos usado Windows Server 2016 con el rol Internet Information Services (IIS) instalado. Una vez instaladas las máquinas virtuales, ejecute los comandos de PowerShell siguientes para configurar IIS en cada una de ellas. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -121,7 +121,7 @@ En este procedimiento se muestra cómo definir grupos de direcciones de back-end
 
 ### <a name="routing-by-url"></a>Enrutamiento por dirección URL
 
-En este procedimiento se muestra cómo definir grupos de direcciones de back-end mediante máquinas virtuales que se ejecutan en una nube privada de Azure VMware Solution en una puerta de enlace de aplicación existente. A continuación, creará reglas de enrutamiento que garanticen que el tráfico web llega a los servidores adecuados de los grupos.
+En los pasos siguientes se definen grupos de direcciones de back-end mediante máquinas virtuales que se ejecutan en una nube privada de Azure VMware Solution. La nube privada está en una puerta de enlace de aplicación existente. A continuación, creará reglas de enrutamiento que garanticen que el tráfico web llega a los servidores adecuados de los grupos.
 
 1. En la nube privada, cree un grupo de máquinas virtuales para representar la granja de servidores web. 
 

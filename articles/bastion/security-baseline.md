@@ -4,15 +4,15 @@ description: La línea de base de seguridad de Azure Bastion proporciona una gu�
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723938"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392381"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Línea de base de seguridad de Azure para Azure Bastion
 
@@ -69,7 +69,11 @@ Los certificados de Azure protegen (bloquean) la conectividad con el administrad
 
 **Guía**: Azure Bastion se integra en Azure Active Directory (Azure AD), que es el servicio predeterminado de administración de identidades y acceso de Azure. Los usuarios pueden acceder a Azure Portal mediante la autenticación de Azure AD para administrar el servicio Azure Bastion (crear, actualizar y eliminar recursos de Bastion).
 
-La conexión a máquinas virtuales mediante Azure Bastion se basa en una clave SSH o un nombre de usuario y contraseña, y actualmente no admite el uso de credenciales de Azure AD.
+La conexión a máquinas virtuales mediante Azure Bastion se basa en una clave SSH o un nombre de usuario y contraseña, y actualmente no admite el uso de credenciales de Azure AD. 
+
+Puede almacenar las claves SSH como secretos de Azure Key Vault y usar estos secretos para conectarse a las máquinas virtuales mediante Azure Bastion. Puede controlar el acceso de los usuarios a estos secretos [asignando directivas de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md) a usuarios individuales o grupos de Azure AD. Los usuarios necesitarán los siguientes permisos para usar este método para conectarse a una máquina virtual:
+- Acceso **Get** a los secretos almacenados en el almacén de Azure Key Vault elegido.
+- Acceso **List** a los secretos almacenados en el almacén de Azure Key Vault elegido.
 
 Además de una clave SSH o un nombre de usuario/contraseña, al conectarse a las máquinas virtuales mediante Azure Bastion, el usuario necesitará las siguientes asignaciones de roles:
 - Rol de lector en la máquina virtual de destino
@@ -106,7 +110,8 @@ Para más información, consulte las siguientes referencias:
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Uso de controles con autenticación multifactor sólida para todo el acceso basado en Azure Active Directory
 
-**Guía**: Azure Bastion se integra con Azure Active Directory (Azure AD) para acceder al servicio y administrarlo. Configure Azure Multi-Factor Authentication para su inquilino de Azure AD. Azure AD admite controles de autenticación sólida a través de la autenticación multifactor (MFA) y métodos seguros sin contraseña.  
+**Guía**: Azure Bastion se integra con Azure Active Directory (Azure AD) para acceder al servicio y administrarlo. Configure Azure Multi-Factor Authentication de Azure Active Directory para su inquilino de Azure AD. Azure AD admite controles de autenticación sólida a través de la autenticación multifactor (MFA) y métodos seguros sin contraseña.
+  
 - Autenticación multifactor: habilite la MFA de Azure AD y siga las recomendaciones de administración de identidades y acceso de Azure Security Center para la configuración de MFA. La MFA se puede exigir a todos los usuarios, a usuarios concretos o a nivel de cada usuario en función de los factores de riesgo y las condiciones de inicio de sesión. 
 
 - Autenticación sin contraseña: hay tres opciones de autenticación sin contraseña disponibles, a saber, Windows Hello para empresas, aplicación Microsoft Authenticator y métodos de autenticación locales, como las tarjetas inteligentes. 

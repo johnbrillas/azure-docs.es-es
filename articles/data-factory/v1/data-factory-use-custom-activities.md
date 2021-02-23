@@ -1,24 +1,19 @@
 ---
 title: Uso de actividades personalizadas en una canalización de Azure Data Factory
 description: Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606953"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393027"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory versión 1
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -167,7 +162,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
 
 8. Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity** y copie el siguiente código de ejemplo en el método.
 
-    El ejemplo siguiente cuenta el número de apariciones del término de búsqueda (“Microsoft”) en cada blob asociado con un segmento de datos.
+    El ejemplo siguiente cuenta el número de apariciones del término de búsqueda ("Microsoft") en cada blob asociado con un segmento de datos.
 
     ```csharp
     /// <summary>
@@ -247,7 +242,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
                                      null);
 
             // Calculate method returns the number of occurrences of
-            // the search term (“Microsoft”) in each blob associated
+            // the search term ("Microsoft") in each blob associated
             // with the data slice. definition of the method is shown in the next step.
 
             output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");

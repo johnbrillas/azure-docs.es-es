@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980279"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380821"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -28,7 +28,7 @@ Microsoft recomienda usar el control de versiones de blobs para conservar las ve
 Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 
 > [!IMPORTANT]
-> El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+> El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure un bloqueo en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md). Para proteger los contenedores de la eliminación accidental, configure la eliminación temporal de contenedores para la cuenta de almacenamiento. Para más información, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

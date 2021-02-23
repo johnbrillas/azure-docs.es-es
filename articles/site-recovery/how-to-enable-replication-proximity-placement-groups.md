@@ -4,13 +4,13 @@ description: Obtenga información sobre cómo replicar máquinas virtuales de Az
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745590"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380775"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicación de máquinas virtuales de Azure que se ejecutan en grupos con ubicación por proximidad en otra región
 
@@ -25,21 +25,72 @@ En un escenario típico, puede hacer que las máquinas virtuales que se ejecutan
 ## <a name="considerations"></a>Consideraciones
 
 - El mejor esfuerzo consistirá en realizar la conmutación por error o recuperación de las máquinas virtuales en un grupo con ubicación por proximidad. Pero si la máquina virtual no se puede activar dentro de la ubicación de proximidad durante la conmutación por error o por recuperación, se seguirá produciendo la conmutación por error o por recuperación, y las máquinas virtuales se crearán fuera de un grupo con ubicación por proximidad.
--  Si un conjunto de disponibilidad está anclado a un grupo con ubicación por proximidad y durante la conmutación por error o recuperación las máquinas virtuales del conjunto de disponibilidad tienen una restricción de asignación, se crearán fuera del grupo con ubicación por proximidad y del conjunto de disponibilidad.
--  Para los discos administrados no se permite Site Recovery para grupos con ubicación por proximidad.
+- Si un conjunto de disponibilidad está anclado a un grupo con ubicación por proximidad y durante la conmutación por error o recuperación las máquinas virtuales del conjunto de disponibilidad tienen una restricción de asignación, se crearán fuera del grupo con ubicación por proximidad y del conjunto de disponibilidad.
+- Para los discos administrados no se permite Site Recovery para grupos con ubicación por proximidad.
 
 > [!NOTE]
 > Azure Site Recovery no admite la conmutación por recuperación desde discos administrados para escenarios de Hyper-V a Azure. Por tanto, no se admite la conmutación por recuperación desde grupos con ubicación por proximidad de Azure a Hyper-V.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>Configuración de la recuperación ante desastres para máquinas virtuales en grupos con ubicación por proximidad a través del portal
+
+### <a name="azure-to-azure-via-portal"></a>Azure a Azure a través del portal
+
+Puede optar por habilitar la replicación de una máquina virtual a través de la página de recuperación ante desastres de máquinas virtuales, o bien puede ir a un almacén creado previamente y navegar a la sección Site Recovery. Una vez ahí, habilite la replicación. Echemos un vistazo a cómo se puede configurar Site Recovery para las máquinas virtuales dentro de un grupo con ubicación por proximidad a través de ambos enfoques:
+
+- Cómo seleccionar un grupo con ubicación por proximidad en la región de la recuperación ante desastres habilitando la replicación a través de la hoja de recuperación ante desastres de máquina virtual de IaaS:
+  1. Vaya a la máquina virtual. En la hoja de la parte izquierda, en "Operaciones", seleccione "Recuperación ante desastres".
+  2. En la pestaña "Aspectos básicos", elija la región de recuperación ante desastres en la que desea replicar la máquina virtual. Vaya a "Configuración avanzada".
+  3. Aquí puede ver el grupo con ubicación por proximidad de la máquina virtual y la opción de seleccionar uno de estos grupos en la región de recuperación ante desastres. Site Recovery también le ofrece la opción de usar un nuevo grupo con ubicación por proximidad que se crea automáticamente si decide usar esta opción predeterminada. Puede elegir el grupo con ubicación por proximidad que desee; a continuación, vaya a "Revisar e iniciar replicación" y, por último, habilite la replicación.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Habilitación de la replicación.":::
+
+- Cómo seleccionar un grupo con ubicación por proximidad en la región de la recuperación ante desastres habilitando la replicación a través de la hoja de almacén:
+  1. Vaya al almacén de Recovery Services y vaya a la pestaña Site Recovery.
+  2. Haga clic en "+ Habilitar Site Recovery" y seleccione "1: Habilitar la replicación" en las máquinas virtuales de Azure (ya que desea replicar una máquina virtual de Azure).
+  3. Rellene los campos obligatorios en la pestaña "Origen" y haga clic en "Siguiente".
+  4. Seleccione la lista de máquinas virtuales en las que desea habilitar la replicación en la pestaña "Máquinas virtuales" y haga clic en "Siguiente".
+  5. Aquí puede ver la opción de seleccionar un grupo con ubicación por proximidad en la región de recuperación ante desastres. Site Recovery también le ofrece la opción de usar un nuevo grupo con ubicación por proximidad que crea automáticamente si decide usar esta opción predeterminada. Puede elegir el grupo con ubicación por proximidad que desee y, a continuación, continuar con la habilitación de la replicación.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Habilite la replicación a través del almacén.":::
+
+Tenga en cuenta que puede actualizar fácilmente la selección del grupo con ubicación por proximidad en la región de recuperación ante desastres después de habilitar la replicación para la máquina virtual.
+
+1. Vaya a la máquina virtual y, en la hoja de la parte izquierda, en "Operaciones", seleccione "Recuperación ante desastres".
+2. Vaya a la hoja "Proceso y red" y haga clic en "Editar" en la parte superior de la página.
+3. Puede ver las opciones para editar varios valores de destino, incluido el grupo con ubicación por proximidad de destino. Elija el grupo con ubicación por proximidad el que desea que se conmute por error la máquina virtual y haga clic en "Guardar".
+
+### <a name="vmware-to-azure-via-portal"></a>VMware a Azure a través del portal
+
+Se puede configurar un grupo con ubicación por proximidad para la máquina virtual de destino después de habilitar la replicación para la máquina virtual. Asegúrese de crear por separado el grupo con ubicación por proximidad en la región de destino según sus necesidades. Posteriormente, puede actualizar fácilmente la selección del grupo con ubicación por proximidad en la región de recuperación ante desastres después de habilitar la replicación para la máquina virtual.
+
+1. Seleccione la máquina virtual del almacén y, en la hoja de la parte izquierda, en "Operaciones", seleccione "Recuperación ante desastres".
+2. Vaya a la hoja "Proceso y red" y haga clic en "Editar" en la parte superior de la página.
+3. Puede ver las opciones para editar varios valores de destino, incluido el grupo con ubicación por proximidad de destino. Elija el grupo con ubicación por proximidad el que desea que se conmute por error la máquina virtual y haga clic en "Guardar".
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Actualización de VMware a Azure del grupo con ubicación por proximidad":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>Hyper-V a Azure a través del portal
+
+Se puede configurar un grupo con ubicación por proximidad para la máquina virtual de destino después de habilitar la replicación para la máquina virtual. Asegúrese de crear por separado el grupo con ubicación por proximidad en la región de destino según sus necesidades. Posteriormente, puede actualizar fácilmente la selección del grupo con ubicación por proximidad en la región de recuperación ante desastres después de habilitar la replicación para la máquina virtual.
+
+1. Seleccione la máquina virtual del almacén y, en la hoja de la parte izquierda, en "Operaciones", seleccione "Recuperación ante desastres".
+2. Vaya a la hoja "Proceso y red" y haga clic en "Editar" en la parte superior de la página.
+3. Puede ver las opciones para editar varios valores de destino, incluido el grupo con ubicación por proximidad de destino. Elija el grupo con ubicación por proximidad el que desea que se conmute por error la máquina virtual y haga clic en "Guardar".
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Actualización de Hyper-V a Azure del grupo con ubicación por proximidad":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>Configuración de la recuperación ante desastres para máquinas virtuales en grupos con ubicación por proximidad a través del PowerShell
+
+### <a name="prerequisites"></a>Requisitos previos 
 
 1. Asegúrese de que tiene del módulo Az de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga esta [Guía para instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 2. La versión mínima de Azure PowerShell Az debe ser 4.1.0. Para comprobar la versión actual, use el siguiente comando:
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configuración de Site Recovery para Virtual Machines en un grupo con ubicación por proximidad
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configuración de Site Recovery para Virtual Machines en un grupo con ubicación por proximidad
 
 > [!NOTE]
 > Asegúrese de que tiene a mano el identificador único del grupo con ubicación por proximidad de destino. Si va a crear un nuevo grupo con ubicación por proximidad, compruebe el comando que se indica [aquí](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) y, si usa un grupo con ubicación por proximidad existente, use el comando que se muestra [aquí](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. Para deshabilitar la replicación, siga [estos](./azure-to-azure-powershell.md#disable-replication) pasos.
 
-### <a name="vmware-to-azure"></a>De VMware a Azure
+### <a name="vmware-to-azure-via-powershell"></a>VMware a Azure a través de PowerShell
 
 1. Asegúrese de [preparar los servidores de VMware locales](./vmware-azure-tutorial-prepare-on-premises.md) para la recuperación ante desastres en Azure.
 2. Inicie sesión en la cuenta y establezca la suscripción como se ha especificado [aquí](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. [Ejecute](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) una conmutación por error de prueba.
 11. Siga [estos](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) pasos para conmutar por error a Azure.
 
-### <a name="hyper-v-to-azure"></a>De Hyper-V a Azure
+### <a name="hyper-v-to-azure-via-powershell"></a>Hyper-V a Azure a través de PowerShell
 
 1. Asegúrese de [preparar los servidores de Hyper-V locales](./hyper-v-prepare-on-premises-tutorial.md) para la recuperación ante desastres en Azure.
 2. [Inicie sesión](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) en Azure.

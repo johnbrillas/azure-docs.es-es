@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518086"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo usar el portal de Azure Purview para registra
 
 ## <a name="create-a-security-group-for-permissions"></a>Creación de un grupo de seguridad de permisos
 
-Para configurar la autenticación, cree un grupo de seguridad y agréguele la identidad administrada del catálogo.
+Para configurar la autenticación, cree un grupo de seguridad y agréguele la identidad administrada de Purview.
 
 1. En [Azure Portal](https://portal.azure.com), busque **Azure Active Directory**.
 1. Cree un grupo de seguridad en Azure Active Directory mediante las indicaciones de [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -35,11 +35,11 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Tipo de grupo de seguridad":::
 
-1. Agregue la identidad administrada del catálogo a este grupo de seguridad. Seleccione **Miembros** y, a continuación, seleccione **+ Agregar miembros**.
+1. Agregue la identidad administrada de Purview a este grupo de seguridad. Seleccione **Miembros** y, a continuación, seleccione **+ Agregar miembros**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Incorporación de la instancia administrada del catálogo al grupo.":::
 
-1. Busque el catálogo y selecciónelo.
+1. Busque la identidad administrada de Purview y selecciónela.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Búsqueda del catálogo para incorporarlo":::
 
@@ -61,14 +61,14 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Imagen en la que se muestra cómo permitir a las entidades de servicio obtener permisos de API de administración de Power BI de solo lectura":::
 
     > [!Caution]
-    > Cuando permite que el grupo de seguridad que ha creado (que tiene como miembro la identidad administrada del catálogo de datos) use las API de administración de Power BI de solo lectura, también le permite acceder a los metadatos (por ejemplo, los nombres de los paneles y los informes, los propietarios, las descripciones, etc.) de todos los artefactos de Power BI de este inquilino. Una vez que los metadatos se han extraído en Azure Purview, los permisos de Purview, no los permisos de Power BI, determinan quién puede ver esos metadatos.
+    > Cuando permite que el grupo de seguridad que ha creado (que tiene como miembro la identidad administrada de Purview) use las API de administración de Power BI de solo lectura, también le permite acceder a los metadatos (por ejemplo, los nombres de los paneles y los informes, los propietarios, las descripciones, etc.) de todos los artefactos de Power BI de este inquilino. Una vez que los metadatos se han extraído en Azure Purview, los permisos de Purview, no los permisos de Power BI, determinan quién puede ver esos metadatos.
 
     > [!Note]
     > Puede quitar el grupo de seguridad de la configuración del desarrollador, pero los metadatos extraídos previamente no se quitarán de la cuenta de Purview. Puede eliminarlo por separado, si quiere.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registro de Power BI y configuración de un examen
 
-Ahora que le han concedido los permisos del catálogo para conectarse a la API de administración de su inquilino de Power BI, puede configurar el examen desde el portal del catálogo.
+Ahora que le han concedido los permisos de identidad administrada de Purview para conectarse a la API de administración de su inquilino de Power BI, puede configurar el examen desde Azure Purview Studio.
 
 En primer lugar, agregue una marca de característica especial a la dirección URL de Purview. 
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538567"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381841"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Configuración y administración de la copia de seguridad continua y la restauración a un momento dado (versión preliminar) con Azure PowerShell
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -50,7 +50,7 @@ En este artículo se explica cómo aprovisionar una cuenta con datos de copia de
 
 Para aprovisionar una cuenta con copia de seguridad continua, agregue un argumento `-BackupPolicyType Continuous` junto con el comando de aprovisionamiento normal.
 
-El siguiente cmdlet es un ejemplo de una cuenta de escritura de una sola región `pitracct2` con una directiva de copia de seguridad continua creada en la región "Oeste de EE. UU." en el grupo de recursos "myrg":
+El siguiente cmdlet es un ejemplo de una cuenta de escritura de una sola región `pitracct2` con una directiva de copia de seguridad continua creada en la región *Oeste de EE. UU.* en el grupo de recursos *myrg*:
 
 ```azurepowershell
 
@@ -65,7 +65,7 @@ New-AzCosmosDBAccount `
 
 ## <a name="provision-a-mongodb-api-account-with-continuous-backup"></a><a id="provision-mongodb-api"></a>Aprovisionamiento de una cuenta de API de MongoDB con copia de seguridad continua
 
-El siguiente cmdlet es un ejemplo de una cuenta de copia de seguridad continua "pitracct2" creada en la región "Oeste de EE. UU." en el grupo de recursos "myrg":
+El siguiente cmdlet es un ejemplo de una cuenta de copia de seguridad continua *pitracct2* creada en la región *Oeste de EE. UU.* en el grupo de recursos *myrg*:
 
 ```azurepowershell
 
@@ -162,13 +162,13 @@ La respuesta incluye todas las cuentas de base de datos (tanto activas como elim
   },
 ```
 
-Al igual que hay elementos "CreationTime" o "DeletionTime" en la cuenta, los hay también en la región. Estas horas permiten elegir la región correcta y un intervalo de tiempo válido para restaurar en esa región.
+Al igual que `CreationTime` o `DeletionTime` para la cuenta, también hay `CreationTime` o `DeletionTime` para la región. Estas horas permiten elegir la región correcta y un intervalo de tiempo válido para restaurar en esa región.
 
 **Enumeración de todas las versiones de bases de datos SQL de una cuenta de base de datos activa**
 
 La enumeración de todas las versiones de bases de datos permite elegir la base de datos correcta en un escenario en el que se desconoce la hora real de existencia de la base de datos.
 
-Ejecute el siguiente comando de PowerShell para enumerar todas las versiones de bases de datos. Este comando solo funciona con cuentas activas. Los parámetros "DatabaseAccountInstanceId" y "LocationName" se obtienen de las propiedades "name" y "location" de la respuesta del cmdlet `Get-AzCosmosDBRestorableDatabaseAccount`. El atributo "DatabaseAccountInstanceId" hace referencia a la propiedad "instanceId" de la cuenta de base de datos de origen que se está restaurando:
+Ejecute el siguiente comando de PowerShell para enumerar todas las versiones de bases de datos. Este comando solo funciona con cuentas activas. Los parámetros `DatabaseAccountInstanceId` y `LocationName` se obtienen de las propiedades `name` y `location` en la respuesta del cmdlet `Get-AzCosmosDBRestorableDatabaseAccount`. El atributo `DatabaseAccountInstanceId` hace referencia a la propiedad `instanceId` de la cuenta de base de datos de origen que se está restaurando:
 
 
 ```azurepowershell
@@ -181,7 +181,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **Enumeración de todas las versiones de contenedores SQL de una base de datos de una cuenta de base de datos activa**
 
-Use el siguiente comando para enumerar todas las versiones de contenedores SQL. Este comando solo funciona con cuentas activas. El parámetro "DatabaseRid" es el elemento "ResourceId" de la base de datos que se quiere restaurar. Es el valor del atributo "ownerResourceid" que se encuentra en la respuesta del cmdlet `Get-AzCosmosdbSqlRestorableDatabase`. La respuesta también incluye una lista de las operaciones realizadas en todos los contenedores de esta base de datos.
+Use el siguiente comando para enumerar todas las versiones de contenedores SQL. Este comando solo funciona con cuentas activas. El parámetro `DatabaseRid` es el elemento `ResourceId` de la base de datos que se quiere restaurar. Es el valor del atributo `ownerResourceid` que se encuentra en la respuesta del cmdlet `Get-AzCosmosdbSqlRestorableDatabase`. La respuesta también incluye una lista de las operaciones realizadas en todos los contenedores de esta base de datos.
 
 ```azurepowershell
 
@@ -208,7 +208,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a name="enumerate-restorable-resources-for-mongodb"></a><a id="enumerate-mongodb-api"></a>Enumeración de los recursos restaurables de MongoDB
 
-Los comandos de enumeración que se describen a continuación ayudan a detectar los recursos que están disponibles para restaurar en varias marcas de tiempo. Además, también proporcionan una fuente de eventos clave en los recursos restaurables de cuenta, base de datos y contenedor. Estos comandos solo funcionan en cuentas activas y son similares a los comandos de la API de SQL, aunque con "MongoDB" en el nombre de comando en lugar de "sql".
+Los comandos de enumeración que se describen a continuación ayudan a detectar los recursos que están disponibles para restaurar en varias marcas de tiempo. Además, también proporcionan una fuente de eventos clave en los recursos restaurables de cuenta, base de datos y contenedor. Estos comandos solo funcionan en cuentas activas y son similares a los comandos de la API de SQL, aunque con `MongoDB` en el nombre de comando en lugar de `sql`.
 
 **Enumeración de todas las versiones de bases de datos MongoDB de una cuenta de base de datos activa**
 

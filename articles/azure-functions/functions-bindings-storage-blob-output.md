@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 953a958d2a21dd9ffda07b208916a5ee01aa505f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: eaa8a4c600864f636d49813d415621d46130fff7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881062"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381669"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Enlace de salida de Azure Blob Storage para Azure Functions
 
@@ -400,7 +400,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Debe establecerse en `out` para un enlace de salida. Las excepciones se indican en la sección [uso](#usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
 |**path** |**BlobPath** | Ruta de acceso al contenedor de blobs. |
-|**connection** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Si usa [la versión 5.x o superior de la extensión](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](./functions-reference.md#connections).|
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

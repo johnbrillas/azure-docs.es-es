@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905543"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517695"
 ---
 # <a name="about-virtual-wan-pricing"></a>Acerca de los precios de Virtual WAN
 
@@ -23,8 +23,7 @@ Azure Virtual WAN ofrece varios servicios de red y seguridad juntos en un marco 
 El precio de cada servicio en Virtual WAN está establecido. Por lo tanto, no se aplica la sugerencia de un precio único a Virtual WAN. La [calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/) proporciona un mecanismo para obtener el costo, que se basa en los servicios aprovisionados en una instancia de Virtual WAN. En este artículo se describen las preguntas más frecuentes sobre los precios de Virtual WAN.
 
 >[!NOTE]
->Para más información sobre los precios actuales, consulte [Precios de Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>Para más información sobre los precios actuales, consulte [Precios de Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). Los cargos entre centros (de centro a centro) no se muestran en la página de precios de Virtual WAN, ya que están sujetos a los cargos interregionales (intra/intercontinentales) [Cargos por transferencia de datos de Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="common-pricing-questions"></a><a name="questions">Preguntas habituales sobre precios</a>
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538767"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393061"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Administración de permisos para restaurar una cuenta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,7 +30,7 @@ El ámbito es un conjunto de recursos con acceso; para obtener más información
 
 ## <a name="assign-roles-for-restore-using-the-azure-portal"></a>Asignación de roles para restaurar mediante Azure Portal
 
-Para realizar una restauración, un usuario o una entidad de seguridad necesita el permiso para restaurar (es decir, permiso "restore/action") y el permiso para aprovisionar una nueva cuenta (es decir, permiso "write").  Para conceder estos permisos, el propietario puede asignar los roles integrados "CosmosRestoreOperator" y "Operador de Cosmos DB" a una entidad de seguridad.
+Para realizar una restauración, un usuario o una entidad de seguridad necesita el permiso para restaurar (es decir, permiso *restore/action*) y el permiso para aprovisionar una nueva cuenta (es decir, permiso *write*).  Para conceder estos permisos, el propietario puede asignar los roles integrados `CosmosRestoreOperator` y `Cosmos DB Operator` a una entidad de seguridad.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -40,7 +40,7 @@ Para realizar una restauración, un usuario o una entidad de seguridad necesita 
 
    :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Asignación de los roles CosmosRestoreOperator y Operador de Cosmos DB." border="true":::
 
-1. Seleccione **Guardar** para conceder el permiso "restore/action".
+1. Seleccione **Guardar** para conceder el permiso *restore/action*.
 
 1. Repita el paso 3 con el rol **Operador de Cosmos DB** para conceder el permiso de escritura. Al asignar este rol desde Azure Portal, se concede el permiso de restauración a toda la suscripción.
 
@@ -52,7 +52,7 @@ Para realizar una restauración, un usuario o una entidad de seguridad necesita 
 |Grupo de recursos | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |Recurso de cuenta restaurable de CosmosDB | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-El recurso de cuenta restaurable se puede extraer de la salida del comando `az cosmosdb restorable-database-account list --name <accountname>` de la CLI o el cmdlet `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` de PowerShell. El atributo name de la salida representa al elemento "instanceID" de la cuenta restaurable. Para obtener más información, vea el artículo de [PowerShell](continuous-backup-restore-powershell.md) o la [CLI](continuous-backup-restore-command-line.md).
+El recurso de cuenta restaurable se puede extraer de la salida del comando `az cosmosdb restorable-database-account list --name <accountname>` de la CLI o el cmdlet `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` de PowerShell. El atributo name de la salida representa al elemento `instanceID` de la cuenta restaurable. Para obtener más información, vea el artículo de [PowerShell](continuous-backup-restore-powershell.md) o la [CLI](continuous-backup-restore-command-line.md).
 
 ## <a name="permissions"></a>Permisos
 
@@ -60,11 +60,11 @@ Los siguientes permisos son necesarios para realizar las distintas actividades r
 
 |Permiso  |Impacto  |Ámbito mínimo  |Ámbito máximo  |
 |---------|---------|---------|---------|
-|Microsoft.Resources/deployments/validate/action, Microsoft.Resources/deployments/write | Estos permisos son necesarios para que la implementación de la plantilla de ARM cree la cuenta restaurada. Vea el permiso de ejemplo [RestorableAction]() siguiente para aprender a establecer este rol. | No aplicable | No aplicable  |
+|`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Estos permisos son necesarios para que la implementación de la plantilla de ARM cree la cuenta restaurada. Vea el permiso de ejemplo [RestorableAction](#custom-restorable-action) siguiente para aprender a establecer este rol. | No aplicable | No aplicable  |
 |Microsoft.DocumentDB/databaseAccounts/write | Este permiso es necesario para restaurar una cuenta en un grupo de recursos. | Grupo de recursos en el que se crea la cuenta restaurada. | Suscripción en la que se crea la cuenta restaurada. |
-|Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action |Este permiso es necesario en el ámbito de la cuenta de base de datos restaurable de origen para permitir la realización de acciones de restauración en él.  | Recurso "RestorableDatabaseAccount" perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad "ID" del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>` | Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito.  |
-|Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read |Este permiso es necesario en el ámbito de la cuenta de base de datos restaurable de origen para indicar las cuentas de base de datos que se pueden restaurar.  | Recurso "RestorableDatabaseAccount" perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad "ID" del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>`| Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito.  |
-|Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read | Este permiso es necesario en el ámbito de la cuenta restaurable de origen para permitir la lectura de recursos restaurables, como listas de bases de datos y contenedores de una cuenta restaurable.  | Recurso "RestorableDatabaseAccount" perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad "ID" del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es `/subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>`| Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito. |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Este permiso es necesario en el ámbito de la cuenta de base de datos restaurable de origen para permitir la realización de acciones de restauración en él.  | Recurso *RestorableDatabaseAccount* perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad `ID` del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* . | Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Este permiso es necesario en el ámbito de la cuenta de base de datos restaurable de origen para indicar las cuentas de base de datos que se pueden restaurar.  | Recurso *RestorableDatabaseAccount* perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad `ID` del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* .| Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito.  |
+|`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Este permiso es necesario en el ámbito de la cuenta restaurable de origen para permitir la lectura de recursos restaurables, como listas de bases de datos y contenedores de una cuenta restaurable.  | Recurso *RestorableDatabaseAccount* perteneciente a la cuenta de origen que se va a restaurar. Este valor también lo proporciona la propiedad `ID` del recurso de cuenta de base de datos restaurable. Un ejemplo de cuenta restaurable es */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* .| Suscripción que contiene la cuenta de base de datos restaurable. No se puede elegir el grupo de recursos como ámbito. |
 
 ## <a name="azure-cli-role-assignment-scenarios-to-restore-at-different-scopes"></a>Escenarios de asignación de roles de la CLI de Azure para restaurar en ámbitos diferentes
 
@@ -82,7 +82,7 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 
 * Asigne una acción de escritura de usuario en el grupo de recursos específico. Esta acción es necesaria para crear una cuenta nueva en el grupo de recursos.
 
-* Asigne el rol integrado "CosmosRestoreOperator" a la cuenta de base de datos restaurable específica que debe restaurarse. En el siguiente comando, el ámbito de "RestorableDatabaseAccount" se recupera de la propiedad "ID" de la salida de `az cosmosdb restorable-database-account` (si se usa la CLI) o `Get-AzCosmosDBRestorableDatabaseAccount` (si se usa PowerShell).
+* Asigne el rol integrado *CosmosRestoreOperator* a la cuenta de base de datos restaurable específica que debe restaurarse. En el siguiente comando, el ámbito de *RestorableDatabaseAccount* se recupera de la propiedad `ID` de la salida de `az cosmosdb restorable-database-account` (si se usa la CLI) o `Get-AzCosmosDBRestorableDatabaseAccount` (si se usa PowerShell).
 
   ```azurecli-interactive
    az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
@@ -91,11 +91,11 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 ### <a name="assign-capability-to-restore-from-any-source-account-in-a-resource-group"></a>Asignación de la capacidad de restaurar desde cualquier cuenta de origen de un grupo de recursos
 Esta operación no se admite actualmente.
 
-## <a name="custom-role-creation-for-restore-action-with-cli"></a>Creación de roles personalizados para la acción de restauración con la CLI
+## <a name="custom-role-creation-for-restore-action-with-cli"></a><a id="custom-restorable-action"></a>Creación de roles personalizados para la acción de restauración con la CLI
 
-El propietario de la suscripción puede proporcionar el permiso para restaurar a cualquier otra identidad de Azure AD. El permiso de restauración se basa en la acción: "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action" y debe incluirse en su permiso de restauración. Hay un rol integrado denominado "CosmosRestoreOperator" que tiene este rol incluido. Puede asignar el permiso mediante este rol integrado o crear uno personalizado.
+El propietario de la suscripción puede proporcionar el permiso para restaurar a cualquier otra identidad de Azure AD. El permiso de restauración se basa en la acción: `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action`, y debe incluirse en el permiso de restauración. Hay un rol integrado denominado *CosmosRestoreOperator* que tiene este rol incluido. Puede asignar el permiso mediante este rol integrado o crear uno personalizado.
 
-El elemento RestorableAction siguiente representa un rol personalizado. Este rol debe crearse de manera explícita. La siguiente plantilla JSON crea un rol personalizado "RestorableAction" con permiso de restauración:
+El elemento RestorableAction siguiente representa un rol personalizado. Este rol debe crearse de manera explícita. La siguiente plantilla JSON crea un rol personalizado *RestorableAction* con permiso de restauración:
 
 ```json
 {

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820609"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516845"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigación de un dispositivo de IoT sospechoso
 
@@ -39,12 +39,12 @@ Para buscar el área de trabajo de Log Analytics para el almacenamiento de datos
 1. Abra IoT Hub.
 1. En **Seguridad**, seleccione **Configuración** y, luego, **Recopilación de datos**.
 1. Cambie los detalles de la configuración del área de trabajo de Log Analytics.
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 Después de la configuración, realice las siguientes operaciones para acceder a los datos almacenados en el área de trabajo de Log Analytics:
 
 1. Seleccione una alerta de Defender para IoT en la instancia de IoT Hub y haga clic en ella.
-1. Haga clic en **Further investigation** (Investigación adicional).
+1. Seleccione **Further investigation** (Investigación adicional).
 1. Seleccione **To see which devices have this alert click here and view the DeviceId column** (Para ver los dispositivos que tienen esta alerta haga clic aquí y vea la columna DeviceId).
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Pasos de la investigación de dispositivos de IoT sospechosos
@@ -55,7 +55,7 @@ Vea las siguientes consultas kql de ejemplo para empezar a investigar alertas y 
 
 ### <a name="related-alerts"></a>Alertas relacionadas
 
-Para averiguar si se desencadenaron otras alertas aproximadamente a la misma hora, utilice la siguiente consulta kql:
+Puede averiguar si se desencadenaron otras alertas aproximadamente a la misma hora mediante la siguiente consulta kql:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,9 +143,9 @@ Para averiguar qué usuarios han iniciado sesión en el dispositivo, use la sigu
 
 Utilice los resultados de la consulta para detectar:
 
-- Qué usuarios han iniciado sesión el dispositivo.
-- Si los usuarios que ha iniciado sesión deben iniciar sesión teóricamente.
-- Si los usuarios que han iniciado sesión se han conectado desde direcciones IP esperadas o inesperadas.
+- ¿Qué usuarios iniciaron sesión en el dispositivo?
+- Los usuarios que iniciaron sesión, ¿se supone que lo han hecho?
+- Los usuarios que iniciaron sesión, ¿se han conectado desde direcciones IP esperadas o inesperadas?
 
 ### <a name="process-list"></a>Lista de procesos
 
@@ -182,7 +182,7 @@ Utilice los resultados de la consulta para detectar:
 
 - Si se ejecutó algún proceso en el dispositivo.
 - Si los procesos los han ejecutado los usuarios adecuados.
-- Si las ejecuciones de la línea de comandos contenían los argumentos correctos y esperados.
+- ¿Contenían las ejecuciones de la línea de comandos los argumentos correctos y esperados?
 
 ## <a name="next-steps"></a>Pasos siguientes
 

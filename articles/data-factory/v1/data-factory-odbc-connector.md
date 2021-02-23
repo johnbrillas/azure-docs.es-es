@@ -1,23 +1,18 @@
 ---
 title: Movimiento de datos desde almacenes de datos de ODBC
 description: Obtenga información sobre cómo mover datos desde almacenes de datos ODBC mediante Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636874"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380107"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Movimiento de datos desde almacenes de datos ODBC mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -47,9 +42,9 @@ Aparte de Data Management Gateway, también debe instalar el controlador ODBC pa
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos desde un almacén de datos ODBC mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar** . Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Visual Studio** , **Azure PowerShell** , una **plantilla de Azure Resource Manager** , la **API de .NET** y **API REST** . Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -205,7 +200,7 @@ En primer lugar, configure la puerta de enlace de administración de datos. Las 
 
 El ejemplo asume que ha creado una tabla, "MyTable", en una base de datos ODBC y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
 
-Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory de que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
 
 ```json
 {
@@ -293,7 +288,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Actividad de copia en una canalización con origen ODBC (RelationalSource) y receptor blob (BlobSink)**
 
-La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink** . La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
 ```json
 {
@@ -357,14 +352,14 @@ Cuando se copian datos desde almacenes de datos relacionales, hay que tener pres
 ## <a name="troubleshoot-connectivity-issues"></a>Solución de problemas de conectividad
 Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
 
-1. Inicie el **Administrador de configuración de Data Management Gateway** . Puede ejecutar C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway** , tal y como se muestra en la imagen siguiente.
+1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 
     ![Buscar puerta de enlace](./media/data-factory-odbc-connector/search-gateway.png)
 2. Cambie a la pestaña **Diagnósticos** .
 
     ![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Seleccione el **tipo** de almacén de datos (el servicio vinculado).
-4. Especifique la **autenticación** y escriba las **credenciales** , o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
+4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
 5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización

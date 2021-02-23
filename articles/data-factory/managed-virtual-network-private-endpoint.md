@@ -1,24 +1,20 @@
 ---
 title: Red virtual administrada y puntos de conexión privados administrados
 description: Obtenga información sobre la red virtual administrada y los puntos de conexión privados administrados en Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980385"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379580"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -51,7 +47,7 @@ Los puntos de conexión privados administrados se crean en la red virtual admini
 
 ![Nuevo punto de conexión privado administrado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS), como Azure Storage, Azure Cosmos DB o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse).
+Azure Data Factory admite vínculos privados. El vínculo privado le permite acceder a servicios de Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
 Cuando se usa un vínculo privado, el tráfico entre los almacenes de datos y la red virtual administrada atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
@@ -86,7 +82,7 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sin incluir Azure SQL Managed Instance)
-- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Servicio Azure Private Link

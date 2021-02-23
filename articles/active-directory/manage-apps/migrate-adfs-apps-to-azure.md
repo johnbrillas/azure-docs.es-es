@@ -1,6 +1,6 @@
 ---
 title: Traslado de la autenticación de las aplicaciones de AD FS a Azure Active Directory
-description: Este artículo tiene como finalidad ayudar a las organizaciones a comprender cómo mover aplicaciones a Azure AD, centrándose en las aplicaciones SaaS federadas.
+description: Este artículo tiene como finalidad ayudar a las organizaciones a comprender cómo mover aplicaciones a Azure Active Directory, centrándose en las aplicaciones SaaS federadas.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,25 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/01/2020
+ms.date: 02/10/2021
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8ad137389ac11a41872190122eae6405a126b5b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258395"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381246"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) ofrece una plataforma de identidad universal que proporciona a los usuarios, asociados y clientes una identidad única para acceder a las aplicaciones y colaborar desde cualquier plataforma y dispositivo. Azure AD tiene un [conjunto completo de funcionalidades de administración de identidades](../fundamentals/active-directory-whatis.md). La estandarización de la autorización y la autenticación de las aplicaciones para Azure AD habilita las ventajas que ofrecen estas funcionalidades.
 
 > [!TIP]
-> Este artículo se ha escrito para desarrolladores. Los jefes de proyecto y los administradores que planean trasladar una aplicación a Azure AD pueden leer las notas del producto (PDF) [Migración de la autenticación de la aplicación a Azure AD](https://aka.ms/migrateapps/whitepaper).
+> Este artículo se ha escrito para desarrolladores. Los jefes de proyecto y los administradores que planean trasladar una aplicación a Azure AD pueden leer nuestro artículo [Migración de la autenticación de la aplicación a Azure AD](migrate-application-authentication-to-azure-active-directory.md).
 
 ## <a name="introduction"></a>Introducción
 
