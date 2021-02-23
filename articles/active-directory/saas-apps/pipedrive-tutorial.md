@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f85cb97406e8b6cbb4811268696fc36f47ec3adb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6f0002f3b8de76bded536c4f434f757c4ac96df6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896555"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pipedrive"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Pipedrive
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar Pipedrive con Azure Active Directory (A
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Pipedrive con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -40,25 +38,23 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Pipedrive admite el inicio de sesión único iniciado por **SP e IDP**.
-* Una vez configurado el inicio de sesión único de Pipedrive, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-
-## <a name="adding-pipedrive-from-the-gallery"></a>Adición de Pipedrive desde la galería
+## <a name="add-pipedrive-from-the-gallery"></a>Adición de Pipedrive desde la galería
 
 Para configurar la integración de Pipedrive en Azure AD, es preciso agregar Pipedrive desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería** , escriba **Pipedrive** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería**, escriba **Pipedrive** en el cuadro de búsqueda.
 1. Seleccione **Pipedrive** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-pipedrive"></a>Configuración y prueba del inicio de sesión único de Azure AD para Pipedrive
+## <a name="configure-and-test-azure-ad-sso-for-pipedrive"></a>Configuración y prueba del inicio de sesión único de Azure AD con Pipedrive
 
 Configure y pruebe el inicio de sesión único de Azure AD con Pipedrive mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Pipedrive.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Pipedrive, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Pipedrive, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -71,21 +67,21 @@ Para configurar y probar el inicio de sesión único de Azure AD con Pipedrive,
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Pipedrive** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de la aplicación **Pipedrive**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp/metadata.xml`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp/metadata.xml`
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp`
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<COMPANY-NAME>.pipedrive.com/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<COMPANY-NAME>.pipedrive.com/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Pipedrive](mailto:support@pipedrive.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -100,11 +96,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ------------ | --------- |
     | email | user.mail |
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (base 64)** y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo; copie también **Dirección URL de metadatos de federación de la aplicación** y guárdela en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (base 64)** y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo; copie también **Dirección URL de metadatos de federación de la aplicación** y guárdela en el equipo.
 
     ![Vínculo de descarga del certificado](./media/pipedrive-tutorial/certificate-data.png)
 
-1. En la sección **Configurar Pipedrive** , copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Pipedrive**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -112,11 +108,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
 
@@ -127,16 +123,10 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Pipedrive**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-pipedrive-sso"></a>Configuración del inicio de sesión único de Pipedrive
 
@@ -144,15 +134,15 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 
 1. Haga clic en **User profile** (Perfil de usuario) y seleccione **Settings** (Configuración).
 
-    ![Captura de pantalla que muestra "Settings" (Configuración) seleccionado en el menú "User Profile" (Perfil de usuario).](./media/pipedrive-tutorial/configure1.png)
+    ![Captura de pantalla que muestra "Settings" (Configuración) seleccionado en el menú "User Profile" (Perfil de usuario).](./media/pipedrive-tutorial/configure-1.png)
 
 1. Desplácese hacia abajo hasta Security Center y seleccione **Single sign-on** (Inicio de sesión único).
 
-    ![Captura de pantalla que muestra "Single sign-on" (Inicio de sesión único) seleccionado en "Security Center".](./media/pipedrive-tutorial/configure2.png)
+    ![Captura de pantalla que muestra "Single sign-on" (Inicio de sesión único) seleccionado en "Security Center".](./media/pipedrive-tutorial/configure-2.png)
 
 1. En la sección **SAML configuration for Pipedrive** (Configuración de SAML para Pipedrive), siga estos pasos:
 
-    ![Captura de pantalla que muestra la sección "S A M L configuration for Pipedrive" (Configuración de S A M L para Pipedrive) con todos los cuadros de texto resaltados.](./media/pipedrive-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la sección "S A M L configuration for Pipedrive" (Configuración de S A M L para Pipedrive) con todos los cuadros de texto resaltados.](./media/pipedrive-tutorial/configure-3.png)
 
     a. En el cuadro de texto **Issuer** (Emisor), pegue el valor de **Dirección URL de metadatos de federación de aplicación** que copió de Azure Portal.
 
@@ -168,17 +158,17 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 
 1. Desplácese hacia abajo hasta empresa y seleccione **Manage users** (Administrar usuarios).
 
-    ![Captura de pantalla que muestra "Manage users" (Administrar usuarios) seleccionado en el menú "Company" (Empresa).](./media/pipedrive-tutorial/user1.png)
+    ![Captura de pantalla que muestra "Manage users" (Administrar usuarios) seleccionado en el menú "Company" (Empresa).](./media/pipedrive-tutorial/user-1.png)
 
 1. Haga clic en **Add users** (Agregar usuarios).
     
-    ![Captura de pantalla que muestra la página "Manage users" (Administrar usuarios) con el botón "Add users" (Agregar usuarios) seleccionado en el lado derecho.](./media/pipedrive-tutorial/user2.png)
+    ![Captura de pantalla que muestra la página "Manage users" (Administrar usuarios) con el botón "Add users" (Agregar usuarios) seleccionado en el lado derecho.](./media/pipedrive-tutorial/user-2.png)
 
 1. En la sección **Manage users** (Administrar usuarios), realice los siguientes pasos:
 
-    ![Configuración de Pipedrive](./media/pipedrive-tutorial/user3.png)
+    ![Configuración de Pipedrive](./media/pipedrive-tutorial/user-3.png)
 
-    a. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico del usuario, en este caso, `B.Simon@contoso.com`.
+    a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico del usuario, en este caso, `B.Simon@contoso.com`.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario.
 
@@ -188,18 +178,21 @@ En esta sección, va a permitir que B.Simon acceda a Pipedrive mediante el inici
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Pipedrive en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Pipedrive para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-## <a name="additional-resources"></a>Recursos adicionales
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Pipedrive, donde puede poner en marcha el flujo de inicio de sesión.  
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Pipedrive y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [Prueba de Pipedrive con Azure AD](https://aad.portal.azure.com/)
+* Haga clic en **Probar esta aplicación** en Azure Portal y debería iniciar sesión automáticamente en la instancia de Pipedrive para la que configuró el inicio de sesión único. 
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Pipedrive en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Pipedrive para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Pipedrive, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

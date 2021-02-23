@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491026"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545826"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Uso de valores con nombre en las directivas de Azure API Management
 
@@ -86,6 +86,8 @@ Consulte [Requisitos previos para la integración de un almacén de claves](#pre
 
 ### <a name="add-a-plain-or-secret-value"></a>Adición de un valor normal o secreto
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Vaya a la instancia de API Management en [Azure Portal](https://portal.azure.com).
 1. En **API**, seleccione **Calores con nombre** >  **+Agregar**.
 1. Escriba un identificador de **Nombre** y escriba un **Nombre para mostrar** que se use para hacer referencia a la propiedad en las directivas.
@@ -95,6 +97,50 @@ Consulte [Requisitos previos para la integración de un almacén de claves](#pre
 1. Seleccione **Crear**.
 
 Una vez creado el valor con nombre, selecciónelo para editarlo. Si cambia el nombre para mostrar, las directivas que hagan referencia a ese valor con nombre se actualizarán automáticamente para utilizar el nuevo nombre para mostrar.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para empezar a usar la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para agregar un valor con nombre, use el comando [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create):
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+Una vez creado un valor con nombre, puede actualizarlo mediante el comando [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update). Para ver todos los valores con nombre, ejecute el comando [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list):
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Para ver los detalles del valor con nombre que creó en este ejemplo, ejecute el comando [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show):
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Este ejemplo es un valor secreto. El comando anterior no devuelve el valor. Para ver el valor, ejecute el comando [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret):
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Para eliminar un valor con nombre, use el comando [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete):
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
 
 ## <a name="use-a-named-value"></a>Uso de un valor con nombre
 

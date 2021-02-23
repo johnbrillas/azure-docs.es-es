@@ -1,17 +1,17 @@
 ---
 title: 'Arquitectura de conectividad en Azure Database for PostgreSQL: servidor único'
 description: 'Describe la arquitectura de conectividad de la instancia de Azure Database for PostgreSQL: servidor único.'
-author: mksuni
-ms.author: sumuth
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 2/11/2021
+ms.openlocfilehash: 97778951777677ce02adec59d906c1246494457a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877686"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369414"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -49,14 +49,14 @@ En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de
 | Sur de Brasil |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Centro de Canadá |40.85.224.249  | | |
 | Este de Canadá | 40.86.226.166    | | |
-| Centro de EE. UU. | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
+| Centro de EE. UU. | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
 | Este de China | 139.219.130.35    | | |
 | Este de China 2 | 40.73.82.1  | | |
 | Norte de China | 139.219.15.17    | | |
 | Norte de China 2 | 40.73.50.0     | | |
 | Este de Asia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     | | |
 | Este de EE. UU. |40.71.8.203, 40.71.83.113 |40.121.158.30|191.238.6.43 |
-| Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  | | |
+| Este de EE. UU. 2 | 40.70.144.38, 52.167.105.38  | 52.177.185.181 | |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  | | |
 | Sur de Francia | 40.79.177.0     | | |
 | Centro de Alemania | 51.4.144.100     | | |
@@ -64,22 +64,22 @@ En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de
 | India central | 104.211.96.159     | | |
 | Sur de India | 104.211.224.146  | | |
 | India occidental | 104.211.160.80    | | |
-| Japón Oriental | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
-| Japón Occidental | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    | | |
-| Centro de Corea del Sur | 52.231.32.42   | | |
-| Corea del Sur | 52.231.200.86    | | |
-| Centro-Norte de EE. UU | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    | | |
-| Norte de Europa | 52.138.224.6, 52.138.224.7  |40.113.93.91 |191.235.193.75 |
+| Japón Oriental | 40.79.192.23 | 13.78.61.196 | |
+| Japón Occidental | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
+| Centro de Corea del Sur | 52.231.17.13   | 52.231.32.42 | |
+| Corea del Sur | 52.231.145.3     | 52.231.200.86 | |
+| Centro-Norte de EE. UU | 52.162.104.35, 52.162.104.36    | 23.96.178.199 | |
+| Norte de Europa | 52.138.224.6, 52.138.224.7  | 40.113.93.91 |191.235.193.75 |
 | Norte de Sudáfrica  | 102.133.152.0    | | |
 | Oeste de Sudáfrica | 102.133.24.0   | | |
 | Centro-sur de EE. UU. |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
-| Sudeste de Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     | | |
+| Sudeste de Asia | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  | | |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    | | |
-| Sur de Reino Unido | 51.140.184.11   | | |
+| Sur de Reino Unido 2 | 51.140.184.11   | | |
 | Oeste de Reino Unido | 51.141.8.11  | | |
 | Centro-Oeste de EE. UU. | 13.78.145.25     | | |
-| Oeste de Europa |13.69.105.208,104.40.169.187 |40.68.37.158 | 191.237.232.75|
+| Oeste de Europa |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | Oeste de EE. UU. |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | Oeste de EE. UU. 2 | 13.66.226.202  | | |
 ||||

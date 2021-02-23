@@ -2,21 +2,21 @@
 title: Extensión del script personalizado para Windows
 description: Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado
 services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
+manager: gwallace
+author: amjads1
 ms.service: virtual-machines-windows
 ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
-ms.author: robreed
-ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: amjads
+ms.openlocfilehash: d06be4efae895cfe6903be4451f892660ce689f3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390137"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -32,6 +32,7 @@ En este documento se detalla cómo usar la extensión de script personalizado me
 ### <a name="operating-system"></a>Sistema operativo
 
 La extensión de script personalizado para Windows se ejecutará en los sistemas operativos admitidos de la extensión.
+
 ### <a name="windows"></a>Windows
 
 * Windows Server 2008 R2
@@ -67,7 +68,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite abrir pu
 * La extensión solo ejecutará un script una vez. Si quiere ejecutar un script en cada inicio, debe usar la extensión para crear una tarea programada de Windows.
 * Si quiere programar cuándo se ejecutará un script, debe usar la extensión para crear una tarea programada de Windows.
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
-* La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*.
+* La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Invoke-WebRequest*.
 * Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlar esta situación.
 * La extensión de script personalizado se ejecutará con la cuenta LocalSystem
 * Si planea usar las propiedades *storageAccountName* y *storageAccountKey*, deben colocarse en *protectedSettings*.

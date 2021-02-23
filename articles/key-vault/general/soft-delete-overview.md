@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257953"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526670"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
 > [!IMPORTANT]
 > Debe habilitar inmediatamente la eliminación temporal en los almacenes de claves. la posibilidad de rechazar la eliminación temporal pronto estará en desuso. Consulte los detalles completos [aquí](soft-delete-change.md).
+
+> [!IMPORTANT]
+> Los desencadenadores de almacén eliminados temporalmente eliminan la configuración de la integración con los servicios de Key Vault, es decir, las asignaciones de roles RBAC, las suscripciones de Event Grid y la configuración de diagnóstico de Azure Monitor. Una vez recuperada la configuración de Key Vault eliminada temporalmente para la integración, los servicios deberán volver a crearse manualmente. 
 
 La característica de eliminación temporal de Key Vault permite la recuperación de los almacenes y los objetos de Key Vault eliminados (por ejemplo, claves, secretos, certificados), lo que se conoce como eliminación temporal. En concreto, se tratan los siguientes escenarios:  Las protecciones que se ofrecen son las siguientes:
 
@@ -27,7 +30,7 @@ La característica de eliminación temporal de Key Vault permite la recuperació
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
-La característica de eliminación temporal está disponible mediante las interfaces de [API REST](/rest/api/keyvault/), la [CLI de Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md) y [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet), así como de las [plantillas de Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La característica de eliminación temporal está disponible mediante las interfaces de [API REST](/rest/api/keyvault/), la [CLI de Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md) y [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true), así como de las [plantillas de Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Escenarios
 

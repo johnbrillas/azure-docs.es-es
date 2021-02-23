@@ -7,7 +7,7 @@
     - name: Comparación de los servicios de mensajería
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: "Uso de Service Bus con Java Message Service (JMS)\_2.0 (versión preliminar)"
+    - name: "Uso de Service Bus con Java Message Service (JMS)\_2.0"
       href: how-to-use-java-message-service-20.md
 - name: Guías de inicio rápido
   items:
@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -48,7 +48,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Conceptos
   items:
+    - name: 'Colas, temas y suscripciones'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Filtros y acciones de temas
+      href: topic-filters.md
     - name: Mensajería premium
       href: service-bus-premium-messaging.md
     - name: Comparación de colas de Azure con colas de Service Bus
@@ -158,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Desarrollar
       items:
+        - name: Establecimiento de acciones y filtros de suscripción
+          href: service-bus-filter-examples.md
         - name: Administración de mensajes
           items:
             - name: 'Colas, temas y suscripciones'
               href: service-bus-queues-topics-subscriptions.md
-            - name: "Entidades de Java Message Service (JMS)\_2.0 (versión preliminar)"
+            - name: "Entidades de Java Message Service (JMS)\_2.0"
               href: java-message-service-20-entities.md
+            - name: Guía de desarrolladores de Java Message Service (JMS).md
+              href: jms-developer-guide.md
             - name: 'Mensajes, cargas y serialización'
               href: service-bus-messages-payloads.md
             - name: 'Transferencias, bloqueos y liquidación de mensajes'
@@ -172,8 +180,6 @@
               href: message-sequencing.md
             - name: Expiración de mensajes (período de vida)
               href: message-expiration.md
-        - name: Filtros y acciones de temas
-          href: topic-filters.md
         - name: Migración de espacios de nombres de Estándar a Premium
           href: service-bus-migrate-standard-premium.md
         - name: Temas y colas con particiones

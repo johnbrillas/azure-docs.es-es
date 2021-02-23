@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355773"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557832"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -27,9 +27,9 @@ En este artículo se describe el registro de la aplicación, los objetos de apli
 ## <a name="application-registration"></a>Registro de la aplicación
 Para permitir la delegación de las funciones de administración de identidades y acceso a Azure AD, la aplicación debe registrarse con un [inquilino](developer-glossary.md#tenant) de Azure AD. Cuando registra una aplicación con Azure AD, crea una configuración de identidad para la aplicación, lo que permite integrarla con Azure AD. Cuando registra una aplicación en [Azure Portal][AZURE-Portal], elige si es de un solo inquilino (solo accesible en el inquilino) o multiinquilino (accesible en otros inquilinos) y, opcionalmente, puede establecer un identificador URI de redirección (al que se envía el token de acceso).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Captura de pantalla del panel Registrar una aplicación de Azure Portal":::
+Puede encontrar instrucciones paso a paso sobre cómo registrar una aplicación en el [inicio rápido del registro de aplicaciones](quickstart-register-app.md).
 
-Una vez completado el registro de la aplicación, tiene una instancia globalmente única de la aplicación (el objeto de aplicación) que reside en su directorio o inquilino principal.  También tiene un identificador único global para la aplicación (el identificador de la aplicación o del cliente).  En el portal, puede entonces agregar secretos o certificados y ámbitos para que la aplicación funcione, personalizar la marca de la aplicación en el cuadro de diálogo de inicio de sesión y mucho más.
+Una vez completado el registro de la aplicación, tiene una instancia globalmente única de la aplicación (el [objeto de aplicación](#application-object)) que reside en su directorio o inquilino principal.  También tiene un identificador único global para la aplicación (el identificador de la aplicación o del cliente).  En el portal, puede entonces agregar secretos o certificados y ámbitos para que la aplicación funcione, personalizar la marca de la aplicación en el cuadro de diálogo de inicio de sesión y mucho más.
 
 Al registrar una aplicación en Azure Portal, se crean automáticamente un objeto de aplicación y un objeto de entidad de servicio en su inquilino principal.  Si registra o crea una aplicación mediante las API de Microsoft Graph, la creación del objeto de entidad de servicio se hace en un paso independiente.
 

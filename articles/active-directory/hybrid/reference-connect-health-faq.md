@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299772"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368003"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -29,7 +29,7 @@ Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure 
 ## <a name="general-questions"></a>Preguntas generales
 **P: Administro varios directorios de Azure AD. ¿Cómo puedo cambiar al que tiene Azure Active Directory Premium?**
 
-Para cambiar entre distintos inquilinos de Azure AD, seleccione el **nombre de usuario** que actualmente ha iniciado sesión en la esquina superior derecha y luego elija la cuenta adecuada. Si la cuenta no aparece aquí, seleccione **Cerrar sesión** y luego use las credenciales de administrador global del directorio que tiene Azure Active Directory Premium habilitado para iniciar sesión.
+Para cambiar entre distintos inquilinos de Azure AD, seleccione el **nombre de usuario** que actualmente ha iniciado sesión en la esquina superior derecha y luego elija la cuenta adecuada. Si la cuenta no aparece aquí, seleccione **Cerrar sesión** y luego use las credenciales de administrador global del directorio que tiene Azure Active Directory Premium (P1 o P2) habilitado para iniciar sesión.
 
 **P: ¿Qué versión de los roles de identidad es compatible con Azure AD Connect Health?**
 
@@ -47,8 +47,8 @@ Tenga en cuenta que las características proporcionadas por el servicio pueden d
 
 **P: ¿Cuántas licencias necesito para supervisar mi infraestructura?**
 
-* El primer Agente de Connect Health requiere al menos una licencia Premium de Azure AD.
-* Cada agente adicional registrado requiere otras 25 licencias Premium de Azure AD.
+* El primer Agente de Connect Health requiere al menos una licencia de Azure AD Premium (P1 o P2).
+* Cada agente adicional registrado requiere 25 licencias adicionales de Azure AD Premium (P1 o P2).
 * El número de agentes es equivalente al número total de agentes registrados en todos los roles supervisados (AD FS, Azure AD Connect o AD DS).
 * La licencia de AAD Connect Health no requiere asignar la licencia a usuarios específicos. Solo debe tener el número necesario de licencias válidas.
 

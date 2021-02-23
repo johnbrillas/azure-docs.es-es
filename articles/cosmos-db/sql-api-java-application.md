@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b3cb6bf56820da84d17f0b981f461a545bbe5ab6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: d39c1d8c3ac60dda62556b1a8da0dfe29e3c1ee3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383626"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Este tutorial de aplicación Java muestra cómo crear una aplicación de adminis
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Aplicación Java My ToDo List":::
 
 > [!TIP]
-> En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las [herramientas de requisitos previos](#Prerequisites), se recomienda que descargue el proyecto completo [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) de GitHub y lo compile mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.  
+> En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las [herramientas de los requisitos previos](#Prerequisites), se recomienda descargar el proyecto de lista de tareas pendientes completo https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) desde GitHub y compilarlo según [las instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.  
 >
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
@@ -110,15 +110,15 @@ La manera más sencilla de insertar el SDK de Java para SQL y sus dependencias e
    
    * En el cuadro **Id. de grupode**, escriba `com.azure`.
    * En el cuadro **Id. de artefacto**, escriba `azure-cosmos`.
-   * En el cuadro **Versión**, escriba `4.0.1-beta.1`.
+   * En el cuadro **Versión**, escriba `4.11.0`.
   
    O bien, puede agregar el XML de dependencia para el identificador de grupo y el identificador de artefacto directamente al archivo *pom.xml*:
 
    ```xml
    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-cosmos</artifactId>
-      <version>4.0.1-beta.1</version>
+     <groupId>com.azure</groupId>
+     <artifactId>azure-cosmos</artifactId>
+     <version>4.11.0</version>
    </dependency>
    ```
 
@@ -132,7 +132,7 @@ Ahora vamos a agregar los modelos, las vistas y los controladores a la aplicaci�
 
 En primer lugar, vamos a definir un modelo en un nuevo archivo *TodoItem. Java*. La clase `TodoItem` define el esquema de un elemento junto con los métodos Getter y Setter:
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/model/TodoItem.java":::
 
 ### <a name="add-the-data-access-objectdao-classes"></a>Incorporación de clases de objetos de acceso a datos (DAO)
 
@@ -140,37 +140,37 @@ Cree un objeto de acceso a datos (DAO) para abstraer la conservación de los ele
 
 1. Para invocar el servicio Azure Cosmos DB, debe crear una nueva instancia del objeto `cosmosClient`. En general, es mejor volver a utilizar el objeto `cosmosClient`, en lugar de construir un nuevo cliente para cada solicitud posterior. Puede volver a usar el cliente si lo define dentro de la clase `cosmosClientFactory`. Actualice el HOST y los valores de MASTER_KEY que guardó en el [paso 1](#CreateDB). Reemplace la variable HOST por el URI y reemplace el valor de MASTER_KEY por la clave principal. Use el código siguiente para crear la clase `CosmosClientFactory` en el archivo *CosmosClientFactory.java*:
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/CosmosClientFactory.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/CosmosClientFactory.java":::
 
 1. Cree un nuevo archivo *TodoDao.java* y agregue la clase `TodoDao` para crear, actualizar, leer y eliminar los elementos de la lista de tareas:
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/TodoDao.java":::
 
 1. Cree un nuevo archivo *MockDao.java* y agregue la clase `MockDao`, esta clase implementa la clase `TodoDao` para realizar operaciones CRUD en los elementos:
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/MockDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/MockDao.java":::
 
 1. Cree un nuevo archivo *DocDbDao.java* y agregue la clase `DocDbDao`. Esta clase define el código para conservar los elementos de TodoItems en el contenedor, recupera la base de datos y la colección, si existe, o las crean en caso contrario. En este ejemplo se usa [Gson](https://code.google.com/p/google-gson/) para serializar y deserializar los objetos de Java antiguos sin formato de la tabla TodoItem (POJO) en los documentos JSON. Para guardar los elementos ToDo en una colección, el cliente necesitará saber en qué base de datos y colección se conservarán (como se hace referencia por los self-links). Esta clase también define la función auxiliar para recuperar los documentos por otro atributo (por ejemplo, "ID") en lugar de Self-Link. Podemos usar el método auxiliar para recuperar un documento JSON de TodoItem por identificador y deserializarlo en un objeto de Java antiguo sin formato de la tabla TodoItem.
 
    También puede utilizar el objeto cliente `cosmosClient` para obtener una colección o lista de TodoItems con una consulta SQL. Por último, defina el método Delete para eliminar un elemento TodoItem de la lista. El siguiente código muestra el contenido de la clase `DocDbDao`:
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/DocDbDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/DocDbDao.java":::
 
 1. A continuación, cree un nuevo archivo *TodoDaoFactory.java* y agregue la clase `TodoDaoFactory` que crea un nuevo objeto DocDbDao:
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDaoFactory.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/TodoDaoFactory.java":::
 
 ### <a name="add-a-controller"></a>Adición de un controlador
 
 Agregue el controlador *TodoItemController* a la aplicación. En este proyecto, va a usar [Project Lombok](https://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere:
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/controller/TodoItemController.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/controller/TodoItemController.java":::
 
 ### <a name="create-a-servlet"></a>Creación de un servlet
 
 A continuación, cree un servlet para enrutar las solicitudes HTTP al controlador. Cree el archivo *ApiServlet.java* y defina el código siguiente en él:
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/ApiServlet.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/ApiServlet.java":::
 
 ## <a name="wire-the-rest-of-the-of-java-app-together"></a><a id="Wire"></a>Conexión del resto de la aplicación de Java
 
@@ -194,17 +194,17 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
 
 1. En la ventana **Exportar WAR** , haga lo siguiente:
    
-   * En el cuadro Proyecto web, escriba azure-documentdb-java-sample.
+   * En el cuadro Proyecto web, escriba azure-cosmos-java-sample.
    * En el cuadro de destino, seleccione un destino para guardar el archivo WAR.
    * Haga clic en **Finalizar**
 
 1. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service/quickstart-java.md). Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
 
-1. Para ver el producto finalizado, vaya a `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` y empiece a agregar sus tareas.
+1. Para ver el producto finalizado, vaya a `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-cosmos-java-sample/` y empiece a agregar sus tareas.
 
 ## <a name="get-the-project-from-github"></a><a id="GetProject"></a>Obtenga el proyecto desde GitHub
 
-Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
+Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
 
 1. Instale [Project Lombok](https://projectlombok.org/). Lombok se utiliza para generar constructores, captadores y establecedores en el proyecto. Una vez haya descargado el archivo lombok.jar, haga doble clic en él para instalarlo o instálelo desde la línea de comandos.
 
@@ -216,7 +216,7 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 
 1. En la pantalla **Select Repository Source** (Seleccionar origen del repositorio), haga clic en **Clone URI** (Clonar URI).
 
-1. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI**, escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente**.
+1. En la pantalla **Source Git Repository** (Repositorio GIT de origen), en el cuadro **URI**, escriba https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app y, a continuación, haga clic en **Siguiente**.
 
 1. En la pantalla **Branch Selection** (Selección de rama), asegúrese de que se ha seleccionado **main** (principal) y haga clic en **Next** (Siguiente).
 
@@ -226,9 +226,9 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 
 1. En la pantalla **Import Projects** (Proyectos de importación), anule la selección del proyecto **DocumentDB** y luego haga clic en **Finish** (Finalizar). El proyecto DocumentDB contiene el SDK de Java de Azure Cosmos DB, que se agregará como dependencia.
 
-1. En **explorador de proyectos**, vaya a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java y reemplace los valores HOST y MASTER_KEY por los de URI y PRIMARY KEY de la cuenta de Azure Cosmos DB y luego guarde el archivo. Para obtener más información, consulte el [paso 1. Cree una cuenta de base de datos de Azure Cosmos](#CreateDB).
+1. En **Project Explorer** (Explorador de proyectos), vaya a azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java y reemplace los valores de HOST y MASTER_KEY por el identificador URI y la CLAVE PRINCIPAL de la cuenta de Azure Cosmos DB y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Cree una cuenta de base de datos de Azure Cosmos](#CreateDB).
 
-1. En **Project Explorer** (Explorador de proyectos), haga clic con el botón derecho en **azure-documentdb-java-sample**, haga clic en **Build Path** (Ruta de acceso de compilación) y luego haga clic en **Configure Build Path** (Configurar ruta de acceso de compilación).
+1. En **Project Explorer** (Explorador de proyectos), haga clic con el botón derecho en **azure-cosmos-java-sample**, haga clic en **Build Path** (Ruta de acceso de compilación) y luego haga clic en **Configure Build Path** (Configurar ruta de acceso de compilación).
 
 1. En la pantalla **Java Build Path** (Ruta de compilación de Java), en el panel derecho, seleccione la pestaña **Bibliotecas** y luego haga clic en **Add External JARs** (Agregar JAR externos). Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar**.
 
@@ -242,11 +242,11 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 
 1. En la ficha **Servidores** en la parte inferior de la pantalla, haga clic con el botón derecho en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Add and Remove** (Agregar y quitar).
 
-1. En la ventana **Agregar y quitar**, mueva **azure-documentdb-java-sample** al cuadro **Configurado** y luego haga clic en **Finalizar**.
+1. En la ventana **Add and Remove** (Agregar y quitar), mueva **azure-cosmos-java-sample** al cuadro **Configured** (Configurado) y, a continuación, haga clic en **Finish** (Finalizar).
 
 1. En la pestaña **Servidor**, haga clic en **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server en localhost) y luego haga clic en **Reiniciar**.
 
-1. En un explorador, vaya a `http://localhost:8080/azure-documentdb-java-sample/` y empiece a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
+1. En un explorador, vaya a `http://localhost:8080/azure-cosmos-java-sample/` y empiece a agregar a la lista de tareas. Tenga en cuenta que si ha cambiado los valores de puerto predeterminados, debe cambiar 8080 por el valor seleccionado.
 
 1. Para implementar el proyecto en un sitio web de Azure, consulte el [paso 6. Implementación de la aplicación para Azure WebSites](#Deploy).
 

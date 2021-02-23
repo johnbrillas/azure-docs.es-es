@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683451"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367578"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -22,7 +22,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso
 
--   [Activar encabezado HTTP](#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.
+-   [Activar encabezado HTTP](#CheckHTTPHeader): aplica la existencia o el valor de un encabezado HTTP.
 -   [Limitar la frecuencia de llamadas por suscripción](#LimitCallRate) : evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
 -   [Limitar la frecuencia de llamadas por clave](#LimitCallRateByKey) : evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
 -   [Restringir IP de autor de llamada](#RestrictCallerIPs) : filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
@@ -80,7 +80,7 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción
 
-La directiva `rate-limit` evita los picos de uso de la API según suscripción limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
+La directiva `rate-limit` evita los picos de uso de la API según suscripción limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. Cuando se supera la tasa de llamadas, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
 
 > [!IMPORTANT]
 > Esta directiva se puede usar una sola vez por documento de directiva.
@@ -98,18 +98,25 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### <a name="example"></a>Ejemplo
 
+En el ejemplo siguiente, el límite de tasa por suscripción es de 20 llamadas por 90 segundos. Después de cada ejecución de directiva, las llamadas restantes permitidas en el período de tiempo se almacenan en la variable `remainingCallsPerSubscription`.
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -131,7 +138,12 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nombre de la API a la que se va a aplicar un límite de tasa.                                                | Sí      | N/D     |
 | calls          | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
-| renewal-period | Período de tiempo en segundos tras el cual se restablece la cuota.                                              | Sí      | N/D     |
+| renewal-period | Período de tiempo en segundos tras el cual se restablece la tasa.                                              | Sí      | N/D     |
+| retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
+| retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
+| remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
+| remaining-calls-variable-name    | Nombre de una variable de expresión de directiva que después de cada ejecución de directiva almacena el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
+| total-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor es el valor especificado en `calls`. |  No | N/D  |
 
 ### <a name="usage"></a>Uso
 
@@ -146,7 +158,7 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 > [!IMPORTANT]
 > Esta característica no está disponible en el nivel **Consumo** de API Management.
 
-La directiva `rate-limit-by-key` evita los picos de uso de la API según clave limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se deben contar para este límite. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
+La directiva `rate-limit-by-key` evita los picos de uso de la API según clave limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se deben contar para este límite. Cuando se supera la tasa de llamadas, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
 
 Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -162,13 +174,16 @@ Para obtener más información y ver ejemplos de esta directiva, consulte [Limit
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente, la clave del límite de velocidad se establece según la dirección IP del autor de la llamada.
+En el ejemplo siguiente, El límite de tasa de 10 llamadas por 60 segundos se establece según la dirección IP del autor de la llamada. Después de cada ejecución de directiva, las llamadas restantes permitidas en el período de tiempo se almacenan en la variable `remainingCallsPerIP`.
 
 ```xml
 <policies>
@@ -177,7 +192,8 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -197,8 +213,13 @@ En el ejemplo siguiente, la clave del límite de velocidad se establece según l
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | Número total máximo de llamadas permitidas durante el intervalo de tiempo especificado en `renewal-period`. | Sí      | N/D     |
 | counter-key         | Clave que se usa para la directiva de límite de tasa.                                                             | Sí      | N/D     |
-| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).        | No       | N/D     |
-| renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota.                                              | Sí      | N/D     |
+| increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la tasa (`true`).        | No       | N/D     |
+| renewal-period      | Período de tiempo en segundos tras el cual se restablece la tasa.                                              | Sí      | N/D     |
+| retry-after-header-name    | Nombre de un encabezado de respuesta cuyo valor es el intervalo de reintento recomendado en segundos, después de que se supere la tasa de llamadas especificada. |  No | N/D  |
+| retry-after-variable-name    | Nombre de una variable de expresión de directiva que almacena el intervalo de reintento recomendado en segundos después de que se supere la tasa de llamadas especificada. |  No | N/D  |
+| remaining-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor después de cada ejecución de directiva es el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
+| remaining-calls-variable-name    | Nombre de una variable de expresión de directiva que después de cada ejecución de directiva almacena el número de llamadas restantes permitidas para el intervalo de tiempo especificado en `renewal-period`. |  No | N/D  |
+| total-calls-header-name    | Nombre de un encabezado de respuesta cuyo valor es el valor especificado en `calls`. |  No | N/D  |
 
 ### <a name="usage"></a>Uso
 
@@ -319,7 +340,7 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 > [!IMPORTANT]
 > Esta característica no está disponible en el nivel **Consumo** de API Management.
 
-La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se alcanza el límite de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
+La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se supera la tasa de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
 
 Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](./api-management-sample-flexible-throttling.md).
 

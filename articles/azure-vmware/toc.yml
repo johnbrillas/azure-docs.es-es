@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: Guías paso a paso
   items:
-    - name: Habilitación de Azure VMware Solution
+    - name: Solicitud de la cuota del host y habilitación de Azure VMware Solution
       href: enable-azure-vmware-solution.md
     - name: Ahorro de costos con una instancia reservada
       href: reserved-instance.md

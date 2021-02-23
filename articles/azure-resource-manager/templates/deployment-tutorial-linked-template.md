@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Implementación de una plantilla vinculada'
 description: Aprenda a implementar una plantilla vinculada.
-ms.date: 01/12/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 4ec49fad35e958f010461abf2ee0e3dab8077d55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8f2bbd327adca6eef62d5e79f422f61d460ea7a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134201"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589284"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementación de una plantilla vinculada
 
-En los [tutoriales anteriores](./deployment-tutorial-local-template.md), aprendió a implementar una plantilla que está almacenada en la máquina local. Para implementar soluciones complejas, puede dividir una plantilla en muchas plantillas y, a continuación, implementar estas mediante una plantilla principal. En este tutorial, aprenderá a implementar una plantilla principal que contiene la referencia a una plantilla vinculada. Cuando se implementa la plantilla principal, se desencadena la implementación de la plantilla vinculada. También aprenderá a almacenar y proteger la plantilla vinculada mediante el token de SAS. Su tiempo de realización es de unos **12 minutos**.
+En los [tutoriales anteriores](./deployment-tutorial-local-template.md), aprendió a implementar una plantilla que está almacenada en la máquina local. Para implementar soluciones complejas, puede dividir una plantilla en muchas plantillas y, a continuación, implementar estas mediante una plantilla principal. En este tutorial, aprenderá a implementar una plantilla principal que contiene la referencia a una plantilla vinculada. Cuando se implementa la plantilla principal, se desencadena la implementación de la plantilla vinculada. También aprenderá a almacenar y proteger las plantillas mediante el token de SAS. Su tiempo de realización es de unos **12 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -32,15 +32,18 @@ Puede separar el recurso de la cuenta de almacenamiento en una plantilla vincula
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-La siguiente plantilla es la plantilla principal. El objeto resaltado `Microsoft.Resources/deployments` muestra cómo llamar a una plantilla vinculada. La plantilla vinculada no se puede almacenar como un archivo local o un archivo que solo está disponible en la red local. Solo se puede proporcionar un valor de URI que incluya HTTP o HTTPS. Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento. El URI se pasa a la plantilla mediante un parámetro. Consulte la definición del parámetro resaltado.
+La siguiente plantilla es la plantilla principal. El objeto resaltado `Microsoft.Resources/deployments` muestra cómo llamar a una plantilla vinculada. La plantilla vinculada no se puede almacenar como un archivo local o un archivo que solo está disponible en la red local. Puede proporcionar un valor de URI de la plantilla vinculada que incluya HTTP o HTTPS, o bien usar la propiedad _relativePath_ para implementar una plantilla vinculada remota en una ubicación relativa a la plantilla primaria. Una opción es colocar la plantilla principal y la plantilla vinculada en una cuenta de almacenamiento.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
-
-Guarde una copia de la plantilla principal en el equipo local con la extensión _.json_, por ejemplo, _azuredeploy.json_. No es necesario guardar una copia de la plantilla vinculada. La plantilla vinculada se copiará de un repositorio de GitHub a una cuenta de almacenamiento.
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
 ## <a name="store-the-linked-template"></a>Almacenamiento de la plantilla vinculada
 
-El siguiente script de PowerShell crea una cuenta de almacenamiento, crea un contenedor y copia la plantilla vinculada de un repositorio de GitHub en el contenedor. Se almacena una copia de la plantilla vinculada en [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+Tanto la plantilla principal como la vinculada se almacenan en GitHub:
+
+El siguiente script de PowerShell crea una cuenta de almacenamiento, crea un contenedor y copia las dos plantillas de un repositorio de GitHub en el contenedor. Estas dos plantillas son:
+
+- La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+- La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Seleccione **Probar** para abrir Cloud Shell, después, seleccione **Copiar** para copiar el script de PowerShell y haga clic con el botón derecho en el panel del shell para pegar el script:
 
@@ -55,11 +58,15 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json"
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -76,11 +83,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -88,7 +101,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="deploy-template"></a>Implementar plantilla
 
-Para implementar una plantilla privada en una cuenta de almacenamiento, genere un token de SAS e inclúyalo en el identificador URI de la plantilla. Establezca el tiempo de expiración con un margen suficiente para completar la implementación. El blob que contiene la plantilla solo es accesible para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, el blob es accesible para cualquier persona con ese URI. Si otro usuario intercepta el URI, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
+Para implementar plantillas en una cuenta de almacenamiento, genere un token de SAS y proporcione el parámetro _-QueryString_. Establezca el tiempo de expiración con un margen suficiente para completar la implementación. Los blobs que contienen las plantillas solo son accesibles para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, este es accesible para cualquier persona con ese token. Si otro usuario intercepta el URI y el token de SAS, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
 
 Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -97,69 +110,66 @@ Si no ha creado el grupo de recursos, consulte [Creación del grupo de recursos]
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file and path"
+$projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
 
-# Generate a SAS token
-$linkedTemplateUri = New-AzStorageBlobSASToken `
+$mainTemplateUri = $context.BlobEndPoint + "$containerName/azuredeploy.json"
+$sasToken = New-AzStorageContainerSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
     -Permission r `
-    -ExpiryTime (Get-Date).AddHours(2.0) `
-    -FullUri
+    -ExpiryTime (Get-Date).AddHours(2.0)
+$newSas = $sasToken.substring(1)
 
-# Deploy the template
+
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateFile $templateFile `
+  -TemplateUri $mainTemplateUri `
+  -QueryString $newSas `
   -projectName $projectName `
-  -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-fileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $fileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 

@@ -1,22 +1,18 @@
 ---
 title: Reglas para asignar nombres a entidades de Azure Data Factory
 description: Describe las reglas de nomenclatura para las entidades de Factoría de datos.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 21adf26c2dbaca4507a4c925e3dae3b99c9d53ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f0d14760ce3e6403c9b6fe8cc7a2100aeb3f39a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497529"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372916"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
 
@@ -27,8 +23,8 @@ La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de
 | Nombre | Exclusividad del nombre | Comprobaciones de validación |
 |:--- |:--- |:--- |
 | Factoría de datos | Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas, es decir, `MyDF` y `mydf` hacen referencia a la misma factoría de datos. |<ul><li>Cada factoría de datos está asociada exactamente a una suscripción de Azure.</li><li>Los nombres de objeto deben comenzar por una letra o un número, y pueden contener solo letras, números y el carácter de guión (-).</li><li>Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número. No se permiten guiones consecutivos en los nombres de contenedor.</li><li>El nombre puede tener entre 3 y 63 caracteres.</li></ul> |
-| Servicios vinculados, conjuntos de datos, canalizaciones o flujos de datos | Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>Los nombres de objeto deben comenzar con una letra.</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, ”>”, ”*”, ”%”, ”&”, ”:” y ”\\”.</li><li>No se permiten guiones ("-") en los nombres de los servicios, los flujos de datos ni los conjuntos de datos vinculados.</li></ul>  |
-| Integration Runtime |Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>El nombre de Integration Runtime solo puede contener letras, números y el carácter de guion (-).</li><li>El primer y el último caracteres deben ser una letra o un número. Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número.</li><li>No se permiten guiones consecutivos en el nombre del entorno de ejecución de integración. </li></ul> |
+| Servicios vinculados, conjuntos de datos, canalizaciones o flujos de datos | Es único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>Los nombres de objeto deben comenzar con una letra.</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, ”>”, ”*”, ”%”, ”&”, ”:” y ”\\”.</li><li>No se permiten guiones ("-") en los nombres de los servicios, los flujos de datos ni los conjuntos de datos vinculados.</li></ul>  |
+| Integration Runtime |Es único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>El nombre de Integration Runtime solo puede contener letras, números y el carácter de guion (-).</li><li>El primer y el último caracteres deben ser una letra o un número. Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número.</li><li>No se permiten guiones consecutivos en el nombre del entorno de ejecución de integración. </li></ul> |
 | Transformaciones de flujos de datos | Es único en un flujo de datos. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Los nombres de transformación de flujo de datos solo pueden contener letras y números.</li><li>El primer carácter debe ser una letra. </li></ul> |
 | Grupo de recursos |Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas. | Para más información, consulte [Reglas y restricciones de nomenclatura de Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
 

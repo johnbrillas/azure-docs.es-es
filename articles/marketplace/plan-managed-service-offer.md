@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879282"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371947"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Procedimiento para planear una oferta de servicio administrado en el marketplace comercial de Microsoft
 
 En este artículo se presentan los requisitos para publicar una oferta de servicio administrado en el marketplace comercial de Microsoft por medio del Centro de partners.
 
-Los servicios administrados son ofertas de Azure Marketplace que permiten la administración multiinquilino y entre inquilinos con Azure Lighthouse. Consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md) para obtener más información. Cuando un cliente compra una oferta de servicio administrado, puede delegar uno o varios grupos de recursos o suscripciones.
+Los servicios administrados son ofertas de Azure Marketplace que permiten la administración multiinquilino y entre inquilinos con Azure Lighthouse. Consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md) para obtener más información. Cuando un cliente compra una oferta de servicios administrados, estos pueden delegar uno o varios grupos de recursos o suscripciones. A continuación, puede trabajar en esos recursos mediante las funcionalidades de [Administración de recursos delegados de Azure](../lighthouse/concepts/azure-delegated-resource-management.md) de Azure Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Requisitos de elegibilidad
 
-Para publicar un servicio administrado, debe haber obtenido una competencia Gold o Silver de Microsoft en la plataforma en la nube. Esta competencia demuestra a los clientes su experiencia. Para más información, consulte las [competencias de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
+Para publicar una oferta de servicio administrado, debe haber obtenido una competencia Gold o Silver de Microsoft en la plataforma en la nube. Esta competencia demuestra a los clientes su experiencia. Para más información, consulte las [competencias de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
 Las ofertas deben cumplir todas las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies) aplicables para que se publiquen en Azure Marketplace.
 

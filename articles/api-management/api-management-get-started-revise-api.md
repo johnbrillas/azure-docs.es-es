@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377512"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546642"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutorial: Uso de revisiones para realizar cambios de API que no producen interrupciones de forma segura
 Cuando la API esté lista y los desarrolladores empiecen a usarla, tendrá que realizar cambios en dicha API y, al mismo tiempo, no interrumpir a quienes la llaman. También resulta útil informar a los desarrolladores de los cambios realizados. 
@@ -78,6 +78,8 @@ En este tutorial, aprenderá a:
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Convertir la revisión en actual y agregar una entrada en el registro de cambios
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Seleccione la pestaña **Revisiones** en el menú junto a la parte superior de la página.
 1. Abra el menú contextual (**...**) de **Revisión 2**.
 1. Seleccione **Convertir en actual**.
@@ -86,6 +88,61 @@ En este tutorial, aprenderá a:
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menú Revisión en la ventana Revisiones":::
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para empezar a usar la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Utilice este procedimiento para crear y actualizar una versión.
+
+1. Ejecute el comando [az apim api list](/cli/azure/apim/api#az_apim_api_list) para ver los identificadores de API:
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   El identificador de API que se usará en el siguiente comando es el valor `Name`. La revisión de la API está en la columna `ApiRevision`.
+
+1. Para crear la versión, con una nota de la versión, ejecute el comando [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create):
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   La revisión que se publica se convierte en la revisión actual.
+
+1. Para ver las versiones, use el comando [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list):
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   Las notas que especifique aparecen en el registro de cambios. Puede verlas en la salida del comando anterior.
+
+1. Cuando crea una versión, el parámetro `--notes` es opcional. Puede agregar o cambiar las notas más adelante mediante el comando [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update):
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Use el valor de la columna `Name` como identificador de la versión.
+
+Puede quitar cualquier versión ejecutando el comando [az apim api release delete ](/cli/azure/apim/api/release#az_apim_api_release_delete):
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Examinar el portal para desarrolladores para ver los cambios y registro de cambios
 

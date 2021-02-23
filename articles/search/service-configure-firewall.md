@@ -3,24 +3,23 @@ title: Configuración de un firewall de dirección IP para el servicio Azure Cog
 titleSuffix: Azure Cognitive Search
 description: Configure directivas de control de direcciones IP para restringir el acceso al servicio de Azure Cognitive Search.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.date: 02/16/2021
+ms.openlocfilehash: de34c2921c7829cb6d7e7354a1ebcff44271efd3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573252"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545554"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configuración de un firewall de dirección IP para Azure Cognitive Search
 
 Azure Cognitive Search admite las reglas de IP para la compatibilidad con el firewall de entrada. Este modelo proporciona un nivel adicional de seguridad para el servicio de búsqueda, que es similar a las reglas de IP que encontrará en un grupo de seguridad de red virtual de Azure. Con estas reglas de IP, puede configurar su servicio de búsqueda para que sea accesible solo desde un conjunto aprobado de máquinas o servicios en la nube. Para obtener acceso a los datos almacenados en el servicio de búsqueda desde estos conjuntos aprobados de máquinas y servicios, seguirá siendo necesario que el autor de la llamada presente un token de autorización válido.
 
-> [!Important]
-> Las reglas de IP en el servicio de Azure Cognitive Search se pueden configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](/rest/api/searchmanagement/).
+Puede definir reglas IP en Azure Portal, como se describe en este artículo. También puede usar la [API de REST de administración, versión 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search) o la [CLI de Azure](/cli/azure/search).
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configuración de un firewall de dirección IP mediante Azure Portal
 

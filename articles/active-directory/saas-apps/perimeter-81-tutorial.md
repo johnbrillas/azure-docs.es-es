@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 02/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d095c3cc7e67938120260c35376b128be73ffa8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cd6ba1da92a19a1f73fc67c0165bfb19b3bb77aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98727025"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeter-81"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Perimeter 81
 
@@ -71,13 +71,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Perimeter 81**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `urn:auth0:perimeter81:<SUBDOMAIN>`
+    a. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: `urn:auth0:perimeter81:<SUBDOMAIN>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://auth.perimeter81.com/login/callback?connection=<SUBDOMAIN>`
 
@@ -88,9 +88,14 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de clientes de Perimeter 81](mailto:support@perimeter81.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+
+1. En la sección **Configurar Perimeter 81**, copie las direcciones URL adecuadas según sus necesidades.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -117,7 +122,42 @@ En esta sección, va a permitir que B.Simon acceda a Perimeter 81 mediante el i
 
 ## <a name="configure-perimeter-81-sso"></a>Configuración del inicio de sesión único de Perimeter 81
 
-Para configurar el inicio de sesión único en **Perimeter 81**, es preciso enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Perimeter 81](mailto:support@perimeter81.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para automatizar la configuración en Perimeter 81, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Perimeter 81** para ir a la aplicación del mismo nombre. En ella, escriba las credenciales de administrador para iniciar sesión en Perimeter 81. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si quiere configurar Perimeter 81 manualmente, en otra ventana del explorador web, inicie sesión en su sitio empresarial de Perimeter 81 como administrador.
+
+4. Vaya a **Settings** (Configuración) y haga clic en **Identity Providers** (Proveedores de identidades).
+
+    ![Configuración de Perimeter 81](./media/perimeter-81-tutorial/settings.png)
+
+5. Haga clic en el botón **Add Provider** (Agregar proveedor).
+
+    ![Adición de proveedor en Perimeter 81](./media/perimeter-81-tutorial/add-provider.png)
+
+6. Seleccione **SAML 2.0 Identity Providers** (Proveedores de identidades SAML 2.0) y haga clic en el botón **Continue** (Continuar).
+
+    ![Adición de proveedor de identidades en Perimeter 81](./media/perimeter-81-tutorial/add-identity-provider.png)
+
+7. En la sección **SAML 2.0 Identity Providers** (Proveedores de identidades SAML 2.0), realice los pasos siguientes:
+
+    ![Configuración de SAML en Perimeter 81](./media/perimeter-81-tutorial/setting-up-saml.png)
+
+    a. En el cuadro de texto **Sign-in URL** (Dirección URL de inicio de sesión), pegue el valor de **Dirección URL de inicio de sesión** que copió de Azure Portal.
+
+    b. En el cuadro de texto **Domain Aliases** (Alias de dominio), escriba el valor del alias de dominio.
+
+    c. Abra el **certificado (Base64)** descargado de Azure Portal en el Bloc de notas y pegue el contenido en el cuadro de texto **X.509 Signing Certificate** (Certificado de firma de X.509).
+
+    > [!NOTE]
+    > También puede hacer clic en **Upload PEM/CERT File** (Cargar archivo PEM/CERT) para cargar el **certificado (Base64)** que descargó de Azure Portal.
+    
+    d. Haga clic en **Done**(Listo).
 
 ### <a name="create-perimeter-81-test-user"></a>Creación de un usuario de prueba de Perimeter 81
 
@@ -135,7 +175,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Perimeter 81 para la que ha configurado el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de Perimeter 81 para la que ha configurado el inicio de sesión único.
 
 También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Perimeter 81 en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Perimeter 81 para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 

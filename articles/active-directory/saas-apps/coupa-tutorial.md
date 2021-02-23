@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621335"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integración de Azure Active Directory con Coupa
 
@@ -28,10 +28,10 @@ En este tutorial, aprenderá a integrar Coupa con Azure Active Directory (Azure�
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Coupa, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de evaluación de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-* Una suscripción habilitada para el inicio de sesión único en Coupa.
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Coupa.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -63,7 +63,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Coupa, sig
     1. **[Creación de un usuario de prueba de Coupa](#create-coupa-test-user)** : para tener un homólogo de B.Simon en Coupa que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -128,17 +128,17 @@ En esta sección, va a conceder a B.Simon acceso a Coupa mediante el inicio de s
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-coupa-sso"></a>Configuración del inicio de sesión único de Coupa
+## <a name="configure-coupa-sso"></a>Configuración del inicio de sesión único de Coupa
 
 1. Inicie sesión en su sitio de la compañía de Coupa como administrador.
 
 2. Vaya a **Configuración \> Control de seguridad**.
 
-    ![Security Controls (Controles de seguridad)](./media/coupa-tutorial/ic791900.png "Controles de seguridad")
+    ![Security Controls (Controles de seguridad)](./media/coupa-tutorial/setup.png "Controles de seguridad")
 
 3. En la sección **Log in using Coupa credentials**, realice lo siguiente:
 
-    ![Coupa SP metadata (Metadatos de SP de Coupa)](./media/coupa-tutorial/ic791901.png "Metadatos de SP Coupa")
+    ![Coupa SP metadata (Metadatos de SP de Coupa)](./media/coupa-tutorial/login.png "Metadatos de SP Coupa")
 
     a. Seleccione **Log in using SAML**.
 
@@ -158,15 +158,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 
 2. En el menú de la parte superior, haga clic en **Setup** y elija **Users**.
 
-    ![Usuarios](./media/coupa-tutorial/ic791908.png "Usuarios")
+    ![Usuarios](./media/coupa-tutorial/user.png "Usuarios")
 
 3. Haga clic en **Crear**.
 
-    ![Creación de usuarios](./media/coupa-tutorial/ic791909.png "Crear usuarios")
+    ![Creación de usuarios](./media/coupa-tutorial/create.png "Crear usuarios")
 
 4. En la sección **User Create**, lleve a cabo los siguientes pasos:
 
-    ![User Details (Detalles del usuario)](./media/coupa-tutorial/ic791910.png "Detalles del usuario")
+    ![User Details (Detalles del usuario)](./media/coupa-tutorial/details.png "Detalles del usuario")
 
     a. Escriba los atributos de inicio de sesión en el cuadro **Login**, nombre en el cuadro **First name**, apellido en el cuadro **Last Name**, identificador de inicio de sesión único en el cuadro **Single Sign-On ID** y correo electrónico en el cuadro **Email** de una cuenta válida de Azure Active Directory que desee aprovisionar.
 
@@ -179,7 +179,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Coupa que proporcione Coupa para aprovisionar cuentas de usuario de Azure AD.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 

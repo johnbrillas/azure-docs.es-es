@@ -1,15 +1,15 @@
 ---
 title: Integración continua con Azure Pipelines
 description: Aprenda a compilar, probar e implementar continuamente plantillas de Azure Resource Manager (ARM).
-ms.date: 08/24/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701718"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560893"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de ARM con Azure Pipelines
 
@@ -83,8 +83,8 @@ La carpeta _CreateWebApp_ es la carpeta donde se almacena la plantilla. El coman
 
 En lugar de crear las plantillas, puede descargarlas y guardarlas en la carpeta _CreateWebApp_.
 
-* La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* La plantilla principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
+* La plantilla vinculada: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
 
 Tanto el nombre de carpeta como el nombre de archivo se usan tal como están en la canalización. Si cambias estos nombres, debes actualizar los nombres usados en la canalización.
 
@@ -105,7 +105,7 @@ El archivo _azuredeploy.json_ se ha agregado al repositorio local. A continuaci�
 
     Puedes recibir una advertencia sobre LF. Puedes omitir la advertencia. **main** es la rama principal.  Normalmente, creas una rama para cada actualización. Para simplificar el tutorial, usa directamente la rama principal.
 
-1. Ve al repositorio de GitHub desde un explorador. La dirección URL es `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verá la carpeta _CreateWebApp_ y los tres archivos dentro de la carpeta.
+1. Ve al repositorio de GitHub desde un explorador. La dirección URL es `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Verá la carpeta _CreateWebApp_ y los dos archivos dentro de la carpeta.
 1. Seleccione _linkedStorageAccount.json_ para abrir la plantilla.
 1. Seleccione el botón **Sin formato**. La dirección URL empieza por `https://raw.githubusercontent.com`.
 1. Realice una copia de la dirección URL. Debe proporcionar este valor cuando configure la canalización más adelante en el tutorial.
@@ -134,7 +134,7 @@ Crea una conexión de servicio que se use para implementar proyectos en Azure.
 
 1. Selecciona **Configuración del proyecto** de la parte inferior del menú izquierdo.
 1. Selecciona **Conexiones de servicio** en **Canalizaciones**.
-1. Seleccione **Nueva conexión de servicio**, luego, seleccione **Azure Resource Manager** y, por último, **Siguiente**.
+1. Seleccione **Crear conexión de servicio**, luego, seleccione **Azure Resource Manager** y, por último, **Siguiente**.
 1. Seleccione **Entidad de servicio** y, después, **Siguiente**.
 1. Escriba los siguientes valores:
 
@@ -155,7 +155,7 @@ Hasta ahora, hemos completado las siguientes tareas.  Si omites las secciones an
 Para crear una canalización con un paso para implementar una plantilla:
 
 1. Selecciona **Canalizaciones** en el menú izquierdo.
-1. Selecciona **Nueva canalización**.
+1. Seleccione el botón **Crear canalización**.
 1. Desde la pestaña **Conectar**, selecciona **GitHub**. Si se te piden, escribe las credenciales de GitHub y luego sigue las instrucciones. Si ves la siguiente pantalla, selecciona **Only select repositories** (Solo ciertos repositorios) y verifica que el repositorio esté en la lista antes de seleccionar **Approve & Install** (Aprobar e instalar).
 
     ![Solo ciertos repositorios para Azure Resource Manager Azure DevOps Azure Pipelines](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)

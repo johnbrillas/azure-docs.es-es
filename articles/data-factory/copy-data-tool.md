@@ -1,22 +1,17 @@
 ---
 title: Herramienta Copiar datos en Azure Data Factory
 description: Se proporciona información sobre la herramienta Copy Data en la interfaz de usuario de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: b0ba14a05ac42e9fccc1a146ad5943716652104d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434204"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373001"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +64,7 @@ En muchos casos, el esquema del origen de datos no puede ser igual que el esquem
 La herramienta Copy Data supervisa y aprende su comportamiento cuando asigna columnas entre los almacenes de origen y destino. Después de seleccionar una o varias columnas del almacén de datos de origen y asignarlas al esquema de destino, la herramienta Copy Data comienza a analizar el patrón de los pares de columnas seleccionados de ambos lados. A continuación, se aplica el mismo patrón al resto de las columnas. Por lo tanto, verá que todas las columnas se han asignado al destino de la forma elegida después de varios clics.  Si no está satisfecho con la opción de asignación de columna proporcionada por la herramienta Copy Data, puede omitirla y continuar con la asignación manual de las columnas. Mientras tanto, la herramienta Copy Data aprende y actualiza el patrón constantemente y, en última instancia, alcanza el patrón correcto para la asignación de columnas que desea conseguir. 
 
 > [!NOTE]
-> Cuando se copian datos de SQL Server o Azure SQL Database en Azure Synapse Analytics (anteriormente, SQL Data Warehouse), si la tabla no existe en el almacén de destino, la herramienta Copiar datos permite crear la tabla automáticamente utilizando el esquema de origen. 
+> Al copiar datos de SQL Server o Azure SQL Database a Azure Synapse Analytics, si la tabla no existe en el almacén de destino, la herramienta Copy Data admite la creación de la tabla automáticamente mediante el esquema de origen. 
 
 ## <a name="filter-data"></a>Filtrado de los datos
 Puede filtrar los datos de origen para seleccionar solo aquellos que deben copiarse en el almacén de datos receptor. El filtrado reduce el volumen de los datos se copian en el almacén de datos del receptor, por lo que mejora el rendimiento de la operación de copia. La herramienta Copy Data proporciona una manera flexible de filtrar los datos en una base de datos relacional mediante el lenguaje de consulta SQL o los archivos de una carpeta de blobs de Azure. 

@@ -1,22 +1,17 @@
 ---
 title: Transformación de datos con cuadernos de Databricks
-description: Aprenda a procesar o transformar datos mediante la ejecución de blocs de notas de Databricks.
-services: data-factory
-documentationcenter: ''
+description: Aprenda a procesar o transformar datos mediante la ejecución de un cuaderno de Databricks en Azure Data Factory.
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4679d06e877679f0a56ee782b9a43a5a8147d7a5
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608126"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374004"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -67,7 +62,6 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 |baseParameters|Una matriz de pares de clave y valor. Se pueden utilizar parámetros base para cada ejecución de actividad. Si el cuaderno toma un parámetro que no se ha especificado, se usará el valor predeterminado del cuaderno. Encuentre más información sobre los parámetros en los [cuadernos de Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 |libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una matriz de \<string, object>.|No|
 
-
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks
 
 En la definición de la actividad de Databricks anterior, se especifican estos tiposd e biblioteca: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
@@ -110,31 +104,35 @@ En la definición de la actividad de Databricks anterior, se especifican estos t
 
 ```
 
-Para más detalles, consulte la [documentación de Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) sobre los tipos de bibliotecas.
+Para más detalles, consulte la [documentación de Databricks](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) sobre los tipos de bibliotecas.
 
 ## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Pasar parámetros entre cuadernos y Data Factory
 
-Puede pasar parámetros de Data Factory a cuadernos mediante la propiedad *baseParameters* que se encuentra en la actividad de Databricks. 
+Puede pasar parámetros de Data Factory a cuadernos mediante la propiedad *baseParameters* que se encuentra en la actividad de Databricks.
 
-En ciertos casos, es posible que necesite devolver algunos valores del cuaderno a Data Factory, ya que se pueden usar en el flujo de control (esto es, para realizar comprobaciones condicionales) de Data Factory; también se pueden consumir mediante actividades de bajada (el límite de tamaño es de 2 MB). 
+En ciertos casos, es posible que necesite devolver algunos valores del cuaderno a Data Factory, ya que se pueden usar en el flujo de control (esto es, para realizar comprobaciones condicionales) de Data Factory; también se pueden consumir mediante actividades de bajada (el límite de tamaño es de 2 MB).
 
-1. En el cuaderno, puede llamar a [dbutils.notebook.exit("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) y el valor de "ReturnValue" correspondiente se devolverá a Data Factory.
+1. En el cuaderno, puede llamar a [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) y el valor de "ReturnValue" correspondiente se devolverá a Data Factory.
 
-2. Puede usar la salida de Data Factory mediante una expresión como `'@activity('databricks notebook activity name').output.runOutput'`. 
+2. Puede usar la salida de Data Factory mediante una expresión como `'@activity('databricks notebook activity name').output.runOutput'`.
 
    > [!IMPORTANT]
    > Si va a pasar un objeto JSON, puede obtener los valores anexando los nombres de propiedad. Ejemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Carga de una biblioteca en Databricks
 
-#### <a name="using-databricks-workspace-ui"></a>[Uso de la interfaz de usuario del área de trabajo de Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+### <a name="you-can-use-the-workspace-ui"></a>Puede usar la interfaz de usuario del área de trabajo:
 
-Para obtener la ruta de acceso de dbfs de la biblioteca que se agregó mediante la interfaz de usuario, puede usar la [CLI de Databricks (instalación)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Uso de la interfaz de usuario del área de trabajo de Databricks](/azure/databricks/libraries/#create-a-library)
 
-Habitualmente, las bibliotecas de Jar se almacenan en dbfs:/FileStore/jars mientras se usa la interfaz de usuario. Puede enumerar todo a través de la CLI: *databricks fs ls dbfs:/FileStore/jars*.
+2. Para obtener la ruta de acceso de dbfs de la biblioteca que se agregó mediante la interfaz de usuario, puede usar la [CLI de Databricks](/azure/databricks/dev-tools/cli/#install-the-cli).
 
+   Habitualmente, las bibliotecas de Jar se almacenan en dbfs:/FileStore/jars mientras se usa la interfaz de usuario. Puede enumerar todo mediante la CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
+### <a name="or-you-can-use-the-databricks-cli"></a>O bien, puede usar la CLI de Databricks:
 
-#### <a name="copy-library-using-databricks-cli"></a>[Copia de la biblioteca mediante la CLI de Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+1. Siga [Copia de la biblioteca mediante la CLI de Databricks](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
-Ejemplo: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+2. Uso de la CLI de Databricks [(pasos de instalación)](/azure/databricks/dev-tools/cli/#install-the-cli)
+
+   Por ejemplo, para copiar un archivo JAR en dbfs: `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

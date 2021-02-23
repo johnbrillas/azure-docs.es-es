@@ -266,7 +266,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -434,7 +434,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -991,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: Inicio manual de una conmutación por error en una instancia administrada
           href: managed-instance/user-initiated-failover.md
+        - name: Migración de bases de datos mediante Log Replay Service
+          href: managed-instance/log-replay-service-migrate.md
     - name: Ejemplos
       items:
         - name: Azure CLI

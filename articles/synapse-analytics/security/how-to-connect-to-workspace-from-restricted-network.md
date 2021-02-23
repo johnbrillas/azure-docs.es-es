@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218372"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384527"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conexión a los recursos de un área de trabajo desde una red restringida
 
@@ -74,7 +74,7 @@ Una vez creado el punto de conexión de vínculo privado, puede acceder a la pá
 
 Para acceder a los recursos dentro del recurso del área de trabajo de Azure Synapse Analytics Studio, debe crear lo siguiente:
 
-- Al menos un punto de conexión de vínculo privado con un tipo **Dev** de **Subrecurso de destino**.
+- Al menos un punto de conexión de vínculo privado con el tipo de **Subrecurso de destino** **Dev** (Desarrollador).
 - Dos otros puntos de conexión de vínculo privado opcionales con tipos de **Sql** o **SqlOnDemand**, en función de los recursos del área de trabajo a los que quiere acceder.
 
 La creación de estos es similar a la creación del punto de conexión del paso anterior.  
@@ -146,7 +146,8 @@ Después de agregar el vínculo de red virtual, debe agregar el conjunto de regi
 
 * En **Nombre**, escriba las cadenas de nombre dedicadas de otro punto de conexión privado: 
   * **web** es para el punto de conexión privado de acceso a Azure Synapse Analytics Studio.
-  * "***YourWorkSpaceName**_" es para el punto de conexión privado de ejecución de consultas SQL en un grupo de SQL y también para el punto de conexión privado de acceso al resto de lo que contienen las áreas de trabajo de Azure Synapse Analytics Studio. _ "*** YourWorkSpaceName*-ondemand**" es para el punto de conexión privado de ejecución de consultas SQL en un grupo integrado.
+  * "***YourWorkSpaceName***" es para el punto de conexión privado de ejecución de consultas SQL en un grupo de SQL y también para el punto de conexión privado de acceso al resto del contenido de las áreas de trabajo de Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName*-ondemand**" es para el punto de conexión privado de ejecución de consultas SQL en el integrado.
 * En **Tipo**, seleccione únicamente el tipo de registro DNS **D**. 
 * En **Dirección IP**, escriba la dirección IP correspondiente de cada punto de conexión privado. Puede obtener la dirección IP en **Interfaz de red** en la información general del punto de conexión privado.
 

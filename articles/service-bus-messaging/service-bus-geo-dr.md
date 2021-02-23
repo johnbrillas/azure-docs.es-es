@@ -1,29 +1,29 @@
 ---
 title: Recuperación ante desastres con localización geográfica de Azure Service Bus | Microsoft Docs
-description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Service Bus
+description: Procedimientos para usar regiones geográficas para realizar conmutaciones por error y recuperaciones ante desastres en Azure Service Bus
 ms.topic: article
-ms.date: 01/04/2021
-ms.openlocfilehash: b25fd1befded253c79267b1b016cef979005d01e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 02/10/2021
+ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676462"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384345"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
 Muchas empresas y, en algunos casos, las normativas del sector imponen como requisito la resistencia frente a interrupciones desastrosas de los recursos de procesamiento de datos. 
 
-Azure Service Bus ya distribuye el riesgo de errores catastróficos de equipos individuales o incluso bastidores completos entre clústeres que abarcan varios dominios de error en un centro de recursos. Además, implementa mecanismos transparentes de detección de errores y conmutación por error, de modo que el servicio siga funcionando dentro de los niveles de servicio garantizados y normalmente sin interrupciones apreciables en caso de que se produzcan errores. Si se ha creado un espacio de nombres de Service Bus con la opción habilitada para [zonas de disponibilidad](../availability-zones/az-overview.md), el riesgo interrupción se reparte entre tres instalaciones físicamente separadas, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. 
+Azure Service Bus ya distribuye el riesgo de errores catastróficos de máquinas individuales, o incluso de bastidores completos, entre clústeres que abarcan varios dominios de error en un centro de recursos. Además, implementa mecanismos transparentes tanto de detección de errores como de conmutación por error, de modo que el servicio siga funcionando dentro de los niveles de servicio garantizados y normalmente sin interrupciones apreciables cuando se produzcan dichos errores. Si se ha creado un espacio de nombres de Service Bus con la opción habilitada para [zonas de disponibilidad](../availability-zones/az-overview.md), el riesgo interrupción se reparte entre tres instalaciones físicamente separadas, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. 
 
-El modelo de clúster activo de Azure Service Bus con compatibilidad con la zona de disponibilidad es superior a cualquier producto de agente de mensajes local en términos de resistencia frente a errores graves de hardware, e incluso en caso de pérdida catastrófica de instalaciones completas de centros de datos. Aun así, puede haber situaciones graves con una destrucción física generalizada frente a las que ni siquiera estas medidas puedan ofrecer una protección suficiente. 
+El modelo de clúster activo de Azure Service Bus con compatibilidad con la zona de disponibilidad es superior a cualquier producto de agente de mensajes local en términos de resistencia frente a errores graves de hardware, e incluso en caso de pérdida catastrófica de instalaciones completas de centros de datos. Aun así, puede haber situaciones graves en las que se produzca una destrucción física generalizada frente a las que ni siquiera estas medidas puedan ofrecer una protección suficiente. 
 
 La característica de recuperación ante desastres geográfica de Service Bus está diseñada para que sea más fácil recuperarse ante un desastre de esta magnitud y abandonar para siempre una región de Azure con errores, sin necesidad de cambiar las opciones de configuración de la aplicación. El abandono de una región de Azure suele implicar varios servicios. Esta característica se centra principalmente en ayudar a mantener la integridad de la configuración de la aplicación compuesta. La característica está disponible globalmente para la SKU Prémium de Service Bus. 
 
-La característica de recuperación ante desastres geográfica garantiza que toda la configuración de un espacio de nombres (colas, temas, suscripciones y filtros) se replique continuamente de un espacio de nombres principal a uno secundario cuando se emparejan. Además, permite iniciar un movimiento de conmutación por error solo una vez del espacio de nombres principal al secundario en cualquier momento. El movimiento de conmutación por error volverá a apuntar el nombre de alias elegido para el espacio de nombres al espacio de nombres secundario y, luego, interrumpirá el emparejamiento. La conmutación por error es casi instantánea una vez que se ha iniciado. 
+La característica de recuperación ante desastres geográfica garantiza que toda la configuración de un espacio de nombres (colas, temas, suscripciones y filtros) se replique continuamente de un espacio de nombres principal a uno secundario cuando se emparejan. Además, permite iniciar un movimiento de conmutación por error solo una vez del espacio de nombres principal al secundario en cualquier momento. El movimiento de la conmutación por error volverá a apuntar el nombre de alias elegido para el espacio de nombres al espacio de nombres secundario y, luego, interrumpirá el emparejamiento. La conmutación por error es casi instantánea una vez que se ha iniciado. 
 
 > [!IMPORTANT]
-> La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los mensajes incluidos en colas, las suscripciones de temas o las colas de mensajes fallidos**. Para conservar la semántica de cola, una replicación de este tipo no solo requerirá la replicación de los datos del mensaje, sino de cada cambio de estado en el agente. En el caso de la mayoría de los espacios de nombres de Service Bus, el tráfico de replicación necesario superará en gran medida el tráfico de la aplicación y, con las colas de alto rendimiento, la mayoría de los mensajes se replicarán en el espacio de nombres secundario mientras se eliminan del principal, lo que provocará un desperdicio de tráfico. En el caso de las rutas de replicación de latencia alta, que se aplican a muchos emparejamientos que se eligen para la recuperación ante desastres geográfica, también podría ser imposible que el tráfico de replicación siguiera el ritmo del tráfico de la aplicación debido a las limitaciones inducidas por la latencia.
+> La característica permite la continuidad instantánea de las operaciones con la misma configuración, pero **no replica los mensajes incluidos en colas, las suscripciones de temas ni las colas de mensajes fallidos**. Para conservar la semántica de cola, una replicación de este tipo no solo requerirá la replicación de los datos del mensaje, sino de cada cambio de estado en el agente. En el caso de la mayoría de los espacios de nombres de Service Bus, el tráfico de replicación necesario superará en gran medida el tráfico de la aplicación y, con las colas de alto rendimiento, la mayoría de los mensajes se replicarán en el espacio de nombres secundario mientras se eliminan del principal, lo que provocará un desperdicio de tráfico. En el caso de las rutas de replicación de latencia alta, que se aplican a muchos emparejamientos que se eligen para la recuperación ante desastres geográfica, también podría ser imposible que el tráfico de replicación siguiera el ritmo del tráfico de la aplicación debido a las limitaciones inducidas por la latencia.
  
 > [!TIP]
 > Para replicar el contenido de las colas y las suscripciones a temas, así como operar los espacios de nombres correspondientes en configuraciones de tipo activo/activo a fin de hacer frente a interrupciones y desastres, no se base en este conjunto de características de recuperación ante desastres geográfica. En su lugar, siga la [guía de replicación](service-bus-federation-overview.md).  
@@ -40,7 +40,7 @@ La característica de recuperación ante desastres con localización geográfica
 
 ## <a name="basic-concepts-and-terms"></a>Términos y conceptos básicos
 
-La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. Tenga en cuenta que la característica de recuperación ante desastres con localización geográfica solo está disponible para [SKU Premium](service-bus-premium-messaging.md). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
+La característica de recuperación ante desastres implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. La característica de recuperación ante desastres geográfica solo está disponible para la [SKU Prémium](service-bus-premium-messaging.md). No es necesario realizar ningún cambio de la cadena de conexión, ya que la conexión se realiza a través de un alias.
 
 Los siguientes términos se utilizan en este artículo:
 
@@ -50,38 +50,58 @@ Los siguientes términos se utilizan en este artículo:
 
     > [!IMPORTANT]
     > La característica de recuperación ante desastres geográfica requiere que la suscripción y el grupo de recursos sean los mismos para los espacios de nombres principal y secundario.
--  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican.
+-  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociadas con el espacio de nombres. Solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican.
 
 -  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
 
 ## <a name="setup"></a>Configurar
 
-La siguiente sección es una introducción a la configuración del emparejamiento entre los espacios de nombres.
+En la siguiente sección se ofrece información general sobre la configuración del emparejamiento entre los espacios de nombres.
 
 ![1][]
 
-El proceso de configuración es el siguiente:
+En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. 
 
-1. Aprovisione un espacio de nombres Prémium ***principal** _ de Service Bus.
+1. Cree el espacio de nombres principal.
+1. Cree tanto el espacio de nombres secundario en la suscripción como el grupo de recursos que tiene el espacio de nombres principal, pero este en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
+1. En Azure Portal, vaya al espacio de nombres principal.
+1. Seleccione **Recuperación geográfica** en el menú de la izquierda e **Iniciar el emparejamiento** en la barra de herramientas. 
 
-2. Aprovisione un espacio de nombres Prémium _*_secundario_*_ de Service Bus en una región _diferente de aquella en la que se aprovisiona el espacio de nombres principal*. Esto ayudará con el aislamiento de errores entre regiones de centro de datos diferentes.
+    :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicio del emparejamiento desde el espacio de nombres principal":::    
+1. En la página **Iniciar el emparejamiento**, siga estos pasos:
+    1. Seleccione un espacio de nombres secundario existente o créelo en la suscripción y en el grupo de recursos que tiene el espacio de nombres principal. En este ejemplo, se utiliza un espacio de nombres existente como espacio de nombres secundario.  
+    1. En **Alias**, escriba un alias para el emparejamiento de recuperación ante desastres geográfica. 
+    1. Seleccione **Crear**. 
 
-3. Cree un emparejamiento entre el espacio de nombres principal y el secundario para obtener el ***alias** _.
+        :::image type="content" source="./media/service-bus-geo-dr/initiate-pairing-page.png" alt-text="Selección del espacio de nombres secundario":::        
+1. Debería ver la página de **Alias de recuperación ante desastres con localización geográfica de Service Bus**, como se muestra en la siguiente imagen. También puede ir a la página **Geo-DR Alias** (Alias de recuperación ante desastres con localización geográfica) desde la página del espacio de nombres principal. Para ello, debe seleccionar la opción **Recuperación geográfica** en el menú de la izquierda. 
 
-    >[!NOTE] 
-    > Si ha [migrado el espacio de nombres del plan Estándar de Azure Service Bus al Prémium](service-bus-migrate-standard-premium.md), debe usar el alias existente (es decir, la cadena de conexión del espacio de nombres del plan Estándar de Service Bus) para crear la configuración de recuperación ante desastres a través de la _ *PS/CLI** o la **API REST**.
-    >
-    >
-    > Esto es porque, durante la migración, el nombre de DNS o la cadena de conexión de espacio de nombres de Azure Service Bus Standard se convierte automáticamente en un alias para el espacio de nombres de Azure Service Bus Premium.
-    >
-    > Las aplicaciones cliente deben utilizar este alias (es decir, la cadena de conexión de espacio de nombres de Azure Service Bus Standard) para conectarse al espacio de nombres Premium si se ha configurado el emparejamiento de recuperación ante desastres.
-    >
-    > Si usa el portal para realizar la configuración de recuperación ante desastres, se encargará de hacerlo de forma automática.
+    :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Página Alias de recuperación ante desastres con localización geográfica de Service Bus":::
+1. En la página **Geo-DR Alias** (Alias de recuperación ante desastres con localización geográfica), seleccione **Directivas de acceso compartido** para acceder a la cadena de conexión principal del alias. Use esta cadena de conexión en lugar de usar directamente la cadena de conexión al espacio de nombres principal o secundario. Inicialmente, el alias apunta al espacio de nombres principal.
+1. Cámbiese a la página **Información general**. Puede realizar las siguientes acciones: 
+    1. Dividir el emparejamiento entre los espacios de nombres principal y secundario. Seleccionar **Interrumpir el emparejamiento** en la barra de herramientas. 
+    1. Realizar una conmutar por error de forma manual al espacio de nombres secundario. 
+        1. Seleccione **Conmutación por error** en la barra de herramientas. 
+        1. Escriba su alias para confirmar que desea realizar una conmutación por error al espacio de nombres secundario. 
+        1. Active la opción **Safe Failover** (Conmutación por error segura) para realizar una conmutación por error de forma segura al espacio de nombres secundario. Esta característica garantiza que las replicaciones de recuperación ante desastres geográfica pendientes se completan antes de realizar la conmutación a la secundaria. 
+        1. Luego, seleccione **Failover** (Conmutación por error). 
+        
+            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="{alt-text}":::
+    
+            > [!IMPORTANT]
+            > La conmutación por error activará el espacio de nombres secundario y quitará el espacio de nombres principal del emparejamiento de la recuperación ante desastres geográfica. Cree otro espacio de nombres para tener un nuevo par de recuperación ante desastres geográfica. 
 
+1. Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo que las conmutaciones por error automáticas raramente son posibles, ya que, a menudo, las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
-4. Use el **_alias_* _ obtenido en el paso 3 para conectar las aplicaciones cliente al espacio de nombres principal con recuperación ante desastres geográfica. Inicialmente, el alias apunta al espacio de nombres principal.
+### <a name="service-bus-standard-to-premium"></a>Service Bus Estándar a Prémium
+Si ha [migrado el espacio de nombres del plan Estándar de Azure Service Bus al Prémium](service-bus-migrate-standard-premium.md), debe usar el alias existente (es decir, la cadena de conexión del espacio de nombres del plan Estándar de Service Bus) para crear la configuración de recuperación ante desastres a través de la **PS/CLI** o la **API REST**.
 
-5. (Opcional) Agregue alguna supervisión para detectar si es necesario realizar una conmutación por error.
+Eso se debe a que, durante la migración, el nombre de DNS o la cadena de conexión del espacio de nombres del plan Estándar de Azure Service Bus se convierte automáticamente en un alias para el espacio de nombres de Azure Service Bus Prémium.
+
+Las aplicaciones cliente deben utilizar este alias (es decir, la cadena de conexión de espacio de nombres del plan Estándar de Azure Service Bus) para conectarse al espacio de nombres Prémium en el que se ha configurado el emparejamiento de la recuperación ante desastres.
+
+Si usa el portal para configurar la recuperación ante desastres, este se encargará de hacerlo de forma automática.
+
 
 ## <a name="failover-flow"></a>Flujo de conmutación por error
 
@@ -91,7 +111,7 @@ El cliente (y nunca Azure) es el que desencadena manualmente una conmutación po
 
 Después de que se desencadena la conmutación por error:
 
-1. La cadena de conexión del _*_alias_*_ se actualiza para que apunte al espacio de nombres Prémium secundario.
+1. La cadena de conexión del ***alias*** se actualiza para que apunte al espacio de nombres prémium secundario.
 
 2. Los clientes (remitentes y receptores) se conectan automáticamente al espacio de nombres secundario.
 
@@ -99,9 +119,9 @@ Después de que se desencadena la conmutación por error:
 
 Una vez que se inicia la conmutación por error:
 
-1. En caso de otra interrupción, tiene que poder volver a realizar la conmutación por error. Por lo tanto, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
+1. En caso de otra interrupción, tiene que poder volver a realizar la conmutación por error. Por consiguiente, configure un segundo espacio de nombres pasivo y actualice el emparejamiento. 
 
-2. Extraiga mensajes del espacio de nombres anteriormente principal una vez que vuelva a estar disponible. Después de eso, utilice ese espacio de nombres para la mensajería regular fuera de la configuración de recuperación con localización geográfica, o elimine el espacio de nombres principal antiguo.
+2. Extraiga mensajes del anterior espacio de nombres primario una vez que vuelva a estar disponible. Después de eso, utilice ese espacio de nombres para la mensajería regular fuera de la configuración de recuperación con localización geográfica, o elimine el espacio de nombres principal antiguo.
 
 > [!NOTE]
 > Se admite solo la semántica de conmutación de reenvío. En este escenario, se realiza la conmutación por error y, a continuación, se vuelve a emparejar con un nuevo espacio de nombres. No se admite la conmutación por recuperación, por ejemplo en un clúster de SQL. 
@@ -116,13 +136,13 @@ Si ha cometido algún error; por ejemplo, ha emparejado regiones incorrectas dur
 
 ## <a name="use-existing-namespace-as-alias"></a>Uso de espacio de nombres existente como alias
 
-Si tiene un escenario en el que no se pueden cambiar las conexiones de productores y consumidores, puede reutilizar el nombre del espacio de nombres como nombre de alias. Consulte el [código de ejemplo en GitHub aquí](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
+En aquellos escenarios en los que no se puedan cambiar las conexiones de productores y consumidores, puede reutilizar el nombre del espacio de nombres como nombre de alias. Consulte el [código de ejemplo en GitHub aquí](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## <a name="samples"></a>Ejemplos
 
 Los [ejemplos en GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) muestran cómo configurar e iniciar una conmutación por error. Estos ejemplos demuestran los conceptos siguientes:
 
-- Una muestra de .NET y la configuración necesarias en Azure Active Directory para usar Azure Resource Manager con Service Bus para configurar y habilitar la recuperación ante desastres con localización geográfica.
+- Un ejemplo de .NET y la configuración que se necesitan en Azure Active Directory para usar Azure Resource Manager con Service Bus para configurar y habilitar la recuperación ante desastres con localización geográfica.
 - Pasos necesarios para ejecutar el código de ejemplo.
 - Uso de un espacio de nombres existente como un alias.
 - Pasos para habilitar la recuperación ante desastres con localización geográfica de manera alternativa a través de PowerShell o CLI.
@@ -134,15 +154,17 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
 1. En el planeamiento de la conmutación por error, también debe considerar el factor de tiempo. Por ejemplo, si se pierde la conectividad durante más de 15 a 20 minutos, puede decidir iniciar la conmutación por error.
 
-2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los mensajes programados nuevos y los duplicados nuevos. 
+2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los nuevos mensajes programados y los nuevos duplicados. 
 
 3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) al menos una vez.
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto. Las suscripciones y reglas también cuentan como entidades.
 
-## <a name="availability-zones"></a>Zonas de disponibilidad
+### <a name="availability-zones"></a>Zonas de disponibilidad
 
-La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure.
+La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure. Service Bus administra tres copias del almacén de mensajería (una principal y dos secundarias). Service Bus mantiene las tres copias sincronizadas para operaciones de datos y administración. Si se produce un error en la copia principal, una de las copias secundarias se promueve a principal sin tiempo de inactividad perceptible. Si las aplicaciones experimentan desconexiones transitorias de Service Bus, la lógica de reintento en el SDK volverá a establecer la conexión con Service Bus automáticamente. 
+
+Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (mensajes) se replican en los centros de datos de la zona de disponibilidad. 
 
 > [!NOTE]
 > La compatibilidad de Availability Zones con Azure Service Bus Premium solo está disponible en aquellas [regiones de Azure](../availability-zones/az-region.md) en las que hay zonas de disponibilidad.
@@ -152,7 +174,7 @@ Solo puede habilitar Availability Zones en los espacios de nombres nuevos median
 ![3][]
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
-En esta sección se proporcionan consideraciones adicionales cuando se usa la recuperación ante desastres geográfica con espacios de nombres que utilizan puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Service Bus en general, consulte [Integración de Azure Service Bus con Azure Private Link](private-link-service.md).
+En esta sección se proporcionan más aspectos que hay que tener en cuenta cuando se usa la recuperación ante desastres geográfica con espacios de nombres que emplean puntos de conexión privados. Para obtener información sobre el uso de puntos de conexión privados con Service Bus en general, consulte [Integración de Azure Service Bus con Azure Private Link](private-link-service.md).
 
 ### <a name="new-pairings"></a>Nuevos emparejamientos
 Si intenta crear un emparejamiento entre un espacio de nombres primario con un punto de conexión privado y un espacio de nombres secundario sin un punto de conexión privado, se producirá un error. El emparejamiento solo se realizará correctamente si los espacios de nombres primario y secundario tienen puntos de conexión privados. Se recomienda utilizar las mismas configuraciones en los espacios de nombres principal y secundario y en las redes virtuales en las que se creen los puntos de conexión privados. 
@@ -181,7 +203,7 @@ Supongamos que tiene dos redes virtuales, VNET-1 y VNET-2, y estos espacios de n
 
 La ventaja de este enfoque es que la conmutación por error puede producirse en el nivel de aplicación independiente del espacio de nombres de Service Bus. Considere los casos siguientes: 
 
-_ *Conmutación por error solo de aplicación*:* en este caso, la aplicación no existirá en VNET-1, sino que se moverá a VNET-2. Como ambos puntos de conexión privados están configurados tanto en VNET-1 como en VNET-2 para los espacios de nombres principal y secundario, la aplicación funcionará. 
+**Conmutación por error solo de la aplicación:** En este caso, la aplicación no existirá en VNET-1, sino que se moverá a VNET-2. Como ambos puntos de conexión privados están configurados tanto en VNET-1 como en VNET-2 para los espacios de nombres principal y secundario, la aplicación funcionará. 
 
 **Conmutación por error solo del espacio de nombres de Service Bus**: en este caso, dado que los dos puntos de conexión privados están configurados en ambas redes virtuales para los espacios de nombres principal y secundario, la aplicación funcionará. 
 

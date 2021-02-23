@@ -5,16 +5,16 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435695"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377370"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitación y solicitud de acceso Just-In-Time para Azure Managed Applications
 
-Los consumidores de la aplicación administrada pueden ser reacios a concederle acceso permanente al grupo de recursos administrados. Como editor de una aplicación administrada, es preferible que los consumidores sepan exactamente cuando necesita acceder a los recursos administrados. Para ofrecer a los consumidores mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso Just-In-Time (JIT). Esta funcionalidad actualmente está en su versión preliminar.
+Los consumidores de la aplicación administrada pueden ser reacios a concederle acceso permanente al grupo de recursos administrados. Como editor de una aplicación administrada, puede establecer que los consumidores sepan exactamente cuando necesita acceder a los recursos administrados. Para ofrecer a los consumidores mayor control sobre la concesión de acceso a los recursos administrados, Azure Managed Applications proporciona una característica denominada acceso Just-In-Time (JIT). Esta funcionalidad actualmente está en su versión preliminar.
 
 El acceso JIT permite solicitar acceso con privilegios elevados a recursos de la aplicación administrada con fines de solución de problemas o mantenimiento. Siempre tendrá acceso de solo lectura a los recursos, pero puede tener mayor acceso durante un período de tiempo específico.
 

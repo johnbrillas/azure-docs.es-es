@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144698"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369652"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -67,6 +67,10 @@ El flujo de inicio de sesión en un explorador web es el siguiente:
 6. Active Directory busca la cuenta de equipo y devuelve al explorador un vale Kerberos cifrado con el secreto de la cuenta de equipo.
 7. El explorador reenvía el vale de Kerberos que adquirió desde Active Directory a Azure AD.
 8. Azure AD descifra el vale de Kerberos, que incluye la identidad del usuario que inició sesión en el dispositivo corporativo, mediante la clave compartida previamente.
+
+   >[!NOTE]
+   >Azure AD intentará hacer coincidir el UPN del usuario del vale de Kerberos con un objeto de usuario de Azure AD que tenga un valor correspondiente en el atributo userPrincipalName. Si no lo consigue, Azure AD revertirá a la coincidencia del elemento samAccountName del vale de Kerberos con un objeto de usuario de Azure AD que tenga un valor correspondiente en el atributo onPremisesSamAccountName.
+   
 9. Después de la evaluación, Azure AD devuelve un token a la aplicación o le pide al usuario que realice pruebas adicionales, como la autenticación multifactor.
 10. Si el inicio de sesión del usuario se realiza correctamente, el usuario puede acceder a la aplicación.
 

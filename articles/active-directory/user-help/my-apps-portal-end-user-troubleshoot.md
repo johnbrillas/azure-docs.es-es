@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833986"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094974"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solución de problemas relacionados con el portal Mis aplicaciones
 
@@ -31,9 +31,9 @@ Si tiene problemas para instalar la Extensión de inicio de sesión seguro de mi
 
     - **Microsoft Edge.** Con Windows 10 Anniversary Edition o posterior.
 
-    - **Google Chrome.** Con Windows 7 o posterior, y con Mac OS X o posterior.
+    - **Google Chrome.** Con Windows 7 o posterior, y con macOS X o posterior.
 
-    - **Mozilla Firefox 26.0 o posterior.** Con Windows XP SP2 o posterior, y con Mac OS X 10.6 posterior.
+    - **Mozilla Firefox 26.0 o posterior.** Con Windows XP SP2 o posterior, y con macOS X 10.6 o posterior.
 
     - **Internet Explorer 11.** Con Windows 7 o posterior (compatibilidad limitada).
 
@@ -46,6 +46,11 @@ Si tiene problemas para instalar la Extensión de inicio de sesión seguro de mi
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>No puedo iniciar sesión en el portal **Mis aplicaciones**
 
 Si tiene problemas para iniciar sesión en el portal **Mis aplicaciones**, puede intentar el siguiente procedimiento:
+
+- Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+
+   - https://myapplications.microsoft.com?tenantId=*nombre_de_dominio*
+   - https://myapplications.microsoft.com?tenant=*id_de_inquilino*
 
 - Asegúrese de que está utilizando la dirección URL correcta. Debe ser https://myapps.microsoft.com o una página personalizada para su organización, como https://myapps.microsoft.com/contoso.com.
 

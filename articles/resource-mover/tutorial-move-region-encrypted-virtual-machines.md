@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981954"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361016"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Tutorial: Traslado de máquinas virtuales de Azure cifradas entre regiones
 
@@ -54,26 +54,49 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 **Cargos de la región de destino** | Compruebe los precios y los cargos asociados con la región de destino a la que va a trasladar las máquinas virtuales. El uso de la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) le resultará útil.
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>Comprobación de los permisos de Key Vault (Azure Disk Encryption)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Comprobación de los permisos de usuario en el almacén de claves para las máquinas virtuales mediante Azure Disk Encryption (ADE)
 
-Si va a mover máquinas virtuales que tienen habilitado Azure Disk Encryption, en los almacenes de claves de las regiones de origen y de destino, compruebe o establezca los permisos para asegurarse de que el traslado de máquinas virtuales cifradas funcione según lo previsto. 
+Si va a mover máquinas virtuales con Azure Disk Encryption habilitado, debe ejecutar un script como se indica [a continuación](#copy-the-keys-to-the-destination-key-vault) del cual el usuario que ejecuta el script debe tener los permisos adecuados. Consulte la tabla siguiente para conocer los permisos necesarios. Las opciones para cambiar los permisos se pueden encontrar yendo al almacén de claves en Azure Portal, en **Configuración**, seleccione **Directivas de acceso**.
 
-1. En Azure Portal, abra el almacén de claves en la región de origen.
-2. En **Configuración**, seleccione **Directivas de acceso**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Botón para abrir las directivas de acceso del almacén de claves." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Botón para abrir las directivas de acceso del almacén de claves." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+Si no hay permisos de usuario, seleccione **Agregar directiva de acceso** y especifique los permisos. Si la cuenta de usuario ya tiene una directiva, establezca los permisos en **Usuario** según la tabla a continuación.
 
-3. Si no hay permisos de usuario, seleccione **Agregar directiva de acceso** y especifique los permisos. Si la cuenta de usuario ya tiene una directiva, establezca los permisos en **Usuario**.
+Las máquinas virtuales de Azure que usan ADE pueden tener las siguientes variaciones y los permisos deben establecerse como corresponda para los componentes pertinentes.
+- Opción predeterminada cuando el disco se cifra solo con secretos
+- Seguridad agregada mediante [clave de cifrado de claves](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - Si las máquinas virtuales que quiere trasladar tienen Azure Disk Encryption (ADE) habilitado, en **Permisos de las claves** > **Operaciones de administración de claves**, seleccione **Get** (Obtener) y **List** (Enumerar) si no están seleccionados.
-    - Si usa claves administradas por el cliente (CMK) para cifrar las claves de cifrado de disco utilizadas para el cifrado en reposo (cifrado del lado servidor), en **Permisos de las claves** > **Operaciones de administración de claves**, seleccione **Get** (Obtener) y **List** (Enumerar). Además, en **Operaciones criptográficas**, seleccione **Decrypt** (Descifrar) y **Encrypt** (Cifrar).
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Lista desplegable para seleccionar los permisos del almacén de claves." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>Almacén de claves de la región de origen
 
-4. En **Permisos de los secretos**, **Operaciones de administración de secretos**, seleccione **Get** (Obtener), **List** (Enumerar) y **Set** (Establecer). 
-5. Si va a asignar permisos a una nueva cuenta de usuario, en **Seleccionar la entidad de seguridad**, seleccione el usuario al que va a asignar los permisos.
-6. En **Directivas de acceso**, asegúrese de que **Azure Disk Encryption para el cifrado de volúmenes** está habilitado.
-7. Repita el procedimiento para el almacén de claves de la región de destino.
+Se deben establecer los permisos siguientes para el usuario que ejecuta el script. 
+
+**Componente** | **Permiso necesario**
+--- | ---
+Secretos|  Permiso Get <br> </br> En **Permisos de los secretos**>  **Operaciones de administración de secretos**, seleccione **Get**. 
+Claves <br> </br> Si usa la clave de cifrado de claves (KEK), necesita este permiso además de los secretos.| Permisos Get y Decrypt <br> </br> En **Permisos de las claves** > **Operaciones de administración de claves**, seleccione **Get**. En **Operaciones criptográficas**, seleccione **Decrypt**.
+
+### <a name="destination-region-keyvault"></a>Almacén de claves de la región de destino
+
+En **Directivas de acceso**, asegúrese de que **Azure Disk Encryption para el cifrado de volúmenes** está habilitado. 
+
+Se deben establecer los permisos siguientes para el usuario que ejecuta el script. 
+
+**Componente** | **Permiso necesario**
+--- | ---
+Secretos|  Permiso Set <br> </br> En **Permisos de los secretos**>  **Operaciones de administración de secretos**, seleccione **Set**. 
+Claves <br> </br> Si usa la clave de cifrado de claves (KEK), necesita este permiso además de los secretos.| Permiso Get, Create y Encrypt <br> </br> En **Permisos de las claves** > **Operaciones de administración de claves**, seleccione **Get** y **Create**. En **Operaciones criptográficas**, seleccione **Encrypt**.
+
+Además de los permisos anteriores, en el almacén de claves de destino debe agregar permisos para la [identidad del sistema administrada](./common-questions.md#how-is-managed-identity-used-in-resource-mover) que usa Resource Mover para acceder a los recursos de Azure en su nombre. 
+
+1. En **Configuración**, seleccione **Add Access policies** (Agregar directivas de acceso). 
+2. En **Seleccionar la entidad de seguridad**, busque el MSI. El nombre de MSI es ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
+3. Agregue los permisos siguientes para MSI.
+
+**Componente** | **Permiso necesario**
+--- | ---
+Secretos|  Permisos Get y List <br> </br> En **Permisos de los secretos**>  **Operaciones de administración de secretos**, seleccione **Get** y **List**. 
+Claves <br> </br> Si usa la clave de cifrado de claves (KEK), necesita este permiso además de los secretos.| Permisos Get y List <br> </br> En **Permisos de las claves** > **Operaciones de administración de claves**, seleccione **Get** y **List**.
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copia de las claves en el almacén de claves de destino

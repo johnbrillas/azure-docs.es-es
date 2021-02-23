@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
-ms.openlocfilehash: ab783d6cb20f1c2fe31e8556dc57999df20d5637
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: efbae71162bdd0c126287191f7ad35cf903db138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378084"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalación o desinstalación de Azure IoT Edge para Linux
 
@@ -32,7 +32,7 @@ En este artículo se indican los pasos para instalar el entorno de ejecución de
 
 * Un dispositivo Linux
 
-  Debe tener un dispositivo Linux X64, ARM32 o ARM64. Microsoft ofrece paquetes de instalación para los sistemas operativos Ubuntu Server 16.04, Ubuntu Server 18.04 y Raspberry Pi OS Stretch.
+  Debe tener un dispositivo Linux X64, ARM32 o ARM64. Microsoft ofrece paquetes de instalación para los sistemas operativos Ubuntu Server 18.04 y Raspberry Pi OS Stretch.
 
   Para obtener la información más reciente sobre qué sistemas operativos se admiten actualmente en los escenarios de producción, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems).
 
@@ -42,12 +42,6 @@ En este artículo se indican los pasos para instalar el entorno de ejecución de
 * Prepare el dispositivo para acceder a los paquetes de instalación de Microsoft.
 
   Instale la configuración del repositorio que coincida con el sistema operativo del dispositivo.
-
-  * **Ubuntu Server 16.04**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-    ```
 
   * **Ubuntu Server 18.04**:
 

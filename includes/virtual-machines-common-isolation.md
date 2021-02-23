@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96478262"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515046"
 ---
 Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente. Los tamaños aislados viven y funcionan en una generación de hardware específica y quedarán en desuso cuando se retire la generación de hardware.
 
@@ -23,14 +23,14 @@ Los tamaños de máquina virtual aislados son más adecuados para cargas de trab
 Además, dado que las VM de tamaño aislado son más grandes, los clientes puede elegir subdividir aún más los recursos de estas VM mediante la [compatibilidad de Azure con máquinas virtuales anidadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 Las ofertas de máquinas virtuales aisladas actuales incluyen:
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Las ofertas de máquinas virtuales aisladas actuales incluyen:
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Desuso de los tamaños de VM aislados
 
-Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure proporcionará recordatorios 12 meses antes de que los tamaños estén oficialmente en desuso.  Azure también ofrecerá un tamaño aislado actualizado en la siguiente versión de hardware a la que el cliente podría considerar trasladar su carga de trabajo.
+Los tamaños de VM aislados tienen una duración limitada de hardware. Azure emitirá recordatorios de 12 meses antes de la fecha de desuso oficial de los tamaños y le proporcionará una oferta aislada actualizada para que la tenga en cuenta.
 
 | Size | Fecha de retirada del aislamiento | 
 | --- | --- |
@@ -49,7 +49,7 @@ Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure prop
 
 
 ## <a name="faq"></a>Preguntas más frecuentes
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: ¿Se retirará el tamaño o solo la característica de "aislamiento"?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: ¿Se retirará el tamaño o solo la característica de "aislamiento"?
 **R.** : Si el tamaño de la máquina virtual no tiene el subíndice "i", solo se retirará la característica de "aislamiento". Si no es necesario el aislamiento, no es necesario realizar ninguna acción y la VM seguirá funcionando según lo previsto. Entre los ejemplos se incluyen Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si el tamaño de la máquina virtual incluye el subíndice "i", el tamaño se retirará.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: ¿Hay un tiempo de inactividad cuando la máquina virtual se encuentra en un hardware no aislado?

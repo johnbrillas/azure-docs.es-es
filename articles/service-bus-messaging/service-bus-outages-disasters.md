@@ -2,13 +2,13 @@
 title: Aislamiento de las aplicaciones de Azure Service Bus ante interrupciones y desastres
 description: En este artículo se proporcionan técnicas para proteger las aplicaciones frente a posibles interrupciones de Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065631"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374599"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
 
@@ -23,11 +23,13 @@ Los conceptos de alta disponibilidad y recuperación ante desastres se han integ
 
 ### <a name="geo-disaster-recovery"></a>Recuperación ante desastres geográfica
 
-Service Bus Premium admite la recuperación ante desastres geográfica en el nivel del espacio de nombres. Para obtener más información, consulte [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md). La característica de recuperación ante desastres, disponible solo para la [SKU premium](service-bus-premium-messaging.md), implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios.
+Service Bus Premium admite la recuperación ante desastres geográfica en el nivel del espacio de nombres. Para obtener más información, consulte [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md). La característica de recuperación ante desastres, disponible solo para la [SKU premium](service-bus-premium-messaging.md), implementa la recuperación ante desastres de metadatos y depende de espacios de nombres de recuperación ante desastres principales y secundarios. Con la recuperación ante desastres geográfica, solo los metadatos de las entidades se replican entre los espacios de nombres principal y secundario.  
 
 ### <a name="availability-zones"></a>Zonas de disponibilidad
 
 La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure. Service Bus administra tres copias del almacén de mensajería (una principal y dos secundarias). Service Bus mantiene las tres copias sincronizadas para operaciones de datos y administración. Si se produce un error en la copia principal, una de las copias secundarias se promueve a principal sin tiempo de inactividad perceptible. Si las aplicaciones experimentan desconexiones transitorias de Service Bus, la lógica de reintento en el SDK volverá a establecer la conexión con Service Bus automáticamente. 
+
+Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (mensajes) se replican entre centros de datos en la zona de disponibilidad. 
 
 > [!NOTE]
 > La compatibilidad de Availability Zones con Azure Service Bus Premium solo está disponible en aquellas [regiones de Azure](../availability-zones/az-region.md) en las que hay zonas de disponibilidad.

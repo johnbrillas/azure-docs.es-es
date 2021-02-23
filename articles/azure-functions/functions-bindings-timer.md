@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874090"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547849"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
@@ -347,7 +347,7 @@ Expresado como una cadena, el formato `TimeSpan` es `hh:mm:ss` cuando `hh` es me
 
 ## <a name="scale-out"></a>Escalado horizontal
 
-Si una aplicación de función se escala horizontalmente a varias instancias, una sola instancia de una función desencadenada por el temporizador se ejecuta en todas las instancias.
+Si una aplicación de función se escala horizontalmente a varias instancias, una sola instancia de una función desencadenada por el temporizador se ejecuta en todas las instancias. No se volverá a desencadenar aunque se siga ejecutando una invocación pendiente.
 
 ## <a name="function-apps-sharing-storage"></a>Aplicaciones de función que comparten almacenamiento
 

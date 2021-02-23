@@ -1,73 +1,69 @@
 ---
-title: 'Script de ejemplo de Azure PowerShell: configuración de VPN de punto a sitio con autenticación de certificados nativa de Azure | Microsoft Docs'
+title: 'Ejemplo de script de Azure PowerShell: configuración de una VPN de punto a sitio: autenticación de certificados'
+titleSuffix: Azure VPN Gateway
 description: Configure una VPN de punto a sitio con la autenticación de certificados nativa de Azure mediante certificados autofirmados. En este artículo se usa PowerShell.
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/10/2020
+ms.date: 02/11/2021
 ms.author: alzam
-ms.openlocfilehash: b691e4621d50f8578ebe095ed184cbdb4397ce10
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04d0fe2b322f6b70cb1cda8d61fbd49638ec214a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646430"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385836"
 ---
-# <a name="configure-a-point-to-site-vpn-using-native-azure-certificate-authentication"></a>Configuración de una conexión VPN de punto a sitio mediante la autenticación nativa de certificados de Azure
+# <a name="configure-a-point-to-site-vpn---certificate-authentication---powershell-script-sample"></a>Configuración de una VPN de punto a sitio: autenticación de certificados: script de ejemplo de PowerShell
 
-Este script crea una instancia de VPN Gateway basada en enrutamiento y agrega una configuración de punto a sitio mediante la autenticación de certificados nativa de Azure
+Este script crea una instancia de VPN Gateway basada en rutas y agrega una configuración de punto a sitio mediante la autenticación de certificados nativa de Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
   $VNetName  = "VNet1"
-  $FESubName = "FrontEnd"
-  $BESubName = "Backend"
-  $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
-  $FESubPrefix = "10.1.0.0/24"
-  $BESubPrefix = "10.1.1.0/24"
-  $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
   $RG = "TestRG1"
   $Location = "East US"
+  $FESubName = "FrontEnd"
+  $VNetPrefix1 = "10.1.0.0/16"
+  $FESubPrefix = "10.1.0.0/24"
+  $GWSubPrefix = "10.1.255.0/27"
+  $VPNClientAddressPool = "192.168.0.0/24"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
-  $GWIPconfName = "gwipconf"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location EastUS
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
+  -ResourceGroupName $RG `
   -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Add the VPN client address pool
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -85,8 +81,8 @@ $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate
 $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName `
- -VirtualNetworkGatewayname "VNet1GW" `
- -ResourceGroupName "TestRG1" -PublicCertData $CertBase64
+ -VirtualNetworkGatewayname $GWName `
+ -ResourceGroupName $RG -PublicCertData $CertBase64
 
 ```
 
@@ -106,8 +102,8 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Agrega una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |
 | [Add-AzVpnClientRootCertificate](/powershell/module/az.network/add-azvpnclientrootcertificate) | Carga la información de clave pública del certificado raíz en la instancia de VPN Gateway.|
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtiene detalles de una red virtual. |
-| [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Obtiene detalles de una puerta de enlace de red virtual. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtiene los detalles de una red virtual. |
+| [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Obtiene detalles de puerta de enlace de red virtual. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene detalles de configuración de la subred de red virtual. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Crea una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |
@@ -115,7 +111,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública. |
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP de puerta de enlace. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de VPN. |
-| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps) | Crea un certificado raíz autofirmado. |
+| [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) | Crea un certificado raíz autofirmado. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Establece la configuración de subred para la red virtual. |
 

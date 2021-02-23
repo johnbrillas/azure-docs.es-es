@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d58398c42cdc6faed758e5dba3431e0841fc0b03
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526422"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555563"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Procedimientos recomendados para Azure RBAC
 
@@ -30,7 +30,7 @@ El siguiente diagrama muestra un patrón sugerido para la asignación de RBAC de
 
 ![RBAC de Azure y privilegios mínimos](./media/best-practices/rbac-least-privilege.png)
 
-Para más información sobre cómo agregar asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md).
+Para más información sobre la asignación de roles, consulte [Asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitación del número de propietarios de suscripciones
 

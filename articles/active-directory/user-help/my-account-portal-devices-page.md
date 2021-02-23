@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798217"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096215"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Administración de los dispositivos conectados desde la página Dispositivos
 
@@ -27,7 +27,12 @@ La página **Dispositivos** del portal **Mi cuenta** le ayuda a administrar los 
 - Deshabilitar los dispositivos que ya no posea, que haya perdido o que hayan sido robados.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar la información del dispositivo conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de dispositivos para los empleados y otros usuarios, consulte [Documentación sobre identidades del dispositivo de Azure AD](../devices/index.yml).
+>Este artículo está destinado a los usuarios que intentan actualizar la información del dispositivo conectada a una cuenta profesional o educativa. Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
+>
+>Si es un administrador que busca información acerca de la administración de dispositivos para los empleados y otros usuarios, consulte [Documentación sobre identidades del dispositivo de Azure AD](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Visualización de los dispositivos conectados
 

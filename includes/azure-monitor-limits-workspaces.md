@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356217"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529737"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -56,13 +56,19 @@ ms.locfileid: "96356217"
 | Tiempo máximo de ejecución de la consulta | 10 minutos | Consulte [Tiempos de espera](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obtener más detalles.  |
 | Velocidad máxima de solicitud | 200 solicitudes por 30 segundos por dirección IP de cliente o usuario de Azure AD | Consulte [Límites de velocidad](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obtener más detalles. |
 
+**Búsqueda de Azure Monitor Logs**
+| Category | Límite | Comentarios |
+|:---|:---|:---|
+| Número máximo de registros | 500.000 | |
+| Tiempo de espera máximo de las consultas | 110 segundos | |
+| Gráficos | | La visualización en la página Registros y el conector utilizan diferentes bibliotecas de gráficos y algunas funcionalidades no están disponibles en el conector actualmente. |
+
 **Límites generales del área de trabajo**
 
 | Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de columnas en una tabla         | 500 | |
 | Número máximo de caracteres para el nombre de columna | 500 | |
-| Exportación de datos | No está disponible actualmente | Use Azure Function o Logic App para agregar y exportar datos. | 
 
 **<a name="data-ingestion-volume-rate">Velocidad de volumen de ingesta de datos</a>**
 

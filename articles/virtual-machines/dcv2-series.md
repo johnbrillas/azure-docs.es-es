@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095863"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557905"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -21,15 +21,15 @@ La serie DCsv2 puede ayudar a proteger la confidencialidad y la integridad de lo
 
 Entre los casos de uso de ejemplo se incluyen el uso compartido de datos confidenciales entre varias partes, la detección de fraudes, el blanqueo de dinero, la cadena de bloques, el análisis de uso confidencial, el análisis de la inteligencia y el aprendizaje automático confidencial.
 
-[Premium Storage](premium-storage-performance.md): Admitido*<br>
-[Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
-[Migración en vivo](maintenance-and-updates.md): No compatible<br>
-[Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
-[Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
-[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): Compatible<br>
+[Premium Storage](premium-storage-performance.md): compatible *<br>
+[Almacenamiento en caché](premium-storage-performance.md): compatible<br>
+[Migración en vivo](maintenance-and-updates.md): compatible<br>
+[Actualizaciones con conservación de memoria](maintenance-and-updates.md): no compatible<br>
+[Compatibilidad con la generación de máquinas virtuales](generation-2.md): segunda generación<br>
+[Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): compatible (* se requieren 4 vCPU como mínimo*) <br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
 
-*Excepto para Standard_DC8_v2
+*Excepto para Standard_DC8_v2 <br>
 
 | Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Nº máx. de NIC / ancho de banda de red esperado (MBps) | Memoria EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808031"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374497"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Implicaciones de cambiar a la cuota máxima de volumen para el servicio de Azure NetApp Files
 
 Desde el principio del servicio, Azure NetApp Files ha usado un aprovisionamiento de grupo de capacidad y un mecanismo de crecimiento automático. Los volúmenes de Azure NetApp Files se aprovisionan de forma fina sobre un grupo de capacidad subyacente aprovisionado por el cliente de un nivel y tamaño seleccionados. Los tamaños de volumen (cuotas) se usan para proporcionar rendimiento y capacidad, y las cuotas se pueden ajustar sobre la marcha en cualquier momento. Este comportamiento implica que, actualmente, la cuota de volumen es un factor de rendimiento que se usa para controlar el ancho de banda al volumen. Actualmente, los grupos de capacidades subyacentes aumentan automáticamente cuando se llena la capacidad.   
 
 > [!IMPORTANT] 
-> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 15 de marzo de 2021, los tamaños del volumen (cuota) administrarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
+> El comportamiento de Azure NetApp Files para el aprovisionamiento del grupo de capacidad y volumen se cambiará a un mecanismo *manual* y *controlable*. **A partir del 1 de abril de 2021, los tamaños del volumen (cuota) administrarán el rendimiento del ancho de banda, así como la capacidad aprovisionada, y los grupos de capacidad subyacentes ya no crecerán automáticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Motivos para el cambio a cuota máxima de volumen
 

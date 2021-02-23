@@ -3,13 +3,13 @@ title: 'Conceptos: aspectos básicos de Kubernetes para Azure Kubernetes Service
 description: Obtenga información sobre el clúster básico y los componentes de carga de trabajo de Kubernetes y cómo se relacionan con las características de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674933"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373239"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -31,8 +31,8 @@ Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrad
 
 Un clúster de Kubernetes se divide en dos componentes:
 
-- Los nodos del *plano de control* proporcionan los servicios centrales de Kubernetes y la orquestación de las cargas de trabajo de las aplicaciones.
-- Los *nodos* ejecutan las cargas de trabajo de la aplicación.
+- El *plano de control* proporciona los servicios básicos de Kubernetes y la orquestación de las cargas de trabajo de las aplicaciones.
+- *Nodos* que ejecutan las cargas de trabajo de las aplicaciones.
 
 ![Plano de control de Kubernetes y componentes de nodo](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 

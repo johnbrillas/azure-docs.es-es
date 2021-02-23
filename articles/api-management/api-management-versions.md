@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095174"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547203"
 ---
 # <a name="versions-in-azure-api-management"></a>Versiones de Azure API Management
 
@@ -64,9 +64,13 @@ Si agrega una versión a una API sin versión, se creará automáticamente una v
 
 ## <a name="how-versions-are-represented"></a>Cómo se representan las versiones
 
-Azure API Management mantiene un recurso denominado *conjunto de versiones*, que representa un conjunto de versiones para una única API lógica. Cuando usa Azure Portal para administrar versiones no ve el conjunto de versiones, pero si interactúa con el servicio API Management mediante PowerShell, las plantillas de Resource Manager o la API de Azure Resource Manager, puede ver y administrar directamente los conjuntos de versiones. Un conjunto de versiones contiene el nombre para mostrar de la API con versión, así como el [esquema de control de versiones utilizado](#versioning-schemes) para dirigir las solicitudes a las versiones especificadas.
+Azure API Management mantiene un recurso denominado *conjunto de versiones*, que representa un conjunto de versiones para una única API lógica. Cualquier conjunto de versiones contiene el nombre para mostrar de la API con versión y el [esquema de control de versiones utilizado](#versioning-schemes) para dirigir las solicitudes a las versiones especificadas.
 
-Cada versión de una API se mantiene como su propio recurso de API, que después se asocia a un conjunto de versiones. Un conjunto de versiones puede contener API con operaciones o directivas muy diferentes, lo que refleja el hecho de poder realizar cambios importantes entre las versiones de la API.
+Cada versión de una API se mantiene como su propio recurso de API, que después se asocia a un conjunto de versiones. Un conjunto de versiones puede contener varias API con distintas operaciones o directivas. Puede realizar cambios significativos entre las versiones de un conjunto.
+
+Azure Portal crea conjuntos de versiones de forma automática, y tanto los nombres como las descripciones de estos conjuntos se pueden modificar también en Azure Portal.
+
+Los conjuntos de versiones se puede ver y administrar directamente mediante la [CLI de Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), las [plantillas de Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets) o [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migración de una API sin versión a una API con versión
 

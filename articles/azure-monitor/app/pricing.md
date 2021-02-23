@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556132"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384510"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -286,15 +286,18 @@ Para deshabilitar los correos electrónicos de límite de volumen diario, en la 
 
 Para los usuarios pioneros de Azure Application Insights, todavía hay dos planes de tarifa posibles: Básico y Enterprise. El plan de tarifa Básico es el mismo que se describió anteriormente y es el predeterminado. Incluye todas las características del plan Enterprise sin ningún coste adicional. En el nivel Básico, la facturación se realiza principalmente en función del volumen de datos ingerido.
 
-> [!NOTE]
-> Estos planes de tarifa heredados han cambiado de nombre. El plan de tarifa Enterprise ahora se llama **Por nodo** y el plan de tarifa Básico ahora se llama **Por GB**. Estos nuevos nombres se usan a continuación y en Azure Portal.  
+Estos planes de tarifa heredados han cambiado de nombre. El plan de tarifa Enterprise ahora se llama **Por nodo** y el plan de tarifa Básico ahora se llama **Por GB**. Estos nuevos nombres se usan a continuación y en Azure Portal.  
 
-El nivel Por nodo (anteriormente Enterprise) tiene un cargo por nodo y cada nodo recibe una concesión de datos diaria. En el plan de tarifa Por nodo, se le cobrará por los datos ingeridos por encima de la concesión incluida. Si usa Operations Management Suite, debería elegir el nivel Por nodo.
+El nivel Por nodo (anteriormente Enterprise) tiene un cargo por nodo y cada nodo recibe una concesión de datos diaria. En el plan de tarifa Por nodo, se le cobrará por los datos ingeridos por encima de la concesión incluida. Si usa Operations Management Suite, debería elegir el nivel Por nodo. En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Obtenga más información acerca del [nuevo modelo de precios](../platform/usage-estimated-costs.md).
 
 Para ver los precios vigentes actualmente en su moneda y región, consulte [Precios de Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> En abril de 2018, [introdujimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](../platform/usage-estimated-costs.md), cómo [evaluar el impacto de pasar a este modelo](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) en función de los patrones de uso y [cómo participar en el nuevo modelo](../platform/usage-estimated-costs.md#azure-monitor-pricing-model).
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Descripción del uso facturado en el nivel Enterprise heredado (por nodo) 
+
+Tal y como se describe a continuación con más detalle, el nivel Enterprise heredado (por nodo) combina el uso de todos los recursos de Application Insights de una suscripción para calcular el número de nodos y el uso de datos por encima del límite. Debido a este proceso de combinación, el **uso de todos los recursos de Application Insights de una suscripción se muestran solo en uno de los recursos**.  Esto hace que la conciliación del [uso facturado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) con el uso que se observa en cada Application Insights recursos sea muy complicada. 
+
+> [!WARNING]
+> Debido a la complejidad del seguimiento y la comprensión del uso de los recursos de Application Insights en el nivel Enterprise heredado (por nodo), se recomienda encarecidamente usar el plan de tarifa Pago por uso actual. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Derechos del nivel Por nodo y la suscripción a Operations Management Suite
 
@@ -347,4 +350,3 @@ Puede escribir un script para establecer el plan de tarifa mediante Azure Resour
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

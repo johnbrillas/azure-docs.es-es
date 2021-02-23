@@ -1,42 +1,60 @@
 ---
-title: Creación de un conjunto de escalado que use máquinas virtuales de Azure Spot
-description: Aprenda a crear conjuntos de escalado de Azure que usen máquinas virtuales de Spot para ahorrar costos.
-author: cynthn
-ms.author: cynthn
+title: Creación de un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure
+description: Aprenda a crear conjuntos de escalado de Azure que usen máquinas virtuales de acceso puntual para ahorrar costos.
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729022"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558666"
 ---
-# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
+# <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
-El uso de Azure Spot en los conjuntos de escalado permite aprovechar las ventajas de nuestra capacidad sin usar con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, las instancias de Spot son excelentes para las cargas de trabajo que soporten las interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
+El uso de máquinas virtuales de acceso puntual de Azure en conjuntos de escalado permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, la infraestructura de esta plataforma expulsará las instancias de máquinas virtuales de acceso puntual de Azure. Por lo tanto, las instancias de máquinas virtuales de acceso puntual de Azure son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las cargas de trabajo de proceso de gran tamaño, etc.
 
-La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar máquinas virtuales de Spot en los conjuntos de escalado, Azure asigna las instancias solo si hay capacidad disponible, aunque estas no tienen un Acuerdo de Nivel de Servicio. Los conjuntos de escalado de Spot se implementan en un dominio de error único y no ofrecen garantías de alta disponibilidad.
+La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar instancias de máquinas virtuales de acceso puntual en los conjuntos de escalado, Azure asigna las instancias solo si hay capacidad disponible, aunque estas no tienen un Acuerdo de Nivel de Servicio. Un conjunto de escalado de máquinas virtuales de acceso puntual se implementa en un dominio de error único y no ofrece garantías de alta disponibilidad.
 
 
 ## <a name="pricing"></a>Precios
 
-Los precios de las instancias de Spot varían en función de la región y la SKU. Para más información, consulte los precios para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
+Los precios de las instancias de máquinas virtuales de acceso puntual de Azure son variables, en función de la región y la SKU. Para más información, consulte los precios para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la instancia no se expulsará según el precio. El precio de la instancia será el actual de Spot o el de una instancia estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles.
+La variabilidad en los precios permite establecer un precio máximo, en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la instancia no se expulsará según el precio. El precio de la instancia será el precio actual de la máquina virtual de acceso puntual de Azure o el de una instancia estándar, el que sea menor de los dos, siempre que haya capacidad y cuota disponibles.
+
+
+## <a name="limitations"></a>Limitaciones
+
+Los siguientes tamaños no se admiten en las máquinas virtuales de acceso puntual de Azure:
+ - Serie B
+ - Versiones de promoción de cualquier tamaño (como los tamaños de promoción Dv2, NV, NC, H)
+
+Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cualquier región, excepto en Microsoft Azure China 21Vianet.
+
+<a name="channel"></a>
+
+Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
+
+-   Contrato Enterprise
+-   Código de oferta de pago por uso 003P
+-   Patrocinados
+- Para obtener un proveedor de servicios en la nube (CSP), póngase en contacto con su asociado.
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
-Al crear conjuntos de escalado de Spot, puede establecer la directiva de expulsión en *Deallocate* (Desasignar) (valor predeterminado) o *Delete* (Eliminar). 
+Al crear conjuntos de escalado de máquinas virtuales de acceso puntual de Azure, puede establecer la directiva de expulsión en *Deallocate* (Desasignar) (valor predeterminado) o *Delete* (Eliminar). 
 
 La directiva *Deallocate* (Desasignar) cambia las instancias expulsadas al estado stopped-deallocated para que pueda volver a implementarlas. Sin embargo, no hay ninguna garantía de que la asignación se realizará correctamente. Las máquinas virtuales desasignadas se siguen teniendo en cuenta en la cuota de instancias del conjunto de escalado y se le cobra por los discos subyacentes. 
 
-Si quiere que las instancias del conjunto de escalado de Spot se eliminen al expulsarse, establezca la directiva de expulsión en *Delete* (Eliminar). Con la directiva de expulsión establecida para eliminar, puede crear nuevas máquinas virtuales mediante el aumento de la propiedad de recuento de instancias del conjunto de escalado. Las máquinas virtuales expulsadas se eliminan junto con sus discos subyacentes y, por tanto, no se le cobra el almacenamiento. También puede usar la característica de escalado automático de los conjuntos de escalado para probar y compensar automáticamente las máquinas virtuales expulsadas; sin embargo, no hay ninguna garantía de que la asignación se realice correctamente. Con el fin de evitar el costo de los discos y alcanzar los límites de cuota, se recomienda usar únicamente la característica de escalado automático en los conjuntos de escalado de Spot al establecer la directiva de expulsión en Delete (Eliminar). 
+Si quiere que las instancias del conjunto de escalado de máquinas virtuales de acceso puntual de Azure se eliminen al expulsarse, establezca la directiva de expulsión en *Delete* (Eliminar). Con la directiva de expulsión establecida para eliminar, puede crear nuevas máquinas virtuales mediante el aumento de la propiedad de recuento de instancias del conjunto de escalado. Las máquinas virtuales expulsadas se eliminan junto con sus discos subyacentes y, por tanto, no se le cobra el almacenamiento. También puede usar la característica de escalado automático de los conjuntos de escalado para probar y compensar automáticamente las máquinas virtuales expulsadas; sin embargo, no hay ninguna garantía de que la asignación se realice correctamente. Con el fin de evitar el costo de los discos y alcanzar los límites de cuota, se recomienda usar únicamente la característica de escalado automático en los conjuntos de escalado de Spot al establecer la directiva de expulsión en Delete (Eliminar). 
 
 Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
 
@@ -46,9 +64,9 @@ Un grupo de selección de ubicación es una construcción similar a un conjunto 
 > [!IMPORTANT]
 > A menos que use InfiniBand con HPC, se recomienda establecer la propiedad del conjunto de escalado `singlePlacementGroup` en *false* para habilitar varios grupos de selección de ubicación para un mejor escalado en la región o zona. 
 
-## <a name="deploying-spot-vms-in-scale-sets"></a>Implementación de máquinas virtuales de Spot en conjuntos de escalado
+## <a name="deploying-azure-spot-virtual-machines-in-scale-sets"></a>Implementación de máquinas virtuales de acceso puntual de Azure en conjuntos de escalado
 
-Para implementar máquinas virtuales de Spot en conjuntos de escalado, puede establecer la nueva marca *Priority* (Prioridad) en *Spot*. Todas las máquinas virtuales del conjunto de escalado se establecerán para Spot. Para crear un conjunto de escalado con máquinas virtuales de Spot, use uno de los métodos siguientes:
+Para implementar máquinas virtuales de acceso puntual en conjuntos de escalado, puede establecer la nueva marca *Priority* (Prioridad) en *Spot* (Acceso puntual). Todas las máquinas virtuales del conjunto de escalado se establecerán para Spot. Para crear un conjunto de escalado con máquinas virtuales de acceso puntual de Azure, use uno de los métodos siguientes:
 - [Azure Portal](#portal)
 - [CLI de Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
@@ -56,12 +74,12 @@ Para implementar máquinas virtuales de Spot en conjuntos de escalado, puede est
 
 ## <a name="portal"></a>Portal
 
-El proceso para crear un conjunto de escalado que use máquinas virtuales de Spot es igual que el que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando vaya a implementar un conjunto de escalado, puede elegir establecer la marca de Spot y la directiva de expulsión: ![Creación de un conjunto de escalado con máquinas virtuales de Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+El proceso para crear un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando vaya a implementar un conjunto de escalado, puede elegir establecer la marca de Spot y la directiva de expulsión: ![Creación de un conjunto de escalado con máquinas virtuales de acceso puntual de Azure](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-El proceso para crear un conjunto de escalado con máquinas virtuales de Spot es igual que el que se detalla en el [artículo de introducción](quick-create-cli.md). Basta con agregar "--Priority Spot" y `--max-price`. En este ejemplo, usamos `-1` para `--max-price`, por lo que la instancia no se expulsará según el precio.
+El proceso para crear un conjunto de escalado con máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el [artículo de introducción](quick-create-cli.md). Basta con agregar "--Priority Spot" y `--max-price`. En este ejemplo, usamos `-1` para `--max-price`, por lo que la instancia no se expulsará según el precio.
 
 ```azurecli
 az vmss create \
@@ -78,7 +96,7 @@ az vmss create \
 
 ## <a name="powershell"></a>PowerShell
 
-El proceso para crear un conjunto de escalado con máquinas virtuales de Spot es igual que el que se detalla en el [artículo de introducción](quick-create-powershell.md).
+El proceso para crear un conjunto de escalado con máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el [artículo de introducción](quick-create-powershell.md).
 Basta con agregar "-Priority Spot" y proporcionar un valor de `-max-price` a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
@@ -93,9 +111,9 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
-El proceso para crear un conjunto de escalado que use máquinas virtuales de Spot es igual que el que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
+El proceso para crear un conjunto de escalado que use máquinas virtuales de acceso puntual de Azure es igual que el que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"` o una versión posterior. 
+Para implementaciones de plantilla de máquina virtual de acceso puntual de Azure, use `"apiVersion": "2019-03-01"` o posterior. 
 
 Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sección `"virtualMachineProfile":` y la propiedad `"singlePlacementGroup": false,` a la sección `"Microsoft.Compute/virtualMachineScaleSets"` de la plantilla:
 
@@ -121,27 +139,27 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-**P:** Una vez creada, ¿es la instancia de Spot la misma que la estándar?
+**P:** Una vez que se crea, ¿es lo mismo una instancia de máquina virtual de acceso puntual de Azure que una instancia estándar?
 
-**R:** Sí, salvo que no hay ningún Acuerdo de Nivel de Servicio para las máquinas virtuales de Spot y se pueden expulsar en cualquier momento.
+**R:** Sí, salvo que no hay ningún Acuerdo de Nivel de Servicio para las máquinas virtuales de acceso puntual y se pueden expulsar en cualquier momento.
 
 
 **P:** ¿Qué se debe hacer si se produce la expulsión pero aún se necesita capacidad?
 
-**R:** Si necesita capacidad de inmediato, se recomienda usar máquinas virtuales estándar en lugar de máquinas virtuales de Spot.
+**R:** Si necesita capacidad de inmediato, se recomienda usar máquinas virtuales estándar en lugar de máquinas virtuales de acceso puntual.
 
 
-**P:** ¿Cómo se administra la cuota para Spot?
+**P:** ¿Cómo se administra la cuota de las máquinas virtuales de acceso puntual de Azure?
 
-**R:** Las instancias de Spot y las estándar tendrán grupos de cuotas independientes. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-
-**P:** ¿Puedo solicitar una cuota adicional para Spot?
-
-**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
+**R:** Las instancias de máquinas virtuales de acceso puntual de Azure y las instancias estándar tendrán grupos de cuotas independientes. La cuota de máquinas virtuales de acceso puntual de Azure se compartirá entre las instancias de máquinas virtuales y de conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**P:** ¿Puedo convertir los conjuntos de escalado existentes en conjuntos de escalado de Spot?
+**P:** ¿Puedo solicitar cuota adicional para las máquinas virtuales de acceso puntual de Azure?
+
+**R:** Sí, podrá enviar la solicitud para aumentar su cuota en las máquinas virtuales de acceso puntual de Azure mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
+
+
+**P:** ¿Puedo convertir los conjuntos de escalado existentes en conjuntos de escalado de máquinas virtuales de acceso puntual de Azure?
 
 **R:** No, solo se permite establecer la marca `Spot` durante la creación.
 
@@ -151,34 +169,19 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 **R:** Por ahora, `low` y `Spot` funcionarán, pero debe empezar a usar `Spot`.
 
 
-**P:** ¿Puedo crear un conjunto de escalado con tanto con máquinas virtuales normales como de Spot?
+**P:** ¿Puedo crear un conjunto de escalado con máquinas virtuales normales y máquinas virtuales de acceso puntual de Azure?
 
 **R:** No, un conjunto de escalado no admite más de un tipo de prioridad.
 
 
-**P:**  ¿Puedo usar el escalado automático con conjuntos de escalado de Spot?
+**P:**  ¿Puedo usar la escalabilidad automática con conjuntos de escalado de máquinas virtuales de acceso puntual de Azure?
 
-**R:** Sí, en el conjunto de escalado de Spot puede establecer reglas de escalado automático. Si se expulsan las máquinas virtuales, el escalado automático puede intentar crear nuevas máquinas virtuales de Spot. Recuerde que, aun así, no se garantiza esta capacidad. 
+**R:** Sí, en el conjunto de escalado de máquinas virtuales de acceso puntual de Azure puede establecer reglas de escalado automático. Si se expulsan las máquinas virtuales, la escalabilidad automática puede intentar crear nuevas máquinas virtuales de acceso puntual de Azure. Recuerde que, aun así, no se garantiza esta capacidad. 
 
 
 **P:**  ¿Funciona el escalado automático con las dos directivas de expulsión (desasignar y eliminar)?
 
-**R:** Sí. No obstante, se recomienda establecer la directiva de expulsión en "Eliminar" cuando se use la escalabilidad automática. Esto es porque las instancias desasignadas se cuentan para el número de capacidad en el conjunto de escalado. Cuando se usa el escalado automático, es probable que alcance el número de instancias de destino rápidamente debido a las instancias expulsadas desasignadas. Además, las operaciones de escalado pueden verse afectadas por expulsiones puntuales. Por ejemplo, las instancias de VMSS podrían situarse por debajo del recuento mínimo establecido debido a varias expulsiones puntuales durante las operaciones de escalado. 
-
-**P:** ¿Qué canales admiten las máquinas virtuales de Spot?
-
-**R:** Consulte la tabla siguiente para la disponibilidad de máquinas virtuales de Spot.
-
-<a name="channel"></a>
-
-| Canales de Azure               | Disponibilidad de las máquinas virtuales de Azure       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sí                               |
-| Pago por uso                | Sí                               |
-| Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](/partner-center/azure-plan-get-started) |
-| Ventajas                     | No disponible                     |
-| Patrocinados                    | Sí                               |
-| Versión de prueba gratuita                   | No disponible                     |
+**R:** Sí. No obstante, se recomienda establecer la directiva de expulsión en "Eliminar" cuando se use la escalabilidad automática. Esto es porque las instancias desasignadas se cuentan para el número de capacidad en el conjunto de escalado. Cuando se usa el escalado automático, es probable que alcance el número de instancias de destino rápidamente debido a las instancias expulsadas desasignadas. Además, las operaciones de escalado pueden verse afectadas por expulsiones puntuales. Por ejemplo, las instancias de conjuntos de escalado de máquinas virtuales podrían situarse por debajo del recuento mínimo establecido debido a varias expulsiones puntuales durante las operaciones de escalado. 
 
 
 **P:** ¿Dónde puedo publicar preguntas?

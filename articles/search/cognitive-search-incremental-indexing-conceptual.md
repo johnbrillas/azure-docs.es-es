@@ -7,13 +7,13 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390868"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimiento incremental y almacenamiento en caché en Azure Cognitive Search
 
@@ -23,7 +23,7 @@ ms.locfileid: "90971624"
 
 El *enriquecimiento incremental* es una característica que tiene como destino los [conjuntos de aptitudes](cognitive-search-working-with-skillsets.md). Aprovecha Azure Storage para guardar la salida de procesamiento que emite una canalización de enriquecimiento para su reutilización en ejecuciones futuras del indizador. Siempre que sea posible, el indizador reutiliza cualquier salida almacenada en caché que todavía sea válida. 
 
-El enriquecimiento incremental no solo permite conservar la inversión monetaria en el procesamiento (en concreto, OCR y procesamiento de imágenes), sino que también ofrece un sistema más eficaz. Cuando las estructuras y el contenido se almacenan en la caché, un indexador puede determinar qué aptitudes han cambiado y ejecutar solo aquellas que se han modificado, así como cualquier aptitud dependiente de bajada. 
+El enriquecimiento incremental no solo permite conservar la inversión monetaria en el procesamiento (en concreto, OCR y procesamiento de imágenes), sino que también ofrece un sistema más eficaz. 
 
 Los flujos de trabajo que usan el almacenamiento en caché incremental incluyen estos pasos:
 
@@ -95,7 +95,7 @@ Al establecer este parámetro se garantiza que solo se confirman las actualizaci
 En el ejemplo siguiente se muestra una solicitud Update Skillset con el parámetro:
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>Omitir comprobaciones de validación de origen de datos
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 La mayoría de los cambios en una definición de origen de datos invalidarán la caché. Pero para los escenarios en los que sabe que un cambio no debe invalidar la caché, como cambiar una cadena de conexión o rotar la clave en la cuenta de almacenamiento, anexe el parámetro `ignoreResetRequirement` en la actualización del origen de datos. Establecer este parámetro en `true` permite que se realice la confirmación, sin desencadenar una condición de restablecimiento que daría lugar a que todos los objetos se volvieran a generar y se rellenaran desde el principio.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>Forzar la evaluación de conjuntos de aptitudes
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 El propósito de la caché es evitar procesamientos innecesarios, pero imagine que realiza un cambio en una aptitud que el indizador no detecta (por ejemplo, cambiar un elemento del código externo, como una aptitud personalizada).
 
 En este caso, puede usar [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) para forzar el reprocesamiento de una aptitud determinada, incluidos los conocimientos de nivel inferior que tengan una dependencia en la salida de esa aptitud. Esta API acepta una solicitud POST con una lista de aptitudes que se deben invalidar y marcar para volver a procesarse. Después de Reset Skills, ejecute el indizador para invocar la canalización.
+
+### <a name="reset-documents"></a>Restablecimiento de documentos
+
+Al [restablecer un indexador](/rest/api/searchservice/reset-indexer), se volverán a procesar todos los documentos del corpus de búsqueda. En aquellos escenarios en los que solo haya que volver a procesar unos pocos documentos y no se pueda actualizar el origen de datos, use [Restablecimiento de documentos (versión preliminar)](/rest/api/searchservice/preview-api/reset-documents) para forzar el reprocesamiento de documentos específicos. Cuando se restablece un documento, el indizador invalida la caché del mismo y el documento se vuelve a procesar mediante su lectura desde el origen de datos. Para más información, consulte el artículo en el que se explican los [procedimientos para ejecutar o restablecer indexadores, aptitudes y documentos](search-howto-run-reset-indexers.md).
 
 ## <a name="change-detection"></a>Detección de cambios
 

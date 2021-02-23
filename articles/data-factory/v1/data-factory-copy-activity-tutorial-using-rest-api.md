@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Uso de API REST para crear una canalización de Azure Data Factory '
 description: En este tutorial, usará una API REST para crear una canalización de Azure Data Factory con una actividad de copia para copiar datos de Azure Blob Storage a Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053815"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377030"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -351,7 +345,7 @@ En este paso, creará una instancia de Azure Data Factory llamada **ADFCopyTutor
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados, **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:  
+* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados, **El nombre "ADFCopyTutorialDF" de factoría de datos no está disponible**, siga estos pasos:  
   
   1. Cambie el nombre (por ejemplo, suNombreADFCopyTutorialDF) en el archivo **datafactory.json** .
   2. En el primer comando donde se asigna un valor a la variable **$cmd** , reemplace ADFCopyTutorialDF por el nuevo nombre y ejecute el comando. 
@@ -522,11 +516,11 @@ Por cada segmento, se copian dos filas de datos del archivo de origen en la tabl
 ## <a name="summary"></a>Resumen
 En este tutorial, ha usado una API REST para crear una factoría de datos de Azure y copiar datos desde una instancia de Azure Bob Storage hasta Azure SQL Database. Estos son los pasos de alto nivel que realizó en este tutorial:  
 
-1. Ha creado una **factoría de datos**de Azure.
+1. Ha creado una **factoría de datos** de Azure.
 2. Ha creado **servicios vinculados**.
    1. Un servicio vinculado Azure Storage para vincular la cuenta de Azure Storage que contiene datos de entrada.     
    2. Un servicio vinculado de Azure SQL para vincular la base de datos que contiene los datos de salida. 
-3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.
+3. Ha creado **conjuntos de datos** que describen los datos de entrada y salida para las canalizaciones.
 4. Ha creado una **canalización** con una actividad de copia con un origen BlobSource y un receptor SqlSink. 
 
 ## <a name="next-steps"></a>Pasos siguientes

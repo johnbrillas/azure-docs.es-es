@@ -1,7 +1,7 @@
 ---
 title: Introducción a las utilidades de Spark para Microsoft
 description: 'Tutorial: MSSparkutils en los cuadernos de Azure Synapse Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954300"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368666"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -25,9 +25,9 @@ Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado q
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configuración del acceso a Azure Data Lake Storage Gen2 
 
-Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
+Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
 
-Las canalizaciones de Synapse usan la identidad del área de trabajo (MSI) para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
+Las canalizaciones de Synapse usan la identidad del área de trabajo (MSI) para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
 
 Siga los pasos a continuación para asegurarse de que Azure AD y la MSI del área de trabajo tienen acceso a la cuenta de ADLS Gen2:
 1. Abra [Azure Portal](https://portal.azure.com/) y la cuenta de almacenamiento a la que quiere acceder. Puede desplazarse al contenedor específico al que quiere obtener acceso.

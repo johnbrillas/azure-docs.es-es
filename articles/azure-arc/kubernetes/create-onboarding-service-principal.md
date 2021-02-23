@@ -1,31 +1,31 @@
 ---
-title: Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
+title: Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: 'Creación de una entidad de servicio de incorporación habilitada para Azure Arc '
+description: 'Creación de una entidad de servicio de incorporación habilitada para Azure Arc '
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 8eb38dbc04d964c0ab4869e801099ee9420d6ac2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184703"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390494"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
+# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
 
 ## <a name="overview"></a>Información general
 
-Es posible usar entidades de servicio que tengan una asignación de roles con privilegios limitados para la incorporación de clústeres de Kubernetes a Azure ARC. Esto resulta útil en las canalizaciones de integración continua e implementación continua (CI/CD), como Azure Pipelines y las Acciones de GitHub.
+Los clústeres de Kubernetes se pueden incorporar a Azure Arc mediante entidades de servicio con asignaciones de roles con privilegios limitados. Esta funcionalidad resulta útil en las canalizaciones de integración continua e implementación continua (CI/CD), como Azure Pipelines y las Acciones de GitHub.
 
-Los pasos siguientes proporcionan un tutorial sobre el uso de entidades de servicio para la incorporación de clústeres de Kubernetes a Azure Arc.
+Realiza los pasos siguientes para obtener información sobre el uso de entidades de servicio para la incorporación de clústeres de Kubernetes a Azure Arc.
 
-## <a name="create-a-new-service-principal"></a>Creación de una nueva entidad de servicio
+## <a name="create-a-new-service-principal"></a>Creación de una entidad de servicio
 
-Cree una nueva entidad de servicio con un nombre descriptivo. Tenga en cuenta que este nombre debe ser único en el inquilino de Azure Active Directory:
+Cree una nueva entidad de servicio con un nombre informativo que sea único para su inquilino de Azure Active Directory.
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -45,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Asignación de permisos
 
-Después de crear la nueva entidad de servicio, asigne el rol "Kubernetes Cluster - Azure Arc Onboarding" (Clúster de Kubernetes - Incorporación de Azure Arc) a la entidad de seguridad recién creada. Se trata de un rol integrado de Azure con permisos limitados, que solo permite a la entidad de seguridad registrar clústeres en Azure. La entidad de seguridad no puede actualizar, eliminar ni modificar ningún otro clúster o recurso de la suscripción.
+Asigne el rol "Clúster de Kubernetes: incorporación de Azure Arc" a la entidad de seguridad recién creada. Se trata de un rol integrado de Azure con permisos limitados, que solo permite a la entidad de seguridad registrar clústeres en Azure. La entidad de seguridad con este rol asignado no puede actualizar, eliminar ni modificar ningún otro clúster o recurso de la suscripción.
 
 Dado que las capacidades son limitadas, los clientes pueden volver a usar fácilmente esta entidad de seguridad para incorporar varios clústeres.
 
@@ -80,7 +80,7 @@ az role assignment create \
 
 ## <a name="use-service-principal-with-the-azure-cli"></a>Uso de una entidad de servicio con la CLI de Azure
 
-Haga referencia a la entidad de servicio recién creada:
+Haga referencia a la entidad de servicio recién creada con los siguientes comandos:
 
 ```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID

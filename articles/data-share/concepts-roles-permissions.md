@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460990"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558134"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roles y requisitos de Azure Data Share 
 
@@ -63,7 +63,7 @@ Para crear una asignación de roles manualmente para la identidad administrada d
 1. En *Seleccionar*, escriba el nombre del recurso de Azure Data Share.
 1. Haga clic en *Save*(Guardar).
 
-Para obtener más información sobre las asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md) si comparte datos empleando las API de REST y quiere crear una asignación de roles mediante la API. 
+Para más información sobre las asignaciones de roles, consulte [Asignación de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md). Consulte [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md) si comparte datos empleando las API REST y quiere crear una asignación de roles mediante la API. 
 
 En el caso de orígenes basados en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share a conectar a SQL Database mediante la autenticación de Azure Active Directory. Se debe conceder a este usuario el permiso *db_datareader*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido desde Azure SQL Database o Azure Synapse Analytics](how-to-share-from-sql.md). 
 
@@ -83,7 +83,7 @@ Para crear una asignación de roles manualmente para la identidad administrada d
 1. En *Seleccionar*, escriba el nombre del recurso de Azure Data Share.
 1. Haga clic en *Save*(Guardar).
 
-Para obtener más información sobre las asignaciones de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md) si recibe datos empleando las API de REST y quiere crear una asignación de roles mediante la API. 
+Para más información sobre las asignaciones de roles, consulte [Asignación de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md). Consulte [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md) si recibe datos empleando las API REST y quiere crear una asignación de roles mediante la API. 
 
 En el caso de destinos basados en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share a conectar a SQL Database mediante la autenticación de Azure Active Directory. Se debe conceder a este usuario el permiso *db_datareader, db_datawriter, db_ddladmin*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido desde Azure SQL Database o Azure Synapse Analytics](how-to-share-from-sql.md). 
 
@@ -107,4 +107,4 @@ Para más información sobre los proveedores de recursos, vea [Tipos y proveedor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de los roles en Azure - [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md)
+- Obtenga más información acerca de los roles en Azure: [Descripción de las definiciones de roles de Azure](../role-based-access-control/role-definitions.md)

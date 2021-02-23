@@ -3,12 +3,12 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219573"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558446"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -98,7 +98,7 @@ Para establecer un mensaje personalizado que describa por qué un recurso no es 
 ]
 ```
 
-Si la asignación es para una iniciativa, se pueden configurar diferentes mensajes para cada definición de directiva en la iniciativa. Los mensajes utilizan el valor `policyDefinitionReferenceId` configurado en la definición de la iniciativa. Para obtener más información, vea las [propiedades de las definiciones de propiedad](./initiative-definition-structure.md#policy-definition-properties).
+Si la asignación es para una iniciativa, se pueden configurar diferentes mensajes para cada definición de directiva en la iniciativa. Los mensajes utilizan el valor `policyDefinitionReferenceId` configurado en la definición de la iniciativa. Para más información, consulte las [propiedades de las definiciones de directiva](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

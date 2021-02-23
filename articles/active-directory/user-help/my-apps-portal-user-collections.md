@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609497"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095127"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>Colecciones (versión preliminar) para usuarios en Aplicaciones
 
@@ -33,6 +33,12 @@ En este artículo, aprenderá a:
 - ocultar colecciones;
 - mostrar colecciones ocultas;
 - eliminar colecciones.
+
+>[!Note]
+>Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myapplications.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myapplications.microsoft.com?tenant=*id_de_inquilino*
 
 ## <a name="create-a-collection"></a>Creación de una colección
 
@@ -103,6 +109,7 @@ Para ocultar una colección, siga estos pasos:
 Para hacer visible una colección oculta, siga estos pasos:
 
 1. Vaya a [My Apps collections](https://myapplications.microsoft.com/?endUserCollections) (Colecciones de Aplicaciones) e inicie sesión con su cuenta profesional o educativa.
+
 1. Abra el menú de página :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Seleccione el icono de puntos suspensivos para abrir el menú de nivel de página"::: y, después, seleccione **Manage** (Administrar).
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="El menú de página contiene el comando Manage (Administrar) para administrar las aplicaciones":::

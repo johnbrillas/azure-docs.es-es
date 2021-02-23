@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250696"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369153"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introducción a Azure Machine Learning en el entorno de desarrollo (parte 1 de 4)
 
@@ -78,20 +79,29 @@ pip install azureml-core
 
 Se recomienda configurar la siguiente estructura de directorio sencilla para este tutorial:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="Estructura de los directorios: nivel superior del tutorial con el subdirectorio .azureml":::
+
 
 - `tutorial`: directorio de nivel superior del proyecto.
 - `.azureml`: subdirectorio oculto para almacenar archivos de configuración de Azure Machine Learning.
 
+Por ejemplo, para crear esto en una ventana de Bash:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> Puede crear el subdirectorio oculto .azureml en una ventana de terminal.  O bien, use lo siguiente:
+> Para crear o ver la estructura en una ventana gráfica, habilite primero la posibilidad de ver y crear archivos y carpetas ocultos:
 >
-> * En una ventana de Finder de Mac, use **Comando + Mayús + .** para alternar la capacidad de ver y crear directorios que comienzan por un punto.  
+> * En una ventana de Finder de Mac, use **Comando + Mayús + .** para alternar la visualización de archivos o carpetas ocultos.  
 > * En el Explorador de archivos de Windows 10, consulte [Ver carpetas y archivos ocultos en Windows 10](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * En la interfaz gráfica de Linux, use **Ctrl + h** o el menú **Ver** y active la casilla **Mostrar archivos ocultos**.
+
+
+
 
 > [!div class="nextstepaction"]
 > [He creado un directorio](?success=create-dir#workspace) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 Después de que haya ejecutado correctamente *01-create-workspace.py*, la estructura de carpetas tendrá el siguiente aspecto:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="El archivo config.json aparece en el subdirectorio .azureml después de haber ejecutado 01-create-workspace.py.":::
 
 El archivo `.azureml/config.json` contiene los metadatos necesarios para conectarse al área de trabajo de Azure Machine Learning. En concreto, contiene el identificador de la suscripción, el grupo de recursos y el nombre del área de trabajo. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 Ahora la estructura de carpetas tendrá el siguiente aspecto:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Incorporación de 02-create-compute.py al directorio del tutorial.":::
 
 > [!div class="nextstepaction"]
 > [He creado un clúster de proceso](?success=create-compute-cluster#next-steps) [He tenido un problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

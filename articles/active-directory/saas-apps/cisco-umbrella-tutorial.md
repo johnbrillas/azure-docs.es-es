@@ -9,103 +9,77 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: dde618b28e004e87edc2783bc44c5e7dd9f0ebba
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3b0bb561918d8fb82c6b7bec0a01107ffd9bb5c3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670679"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integración de Azure Active Directory con Cisco Umbrella
 
-En este tutorial, aprenderá a integrar Cisco Umbrella con Azure Active Directory (Azure AD).
-Integrar Cisco Umbrella con Azure AD proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar Cisco Umbrella con Azure Active Directory (Azure AD). Al integrar Cisco Umbrella con Azure AD, puede hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a Cisco Umbrella.
-* Puede permitir que los usuarios inicien sesión automáticamente en Cisco Umbrella (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Cisco Umbrella.
+* Permitir que los usuarios puedan iniciar sesión automáticamente en Cisco Umbrella con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerrequisitos
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con Cisco Umbrella, se necesitan los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único de Cisco Umbrella
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Cisco Umbrella.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Cisco Umbrella admite SSO iniciado por **SP e IDP**
+* Cisco Umbrella admite el inicio de sesión único iniciado por **SP e IDP**.
 
-## <a name="adding-cisco-umbrella-from-the-gallery"></a>Incorporación de Cisco Umbrella desde la galería
+## <a name="add-cisco-umbrella-from-the-gallery"></a>Adición de Cisco Umbrella desde la galería
 
 Para configurar la integración de Cisco Umbrella en Azure AD, será preciso que añada Cisco Umbrella desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Cisco Umbrella desde la galería, siga estos pasos:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Cisco Umbrella** en el cuadro de búsqueda.
+1. Seleccione **Cisco Umbrella** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-cisco-umbrella"></a>Configuración y prueba del inicio de sesión único de Azure AD para Cisco Umbrella
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con Cisco Umbrella mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Cisco Umbrella.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con Cisco Umbrella, lleve a cabo los siguientes pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único en Cisco Umbrella](#configure-cisco-umbrella-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Cisco Umbrella](#create-cisco-umbrella-test-user)** : para tener un homólogo de B.Simon en Cisco Umbrella que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **Cisco Umbrella**, seleccione **Cisco Umbrella** en el panel de resultados y, luego, haga clic en el botón **Agregar** para añadir la aplicación.
+1. En Azure Portal, en la página de integración de la aplicación **Cisco Umbrella**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-    ![Cisco Umbrella en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con [nombre de aplicación] utilizando usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de [nombre de aplicación].
-
-Para configurar y probar el inicio de sesión único de Azure AD con [nombre de aplicación], es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Cisco Umbrella](#configure-cisco-umbrella-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Cisco Umbrella](#create-cisco-umbrella-test-user)** : para tener un homólogo de Britta Simon en Cisco Umbrella que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con [nombre de aplicación], siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Cisco Umbrella**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Cisco Umbrella](common/both-preintegrated-signon.png)
-
-    a. Si quiere configurar la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
+    a. Si desea configurar la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
 
     b. Haga clic en **Establecer direcciones URL adicionales**.
 
-    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://login.umbrella.com/sso`
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://login.umbrella.com/sso`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar **XML de metadatos** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -115,92 +89,59 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-cisco-umbrella-single-sign-on"></a>Configurar el inicio de sesión único de Cisco Umbrella
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, va a permitir que B.Simon acceda a Cisco Umbrella mediante el inicio de sesión único de Azure.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Cisco Umbrella**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-cisco-umbrella-sso"></a>Configuración del inicio de sesión único de Cisco Umbrella
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Cisco Umbrella como administrador.
 
 2. En el lado izquierdo del menú, haga clic en **Administrador**, vaya a **Autenticación** y, a continuación, haga clic en **SAML**.
 
-    ![El administrador](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
+    ![El administrador](./media/cisco-umbrella-tutorial/admin.png)
 
 3. Elija **Otro** y haga clic en **SIGUIENTE**.
 
-    ![El otro](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_other.png)
+    ![El otro](./media/cisco-umbrella-tutorial/other.png)
 
 4. En la página **Metadatos de Cisco Umbrella**, haga clic en **SIGUIENTE**.
 
-    ![Los metadatos](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_metadata.png)
+    ![Los metadatos](./media/cisco-umbrella-tutorial/metadata.png)
 
 5. En la pestaña **Cargar metadatos**, si había preconfigurado SAML, seleccione la opción **Haga clic aquí para cambiarlos** y siga los pasos siguientes.
 
-    ![El siguiente](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
+    ![El siguiente](./media/cisco-umbrella-tutorial/next.png)
 
 6. En la **Opción A: Cargar archivo XML**, cargue el archivo **XML de metadatos de federación** que descargó desde Azure Portal y, una vez que los siguientes valores se autorrellenen automáticamente tras la carga de los metadatos, haga clic en **SIGUIENTE**.
 
-    ![El método ChooseFile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![El método ChooseFile](./media/cisco-umbrella-tutorial/choose-file.png)
 
 7. En la sección **Validación de la configuración de SAML**, haga clic en **PROBAR LA CONFIGURACIÓN DE SAML**.
 
-    ![La prueba](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_test.png)
+    ![La prueba](./media/cisco-umbrella-tutorial/test.png)
 
 8. Haga clic en **GUARDAR**.
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Cisco Umbrella.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Cisco Umbrella**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, escriba y seleccione **Cisco Umbrella**.
-
-    ![Vínculo a Cisco Umbrella en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-cisco-umbrella-test-user"></a>Creación de usuario de prueba de Cisco Umbrella
 
@@ -213,11 +154,11 @@ En el caso de Cisco Umbrella, el aprovisionamiento es una tarea manual.
 
 2. En el lado izquierdo del menú, haga clic en **Administrador** y vaya a **Cuentas**.
 
-    ![La cuenta](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
+    ![La cuenta](./media/cisco-umbrella-tutorial/account.png)
 
 3. En la página **Cuentas**, haga clic en **Agregar** en el lado superior derecho de la página y siga los siguientes pasos.
 
-    ![El usuario](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_createuser.png)
+    ![El usuario](./media/cisco-umbrella-tutorial/create-user.png)
 
     a. En el campo **Nombre**, escriba el nombre, como **Britta**.
 
@@ -233,16 +174,22 @@ En el caso de Cisco Umbrella, el aprovisionamiento es una tarea manual.
 
     g. Haga clic en **CREATE** (Crear).
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Cisco Umbrella en el panel de acceso, debería iniciar sesión automáticamente en la versión de Cisco Umbrella para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Cisco Umbrella, donde podrá comenzar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Acceda directamente a la dirección URL de inicio de sesión de Cisco Umbrella y ponga en marcha el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Cisco Umbrella para la que configuró el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Cisco Umbrella en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Cisco Umbrella para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez que haya configurado Cisco Umbrella, puede aplicar el control de sesión, que protege a la organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

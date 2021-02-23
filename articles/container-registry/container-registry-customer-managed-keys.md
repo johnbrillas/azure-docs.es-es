@@ -4,12 +4,12 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062735"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526449"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (versión preliminar) para asignar permisos a la identidad para obtener acceso al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad mediante el comando [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
+También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) para asignar permisos a la identidad para acceder al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad mediante el comando [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ Configure una directiva para el almacén de claves de modo que la identidad pued
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Creación de directiva de acceso del almacén de claves":::
 
-También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (versión preliminar) para asignar permisos a la identidad para obtener acceso al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad.
+También puede usar [Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) para asignar permisos a la identidad para acceder al almacén de claves. Por ejemplo, asigne el rol de cifrado de servicio criptográfico de Key Vault a la identidad.
 
 1. Vaya al almacén de claves.
 1. Seleccione **Control de acceso (IAM)**  >  **+Agregar** > **Agregar asignación de roles**.
 1. En la ventana **Agregar asignación de roles**:
-    1. Seleccione el rol de **Cifrado de servicio criptográfico de Key Vault (versión preliminar)** . 
+    1. Seleccione el rol **Usuario del cifrado del servicio de cifrado de Key Vault**. 
     1. Asigne acceso a la **identidad administrada asignada por el usuario**.
     1. Seleccione el nombre de recurso de la identidad administrada asignada por el usuario y luego **Guardar**.
 

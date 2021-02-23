@@ -2,13 +2,13 @@
 title: Unidades de instancia de BareMetal en Azure
 description: Aprenda a identificar e interactuar con las unidades de instancia de BareMetal mediante Azure Portal.
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/17/2021
+ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733270"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548172"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Administración de instancias de BareMetal mediante Azure Portal
  
@@ -17,25 +17,9 @@ En este artículo se muestra cómo [Azure Portal](https://portal.azure.com/) mue
 ## <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
 Un proveedor de recursos de Azure para instancias de BareMetal proporciona visibilidad de las instancias en Azure Portal, actualmente en versión preliminar pública. De forma predeterminada, la suscripción a Azure que se usa para las implementaciones de instancias de BareMetal registra el proveedor de recursos *BareMetalInfrastructure*. Si no ve las unidades de instancia de BareMetal implementadas, debe registrar el proveedor de recursos en la suscripción. 
 
-Hay dos maneras de registrar el proveedor de recursos de instancias de BareMetal:
- 
-* [CLI de Azure](#azure-cli)
- 
-* [Azure Portal](#azure-portal)
- 
-### <a name="azure-cli"></a>CLI de Azure
- 
-Inicie sesión en la suscripción de Azure que usa para la implementación de instancias de BareMetal mediante la CLI de Azure. Puede registrar el proveedor de recursos BareMetalInfrastructure con:
+Para registrar el proveedor de recursos BareMetal Instance, utilice Azure Portal o la CLI de Azure.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.BareMetalInfrastructure
-```
- 
-Para más información, consulte el artículo [Tipos y proveedores de recursos de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell).
- 
-### <a name="azure-portal"></a>Azure Portal
- 
-Puede registrar el proveedor de recursos BareMetalInfrastructure mediante Azure Portal.
+### <a name="portal"></a>[Portal](#tab/azure-portal)
  
 Deberá mostrar su suscripción en Azure Portal y, luego, hacer doble clic en la suscripción que usó para implementar sus unidades de instancia de BareMetal.
  
@@ -53,12 +37,32 @@ Deberá mostrar su suscripción en Azure Portal y, luego, hacer doble clic en la
 >Si no lo está, seleccione **Registrar**.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Captura de pantalla que muestra la unidad de instancia de BareMetal registrada":::
- 
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para empezar a usar la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Inicie sesión en la suscripción de Azure que usa para la implementación de instancias de BareMetal mediante la CLI de Azure. Registre el proveedor de recursos `BareMetalInfrastructure` con el comando [az provider register](/cli/azure/provider#az_provider_register):
+
+```azurecli
+az provider register --namespace Microsoft.BareMetalInfrastructure
+```
+
+Puede usar el comando [az provider list](/cli/azure/provider#az_provider_list) para ver todos los proveedores disponibles.
+
+---
+
+Para más información sobre los proveedores de recursos, consulte [Tipos y proveedores de recursos de Azure](../../../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Unidades de instancia de BareMetal en Azure Portal
  
 Al enviar una solicitud de implementación de instancias de BareMetal, especificará la suscripción de Azure que se va a conectar a estas instancias. Use la misma suscripción que para implementar la capa de aplicación que funciona con las unidades de instancia de BareMetal.
  
 Durante la implementación de las instancias de BareMetal, se creará un [grupo de recursos de Azure](../../../azure-resource-manager/management/manage-resources-portal.md) en la suscripción de Azure que usó en la solicitud de implementación. Este nuevo grupo de recursos muestra todas las unidades de instancia de BareMetal que ha implementado en la suscripción específica.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En la suscripción de BareMetal, en Azure Portal, seleccione **Grupos de recursos**.
  
@@ -75,10 +79,27 @@ Durante la implementación de las instancias de BareMetal, se creará un [grupo 
    
    >[!NOTE]
    >Si ha implementado varios inquilinos de instancia de BareMetal con la misma suscripción de Azure, verá varios grupos de recursos de Azure.
- 
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ver todas las instancias de BareMetal Instance, ejecute el comando [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) para el grupo de recursos:
+
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
+
+> [!TIP]
+> El parámetro `--output` es un parámetro global que está disponible para todos los comandos. El valor **table** presenta la salida en un formato descriptivo. Para más información, consulte [Formatos de salida de los comandos de la CLI de Azure](/cli/azure/format-output-azure-cli).
+
+---
+
 ## <a name="view-the-attributes-of-a-single-instance"></a>Visualización de los atributos de una sola instancia
- 
-Puede ver los detalles de una sola unidad. En la lista de la instancia de BareMetal, seleccione la instancia que quiera ver.
+
+Puede ver los detalles de una sola unidad.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+En la lista de la instancia de BareMetal, seleccione la instancia que quiera ver.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Captura de pantalla que muestra los atributos de la unidad de instancia de BareMetal de una sola instancia" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
@@ -101,6 +122,18 @@ Además, en el lado derecho, encontrará el nombre del [grupo con ubicación por
  
 >[!TIP]
 >Para encontrar la capa de aplicación en el mismo centro de datos de Azure que la revisión 4.x, consulte [Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para ver los detalles de una instancia de BareMetal Instance, ejecute el comando [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show):
+
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
+
+Si no está seguro del nombre de la instancia, ejecute el `az baremetalinstance list` comando, que se ha descrito anteriormente.
+
+---
  
 ## <a name="check-activities-of-a-single-instance"></a>Comprobación de las actividades de una sola instancia
  
@@ -113,11 +146,31 @@ Los cambios en los metadatos de la unidad en Azure también se anotan en el regi
 Otra actividad que se registra es cuando se agrega o elimina una [etiqueta](../../../azure-resource-manager/management/tag-resources.md) en una instancia.
  
 ## <a name="add-and-delete-an-azure-tag-to-an-instance"></a>Adición y eliminación de una etiqueta de Azure en una instancia
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
  
 Puede agregar etiquetas de Azure a una unidad de instancia de BareMetal o eliminarlas. La forma en que se asignan las etiquetas es igual que en las máquinas virtuales. Al igual que sucede con las máquinas virtuales, las etiquetas existen en los metadatos de Azure y, en el caso de las instancias de BareMetal, tienen las mismas restricciones que las etiquetas de las máquinas virtuales.
  
 La eliminación de las etiquetas funciona del mismo modo que con las máquinas virtuales. La aplicación y la eliminación de una etiqueta se indican en el registro de actividad de la unidad de instancia de BareMetal.
- 
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+La asignación de etiquetas a instancias de BareMetal Instance funciona igual que para las máquinas virtuales. Las etiquetas existen en los metadatos de Azure y, en el caso de las instancias de BareMetal, tienen las mismas restricciones que las etiquetas de las máquinas virtuales.
+
+Para agregar etiquetas a una unidad de BareMetal Instance, ejecute el comando [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update):
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+```
+
+Use el mismo comando para quitar una etiqueta:
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+```
+
+---
+
 ## <a name="check-properties-of-an-instance"></a>Comprobación de las propiedades de una instancia
  
 Al adquirir las instancias, puede ir a la sección de propiedades para ver los datos recopilados sobre ellas. Los datos recopilados incluyen la conectividad de Azure, el back-end de almacenamiento, el identificador de circuito ExpressRoute, el identificador de recurso único y el identificador de suscripción. Esta información se usará en las solicitudes de soporte técnico o al configurar las instantáneas de almacenamiento.
@@ -127,15 +180,29 @@ Otra parte crítica de la información que verá es la dirección IP de NFS de a
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Captura de pantalla que muestra la configuración de propiedades de instancias de BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## <a name="restart-a-unit-through-the-azure-portal"></a>Reinicio de una unidad mediante Azure Portal
- 
-Hay varias situaciones en las que el sistema operativo no finalizará un reinicio, lo que requerirá apagar y volver a encender la unidad de instancia de BareMetal. Esto lo puede hacer directamente desde Azure Portal:
+
+Hay varias situaciones en las que el sistema operativo no finalizará un reinicio, lo que requerirá apagar y volver a encender la unidad de instancia de BareMetal.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Esto lo puede hacer directamente desde Azure Portal:
  
 Seleccione **Reiniciar** y, después, **Sí** para confirmar el reinicio de la unidad.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Captura de pantalla que muestra cómo reiniciar la unidad de instancia de BareMetal":::
  
 Cuando reinicie una unidad de instancia de BareMetal, experimentará un retraso. Durante este retraso, el estado de energía se mueve de **Iniciando** a **Iniciado**, lo que significa que el sistema operativo se ha iniciado por completo. Como resultado, después de un reinicio, no puede iniciar sesión en la unidad tan pronto como el estado cambie a **Iniciado**.
- 
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para reiniciar una unidad de BareMetal Instance, use el comando [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart):
+
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
+
+---
+
 >[!IMPORTANT]
 >Según la cantidad de memoria en la unidad de instancia de BareMetal, reiniciar y volver a arrancar el hardware y el sistema operativo pueden tardar hasta una hora.
  

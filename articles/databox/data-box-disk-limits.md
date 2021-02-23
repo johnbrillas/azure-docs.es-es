@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573197"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361713"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -64,7 +64,7 @@ Estos son los límites del tamaño de los datos que se pueden copiar en la cuent
 
 | Tipo de datos             | Límite predeterminado          |
 |--------------------------|------------------------|
-| blob en bloques, blob en páginas    | Para obtener información actualizada acerca de estos límites, consulte [Objetivos de escalabilidad de Azure Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Objetivos de escala para cuentas de almacenamiento estándar de Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) y [Objetivos de escalabilidad de Azure Files](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> Los límites incluyen datos de todos los orígenes, incluido Data Box Disk.|
+| blob en bloques, blob en páginas    | Para obtener información actualizada acerca de estos límites, consulte [Objetivos de escalabilidad de Azure Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Objetivos de escala para cuentas de almacenamiento estándar de Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) y [Objetivos de escalabilidad de Azure Files](../storage/files/storage-files-scale-targets.md). <br /><br /> Los límites incluyen datos de todos los orígenes, incluido Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Límites de tamaño de objeto de Azure

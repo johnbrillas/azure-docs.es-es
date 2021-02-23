@@ -4,12 +4,12 @@ description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejec
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896017"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368513"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -67,6 +67,9 @@ Para ver las [cuotas de recursos](batch-quota-limit.md) que se aplican a la cuen
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Configuración adicional para el modo de suscripción de usuario
 
 Si decide crear una cuenta de Batch en el modo de suscripción de usuario, antes, realice los siguientes pasos adicionales.
+
+> [!IMPORTANT]
+> El usuario que crea la cuenta de Batch en modo de suscripción de usuario debe tener asignado el rol de colaborador o propietario para la suscripción en la que se creará la cuenta de Batch.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Procedimiento para permitir que Azure Batch acceda a la suscripción (operación única)
 

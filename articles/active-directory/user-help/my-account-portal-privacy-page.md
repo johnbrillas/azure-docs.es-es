@@ -9,22 +9,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 5104783aff5684471819ecf04e965670fff2798b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17c6cb038bf5550f76a8aef7ac2d41244cfda1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798149"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096572"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizar cómo se usan los datos relacionados con la privacidad en la organización
 
 Puede ver cómo la organización usa los datos desde la página **Configuración y privacidad** del portal **Mi cuenta**.
 
+>[!Note]
+> Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
+
 ## <a name="view-your-privacy-related-info"></a>Visualizar la información relacionada con la privacidad
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/. Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+
+   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
 
 2. Seleccione **Configuración y privacidad** en el panel de navegación izquierdo o seleccione el vínculo **Ver configuración y privacidad** en el bloque **Configuración y privacidad**.
 

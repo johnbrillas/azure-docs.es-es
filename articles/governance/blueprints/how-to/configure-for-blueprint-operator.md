@@ -3,12 +3,12 @@ title: Configuración del entorno para un operador de plano técnico
 description: Aprenda a configurar el entorno de Azure para su uso con el rol integrado de Azure en el operador del plano técnico.
 ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591608"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558732"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configuración del entorno para un operador de plano técnico
 
@@ -22,7 +22,7 @@ El primer paso consiste en conceder el rol de **operador de plano técnico** a l
 
 1. (Recomendado) [Crear un grupo de seguridad y agregar miembros](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Agregue una asignación de rol](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de **operador de plano técnico** a la cuenta o el grupo de seguridad
+1. [Asignación del rol de Azure](../../../role-based-access-control/role-assignments-portal.md) de **Operador del plano técnico** a la cuenta o grupo de seguridad
 
 ## <a name="user-assign-managed-identity"></a>Identidad administrada asignada por el usuario
 
@@ -32,7 +32,7 @@ Una definición de plano técnico puede usar identidades administradas asignadas
 
 1. Conceda a la identidad administrada asignada por el usuario cualquier rol o permiso que requiera la definición de plano técnico para el ámbito previsto.
 
-1. [Agregue una asignación de roles](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de **operador de identidad administrada** a la cuenta o al grupo de seguridad. Limite la asignación de roles a la nueva identidad administrada asignada por el usuario.
+1. [Agregue una asignación de roles](../../../role-based-access-control/role-assignments-portal.md) de **operador de identidad administrada** a la cuenta o al grupo de seguridad. Limite la asignación de roles a la nueva identidad administrada asignada por el usuario.
 
 1. Como **operador de plano técnico**, [asigne un plano](../create-blueprint-portal.md#assign-a-blueprint) que use la nueva identidad administrada asignada por el usuario.
 

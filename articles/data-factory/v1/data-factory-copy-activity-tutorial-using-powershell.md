@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Creación de una canalización para mover datos con Azure PowerShell '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante Azure PowerShell.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608636"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377047"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory que mueve datos mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -114,7 +108,7 @@ Tenga en cuenta los siguientes puntos:
 * El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error, cambie el nombre (por ejemplo, yournameADFTutorialDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial. Consulte [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Data Factory.
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 * El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
@@ -452,7 +446,7 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
 **¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure con una canalización para copiar datos desde una instancia de Azure Blob Storage hasta Azure SQL Database. 
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
-En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data Factory de Azure.
+En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una instancia de Azure Data Factory.
 
 1. Reemplace &lt;DataFactoryName&gt; por el nombre de la factoría de datos, ejecute **Get-AzDataFactory**, y asigne el resultado a una variable $df.
 

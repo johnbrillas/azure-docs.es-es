@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557145"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ En este artículo, ha aprendido cómo:
 > * Creación de un flujo de usuario de edición de perfil
 > * Creación de un flujo de usuario de restablecimiento de contraseña
 
-A continuación, aprenda a agregar proveedores de identidades a las aplicaciones para habilitar el inicio de sesión de usuario con proveedores como Azure AD, Amazon, GitHub, Facebook, LinkedIn, Microsoft o Twitter.
+A continuación, obtenga información sobre cómo usar Azure AD B2C para iniciar sesión y registrar usuarios en una aplicación. Siga la aplicación web de ASP.NET vinculada a continuación o vaya a otra aplicación de la tabla de contenido en **Autenticación de usuarios**.
 
 > [!div class="nextstepaction"]
-> [Incorporación de proveedores de identidades a las aplicaciones en Azure AD B2C >](tutorial-add-identity-providers.md)
+> [Tutorial: Habilitación de la autenticación en una aplicación web mediante Azure Active Directory B2C >](tutorial-web-app-dotnet.md)

@@ -1,24 +1,23 @@
 ---
-title: 'Script de ejemplo de Azure PowerShell: configuración de VPN de punto a sitio con autenticación de usuario y contraseña RADIUS | Microsoft Docs'
-description: Configure una VPN de punto a sitio con la autenticación de usuario y contraseña RADIUS. En este artículo se usa PowerShell.
+title: 'Ejemplo de script de Azure PowerShell: configuración de una VPN de punto a sitio con autenticación RADIUS'
+titleSuffix: Azure VPN Gateway
+description: Ejemplo de PowerShell para configurar una VPN de punto a sitio con la autenticación de usuario y contraseña de RADIUS
 services: vpn-gateway
-documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 05/30/2018
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: 626881d0ba6320b1eb4645105ee56a69a2b249ba
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0a89ce2b73ca9da64f86c81ea00b1f46ea18f996
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660311"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385819"
 ---
-# <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Creación de instancia de VPN Gateway y adición de una configuración de punto a sitio mediante PowerShell
+# <a name="create-a-vpn-gateway-with-p2s-radius-authentication---powershell-script-sample"></a>Creación de una instancia de VPN Gateway con autenticación RADIUS de P2S: ejemplo de script de PowerShell
 
-Este script crea una instancia de VPN Gateway basada en enrutamiento y agrega una configuración de punto a sitio mediante la autenticación de nombre de usuario/contraseña RADIUS.
+Este script de ejemplo crea una instancia de VPN Gateway basada en rutas y agrega una configuración de punto a sitio mediante la autenticación de nombre de usuario y contraseña de RADIUS.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -26,48 +25,46 @@ Este script crea una instancia de VPN Gateway basada en enrutamiento y agrega un
 # Declare variables
   $VNetName  = "VNet1"
   $FESubName = "FrontEnd"
-  $BESubName = "Backend"
-  $GWSubName = "GatewaySubnet"
-  $VNetPrefix1 = "10.0.0.0/16"
+  $VNetPrefix1 = "10.1.0.0/16"
   $FESubPrefix = "10.1.0.0/24"
-  $BESubPrefix = "10.1.1.0/24"
   $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
+  $VPNClientAddressPool = "172.16.201.0/24"
   $RG = "TestRG1"
   $Location = "East US"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
-  $GWIPconfName = "gwipconf"
+  $RSAddress = "10.51.0.15"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
-  -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -ResourceGroupName $RG `
+  -Location $Location `
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
- -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Create a secure string for the RADIUS secret
 $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
@@ -75,8 +72,8 @@ $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
 # Add the VPN client address pool and the RADIUS server information
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
- -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
- -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+ -VpnClientAddressPool $VPNClientAddressPool -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+ -RadiusServerAddress $RSAddress -RadiusServerSecret $Secure_Secret
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -94,7 +91,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | Get-Help | Notas |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Agrega una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtiene detalles de una red virtual. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtiene los detalles de una red virtual. |
 | [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Obtiene detalles de una puerta de enlace de red virtual. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene detalles de configuración de la subred de red virtual. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |

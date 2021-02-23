@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: ce063e27620c3b0ccec9336e7a45ebb2ee1ad10d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382827"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migración de las cargas de trabajo de Azure Stack Edge Pro con FPGA a Azure Stack Edge Pro con GPU
 
@@ -190,8 +190,8 @@ Siga estos pasos para recuperar los datos de recursos compartidos locales:
 
 Una vez preparados los módulos de IoT Edge, deberá implementar las cargas de trabajo de IoT Edge en el dispositivo de destino. Si se encuentra con algún error en la implementación de módulos de IoT Edge, consulte:
 
-- [Problemas habituales y resoluciones para Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md) y 
-- [Errores del entorno de ejecución de Azure IoT Edge][Administración de un dispositivo Azure Stack Edge Pro con GPU mediante Windows PowerShell](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors)
+- [Incidencias habituales y soluciones para Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md). 
+- [Errores del entorno de ejecución de Azure IoT Edge](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
 
 ## <a name="verify-data"></a>Comprobación de datos
 

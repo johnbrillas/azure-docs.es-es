@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536445"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371112"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -37,7 +37,7 @@ Todos los patrones de puerta de enlace proporcionan las siguientes ventajas:
 
 * **Análisis en el perimetral**: use los servicios de IA en el entorno local para procesar los datos que proceden de dispositivos de nivel inferior sin enviar datos de telemetría con total fidelidad a la nube. Busca y reacciona a la información localmente y solo envía un subconjunto de datos a IoT Hub.
 * **Aislamiento de dispositivos de nivel inferior**: el dispositivo de puerta de enlace puede proteger todos los dispositivos de nivel inferior de la exposición a Internet. Se puede situar entre una red de tecnología operativa (OT) que no tiene conectividad y una red de tecnologías de la información (TI) que proporciona acceso a Internet. Del mismo modo, los dispositivos que no tienen la capacidad de conectarse a IoT Hub por su cuenta pueden conectarse a un dispositivo de puerta de enlace en su lugar.
-* **Multiplexación de conexiones**: todos los dispositivos que se conectan a IoT Hub mediante una puerta de enlace IoT Edge usan la misma conexión subyacente.
+* **Multiplexación de conexiones**: todos los dispositivos que se conectan a IoT Hub mediante una puerta de enlace IoT Edge pueden usar la misma conexión subyacente. Esta capacidad de multiplexación requiere que la puerta de enlace de IoT Edge use AMQP como su protocolo de nivel superior.
 * **Suavizado de tráfico**: el dispositivo IoT Edge implementará automáticamente un retroceso exponencial si IoT Hub limita el tráfico, al tiempo que se conservan los mensajes localmente. Esta ventaja hace que la solución sea resistente a los picos de tráfico.
 * **Compatibilidad sin conexión**: el dispositivo de puerta de enlace almacena los mensajes y las actualizaciones gemelas que no se puedan entregar a IoT Hub.
 
@@ -45,7 +45,9 @@ Todos los patrones de puerta de enlace proporcionan las siguientes ventajas:
 
 En un patrón de puerta de enlace transparente, los dispositivos que teóricamente podrían conectarse a IoT Hub pueden conectarse en su lugar a un dispositivo de puerta de enlace. Los dispositivos de nivel inferior tienen sus propias identidades de IoT Hub y se conectan mediante protocolos MQTT o AMQP. La puerta de enlace simplemente pasa las comunicaciones entre los dispositivos e IoT Hub. Tanto los dispositivos como los usuarios que interactúan con ellos mediante IoT Hub no saben que una puerta de enlace está arbitrando sus comunicaciones. Esta falta de conocimiento significa que la puerta de enlace se considera *transparente*.
 
-<!-- 1.0.10 -->
+Para obtener más información sobre cómo el centro de IoT Edge administra la comunicación entre los dispositivos de nivel inferior y la nube, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Aunque un dispositivo IoT Edge no puede ser inferior a una puerta de enlace de IoT Edge.
@@ -72,6 +74,11 @@ La relación de elementos primarios y secundarios se establece en tres puntos de
 #### <a name="cloud-identities"></a>Identidades en la nube
 
 Todos los dispositivos en un escenario de puerta de enlace transparente necesitan identidades de nube para poder autenticarse en IoT Hub. Al crear o actualizar una identidad del dispositivo, puede establecer los dispositivos primarios o secundarios del mismo. Esta configuración autoriza al dispositivo de puerta de enlace primario para que controle la autenticación de los dispositivos secundarios.
+
+>[!NOTE]
+>La configuración del dispositivo primario en IoT Hub solía ser un paso opcional para los dispositivos de nivel inferior que utilizan la autenticación de clave simétrica. Sin embargo, a partir de la versión 1.1.0, cada dispositivo de nivel inferior debe estar asignado a un dispositivo primario.
+>
+>Puede configurar el centro de IoT Edge para volver al comportamiento anterior estableciendo la variable de entorno **AuthenticationMode** en el valor **CloudAndScope**.
 
 Los dispositivos secundarios solo pueden tener un dispositivo primario. Cada dispositivo primario puede tener hasta 100 dispositivos secundarios.
 
@@ -106,7 +113,7 @@ Todos los elementos primitivos de IoT Hub que funcionan con la canalización de 
 
 Use la siguiente tabla para ver cómo se admiten las diferentes funcionalidades de IoT Hub en los dispositivos, en comparación con los dispositivos que se encuentran detrás de las puertas de enlace.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Capacidad | Dispositivo IoT | IoT detrás de una puerta de enlace |

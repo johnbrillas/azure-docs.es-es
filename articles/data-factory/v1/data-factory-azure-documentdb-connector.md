@@ -1,23 +1,18 @@
 ---
 title: Movimiento de datos hacia o desde Azure Cosmos DB
 description: Aprenda a mover datos hacia y desde una colección de Azure Cosmos DB mediante Azure Data Factory
-services: data-factory, cosmosdb
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
-ms.service: multiple
-ms.workload: data-services
+ms.author: jingwang
+ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91f2b338ac9cda96521a5fe1d555de054826e273
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379376"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -39,9 +34,9 @@ Para copiar datos tal cual hacia y desde archivos JSON u otra colección de Cosm
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos hacia y desde Cosmos DB mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar** . Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Visual Studio** , **Azure PowerShell** , una **plantilla de Azure Resource Manager** , la **API de .NET** y **API REST** . Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -119,7 +114,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionSource** , están disponibles las propiedades siguientes en la sección **typeProperties** :
+En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | --- | --- | --- | --- |
@@ -148,7 +143,7 @@ Para lograr dicha copia independiente del esquema,
 ## <a name="json-examples"></a>Ejemplos de JSON
 En los siguientes ejemplos, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos hacia y desde Azure Cosmos DB y Azure Blob Storage. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
-## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Ejemplo: Copia de datos de Azure Cosmos DB a un blob de Azure
+## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Ejemplo: copia de datos de Azure Cosmos DB a Azure Blob
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [DocumentDb](#linked-service-properties).
@@ -189,7 +184,7 @@ En el ejemplo se copian datos de Azure Cosmos DB en Azure Blob. Las propiedades 
 
 En el ejemplo se supone que tiene una colección llamada **Person** en una base de datos de Azure Cosmos DB.
 
-Si se establece "external": "true" y se especifica la directiva externalData, se informa al servicio Azure Data Factory que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
+Si se establece "external": "true" y se especifica la directiva externalData, se informa al servicio Azure Data Factory de que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos.
 
 ```JSON
 {
@@ -297,7 +292,7 @@ La siguiente canalización copia los datos de la colección Person de la base de
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: Copia de datos de un blob de Azure a Azure Cosmos DB
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: copia de datos de Azure Blob a Azure Cosmos DB
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado del tipo DocumentDb.

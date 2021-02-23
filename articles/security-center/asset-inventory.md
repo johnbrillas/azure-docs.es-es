@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 12/22/2020
+ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920433"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393365"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Exploración y administración de los recursos con Asset Inventory
 
@@ -37,7 +37,6 @@ Las posibilidades de administración de recursos de esta herramienta son sustanc
 
 
 ## <a name="availability"></a>Disponibilidad
-
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
@@ -48,33 +47,36 @@ Las posibilidades de administración de recursos de esta herramienta son sustanc
 
 
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>¿Cuáles son las características clave del inventario de recursos?
-
 La página de inventario proporciona las siguientes herramientas:
 
-- **Resúmenes**: antes de definir algún filtro, una franja destacada de valores en la parte superior de la vista de inventario muestra:
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Características principales de la página de inventario de activos en Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
-    - **Recursos totales**: número total de recursos conectados a Security Center.
-    - **Recursos con estado incorrecto** : recursos con recomendaciones de seguridad activas. [Más información sobre las recomendaciones de seguridad](security-center-recommendations.md).
-    - **Unmonitored resources** (Recursos no supervisados): recursos con problemas de supervisión del agente; tienen implementado el agente de Log Analytics, pero no envía datos o tiene otros problemas de estado.
 
-- **Filtros**: los distintos filtros de la parte superior de la página proporcionan una manera de refinar rápidamente la lista de recursos según la pregunta que intenta responder. Por ejemplo, si quisiera responder a la pregunta *¿A cuáles de mis máquinas con la etiqueta "producción" les falta el agente de Log Analytics?* , podría combinar el filtro **Agent monitoring** (Supervisión del agente) con el filtro **Etiquetas**, como se muestra en el siguiente clip:
+### <a name="1---summaries"></a>1: Resúmenes
+Antes de definir ningún filtro, una franja destacada de valores en la parte superior de la vista de inventario muestra lo siguiente:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrado de los recursos de producción que no están supervisados":::
+- **Recursos totales**: número total de recursos conectados a Security Center.
+- **Recursos con estado incorrecto** : recursos con recomendaciones de seguridad activas. [Más información sobre las recomendaciones de seguridad](security-center-recommendations.md).
+- **Unmonitored resources** (Recursos no supervisados): recursos con problemas de supervisión del agente; tienen implementado el agente de Log Analytics, pero no envía datos o tiene otros problemas de estado.
+- **Suscripciones no registradas**: cualquier suscripción del ámbito seleccionado que todavía no se ha conectado a Azure Security Center.
 
-    En cuanto haya aplicado filtros, los valores de resumen se actualizarán para relacionarlos con los resultados de la consulta. 
+### <a name="2---filters"></a>2: Filtros
+Los distintos filtros de la parte superior de la página proporcionan una manera de refinar rápidamente la lista de recursos según la pregunta que intenta responder. Por ejemplo, si quisiera responder a la pregunta *¿A cuáles de mis máquinas con la etiqueta "Producción" les falta el agente de Log Analytics?* , podría combinar el filtro **Supervisión del agente** con el filtro **Etiquetas**.
 
-- **Opciones de exportación**: el inventario ofrece la opción de exportar los resultados de las opciones de filtro seleccionadas a un archivo CSV. Además, puede exportar la consulta propiamente dicha a Resource Graph Explorer para refinar aún más, guardar o modificar la consulta del lenguaje de consulta Kusto (KQL).
+En cuanto haya aplicado filtros, los valores de resumen se actualizarán para relacionarlos con los resultados de la consulta. 
 
-    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Opciones de exportación del inventario":::
+### <a name="3---export-and-asset-management-tools"></a>3: Herramientas de administración de recursos y exportación
 
-    > [!TIP]
-    > La documentación de KQL proporciona una base de datos con algunos datos de ejemplo junto con algunas consultas sencillas para saber cómo funciona el lenguaje. [Más información en este tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+**Opciones de exportación**: el inventario incluye una opción para exportar los resultados de las opciones de filtro seleccionadas a un archivo CSV. También puede exportar la consulta propiamente dicha a Azure Resource Graph Explorer para refinar aún más, guardar o modificar la consulta del lenguaje de consulta Kusto (KQL).
 
-- **Opciones de administración de recursos**: el inventario le permite realizar consultas de detección complejas. Cuando haya encontrado los recursos que coinciden con las consultas, el inventario proporciona accesos directos a operaciones como:
+> [!TIP]
+> La documentación de KQL proporciona una base de datos con algunos datos de ejemplo junto con algunas consultas sencillas para saber cómo funciona el lenguaje. [Más información en este tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-    - Asignación de etiquetas a los recursos filtrados: active las casillas junto a los recursos que quiere etiquetar.
-    - Incorporación de nuevos servidores a Security Center: use el botón de la barra de herramientas **Agregar servidores que no son de Azure**.
-    - Automatización de cargas de trabajo con Azure Logic Apps: use el botón **Desencadenar aplicación lógica** para ejecutar una aplicación lógica en uno o varios recursos. Las aplicaciones lógicas deben prepararse de antemano y aceptar el tipo de desencadenador correspondiente (solicitud HTTP). [Más información sobre las aplicaciones lógicas](../logic-apps/logic-apps-overview.md)
+**Opciones de administración de recursos**: el inventario le permite realizar consultas de detección complejas. Cuando haya encontrado los recursos que coinciden con las consultas, el inventario proporciona accesos directos a operaciones como:
+
+- Asignación de etiquetas a los recursos filtrados: active las casillas junto a los recursos que quiere etiquetar.
+- Incorporación de nuevos servidores a Security Center: use el botón de la barra de herramientas **Agregar servidores que no son de Azure**.
+- Automatización de cargas de trabajo con Azure Logic Apps: use el botón **Desencadenar aplicación lógica** para ejecutar una aplicación lógica en uno o varios recursos. Las aplicaciones lógicas deben prepararse de antemano y aceptar el tipo de desencadenador correspondiente (solicitud HTTP). [Más información sobre las aplicaciones lógicas](../logic-apps/logic-apps-overview.md)
 
 
 ## <a name="how-does-asset-inventory-work"></a>¿Cómo funciona el inventario de recursos?
@@ -94,14 +96,14 @@ Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/),
 
 1. Seleccione las opciones correspondientes de los filtros para crear la consulta específica que quiere realizar.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opciones de filtrado del inventario" lightbox="./media/asset-inventory/inventory-filters.png":::
-
     De forma predeterminada, los recursos se ordenan por el número de recomendaciones de seguridad activas.
 
     > [!IMPORTANT]
     > Las opciones de cada filtro son específicas de los recursos de las suscripciones seleccionadas actualmente **y** de las selecciones de los otros filtros.
     >
     > Por ejemplo, si ha seleccionado solo una suscripción y esta no tiene ningún recurso con recomendaciones de seguridad pendientes de corregir (0 recursos incorrectos), el filtro **Recomendaciones** no tendrán ninguna opción. 
+
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Uso de las opciones de filtro en el inventario de recursos de Azure Security Center para filtrar recursos para los recursos de producción no supervisados":::
 
 1. Para usar el filtro **Security findings contain** (Las conclusiones de seguridad contienen), escriba texto libre para el identificador, la comprobación de seguridad o el nombre de CVE de una conclusión de vulnerabilidad para filtrar los recursos afectados:
 

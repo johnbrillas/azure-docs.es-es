@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993758"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095854"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitación y administración del control de versiones de blob
 
-Puede habilitar el control de versiones de almacenamiento de blobs para conservar automáticamente las versiones anteriores de un objeto.  Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
+Puede habilitar el control de versiones de Blob Storage para conservar automáticamente las versiones anteriores de un blob cuando se modifica o elimina. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
 
 En este artículo se muestra cómo habilitar o deshabilitar el control de versiones de blobs para la cuenta de almacenamiento mediante Azure Portal o una plantilla de Azure Resource Manager. Para más información sobre el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md).
 
@@ -29,13 +29,39 @@ En este artículo se muestra cómo habilitar o deshabilitar el control de versio
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Para habilitar el control de versiones de blobs en Azure Portal:
+Para habilitar el control de versiones de blobs para una cuenta de almacenamiento en Azure Portal:
 
 1. Vaya a la cuenta de almacenamiento desde el portal.
 1. En **Blob service**, elija **Protección de datos**.
 1. En la sección **Control de versiones**, seleccione **Habilitado**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Captura de pantalla que muestra cómo habilitar el control de versiones de blobs en Azure Portal":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para habilitar el control de versiones de blobs para una cuenta de almacenamiento con PowerShell, primero instale la versión de módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 2.3.0 o posterior. A continuación, llame al comando [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) para habilitar el control de versiones, tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para habilitar el control de versiones de blobs para una cuenta de almacenamiento con la CLI de Azure, instale primero la versión de la CLI de Azure 2.2.0 o posterior. A continuación, llame al comando [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para habilitar el control de versiones, tal como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[Plantilla](#tab/template)
 

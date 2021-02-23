@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RStudio Server Pro SAML Authentication | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RStudio Server Pro SAML Authentication.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RStudio Server Pro | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RStudio Server Pro.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ecefc7c585f2f556e76efe6a3a272e38de98e297
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 490ecb201b91cdbdcdddceecdd2d145d2f9bb815
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181567"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390052"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rstudio-server-pro-saml-authentication"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RStudio Server Pro SAML Authentication
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rstudio-server-pro"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RStudio Server Pro
 
-En este tutorial aprenderá a integrar RStudio Server Pro SAML Authentication con Azure Active Directory (Azure AD). Al integrar RStudio Server Pro SAML Authentication con Azure AD, puede:
+En este tutorial, aprenderá a integrar RStudio Server Pro (RSP) con Azure Active Directory (Azure AD). Al integrar RSP con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a RStudio Server Pro SAML Authentication.
-* Permitir que los usuarios inicien sesión automáticamente en RStudio Server Pro SAML Authentication con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a RSP.
+* Permitir que los usuarios inicien sesión automáticamente en RSP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -31,17 +31,17 @@ En este tutorial aprenderá a integrar RStudio Server Pro SAML Authentication co
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Suscripción habilitada para el inicio de sesión único (SSO) en RStudio Server Pro SAML Authentication.
+* Instalación de RSP (versión >= 1.4).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* RStudio Server Pro SAML Authentication admite el inicio de sesión único iniciado por **SP e IDP**.
+* RSP admite el inicio de sesión único iniciado por **SP e IDP**.
 
-## <a name="adding-rstudio-server-pro-saml-authentication-from-the-gallery"></a>Incorporación de RStudio Server Pro SAML Authentication desde la galería
+## <a name="adding-rstudio-server-pro-from-the-gallery"></a>Adición de RStudio Server Pro desde la galería
 
-Para configurar la integración de RStudio Server Pro SAML Authentication con Azure AD, debe agregar RStudio Server Pro SAML Authentication desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de RSP en Azure AD, será preciso que agregue RStudio Server Pro SAML Authentication desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
@@ -51,17 +51,17 @@ Para configurar la integración de RStudio Server Pro SAML Authentication con Az
 1. Seleccione **RStudio Server Pro SAML Authentication** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-rstudio-server-pro-saml-authentication"></a>Configuración y prueba del inicio de sesión único de Azure AD para RStudio Server Pro SAML Authentication
+## <a name="configure-and-test-azure-ad-sso-for-rstudio-server-pro"></a>Configuración y prueba del inicio de sesión único de Azure AD para RStudio Server Pro
 
-Configure y pruebe el inicio de sesión único de Azure AD con RStudio Server Pro SAML Authentication mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de RStudio Server Pro SAML Authentication.
+Configure y pruebe el inicio de sesión único de Azure AD con RSP mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de RSP.
 
 Para configurar y probar el inicio de sesión único de Azure AD con RStudio Server Pro SAML Authentication, lleve a cabo los siguientes pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en RStudio Server Pro SAML Authentication](#configure-rstudio-server-pro-saml-authentication-sso)** : para configurar el inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba en RStudio Server Pro SAML Authentication](#create-rstudio-server-pro-saml-authentication-test-user)** : para tener un homólogo de B.Simon en RStudio Server Pro SAML Authentication vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en RStudio Server Pro](#configure-rstudio-server-pro-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba en RStudio Server Pro](#create-rstudio-server-pro-test-user)** : para tener un homólogo de B.Simon en RStudio Connect Pro que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -76,16 +76,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/metadata`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<RSP-SERVER>/<PATH>/saml/metadata`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.rstudioservices.com/<PATH>/saml/acs`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<RSP-SERVER>/<PATH>/saml/acs`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.rstudioservices.com`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<RSP-SERVER>/<PATH>/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de RStudio Server Pro SAML Authentication](mailto:support@rstudio.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador URI real de la instalación de RSP. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -115,13 +115,27 @@ En esta sección va a permitir que B.Simon acceda a RStudio Server Pro SAML Auth
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-rstudio-server-pro-saml-authentication-sso"></a>Configuración del inicio de sesión único de RStudio Server Pro SAML Authentication
+## <a name="configure-rstudio-server-pro-sso"></a>Configuración del inicio de sesión único en RStudio Server Pro
 
-Para configurar el inicio de sesión único en **RStudio Server Pro SAML Authentication**, envíe la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de RStudio Server Pro SAML Authentication](mailto:support@rstudio.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Actualice el archivo de configuración de RSP `/etc/rstudio/rserver.conf` con lo siguiente:
 
-### <a name="create-rstudio-server-pro-saml-authentication-test-user"></a>Creación de un usuario de prueba en RStudio Server Pro SAML Authentication
+    ```
+    auth-saml=1
+    auth-saml-metadata-url=<federation-metadata-URI>
+    auth-saml-sp-name-id-format=emailaddress
+    auth-saml-sp-attribute-username=NameID
+    auth-saml-sp-base-uri=<RSP-Server-URI>
+    ```
 
-En esta sección, creará un usuario llamado B.Simon en RStudio Server Pro SAML Authentication. Trabaje con el [equipo de soporte técnico de RStudio Server Pro SAML Authentication](mailto:support@rstudio.com) para agregar usuarios a la plataforma de RStudio Server Pro SAML Authentication. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+2. Reinicie RSP; para ello, ejecute:
+
+    ```
+    sudo rstudio-server restart
+    ```
+
+### <a name="create-rstudio-server-pro-test-user"></a>Creación de un usuario de prueba en RStudio Server Pro
+
+Todos los usuarios que van a usar RSP se deben aprovisionar en el servidor. Puede crear el usuario con los comandos `useradd` o `adduser`.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

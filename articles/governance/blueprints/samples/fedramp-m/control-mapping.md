@@ -3,12 +3,12 @@ title: 'Ejemplo de plano técnico de FedRAMP moderado: controles'
 description: Ejemplo de asignación de control del plano técnico de FedRAMP moderado. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034805"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594705"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Ejemplo de asignación de control del plano técnico de FedRAMP moderado
 
@@ -283,8 +283,8 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 Ahora que ha revisado la asignación de controles del plano técnico de FedRAMP moderado, consulte los siguientes artículos para obtener información sobre el plano técnico y cómo se implementa esta muestra:
 
 > [!div class="nextstepaction"]
-> [Plano técnico de FedRAMP moderado: información general](./index.md)
-> [Plano técnico de FedRAMP moderado: pasos de implementación](./deploy.md)
+> [Plano técnico de FedRAMP de nivel moderado: información general](./index.md)
+> [Plano técnico de FedRAMP de nivel moderado: pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

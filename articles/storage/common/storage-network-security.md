@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219916"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371794"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -371,10 +371,12 @@ En algunos casos, una aplicación puede depender de recursos de Azure que no se 
 
 Los tipos de operaciones que puede realizar una instancia de recursos en los datos de la cuenta de almacenamiento se determinan mediante las [asignaciones de roles de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) de la instancia de recurso. Las instancias de recursos deben estar en el mismo inquilino que la cuenta de almacenamiento, pero pueden pertenecer a cualquier suscripción del inquilino.
 
-La lista de servicios de Azure admitidos aparece en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo.
+> [!NOTE]
+> Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública.
 
 > [!NOTE]
-> Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública. 
+> Actualmente, las reglas de instancia de recurso solo se admiten en Azure Synapse. La compatibilidad con otros servicios de Azure que aparecen en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo estará disponible en las próximas semanas.
+
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 

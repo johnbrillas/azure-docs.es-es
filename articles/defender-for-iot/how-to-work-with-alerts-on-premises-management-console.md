@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836989"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526330"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Uso de alertas en la consola de administración local 
 
@@ -119,13 +119,34 @@ Para ver los dispositivos en un mapa de zonas:
 
 ## <a name="manage-alert-events"></a>Administrar eventos de alerta
 
-Puede administrar los eventos de alerta detectados por los sensores de la organización como se indica a continuación:
+Hay varias opciones disponibles para administrar los eventos de alerta desde la consola de administración local.
 
 - Conozca o confirme los eventos de alerta. Seleccione **Learn & Acknowledge** (Conocer y confirmar) para obtener información sobre todos los eventos de alerta que se pueden autorizar y para confirmar todos los eventos de alerta que no se han confirmado actualmente.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Seleccione Learn & Acknowledge (Conocer y confirmar) para obtener toda la información":::.
 
 - Desactive y reactive los eventos de alerta.
+
+Para más información sobre el aprendizaje, el reconocimiento y el silenciamiento de eventos de alerta, vea el artículo [Administrar eventos de alerta](how-to-manage-the-alert-event.md) del sensor.
+
+## <a name="export-alert-information"></a>Exportación de la información de alertas
+
+Exporte la información de alertas a un archivo .csv. Puede exportar la información de todas las alertas detectadas o exportar información basada en la vista filtrada. Se exporta la siguiente información:
+
+- Dirección de origen
+- Dirección de destino
+- Título de la alerta
+- Gravedad de la alerta
+- Mensaje de alerta
+- Información adicional
+- Estado confirmado
+- Disponibilidad de PCAP
+
+Para realizar la exportación:
+
+1. Seleccione Alertas en el menú lateral.
+1. Seleccione Exportar.
+1. Seleccione Export Extended Alerts (Exportar alertas extendidas) para exportar información de alertas de filas independientes para cada alerta que abarque varios dispositivos. Cuando se seleccione esta opción, el archivo .csv creará una fila duplicada de la alerta con los elementos únicos de cada fila. El uso de esta opción facilita la investigación de eventos de alertas exportadas.  
 
 ## <a name="create-alert-exclusion-rules"></a>Crear reglas de exclusión de alertas
 

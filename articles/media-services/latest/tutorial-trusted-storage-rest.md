@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100918"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590647"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Tutorial: Almacenamiento de confianza para Media Services
 
@@ -23,6 +23,9 @@ En este tutorial, aprenderá a:
 > - Dar acceso a los servicios de Azure a una cuenta de almacenamiento cuando se utiliza el control de acceso a la red, como un firewall o una VPN
 
 Con 2020-05-01 API, puede habilitar el almacenamiento de confianza asociando una identidad administrada a una cuenta de Media Services.
+
+>[!NOTE]
+>El almacenamiento de confianza solo está disponible en la API y actualmente no está habilitado en Azure Portal.
 
 Media Services puede acceder automáticamente a su cuenta de almacenamiento mediante la autenticación del sistema. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción. También se valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con RBAC de Azure Resource Manager.
 

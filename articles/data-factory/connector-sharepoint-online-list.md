@@ -1,22 +1,17 @@
 ---
 title: Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
 description: Aprenda a copiar datos de una lista de SharePoint Online en almacenes de datos receptores compatibles mediante una actividad de copia efectuada en una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474954"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393435"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copia de datos de una lista de SharePoint Online mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ Cuando se copian datos de una lista de SharePoint Online, se usan las siguientes
 | Varias líneas de texto                          | Edm.String                                           | String                                   |
 | Opción (menú para elegir)                    | Edm.String                                           | String                                   |
 | Número (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
-| Moneda ($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| Moneda ($, ¥, &euro;)                              | Edm.Double                                           | Double                                   |
 | Fecha y hora                                   | Edm.DateTime                                         | DateTime                                 |
 | Búsqueda (información que ya hay en el sitio)       | Edm.Int32                                            | Int32                                    |
 | Sí/no (casilla)                              | Edm.Boolean                                          | Boolean                                  |
