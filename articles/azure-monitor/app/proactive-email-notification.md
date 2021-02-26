@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324138"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559586"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Cambio de las notificaciones por correo electrónico de detección inteligente
 
@@ -33,7 +33,7 @@ Este cambio afectará a todas las reglas de detección inteligente, excepto los 
 
 Para garantizar que las notificaciones por correo electrónico de detección inteligente se envíen a los usuarios pertinentes, estos usuarios deben tener asignados los roles de [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de la suscripción.
 
-Para asignar usuarios a los roles de lector de supervisión o de colaborador de supervisión mediante Azure Portal, siga los pasos descritos en el artículo [Adición de una asignación de roles](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Asegúrese de seleccionar _lector de supervisión_ o _colaborador de supervisión_ como el rol al que se asignan los usuarios.
+Para asignar usuarios a los roles Lector de supervisión o Colaborador de supervisión mediante Azure Portal, siga los pasos descritos en el artículo [Asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md). Asegúrese de seleccionar _lector de supervisión_ o _colaborador de supervisión_ como el rol al que se asignan los usuarios.
 
 > [!NOTE]
 > Los destinatarios específicos de las notificaciones de detección inteligente, configurados mediante la opción _Destinatarios de correo electrónico adicionales_ en la configuración de la regla, no se verán afectados por este cambio. Estos destinatarios seguirá recibiendo las notificaciones por correo electrónico.

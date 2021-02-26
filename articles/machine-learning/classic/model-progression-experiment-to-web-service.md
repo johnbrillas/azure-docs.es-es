@@ -3,33 +3,33 @@ title: 'ML Studio (clásico): conversión de un modelo a un servicio web (Azure)
 description: Información general de cómo progresa el modelo de Machine Learning Studio (clásico) de un experimento de desarrollo a un servicio web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4e0f5786047977a319825aae9f3c7b89c0aa118b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95507258"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518630"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Progreso de un modelo de Machine Learning Studio (clásico) de un experimento a un servicio web
 
 **SE APLICA A:**  ![Esta es una marca de verificación, lo que significa que este artículo se aplica a Machine Learning Studio (clásico).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![Esta es una X, lo que significa que este artículo se aplica a Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-Azure Machine Learning Studio (clásico) ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un **_experimento_* _ que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:
+Azure Machine Learning Studio (clásico) ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un ***experimento*** que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:
 
-_Introducción de datos en el experimento
+* Introducir datos en el experimento
 * Manipulación de los datos.
 * Entrenar un modelo con algoritmos de aprendizaje automático
 * Puntuación del modelo
 * Evaluar los resultados
 * Generar los resultados finales
 
-Cuando esté satisfecho con el experimento, puede implementarlo como un ***servicio web de Azure Machine Learning clásico** _ o un _*_nuevo servicio web de Azure Machine Learning_*_ para que los usuarios puedan enviar nuevos datos y recibir los resultados de vuelta.
+Cuando esté satisfecho con el experimento, puede implementarlo como un ***servicio web de Azure Machine Learning clásico** _ o un _ *_nuevo servicio web de Azure Machine Learning_** para que los usuarios puedan enviar nuevos datos y recibir los resultados de vuelta.
 
 En este artículo ofrecemos una información general de cómo progresa el modelo de Machine Learning desde un experimento de desarrollo hasta un servicio web aplicado.
 
@@ -38,7 +38,7 @@ En este artículo ofrecemos una información general de cómo progresa el modelo
 >
 >
 
-Aunque Azure Machine Learning Studio (clásico) está diseñado para ayudarle a desarrollar e implementar un _modelo de análisis predictivo*, Studio (clásico) se puede usar para desarrollar un experimento que no incluya ningún modelo de este tipo. Por ejemplo, un experimento podría simplemente insertar datos, manipularlos y, después, producir los resultados. Al igual que un experimento de análisis predictivo, puede implementar este experimento no predictivo como un servicio web, pero es un proceso más sencillo porque el experimento no entrena ni puntúa un modelo de aprendizaje automático. Aunque este no es el uso típico de Studio (clásico), se debe incluir en la explicación siguiente para que podamos darle una explicación completa de su funcionamiento.
+Aunque Azure Machine Learning Studio (clásico) está diseñado para ayudarle a desarrollar e implementar un *modelo de análisis predictivo*, Studio (clásico) se puede usar para desarrollar un experimento que no incluya ningún modelo de este tipo. Por ejemplo, un experimento podría simplemente insertar datos, manipularlos y, después, producir los resultados. Al igual que un experimento de análisis predictivo, puede implementar este experimento no predictivo como un servicio web, pero es un proceso más sencillo porque el experimento no entrena ni puntúa un modelo de aprendizaje automático. Aunque este no es el uso típico de Studio (clásico), se debe incluir en la explicación siguiente para que podamos darle una explicación completa de su funcionamiento.
 
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Desarrollo e implementación de un servicio web predictivo
 Estas son las fases que sigue una solución típica cuando la desarrolla e implementa mediante Machine Learning Studio (clásico):
@@ -48,14 +48,14 @@ Estas son las fases que sigue una solución típica cuando la desarrolla e imple
 *Ilustración 1 - Fases de un modelo de análisis predictivo típico*
 
 ### <a name="the-training-experiment"></a>El experimento de entrenamiento
-El ***experimento de entrenamiento** _ es la fase inicial del proceso de desarrollo de un servicio web en Machine Learning Studio (clásico). El propósito del experimento de entrenamiento es brindarle un lugar para desarrollar, probar, iterar y finalmente entrenar un modelo de aprendizaje automático. Incluso puede entrenar varios modelos a la vez mientras busca la mejor solución, pero una vez que haya terminado de experimentar, puede seleccionar un único modelo entrenado y eliminar el resto del experimento. Para ver un ejemplo de desarrollo de un experimento de análisis predictivo, consulte [Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico)](tutorial-part1-credit-risk.md).
+El ***experimento de entrenamiento*** es la fase inicial del proceso de desarrollo de un servicio web en Machine Learning Studio (clásico). El propósito del experimento de entrenamiento es brindarle un lugar para desarrollar, probar, iterar y finalmente entrenar un modelo de aprendizaje automático. Incluso puede entrenar varios modelos a la vez mientras busca la mejor solución, pero una vez que haya terminado de experimentar, puede seleccionar un único modelo entrenado y eliminar el resto del experimento. Para ver un ejemplo de desarrollo de un experimento de análisis predictivo, consulte [Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>El experimento predictivo
-Cuando ya tenga un modelo entrenado en el experimento de entrenamiento, haga clic en _*Set Up Web Service** (Configurar servicio web) y seleccione **Predictive Web Service** (Servicio web predictivo) en Machine Learning Studio (clásico) para iniciar el proceso de conversión del experimento de entrenamiento en un **_experimento predictivo_*_. El propósito del experimento predictivo es usar el modelo entrenado para puntuar nuevos datos, con el fin de ponerlo en marcha en algún momento como un servicio web de Azure.
+Cuando ya tenga un modelo entrenado en el experimento de entrenamiento, haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Predictive Web Service** (Servicio web predictivo) en Machine Learning Studio (clásico) para iniciar el proceso de conversión del experimento de entrenamiento en un **_experimento predictivo_**. El propósito del experimento predictivo es usar el modelo entrenado para puntuar nuevos datos, con el fin de ponerlo en marcha en algún momento como un servicio web de Azure.
 
 Esta conversión se realiza a través de los pasos siguientes:
 
-_ Conversión del conjunto de módulos usados para el entrenamiento en un único módulo y su almacenamiento como un modelo entrenado
+* Conversión del conjunto de módulos usados para el entrenamiento en un único módulo y su almacenamiento como un modelo entrenado
 * Eliminación de los módulos extraños no relacionados con la puntuación
 * Adición de puertos de entrada y salida que usará el servicio web final
 

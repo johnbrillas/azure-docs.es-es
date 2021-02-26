@@ -3,17 +3,17 @@ title: Diagnóstico y solución de problemas de disponibilidad de los SDK de Azu
 description: Obtenga información sobre el comportamiento de la disponibilidad del SDK de Azure Cosmos cuando se trabaja en entornos de varias regiones.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/16/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097896"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559690"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnóstico y solución de problemas de disponibilidad de los SDK de Azure Cosmos en entornos de varias regiones
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Cuando establezca las preferencias regionales, el cliente se conectará a una re
 | Una región de escritura | Región preferida | Región primaria  |
 | Varias regiones de escritura | Región preferida | Región preferida  |
 
-Si **no establece una región preferida** , el cliente SDK utilizará la región primaria como el valor predeterminado:
+Si **no establece una región preferida**, el cliente SDK utilizará la región primaria como el valor predeterminado:
 
 |Tipo de cuenta |Lecturas |Escrituras |
 |------------------------|--|--|
@@ -47,7 +47,7 @@ Si **no establece una región preferida** , el cliente SDK utilizará la región
 
 En circunstancias normales, el cliente SDK se conectará a la región preferida (si se ha establecido una preferencia regional) o a la región primaria (si no se ha establecido una preferencia); y las operaciones se limitarán a esa región, a menos que se produzca alguno de estos escenarios.
 
-En estos casos, el cliente que usa el SDK de Azure Cosmos expone los registros e incluye la información de reintentos como parte de la **información de diagnóstico de operaciones** :
+En estos casos, el cliente que usa el SDK de Azure Cosmos expone los registros e incluye la información de reintentos como parte de la **información de diagnóstico de operaciones**:
 
 * La propiedad *RequestDiagnosticsString* en las respuestas del SDK de .NET v2.
 * La propiedad *Diagnostics* en las respuestas y excepciones en el SDK de .NET v3.
@@ -83,9 +83,9 @@ Al utilizar la [coherencia de la sesión](consistency-levels.md#guarantees-assoc
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemas de conectividad transitorios en el protocolo TCP
 
-En los escenarios en los que el cliente SDK de Azure Cosmos está configurado para usar el protocolo TCP, pueden darse situaciones para una solicitud determinada en las que las condiciones de red afecten temporalmente a la comunicación con un punto de conexión determinado. Estas condiciones de red temporales se pueden exponer como tiempos de expiración de TCP. El cliente reintentará la solicitud localmente en el mismo punto de conexión durante algunos segundos.
+En los escenarios en los que el cliente SDK de Azure Cosmos está configurado para usar el protocolo TCP, pueden darse situaciones para una solicitud determinada en las que las condiciones de red afecten temporalmente a la comunicación con un punto de conexión determinado. Estas condiciones de red temporales se pueden exponer como tiempos de espera de TCP y errores de servicio no disponible (HTTP 503). El cliente reintentará la solicitud localmente en el mismo punto de conexión durante algunos segundos antes de exponer el error.
 
-Si el usuario ha configurado una lista de regiones preferidas con más de una región y la cuenta de Azure Cosmos es de varias regiones de escritura o de una sola región de escritura y la operación es una solicitud de lectura, el cliente volverá a intentar esa única operación en la siguiente región de la lista de preferencias.
+Si el usuario ha configurado una lista de regiones preferidas con más de una región y la cuenta de Azure Cosmos es de varias regiones de escritura o de una sola región de escritura y la operación es una solicitud de lectura, el cliente detectará el error local y volverá a intentar esa única operación en la siguiente región de la lista de preferencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

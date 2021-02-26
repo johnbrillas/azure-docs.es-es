@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554732"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650943"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -109,4 +109,4 @@ Tenga en cuenta que en los escenarios de grupo, se usa una secuencia de audio mi
 Para más información, consulte los siguientes artículos.
 - Familiarización con los [flujos de llamada](../call-flows.md) generales 
 - Más información sobre los [tipos de llamada](../voice-video-calling/about-call-types.md)
-- [Planeación de una solución RTC](../telephony-sms/plan-solution.md)
+- Más información sobre los [tipos de números de teléfono](../telephony-sms/plan-solution.md)

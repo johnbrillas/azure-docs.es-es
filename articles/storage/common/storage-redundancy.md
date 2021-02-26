@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556440"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -127,7 +127,7 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - Norte de Europa
 - Oeste de Europa
 - Japón Oriental
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Centro de EE. UU.
 - Este de EE. UU.
 - Este de EE. UU. 2
@@ -186,13 +186,21 @@ En la tabla siguiente se indica si los datos son duraderos y están disponibles 
 
 <sup>1</sup> Se requiere la conmutación por error de cuenta para restaurar la disponibilidad de escritura si la región primaria deja de estar disponible. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento](storage-disaster-recovery-guidance.md).
 
+### <a name="supported-azure-storage-services"></a>Servicios admitidos de Azure Storage
+
+En la tabla siguiente se muestran las opciones de redundancia que admite cada servicio de Azure Storage.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br />Azure Managed Disks | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure Files<br /> |
+
 ### <a name="supported-storage-account-types"></a>Tipos de cuenta de almacenamiento admitidos
 
 En la tabla siguiente se muestran las opciones de redundancia que admite cada tipo de cuenta de almacenamiento. Para más información sobre los tipos de cuentas de almacenamiento, consulte [Introducción a las cuentas de Storage](storage-account-overview.md).
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Uso general v2<br /> Uso general v1<br /> Almacenamiento de blobs en bloques<br /> Blob Storage<br /> File Storage | Uso general v2<br /> Almacenamiento de blobs en bloques<br /> File Storage | Uso general v2<br /> Uso general v1<br /> Blob Storage | Uso general v2 |
+| Uso general v2<br /> Uso general v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Uso general v2<br /> BlockBlobStorage<br /> FileStorage | Uso general v2<br /> Uso general v1<br /> BlobStorage | Uso general v2 |
 
 Todos los datos de todas las cuentas de almacenamiento se copian según la opción de redundancia de la cuenta de almacenamiento. Se copian los objetos, incluidos los blobs en bloques, blobs en anexos, blobs en páginas, colas, tablas y archivos. Se copian los datos de todos los niveles de servicio, incluido el nivel de archivo. Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
 
