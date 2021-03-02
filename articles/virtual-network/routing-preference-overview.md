@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 7fdd23aea5e435c94493a0cbe86b6ffcdb0d2e10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.custom: references_regions
+ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
+ms.sourcegitcommit: 8c93b05c27c7e8a5ba62a4d6fc6fc4d0c3980a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539077"
+ms.lasthandoff: 02/26/2021
+ms.locfileid: "101599844"
 ---
-# <a name="what-is-routing-preference-preview"></a>¿Qué es la preferencia de enrutamiento (versión preliminar)?
+# <a name="what-is-routing-preference"></a>¿Qué es la preferencia de enrutamiento?
 
 Las preferencias de enrutamiento de Azure le permiten elegir cómo se enruta el tráfico entre Azure e Internet. Puede optar por enrutar el tráfico a través de la red de Microsoft o a través de una red de ISP (Internet público). Estas opciones también se conocen como *enrutamiento de tipo "cold-potato"* y *enrutamiento de tipo "hot-potato"* respectivamente. El precio de la transferencia de datos de salida varía en función de la selección de enrutamiento. Puede elegir la opción de enrutamiento al crear una dirección IP pública. Asimismo, la dirección IP pública se puede asociar a recursos como máquinas virtuales, conjuntos de escalado de máquinas virtuales, equilibradores de carga accesibles desde Internet, etc. También puede establecer la preferencia de enrutamiento para los recursos de Azure Storage, como blobs, archivos, web y Azure Data Lake. De forma predeterminada, el tráfico se enruta a través de la red global de Microsoft para todos los servicios de Azure.
-
-> [!IMPORTANT]
-> La preferencia de enrutamiento se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="routing-via-microsoft-global-network"></a>Enrutamiento a través de la red global de Microsoft
 
@@ -70,13 +67,13 @@ En cuanto al almacenamiento, los puntos de conexión principales siempre usan la
 * Azure Data Lake
 
 ## <a name="pricing"></a>Precios
-La diferencia de precio entre ambas opciones se refleja en los precios de transferencia de datos de salida de Internet. El precio de transferencia de datos para el enrutamiento a través de la **red global de Microsoft** es el mismo que el precio de salida actual de Internet. Consulte la [página de precios de ancho de banda de Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obtener la información más reciente sobre los precios. 
+La diferencia de precio entre ambas opciones se refleja en los precios de transferencia de datos de salida de Internet. El precio de transferencia de datos para el enrutamiento a través de la **red global de Microsoft** es el mismo que el precio de salida actual de Internet. Consulte la [página de precios de ancho de banda de Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obtener la información más reciente sobre los precios.
 
 ## <a name="limitations"></a>Limitaciones
 
+* La preferencia de enrutamiento no se admite actualmente en estas regiones: Centro de Australia, Centro de Australia2, Este de Canadá, Sur de Brasil, Centro de Corea del Sur y Sur de Corea del Sur.
 * La preferencia de enrutamiento solo es compatible con la SKU estándar con redundancia de zona de la dirección IP pública. No se admite la SKU básica de la dirección IP pública.
 * Actualmente, la preferencia de enrutamiento solo admite direcciones IP públicas IPv4. No se admiten direcciones IP públicas IPv6.
-* Las máquinas virtuales que tengan varias NIC solo pueden tener un tipo de preferencia de enrutamiento.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
