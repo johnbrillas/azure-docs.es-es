@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: Documentación de Device Update para IoT Hub
+summary: Device Update para IoT Hub es un servicio que permite implementar actualizaciones por vía inalámbrica (OTA) en los dispositivos IoT.
+metadata:
+  title: Documentación de Device Update para IoT Hub
+  description: Device Update para IoT Hub es un servicio que permite implementar actualizaciones por vía inalámbrica (OTA) en los dispositivos IoT.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677964"
+landingContent:
+- title: Acerca de Device Update
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Device Update para IoT Hub?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: Cómo usa Device Update la tecnología Plug and Play
+      url: device-update-plug-and-play.md
+    - text: Información sobre la autenticación y autorización de Device Update
+      url: device-update-control-access.md
+    - text: Información sobre Device Update Agent
+      url: device-update-agent-overview.md
+    - text: Información sobre la importación de Device Update
+      url: import-concepts.md
+    - text: Información sobre los grupos de Device Update
+      url: device-update-groups.md
+- title: Exploración con los tutoriales
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Device Update en Raspberry Pi
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: Device Update en un simulador
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Device Update Agent en el paquete de Ubuntu Server 18.04 x64
+      url: device-update-ubuntu-agent.md
+- title: Más información sobre cómo actualizar dispositivos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una cuenta de Device Update
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Importación de una actualización
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de un grupo de actualización
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implementación de una actualización
+      url: deploy-update.md
+- title: Guía del desarrollador
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Compilación, ejecución y modificación de Device Update Agent
+      url: device-update-agent-provisioning.md

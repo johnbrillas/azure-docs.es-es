@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702171"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creación de un monitor en Connection Monitor mediante Azure Portal
 
@@ -121,7 +121,7 @@ En Azure Portal, para crear un grupo de prueba en un monitor de conexión, espec
 
    * Para elegir los agentes locales, seleccione la pestaña **Non–Azure endpoints** (Puntos de conexión que no son de Azure). De forma predeterminada, los agentes se agrupan en áreas de trabajo por región. Todas estas áreas de trabajo tienen configurado Network Performance Monitor. 
    
-       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
+       Si necesita agregar Network Performance Monitor al área de trabajo, puede obtenerlo en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Para información sobre cómo agregar Network Performance Monitor, consulte [Soluciones de supervisión en Azure Monitor](../azure-monitor/insights/solutions.md). 
    
        En **Crear un monitor de conexión**, en la pestaña **Aspectos básicos**, aparece seleccionada la región predeterminada. Si cambia la región, puede elegir agentes de áreas de trabajo de la región nueva. Puede seleccionar uno o varios agentes o subredes. En la vista **Subred**, puede seleccionar direcciones IP específicas para la supervisión. Si agrega varias subredes, se creará una red local personalizada denominada **OnPremises_Network_1**. También puede cambiar el selector **Agrupar por** para agrupar por agentes.
 
@@ -186,7 +186,7 @@ En Azure Portal, para crear alertas para un monitor de conexión, especifique lo
 
 - **Nombre de condición**: esta alerta se crea en la métrica `Test Result(preview)`. Cuando el resultado de la prueba del monitor de conexión es un resultado erróneo, se activará la regla de alerta. 
 
-- **Nombre del grupo de acciones**: puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](../azure-monitor/platform/action-groups.md). Una vez creada la alerta, puede [administrarlas](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
+- **Nombre del grupo de acciones**: puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones. Si escribe el correo electrónico directamente, se creará un grupo de acciones con el nombre **NPM Email ActionGroup**. El identificador de correo electrónico se agrega a ese grupo de acciones. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Para obtener información sobre cómo crear un grupo de acciones, consulte [Creación de grupos de acciones en Azure Portal](../azure-monitor/alerts/action-groups.md). Una vez creada la alerta, puede [administrarlas](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nombre de la regla de alertas**: nombre del administrador de conexiones.
 

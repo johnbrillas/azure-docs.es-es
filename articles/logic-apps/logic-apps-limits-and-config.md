@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805941"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388539"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -193,19 +193,20 @@ Para más información sobre la definición de recurso de la aplicación lógica
 
 ### <a name="integration-service-environment-ise"></a>Entorno del servicio de integración (ISE)
 
-Estos son los límites de rendimiento para la [SKU de ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [SKU de ISE de desarollador](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): Proporciona hasta 500 ejecuciones por minuto. Sin embargo, tenga en cuenta estas consideraciones:
 
-| Nombre | Límite | Notas |
-|------|-------|-------|
-| Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente | |
-| Límite de ejecución de unidad de escalado | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Cada unidad de escalado puede proporcionar aproximadamente 2000 ejecuciones de acciones adicionales por minuto, que equivale aproximadamente a 80 millones de ejecuciones de acciones más al mes | |
-| Unidades de escalado máximas que puede agregar | 10 | |
-||||
+  * Asegúrese de usar esta SKU solo para exploración, experimentos, desarrollo o pruebas, no para producción o pruebas de rendimiento. Esta SKU no tiene Acuerdo de Nivel de Servicio, funcionalidad de escalado vertical ni redundancia durante el reciclaje, lo que significa que puede experimentar retrasos o tiempo de inactividad.
 
-Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus solicitudes.
+  * Las actualizaciones de back-end pueden interrumpir el servicio de forma intermitente.
 
-> [!NOTE]
-> La [SKU de ISE para desarrolladores](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) no tiene límites publicados, ninguna funcionalidad de escalado vertical y ningún acuerdo de nivel de servicio (SLA). Use esta SKU solo para experimentar, desarrollar y probar, no para pruebas de rendimiento ni en producción.
+* [SKU de ISE prémium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): En la tabla siguiente se describen los límites de rendimiento de esta SKU; sin embargo, para superar estos límites en el procesamiento normal o ejecutar pruebas de carga que podrían superar estos límites, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para que le ayude con sus requisitos.
+
+  | Nombre | Límite | Notas |
+  |------|-------|-------|
+  | Límite de ejecución de la unidad base | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Proporciona unas 4000 ejecuciones de acciones por minuto, que equivale a 160 millones de ejecuciones de acciones al mes aproximadamente | |
+  | Límite de ejecución de unidad de escalado | Sistema limitado cuando la capacidad de la infraestructura alcanza el 80 % | Cada unidad de escalado puede proporcionar aproximadamente 2000 ejecuciones de acciones adicionales por minuto, que equivale aproximadamente a 80 millones de ejecuciones de acciones más al mes | |
+  | Unidades de escalado máximas que puede agregar | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -324,7 +325,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 > [!NOTE]
 > Use el nivel Gratis solo en escenarios de exploración, no en escenarios de producción. Este nivel restringe el uso y el rendimiento, y no tiene ningún acuerdo de nivel de servicio (SLA).
 
-| Artefacto | Gratuito | Básico | Estándar |
+| Artefacto | Gratuito | Básica | Estándar |
 |----------|------|-------|----------|
 | Acuerdos comerciales de EDI | 10 | 1 | 1,000 |
 | Socios comerciales de EDI | 25 | 2 | 1,000 |
@@ -350,7 +351,7 @@ Estos son los límites en cuanto al número de artefactos de cada nivel de cuent
 
 ### <a name="throughput-limits"></a>Límites de rendimiento
 
-| Punto de conexión en tiempo de ejecución | Gratuito | Básico | Estándar | Notas |
+| Punto de conexión en tiempo de ejecución | Gratuito | Básica | Estándar | Notas |
 |------------------|------|-------|----------|-------|
 | Llamadas de lectura cada 5 minutos | 3,000 | 30,000 | 60 000 | Este límite se aplica a las llamadas que obtienen las entradas y salidas sin procesar del historial de ejecución de una aplicación lógica. Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
 | Invocación de llamadas cada 5 minutos | 3,000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |

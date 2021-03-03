@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f98e22ba28dcd05d164f40c301a2e43df66898de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597996"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737331"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de recopilación de datos en Azure Monitor
-Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](../platform/diagnostics-extension-overview.md) y el [agente de Log Analytics](../platform/log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](./diagnostics-extension-overview.md) y el [agente de Log Analytics](./log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -144,6 +144,6 @@ En el siguiente ejemplo se crea una asociación entre un servidor habilitado par
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Otras plantillas de ejemplo para Azure Monitor](../samples/resource-manager-samples.md).
-* [Más información sobre el agente de Log Analytics](../platform/log-analytics-agent.md).
-* [Más información sobre la extensión de diagnóstico](../platform/diagnostics-extension-overview.md).
+* [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
+* [Más información sobre el agente de Log Analytics](./log-analytics-agent.md).
+* [Más información sobre la extensión de diagnóstico](./diagnostics-extension-overview.md).

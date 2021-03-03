@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: abfd5e104bd4854781a0d3c9d08544506279518a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f673295236d60ec6681bbfaee1201a4659674b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850090"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585706"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Seguimiento de dependencias con OpenCensus Python
 
@@ -173,6 +173,6 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Mapa de aplicación](./app-map.md)
 * [Disponibilidad](./monitor-web-app-availability.md)
 * [Búsqueda](./diagnostic-search.md)
-* [Consulta de Log (Analytics)](../log-query/log-query-overview.md)
+* [Consulta de Log (Analytics)](../logs/log-query-overview.md)
 * [Diagnósticos de transacción](./transaction-diagnostics.md)
 

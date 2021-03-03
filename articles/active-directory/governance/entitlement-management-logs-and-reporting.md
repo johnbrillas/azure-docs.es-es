@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746650"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577864"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archivado de registros e informes sobre la administración de derechos de Azure AD en Azure Monitor
 
@@ -59,7 +59,7 @@ El archivado de los registros de auditoría de Azure AD requiere tener Azure Mo
 
 ## <a name="view-events-for-an-access-package"></a>Ver los eventos de un paquete de acceso  
 
-Para ver los eventos de un paquete de acceso, debe tener acceso al área de trabajo subyacente de Azure Monitor (consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obtener información) y en uno de los roles siguientes: 
+Para ver los eventos de un paquete de acceso, debe tener acceso al área de trabajo subyacente de Azure Monitor (consulte [Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para obtener información) y en uno de los roles siguientes: 
 
 - Administrador global  
 - Administrador de seguridad  
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes:
-- [Crear informes interactivos con libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Crear informes interactivos con libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)

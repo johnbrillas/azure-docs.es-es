@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b6479d48a51ba962f2f6bfba16dac3b0886a9ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009940"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750662"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Crear un recurso de Text Analytics de Cognitive Services
 
@@ -26,10 +26,10 @@ ms.locfileid: "96009940"
 
     |Configuración|Value|
     |--|--|
-    |Nombre|Escriba un nombre (de 2 a 64 caracteres).|
+    |Nombre|Escriba un nombre (2-64 caracteres).|
     |Suscripción|Seleccione la suscripción adecuada.|
     |Location|Seleccione una ubicación cercana.|
-    |Plan de tarifa| Escriba **S**, el plan de tarifa estándar.|
+    |Plan de tarifa| Escriba **S**, que corresponde al plan de tarifa estándar.|
     |Resource group|Seleccione un grupo de recursos disponible.|
 
 1. Seleccione **Crear** y espere a que el recurso se cree. El explorador se redirige automáticamente a la página de recursos recién creada.
@@ -37,5 +37,5 @@ ms.locfileid: "96009940"
 
     |Pestaña de recursos en el portal|Configuración|Value|
     |--|--|--|
-    |**Información general**|Punto de conexión|Copie el punto de conexión. Tiene un aspecto similar a `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Información general**|Punto de conexión|Copie el punto de conexión. Tiene un aspecto similar a `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0`.|
     |**Claves**|Clave de API|Copie una de las dos claves. Es una cadena alfanumérica de 32 caracteres sin espacios ni guiones: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

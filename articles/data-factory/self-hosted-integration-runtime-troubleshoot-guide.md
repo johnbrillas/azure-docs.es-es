@@ -1,18 +1,17 @@
 ---
 title: Solución de problemas de un entorno de ejecución de integración autohospedado en Azure Data Factory
 description: Conozca cómo solucionar problemas del entorno de ejecución de integración autohospedado en Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551083"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376469"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -83,8 +82,8 @@ Escenario de ejemplo: El valor máximo de trabajos simultáneos está establecid
 El límite en el número de trabajos simultáneos depende del núcleo lógico y de la memoria del equipo. Intente ajustar el valor a la baja hasta un valor como 24 y, a continuación, vea el resultado.
 
 > [!TIP] 
-> - Para obtener más información sobre el recuento de núcleos lógicos y determinar el número de núcleos lógicos de la máquina, consulte [Cuatro maneras de encontrar el número de núcleos de la CPU en Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Para obtener información sobre cómo calcular math.log, vaya a la [calculadora logarítmica](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    Para obtener más información sobre el recuento de núcleos lógicos y determinar el número de núcleos lógicos de la máquina, consulte [Cuatro maneras de encontrar el número de núcleos de la CPU en Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Para obtener información sobre cómo calcular math.log, vaya a la [calculadora logarítmica](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Problema de certificado SSL de alta disponibilidad (HA) de IR autohospedado

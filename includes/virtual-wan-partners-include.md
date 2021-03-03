@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe6faf72f17dae23f6e8a6c7cc56f8577881281a
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6165499ef0dad61910f26bc9d740bd19a28c43c7
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615949"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105861"
 ---
 Puede visitar los vínculos de esta sección para obtener más información sobre los servicios ofrecidos por asociados. Si su asociado de dispositivo de rama no aparece en la sección siguiente, pida a su proveedor de dispositivos de rama que se ponga en contacto con nosotros. Para ello, debe enviarnos un correo electrónico a azurevirtualwan@microsoft.com.
 
@@ -30,7 +30,7 @@ Puede visitar los vínculos de esta sección para obtener más información sobr
 |[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Guía de implementación de Nuage y Azure Virtual WAN](https://onestore.nokia.com/asset/210073)|
 |[Open Systems]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Guía de implementación de Open Systems y Azure Virtual WAN](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |[Guía de implementación de Palo Alto Networks y Azure Virtual WAN](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
-|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
+|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|[Azure Virtual WAN y SteelConnect EX](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html) |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[Guía de integración de EdgeConnect y Microsoft Azure Virtual WAN](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
 |[Velocloud-VMWare]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Guía de implementación de VeloCloud en Azure Virtual WAN](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Configuración de Versa SD-WAN y Microsoft Azure vWAN (disponible para clientes registrados)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |

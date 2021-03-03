@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556138"
 ---
 # <a name="write-client-app-authentication-code"></a>Escritura de código de autenticación de aplicación cliente
 
@@ -117,5 +117,5 @@ Si los escenarios de autenticación resaltados anteriores no cubren las necesida
 Obtenga más información sobre cómo funciona la seguridad en Azure Digital Twins:
 * [*Conceptos: Seguridad para las soluciones de Azure Digital Twins*](concepts-security.md)
 
-O bien, ahora que la autenticación está configurada, continúe con la creación de modelos en la instancia:
-* [*Procedimiento: Administración de modelos personalizados*](how-to-manage-model.md)
+O bien, ahora que la autenticación está configurada, continúe con la creación y administración de modelos en la instancia:
+* [*Procedimiento: Administración de modelos DTDL*](how-to-manage-model.md)

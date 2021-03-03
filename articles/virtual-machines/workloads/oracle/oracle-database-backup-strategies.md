@@ -2,18 +2,19 @@
 title: Estrategias de copia de seguridad de Oracle Database en Azure Virtual Machines
 description: Opciones para realizar copias de seguridad de instancias de Oracle Database en un entorno de máquina virtual Linux de Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: adb455e7a49ead1e8ba8e9845a4e56542528d0b1
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8a1eb1c21663e0294cd384daa0ba644adf78007a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064450"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673219"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Estrategias de copia de seguridad de Oracle Database en máquinas virtuales Linux de Azure
 
@@ -110,7 +111,7 @@ En la versión preliminar de Azure Files NFS v4.1 también está restringida a l
 - Oeste de EE. UU. 2
 - Oeste de Europa
 - Sudeste de Asia
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Este de Australia
 
 #### <a name="azure-files-smb-30"></a>Azure Files SMB 3.0

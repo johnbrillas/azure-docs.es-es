@@ -299,7 +299,7 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Panel de calificaciones y reseñas
       href: partner-center-portal/ratings-reviews.md
-    - name: Detección de anomalías en la facturación de uso medido
+    - name: Administración de anomalías de facturación de uso medido
       href: anomaly-detection.md
     - name: Preguntas frecuentes sobre Analytics
       href: analytics-faq.md

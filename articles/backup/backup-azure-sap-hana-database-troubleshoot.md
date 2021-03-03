@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713344"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -46,13 +46,6 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 | Mensaje de error      | <span style="font-weight:normal">No se admite la operación de SAP HANA especificada</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Causas posibles:**    | Azure Backup para SAP HANA no es compatible con la copia de seguridad incremental ni con las acciones realizadas en clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit). |
-| **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
-
-| Mensaje de error      | <span style="font-weight:normal">Esta base de datos de SAP HANA no admite el tipo de copia de seguridad solicitada</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Causas posibles:**    | Azure Backup no es compatible con la copia de seguridad incremental ni con la copia de seguridad mediante instantáneas. |
 | **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure

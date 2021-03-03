@@ -6,14 +6,18 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024298"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656623"
 ---
 En esta guía de inicio rápido, obtendrá información sobre cómo iniciar una llamada con la biblioteca de cliente de llamadas de Azure Communication Services para JavaScript.
+En este documento se hace referencia a los tipos de la versión 1.0.0-beta.5 de la biblioteca de llamadas.
+
+> [!NOTE]
+> En este documento se usa la versión 1.0.0-beta.6 de la biblioteca de cliente para llamadas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,7 +64,7 @@ Cree un archivo en el directorio raíz del proyecto denominado **client.js** que
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -71,23 +75,23 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Las siguientes clases e interfaces controlan algunas de las características principales de la biblioteca cliente de llamadas de Azure Communication Services:
+Las clases e interfaces siguientes controlan algunas de las características principales de la biblioteca cliente para llamadas de Azure Communication Services:
 
 | Nombre                             | Descripción                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient es el punto de entrada principal a la biblioteca cliente de llamadas.                                                                       |
+| CallClient                       | CallClient es el punto de entrada principal a la biblioteca cliente para llamadas.                                                                       |
 | CallAgent                        | CallAgent se usa para iniciar y administrar llamadas.                                                                                            |
-| AzureCommunicationUserCredential | La clase AzureCommunicationUserCredential implementa la interfaz CommunicationUserCredential interface que se usa para crear una instancia de CallAgent. |
+| AzureCommunicationTokenCredential | La clase AzureCommunicationTokenCredential implementa la interfaz CommunicationTokenCredential, que se usa para crear una instancia de CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Debe reemplazar `<USER_ACCESS_TOKEN>` por un token de acceso de usuario válido para el recurso. Consulte la documentación relativa al [token de acceso de usuario](../../access-tokens.md) si aún no tiene ningún token disponible. Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationUserCredential` que nos permita realizar y recibir llamadas. Agregue el código siguiente a **client.js**:
+Debe reemplazar `<USER_ACCESS_TOKEN>` por un token de acceso de usuario válido para el recurso. Consulte la documentación relativa al [token de acceso de usuario](../../access-tokens.md) si aún no tiene ningún token disponible. Con el `CallClient`, inicialice una instancia de `CallAgent` con un `CommunicationTokenCredential` que nos permita realizar y recibir llamadas. Agregue el código siguiente a **client.js**:
 
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }
@@ -102,7 +106,7 @@ Agregue un controlador de eventos para iniciar una llamada cuando se haga clic e
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );

@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550851"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534690"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -180,7 +180,7 @@ Cambiar el tamaño de disco en una máquina virtual replicada | Se admite en la 
 Agregar disco a una máquina virtual replicada | No compatible.<br/> Deshabilite la replicación para la máquina virtual, agregue el disco y vuelva a habilitar la replicación.
 
 > [!NOTE]
-> No se admite ningún cambio en la identidad del disco. Por ejemplo, si se ha cambiado la creación de particiones de disco de GPT a MBR, o viceversa, cambiará la identidad del disco. En este escenario, la replicación se interrumpirá y habrá que realizar una nueva configuración. 
+> No se admite ningún cambio en la identidad del disco. Por ejemplo, si se ha cambiado la creación de particiones de disco de GPT a MBR, o viceversa, cambiará la identidad del disco. En este escenario, la replicación se interrumpirá y habrá que realizar una nueva configuración. En el caso de las máquinas Linux, no se admite el cambio de nombre de dispositivo, ya que afecta a la identidad del disco.
 
 ## <a name="network"></a>Red
 
@@ -328,6 +328,17 @@ Actividad de datos máxima por día admitida por un servidor de procesos | 2 TB
 - Estos son los números promedio si la superposición de E/S es del 30 %.
 - Site Recovery es capaz de controlar un mayor rendimiento en función de la relación de superposición, tamaños de escritura mayores y el comportamiento real de E/S de la carga de trabajo.
 - Estos números asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.
+
+## <a name="storage-account-limits"></a>Límites de la cuenta de almacenamiento
+
+A medida que aumenta el promedio de renovación en los discos, se reduce el número de discos que una cuenta de almacenamiento puede admitir. La tabla siguiente puede usarse como guía para tomar decisiones sobre el número de cuentas de almacenamiento que se deben aprovisionar.
+ 
+**Tipo de cuenta de almacenamiento**    |    **Renovación = 4 MBps por disco**    |    **Renovación = 8 MBps por disco**
+---    |    ---    |    ---
+Cuenta de almacenamiento V1    |    600 discos    |    300 discos
+Cuenta de almacenamiento V2    |    1500 discos    |    750 discos
+
+Tenga en cuenta que los límites anteriores solo se aplican a escenarios híbridos de recuperación ante desastres.
 
 ## <a name="vault-tasks"></a>Tareas de almacén
 

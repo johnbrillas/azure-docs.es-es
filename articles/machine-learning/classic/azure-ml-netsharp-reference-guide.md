@@ -3,18 +3,18 @@ title: 'ML Studio (clásico): Redes neuronales personalizadas de Net# en Azure'
 description: Guía de la sintaxis del lenguaje de especificación de redes neuronales de Net# Aprenda a crear modelos de red neuronal personalizada en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302789"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519259"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Machine Learning Studio (clásico)
 
@@ -266,9 +266,9 @@ La normalización de respuesta se utiliza para ayudar a la generalización en re
 
 Las agrupaciones de normalización de respuesta admiten todos los atributos convolucionales excepto **Sharing**, **MapCount** y **Weights**.
 
-+ Si el kernel contiene neuronas en el mismo mapa que **_x_ *_, se hace referencia al esquema de normalización como _* normalización de mismo mapa**. Para definir la normalización de mismo mapa, la primera coordenada de **InputShape** debe tener un valor de 1.
++ Si el kernel contiene neuronas en el mismo mapa que **x** _, el esquema de normalización se conoce como _*normalización del mismo mapa**. Para definir la normalización de mismo mapa, la primera coordenada de **InputShape** debe tener un valor de 1.
 
-+ Si el kernel contiene neuronas en la misma posición espacial que **_x_ *_, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de _* normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.
++ Si el kernel contiene neuronas en la misma posición espacial que ***x** _, pero las neuronas se encuentran en otros mapas, el esquema de normalización recibe el nombre de _*normalización entre mapas**. El tipo de normalización de respuesta implementa una forma de inhibición lateral inspirada en el tipo encontrado en las neuronas reales, creando competencia para los grandes niveles de activación entre los resultados neuronales calculados en los diferentes mapas. Para definir la normalización entre mapas, el primer coordinado debe ser un entero mayor que uno y no mayor que el número de mapas, y el resto de coordinados debe tener el valor 1.
 
 Dado que los conjuntos de normalización de respuesta aplican una función predefinida a los valores del nodo de origen para determinar el valor del nodo de destino, no tienen un estado entrenable (ponderaciones o sesgos).
 

@@ -1,24 +1,23 @@
 ---
 title: Solución Network Performance Monitor en Azure | Microsoft Docs
 description: Network Performance Monitor en Azure ayuda a supervisar el rendimiento de las redes, casi en tiempo real, para detectar y localizar cuellos de botella de rendimiento.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711134"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
 ![Símbolo de Network Performance Monitor](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Network Performance Monitor es una solución de supervisión de red híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los puntos de conexión del servicio y la aplicación, y supervisar el rendimiento de Azure ExpressRoute. 
 
@@ -76,7 +75,7 @@ La lista de regiones admitidas para la Supervisión de ExpressRoute está dispon
 
 ### <a name="install-and-configure-agents"></a>Instalación y configuración de agentes 
 
-Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) [Conexión de equipos Windows a Azure Monitor (versión preliminar)](../../virtual-machines/extensions/oms-linux.md) y [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
+Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../agents/agent-windows.md) [Conexión de equipos Windows a Azure Monitor (versión preliminar)](../../virtual-machines/extensions/oms-linux.md) y [Conexión de Operations Manager con Azure Monitor](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes 
 
@@ -266,13 +265,13 @@ La topología mostrada en el mapa corresponde al nivel 3 y no contiene ningún d
 
 ## <a name="log-queries-in-azure-monitor"></a>Consultas de registro en Azure Monitor
 
-Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en las [consultas de registro](../log-query/log-query-overview.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área **Consultas comunes** del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
+Todos los datos expuestos mediante gráficos en las páginas de exploración en profundidad y en el panel de Network Performance Monitor también se encuentran disponibles de forma nativa en las [consultas de registro](../logs/log-query-overview.md). Puede realizar un análisis interactivo de los datos en el repositorio y correlacionar datos procedentes de distintos orígenes. También puede crear vistas y alertas personalizadas, y exportar los datos a Excel, Power BI o un vínculo que se pueda compartir. El área **Consultas comunes** del panel incorpora una serie de consultas útiles que puede usar como punto de partida para crear sus propios informes y consultas. 
 
 ## <a name="alerts"></a>Alertas
 
-Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](../platform/alerts-overview.md).
+Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](../alerts/alerts-overview.md).
 
-Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](../platform/action-groups.md).  
+Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](../alerts/action-groups.md).  
 
 Si es un usuario de NPM que crea una alerta mediante Log Analytics: 
 1. Verá un vínculo que le redirigirá a Azure Portal. Haga clic en él para obtener acceso al portal.
@@ -283,7 +282,7 @@ Si es un usuario de NPM que crea una alerta mediante Log Analytics:
 Si es un usuario NPM que va a crear una alerta a través de Azure Portal:  
 1. Puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones.
 2. Si decide escribir directamente el correo electrónico, se crea un grupo de acciones con el nombre **NPM Email ActionGroup** (Grupo de acciones de correo electrónico NPM) y se agrega el id. de correo electrónico a ese grupo de acciones.
-3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Una vez que se ha creado correctamente la alerta, puede usar el vínculo Administrar alertas para administrar las alertas. 
 
 Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena de forma predeterminada cada cinco minutos. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -301,4 +300,4 @@ La información sobre los precios está disponible [en línea](network-performan
 * **Únase a nuestra cohorte**. Siempre estamos interesados en que se unan nuevos clientes a nuestra cohorte. Como parte de todo ello, podrá obtener un acceso anticipado a las nuevas características y tendrá la oportunidad de ayudarnos a mejorar Network Performance Monitor. Si está interesado en unirse, rellene esta [encuesta rápida](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Pasos siguientes 
-Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md). 
+Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md).

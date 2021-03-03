@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519395"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opciones de proceso y almacenamiento de Azure Database for PostgreSQL: servidor flexible
 
@@ -71,7 +71,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 
 El almacenamiento está disponible en los siguientes tamaños fijos:
 
-| Tamaño del disco | E/S |
+| Tamaño del disco | IOPS |
 |:---|:---|
 | 32 GiB | Aprovisionado de 120, máximo de 3500 |
 | 64 GiB | Aprovisionado de 240, máximo de 3500 |
@@ -151,7 +151,10 @@ Si está marcado con un \*, el ancho de banda de E/S está limitado por el tipo 
 
 Cuando se alcanza el límite de almacenamiento, el servidor comienza a devolver errores y evita cualquier modificación adicional. Esto también puede producir problemas con otras actividades operativas, como las copias de seguridad y el archivo de WAL.
 
+Para evitar esta situación, cuando el uso de almacenamiento alcanza el 95% o si la capacidad disponible es inferior a 5 GiB, el servidor cambia automáticamente al **modo de solo lectura**.
+
 Se recomienda supervisar de forma activa el espacio en disco en uso y aumentar el tamaño del disco en previsión de cualquier situación de insuficiencia de almacenamiento. Puede configurar una alerta que avise cuando el almacenamiento del servidor se acerque al límite para poder evitar problemas de falta de espacio en disco. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Crecimiento automático del almacenamiento
 

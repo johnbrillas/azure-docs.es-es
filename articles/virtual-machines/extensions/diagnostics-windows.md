@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
-ms.openlocfilehash: 9561f96dafd936244831cff2ed05cda4d915d27d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 990bd7c21bec0f42034a0044b58d1589665700ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955980"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580160"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows
 
@@ -213,4 +213,4 @@ La configuración debe actualizarse para incluir lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener orientación adicional sobre el uso de la funcionalidad Diagnósticos de Azure y otras técnicas para solucionar problemas, consulte [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Esquema de configuración de diagnósticos](../../azure-monitor/platform/diagnostics-extension-versions.md) se explican las distintas opciones de configuración XML para la extensión de diagnósticos.
+* [Esquema de configuración de diagnósticos](../../azure-monitor/agents/diagnostics-extension-versions.md) se explican las distintas opciones de configuración XML para la extensión de diagnósticos.

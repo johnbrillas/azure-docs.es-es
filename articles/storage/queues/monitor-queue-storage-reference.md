@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590654"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576695"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Queue Storage
 
@@ -36,7 +36,7 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="queue-storage-metrics"></a>Métricas de Queue Storage
 
-En esta tabla se muestran [métricas de Queue Storage](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
+En esta tabla se muestran [métricas de Queue Storage](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |
@@ -80,4 +80,4 @@ En la tabla siguiente se indican las propiedades de los registros de recursos de
 ## <a name="see-also"></a>Consulte también
 
 - Consulte [Supervisión de Azure Queue Storage](monitor-queue-storage.md) para ver una descripción de la supervisión de Azure Storage.
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).

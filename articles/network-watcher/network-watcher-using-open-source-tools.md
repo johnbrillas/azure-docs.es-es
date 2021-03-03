@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738641"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709519"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualización de los patrones de tráfico de red de entrada y salida de las máquinas virtuales utilizando herramientas de código abierto
 
@@ -47,7 +47,7 @@ Puede cargar directamente una captura de paquetes realizada por Network Watcher 
 
 Cuando proporciona un vínculo a CapAnalysis, asegúrese de anexar un token de SAS a la dirección URL del blob de almacenamiento.  Para ello, vaya a la firma de acceso compartido de la cuenta de almacenamiento, designe los permisos concedidos y presione el botón Generar SAS para crear un token. A continuación, puede anexar este token de SAS a la URL del blob de almacenamiento de captura de paquetes.
 
-La URL resultante se parecerá a la siguiente: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+La URL resultante se parecerá a la siguiente: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Análisis de captura de paquetes

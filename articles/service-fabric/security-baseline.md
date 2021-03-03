@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805485"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582640"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Línea de base de seguridad de Azure para Service Fabric
 
@@ -178,9 +178,9 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en estos relacionados con las implementaciones de Azure Service Fabric. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -224,7 +224,7 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 * [Implementación del agente de Log Analytics en los nodos](./service-fabric-diagnostics-oms-agent.md)
 
-* [Búsquedas de registros de Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Búsquedas de registros de Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -240,7 +240,7 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 * [Implementación del agente de Log Analytics en los nodos](./service-fabric-diagnostics-oms-agent.md)
 
-* [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -256,7 +256,7 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 * [Implementación del agente de Log Analytics en los nodos](./service-fabric-diagnostics-oms-agent.md)
 
-* [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -266,7 +266,7 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 **Guía**: use las consultas del área de trabajo de Azure Log Analytics para consultar los registros de Azure Service Fabric.
 
-* [Búsquedas de registros de Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Búsquedas de registros de Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -278,7 +278,7 @@ Puede usar Azure PowerShell o la interfaz de la línea de comandos (CLI) de Azur
 
 * [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -586,7 +586,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos críticos de Azure.
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

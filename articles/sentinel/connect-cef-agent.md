@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747313"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585362"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Paso 1: Implementación del reenviador de registros
 
@@ -70,7 +70,7 @@ En este paso, designará y configurará la máquina Linux que reenviará los reg
 >
 > Si tiene previsto usar esta máquina de reenviador de registros para reenviar [mensajes de Syslog](connect-syslog.md), así como de CEF, haga lo siguiente para evitar la duplicación de eventos en las tablas Syslog y CommonSecurityLog:
 >
-> 1. En cada máquina de origen que envíe registros al reenviador en formato CEF, debe editar el archivo de configuración de Syslog para quitar las funciones que se usan para enviar mensajes de CEF. De este modo, las instalaciones que se envían en CEF no se enviarán también en Syslog. Consulte [Configuración de Syslog en agente de Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) para obtener instrucciones detalladas sobre cómo hacerlo.
+> 1. En cada máquina de origen que envíe registros al reenviador en formato CEF, debe editar el archivo de configuración de Syslog para quitar las funciones que se usan para enviar mensajes de CEF. De este modo, las instalaciones que se envían en CEF no se enviarán también en Syslog. Consulte [Configuración de Syslog en agente de Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) para obtener instrucciones detalladas sobre cómo hacerlo.
 >
 > 1. Debe ejecutar el siguiente comando en esas máquinas para deshabilitar la sincronización del agente con la configuración de Syslog en Azure Sentinel. Esto garantiza que el cambio de configuración que ha realizado en el paso anterior no se sobrescriba.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

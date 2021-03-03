@@ -1,22 +1,18 @@
 ---
 title: Supervisión mediante programación de una factoría de datos de Azure
 description: Aprenda a supervisar una canalización en una factoría de datos mediante distintos kits de desarrollo de software (SDK).
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740450"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Supervisión mediante programación de una factoría de datos de Azure
 
@@ -28,12 +24,23 @@ En este artículo se describe cómo supervisar una canalización de una factorí
 
 ## <a name="data-range"></a>Intervalo de datos
 
-Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Al consultar mediante programación los datos sobre las ejecuciones de canalización de Data Factory (por ejemplo, con el comando de PowerShell `Get-AzDataFactoryV2PipelineRun`) no hay ninguna fecha máxima para los parámetros opcionales `LastUpdatedAfter` y `LastUpdatedBefore`. Pero si consulta los datos del año pasado, por ejemplo, la consulta no devuelve un error, sino solo los datos de ejecución de canalización de los últimos 45 días.
+Data Factory solo almacena los datos de ejecución de canalización durante 45 días. Al consultar mediante programación los datos sobre las ejecuciones de canalización de Data Factory (por ejemplo, con el comando de PowerShell `Get-AzDataFactoryV2PipelineRun`) no hay ninguna fecha máxima para los parámetros opcionales `LastUpdatedAfter` y `LastUpdatedBefore`. No obstante, si consulta los datos del año pasado, por ejemplo, no obtendrá un error, sino solo los datos de ejecución de canalización de los últimos 45 días.
 
 Si desea conservar los datos de ejecución de canalización durante más de 45 días, configure su propio registro de diagnóstico con [Azure Monitor](monitor-using-azure-monitor.md).
 
+## <a name="pipeline-run-information"></a>Información de la ejecución de canalización
+
+Para conocer las propiedades de la ejecución de canalización, consulte la [referencia de la API de PipelineRun](/rest/api/datafactory/pipelineruns/get#pipelinerun). Una ejecución de canalización tiene un estado diferente durante su ciclo de vida. Los valores posibles del estado de ejecución se enumeran a continuación:
+
+* En cola
+* InProgress
+* Correcto
+* Con error
+* Cancelando
+* Canceled
+
 ## <a name="net"></a>.NET
-Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK. de NET, consulte [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
+Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK de .NET, consulte [Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
 
 1. Agregue el código siguiente para comprobar continuamente el estado de la ejecución de canalización hasta que termine de copiar los datos.
 
@@ -45,7 +52,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
     {
         pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
+        if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
             System.Threading.Thread.Sleep(15000);
         else
             break;
@@ -71,7 +78,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 Para obtener la documentación completa del SDK de .NET. consulte la [referencia del SDK de .NET de Data Factory](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
-Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK. de Python, consulte [Creación de una factoría de datos y una canalización con Python](quickstart-create-data-factory-python.md).
+Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante el SDK de Python, consulte [Creación de una factoría de datos y una canalización con Python](quickstart-create-data-factory-python.md).
 
 Para supervisar la ejecución de canalización, agregue el código siguiente:
 
@@ -99,7 +106,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
@@ -119,7 +126,7 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 Para obtener la documentación completa sobre la API de REST, consulte la [referencia de la API de REST de Data Factory](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante PowerShell, consulte [Creación de una factoría de datos y una canalización con PowerShell](quickstart-create-data-factory-powershell.md).
+Para ver un tutorial completo sobre cómo crear y supervisar una canalización mediante PowerShell, consulte [Creación de una instancia de Azure Data Factory con PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Ejecute el script siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos.
 
@@ -128,12 +135,12 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
-            if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            if ( ($run.Status -ne "InProgress") -and ($run.Status -ne "Queued") ) {
+                Write-Output ("Pipeline run finished. The status is: " +  $run.Status)
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output ("Pipeline is running...status: " + $run.Status)
         }
 
         Start-Sleep -Seconds 30
@@ -156,5 +163,4 @@ Para ver un tutorial completo sobre cómo crear y supervisar una canalización m
 Para obtener la documentación completa sobre los cmdlets de PowerShell, consulte la [referencia de los cmdlets de PowerShell de Data Factory](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos. 
-
+Consulte el artículo sobre la [supervisión de canalizaciones mediante Azure Monitor](monitor-using-azure-monitor.md) para obtener información sobre cómo usar Azure Monitor para supervisar las canalizaciones de factoría de datos.

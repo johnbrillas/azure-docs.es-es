@@ -5,12 +5,12 @@ description: Aprenda a crear y usar una dirección IP pública estática para el
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563252"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726553"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida con un equilibrador de carga de la SKU *básico* en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se supone que usa el equilibrador de carga básico de Azure.  
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 > [!IMPORTANT]
 > En este artículo se usa el equilibrador de carga de la SKU *básica* con un único grupo de nodos. Esta configuración no está disponible para varios grupos de nodos, ya que no se admite el equilibrador de carga de la SKU *básica* con varios grupos de nodos. Consulte [Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)][slb] para más detalles sobre cómo usar el equilibrador de carga de la SKU *estándar*.
@@ -33,7 +33,7 @@ También es preciso que esté instalada y configurada la versión 2.0.59 de la C
 
 El tráfico saliente de un clúster de AKS sigue las [convenciones de Azure Load Balancer][outbound-connections]. Antes de que se cree el primer servicio Kubernetes de tipo `LoadBalancer`, los nodos de agente en un clúster de AKS no forman parte de ningún grupo de Azure Load Balancer. En esta configuración, los nodos no tienen ninguna dirección IP pública de nivel de instancia. Azure traduce el flujo de salida a una dirección IP de origen pública que no es configurable o determinista.
 
-Una vez que se ha creado un servicio Kubernetes de tipo `LoadBalancer`, los nodos de agente se agregan a un grupo Azure Load Balancer. Para el flujo de salida, Azure lo convierte a la primera dirección IP pública configurada en el equilibrador de carga. Esta dirección IP pública solo es válida para la duración de ese recurso. Si elimina el servicio Kubernetes LoadBalancer, el equilibrador de carga asociado y la dirección IP también se eliminan. Si quiere asignar una dirección IP específica o conservar una dirección IP para los servicios de Kubernetes reimplementados, puede crear y usar una dirección IP pública estática.
+Una vez que se ha creado un servicio Kubernetes de tipo `LoadBalancer`, los nodos de agente se agregan a un grupo Azure Load Balancer. Load Balancer básico elige un único servidor front-end para usarlo con los flujos de salida cuando hay varios servidores front-end de direcciones IP (públicas) candidatos para los flujos de salida. Esta selección no es configurable y el algoritmo de selección se debe considerar aleatorio. Esta dirección IP pública solo es válida para la duración de ese recurso. Si elimina el servicio Kubernetes LoadBalancer, el equilibrador de carga asociado y la dirección IP también se eliminan. Si quiere asignar una dirección IP específica o conservar una dirección IP para los servicios de Kubernetes reimplementados, puede crear y usar una dirección IP pública estática.
 
 ## <a name="create-a-static-public-ip"></a>Creación de una IP pública estática
 

@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654819"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374055"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -39,6 +39,7 @@ El siguiente archivo *host.json* de ejemplo para la versión 2.x y posteriores 
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -216,6 +217,10 @@ Para obtener más información sobre las instantáneas, vea los artículos sobre
 | thresholdForSnapshotting | 1 | Número de veces que Application Insights necesita ver una excepción antes de solicitar instantáneas. |
 | uploaderProxy | null | Invalida el servidor proxy usado en el proceso del cargador de instantáneas. Es posible que tenga que usar esta opción si la aplicación se conecta a Internet a través de un servidor proxy. Snapshot Collector se ejecuta en el proceso de la aplicación y usará la misma configuración de proxy. Sin embargo, el cargador de instantáneas se ejecuta como un proceso independiente y puede que tenga que configurar el servidor proxy manualmente. Si este valor es NULL, Snapshot Collector intentará detectar automáticamente la dirección del proxy examinando System.Net.WebRequest.DefaultWebProxy y pasando el valor al cargador de instantáneas. Si este valor no es NULL, no se usa la detección automática y el servidor proxy especificado aquí se usará en el cargador de instantáneas. |
 
+## <a name="blobs"></a>blobs
+
+Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de blobs de Storage](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -378,7 +383,7 @@ La dependencia administrada es una característica en versión preliminar que ac
 
 ## <a name="queues"></a>queues
 
-Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de la cola de Storage](functions-bindings-storage-queue-output.md#host-json).  
+Las opciones de configuración se pueden encontrar en los [desencadenadores y enlaces de la cola de Storage](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>retry
 

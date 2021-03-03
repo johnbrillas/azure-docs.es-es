@@ -3,12 +3,12 @@ title: Exportación de telemetría desde Application Insights | Microsoft Docs
 description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584246"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
@@ -21,7 +21,7 @@ Antes de configurar la exportación continua, hay algunas alternativas que convi
 
 * El botón Exportar de la parte superior de una pestaña de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
 
-* [Analytics](../log-query/log-query-overview.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
+* [Analytics](../logs/log-query-overview.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
 * Si lo que le interesa es [explorar los datos en Power BI](./export-power-bi.md), puede hacerlo sin usar la exportación continua.
 * La [API de REST de acceso a datos](https://dev.applicationinsights.io/) le permite acceder a datos de telemetría con programación.
 * También puede acceder a la configuración de la [exportación continua a través de PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).

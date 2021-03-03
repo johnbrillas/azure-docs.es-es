@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f8d8547c2d4900e6258f7360c50d8dfc17157832
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423052"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517251"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -32,7 +32,7 @@ En la tabla siguiente se comparan el RTO y el RPO en un escenario de **carga de 
 
 | **Funcionalidad** | **Basic** | **Uso general** | **Memoria optimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención |
+| Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención <br/> RTO: varía <br/>RPO < 15 minutos| Cualquier punto de restauración dentro del período de retención <br/> RTO: varía <br/>RPO < 15 minutos | Cualquier punto de restauración dentro del período de retención <br/> RTO: varía <br/>RPO < 15 minutos |
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | RTO: varía <br/>RPO < 1 hora | RTO: varía <br/>RPO < 1 hora |
 | Réplicas de lectura | RTO: minutos* <br/>RPO < 5 minutos* | RTO: minutos* <br/>RPO < 5 minutos*| RTO: minutos* <br/>RPO < 5 minutos*|
 

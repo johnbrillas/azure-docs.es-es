@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709825"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registros de Azure Monitor para Azure Standard Load Balancer
 
@@ -63,7 +63,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
      5. En la lista **Seleccionar el espacio de nombres del Centro de eventos**, seleccione el nombre.
      6. Seleccione **Aceptar**.
 
-   * **Enviar a Log Analytics**. Deberá tener un área de trabajo de Log Analytics creada y configurada para este proceso. Para crear un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+   * **Enviar a Log Analytics**. Deberá tener un área de trabajo de Log Analytics creada y configurada para este proceso. Para crear un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
      1. Active la casilla **Enviar a Log Analytics**.
      2. En la lista desplegable **Suscripción**, seleccione la suscripción en la que se encuentra el área de trabajo de Log Analytics.
      3. En la lista desplegable **Área de trabajo de Log Analytics**, seleccione el área de trabajo.
@@ -74,7 +74,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades
 
-El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](../azure-monitor/platform/activity-log.md). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
+El registro de actividad se genera de manera predeterminada. Se puede configurar para que se exporte en un nivel de suscripción [siguiendo las instrucciones de este artículo](../azure-monitor/essentials/activity-log.md). Obtenga más información sobre estos registros en el artículo [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 Puede ver y analizar los datos del registro de actividad con cualquiera de los métodos siguientes:
 
@@ -100,10 +100,10 @@ Si va a exportar al almacenamiento, conéctese a la cuenta de almacenamiento y r
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
-Cuando se transmite información de diagnóstico a un centro de eventos, esta se puede usar para el análisis de registros centralizado en una herramienta SIEM de asociados con la integración de Azure Monitor. Para más información, consulte [Transmisión de datos de supervisión de Azure a un centro de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+Cuando se transmite información de diagnóstico a un centro de eventos, esta se puede usar para el análisis de registros centralizado en una herramienta SIEM de asociados con la integración de Azure Monitor. Para más información, consulte [Transmisión de datos de supervisión de Azure a un centro de eventos](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Enviar a Log Analytics
-Puede enviar información de diagnóstico de los recursos de Azure directamente a un área de trabajo de Log Analytics. En esa área de trabajo, puede ejecutar consultas complejas en la información para la solución de problemas y el análisis. Para más información, consulte [Recopilación de registros de recursos de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Puede enviar información de diagnóstico de los recursos de Azure directamente a un área de trabajo de Log Analytics. En esa área de trabajo, puede ejecutar consultas complejas en la información para la solución de problemas y el análisis. Para más información, consulte [Recopilación de registros de recursos de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limitaciones
 La característica de exportación de métricas a registros para Load Balancer tiene las siguientes limitaciones:
@@ -113,4 +113,4 @@ La característica de exportación de métricas a registros para Load Balancer t
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Revise las métricas disponibles de Load Balancer](./load-balancer-standard-diagnostics.md)
-* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Cree y pruebe consultas siguiendo las instrucciones de Azure Monitor](../azure-monitor/logs/log-query-overview.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 850171a4f1f303ef344fa5007325093c6363615b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e5a395f71ed1b1ab06d97b8aa6d83278d59d15c0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789084"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091952"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Línea de base de seguridad de Azure para Azure HPC Cache
 
@@ -381,7 +381,7 @@ Use los roles integrados para asignar los permisos y crear solo el rol personali
 
 - [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md) 
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -613,9 +613,9 @@ Implemente una solución de terceros de Azure Marketplace para la solución de r
 
 También puede usar Azure Security Center y Azure Policy para habilitar los registros de recursos de Azure para HPC Cache y para recopilar datos de registro. Estos registros pueden ser críticos para la investigación posterior de incidentes de seguridad y la realización de ejercicios forenses.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Descripción de la recopilación de datos de Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
@@ -633,7 +633,7 @@ Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de 
 
 Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 

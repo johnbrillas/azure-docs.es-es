@@ -3,15 +3,15 @@ title: Informes de Azure Monitor para contenedores
 description: Se describen los informes disponibles para analizar los datos recopilados por Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907425"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582306"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>Informes de Azure Monitor para contenedores
-Los informes de Azure Monitor para contenedores son [libros de Azure](../platform/workbooks-overview.md) recomendados listos para usar. En este artículo se describen los diferentes informes que están disponibles y cómo acceder a ellos.
+Los informes de Azure Monitor para contenedores son [libros de Azure](../visualize/workbooks-overview.md) recomendados listos para usar. En este artículo se describen los diferentes informes que están disponibles y cómo acceder a ellos.
 
 ## <a name="viewing-reports"></a>Visualización de informes
 En el menú **Azure Monitor** de Azure Portal, seleccione **Contenedores**. Seleccione **Información detallada** en la sección **Supervisión**, elija un clúster determinado y, luego, seleccione la página **Informes (versión preliminar)** . 
@@ -19,7 +19,7 @@ En el menú **Azure Monitor** de Azure Portal, seleccione **Contenedores**. Sele
 [![Página Informes](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Creación de un libro personalizado
-Para crear un libro personalizado basado en cualquiera de estos libros, seleccione la lista desplegable **Ver libros** y, luego, **Ir a la galería de AKS** en la parte inferior de la lista desplegable. Para más información sobre los libros y el uso de plantillas de libro, consulte [Libros de Azure Monitor](../platform/workbooks-overview.md).
+Para crear un libro personalizado basado en cualquiera de estos libros, seleccione la lista desplegable **Ver libros** y, luego, **Ir a la galería de AKS** en la parte inferior de la lista desplegable. Para más información sobre los libros y el uso de plantillas de libro, consulte [Libros de Azure Monitor](../visualize/workbooks-overview.md).
 
 [![Galería de AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Para crear un libro personalizado basado en cualquiera de estos libros, seleccio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre los libros de Azure Monitor, consulte [Libros de Azure Monitor](../platform/workbooks-overview.md).
+- Para más información sobre los libros de Azure Monitor, consulte [Libros de Azure Monitor](../visualize/workbooks-overview.md).

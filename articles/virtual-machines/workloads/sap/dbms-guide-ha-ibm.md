@@ -2,25 +2,24 @@
 title: Configurar IBM Db2 HADR en máquinas virtuales de (VM) de Azure | Microsoft Docs
 description: Establezca la alta disponibilidad de IBM Db2 LUW en máquinas virtuales (VM) de Azure.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621389"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671895"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Pacemaker
 
 IBM Db2 para Linux, UNIX y Windows (LUW) en la [configuración de alta disponibilidad y recuperación ante desastres (HADR) ](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consta de un nodo que ejecuta una instancia de base de datos principal y al menos un nodo que ejecuta una instancia de base de datos secundaria. Los cambios realizados en la instancia de base de datos principal se replican en una instancia de base de datos secundaria de manera sincrónica o asincrónica, según la configuración. 
 
 > [!NOTE]
-> Este artículo contiene referencias a los términos *maestro* y *esclavo*, que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán también de este artículo.
+> Este artículo contiene referencias a los términos *maestro* y *esclavo*, unos términos que Microsoft ya no usa. Cuando se eliminen estos términos del software, se eliminarán también de este artículo.
    
 En este artículo se describe cómo implementar y configurar las máquinas virtuales (VM) de Azure, instalar el marco del clúster e instalar IBM Db2 LUW con configuración de HADR. 
 
@@ -399,7 +398,7 @@ Para configurar Azure Load Balancer, recomendamos usar la [SKU de Azure Standard
 > La SKU de Standard Load Balancer tiene restricciones para acceder a direcciones IP públicas desde los nodos situados debajo de Load Balancer. En el artículo [Conectividad del punto de conexión público para las máquinas virtuales que usan Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) se describen las distintas formas para habilitar esos nodos y tener acceso a direcciones IP públicas.
 
 > [!IMPORTANT]
-> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC para los escenarios de equilibrio de carga. Para obtener más información, consulte [Limitaciones de Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC para los escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
 
 1. Crear un grupo de IP front-end:
 

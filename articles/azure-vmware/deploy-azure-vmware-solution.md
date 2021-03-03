@@ -1,35 +1,27 @@
 ---
 title: Implementación y configuración de Azure VMware Solution
-description: Aprenda a usar la información recopilada en la fase de planeación para implementar la nube privada de Azure VMware Solution.
+description: Aprenda a usar la información recopilada en la fase de planeación para implementar y configurar la nube privada de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760882"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652741"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
-En este artículo, usará la información de la [sección de planeación](production-ready-deployment-steps.md) para implementar Azure VMware Solution. 
+En este artículo, usará la información de la [sección de planeación](production-ready-deployment-steps.md) para implementar y configurar Azure VMware Solution. 
 
 >[!IMPORTANT]
 >Si aún no ha definido la información, vuelva a la [sección de planeamiento](production-ready-deployment-steps.md) antes de continuar.
 
-## <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Creación de una nube privada de Azure VMware Solution
 
-
-## <a name="deploy-azure-vmware-solution"></a>Implementación de Azure VMware Solution
-
-Use la información recopilada en el artículo [Planeación de la implementación de Azure VMware Solution](production-ready-deployment-steps.md):
-
->[!NOTE]
->Para implementar Azure VMware Solution, debe tener como mínimo el nivel de colaborador en la suscripción.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Siga los requisitos previos y los pasos descritos en el tutorial sobre [creación de una nube privada de Azure VMware Solution](tutorial-create-private-cloud.md). Puede crear una nube privada de Azure VMware Solution mediante [Azure Portal](tutorial-create-private-cloud.md#azure-portal) o con la [CLI de Azure](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Puede encontrar información completa de este paso en el vídeo [Azure VMware Solution: Implementación](https://www.youtube.com/embed/gng7JjxgayI).
@@ -60,7 +52,7 @@ Si no definió una red virtual en el paso de implementación y su intención es 
 
 El jumpbox está en la red virtual donde Azure VMware Solution se conecta a través del circuito de ExpressRoute.  En Azure, vaya a la interfaz de red de jumpbox y [consulte las rutas efectivas](../virtual-network/manage-route-table.md#view-effective-routes).
 
-En la lista de rutas efectivas, debería ver las redes que se crearon como parte de la implementación de Azure VMware Solution. Verá varias redes que se derivaron de la red [`/22` que definió](production-ready-deployment-steps.md#ip-address-segment) durante el [paso de implementación](#deploy-azure-vmware-solution) que se detalló anteriormente en este artículo.
+En la lista de rutas efectivas, debería ver las redes que se crearon como parte de la implementación de Azure VMware Solution. Verá varias redes derivadas de la [red `/22` que ha definido](production-ready-deployment-steps.md#ip-address-segment) al [crear una nube privada](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Comprobación de las rutas de red anunciadas desde Azure VMware Solution a Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -68,13 +60,13 @@ En este ejemplo, la red 10.74.72.0/22 que se agregó durante la implementación,
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Conexión e inicio de sesión en vCenter y NSX-T
 
-Inicie sesión en el jumpbox que creó en el paso anterior. Una vez que haya iniciado sesión, abra un explorador web e inicie sesión en la consola de administración de vCenter y NSX-T.  
+Inicie sesión en el jumpbox que creó en el paso anterior. Una vez que haya iniciado sesión, abra un explorador web, vaya a vCenter y NSX-T Manager e inicie sesión.  
 
-Puede identificar las direcciones IP y las credenciales de la consola de administración de NSX-T y vCenter en Azure Portal.  A continuación, seleccione la nube privada y, en la vista **Información general**, seleccione **Identidad > Predeterminada**. 
+Puede identificar las direcciones IP y las credenciales de la consola de NSX-T Manager y vCenter en Azure Portal.  A continuación, seleccione la nube privada y, en la vista **Información general**, seleccione **Identidad > Predeterminada**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Creación de un segmento de red en Azure VMware Solution
 
-Puede usar NSX-T para crear nuevos segmentos de red en el entorno de Azure VMware Solution.  Recuerde que definió las redes que quiso crear en la [sección de planeamiento](production-ready-deployment-steps.md).  Si aún no las ha definido, vuelva a la [sección de planeación](production-ready-deployment-steps.md) antes de continuar.
+Puede usar NSX-T Manager para crear nuevos segmentos de red en el entorno de Azure VMware Solution.  Recuerde que definió las redes que quiso crear en la [sección de planeamiento](production-ready-deployment-steps.md).  Si aún no las ha definido, vuelva a la [sección de planeación](production-ready-deployment-steps.md) antes de continuar.
 
 >[!IMPORTANT]
 >Asegúrese de que el bloque de direcciones de red CIDR que definió no se superponga con ningún elemento de los entornos locales o de Azure.  

@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 92b78cae7d1af5dc71509381afd7eaf3f962a8fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c87dc9f11a6a9780d77b39597e0479ccb6863d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749985"
 ---
 <a name="HOLTop"></a>
 
@@ -27,13 +27,9 @@ ms.locfileid: "100515165"
 
 [Documentación de referencia](/java/api/overview/azure/ai-textanalytics-readme) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Paquete](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-En este artículo solo se describe la versión 3.x de la API.
-
 ---
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Kit de desarrollo de Java](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK), versión 8 o posterior
@@ -76,10 +72,6 @@ Cree un proyecto de Maven en el entorno de desarrollo o IDE que prefiera. Luego,
 
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo [en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), que contiene los ejemplos de código de este inicio rápido. 
-
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-En este artículo solo se describe la versión 3.x de la API.
 
 ---
 
@@ -136,10 +128,6 @@ public static void main(String[] args) {
         AnalyzeOperationExample(client)
 }
 ```
-
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-En este artículo solo se describe la versión 3.x de la API.
 
 ---
 
@@ -321,10 +309,6 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
-
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-En este artículo solo se describe la versión 3.x de la API.
 
 ---
 
@@ -570,10 +554,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-En este artículo solo se describe la versión 3.x de la API.
-
 ---
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
@@ -683,9 +663,5 @@ También puede usar la operación Analyze para detectar información de identifi
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 Esta característica no está disponible en la versión 3.0.
-
-# <a name="version-21"></a>[Versión 2.1](#tab/version-2)
-
-Esta característica no está disponible en la versión 2.1.
 
 ---

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492138"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737620"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -73,7 +73,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="tier-options"></a>
    **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
-    Azure Files admite dos niveles de almacenamiento: Premium y estándar. Los recursos compartidos de archivos estándar se crean en cuentas de almacenamiento de uso general (GPv1 o de GPv2) y los recursos compartidos de archivos Premium se crean en cuentas de almacenamiento FileStorage. Obtenga más información sobre cómo crear [recursos compartidos de archivos estándar](storage-how-to-create-file-share.md) y [recursos compartidos de archivos Premium](storage-how-to-create-premium-fileshare.md). 
+    Azure Files admite dos niveles de almacenamiento: Premium y estándar. Los recursos compartidos de archivos estándar se crean en cuentas de almacenamiento de uso general (GPv1 o de GPv2) y los recursos compartidos de archivos Premium se crean en cuentas de almacenamiento FileStorage. Obtenga más información sobre cómo crear [recursos compartidos de archivos estándar](storage-how-to-create-file-share.md) y [recursos compartidos de archivos Premium](./storage-how-to-create-file-share.md). 
     
     > [!NOTE]
     > No se pueden crear recursos compartidos de archivos de Azure desde cuentas de almacenamiento de blobs ni desde cuentas de almacenamiento *Premium* de uso general (GPv1 o GPv2). Los recursos compartidos de archivos de Azure estándar deben crearse solo en cuentas de uso general *estándar* y los recursos compartido de archivos de Azure Premium solo deben crearse en cuentas de almacenamiento FileStorage. Las cuentas de almacenamiento *Premium* de uso general (GPv1 y GPv2) son para blobs en páginas Premium solamente. 

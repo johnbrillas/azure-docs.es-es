@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806925"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596504"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Línea de base de seguridad de Azure para la IP pública de Azure
 
@@ -52,7 +52,7 @@ La IP pública proporciona herramientas para supervisar, diagnosticar, ver las m
 
 En su lugar, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ En su lugar, puede habilitar e incorporar datos en Azure Sentinel o en una herra
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones y detectar cambios en las instancias de las direcciones IP públicas. Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), la propia IP pública no genera registros de auditoría. La IP pública proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -74,7 +74,7 @@ En su lugar, puede habilitar e incorporar datos en Azure Sentinel o en una herra
 
 **Instrucciones**: Use Azure Monitor para establecer el período de retención de registros en las áreas de trabajo de Log Analytics asociadas con instancias de la IP pública en función de las obligaciones de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Establecimiento de parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -88,7 +88,7 @@ Use el registro de actividad de Azure para supervisar las configuraciones y dete
 
 Aparte de hacerlo en el plano de control (por ejemplo, Azure Portal), la propia IP pública no genera registros relacionados con el tráfico de red.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -310,7 +310,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
-**Instrucciones**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
+**Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
 - [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 

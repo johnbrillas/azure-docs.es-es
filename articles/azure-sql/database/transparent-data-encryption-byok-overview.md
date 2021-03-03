@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691253"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -164,7 +164,7 @@ Para supervisar el estado de la base de datos y habilitar las alertas para la p�
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Una base de datos inaccesible que haya perdido el acceso al protector de TDE aparecerá como "No disponible" después de que se haya denegado la primera conexión a la base de datos.
 - [Registro de actividad](../../service-health/alerts-activity-log-service-notifications-portal.md) cuando se produce un error de acceso al protector de TDE en el almacén de claves administrado por el cliente, las entradas se agregan al registro de actividad.  La creación de alertas para estos eventos le permitirá restablecer el acceso lo antes posible.
-- Los [grupos de acciones](../../azure-monitor/platform/action-groups.md) se pueden definir para que envíen notificaciones y alertas en función de las preferencias, por ejemplo, correo electrónico/SMS/Inserción/Voz, aplicación lógica, webhook, ITSM o Runbook de Automation.
+- Los [grupos de acciones](../../azure-monitor/alerts/action-groups.md) se pueden definir para que envíen notificaciones y alertas en función de las preferencias, por ejemplo, correo electrónico/SMS/Inserción/Voz, aplicación lógica, webhook, ITSM o Runbook de Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Realización de copias de seguridad y restauración de bases de datos con TDE administrado por el cliente
 
@@ -187,7 +187,7 @@ Una consideración adicional para los archivos de registro: las copias de seguri
 
 Incluso en los casos en los que no hay ninguna redundancia geográfica configurada para el servidor, se recomienda encarecidamente configurar el servidor para usar dos almacenes de claves distintos en dos regiones diferentes con el mismo material de clave. La clave del almacén de claves secundario en la otra región no se debe marcar como protector de TDE, no está admitido. Solo en el caso de que se produzca una interrupción en el almacén de claves principal, el sistema pasará automáticamente a la otra clave vinculada con la misma huella digital en el almacén de claves secundario, si existe. Tenga en cuenta que este cambio no se realizará si se han revocado los derechos de acceso y no se puede acceder al protector de TDE, o si se ha eliminado la clave o el almacén de claves, ya que esto podría indicar que el cliente quiere restringir el acceso del servidor a la clave de forma intencionada. Proporcionar el mismo material de clave a dos almacenes de claves en diferentes regiones puede realizarse mediante la creación de la clave fuera del almacén de claves y su importación a ambos almacenes de claves. 
 
-Como alternativa, se puede lograr generando la clave con el almacén de claves principal coubicada en la misma región que el servidor y clonando la clave en un almacén de claves en otra región de Azure. Use el cmdlet [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) y especifique un almacén de claves en la segunda región para clonar la clave. También puede usar Azure Portal para hacer una copia de seguridad de la clave y restaurarla. Solo se permite la operación de copia de seguridad o restauración de claves entre almacenes de claves dentro de la misma suscripción de Azure y [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Como alternativa, se puede lograr generando la clave con el almacén de claves principal coubicada en la misma región que el servidor y clonando la clave en un almacén de claves en otra región de Azure. Use el cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar la clave en formato cifrado desde el almacén de claves principal y, a continuación, use el cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) y especifique un almacén de claves en la segunda región para clonar la clave. También puede usar Azure Portal para hacer una copia de seguridad de la clave y restaurarla. Solo se permite la operación de copia de seguridad o restauración de claves entre almacenes de claves dentro de la misma suscripción de Azure y [geografía de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Alta disponibilidad de un solo servidor](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

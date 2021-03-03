@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556314"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393758"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -150,6 +149,34 @@ Ha creado un rol de cliente como usuario y no tenía el permiso necesario. Cuand
 #### <a name="resolution"></a>Resolución
 
 Para resolver el problema, debe agregar el siguiente permiso al rol: *Microsoft.DataFactory/factories/queryFeaturesValue/action*. Este permiso se debe incluir de forma predeterminada en el rol "Colaborador de Data Factory".
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicación automática para CI/CD sin hacer clic en el botón Publicar  
+
+#### <a name="issue"></a>Problema
+
+La publicación manual con un clic de botón en el portal de ADF no habilita la operación automática de CI/CD.
+
+#### <a name="cause"></a>Causa
+
+Hasta hace poco, la única forma de publicar la canalización de ADF para implementaciones era usar el clic del botón del portal de ADF. Ahora, puede hacer que el proceso sea automático. 
+
+#### <a name="resolution"></a>Solución
+
+Se ha mejorado el proceso de CI/CD. La característica **Publicación automatizada** toma, valida y exporta todas las características de plantilla de Azure Resource Manager (ARM) de la experiencia de usuario de ADF. Hace que la lógica se consuma a través de un paquete NPM disponible públicamente [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Esto le permite desencadenar mediante programación estas acciones en lugar de tener que ir a la interfaz de usuario de ADF y hacer clic en un botón. Esto proporciona a las canalizaciones de CI/CD una **verdadera** experiencia de integración continua. Siga las [mejoras de publicación de CI/CD de ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) para obtener más información. 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>No se puede publicar debido a un límite de la plantilla de ARM de 4 MB.  
+
+#### <a name="issue"></a>Problema
+
+No se puede implementar porque se alcanzó el límite de tamaño total de la plantilla de 4 MB de Azure Resource Manager. Necesita una solución para implementar después de rebasar el límite. 
+
+#### <a name="cause"></a>Causa
+
+Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el tamaño de la plantilla a 4 MB y cada archivo de parámetros a 64 KB. El límite de 4 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros. Sin embargo, ha superado el límite. 
+
+#### <a name="resolution"></a>Solución
+
+En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga las prácticas recomendadas en [Uso de plantillas vinculadas y anidadas](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

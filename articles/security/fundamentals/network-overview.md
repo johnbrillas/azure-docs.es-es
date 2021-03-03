@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874390"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578936"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -395,7 +395,7 @@ Más información:
 
 El registro en el nivel de red es una función clave en cualquier escenario de seguridad de red. En Azure, puede registrar la información obtenida de los grupos de seguridad de red (NSG) a fin de obtener información del registro de nivel de red. Con el registro de NSG, obtiene información de:
 
-* [Registros de actividad](../../azure-monitor/platform/platform-logs-overview.md). Use estos registros para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros están habilitados de forma predeterminada y se pueden ver en Azure Portal. Anteriormente se les llamaba registros de "auditoría" o "registros operativos".
+* [Registros de actividad](../../azure-monitor/essentials/platform-logs-overview.md). Use estos registros para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros están habilitados de forma predeterminada y se pueden ver en Azure Portal. Anteriormente se les llamaba registros de "auditoría" o "registros operativos".
 * Registros de eventos. Estos registros proporcionan información sobre las reglas de NSG que se aplicaron.
 * Registro de contadores. Estos registros le permiten saber cuántas veces se aplica cada regla de NSG para denegar o permitir el tráfico.
 

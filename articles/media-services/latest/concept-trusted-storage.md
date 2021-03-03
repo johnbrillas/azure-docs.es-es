@@ -9,20 +9,27 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428595"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585396"
 ---
 # <a name="trusted-storage-for-media-services"></a>Almacenamiento de confianza para Media Services
 
 Al crear una cuenta de Media Services, debe asociarla a una cuenta de almacenamiento. Media Services puede acceder a esa cuenta de almacenamiento mediante la autenticación del sistema o la autenticación de identidad administrada. Media Services valida que la cuenta de Media Services y la cuenta de almacenamiento se encuentran en la misma suscripción y valida que el usuario que agrega la asociación tenga acceso a la cuenta de almacenamiento con Azure Resource Manager RBAC.
 
+>[!NOTE]
+>El almacenamiento de confianza solo está disponible en la API y actualmente no está habilitado en Azure Portal.
+
 ## <a name="trusted-storage-with-a-firewall"></a>Almacenamiento de confianza con un firewall
 
-Sin embargo, si quiere usar un firewall para proteger su cuenta de almacenamiento y habilitar el almacenamiento de confianza, la autenticación de [identidad administrada](concept-managed-identities.md) es la opción preferida. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza.
+Sin embargo, si quiere usar un firewall para proteger su cuenta de almacenamiento y habilitar el almacenamiento de confianza, la autenticación de [identidad administrada](concept-managed-identities.md) es la opción preferida. Esta permite que Media Services acceda a la cuenta de almacenamiento que se ha configurado con un firewall o una restricción de red virtual a través del acceso de almacenamiento de confianza.
+
+## <a name="tutorial"></a>Tutorial
+
+Puede encontrar más información sobre cómo habilitar almacenamiento de confianza en el tutorial [Almacenamiento de confianza de Media Services](tutorial-trusted-storage-rest.md).
 
 > [!NOTE]
 > Debe conceder el acceso de Colaborador de datos de Storage Blob de identidad administrado de AMS para que Media Services pueda leer y escribir en la cuenta de almacenamiento.  La concesión del rol Colaborador genérico no funcionará, ya que no habilita los permisos correctos en el plano de datos.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590342"
 ---
 # <a name="azure-threat-protection"></a>Protección contra amenazas de Azure
 
@@ -89,7 +89,7 @@ Además de proporcionar servicios útiles, los registros de Azure Monitor se pue
 Los registros de Azure Monitor permiten comprender de forma rápida y sencilla la posición de seguridad global de cualquier entorno, todo ello en el contexto de las operaciones de TI, como la evaluación de actualizaciones de software, la evaluación de antimalware y las líneas base de configuración. Los datos del registro de seguridad son accesibles en todo momento para simplificar los procesos de auditoría de seguridad y cumplimiento.
 
 ### <a name="insight-and-analytics"></a>Insight y Analytics
-En el centro de los [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) se encuentra el repositorio de OMS, que está hospedado en Azure.
+En el centro de los [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md) se encuentra el repositorio de OMS, que está hospedado en Azure.
 
 ![Diagrama de Insight y Analytics](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Los datos se recopilan en el repositorio desde los orígenes conectados mediante
 Cada uno de los orígenes de datos y soluciones crea tipos de registros distintos con su propio conjunto de propiedades, pero se pueden seguir analizando de forma conjunta en consultas al repositorio. Se pueden usar las mismas herramientas y métodos para trabajar con una variedad de datos que se recopilan mediante diversos orígenes.
 
 La mayor parte de la interacción con los registros de Azure Monitor se realiza mediante Azure Portal, que se ejecuta en cualquier explorador y proporciona acceso a opciones de configuración y a herramientas para analizar los datos recopilados y realizar acciones en estos. Desde el portal, puede usar:
-* [Búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) donde se crean consultas para analizar los datos recopilados.
-* [Paneles](../../azure-monitor/learn/tutorial-logs-dashboards.md), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
+* [Búsquedas de registros](../../azure-monitor/logs/log-query-overview.md) donde se crean consultas para analizar los datos recopilados.
+* [Paneles](../../azure-monitor/visualize/tutorial-logs-dashboards.md), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
 * [Soluciones](../../azure-monitor/insights/solutions.md), que proporcionan herramientas de análisis y funcionalidad adicionales.
 
 Las soluciones agregan funcionalidad a los registros de Azure Monitor. Se ejecutan principalmente en la nube y proporcionan análisis de los datos recopilados en el repositorio de Log Analytics. Puede que las soluciones también definan nuevos tipos de registro para recopilar que se pueden analizar con las búsquedas de registros o mediante una interfaz de usuario adicional que la solución proporciona en el panel de Log Analytics.

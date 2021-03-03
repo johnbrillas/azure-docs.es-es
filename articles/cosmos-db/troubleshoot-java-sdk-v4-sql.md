@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596465"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solución de problemas con el uso del SDK de Azure Cosmos DB para Java v4 con cuentas de SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,7 +54,7 @@ Cuando se produce un error de E/S, el SDK de Cosmos DB tratará de volver a int
 Para obtener el mejor rendimiento:
 * Asegúrese de que la aplicación se está ejecutando en la misma región que la cuenta de Azure Cosmos DB. 
 * Compruebe el uso de la CPU en el host donde se ejecuta la aplicación. Si el uso de CPU es de un 50 por ciento o más, ejecute la aplicación en un host con una configuración mayor. O bien, distribuya la carga en más máquinas.
-    * Si ejecuta la aplicación en Azure Kubernetes Service, puede [usar Azure Monitor para supervisar el uso de CPU](../azure-monitor/insights/container-insights-analyze.md).
+    * Si ejecuta la aplicación en Azure Kubernetes Service, puede [usar Azure Monitor para supervisar el uso de CPU](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitación de la conexión
 La limitación de la conexión puede deberse a un [Límite de conexiones en una máquina host] o al [agotamiento de puertos SNAT (PAT) de Azure].

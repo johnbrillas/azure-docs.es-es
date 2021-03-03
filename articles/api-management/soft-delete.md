@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092149"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652392"
 ---
 # <a name="api-management-soft-delete-preview"></a>Eliminación temporal de API Management (versión preliminar)
 
 Con la eliminación temporal de API Management (versión preliminar), puede recuperar y restaurar las instancias de API Management (APIM) eliminadas recientemente.
 
 > [!IMPORTANT]
-> Solo las instancias de API Management eliminadas con `2020-01-01-preview` y versiones posteriores de la API se eliminarán temporalmente y son recuperables mediante los pasos descritos en este artículo. Las instancias de APIM eliminadas con versiones anteriores de la API se seguirán eliminando de forma permanente. Azure PowerShell y la CLI de Azure no usan actualmente la versión `2020-06-01-preview` y también darán lugar a un comportamiento de eliminación permanente.
+> Solo las instancias de API Management eliminadas con `2020-06-01-preview` y versiones posteriores de la API se eliminarán temporalmente y son recuperables mediante los pasos descritos en este artículo. Las instancias de APIM eliminadas con versiones anteriores de la API se seguirán eliminando de forma permanente. Azure PowerShell y la CLI de Azure no usan actualmente la versión `2020-06-01-preview` y también darán lugar a un comportamiento de eliminación permanente.
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
@@ -31,14 +31,14 @@ La característica de eliminación temporal está disponible a través de una [A
 |--|--|--|--|
 | [Create or Update](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) (Crear o actualizar) | Crea o actualiza un servicio API Management.  | Servicio API Management | Any |
 | [Create or Update](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) (Crear o actualizar) con la propiedad `restore` establecida en **true** | Recupera el servicio API Management si antes se eliminó temporalmente. Si se especifica `restore` y se establece en `true` se omitirán todas las demás propiedades.  | Servicio API Management |  2020-06-01-preview |
-| [Eliminar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servicio API Management existente. | Servicio API Management | 2020-01-01-preview|
+| [Eliminar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servicio API Management existente. | Servicio API Management | 2020-06-01-preview|
 | [Get By Name](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) (Obtener por nombre) | Obtiene el servicio API Management eliminado temporalmente por el nombre. | Servicios eliminados | 2020-06-01-preview |
 | [List By Subscription](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) (Enumerar por suscripción) | Enumera todos los servicios eliminados temporalmente que están disponibles para recuperarse en la suscripción especificada. | Servicios eliminados | 2020-06-01-preview
 | [Purgar](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Purga el servicio API Management (lo elimina sin ninguna opción para recuperarlo). | Servicios eliminados | 2020-06-01-preview
 
 ## <a name="soft-delete-behavior"></a>Comportamiento de eliminación temporal
 
-Puede usar cualquier versión de API para crear la instancia de API Management, pero tendrá que utilizar `2020-01-01-preview` o versiones posteriores para eliminar temporalmente la instancia de APIM (y tener la opción de recuperarla).
+Puede usar cualquier versión de API para crear la instancia de API Management, pero tendrá que utilizar `2020-06-01-preview` o versiones posteriores para eliminar temporalmente la instancia de APIM (y tener la opción de recuperarla).
 
 Tras eliminar una instancia de API Management, el servicio existirá en estado eliminado, lo que hará que sea inaccesible para cualquier operación de APIM. En este estado, la instancia de APIM solo se puede enumerar, recuperar o purgar (eliminar de forma permanente).
 

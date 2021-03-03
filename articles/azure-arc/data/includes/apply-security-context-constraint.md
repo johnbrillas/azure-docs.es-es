@@ -3,14 +3,14 @@ author: MikeRayMSFT
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 03/02/2021
 ms.author: mikeray
-ms.openlocfilehash: 6c8dbeea83cba306cfb788cf447236088045ffc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0fca43f76b24a08ca96be749f7f2a822b0be2418
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687601"
 ---
 En esta sección se explica cómo aplicar una restricción de contexto de seguridad (SCC). En el caso de la versión preliminar, se relajan las restricciones de seguridad. 
 
@@ -40,12 +40,6 @@ En esta sección se explica cómo aplicar una restricción de contexto de seguri
    oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
    ```
 
-   > [!NOTE]
-   > RedHat OpenShift 4.5 o superior, cambia el modo de aplicar el SCC a la cuenta de servicio.
-   > Use el mismo espacio de nombres aquí y en el comando `azdata arc dc create` siguiente. Un ejemplo es `arc`. 
-   > 
-   > Si usa RedHat OpenShift 4.5 o una versión posterior, ejecute: 
-   >
-   >```console
-   >oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
-   >```
+   ```console
+   oc create rolebinding arc-data-rbac --clusterrole=system:openshift:scc:arc-data-scc --serviceaccount=arc:default
+   ```

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731446"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526432"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Tutorial: Configuración de Parsable para el aprovisionamiento automático de usuarios
 
@@ -32,8 +32,9 @@ En este tutorial se describen los pasos que debe realizar en Parsable y Azure Ac
 > * Creación de usuarios en Parsable
 > * Eliminación de usuarios de Parsable cuando ya no necesiten acceso
 > * Sincronización de los atributos de usuario entre Azure AD y Parsable
+> * Aprovisionamiento de grupos y pertenencias a grupos en Parsable
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -107,17 +108,25 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |userName|String|&check;|
    |DisplayName|String|
 
-10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Parsable**.
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Parsable, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y Parsable en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con los grupos de Parsable para operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+
+      |Atributo|Tipo|Compatible con el filtrado|
+      |---|---|---|
+      |DisplayName|String|&check;|
+      |members|Referencia|
+12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Parsable, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Parsable.
+14. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Parsable.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 2. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro de cambios
+
+* 15/02/2021: Se ha habilitado el aprovisionamiento de grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

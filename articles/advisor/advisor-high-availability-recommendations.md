@@ -3,12 +3,12 @@ title: Mejora de la confiabilidad de la aplicación con Advisor
 description: Use Azure Advisor para garantizar y mejorar la confiabilidad en las implementaciones de Azure críticas para la empresa.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078041"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579980"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Mejora de la confiabilidad de la aplicación mediante el uso de Azure Advisor
 
@@ -76,7 +76,7 @@ Las máquinas virtuales que están en un conjunto de disponibilidad con discos q
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparación de las reglas de alertas de registro no válidas
 
-Azure Advisor detecta las reglas de alertas de registro que tienen consultas no válidas especificadas en la sección de condiciones. Las reglas de alerta de registro de Azure Monitor ejecutan consultas a la frecuencia especificada y activan alertas en función de los resultados. Las consultas pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor recomienda correcciones para las consultas de alertas para impedir que las reglas se deshabiliten automáticamente y para garantizar la cobertura de supervisión. Para obtener más información, vea [Solución de problemas de reglas de alertas](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
+Azure Advisor detecta las reglas de alertas de registro que tienen consultas no válidas especificadas en la sección de condiciones. Las reglas de alerta de registro de Azure Monitor ejecutan consultas a la frecuencia especificada y activan alertas en función de los resultados. Las consultas pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor recomienda correcciones para las consultas de alertas para impedir que las reglas se deshabiliten automáticamente y para garantizar la cobertura de supervisión. Para obtener más información, vea [Solución de problemas de reglas de alertas](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configuración del modo de indexación coherente en la colección de Azure Cosmos DB
 

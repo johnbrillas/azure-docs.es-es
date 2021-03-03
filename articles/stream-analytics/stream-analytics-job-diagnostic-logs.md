@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011125"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574408"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de recursos
 
@@ -24,9 +24,9 @@ Es muy recomendable habilitar los registros de recursos para todos los trabajos,
 
 Stream Analytics ofrece dos tipos de registros:
 
-* [Registros de actividad](../azure-monitor/platform/platform-logs-overview.md) (siempre activados), que proporcionan información sobre las operaciones realizadas en los trabajos.
+* [Registros de actividad](../azure-monitor/essentials/platform-logs-overview.md) (siempre activados), que proporcionan información sobre las operaciones realizadas en los trabajos.
 
-* [Registros de recursos](../azure-monitor/platform/platform-logs-overview.md) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
+* [Registros de recursos](../azure-monitor/essentials/platform-logs-overview.md) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
 
 > [!NOTE]
 > Puede usar servicios como, por ejemplo, Azure Storage, Azure Event Hubs y registros de Azure Monitor, para analizar los datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.

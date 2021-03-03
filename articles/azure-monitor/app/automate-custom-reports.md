@@ -4,12 +4,12 @@ description: Automatizar informes personalizados diarios, semanales o mensuales 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590034"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tiene sus necesidades de informes únicas, como:
 
 Puede [consultar mediante programación datos de Application Insights](https://dev.applicationinsights.io/) para generar informes personalizados en una programación. Las opciones siguientes pueden ayudarle a empezar rápidamente:
 
-* [Automatización de informes con Power Automate](../platform/logicapp-flow-connector.md)
+* [Automatización de informes con Power Automate](../logs/logicapp-flow-connector.md)
 * [Automatizar informes con Logic Apps](automate-with-logic-apps.md)
 * Use la plantilla "Resumen programado de Application Insights" de [Azure Functions](../../azure-functions/functions-get-started.md) en el escenario Supervisión. Esta función usa SendGrid para enviar el correo electrónico. 
 
@@ -150,7 +150,7 @@ Estos pasos se aplican solo si aún no ha configurado ninguna cuenta de SendGrid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre cómo crear [consultas de análisis](../log-query/get-started-queries.md).
+* Más información sobre cómo crear [consultas de análisis](../logs/get-started-queries.md).
 * Obtenga más información sobre [consultar mediante programación los datos de Application Insights](https://dev.applicationinsights.io/).
 * Más información acerca de [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Más información sobre [Microsoft Power Automate](https://ms.flow.microsoft.com).

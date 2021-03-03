@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 02/16/2021
-ms.openlocfilehash: f4ac384a9b1bce944397369cb93392f179643f96
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bd70bb1a031b61e77fa84ff5567d95dc6d1e8788
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706748"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -56,7 +56,7 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 * Nuevos recursos para desarrolladores
     * [Herramientas de integración continua](developer-reference-resource.md#continuous-integration-tools)
     * Taller: Aprenda procedimientos recomendados para la [_Comprensión del lenguaje natural_ (NLU) con LUIS](developer-reference-resource.md#workshops)
-* [Claves administradas por el cliente](luis-encryption-of-data-at-rest.md): cifre todos los datos que use en LUIS mediante su propia clave
+* [Claves administradas por el cliente](./encrypt-data-at-rest.md): cifre todos los datos que use en LUIS mediante su propia clave
 * [Show de IA](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vídeo): consulte las nuevas características de LUIS
 
 

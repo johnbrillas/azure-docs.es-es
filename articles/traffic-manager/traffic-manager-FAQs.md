@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184584"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576681"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -347,7 +347,7 @@ Azure Resource Manager requiere que todos los grupos de recursos especifiquen un
 
 El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](/rest/api/trafficmanager/), los [cmdlets de PowerShell](/powershell/module/az.trafficmanager) y la [CLI de Azure multiplataforma](/cli/azure/install-classic-cli) del Monitor de tráfico.
 
-También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](../azure-monitor/platform/data-platform.md).
+También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>¿Puedo supervisar puntos de conexión HTTPS?
 
@@ -458,7 +458,7 @@ El número de comprobaciones de estado de Traffic Manager que llega a su punto d
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>¿Cómo puedo recibir notificación de si uno de mis puntos de conexión deja de funcionar?
 
-Una de las métricas que proporciona Traffic Manager es el estado de mantenimiento de los puntos de conexión de un perfil. Puede ver esto como un agregado de todos los puntos de conexión dentro de un perfil (por ejemplo, el 75 % de los puntos de conexión tienen un estado correcto) o en un nivel por punto de conexión. Las métricas de Traffic Manager se exponen a través de Azure Monitor y puede usar sus [funcionalidades de alerta](../azure-monitor/platform/alerts-metric.md) para recibir notificaciones cuando se produzca un cambio en el estado de mantenimiento del punto de conexión. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).  
+Una de las métricas que proporciona Traffic Manager es el estado de mantenimiento de los puntos de conexión de un perfil. Puede ver esto como un agregado de todos los puntos de conexión dentro de un perfil (por ejemplo, el 75 % de los puntos de conexión tienen un estado correcto) o en un nivel por punto de conexión. Las métricas de Traffic Manager se exponen a través de Azure Monitor y puede usar sus [funcionalidades de alerta](../azure-monitor/alerts/alerts-metric.md) para recibir notificaciones cuando se produzca un cambio en el estado de mantenimiento del punto de conexión. Para obtener más detalles, consulte [Métricas y alertas de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfiles anidados de Traffic Manager
 

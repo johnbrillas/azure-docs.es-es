@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131940"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368836"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Creación de un agente de trabajos elásticos mediante PowerShell (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Los [trabajos elásticos (versión preliminar)](job-automation-overview.md#elastic-database-jobs-preview) permiten la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
+Los [trabajos elásticos (versión preliminar)](job-automation-overview.md) permiten la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
 
 En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en varias bases de datos:
 
@@ -63,7 +63,7 @@ Además del módulo **Az.Sql**, este tutorial también requiere el módulo *SqlS
 
 ## <a name="create-required-resources"></a>Creación de los recursos necesarios
 
-La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](job-automation-overview.md#job-database).
+La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](job-automation-overview.md#elastic-job-database).
 
 El script siguiente crea un grupo de recursos, un servidor y una base de datos que se usará como base de datos de trabajos. El segundo script crea un segundo servidor con dos bases de datos en blanco en las que ejecutar los trabajos.
 

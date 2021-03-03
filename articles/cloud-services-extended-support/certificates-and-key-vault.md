@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722660"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Uso de certificados con Azure Cloud Services (soporte extendido)
 
-Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Key Vault se puede crear por medio de [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) y [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault.  
+Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Key Vault se puede crear por medio de [Azure Portal](../key-vault/general/quick-create-portal.md) y [PowerShell](../key-vault/general/quick-create-powershell.md). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Carga de un certificado en Key Vault 
 
@@ -54,4 +54,4 @@ Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
-- Implemente un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

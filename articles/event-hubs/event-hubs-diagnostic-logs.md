@@ -3,21 +3,21 @@ title: 'Configuración de registros de diagnóstico: Azure Event Hub | Microsoft
 description: Obtenga información sobre cómo configurar registros de actividad y registros de diagnóstico para centros de eventos en Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573175"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
 
-* **[Registros de actividad](../azure-monitor/platform/platform-logs-overview.md)** : Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados. Puede ver las entradas del registro de actividad si selecciona **Registro de actividad** en el panel izquierdo del espacio de nombres del centro de eventos en Azure Portal. Por ejemplo: "Crear o actualizar el espacio de nombres", "Crear o actualizar el centro de eventos".
+* **[Registros de actividad](../azure-monitor/essentials/platform-logs-overview.md)** : Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados. Puede ver las entradas del registro de actividad si selecciona **Registro de actividad** en el panel izquierdo del espacio de nombres del centro de eventos en Azure Portal. Por ejemplo: "Crear o actualizar el espacio de nombres", "Crear o actualizar el centro de eventos".
 
     ![Registro de actividad de un espacio de nombres de Event Hubs](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : los registros de diagnóstico proporcionan información más completa sobre las operaciones y acciones realizadas en el espacio de nombres mediante la API o mediante clientes de administración en el SDK de lenguaje. 
+* **[Registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)** : los registros de diagnóstico proporcionan información más completa sobre las operaciones y acciones realizadas en el espacio de nombres mediante la API o mediante clientes de administración en el SDK de lenguaje. 
     
     En la sección siguiente se muestra cómo habilitar los registros de diagnóstico para un espacio de nombres de Event Hubs.
 
@@ -36,7 +36,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
     La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-    Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
 

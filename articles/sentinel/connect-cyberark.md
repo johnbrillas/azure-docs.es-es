@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: c375595951eb760d5341db424c5572719b97046a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102747"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530508"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Conexión de CyberArk Enterprise Password Vault (EPV) con Azure Sentinel
 
@@ -36,15 +36,15 @@ El conector de Syslog de CyberArk permite conectar fácilmente todos los registr
 
 Los registros de CyberArk EPV se envían desde el almacén a un servidor de reenvío de registros basado en Linux (que ejecuta rsyslog o syslog-ng) con el agente de Log Analytics instalado, que exporta los registros a Azure Sentinel. Si no tiene ningún servidor de reenvío de registros de este tipo, consulte [estas instrucciones](connect-cef-agent.md) para instalar uno y ponerlo en funcionamiento.
 
-1. En el portal de Azure Sentinel, haga clic en **Conectores de datos** , seleccione **Eventos de Enterprise Password Vault (EPV) de CyberArk (versión preliminar)** y, después, **Abrir página del conector**.
+1. En el portal de Azure Sentinel, haga clic en **Conectores de datos**, seleccione **Eventos de Enterprise Password Vault (EPV) de CyberArk (versión preliminar)** y, después, **Abrir página del conector**.
 
-1. Siga las instrucciones de CyberArk EPV para configurar el envío de datos de syslog al servidor de reenvío de registros.
+1. Siga las [instrucciones de CyberArk EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) para configurar el envío de datos de syslog al servidor de reenvío de registros.
 
 1. Valide la conexión y compruebe la ingesta de datos con [estas instrucciones](connect-cef-verify.md). Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir hasta 20 minutos.
 
 ## <a name="find-your-data"></a>Búsqueda de sus datos
 
-Una vez establecida una conexión correcta, los datos aparecen en **Registros** , debajo de la sección **Azure Sentinel** en la tabla *CommonSecurityLog*.
+Una vez establecida una conexión correcta, los datos aparecen en **Registros**, debajo de la sección **Azure Sentinel** en la tabla *CommonSecurityLog*.
 
 Para consultar los registros de CyberArk EPV en Log Analytics, escriba `CommonSecurityLog` en la parte superior de la ventana de consulta.
 

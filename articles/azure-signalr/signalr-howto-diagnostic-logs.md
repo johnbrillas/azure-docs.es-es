@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183981"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572249"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registros de recursos para Azure SignalR Service
 
@@ -20,8 +20,8 @@ En este tutorial se explica qué son los registros de recursos de Azure SignalR 
 ## <a name="prerequisites"></a>Requisitos previos
 Para habilitar los registros de recursos, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage): conserva los registros de recursos para auditorías de directivas, análisis estáticos o copias de seguridad.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace): una herramienta flexible de búsqueda y de análisis de registros que permite el análisis de los registros sin procesar que genera un recurso de Azure.
+* [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage): conserva los registros de recursos para auditorías de directivas, análisis estáticos o copias de seguridad.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace): una herramienta flexible de búsqueda y de análisis de registros que permite el análisis de los registros sin procesar que genera un recurso de Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configuración de registros de recursos para Azure SignalR Service
 
@@ -50,7 +50,7 @@ Los registros de recursos están inhabilitados de forma predeterminada. Para hab
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-Para obtener más información sobre el diagnóstico de configuración, consulte la [información general sobre los registros de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obtener más información sobre el diagnóstico de configuración, consulte la [información general sobre los registros de recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="resource-logs-categories"></a>Categorías de registros de recursos
 
@@ -122,7 +122,7 @@ Para ver los registros de recursos, siga estos pasos:
 
     ![Elemento de menú de Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de recursos. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+2. Escriba `SignalRServiceDiagnosticLogs` y seleccione el intervalo de tiempo para consultar los registros de recursos. Para una consulta avanzada, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
     ![Registro de consultas en Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 

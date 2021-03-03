@@ -7,15 +7,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad0550dc20edfbc10fb8877ad049c27fc2edf086
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509491"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517542"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>¿Qué se puede hacer con Azure Machine Learning Studio (clásico)?
 
@@ -30,14 +30,14 @@ Machine Learning Studio (clásico) es una herramienta del tipo arrastrar y coloc
 
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
-Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar fácilmente en un modelo de análisis predictivo. Los **_conjuntos de datos_* _ y los _*_módulos_*_ de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un _*_experimento_*_ que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el _*_experimento de entrenamiento_*_ en un _*_experimento predictivo_*_ y luego publicarlo como _*_servicio web_*_ para que otros usuarios puedan acceder al modelo.
+Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar fácilmente en un modelo de análisis predictivo. Arrastre y coloque ***conjuntos de datos** y _*_módulos_*_ de análisis en un lienzo interactivo, conéctelos para formar un _*_experimento_*_ que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el _*_experimento de entrenamiento_*_ en un _*_experimento predictivo_*_ y luego publicarlo como *_servicio web_** para que otros usuarios puedan acceder al modelo.
 
 No se requiere programación; conecte visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
 ![Diagrama de Machine Learning Studio (clásico): crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>Descarga del diagrama de información general de Machine Learning Studio (clásico)
-Descargue el diagrama de _ *información general de las funcionalidades de Microsoft ML Studio (clásico)* * y obtenga una vista general de las funcionalidades de Machine Learning Studio (clásico). Para tenerlo a mano, puede imprimir el diagrama en tamaño tabloide (279 x 432 mm).
+Descargue el diagrama **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** [Información general acerca de las funcionalidades de Machine Learning Studio (clásico)]. Para tenerlo a mano, puede imprimir el diagrama en tamaño tabloide (279 x 432 mm).
 
 **Descargue aquí el diagrama: [Microsoft Machine Learning Studio (classic) Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Microsoft Machine Learning Studio (classic) Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png) (Introducción a las funcionalidades de Microsoft Machine Learning Studio [clásico])

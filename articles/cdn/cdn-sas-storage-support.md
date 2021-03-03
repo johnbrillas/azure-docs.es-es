@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725329"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -52,7 +52,7 @@ Para más información sobre cómo establecer los parámetros, consulte [Conside
 
 Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde Azure CDN al servidor de origen.
  
-1. Elija un punto de conexión, seleccione **Reglas de caché** y luego, en la lista **Almacenamiento en caché de cadenas de consulta** , elija **Almacenar en caché todas las URL únicas** .
+1. Elija un punto de conexión, seleccione **Reglas de caché** y luego, en la lista **Almacenamiento en caché de cadenas de consulta**, elija **Almacenar en caché todas las URL únicas**.
 
     ![Reglas de caché de la red CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -69,7 +69,7 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
 
 ### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opción 2: Token de SAS de CDN oculto mediante una regla de reescritura
  
-Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon** . Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de Azure CDN. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
+Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de Azure CDN. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
  
 1. Use el [motor de reglas](./cdn-verizon-premium-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las nuevas reglas tardan hasta cuatro horas en propagarse.
 
@@ -77,10 +77,10 @@ Esta opción solo está disponible para los perfiles de **Azure CDN Premium de V
 
    ![Botón del motor de reglas de CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo* :
+   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo*:
    
    Origen:   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Destino:   
@@ -100,7 +100,7 @@ Esta opción solo está disponible para los perfiles de **Azure CDN Premium de V
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opción 3: Uso de la autenticación de token de seguridad de red CDN con una regla de reescritura
 
-Para usar la autenticación de token de seguridad de Azure CDN, debe tener un perfil de **Azure CDN premium de Verizon** . Esta opción es la más segura y personalizable. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Una vez que ha creado y configurado el token de seguridad, se requerirá en todas las direcciones URL de punto de conexión de CDN. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN. Si posteriormente el token de SAS deja de ser válido, Azure CDN ya no podrá revalidar el contenido del servidor de origen.
+Para usar la autenticación de token de seguridad de Azure CDN, debe tener un perfil de **Azure CDN premium de Verizon**. Esta opción es la más segura y personalizable. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Una vez que ha creado y configurado el token de seguridad, se requerirá en todas las direcciones URL de punto de conexión de CDN. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN. Si posteriormente el token de SAS deja de ser válido, Azure CDN ya no podrá revalidar el contenido del servidor de origen.
 
 1. [Cree un token de seguridad de Azure CDN](./cdn-token-auth.md#setting-up-token-authentication) y actívelo mediante el motor de reglas para el punto de conexión de red CDN y la ruta de acceso donde los usuarios pueden acceder al archivo.
 
@@ -116,10 +116,10 @@ Para usar la autenticación de token de seguridad de Azure CDN, debe tener un pe
  
 2. Use el [motor de reglas](./cdn-verizon-premium-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las nuevas reglas tardan hasta cuatro horas en propagarse.
 
-   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo* :
+   La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión denominado *sasstoragedemo*:
    
    Origen:   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Destino:   
    ```
@@ -138,7 +138,7 @@ Como los parámetros de SAS no son visibles para Azure CDN, esta no puede cambia
 | --- | --- |
 | Start | Hora en que Azure CDN puede comenzar a acceder al archivo de blob. Debido al desplazamiento del reloj (es decir, cuando la señal de un reloj llega a distintas horas para componentes diferentes), elija una hora 15 minutos antes si quiere que el recurso esté disponible de inmediato. |
 | End | Hora tras la cual Azure CDN ya no tiene acceso al archivo de blob. Los archivos almacenados previamente en caché en Azure CDN siguen siendo accesibles. Para controlar la hora de expiración de los archivos, establezca la hora de expiración correspondiente en el token de seguridad de Azure CDN o purgue el recurso. |
-| Direcciones IP permitidas | Opcional. Si usa **Azure CDN de Verizon** , puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN de intervalos IP del servidor perimetral de Verison](./cdn-pop-list-api.md). Si usa **Azure CDN de Akamai** , no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
+| Direcciones IP permitidas | Opcional. Si usa **Azure CDN de Verizon**, puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN de intervalos IP del servidor perimetral de Verison](./cdn-pop-list-api.md). Si usa **Azure CDN de Akamai**, no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
 | Protocolos admitidos | Protocolos que se permiten para una solicitud realizada con la SAS de cuenta. Se recomienda la configuración HTTPS.|
 
 ## <a name="next-steps"></a>Pasos siguientes

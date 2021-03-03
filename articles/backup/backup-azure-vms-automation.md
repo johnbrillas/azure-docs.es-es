@@ -3,12 +3,12 @@ title: Copia de seguridad y recuperación de máquinas virtuales con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804788"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633196"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -527,6 +527,53 @@ Un usuario puede restaurar selectivamente algunos discos en lugar de todo el con
 
 Una vez que restaure los discos, vaya a la siguiente sección para crear la máquina virtual.
 
+#### <a name="restore-disks-to-a-secondary-region"></a>Restauración de discos en una región secundaria
+
+Si la restauración entre regiones está habilitada en el almacén con el que ha protegido las VM, los datos de copia de seguridad se replican en la región secundaria. Puede usar los datos de copia de seguridad para realizar una restauración. Siga los pasos a continuación para desencadenar una restauración en la región secundaria:
+
+1. [Capture el identificador de almacén](#fetch-the-vault-id) con el que están protegidas las VM.
+1. Seleccione el [elemento de copia de seguridad correcto que se va a restaurar](#select-the-vm-when-restoring-files).
+1. Seleccione el punto de recuperación adecuado en la región secundaria que quiera usar para realizar la restauración.
+
+    Para completar este paso, ejecute este comando:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Ejecute el cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) con el parámetro `-RestoreToSecondaryRegion` para desencadenar una restauración en la región secundaria.
+
+    Para completar este paso, ejecute este comando:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    El resultado será similar al ejemplo siguiente:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Ejecute el cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) con el parámetro `-UseSecondaryRegion` para supervisar el trabajo de restauración.
+
+    Para completar este paso, ejecute este comando:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    El resultado será similar al ejemplo siguiente:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
+
 ## <a name="replace-disks-in-azure-vm"></a>Reemplazar discos en VM de Azure
 
 Para reemplazar los discos y la información de configuración, realice los pasos siguientes:
@@ -575,7 +622,7 @@ La plantilla no es accesible directamente, ya que está en la cuenta de almacena
 3. Implemente la plantilla para crear una nueva máquina virtual como se explica [aquí](../azure-resource-manager/templates/deploy-powershell.md).
 
     ```powershell
-    New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI
     ```
 
 ### <a name="create-a-vm-using-the-config-file"></a>Creación de una máquina virtual mediante el archivo de configuración

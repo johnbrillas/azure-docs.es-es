@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232767"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589100"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso de la información para supervisar y configurar Azure Load Balancer
 
@@ -40,7 +40,7 @@ En el caso de Standard Load Balancer, los recursos del grupo de back-end están 
 
 ## <a name="metrics-dashboard"></a>Panel de métricas
 
-En la hoja Insights de Load Balancer, puede seleccionar Métricas más detalladas para ver un [libro de Azure Monitor](../azure-monitor/platform/workbooks-overview.md) preconfigurado que contiene objetos visuales de métricas relevantes para aspectos específicos de Load Balancer. Este panel mostrará el estado Load Balancer y los vínculos a la documentación correspondiente en la parte superior de la página.
+En la hoja Insights de Load Balancer, puede seleccionar Métricas más detalladas para ver un [libro de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) preconfigurado que contiene objetos visuales de métricas relevantes para aspectos específicos de Load Balancer. Este panel mostrará el estado Load Balancer y los vínculos a la documentación correspondiente en la parte superior de la página.
 
 Al principio, se mostrará la pestaña Información general. Puede desplazarse por las pestañas disponibles, cada una de las cuales contiene objetos visuales relevantes para un aspecto específico de Load Balancer. Las instrucciones explícitas para cada una de ellas están disponibles en el panel en la parte inferior de cada pestaña.
 
@@ -80,4 +80,4 @@ La pestaña Definiciones de métricas contiene toda la información que se muest
 * Revise el panel y proporcione comentarios mediante el siguiente vínculo si hay algo que se pueda mejorar.
 * [Revise la documentación de las métricas para asegurarse de que comprende cómo se calcula cada métrica](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 * [Cree instancias de Connection Monitor para Load Balancer](../network-watcher/connection-monitor.md).
-* [Cree sus propios libros](../azure-monitor/platform/workbooks-overview.md). Para ello, puede hacer clic en el botón Editar en el panel de métricas detalladas para inspirarse.
+* [Cree sus propios libros](../azure-monitor/visualize/workbooks-overview.md). Para ello, puede hacer clic en el botón Editar en el panel de métricas detalladas para inspirarse.

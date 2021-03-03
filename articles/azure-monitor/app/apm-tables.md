@@ -3,16 +3,16 @@ title: Esquema de recursos basado en el área de trabajo de Application Insights
 description: Obtenga información sobre la nueva estructura de tabla y el esquema parar los nuevos recursos basados en áreas de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931060"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575597"
 ---
-# <a name="workspace-based-resource-changes-preview"></a>Cambios en los recursos basados en áreas de trabajo (versión preliminar)
+# <a name="workspace-based-resource-changes"></a>Cambios en los recursos basados en áreas de trabajo
 
-Antes de la introducción de los [recursos de Application Insights basados en el área de trabajo](create-workspace-resource.md), los datos de Application Insights se almacenaban en un lugar diferente de otros datos de registro en Azure Monitor. Ambos se basan en Azure Data Explorer y usan el mismo lenguaje de consulta de Kusto (KQL). Esto se describe en los [registros de Azure Monitor](../platform/data-platform-logs.md).
+Antes de la introducción de los [recursos de Application Insights basados en el área de trabajo](create-workspace-resource.md), los datos de Application Insights se almacenaban en un lugar diferente de otros datos de registro en Azure Monitor. Ambos se basan en Azure Data Explorer y usan el mismo lenguaje de consulta de Kusto (KQL). Esto se describe en los [registros de Azure Monitor](../logs/data-platform-logs.md).
 
 Con los recursos de Application Insights basados en áreas de trabajo, los datos se almacenan en un área de trabajo de Log Analytics con otros datos de supervisión y de aplicaciones. Esto simplifica la configuración, ya que le permite analizar con más facilidad los datos en varias soluciones y aprovechar las capacidades de las áreas de trabajo.
 
@@ -464,6 +464,6 @@ Tabla heredada: seguimientos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Exploración de métricas](../platform/metrics-charts.md)
-* [Escribir consultas de Analytics](../log-query/log-query-overview.md)
+* [Exploración de métricas](../essentials/metrics-charts.md)
+* [Escribir consultas de Analytics](../logs/log-query-overview.md)
 

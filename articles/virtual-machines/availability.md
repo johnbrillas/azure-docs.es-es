@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628771"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668306"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
 
@@ -52,6 +52,10 @@ Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y admin
 **Dominios de error y dominios de actualización**
 
 Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](./manage-availability.md).
+
+**Modos de orquestación para conjuntos de escalado**
+
+Los modos de orquestación de los conjuntos de escalado de máquinas virtuales permiten tener un mayor control sobre la forma en que el conjunto de escalado administra las instancias de máquina virtual. En cualquier conjunto de escalado se puede habilitar un modo de orquestación uniforme o flexible. La orquestación uniforme está optimizada para cargas de trabajo sin estado a gran escala con instancias idénticas. La orquestación flexible (versión preliminar) está pensada para una alta disponibilidad a escala con tipos de máquinas virtuales idénticos o múltiples. Obtenga más información no solo sobre estos [modos de orquestación](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md), sino también sobre cómo habilitarlos.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad

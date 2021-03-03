@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737416"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Línea base de seguridad de Azure Web Application Firewall
 
@@ -111,9 +111,9 @@ Seleccione Azure PowerShell o la CLI de Azure para buscar o realizar acciones e
 
 **Guía**: Utilice el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en las opciones y recursos de red relacionados con las implementaciones de Azure Web Application Firewall (WAF). Cree alertas en Azure Monitor que se desencadenen cuando se produzcan cambios en la configuraciones o recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -153,9 +153,9 @@ Azure Sentinel tiene un libro de Azure WAF integrado que proporciona informació
 
 - [Información general acerca del registro](ag/ag-overview.md#logging)
 
-- [Información general acerca de las consultas de registro de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Información general acerca de las consultas de registro de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Información general acerca de los registros de plataforma de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Información general acerca de los registros de plataforma de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -164,7 +164,7 @@ Azure Sentinel tiene un libro de Azure WAF integrado que proporciona informació
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configuración de la retención del almacenamiento de registros de seguridad
 
 **Guía**: Envíe los registros de Azure Web Application Firewall (WAF) a una cuenta de almacenamiento personalizada y defina las directivas de retención. Utilice Azure Monitor para establecer el período de retención del área de trabajo de Log Analytics en función de los requisitos de cumplimiento de su organización.
-- [la supervisión para una cuenta de almacenamiento](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [la supervisión para una cuenta de almacenamiento](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -192,9 +192,9 @@ Azure Sentinel tiene un libro de WAF y eventos de firewall integrado que proporc
 
 **Guía**: Habilite la configuración de diagnóstico del registro de actividad de Azure, así como la configuración de diagnóstico de Azure WAF, y envíe los registros a un área de trabajo de Log Analytics. Realice consultas en Log Analytics para buscar términos, identificar tendencias, analizar patrones y proporcionar otra información detallada basada en los datos recopilados. Cree alertas para actividades anómalas basadas en métricas de WAF. Por ejemplo, si el número de solicitudes bloqueadas supera "X" o "Y".
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Creación de alertas en Azure](../azure-monitor/learn/tutorial-response.md)
+- [Creación de alertas en Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

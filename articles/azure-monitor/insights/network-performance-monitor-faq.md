@@ -1,24 +1,23 @@
 ---
 title: 'Preguntas más frecuentes: Solución Network Performance Monitor en Azure | Microsoft Docs'
 description: En este artículo se incluyen las preguntas más frecuentes sobre Network Performance Monitor en Azure. Network Performance Monitor (NPM) ayuda a supervisar el rendimiento de sus redes (en tiempo casi real) para detectar y localizar los cuellos de botella de rendimiento que afectan a la red.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 909cbd6174fe7eceaa8b53b5ba44fe72990b56d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708057"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
 ![Símbolo de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 En este artículo se incluyen las preguntas más frecuentes (P+f) sobre Network Performance Monitor (NPM) en Azure.
 
@@ -43,7 +42,7 @@ La funcionalidad de supervisión de redes con nodos basados en Linux se encuentr
 Para ejecutar la solución NPM en máquinas virtuales de nodo para supervisar redes, los nodos deben tener al menos 500 MB de memoria y un núcleo. No es necesario usar nodos independientes para ejecutar NPM. La solución pueda ejecutarse en nodos en los que haya otras cargas de trabajo en ejecución. La solución tiene la capacidad de detener el proceso de supervisión si usa más del 5 % de CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para usar NPM, ¿debo conectar mis nodos como agente directo o a través de System Center Operations Manager?
-Tanto la funcionalidad Monitor de rendimiento como Monitor de conectividad de servicio admite nodos [conectados como agentes directos](../platform/agent-windows.md) y [conectados a través de Operations Manager](../platform/om-agents.md).
+Tanto la funcionalidad Monitor de rendimiento como Monitor de conectividad de servicio admite nodos [conectados como agentes directos](../agents/agent-windows.md) y [conectados a través de Operations Manager](../agents/om-agents.md).
 
 En la funcionalidad Supervisión de ExpressRoute, los nodos de Azure solo deben conectarse como agentes directos. Los nodos de Azure, que se conectan a través de Operations Manager, no se admiten. En los nodos locales, se admiten los nodos conectados como agentes directos y a través de Operations Manager para supervisar un circuito ExpressRoute.
 
@@ -98,7 +97,7 @@ Si un salto aparece en rojo, indica que forma parte de al menos una ruta de acce
 NPM usa un mecanismo probabilístico para asignar las probabilidades de error a cada ruta de acceso de red, segmento de red, y a los saltos de red que los componen en función del número de rutas de acceso incorrectas de las que forman parte. A medida que los segmentos de red y los saltos engrosan el número de rutas de acceso incorrectas, aumenta la probabilidad de error asociada a ellos. Este algoritmo funciona mejor cuando se tienen muchos nodos con el agente de NPM conectados entre sí, ya que esto aumenta los puntos de datos para calcular las probabilidades de error.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>¿Cómo se pueden crear alertas en NPM?
-Actualmente se están produciendo errores al crear alertas desde la interfaz de usuario de NPM a causa de un problema conocido. [Cree alertas manualmente](../platform/alerts-log.md).
+Actualmente se están produciendo errores al crear alertas desde la interfaz de usuario de NPM a causa de un problema conocido. [Cree alertas manualmente](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>¿Cuáles son las consultas de Log Analytics predeterminadas para alertas?
 Consulta del monitor de rendimiento

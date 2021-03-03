@@ -59,11 +59,11 @@
   items:
     - name: Desarrollar
       items:
-        - name: Preparación de una aplicación Java Spring para la implementación
+        - name: Preparación de una aplicación para la implementación
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configuración de un servidor de configuración
           href: spring-cloud-tutorial-config-server.md
-        - name: Habilitación del registro del servicio
+        - name: Habilitación del registro de servicios
           href: spring-cloud-service-registration.md
     - name: Implementar
       items:
@@ -157,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
+  items:
+    - name: Arquitectura de referencia
+      href: spring-cloud-reference-architecture.md
 - name: Implementación de DevOps
   items:
     - name: CI/CD con Azure DevOps
@@ -184,3 +188,6 @@
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: What's New
+      displayName: What's New
+      href: 'https://azure.microsoft.com/updates/?query=spring'

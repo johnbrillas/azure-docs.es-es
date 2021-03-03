@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 02/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904042"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362427"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
@@ -34,7 +34,7 @@ En el caso de clientes con acceso a [Identity Protection](../identity-protection
 
 ## <a name="user-risk"></a>Riesgo de usuario 
 
-En el caso de los clientes con acceso a [Identity Protection](../identity-protection/overview-identity-protection.md), el riesgo del usuario se puede evaluar como parte de una directiva de acceso condicional. El riesgo del usuario representa la probabilidad de que una identidad o una cuenta determinada esté en peligro. Puede encontrar más información sobre el riesgo del usuario en los artículos [¿Cuáles son los riesgos?](../identity-protection/concept-identity-protection-risks.md#user-risk) e [Instrucciones: Configuración y habilitación de directivas de riesgo](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+En el caso de los clientes con acceso a [Identity Protection](../identity-protection/overview-identity-protection.md), el riesgo del usuario se puede evaluar como parte de una directiva de acceso condicional. Un riesgo de usuario representa la probabilidad de que una identidad o cuenta determinada esté en peligro. Puede encontrar más información sobre el riesgo del usuario en los artículos [¿Cuáles son los riesgos?](../identity-protection/concept-identity-protection-risks.md#user-risk) e [Instrucciones: Configuración y habilitación de directivas de riesgo](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 

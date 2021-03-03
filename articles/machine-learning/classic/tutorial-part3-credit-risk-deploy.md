@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517389"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Azure Machine Learning Studio (clásico)
 
@@ -48,12 +48,12 @@ Completar la [parte dos del tutorial](tutorial-part2-credit-risk-train.md).
 ## <a name="prepare-for-deployment"></a>Preparar la implementación
 Para permitir que otros usuarios puedan usar el modelo predictivo desarrollado en este tutorial, se puede implementar como servicio web en Azure.
 
-Hasta ahora hemos estado experimentando con el entrenamiento de nuestro modelo. Sin embargo, el servicio implementado ya no va a realizar el entrenamiento: va a generar nuevas predicciones mediante la puntuación de la entrada del usuario en función de nuestro modelo. Por lo tanto, hay que realizar unos cuantos preparativos para pasar este experimento de un experimento de **entrenamiento** a un experimento _*_predictivo_*_. 
+Hasta ahora hemos estado experimentando con el entrenamiento de nuestro modelo. Sin embargo, el servicio implementado ya no va a realizar el entrenamiento: va a generar nuevas predicciones mediante la puntuación de la entrada del usuario en función de nuestro modelo. Por lo tanto, hay que realizar unos cuantos preparativos para pasar este experimento de un experimento de **entrenamiento** a un experimento _ *_predictivo_*. 
 
 La preparación para la implementación es un proceso de tres pasos:  
 
 1. Eliminación de uno de los modelos
-1. Conversión del experimento de entrenamiento que hemos creado en un *experimento predictivo*
+1. Conversión del *experimento de entrenamiento* que hemos creado en un *experimento predictivo*
 1. Implementar el experimento predictivo como servicio web
 
 ### <a name="remove-one-of-the-models"></a>Eliminación de uno de los modelos

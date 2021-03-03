@@ -4,17 +4,20 @@ description: Aprenda a configurar las claves administradas por el cliente para s
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338289"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656523"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configuración de claves administradas por el cliente para una cuenta de Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> El uso de claves administradas por el cliente con el [almacén analítico](analytical-store-introduction.md) de Azure Cosmos DB requiere actualmente una configuración adicional en su cuenta. Póngase en contacto con [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para más información.
 
 Los datos almacenados en su cuenta de Azure Cosmos se cifran de forma automática y sin problemas con claves administradas por Microsoft (**claves administradas por el servicio**). También puede optar por agregar una segunda capa de cifrado con las claves administradas (**claves administradas por el cliente**).
 
@@ -291,6 +294,10 @@ Todos los datos almacenados en la cuenta de Azure Cosmos se cifran con las clave
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>¿Son compatibles las claves administradas por el cliente con las cuentas existentes de Azure Cosmos?
 
 Esta característica solo está disponible actualmente para las cuentas nuevas.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>¿Es posible usar claves administradas por el cliente junto con el [almacén analítico](analytical-store-introduction.md) de Azure Cosmos DB?
+
+Sí, pero actualmente se requiere una configuración adicional en la cuenta. Póngase en contacto con [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) para más información.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>¿Existe un plan para admitir una granularidad más fina que las claves de nivel de cuenta?
 

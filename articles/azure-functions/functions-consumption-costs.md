@@ -3,12 +3,12 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934890"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578567"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -67,11 +67,11 @@ En la [factura](../cost-management-billing/understand/download-azure-invoice.md)
 
 ### <a name="function-app-level-metrics"></a>Métricas del nivel de la aplicación de funciones
 
-Para comprender mejor el impacto en el costo de las funciones, puede usar Azure Monitor para ver las métricas relacionadas con los costos que se están generando actualmente en las aplicaciones de funciones. Puede usar el [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) en [Azure Portal] o las API REST para obtener estos datos.
+Para comprender mejor el impacto en el costo de las funciones, puede usar Azure Monitor para ver las métricas relacionadas con los costos que se están generando actualmente en las aplicaciones de funciones. Puede usar el [explorador de métricas Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md) en [Azure Portal] o las API REST para obtener estos datos.
 
 #### <a name="monitor-metrics-explorer"></a>Explorador de métricas de Monitor
 
-Use el [explorador de métricas de Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) para ver los datos relacionados con los costos de las aplicaciones de funciones del plan de consumo en un formato gráfico. 
+Use el [explorador de métricas de Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md) para ver los datos relacionados con los costos de las aplicaciones de funciones del plan de consumo en un formato gráfico. 
 
 1. En la parte superior de [Azure Portal], en **Buscar recursos, servicios y documentos**, busque `monitor` y seleccione **Monitor** en **Servicios**.
 
@@ -82,7 +82,7 @@ Use el [explorador de métricas de Azure Monitor](../azure-monitor/platform/metr
       
     |Configuración  |Valor sugerido  |Descripción  |
     |---------|---------|---------|
-    | Suscripción    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
+    | Subscription    |  Su suscripción  | La suscripción con la aplicación de funciones.  |
     | Resource group     | Su grupo de recursos  | El grupo de recursos que contiene la aplicación de funciones.   |
     | Tipo de recurso     |  Servicios de aplicaciones | Las aplicaciones de funciones se muestran como instancias de App Services en Monitor. |
     | Resource     |  Su aplicación de función  | La aplicación de funciones que se va a supervisar.        |

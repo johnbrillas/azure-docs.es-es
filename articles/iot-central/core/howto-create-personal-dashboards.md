@@ -1,6 +1,6 @@
 ---
-title: Creación de paneles personales de Azure IoT Central | Microsoft Docs
-description: Como usuario, obtenga información sobre cómo crear y administrar sus paneles personales.
+title: Creación de paneles de Azure IoT Central | Microsoft Docs
+description: Aprenda a crear y administrar paneles.
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6fc99470fdc52a2dc6553056f305226f8348550c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146116"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366728"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Creación y administración de varios paneles personales
 
-El **panel** es la página que se carga cuando navega por primera vez a la aplicación. Un **generador** en la aplicación define el panel predeterminado de la aplicación para todos los usuarios. Además, puede crear su propio panel de aplicación personalizado. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos.
+El **panel** es la página que se carga cuando navega por primera vez a la aplicación. Un **generador** en la aplicación define el panel de la aplicación predeterminado para todos los usuarios. Además, puede crear su propio panel de aplicación personalizado. Puede tener varios paneles que muestren datos diferentes y cambiar entre ellos.
 
-Si es **administrador** de la aplicación, también puede crear hasta 10 paneles de nivel de aplicación para compartirlos con otros usuarios de la aplicación. Solo los **administradores** tienen capacidad para crear, editar y eliminar paneles de nivel de aplicación.  
+Si es **administrador** de la aplicación, también puede crear hasta 10 paneles de nivel de aplicación para compartirlos con otros usuarios de la aplicación. Solo los **administradores** pueden crear, editar y eliminar paneles de nivel de aplicación.  
 
 ## <a name="create-dashboard"></a>Crear panel
 
@@ -33,7 +33,7 @@ Al seleccionar **+ Nuevo** se abre el editor de paneles. En el editor, puede asi
 > [!div class="mx-imgBorder"]
 > ![Biblioteca de paneles](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Si es **administrador** de la aplicación, se le ofrecerá la opción de crear un panel de nivel personal o de nivel de aplicación. Si crea un panel de nivel personal, solo podrá verlo usted. Si crea un panel de nivel de aplicación, todos los usuarios de la aplicación podrán verlo. Después de escribir un título y seleccionar el tipo de panel que desea crear, puede guardar y agregar mosaicos más adelante. O bien, si ya está listo y ha agregado una plantilla de dispositivo y una instancia de dispositivo, puede continuar y crear el primer mosaico.  
+Si es **administrador** de la aplicación, se le ofrecerá la opción de crear un panel de nivel personal o de nivel de aplicación. Si crea un panel de nivel personal, solo usted podrá verlo. Si crea un panel de nivel de aplicación, todos los usuarios de la aplicación podrán verlo. Después de escribir un título y seleccionar el tipo de panel que desea crear, puede guardar y agregar mosaicos más adelante. O bien, si ya está listo y ha agregado una plantilla de dispositivo y una instancia de dispositivo, puede continuar y crear el primer icono.  
 
 > [!div class="mx-imgBorder"]
 > ![Formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la temperatura](media/howto-create-personal-dashboards/device-details.png)
@@ -41,8 +41,8 @@ Si es **administrador** de la aplicación, se le ofrecerá la opción de crear u
 Por ejemplo, puede agregar un icono **Telemetría** para la temperatura actual del dispositivo. Para ello:
 
 1. Seleccione una **Plantilla de dispositivo**.
-1. Seleccione el dispositivo que quiera ver en un icono del panel en **Dispositivos**. Verá una lista de las propiedades del dispositivo que se usan en el icono.
-1. Para crear el icono en el panel, haga clic en **Temperatura** y arrástrelo al área del panel. También puede hacer clic en la casilla situada junto a **Temperatura** y en **Agregar icono**. En la captura de pantalla siguiente se muestra la selección de una plantilla de dispositivo y la creación de un icono de Telemetría de temperatura en el panel.
+1. Seleccione el dispositivo que quiera ver en un icono del panel en **Dispositivos**. Verá una lista de las propiedades del dispositivo que se pueden usar en el icono.
+1. Para crear el icono en el panel, seleccione **Temperatura** y arrástrelo al área del panel. También puede seleccionar la casilla situada junto a **Temperatura** y **Agregar icono**. En la captura de pantalla siguiente se muestra la selección de una plantilla de dispositivo y la creación de un icono de Telemetría de temperatura en el panel.
 1. Seleccione **Guardar** en la parte superior izquierda para guardar los cambios en el panel.
 
 > [!div class="mx-imgBorder"]
@@ -64,7 +64,7 @@ Puede tener varios paneles personales y cambiar entre ellos o elegir uno de los 
 > [!div class="mx-imgBorder"]
 > ![Cambio entre paneles](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Puede editar los paneles personales y eliminar los que ya no necesite. Si es **administrador** , también puede editar o eliminar paneles de nivel de aplicación.
+Puede editar los paneles personales y eliminar los que ya no necesite. Si es **administrador**, también puede editar o eliminar los paneles de nivel de aplicación.
 
 > [!div class="mx-imgBorder"]
 > ![Eliminar paneles](media/howto-create-personal-dashboards/delete-dashboards.png)

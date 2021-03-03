@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1b394a6daf7ba680d193a13dd4cb25dbebc576e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046828"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580072"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -30,7 +30,7 @@ Los registros de Azure Monitor proporcionan funcionalidades de supervisión de r
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo [Información general sobre los agentes de Azure Monitor](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
+Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo [Información general sobre los agentes de Azure Monitor](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
 En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de Windows Log Analytics y el paquete del agente de Log Analytics para cada versión. 
@@ -101,14 +101,14 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 \* El identificador del área de trabajo se denomina identificador de consumidor en la API de Log Analytics.
 
 > [!NOTE]
-> Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](../../azure-monitor/platform/agent-windows.md) de Azure.
+> Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](../../azure-monitor/agents/agent-windows.md) de Azure.
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. En la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm) encontrará una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics. 
 
 >[!NOTE]
->La plantilla no admite la especificación de más de un identificador y clave de área de trabajo cuando quiere configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para que informe a varias áreas de trabajo, consulte [Adición o eliminación de un área de trabajo](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
+>La plantilla no admite la especificación de más de un identificador y clave de área de trabajo cuando quiere configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para que informe a varias áreas de trabajo, consulte [Adición o eliminación de un área de trabajo](../../azure-monitor/agents/agent-manage.md#adding-or-removing-a-workspace).  
 
 El JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual, o colocada en la raíz o un nivel superior de una plantilla JSON de Resource Manager. La colocación de la plantilla JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e8d58a74f9ce8489465934398014dd4af3309a9e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958955"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669835"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Windows con Azure NetApp Files (SMB) para aplicaciones SAP
 
@@ -81,7 +80,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Agregar puerto de sondeo en la configuración de clúster de ASCS](sap-high-availability-installation-wsfc-file-share.md)
 * [Instalación de una instancia de (A) SCS en un clúster de conmutación por error](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Cree un volumen SMB para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Cree un volumen SMB para Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Información general
@@ -114,9 +113,9 @@ Siga los pasos que se indican a continuación para preparar el uso de Azure NetA
 4. Los recursos Azure NetApp Files deben residir en una subred delegada. Siga las instrucciones en [Delegar una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) para crear una subred delegada.  
 
    > [!IMPORTANT]
-   > Debe crear las conexiones de Active Directory antes de crear un volumen SMB. Revise los [requisitos para las conexiones de Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > Debe crear las conexiones de Active Directory antes de crear un volumen SMB. Revise los [requisitos para las conexiones de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
 
-5. Cree una conexión Active Directory, como se describe en [Crear una conexión de Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+5. Cree una conexión Active Directory, como se describe en [Crear una conexión de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Cree el volumen SMB Azure NetApp Files SMB al seguir las instrucciones en [Agregar un volumen SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Monte el volumen SMB en la máquina virtual de Windows.
 

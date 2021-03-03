@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937474"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517134"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Administración del acceso a la red pública para su instancia de IoT Hub
 
@@ -28,7 +28,13 @@ Para restringir el acceso solo al [punto de conexión privado para su instancia 
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagen que muestra en Azure Portal dónde desactivar el acceso a la red pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-Para activar el acceso a la red pública, seleccione **Habilitado** y, a continuación, **Guardar**.
+Para activar el acceso a la red pública, seleccione **Todas las redes** y **Guardar**.
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>El punto de conexión de IoT Hub, la dirección IP y los puertos después de deshabilitar el acceso a la red pública
+
+IoT Hub es una plataforma como servicio (PaaS) multiinquilino, por lo que diferentes clientes comparten el mismo grupo de recursos de proceso, red y hardware de almacenamiento. Los nombres de host de IoT Hub se asignan a un punto de conexión público con una dirección IP enrutable públicamente a través de Internet. Diferentes clientes comparten este punto de conexión público de IoT Hub, que es accesible para todos los dispositivos de IoT a través de redes de área extensa y de redes locales. 
+
+La deshabilitación del acceso a la red pública se aplica sobre un recurso de IoT Hub específico, lo que garantiza el aislamiento. Para mantener el servicio activo para otros recursos del cliente usando la ruta de acceso pública, su punto de conexión público aún se puede resolver, las direcciones IP aún se pueden detectar y los puertos permanecen abiertos. Esto no es motivo de preocupación, ya que Microsoft integra varias capas de seguridad para garantizar el aislamiento completo entre los inquilinos. Para más información, consulte [Aislamiento en la nube pública de Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## <a name="ip-filter"></a>Filtro IP 
 

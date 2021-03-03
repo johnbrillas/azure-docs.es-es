@@ -2,19 +2,16 @@
 title: Formato Parquet en Azure Data Factory
 description: En este tema se describe cómo tratar con el formato Parquet en Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a10403b5f26b551458a9e20330bc817512f707de
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011615"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386398"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +28,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propiedad type del conjunto de datos debe establecerse en **Parquet**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
-| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al realizar la lectura desde archivos Parquet, las instancias de Data Factory determinan automáticamente el códec de compresión basado en los metadatos del archivo.<br>Los tipos admitidos son "**none**","**gzip**","**snappy**" (predeterminado) y "**lzo**". Tenga en cuenta que la actividad de copia no es compatible actualmente con LZO cuando hay archivos Parquet de lectura y escritura. | No       |
+| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al realizar la lectura desde archivos Parquet, las instancias de Data Factory determinan automáticamente el códec de compresión basado en los metadatos del archivo.<br>Los tipos admitidos son "**none**","**gzip**","**snappy**" (predeterminado) e "**lzo**". Tenga en cuenta que la actividad de copia no es compatible actualmente con LZO cuando hay archivos Parquet de lectura y escritura. | No       |
 
 > [!NOTE]
 > No se admiten espacios en blanco en el nombre de columna de los archivos Parquet.
@@ -66,7 +63,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="parquet-as-source"></a>Parquet como origen
 
-En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -75,7 +72,7 @@ En la sección **_\_source\*** * de la actividad de copia se admiten las siguien
 
 ### <a name="parquet-as-sink"></a>Parquet como receptor
 
-En la sección **_\_sink\*** * de la actividad de copia se admiten las siguientes propiedades.
+En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |

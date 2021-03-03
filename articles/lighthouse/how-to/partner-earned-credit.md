@@ -1,32 +1,30 @@
 ---
 title: Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados
 description: Obtenga información acerca de cómo asociar el identificador de asociado para recibir créditos obtenidos por el asociado en los recursos de cliente que se administran a través de Azure Lighthouse.
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985978"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372100"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule a un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados 
 
 Si es miembro de [Microsoft Partner Network](https://partner.microsoft.com/), puede vincular su identificador de asociado con las credenciales utilizadas para administrar los recursos de cliente delegados, lo que permite a Microsoft identificar y reconocer asociados que impulsan el éxito de los clientes de Azure. Este vínculo también permite a los asociados de [CSP (proveedor de soluciones en la nube)](/partner-center/csp-overview) recibir [crédito obtenido por asociados de los servicios administrados (PEC)](/partner-center/partner-earned-credit) para los clientes que han [firmado el contrato de cliente de Microsoft (MCA)](/partner-center/confirm-customer-agreement) y se encuentran [ en el plan de Azure](/partner-center/azure-plan-get-started).
 
-Si [incorpora clientes con ofertas de servicio administrados en Azure Marketplace](publish-managed-services-offers.md), el vínculo se realiza automáticamente, con el identificador de MPN asociado a la cuenta del Centro de partners usada para publicar las ofertas. No es necesario realizar ninguna otra acción para realizar el seguimiento del impacto de estos clientes.
-
-Si [incorpora clientes mediante plantillas de Azure Resource Manager](onboard-customer.md), deberá crear este vínculo manualmente. Esto se lleva a cabo [vinculando el identificador de MPN](../../cost-management-billing/manage/link-partner-id.md) con al menos una cuenta de usuario en el inquilino de administración que tiene acceso a cada una de las suscripciones incorporadas.
+Para obtener el reconocimiento de las actividades de Azure Lighthouse, deberá [vincular el id. de MPN](../../cost-management-billing/manage/link-partner-id.md) con al menos una cuenta de usuario del inquilino de administración y asegurarse de que la cuenta vinculada tiene acceso a cada una de las suscripciones incorporadas.
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Asociación del identificador de asociado al incorporar nuevos clientes
 
-Al incorporar clientes a través de plantillas de Azure Resource Manager (plantillas de ARM), utilice el siguiente proceso para vincular el identificador de asociado (y, si corresponde, en caso habilitar el crédito obtenido por el asociado). Para completar estos pasos, necesitará conocer su [identificador de asociado de MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id). Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.
+Use el proceso siguiente para vincular su identificador de asociado (y permitir al asociado ganar crédito, si corresponde). Para completar estos pasos, necesitará conocer su [identificador de asociado de MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id). Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.
 
 Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino, vincularla al **Id. de MPN asociado** y, después, concederle acceso a todos los clientes que incorpore con un [rol integrado de Azure que sea apto para el PEC](/partner-center/azure-roles-perms-pec).
 
-1. [Cree una cuenta de entidad de servicio](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) en el inquilino de administración. En este ejemplo, utilizaremos el nombre *Cuenta de automatización del proveedor* para esta entidad de servicio.
+1. [Cree una cuenta de usuario de entidad de servicio](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) en el inquilino de administración. En este ejemplo, utilizaremos el nombre *Cuenta de Automation del proveedor* para esta cuenta de entidad de servicio.
 1. Con esa cuenta de entidad de servicio, [vincúlela a su identificador de MPN asociado](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) en el inquilino de administración. Solo tiene que hacer esto una vez.
-1. Al [incorporar un cliente mediante plantillas de ARM](onboard-customer.md), asegúrese de incluir una autorización que incluya la cuenta "Porvider Automation Account" como usuario con un [rol integrado de Azure que sea apto para el PEC](/partner-center/azure-roles-perms-pec).
+1. Al incorporar un cliente [mediante plantillas de ARM](onboard-customer.md) u [ofertas de servicio administrado](publish-managed-services-offers.md), asegúrese de incluir una autorización que incluya la Cuenta de automatización del proveedor como usuario con un [rol integrado de Azure que sea apto para el PEC](/partner-center/azure-roles-perms-pec).
 
 Siguiendo estos pasos, todos los inquilinos de cliente que administre se asociarán con su identificador de asociado. No es necesario que la cuenta "Provider Automation Account" autentique o realice ninguna acción en el inquilino del cliente.
 

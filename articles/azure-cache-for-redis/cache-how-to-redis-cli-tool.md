@@ -5,15 +5,15 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538024"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375313"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis
 
 *redis-cli.exe* es una herramienta de línea de comandos popular para interactuar con Azure Cache for Redis como cliente. Esta herramienta también está disponible para su uso con Azure Cache for Redis.
 
@@ -46,11 +46,11 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Ejecute **stunnel GUI Start** (Inicio de GUI de stunnel) para iniciar el servidor.
 
-    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y haga clic en **Mostrar la ventana Registro** .
+    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y haga clic en **Mostrar la ventana Registro**.
 
     En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Editar configuración** para abrir el archivo de configuración actual.
 
-    Agregue la siguiente entrada de *redis-cli.exe* en la sección **Definiciones de servicio** . Inserte el nombre real de la caché en lugar de `yourcachename`. 
+    Agregue la siguiente entrada de *redis-cli.exe* en la sección **Definiciones de servicio**. Inserte el nombre real de la caché en lugar de `yourcachename`. 
 
     ```
     [redis-cli]
@@ -61,7 +61,7 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Guarde y cierre el archivo de configuración. 
   
-    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Volver a cargar configuración** .
+    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Volver a cargar configuración**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte mediante la herramienta de línea de comandos de Redis.
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Captura de pantalla en la que se muestra que la conexión a la memoria caché se ha realizado correctamente.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Si usa una memoria caché de prueba con el puerto no TLS **no seguro** , ejecute `redis-cli.exe` y pase el *nombre de host* , el *puerto* y la *clave de acceso* (primaria o secundaria) para conectarse a la caché de prueba.
+Si usa una memoria caché de prueba con el puerto no TLS **no seguro**, ejecute `redis-cli.exe` y pase el *nombre de host*, el *puerto* y la *clave de acceso* (primaria o secundaria) para conectarse a la caché de prueba.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

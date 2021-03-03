@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594684"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659314"
 ---
 # <a name="call-flow-topologies"></a>Topologías de flujos de llamadas
 En este artículo se describen las topologías de flujo de llamadas de Azure Communication Services. Este artículo es excelente si es un cliente de empresa que va a integrar Communication Services en una red de las que administra. Para una introducción a los flujos de llamadas de Communication Services, visite la [documentación conceptual sobre los flujos de llamadas](./call-flows.md).
@@ -26,7 +26,7 @@ Antes de revisar las topologías de flujo de llamadas, definiremos algunos térm
 
 Una **red de cliente** contiene los segmentos de red que usted administra. Podría incluir redes cableadas e inalámbricas en su oficina o entre oficinas, centros de datos y proveedores de servicios de Internet.
 
-Normalmente, una red de cliente tiene varios perímetros de red con firewalls o servidores proxy que aplican las directivas de seguridad de la organización. Se recomienda realizar una [evaluación de red completa](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) para garantizar el rendimiento y la calidad óptimos de la solución de comunicación.
+Normalmente, una red de cliente tiene varios perímetros de red con firewalls o servidores proxy que aplican las directivas de seguridad de la organización. Se recomienda realizar una [evaluación de red completa](/microsoftteams/3-envision-evaluate-my-environment) para garantizar el rendimiento y la calidad óptimos de la solución de comunicación.
 
 La **red de Communication Services** es el segmento de red que admite Azure Communication Services. Esta red está administrada por Microsoft y se distribuye por todo el mundo con bordes cercanos a la mayoría de las redes de cliente. Esta red es la responsable del relé de transporte, el procesamiento de los elementos multimedia para las llamadas grupales y otros componentes que admiten la comunicación multimedia enriquecida en tiempo real.
 
@@ -199,4 +199,3 @@ Puede que los siguientes documentos le resulten interesantes:
 
 - Más información sobre los [tipos de llamada](../concepts/voice-video-calling/about-call-types.md)
 - Información sobre la [arquitectura de cliente y servidor](./client-and-server-architecture.md)
-

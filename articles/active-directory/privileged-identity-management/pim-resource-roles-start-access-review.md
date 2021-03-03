@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 12/08/2020
+ms.date: 02/11/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905832"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370553"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creación de una revisión de acceso de los roles de recursos de Azure en Privileged Identity Management
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator)
+ Para crear revisiones de acceso, debe tener asignado el rol de Azure [Propietario](../../role-based-access-control/built-in-roles.md#owner) o [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator) para el recurso.
 
 ## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 

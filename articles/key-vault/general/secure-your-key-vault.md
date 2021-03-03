@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796506"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534709"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Protección del acceso a un almacén de claves
 
@@ -26,7 +26,7 @@ Para obtener más información sobre Key Vault, consulte el artículo [Acerca de
 
 El acceso a un almacén de claves se controla mediante dos interfaces: el **plano de administración** y el **plano de datos**. El plano de administración es donde puede administrar el propio almacén de claves. Las operaciones en este plano incluyen crear y eliminar los almacenes de claves, recuperar las propiedades de un almacén de claves y actualizar las directivas de acceso. El plano de datos es donde se trabaja con los datos almacenados en un almacén de claves. Puede agregar, eliminar y modificar claves, secretos y certificados.
 
-Ambos planos usan [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) para la autenticación. Para realizar la autorización, el plano de administración usa el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) y el plano de datos utiliza una [directiva de acceso de Key Vault](./assign-access-policy-portal.md) y [Azure RBAC para las operaciones del plano de datos de Key Vault (versión preliminar)](./rbac-guide.md).
+Ambos planos usan [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) para la autenticación. Para realizar la autorización, el plano de administración usa el [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) y el plano de datos utiliza una [directiva de acceso de Key Vault](./assign-access-policy-portal.md) y [RBAC de Azure para las operaciones del plano de datos de Key Vault](./rbac-guide.md).
 
 Para obtener acceso a un almacén de claves en cualquier plano, todos los llamadores (usuarios o aplicaciones) deben tener una autorización y autenticación correctas. La autenticación establece la identidad del llamador. La autorización determina las operaciones que puede ejecutar el llamador. La autenticación con Key Vault funciona junto con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), que es responsable de autenticar la identidad de cualquier **entidad de seguridad**.
 
@@ -111,7 +111,7 @@ Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure 
 
 Las principales ventajas de usar el permiso de Azure RBAC en las directivas de acceso al almacén son la administración centralizada del control de acceso y su integración con [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). Privileged Identity Management proporciona activación de rol basada en tiempo y en aprobación para mitigar los riesgos de tener unos permisos de acceso excesivos, innecesarios o mal utilizados en los recursos que le interesan.
 
-Para obtener más información sobre el plano de datos de Key Vault con Azure RBAC, consulte las [Claves, certificados y secretos de Key Vault con un control de acceso basado en roles de Azure (versión preliminar)](rbac-guide.md).
+Para obtener más información sobre el plano de datos de Key Vault con RBAC de Azure, consulte las [Claves, certificados y secretos de Key Vault con un control de acceso basado en roles de Azure](rbac-guide.md).
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewalls y redes virtuales
 
@@ -182,13 +182,13 @@ Es necesario autorizar las siguientes operaciones para los roles:
 
 En la tabla siguiente se resumen los permisos de acceso para los roles y la aplicación.
 
-| Role | Permisos del plano de administración | Permisos de plano de datos: directivas de acceso de almacén | Permisos de plano de datos: Azure RBAC (versión preliminar)  |
+| Role | Permisos del plano de administración | Permisos de plano de datos: directivas de acceso de almacén | Permisos de plano de datos: RBAC de Azure  |
 | --- | --- | --- | --- |
-| Equipo de seguridad | [Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas las operaciones <br> Claves: todas las operaciones <br> Secretos: todas las operaciones | [Administrador de almacén de claves (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Equipo de seguridad | [Colaborador de almacén de claves](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas las operaciones <br> Claves: todas las operaciones <br> Secretos: todas las operaciones | [Administrador de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Desarrolladores y&nbsp;operadores | Permiso de implementación en Key Vault<br><br> **Nota**: Este permiso permite que las máquinas virtuales implementadas recuperen los secretos de un almacén de claves. | None | None |
-| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de almacén de claves (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Cuenta de Azure Storage | None | Claves: get, list, wrapKey, unwrapKey <br> | [Usuario de cifrado de servicio criptográfico de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Application | None | Secretos: get y list <br> Certificados: get y list | [Lector de Key Vault Reader (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) y [usuario secreto de Key Vault (versión preliminar)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditores | None | Certificados: lista <br> Claves: enumeración<br>Secretos: enumeración<br><br> **Nota**: Este permiso permite a los auditores inspeccionar los atributos (etiquetas, fechas de activación y fechas de expiración) para las claves y los secretos que no se emiten en los registros. | [Lector de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Cuenta de Azure Storage | None | Claves: get, list, wrapKey, unwrapKey <br> | [Usuario de cifrado de servicio criptográfico de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Application | None | Secretos: get y list <br> Certificados: get y list | [Lector de Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader) y [usuario de secretos de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 Los tres roles de equipo necesitan tener acceso a otros recursos junto con los permisos de Key Vault. Para implementar las máquinas virtuales (o la característica Web Apps de Azure App Service), los desarrolladores y operadores necesitan implementar el acceso. Los auditores necesitan acceso de lectura a la cuenta de almacenamiento donde se almacenan los registros de Key Vault.
 

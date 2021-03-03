@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627789"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658476"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Sí, el almacén analítico se puede habilitar en los contenedores con rendimien
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>¿Tiene algún efecto en las RU aprovisionadas por el almacén transaccional de Azure Cosmos DB?
 
 Azure Cosmos DB garantiza aislamiento del rendimiento entre las cargas de trabajo transaccionales y analíticas. La habilitación del almacén analítico en un contenedor no afectará a las RU/s aprovisionadas en el almacén transaccional de Azure Cosmos DB. Las transacciones (lectura y escritura) y los costos de almacenamiento del almacén analítico se cobrarán por separado. Consulte los [precios del almacén analítico de Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) para más información.
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>¿Puedo restringir el acceso al almacén analítico de Azure Cosmos DB?
+
+Sí, puede configurar un [punto de conexión privado administrado](analytical-store-private-endpoints.md) y restringir el acceso a la red del almacén analítico a la red virtual administrada de Azure Synapse. Los puntos de conexión privados administrados establecen un vínculo privado al almacén analítico. Este punto de conexión privado también restringirá el acceso de escritura al almacén transaccional, entre otros servicios de datos de Azure.
+
+Puede agregar puntos de conexión privados tanto del almacén analítico como del almacén transaccional a la misma cuenta de Azure Cosmos DB en un área de trabajo de Azure Synapse Analytics. Si solo desea ejecutar consultas analíticas, es posible que solo quiera asignar el punto de conexión privado analítico.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>¿Las operaciones de eliminación y actualización del almacén transaccional se reflejan en el almacén analítico?
 

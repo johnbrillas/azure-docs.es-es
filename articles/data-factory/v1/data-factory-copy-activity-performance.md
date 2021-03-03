@@ -1,23 +1,18 @@
 ---
 title: Guía de optimización y rendimiento de la actividad de copia
 description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5910b94dba03f105197a94cf1ea1805f45249f3f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451353"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377217"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -203,7 +198,7 @@ Cuando activa el movimiento de datos mediante un almacenamiento provisional, pue
 Actualmente, no se pueden copiar datos entre dos almacenes de datos locales mediante almacenamiento provisional. Esperamos que esta opción esté pronto disponible.
 
 ### <a name="configuration"></a>Configuración
-Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Al establecer **enableStaging** en TRUE, especifique las propiedades adicionales enumeradas en la siguiente tabla. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Azure Storage para el almacenamiento provisional, deberá crear uno.
+Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Al establecer **enableStaging** en TRUE, especifique las propiedades adicionales enumeradas en la siguiente tabla. Si no tiene ningún servicio vinculado a la firma de acceso compartido de Almacenamiento o de Azure Storage para el almacenamiento provisional, también debe crear uno.
 
 | Propiedad | Descripción | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |

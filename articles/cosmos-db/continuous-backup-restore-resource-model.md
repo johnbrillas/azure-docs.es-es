@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538517"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369975"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recursos para la característica de restauración a un momento dado de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ El modelo de recursos de la cuenta de base de datos se actualiza con algunas pro
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-Una propiedad nueva en la directiva de copia de seguridad en el nivel de la cuenta denominada "Type" bajo el parámetro "backuppolicy" permite las funcionalidades de copia de seguridad continua y restauración a un momento dado. Este modo se denomina **copia de seguridad continua**. En la versión preliminar pública, solo puede establecer este modo al crear la cuenta. Una vez habilitado, todos los contenedores y las bases de datos que se creen en esta cuenta tendrán habilitadas las funcionalidades de copia de seguridad continua y restauración a un momento dado de manera predeterminada.
+Una propiedad nueva en la directiva de copia de seguridad en el nivel de la cuenta denominada `Type` bajo el parámetro `backuppolicy` permite las funcionalidades de copia de seguridad continua y restauración a un momento dado. Este modo se denomina **copia de seguridad continua**. En la versión preliminar pública, solo puede establecer este modo al crear la cuenta. Una vez habilitado, todos los contenedores y las bases de datos que se creen en esta cuenta tendrán habilitadas las funcionalidades de copia de seguridad continua y restauración a un momento dado de manera predeterminada.
 
 > [!NOTE]
 > Actualmente, la característica de restauración a un momento dado está en versión preliminar pública, disponible para la API Azure Cosmos DB para cuentas de MongoDB y SQL. Después de crear una cuenta con el modo continuo, no se puede cambiar a un modo periódico.
 
 ### <a name="createmode"></a>CreateMode
 
-Esta propiedad indica cómo se creó la cuenta. Los valores posibles son "Default" y "Restore". Para realizar una restauración, establezca este valor en "Restore" y proporcione los valores adecuados en la propiedad `RestoreParameters`.
+Esta propiedad indica cómo se creó la cuenta. Los valores posibles son *Default* y *Restore*. Para realizar una restauración, establezca este valor en *Restore* y proporcione los valores adecuados en la propiedad `RestoreParameters`.
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ El recurso `RestoreParameters` contiene los detalles de la operación de restaur
 
 |Nombre de la propiedad |Descripción  |
 |---------|---------|
-|restoreMode  | El modo de restauración debe ser "PointInTime". |
+|restoreMode  | El modo de restauración debe ser *PointInTime*. |
 |restoreSource   |  El id. de instancia de la cuenta de origen desde la que se iniciará la restauración.       |
 |restoreTimestampInUtc  | Momento dado en hora UTC al que se debe restaurar la cuenta. |
 |databasesToRestore   | Lista de objetos `DatabaseRestoreSource` para especifica qué bases de datos y contenedores se deben restaurar. Si este valor está vacío, se restaura toda la cuenta.   |

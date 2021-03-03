@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881051"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596951"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -183,7 +183,7 @@ Al reanudar un trabajo, AzCopy examina el archivo de plan de trabajo. En el arch
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Cambie las ubicaciones de los archivos de registro y de plan.
 
-De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME$\.azcopy` en Mac y Linux. Pero puede cambiar esta ubicación.
+De forma predeterminada, los archivos de registro y de plan se encuentran en el directorio `%USERPROFILE%\.azcopy` de Windows o en el directorio `$HOME/.azcopy` en Mac y Linux. Pero puede cambiar esta ubicación.
 
 ### <a name="change-the-location-of-plan-files"></a>Cambio de la ubicación de los archivos de plan
 

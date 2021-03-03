@@ -4,12 +4,12 @@ description: Supervise el rendimiento de un sitio web sin volver a implementarlo
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576430"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
@@ -93,7 +93,7 @@ Estos son algunos de los pasos que puede seguir para confirmar que la instalaci�
 
 - Confirme que el archivo applicationInsights.config esté en el directorio de la aplicación de destino y que incluya la clave de instrumentación.
 
-- Si sospecha que faltan datos, puede ejecutar una consulta en [Analytics](../log-query/log-analytics-tutorial.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
+- Si sospecha que faltan datos, puede ejecutar una consulta en [Analytics](../logs/log-analytics-tutorial.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
 
 Vea la telemetría:
 
-* [Explore las métricas](../platform/metrics-charts.md) para supervisar el rendimiento y uso.
+* [Explore las métricas](../essentials/metrics-charts.md) para supervisar el rendimiento y uso.
 * [Busque en los eventos y los registros][diagnostic] para diagnosticar problemas.
-* [Análisis](../log-query/log-query-overview.md) para más consultas avanzadas
+* [Análisis](../logs/log-query-overview.md) para más consultas avanzadas
 
 Agregue más telemetría:
 

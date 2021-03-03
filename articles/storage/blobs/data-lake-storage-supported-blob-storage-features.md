@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 02/11/2021
 ms.author: normesta
-ms.reviewer: stewu
-ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879316"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516285"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -45,18 +44,19 @@ En la tabla siguiente se muestra la compatibilidad de cada característica de Bl
 |Almacenamiento inmutable|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
 |Eliminación temporal de contenedores|Versión preliminar|Versión preliminar|[Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)|
 |Inventario de Azure Storage|Versión preliminar|Versión preliminar|[Uso del inventario de Azure Storage para administrar datos de blobs (versión preliminar)](blob-inventory.md)|
+|Dominios personalizados|Versión preliminar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Versión preliminar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
 |Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibilidad general|Disponibilidad general|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
 |Acceso anónimo (público) |Disponibilidad general|Disponibilidad general| Consulte [Configuración de acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).|
 |Conmutación por error de cuenta administrada por el cliente|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Claves proporcionadas por el cliente|Todavía no se admite|Todavía no se admite|[Especificación de una clave de cifrado en una solicitud a Blob Storage](encryption-customer-provided-keys.md)|
-|Dominios personalizados|Todavía no se admite|Todavía no se admite|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
 |Ámbitos de cifrado|Todavía no se admite|Todavía no se admite|[Creación y administración de ámbitos de cifrado (versión preliminar)](encryption-scope-manage.md)|
 |Fuente de cambios|Todavía no se admite|Todavía no se admite|[Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md)|
 |Replicación de objetos|Todavía no se admite|Todavía no se admite|[Configuración de la replicación de objetos para blobs en bloques](object-replication-configure.md)|
 |Control de versiones de blobs|Todavía no se admite|Todavía no se admite|[Habilitar y administrar las versiones de blob](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup> Para usar instantáneas, el almacenamiento inmutable o sitios web estáticos con Data Lake Storage Gen2, debe completar este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulario</a> para inscribirse en la versión preliminar.  </div>
+<div id="preview-form-2"><sup>2</sup>Un nombre de dominio personalizado solo se puede asignar al punto de conexión de Blob service o de sitio web estático. No se admite el punto de conexión de almacenamiento de Data Lake </a>.  </div>
 
 ## <a name="see-also"></a>Consulte también
 

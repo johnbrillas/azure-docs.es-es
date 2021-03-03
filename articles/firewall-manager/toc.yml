@@ -10,6 +10,9 @@
     - name: 'Protección de centro virtual: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: 'Implementación de un firewall con una directiva: plantilla de Azure Resource Manager'
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Tutoriales
   items:
     - name: 'Protección de un centro virtual: Azure Portal'

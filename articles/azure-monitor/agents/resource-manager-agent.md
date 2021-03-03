@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598220"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737348"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para agentes en Azure Monitor
-Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](../platform/diagnostics-extension-overview.md) y el [agente de Log Analytics](../platform/log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
+Este artículo incluye [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de ejemplo para implementar y configurar la [extensión de diagnóstico](./diagnostics-extension-overview.md) y el [agente de Log Analytics](./log-analytics-agent.md) para máquinas virtuales en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ En el ejemplo siguiente, se instala el agente de Log Analytics en una máquina 
 En los ejemplos de esta sección se instala la extensión de diagnóstico en máquinas virtuales Windows y Linux en Azure y se configura para la recopilación de datos.
 
 ### <a name="windows"></a>Windows
-En el ejemplo siguiente, se habilita y configura la extensión de diagnóstico en una máquina virtual de Microsoft Azure. Para obtener más información sobre la configuración, vea [Esquema de Windows Diagnostic Extension](../platform/diagnostics-extension-schema-windows.md).
+En el ejemplo siguiente, se habilita y configura la extensión de diagnóstico en una máquina virtual de Microsoft Azure. Para obtener más información sobre la configuración, vea [Esquema de Windows Diagnostic Extension](./diagnostics-extension-schema-windows.md).
 
 #### <a name="template-file"></a>Archivo de plantilla
 
@@ -807,6 +807,6 @@ En el ejemplo siguiente, se habilita y configura la extensión de diagnóstico e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Otras plantillas de ejemplo para Azure Monitor](../samples/resource-manager-samples.md).
-* [Más información sobre el agente de Log Analytics](../platform/log-analytics-agent.md).
-* [Más información sobre la extensión de diagnóstico](../platform/diagnostics-extension-overview.md).
+* [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
+* [Más información sobre el agente de Log Analytics](./log-analytics-agent.md).
+* [Más información sobre la extensión de diagnóstico](./diagnostics-extension-overview.md).

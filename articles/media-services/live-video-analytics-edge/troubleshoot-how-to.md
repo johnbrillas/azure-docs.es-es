@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698746"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solución de problemas de Live Video Analytics on IoT Edge
 
@@ -105,7 +105,7 @@ También podría encontrar problemas al ejecutar el **[script de configuración 
 * **Se produjo un error en la implementación de la plantilla debido a la infracción de la directiva.**
     * Para solucionar este problema, trabaje con el administrador de TI para que las llamadas para crear máquinas virtuales pasen por alto el bloqueo de la autenticación de SSH. Esto no será necesario, dado que se usa una red Bastion que requiere un nombre de usuario y una contraseña para comunicarse con los recursos de Azure. Estas credenciales se almacenarán en el archivo **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** de Cloud Shell, una vez que la máquina virtual se haya creado, implementado y asociado correctamente al centro de IoT.
 * El script de instalación no puede crear una entidad de servicio o recursos de Azure.
-    * Para solucionar este problema, compruebe que la suscripción y el inquilino de Azure no hayan alcanzado sus límites de servicio máximos. Más información sobre [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) y [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+    * Para solucionar este problema, compruebe que la suscripción y el inquilino de Azure no hayan alcanzado sus límites de servicio máximos. Más información sobre [Restricciones y límites del servicio Azure AD](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) y [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!TIP]
 > Si hay algún problema adicional con el que pueda necesitar ayuda, consulte **[Recopilación de registros para enviar una incidencia de soporte técnico](#collect-logs-for-submitting-a-support-ticket)** . También puede ponerse en contacto con nosotros enviándonos un correo electrónico a **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .

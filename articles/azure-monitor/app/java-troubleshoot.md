@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133249"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097558"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solución de problemas y preguntas frecuentes sobre el SDK de Application Insights para Java
 
@@ -170,7 +170,7 @@ Suponiendo [configuró la aplicación para Application Insights][java], haga cli
 
 Sí, siempre que dicho servidor pueda enviar datos de telemetría al portal de Application Insights a través de una conexión pública a Internet.
 
-En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
+Es posible que deba [abrir algunos puertos de salida en el firewall del servidor](./ip-addresses.md#outgoing-ports) para permitir que el SDK envíe datos al portal.
 
 ## <a name="data-retention"></a>Retención de datos
 **¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?**

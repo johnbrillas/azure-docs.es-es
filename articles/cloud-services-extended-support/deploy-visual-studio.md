@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722677"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Creación e implementación de una instancia de Azure Cloud Services (soporte extendido) mediante Visual Studio
 
@@ -63,7 +63,7 @@ El proyecto de Azure de Visual Studio tiene asociaciones a los proyectos de rol 
 - **Archivo de definición de servicio**: define la configuración del entorno de tiempo de ejecución de la aplicación, incluidos los roles que se requieren, los puntos de conexión y el tamaño de máquina virtual.
 - **Archivo de configuración de servicio**: configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol.
 
-Para más información sobre estos archivos, consulte [Configuración de los roles para un servicio de Azure con Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+Para más información sobre estos archivos, consulte [Configuración de los roles para un servicio de Azure con Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="publish-a-cloud-service"></a>Publicación de una instancia de Cloud Services
 
@@ -75,7 +75,7 @@ Para más información sobre estos archivos, consulte [Configuración de los rol
 
 1. **Cuenta**: seleccione una cuenta o seleccione **Agregar una cuenta** en la lista desplegable de cuentas.
 
-1. **Elija una suscripción**: elija la suscripción que desea usar para la implementación. La suscripción que se usa para implementar instancias de Cloud Services (soporte extendido) necesita tener roles de propietario o colaborador asignados mediante el control de acceso basado en rol (RBAC). Si su suscripción no tiene ninguno de estos roles, consulte los [pasos para agregar una asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) para agregarlos antes de continuar.
+1. **Elija una suscripción**: elija la suscripción que desea usar para la implementación. La suscripción que se usa para implementar instancias de Cloud Services (soporte extendido) necesita tener roles de propietario o colaborador asignados mediante el control de acceso basado en rol (RBAC). Si su suscripción no tiene ninguno de estos roles, consulte los [pasos para agregar una asignación de roles](../role-based-access-control/role-assignments-steps.md) para agregarlos antes de continuar.
 
 1. Elija **Siguiente** para ir a la página **Configuración**.
 
@@ -105,7 +105,7 @@ Para más información sobre estos archivos, consulte [Configuración de los rol
 
    ![Configuración de diagnóstico](./media/diagnostics-settings.png)
 
-   Los diagnósticos le permiten solucionar los problemas de un servicio en una instancia de Azure Cloud Services (o en una máquina virtual de Azure). Para más información sobre el diagnóstico, consulte [Configuración de Diagnósticos en Azure Cloud Services y Virtual Machines](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Para más información sobre Application Insights, consulte [¿Qué es Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+   Los diagnósticos le permiten solucionar los problemas de un servicio en una instancia de Azure Cloud Services (o en una máquina virtual de Azure). Para más información sobre el diagnóstico, consulte [Configuración de Diagnósticos en Azure Cloud Services y Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). Para más información sobre Application Insights, consulte [¿Qué es Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 1. Haga clic en **Siguiente** para avanzar a la página de **resumen**.
 
@@ -126,4 +126,4 @@ Para limpiar los recursos de Azure que creó siguiendo este tutorial, vaya al [A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Configure la integración continua (CI) mediante el botón **Configurar** de la pantalla **Publicar**. Para más información, consulte la [documentación de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Configure la integración continua (CI) mediante el botón **Configurar** de la pantalla **Publicar**. Para más información, consulte la [documentación de Azure Pipelines](/azure/devops/pipelines).

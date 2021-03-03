@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678618"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389814"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -42,7 +42,7 @@ Estos son los distintos escenarios donde se puede usar Data Box para exportar da
 
 - **Recuperación ante desastres**: cuando se restaura una copia de los datos de Azure en una red local. En un escenario de recuperación ante desastres habitual, se exporta una gran cantidad de datos de Azure se exporta a Data Box. Microsoft luego los envía a Data Box y, en poco tiempo, los datos se restauran en un entorno local.
 
-- **Requisitos de seguridad**: cuando necesita poder exportar datos fuera de Azure debido a los requisitos de seguridad o de la administración pública. Por ejemplo, Azure Storage está disponible en las nubes US Secret y Top Secret, y se puede usar Data Box para exportar datos fuera de Azure. 
+- **Requisitos de seguridad**: cuando necesita poder exportar datos de Azure debido a los requisitos de seguridad o de la administración pública. Por ejemplo, Azure Storage está disponible en las nubes US Secret y Top Secret, y se puede usar Data Box para exportar datos fuera de Azure. 
 
 - **Migración de vuelta al entorno local o a otro proveedor de servicios en la nube**: cuando quiera mover todos los datos de vuelta al entorno local o a otro proveedor de servicios en la nube, exporte los datos a través de Data Box para migrar las cargas de trabajo.
 

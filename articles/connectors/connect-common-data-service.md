@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355127"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382365"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Creación y administración de registros de Common Data Service (Microsoft Dataverse) mediante Azure Logic Apps
 
 > [!NOTE]
 > En noviembre de 2020, se cambió el nombre de Common Data Service a Microsoft Dataverse.
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service (ahora Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos de Common Data Service y hacer que la salida esté disponible para que otras acciones las usen en la aplicación lógica. Por ejemplo, cuando se actualiza un registro en la base de datos de Common Data Service, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service (ahora Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos Dataverse y hacer que la salida esté disponible para que otras acciones la usen en la aplicación lógica. Por ejemplo, cuando se actualice un registro en la base de datos Dataverse, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
 
 En este artículo se explica cómo compilar una aplicación lógica que cree un registro de tarea cada vez que se cree un nuevo registro de cliente potencial.
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo compilar una aplicación lógica que cree un 
   * [Learn: Introducción a Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Power Platform: Información general de entornos](/power-platform/admin/environments-overview)
 
-* Información básica sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) y la aplicación lógica desde donde desea acceder a los registros de la base de datos de Common Data Service. Para iniciar la aplicación lógica con un desencadenador de Common Data Service, necesita una aplicación lógica en blanco. Si es la primera vez que usa Azure Logic Apps, revise [Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Información básica sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) y la aplicación lógica desde donde quiere acceder a los registros de la base de datos Dataverse. Para iniciar la aplicación lógica con un desencadenador de Common Data Service, necesita una aplicación lógica en blanco. Si es la primera vez que usa Azure Logic Apps, revise [Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Adición del desencadenador de Common Data Service
 
@@ -170,6 +170,62 @@ En este ejemplo se muestra cómo la acción **Crear un nuevo registro** crea un 
 ## <a name="connector-reference"></a>Referencia de conectores
 
 Para obtener datos técnicos basados en la descripción de Swagger del conector, como desencadenadores, acciones, límites y otros detalles, consulte la [página de referencia del conector](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Solución de problemas
+
+### <a name="calls-from-multiple-environments"></a>Llamadas desde varios entornos
+
+Ambos conectores, Common Data Service y Common Data Service (entorno actual), almacenan información sobre los flujos de trabajo de la aplicación lógica y reciben notificaciones sobre los cambios de entidad mediante la entidad `callbackregistrations` de Dataverse de Microsoft. Si copia una organización de Dataverse, también se copian los webhooks. Si copia la organización antes de deshabilitar los flujos de trabajo que están asignados a esta, los webhooks copiados también apuntarán a las mismas aplicaciones lógicas, que, a su vez, recibirán notificaciones de varias organizaciones.
+
+Para detener las notificaciones no deseadas, siga estos pasos para eliminar el registro de devolución de llamada de la organización que envía esas notificaciones:
+
+1. Identifique la organización de Dataverse de donde quiere quitar las notificaciones e inicie sesión en esa organización.
+
+1. En el explorador Chrome, siga estos pasos para buscar el registro de devolución de llamada que quiere eliminar:
+
+   1. Revise la lista genérica de todos los registros de devolución de llamada en el siguiente URI de OData para que pueda ver los datos dentro de la entidad `callbackregistrations`:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Si no se devuelve ningún valor, es posible que no tenga permisos para ver este tipo de entidad o que no haya iniciado sesión en la organización correcta.
+
+   1. Filtre por el nombre lógico de la entidad desencadenadora `entityname` y el evento de notificación que coincida con el flujo de trabajo de la aplicación lógica (mensaje). Cada tipo de evento se asigna al entero del mensaje como se indica a continuación:
+
+      | Tipo de evento | Entero del mensaje |
+      |------------|-----------------|
+      | Crear | 1 |
+      | Eliminar | 2 |
+      | Actualizar | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      En este ejemplo se muestra cómo filtrar por las notificaciones `Create` en una entidad llamada `nov_validation` mediante el siguiente URI de OData en una organización de ejemplo:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Captura de pantalla que muestra la ventana del explorador y el URI de OData en la barra de direcciones.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Si hay varios desencadenadores para la misma entidad o evento, puede filtrar la lista usando filtros adicionales, como los atributos `createdon` y `_owninguser_value`. El nombre del usuario propietario aparece en `/api/data/v9.0/systemusers({id})`.
+
+   1. Después de encontrar el identificador del registro de devolución de llamada que quiere eliminar, siga estos pasos:
+   
+      1. En el explorador Chrome, abra Herramientas de desarrollo de Chrome (teclado: F12).
+
+      1. En la ventana, en la parte superior, seleccione la pestaña **Consola**.
+
+      1. En el símbolo de la línea de comandos, escriba este comando, que envía una solicitud para eliminar el registro de devolución de llamada especificado:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Asegúrese de realizar la solicitud desde una página de interfaz de cliente no unificada (UCI), por ejemplo, desde la propia página de respuesta de API o OData. De lo contrario, la lógica del archivo app.js podría interferir con esta operación.
+
+   1. Para confirmar que el registro de devolución de llamada ya no existe, consulte la lista de registros de devolución de llamada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,0 +1,110 @@
+- name: Documentación de Azure Percept
+  href: index.yml
+- name: Información general
+  items:
+    - name: Plataforma de Azure Percept
+      href: overview-azure-percept.md
+    - name: Azure Percept Studio
+      href: overview-azure-percept-studio.md
+    - name: "Azure Percept\_DK"
+      href: overview-azure-percept-dk.md
+    - name: Azure Percept Audio
+      href: overview-azure-percept-audio.md
+    - name: Modelos de inteligencia artificial de Azure Percept
+      href: overview-ai-models.md
+    - name: Desarrollo avanzado
+      href: overview-advanced-code.md
+    - name: Seguridad de Azure Percept
+      href: overview-percept-security.md
+    - name: Integración con 80/20
+      href: overview-8020-integration.md
+    - name: Actualización de los dispositivos Percept
+      href: overview-update-experience.md
+- name: Guías de inicio rápido
+  items:
+    - name: Instalación de dispositivos Azure Percept
+      items:
+        - name: "Desempaquetado y ensamblaje de Azure Percept\_DK"
+          href: quickstart-percept-dk-unboxing.md
+        - name: "Finalización de la experiencia de instalación de Azure Percept\_DK"
+          href: quickstart-percept-dk-set-up.md
+        - name: Instalación de Azure Percept Audio
+          href: quickstart-percept-audio-setup.md
+- name: Tutoriales
+  items:
+    - name: Inicio de la creación de prototipos con Azure Percept
+      items:
+        - name: Creación e implementación de una solución de visión sin código
+          href: tutorial-nocode-vision.md
+        - name: Creación e implementación de una solución de voz sin código
+          href: tutorial-no-code-speech.md
+    - name: Desarrollo avanzado
+      items:
+        - name: Tutorial de desarrollo avanzado (nube)
+          href: advanced-development-cloud.md
+        - name: Tutorial de desarrollo avanzado (local)
+          href: advanced-development-local.md
+- name: Conceptos
+  items:
+    - name: Azure Percept Audio
+      items:
+        - name: Comportamiento de indicadores LED y botones
+          href: audio-button-led-behavior.md
+- name: Guías paso a paso
+  items:
+    - name: "Desarrollo de soluciones de visión con Azure Percept\_DK"
+      items:
+        - name: Visualización de la secuencia de vídeo del dispositivo DevKit
+          href: how-to-view-video-stream.md
+        - name: Implementación de un modelo de IA en el dispositivo DevKit
+          href: how-to-deploy-model.md
+        - name: Captura de imágenes para un proyecto de visión
+          href: how-to-capture-images.md
+        - name: Consulta de los datos de telemetría del dispositivo DevKit
+          href: how-to-view-telemetry.md
+    - name: "Desarrollo de soluciones de voz con Azure Percept\_DK"
+      items:
+        - name: Configuración del asistente para voz en Azure Percept Studio
+          href: how-to-configure-voice-assistant.md
+        - name: Configuración del asistente para voz en IoT Hub
+          href: how-to-manage-voice-assistant.md
+    - name: Actualización de dispositivos Azure Percept
+      items:
+        - name: Configuración de actualizaciones por vía inalámbrica
+          href: how-to-set-up-over-the-air-updates.md
+        - name: "Actualización de Azure Percept\_DK de forma inalámbrica"
+          href: how-to-update-over-the-air.md
+        - name: "Actualización de Azure Percept\_DK mediante USB"
+          href: how-to-update-via-usb.md
+    - name: "Conexión con Azure Percept\_DK"
+      items:
+        - name: Conexión mediante SSH
+          href: how-to-ssh-into-percept-dk.md
+        - name: Conexión en serie
+          href: how-to-connect-to-percept-dk-over-serial.md
+    - name: Herramientas
+      items:
+        - name: Instalador del paquete de herramientas de desarrollo
+          href: dev-tools-installer.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de instalación
+          href: how-to-troubleshoot-setup.md
+        - name: "Solución de problemas generales de Azure Percept\_DK"
+          href: troubleshoot-dev-kit.md
+        - name: Solución de problemas de soluciones de visión
+          href: vision-solution-troubleshooting.md
+        - name: Solución de problemas de Azure Percept Audio
+          href: troubleshoot-audio-accessory-speech-module.md
+- name: Referencia
+  items:
+    - name: Fichas técnicas de los dispositivos Azure Percept
+      items:
+        - name: "Ficha técnica de Azure Percept\_DK"
+          href: azure-percept-dk-datasheet.md
+        - name: Ficha técnica de Azure Percept Vision
+          href: azure-percept-vision-datasheet.md
+        - name: Ficha técnica de Azure Percept Audio
+          href: azure-percept-audio-datasheet.md
+- name: Recursos
+  items: null

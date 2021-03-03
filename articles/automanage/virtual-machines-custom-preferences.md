@@ -1,29 +1,29 @@
 ---
 title: Creación de una preferencia personalizada en Azure Automanage para máquinas virtuales
-description: Obtenga información sobre cómo ajustar el perfil de configuración en Azure Automanage para máquinas virtuales y establezca sus propias preferencias.
+description: Aprenda a ajustar la configuración del entorno de Azure Automanage y a establecer sus propias preferencias.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 584a3503bf736fcf727a169611e6c79e0c374c90
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715033"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647973"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Creación de una preferencia personalizada en Azure Automanage para máquinas virtuales
 
-Azure Automanage para procedimientos recomendados para máquinas virtuales tiene perfiles de configuración predeterminados que se pueden ajustar en caso necesario. En este artículo se explicará cómo puede establecer sus propias preferencias de perfil de configuración al habilitar la administración automática en una máquina virtual nueva o existente.
+Azure Automanage con la funcionalidad de procedimientos recomendados para máquinas virtuales tiene entornos predeterminados que se pueden ajustar si es necesario. En este artículo se explica cómo puede establecer sus propias preferencias al habilitar la administración automática en una máquina virtual nueva o existente.
 
 Actualmente admitimos las personalizaciones en [Azure Backup](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) y [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
 
 
 > [!NOTE]
-> No puede cambiar el perfil o la preferencia de configuración de la máquina virtual mientras está habilitado Automanage. Tendrá que deshabilitar Automanage para esa máquina virtual y, a continuación, volver a habilitarlo con el perfil y las preferencias de configuración deseados.
+> Si Automanage está habilitado, no puede cambiar el entorno ni la preferencia de configuración de la máquina virtual. Tendrá que deshabilitar Automanage en esa máquina virtual y habilitarlo de nuevo con el entorno y las preferencias de configuración que desee.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -44,7 +44,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Habilitación de Automanage para máquinas virtuales en una máquina virtual existente
 
-1. En la barra de búsqueda, busque y seleccione **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados para máquinas virtuales de Azure).
+1. En la barra de búsqueda, busque y seleccione **Automanage: procedimientos recomendados para máquinas virtuales de Azure**.
 
 2. Seleccione **Enable on existing VM** (Habilitación en una máquina virtual existente).
 
@@ -55,15 +55,18 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
-4. En **Perfil de configuración**, haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
+    > [!NOTE]
+    > Haga clic en **Show ineligible machines** (Mostrar máquinas virtuales no aptas) para ver una lista de las máquinas que no son compatibles y los motivos. 
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
+4. En **Configuración**, haga clic en **Compare Environments** (Comparar entornos).
 
-5. En la hoja **Selección del perfil y las preferencias de configuración**, seleccione un perfil en el lado izquierdo: *Desarrollo/pruebas* para pruebas, *Prod* para producción.
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Compare Environments (Comparar entornos).":::
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
+5. En la hoja **Detalles del entorno**, seleccione un entorno en la lista desplegable (*Desarrollo/pruebas* para pruebas o *Producción* para producción) y haga clic en **Aceptar**.
 
-6. En el perfil elegido, en **Preferencias de configuración**, hay una lista desplegable donde puede realizar ajustes para determinados servicios.
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Browse production environment (Explorar entorno de producción).":::
+
+6. Después de seleccionar el entorno, puede elegir las **preferencias de configuración**. De forma predeterminada, se utilizará la preferencia Procedimientos recomendados de Azure. Esta preferencia contiene la configuración recomendada para cada servicio. Puede modificar estos valores y crear una preferencia personalizada: 
     1. Haga clic en **Create new preferences** (Crear nuevas preferencias).
     1. En la hoja **Create a configuration preference** (Crear una preferencia de configuración), rellene la pestaña Conceptos básicos:
         1. Subscription
@@ -71,14 +74,14 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
         1. Nombre de preferencia
         1. Region
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Rellene las preferencias de configuración.":::
 
-7. Vaya a la pestaña Preferencias y ajuste las preferencias de configuración que desee.
+7. Ajuste las preferencias de configuración que desee.
         
     > [!NOTE]
-    > Solo se permitirán los ajustes que se sigan ajustando a los límites superior e inferior de nuestros procedimientos recomendados al cambiar las configuraciones de perfil.
+    > Cuando se modifiquen las configuraciones de los entornos, solo se permitirán los ajustes que estén comprendidos entre los límites superior e inferior de nuestros procedimientos recomendados.
 
-8. Revise el perfil de configuración.
+8. Revise los detalles de la configuración.
 9. Haga clic en el botón **Crear**.
 
 10. Haga clic en el botón **Habilitar**.
@@ -88,7 +91,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 Deje de usar rápidamente Azure Automanage para máquinas virtuales deshabilitando la administración automática.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Deshabilite Automanage en una máquina virtual.":::
 
 1. Vaya a la página **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados para máquinas virtuales de Azure) en la que se muestran todas las máquinas virtuales administradas automáticamente.
 1. Active la casilla situada junto a la máquina virtual que desea deshabilitar.

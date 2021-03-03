@@ -4,12 +4,12 @@ description: En este artículo se proporcionan detalles de la información de re
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 0add7eed6abbe6c137d423ee4a7ef5f0f60072e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900085"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708890"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Detalles de configuración de la red de Azure Automation
 
@@ -26,7 +26,7 @@ El siguiente puerto y las direcciones URL son necesarios para Hybrid Runbook Wor
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Planeación de la red para Hybrid Runbook Worker
 
-Para que una instancia de Hybrid Runbook Worker de usuario o sistema se conecten y se registren con Azure Automation, debe tener acceso al número de puerto y a las direcciones URL que se describen en esta sección. El rol de trabajo también ha de tener acceso a los [puertos y las direcciones URL necesarios para que el agente de Log Analytics](../azure-monitor/platform/agent-windows.md) se conecte al área de trabajo Log Analytics de Azure Monitor.
+Para que una instancia de Hybrid Runbook Worker de usuario o sistema se conecten y se registren con Azure Automation, debe tener acceso al número de puerto y a las direcciones URL que se describen en esta sección. El rol de trabajo también ha de tener acceso a los [puertos y las direcciones URL necesarios para que el agente de Log Analytics](../azure-monitor/agents/agent-windows.md) se conecte al área de trabajo Log Analytics de Azure Monitor.
 
 Si tiene una cuenta de Automation definida para una región específica, puede restringir la comunicación de Hybrid Runbook Worker con ese centro de datos regional. Revise los registros DNS necesarios en los [registros DNS usados por Azure Automation](how-to/automation-region-dns-records.md).
 

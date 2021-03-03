@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842896"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097201"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -44,7 +44,7 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 **Tiempo estimado**: Aproximadamente 5 minutos.
 
-La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar este proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo.
+La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar el proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo.
 
 Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso. Tenga en cuenta que no es posible cambiar el tamaño de la máquina virtual de la instancia de proceso una vez creada.
 
@@ -226,9 +226,9 @@ Para cada instancia de proceso del área de trabajo que creó, o que se creó au
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para Azure RBAC y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
+[RBAC de Azure](../role-based-access-control/overview.md) permite controlar qué usuarios del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar una instancia de proceso. Todos los usuarios del rol colaborador y propietario del área de trabajo pueden crear, eliminar, iniciar, detener y reiniciar las instancias de proceso en el área de trabajo. Sin embargo, solo el creador de una instancia de proceso específica o el usuario asignado, si se creó en su nombre, tienen permiso para acceder a Jupyter, JupyterLab y RStudio en esa instancia de proceso. Una instancia de proceso está dedicada a un solo usuario que tiene acceso raíz y puede pasar por el terminal a través de Jupyter, JupyterLab o RStudio. La instancia de proceso incluirá el usuario que ha iniciado sesión y todas las acciones usarán la identidad de ese usuario para RBAC de Azure y la atribución de ejecuciones de experimentos. El acceso SSH se controla mediante un mecanismo de clave pública-privada.
 
-Azure RBAC puede controlar estas acciones:
+RBAC de Azure puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
@@ -236,62 +236,8 @@ Azure RBAC puede controlar estas acciones:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-
-## <a name="access-the-terminal-window"></a>Acceder a la ventana de terminal
-
-Abra la ventana de terminal de la instancia de proceso de cualquiera de estas maneras:
-
-* RStudio: seleccione la pestaña **Terminal**, situada en la parte superior izquierda.
-* Jupyter Lab:  seleccione el icono **Terminal** en el encabezado **Otros** de la pestaña Iniciador.
-* Jupyter:  seleccione **Nuevo>Terminal** en la parte superior derecha de la pestaña Archivos.
-* SSH en la máquina, si habilitó el acceso SSH cuando se creó la instancia de proceso.
-
-Use la ventana de terminal para instalar paquetes y crear más kernels.
-
-## <a name="install-packages"></a>Instalar paquetes
-
-Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
-
-* RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
-* Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
-
-O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
-
-> [!NOTE]
-> Para la administración de paquetes en un cuaderno, use las funciones magic **%pip** o **%conda** para instalar paquetes automáticamente en el **kernel que actualmente está en ejecución**, en lugar de **!pip** o **!conda** que hacen referencia a todos los paquetes (incluidos los paquetes que se encuentran fuera del kernel que actualmente está en ejecución)
-
-## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
-
-> [!WARNING]
->  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
-
-Para agregar un kernel nuevo de Jupyter a la instancia de proceso:
-
-1. Cree un terminal desde Jupyter o JupyterLab, o bien desde el panel de Notebooks o SSH en la instancia de proceso.
-2. Use la ventana de terminal para crear un nuevo entorno.  Por ejemplo, el código siguiente crea `newenv`:
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Active el entorno.  Por ejemplo, después de crear `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Instalación del paquete PIP e ipykernel en el entorno nuevo y creación de un kernel para ese entorno conda
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Se puede instalar cualquiera de los [kernels de Jupyter](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) disponibles.
-
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Acceso al terminal de la instancia de proceso](how-to-access-terminal.md)
+* [Creación y administración de archivos](how-to-manage-files.md)
 * [Envío de una ejecución de entrenamiento](how-to-set-up-training-targets.md)

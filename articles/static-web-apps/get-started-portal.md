@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030372"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650577"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Inicio rápido: creación del primer sitio estático en Azure Portal
 
@@ -20,7 +20,7 @@ Azure Static Web Apps publica sitios web en entornos de producción mediante la 
 
 Si no tiene ninguna suscripción a Azure, [cree una cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [GitHub](https://github.com)
 - Cuenta de [Azure](https://portal.azure.com)
@@ -55,7 +55,7 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
 
 1. Seleccione su _organización_ preferida.
 1. Seleccione **my-first-web-static-app** en el menú desplegable _Repositorio_.
-1. Seleccione **master** en el menú desplegable _Rama_.
+1. Seleccione **main** en el menú desplegable _Rama_.
 
 > [!NOTE]
 > Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.

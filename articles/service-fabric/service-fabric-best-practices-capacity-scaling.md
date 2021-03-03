@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595074"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -26,7 +26,7 @@ El uso del escalado automático a través de conjuntos de escalado de máquinas 
 
 * Si implementar las plantillas de Resource Manager con la capacidad adecuada declarada no es compatible con su caso de uso.
      
-   Además del escalado manual, puede configurar una [canalización de entrega e integración continua en Azure DevOps Services mediante el uso de proyectos de implementación de grupo de recursos de Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Esta canalización la desencadena habitualmente una aplicación lógica que usa las métricas de rendimiento de máquinas virtuales consultadas desde la [API REST de Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md). La canalización se escala automáticamente de forma eficiente basándose en las métricas que quiere mientras se optimiza para las plantillas de Resource Manager.
+   Además del escalado manual, puede configurar una [canalización de entrega e integración continua en Azure DevOps Services mediante el uso de proyectos de implementación de grupo de recursos de Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). Esta canalización la desencadena habitualmente una aplicación lógica que usa las métricas de rendimiento de máquinas virtuales consultadas desde la [API REST de Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md). La canalización se escala automáticamente de forma eficiente basándose en las métricas que quiere mientras se optimiza para las plantillas de Resource Manager.
 * Necesita escalar horizontalmente un nodo del conjunto de escalado de máquinas virtuales a la vez.
    
    Para escalar horizontalmente mediante tres o más nodos a la vez, debe [escalar horizontalmente un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales](virtual-machine-scale-set-scale-node-type-scale-out.md). Resulta más seguro reducir horizontalmente y escalar horizontalmente un nodo de los conjuntos de escalado de máquinas virtuales a la vez.

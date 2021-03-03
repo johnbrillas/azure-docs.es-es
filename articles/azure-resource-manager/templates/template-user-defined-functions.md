@@ -2,13 +2,13 @@
 title: Funciones definidas por el usuario en plantillas
 description: Aquí se describe cómo definir y usar las funciones definidas por el usuario en una plantilla de Azure Resource Manager (plantilla de Resource Manager).
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934686"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379631"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funciones definidas por el usuario en plantillas de Resource Manager
 
@@ -44,7 +44,7 @@ Las funciones requieren un valor de espacio de nombres para evitar conflictos de
 
 ## <a name="use-the-function"></a>Uso de la función
 
-En el ejemplo siguiente se muestra una plantilla que incluye una función definida por el usuario. Esa función se utiliza para obtener un nombre único para una cuenta de almacenamiento. La plantilla tiene un parámetro denominado `storageNamePrefix` que se pasa como un parámetro a la función.
+En el ejemplo siguiente se muestra una plantilla que incluye una función definida por el usuario para obtener un nombre único para una cuenta de almacenamiento. La plantilla tiene un parámetro denominado `storageNamePrefix` que se pasa como un parámetro a la función.
 
 ```json
 {
@@ -92,6 +92,12 @@ En el ejemplo siguiente se muestra una plantilla que incluye una función defini
  ]
 }
 ```
+
+Durante la implementación, el parámetro `storageNamePrefix` se pasa a la función:
+
+* La plantilla define un parámetro denominado `storageNamePrefix`.
+* La función usa `namePrefix` porque puede usar solo los parámetros que se definen en la función. Para más información, consulte las [limitaciones](#limitations).
+* En la sección `resources` de la plantilla, el elemento `name` usa la función y pasa el valor `storageNamePrefix` a `namePrefix` de la función.
 
 ## <a name="limitations"></a>Limitaciones
 

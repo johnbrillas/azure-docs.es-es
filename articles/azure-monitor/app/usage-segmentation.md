@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323526"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583369"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
@@ -41,10 +41,10 @@ Explore distintos grupos de usuarios mediante ajustando las opciones de consulta
 * Que usaron: elija eventos personalizados y vistas de página.
 * Durante: elija un intervalo de tiempo.
 * Por: elija cómo se desglosarán los datos, por un periodo u otra propiedad como un explorador o una ciudad.
-* Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
-* Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
- 
-## <a name="saving-and-sharing-reports"></a>Guardado e intercambio de informes 
+* Dividir por: elija una propiedad por la que dividir o segmentar los datos. 
+* Agregar filtros: limite la consulta a determinados usuarios, sesiones o eventos en función de sus propiedades, como un explorador o una ciudad. 
+ 
+## <a name="saving-and-sharing-reports"></a>Guardado e intercambio de informes 
 Puede guardar los informes de Usuarios, de forma privada (solo para usted) en la sección Mis informes, o bien con todos aquellos que tengan acceso a este recurso de Application Insights en la sección Informes compartidos.
 
 Para compartir un vínculo con un informe de usuarios, sesiones o eventos, haga clic en **Recurso compartido** en la barra de herramientas y, después, copie el vínculo.
@@ -62,6 +62,6 @@ La sección **Meet your users** (Conozca a sus usuarios) muestra información ac
     - [Embudos](usage-funnels.md)
     - [Retención](usage-retention.md)
     - [Flujos de usuario](usage-flows.md)
-    - [Libros](../platform/workbooks-overview.md)
+    - [Libros](../visualize/workbooks-overview.md)
     - [Adición de contexto de usuario](usage-send-user-context.md)
 

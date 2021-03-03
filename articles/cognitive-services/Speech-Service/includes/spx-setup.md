@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99579822"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515083"
 ---
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -39,6 +39,16 @@ Si se genera la salida a un archivo, un editor de texto como el Bloc de notas o 
 
 #### <a name="linux-install"></a>[Instalación de Linux](#tab/linuxinstall)
 
+Las siguientes distribuciones de Linux son compatibles con las arquitecturas x64 mediante la CLI de Voz:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> El SDK de Voz (no la CLI de Voz) admite arquitecturas adicionales. Para más información, consulte [Acerca del SDK de Voz](../speech-sdk.md).
+
 Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 
 1. Instale [.NET Core 3.1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Siga estos pasos para instalar la CLI de Voz en Linux en una CPU x64:
 Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 > [!NOTE]
-> Como alternativa a NuGet, puede descargar los binarios en [archivo zip](https://aka.ms/speech/spx-zips.zip), extraer `spx-netcore-30-linux-x64` a un directorio `~/spx` nuevo, escribir `sudo chmod +r+x spx` en el binario y agregar la ruta de acceso `~/spx` a la variable PATH del sistema.
+> Como alternativa a NuGet, puede descargar los binarios en [archivo zip](https://aka.ms/speech/spx-zips.zip), extraer `spx-netcore-30-linux-x64.zip` a un directorio `~/spx` nuevo, escribir `sudo chmod +r+x spx` en el binario y agregar la ruta de acceso `~/spx` a la variable PATH del sistema.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalación de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Para usar el comando `spx` instalado en un contenedor, escriba siempre el comand
 Por ejemplo, en Windows, este comando establece la clave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Para una interacción extendida con la herramienta de línea de comandos, puede iniciar un contenedor con un shell de Bash interactivo mediante la adición de un parámetro EntryPoint.
@@ -160,8 +170,8 @@ Si desea empezar a usar la CLI de Voz, debe especificar la clave de la suscripci
 Una vez que tenga la clave de suscripción y el identificador de región (p. ej., `eastus`, `westus`), ejecute los comandos siguientes.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 La autenticación de la suscripción se almacena ahora para futuras solicitudes de SPX. Si tiene que quitar cualquiera de estos valores almacenados, ejecute `spx config @region --clear` o `spx config @key --clear`.

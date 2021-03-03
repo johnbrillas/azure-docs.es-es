@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805097"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729783"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalización en Azure Sentinel
 
@@ -70,6 +70,9 @@ La referencia del esquema también incluye la normalización de valores y format
 
 ## <a name="parsers"></a>Analizadores
 
+- [Qué es el análisis](#what-is-parsing)
+- [Uso de analizadores en tiempo de consulta](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>Qué es el análisis
 
 Con un conjunto básico de tablas normalizadas definidas, deberá transformar (analizar o asignar) los datos en esas tablas. Es decir, extraer datos específicos de su formato sin procesar en columnas conocidas del esquema normalizado. El análisis en Azure Sentinel se produce en **tiempo de consulta**; los analizadores se compilan como funciones de usuario de Log Analytics (mediante el lenguaje de consulta de Kusto, KQL) que transforman los datos de las tablas existentes (como CommonSecurityLog, tablas de registros personalizadas, syslog) en el esquema de las tablas normalizadas.
@@ -77,6 +80,10 @@ Con un conjunto básico de tablas normalizadas definidas, deberá transformar (a
 El otro tipo de análisis, que todavía no se admite en Azure Sentinel, se realiza en **tiempo de ingesta**, lo que permite recopilar datos directamente en las tablas normalizadas a medida que se ingieren desde sus orígenes de datos. El análisis en tiempo de ingesta proporciona un mejor rendimiento, ya que el modelo de datos se consulta directamente sin necesidad de usar funciones.
 
 ### <a name="using-query-time-parsers"></a>Uso de analizadores en tiempo de consulta
+
+- [Instalación de un analizador](#installing-a-parser)
+- [Uso de los analizadores](#using-the-parsers)
+- [Personalización de los analizadores](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Instalación de un analizador
 
@@ -119,6 +126,12 @@ En el panel de la derecha, expanda la sección "Consultas guardadas" y busque la
 
 Puede hacer clic en cada analizador individual y ver la función subyacente que utiliza y ejecutarlo (o acceder directamente a él por su alias, como se describió anteriormente). Tenga en cuenta que, por motivos prácticos, algunos analizadores pueden conservar los campos originales a la vez que los campos normalizados. Esta opción puede cambiarse fácilmente en la consulta del analizador.
 
+> [!TIP]
+> Puede usar las funciones guardadas en lugar de las tablas de Azure Sentinel en cualquier consulta, incluidas las consultas de búsqueda y detección. Para más información, consulte:
+>
+> - [Normalización de datos en Azure Sentinel](normalization.md#parsers)
+> - [Análisis de texto en registros de Azure Monitor](../azure-monitor/logs/parse-text.md)
+>
 #### <a name="customizing-parsers"></a>Personalización de los analizadores
 
 Puede repetir los pasos anteriores (buscar el analizador en el explorador de consultas), hacer clic en el analizador pertinente y ver su implementación de función.
@@ -132,7 +145,9 @@ Una vez modificada la función, vuelva a hacer clic en "Guardar" y use el mismo 
 
 #### <a name="additional-information"></a>Información adicional
 
-Más información sobre las [consultas guardadas](../azure-monitor/log-query/example-queries.md) (implementación de analizadores en tiempo de consulta) en Log Analytics.
+Los formatos JSON, XML y CSV son especialmente útiles para el análisis en el momento de la consulta. Azure Sentinel tiene funciones de análisis integradas para JSON, XML y CSV, así como una herramienta de análisis de JSON.  Para obtener más información, consulte la entrada de blog sobre el [uso de campos JSON en Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747). 
+
+Más información sobre las [consultas guardadas](../azure-monitor/logs/example-queries.md) (implementación de analizadores en tiempo de consulta) en Log Analytics.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

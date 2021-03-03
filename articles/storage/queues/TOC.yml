@@ -236,7 +236,7 @@
         - name: Supervisión (clásica)
           items:
             - name: Supervisión en Azure Portal (clásica)
-              href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+              href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Solución de problemas
       items:
         - name: Problemas de latencia

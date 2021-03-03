@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632468"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575899"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -59,7 +59,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
-6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
+6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/logs/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
 
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586044"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -85,18 +85,18 @@ Un runbook requiere [credenciales](shared-resources/credentials.md) adecuadas pa
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation usa [Azure Monitor](../azure-monitor/overview.md) para supervisar las operaciones de sus máquinas. Las operaciones requieren un área de trabajo de Log Analytics y un [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+Azure Automation usa [Azure Monitor](../azure-monitor/overview.md) para supervisar las operaciones de sus máquinas. Las operaciones requieren un área de trabajo de Log Analytics y un [agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente de Log Analytics para Windows
 
-El agente de [Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) funciona con Azure Monitor para administrar equipos físicos y máquinas virtuales Windows. Los equipos pueden ejecutarse en un entorno de Azure o que no sea de Azure, como un centro de datos local.
+El agente de [Log Analytics para Windows](../azure-monitor/agents/agent-windows.md) funciona con Azure Monitor para administrar equipos físicos y máquinas virtuales Windows. Los equipos pueden ejecutarse en un entorno de Azure o que no sea de Azure, como un centro de datos local.
 
 >[!NOTE]
 >El agente de Log Analytics para Windows se denominaba anteriormente Microsoft Monitoring Agent (MMA).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente de Log Analytics para Linux
 
-El agente de [Log Analytics para Linux](../azure-monitor/platform/agent-linux.md) funciona de forma similar al agente para Windows, pero conecta equipos Linux a Azure Monitor. El agente se instala con una cuenta de usuario **nxautomation** que permite la ejecución de comandos que requieren permisos de raíz, por ejemplo, en una instancia de Hybrid Runbook Worker. La cuenta **nxautomation** es una cuenta del sistema que no requiere contraseña.
+El agente de [Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) funciona de forma similar al agente para Windows, pero conecta equipos Linux a Azure Monitor. El agente se instala con una cuenta de usuario **nxautomation** que permite la ejecución de comandos que requieren permisos de raíz, por ejemplo, en una instancia de Hybrid Runbook Worker. La cuenta **nxautomation** es una cuenta del sistema que no requiere contraseña.
 
 La cuenta **nxautomation** con los permisos sudo correspondientes debe estar presente durante la [instalación de la instancia de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md). Si intenta instalar el rol de trabajo y la cuenta no está presente o no tiene los permisos adecuados, no se realizará la instalación.
 
@@ -137,7 +137,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Estado | Descripción |
+| Status | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |

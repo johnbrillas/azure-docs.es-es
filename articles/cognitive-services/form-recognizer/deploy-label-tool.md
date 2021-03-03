@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370065"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093382"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
@@ -69,19 +69,8 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
    > ![Selección de Docker](./media/quickstarts/select-docker.png)
 
 6. Ahora vamos a configurar el contenedor de Docker. Todos los campos son obligatorios a menos que se indique lo contrario:
-
-    # <a name="v20"></a>[v2.0](#tab/v2-0)
-
-* Opciones: seleccione **Contenedor único**.
-* Origen de imagen: seleccione **Registro privado**. 
-* URL de servidor: establézcalo en `https://mcr.microsoft.com`.
-* Nombre de usuario (opcional): cree un nombre de usuario. 
-* Contraseña (opcional): cree una contraseña segura que recuerde.
-* Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`.
-* Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
-* Comando de inicio: establézcalo en `./run.sh eula=accept`.
-
-    # <a name="v21-preview"></a>[versión preliminar v2.1](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[versión preliminar v2.1](#tab/v2-1)
 
 * Opciones: seleccione **Contenedor único**.
 * Origen de imagen: seleccione **Registro privado**. 
@@ -92,7 +81,18 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
 * Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
 * Comando de inicio: establézcalo en `./run.sh eula=accept`.
 
-    ---
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+* Opciones: seleccione **Contenedor único**.
+* Origen de imagen: seleccione **Registro privado**. 
+* URL de servidor: establézcalo en `https://mcr.microsoft.com`.
+* Nombre de usuario (opcional): cree un nombre de usuario. 
+* Contraseña (opcional): cree una contraseña segura que recuerde.
+* Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`.
+* Implementación continua: establezca esta opción en **Activado** si quiere recibir actualizaciones automáticas cuando el equipo de desarrollo realice cambios en la herramienta de etiquetado de ejemplo.
+* Comando de inicio: establézcalo en `./run.sh eula=accept`.
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurar Docker](./media/quickstarts/configure-docker.png)
@@ -104,7 +104,7 @@ Siga estos pasos para crear un recurso mediante Azure Portal:
 
 > [!IMPORTANT]
 > Es posible que tenga que habilitar TLS para la aplicación web para verla en su dirección `https`. Siga las instrucciones que se indican en [Habilitación de un punto de conexión de TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar un contenedor de tipo sidecar que habilite TLS/SSL para la aplicación web.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>Azure CLI
 
 Como alternativa al uso de Azure Portal, puede crear un recurso mediante la CLI de Azure. Antes de continuar, deberá instalar la [CLI de Azure](/cli/azure/install-azure-cli). Si ya está trabajando con la CLI de Azure, puede omitir este paso. 
@@ -113,12 +113,32 @@ Hay algunas cosas que necesita saber sobre este comando:
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` genera un nombre DNS aleatorio. 
 * En este ejemplo se da por hecho que tiene un grupo de recursos que puede usar para crear un recurso. Reemplace `<resource_group_name>` por un grupo de recursos válido asociado a su suscripción. 
-* Deberá especificar dónde desea crear el recurso. Reemplace `<region name>` por la región deseada para la aplicación web. 
+* Deberá especificar dónde desea crear el recurso. Reemplace `<region name>` por la región deseada para la aplicación web.
 * Este comando acepta automáticamente el CLUF.
 
 En la CLI de Azure, ejecute este comando para crear un recurso de aplicación web para la herramienta de etiquetado de ejemplo:
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[Versión preliminar v2.1](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[v2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

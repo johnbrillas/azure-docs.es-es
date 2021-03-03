@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054253"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586064"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
-Puede usar [Azure Monitor](../azure-monitor/overview.md) para supervisar métricas de nivel básico y registros para la mayoría de los servicios de Azure. Puede llamar a runbooks de Azure Automation mediante [grupos de acciones](../azure-monitor/platform/action-groups.md) o mediante alertas clásicas para automatizar las tareas basadas en alertas. En este artículo se muestra cómo configurar y ejecutar un runbook mediante alertas.
+Puede usar [Azure Monitor](../azure-monitor/overview.md) para supervisar métricas de nivel básico y registros para la mayoría de los servicios de Azure. Puede llamar a runbooks de Azure Automation mediante [grupos de acciones](../azure-monitor/alerts/action-groups.md) o mediante alertas clásicas para automatizar las tareas basadas en alertas. En este artículo se muestra cómo configurar y ejecutar un runbook mediante alertas.
 
 ## <a name="alert-types"></a>Tipos de alerta
 
@@ -25,15 +25,15 @@ Puede usar runbooks de Automation con tres tipos de alerta:
 * Alertas de métricas casi en tiempo real
 
 > [!NOTE]
-> Actualmente, el esquema de alerta común normaliza la experiencia de consumo de notificaciones de alerta en Azure. Históricamente, los tres tipos de alerta de Azure (métrica, registro y registro de actividad) han tenido sus propias plantillas de correo electrónico, esquemas de webhook, etc. Para obtener más información, vea [Esquema de alertas comunes](../azure-monitor/platform/alerts-common-schema.md)
+> Actualmente, el esquema de alerta común normaliza la experiencia de consumo de notificaciones de alerta en Azure. Históricamente, los tres tipos de alerta de Azure (métrica, registro y registro de actividad) han tenido sus propias plantillas de correo electrónico, esquemas de webhook, etc. Para obtener más información, vea [Esquema de alertas comunes](../azure-monitor/alerts/alerts-common-schema.md)
 
 Cuando una alerta llama a un runbook, la llamada real es una solicitud HTTP POST al webhook. El cuerpo de la solicitud POST contiene un objeto con formato JSON que tiene propiedades útiles relacionadas con la alerta. En la tabla siguiente se enumeran vínculos al esquema de carga de cada tipo de alerta:
 
 |Alerta  |Descripción|Esquema de carga  |
 |---------|---------|---------|
-|[Alerta común](../azure-monitor/platform/alerts-common-schema.md)|Esquema de alerta común que normaliza la experiencia de consumo de notificaciones de alerta en Azure en la actualidad.|Esquema de carga de alerta común|
-|[Alerta de registro de actividad](../azure-monitor/platform/activity-log-alerts.md)    |Envía una notificación cuando cualquier evento nuevo del registro de actividad de Azure coincide con las condiciones específicas. Por ejemplo, cuando una operación `Delete VM` se produce en **myProductionResourceGroup** o cuando aparece un nuevo evento de Azure Service Health con un estado Activo.| [Esquema de carga de alertas de registros de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-metric-near-real-time.md)    |Envía una notificación con más rapidez que las alertas de métrica cuando una o varias métricas de nivel de plataforma cumplen las condiciones especificadas. Por ejemplo, cuando el valor de **% de CPU** en una VM es mayor que 90 y el valor de **Entrada de red** es mayor que 500 MB durante los últimos cinco minutos.| [Esquema de carga de alertas de métricas casi en tiempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta común](../azure-monitor/alerts/alerts-common-schema.md)|Esquema de alerta común que normaliza la experiencia de consumo de notificaciones de alerta en Azure en la actualidad.|Esquema de carga de alerta común|
+|[Alerta de registro de actividad](../azure-monitor/alerts/activity-log-alerts.md)    |Envía una notificación cuando cualquier evento nuevo del registro de actividad de Azure coincide con las condiciones específicas. Por ejemplo, cuando una operación `Delete VM` se produce en **myProductionResourceGroup** o cuando aparece un nuevo evento de Azure Service Health con un estado Activo.| [Esquema de carga de alertas de registros de actividad](../azure-monitor/alerts/activity-log-alerts-webhook.md)        |
+|[Alertas de métricas casi en tiempo real](../azure-monitor/alerts/alerts-metric-near-real-time.md)    |Envía una notificación con más rapidez que las alertas de métrica cuando una o varias métricas de nivel de plataforma cumplen las condiciones especificadas. Por ejemplo, cuando el valor de **% de CPU** en una VM es mayor que 90 y el valor de **Entrada de red** es mayor que 500 MB durante los últimos cinco minutos.| [Esquema de carga de alertas de métricas casi en tiempo real](../azure-monitor/alerts/alerts-webhooks.md#payload-schema)          |
 
 Dado que los datos que cada tipo de alerta proporciona son diferentes, cada tipo de alerta se administra de manera diferente. En la siguiente sección, aprenderá a crear un runbook para administrar distintos tipos de alertas.
 
@@ -185,7 +185,7 @@ Las alertas usan grupos de acciones, que son colecciones de acciones que la aler
 
     ![Página Agregar grupo de acciones](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    Puede usar este grupo de acciones en las [alertas de registro de actividad](../azure-monitor/platform/activity-log-alerts.md) y las [alertas casi en tiempo real](../azure-monitor/platform/alerts-overview.md) que cree.
+    Puede usar este grupo de acciones en las [alertas de registro de actividad](../azure-monitor/alerts/activity-log-alerts.md) y las [alertas casi en tiempo real](../azure-monitor/alerts/alerts-overview.md) que cree.
 
 1. En **Detalles de alertas**, agregue un nombre de regla de alerta y una descripción y haga clic en **Crear regla de alerta**.
 
@@ -193,6 +193,6 @@ Las alertas usan grupos de acciones, que son colecciones de acciones que la aler
 
 * Para iniciar un runbook con un webhook, vea [Iniciar un runbook desde un webhook](automation-webhooks.md).
 * Para descubrir diferentes maneras de iniciar un runbook, vea [Iniciar un runbook](./start-runbooks.md).
-* Para crear una alerta de registro de actividad, vea [Creación de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts.md).
-* Para aprender a crear una alerta casi en tiempo real, consulte [Creación de una regla de alertas en Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Para crear una alerta de registro de actividad, vea [Creación de alertas del registro de actividad](../azure-monitor/alerts/activity-log-alerts.md).
+* Para aprender a crear una alerta casi en tiempo real, consulte [Creación de una regla de alertas en Azure Portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
 * Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).

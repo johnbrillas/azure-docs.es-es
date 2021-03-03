@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593644"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664128"
 ---
-# <a name="call-flows"></a>Flujos de llamadas
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+# <a name="call-flow-basics"></a>Conceptos básicos del flujo de llamadas
 
 En la sección siguiente se ofrece información general sobre los flujos de llamadas en Azure Communication Services. Los flujos de señalización y multimedia dependen de los tipos de llamadas que realizan los usuarios. Algunos ejemplos de tipos de llamadas son VoIP de uno a uno, RTC de uno a uno y llamadas de grupo que contienen una combinación de participantes de VoIP y conectados a RTC. Revise [Tipos de llamada](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>Acerca de los protocolos de señalización y multimedia
 
-Cuando se establece una llamada de punto a punto o de grupo, se usan dos protocolos en segundo plano: HTTP (REST) para señalización y el SRTP para los flujos multimedia. 
+Cuando se establece una llamada de punto a punto o de grupo, se usan dos protocolos en segundo plano: HTTP (REST) para señalización y el SRTP para los flujos multimedia.
 
-La señalización entre bibliotecas cliente o entre bibliotecas cliente y controladores de señalización de Communication Services se controla con HTTP REST (TLS). Para el tráfico multimedia en tiempo real (RTP), se prefiere el Protocolo de datagramas de usuario (UDP). Si el firewall impide el uso de UDP, la biblioteca cliente usará el protocolo de control de transmisión (TCP) para los flujos multimedia. 
+La señalización entre bibliotecas cliente o entre bibliotecas cliente y controladores de señalización de Communication Services se controla con HTTP REST (TLS). Para el tráfico multimedia en tiempo real (RTP), se prefiere el Protocolo de datagramas de usuario (UDP). Si el firewall impide el uso de UDP, la biblioteca cliente usará el protocolo de control de transmisión (TCP) para los flujos multimedia.
 
-Vamos a revisar los protocolos de señalización y multimedia en varios escenarios. 
+Vamos a revisar los protocolos de señalización y multimedia en varios escenarios.
 
 ## <a name="call-flow-cases"></a>Casos de flujo de llamadas
 
@@ -40,7 +38,7 @@ En las videollamadas o las llamadas VoIP de uno a uno, el tráfico prefiere la r
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP donde no es posible una conexión directa entre dispositivos, pero sí una conexión entre dispositivos NAT
 
-Si hay dos dispositivos ubicados en subredes que no se pueden comunicar entre sí (por ejemplo, Alice trabaja desde una cafetería y Roberto trabaja desde su oficina doméstica), pero la conexión entre dispositivos NAT es posible, las bibliotecas cliente del cliente establecerán la conectividad a través de los dispositivos NAT. 
+Si hay dos dispositivos ubicados en subredes que no se pueden comunicar entre sí (por ejemplo, Alice trabaja desde una cafetería y Roberto trabaja desde su oficina doméstica), pero la conexión entre dispositivos NAT es posible, las bibliotecas cliente del cliente establecerán la conectividad a través de los dispositivos NAT.
 
 En el caso de Alice, será el dispositivo NAT de la cafetería y, para Bob, será el de la oficina doméstica. El dispositivo de Alice enviará la dirección externa de su dispositivo NAT y Bob hará lo mismo. Las bibliotecas cliente aprenden las direcciones externas de un servicio STUN (Session Traversal Utilities for NAT) que Azure Communication Services proporciona de forma gratuita. La lógica que controla el protocolo de enlace entre Alice y Bob se inserta en las bibliotecas cliente que proporciona Azure Communication Services. (No se requiere ninguna configuración adicional)
 
@@ -51,7 +49,7 @@ En el caso de Alice, será el dispositivo NAT de la cafetería y, para Bob, ser�
 Si uno o ambos dispositivos cliente están detrás de un dispositivo NAT simétrico, se requiere un servicio en la nube independiente para retransmitir contenido multimedia entre las dos bibliotecas cliente. Este servicio se denomina TURN (Traversal Use Relays around NAT) y también lo proporciona Communication Services. La biblioteca cliente de llamadas de Communication Services usa automáticamente los servicios TURN en función de las condiciones de red detectadas. El uso del servicio TURN de Microsoft se cobra por separado.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagrama que muestra una llamada VoIP que emplea una conexión TURN.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Caso 4: Llamadas de grupo con RTC
 
 Tanto la señalización como los flujos multimedia para llamadas RTC usan el recurso de telefonía de Azure Communication Services. Este recurso está interconectado con otros operadores.
@@ -76,6 +74,14 @@ Si la biblioteca cliente no puede usar UDP para los flujos multimedia debido a r
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagrama que muestra el flujo del proceso de multimedia TCP en Communication Services.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: biblioteca cliente de Communication Services y Microsoft Teams en una reunión de Teams programada
+
+Señalización de flujos a través del controlador de señalización. Los elementos multimedia fluyen a través del procesador de multimedia. El controlador de señalización y el procesador de multimedia se comparten entre Communication Services y Microsoft Teams.
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama que muestra la biblioteca cliente de Communication Services y el cliente de Teams en una reunión de Teams programada.":::
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
@@ -85,3 +91,4 @@ Puede que los siguientes documentos le resulten interesantes:
 
 - Más información sobre los [tipos de llamada](../concepts/voice-video-calling/about-call-types.md)
 - Información sobre la [arquitectura de cliente y servidor](./client-and-server-architecture.md)
+- Información sobre las [topologías de flujo de llamadas](./detailed-call-flows.md)

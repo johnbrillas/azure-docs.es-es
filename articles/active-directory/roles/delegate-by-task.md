@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742937"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380311"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -109,7 +109,7 @@ Ver métricas y alertas del servicio de sincronización | Lector ([consulte la d
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Administrar dominios | Administrador global | 
+Administrar dominios | Administrador de nombres de dominio | 
 Leer toda la configuración | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Servicios de dominio
@@ -216,9 +216,9 @@ Leer registros de inicio de sesión | Lector de informes | Lector de seguridad, 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Eliminar todas las contraseñas de aplicación existentes generadas por los usuarios seleccionados | Administrador global | 
-Deshabilitar MFA | Administrador global | 
-Habilitar MFA | Administrador global | 
-Administrar la configuración del servicio MFA | Administrador global | 
+Deshabilitar MFA | Administrador de autenticación (a través de PowerShell) | Administrador de autenticación con privilegios (a través de PowerShell)
+Habilitar MFA | Administrador de autenticación (a través de PowerShell) | Administrador de autenticación con privilegios (a través de PowerShell) 
+Administrar la configuración del servicio MFA | Administrador de directivas de autenticación | 
 Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto | Administrador de autenticación | 
 Restaurar autenticación multifactor en todos los dispositivos recordados  | Administrador de autenticación | 
 
@@ -226,15 +226,15 @@ Restaurar autenticación multifactor en todos los dispositivos recordados  | Adm
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Bloqueo y desbloqueo de usuarios | Administrador global | 
-Configurar bloqueo de cuentas | Administrador global | 
-Configurar reglas de caché | Administrador global | 
-Configurar alerta de fraude | Administrador global
-Configuración de notificaciones | Administrador global | 
-Configurar la omisión por única vez | Administrador global | 
-Configurar la configuración de la llamada de teléfono | Administrador global | 
-Configurar proveedores | Administrador global | 
-Configuración del servidor | Administrador global | 
+Bloqueo y desbloqueo de usuarios | Administrador de directivas de autenticación | 
+Configurar bloqueo de cuentas | Administrador de directivas de autenticación | 
+Configurar reglas de caché | Administrador de directivas de autenticación | 
+Configurar alerta de fraude | Administrador de directivas de autenticación
+Configuración de notificaciones | Administrador de directivas de autenticación | 
+Configurar la omisión por única vez | Administrador de directivas de autenticación | 
+Configurar la configuración de la llamada de teléfono | Administrador de directivas de autenticación | 
+Configurar proveedores | Administrador de directivas de autenticación | 
+Configuración del servidor | Administrador de directivas de autenticación | 
 Leer informe de actividades | Lector global | 
 Leer toda la configuración | Lector global | 
 Leer estado del servidor | Lector global |  

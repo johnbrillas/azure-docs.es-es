@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834156"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096079"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión
 
@@ -25,6 +25,12 @@ Puede ver toda la actividad de inicio de sesión de la cuenta profesional o educ
 - Si alguien intenta adivinar su contraseña.
 - Si un atacante inició sesión correctamente en su cuenta y desde qué ubicación.
 - Las aplicaciones a las que el atacante ha intentado acceder.
+
+>[!Note]
+> Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualización de las actividades de inicio de sesión recientes
 

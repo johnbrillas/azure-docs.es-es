@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476151"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379223"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL con la opción Servidor único
 
@@ -69,7 +69,7 @@ Además de la autenticación nativa, el servicio de servidor único admite la au
 
 Hay un [registro de auditoría]() (en versión preliminar) disponible para realizar un seguimiento de todas las actividades en el nivel de base de datos.
 
-El servicio de servidor único cumple con todas las certificaciones líderes del sector, como FedRAMP, HIPAA y PCI DSS. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure]().
+El servicio de servidor único cumple todas las certificaciones más importantes del sector, como FedRAMP, HIPAA y PCI DSS. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure]().
 
 Para obtener más información sobre las características de seguridad de Azure Database for PostgreSQL, consulte la [información general sobre seguridad]().
 
@@ -81,8 +81,8 @@ El servicio de servidor único está equipado con características integradas de
 
 El servicio ejecuta la versión Community de PostgreSQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de PostgreSQL a un servicio de servidor único. La migración al servidor único se puede realizar mediante una de las siguientes opciones:
 
-- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad, como Pg_dump y Pg_restore, pueden proporcionar una manera más rápida de realizar la migración. Consulte [Migración mediante volcado y restauración](./howto-migrate-using-dump-and-restore.md) para obtener más información.
-- **Azure Database Migration Service** : puede aprovechar Azure Database Migration Service para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. Consulte [DMS a través del portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) y [DMS a través de la CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
+- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad, como Pg_dump y Pg_restore, pueden proporcionar una manera más rápida de realizar la migración. Consulte [Migración mediante volcado y restauración](./howto-migrate-using-dump-and-restore.md) para obtener más información.
+- **Azure Database Migration Service**: puede aprovechar Azure Database Migration Service para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. Consulte [DMS a través del portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) y [DMS a través de la CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Contactos
 

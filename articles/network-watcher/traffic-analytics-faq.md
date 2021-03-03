@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895230"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579244"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -78,7 +78,7 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 - Norte de Europa
 - Sur de Brasil
 - Oeste de Reino Unido
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia 
 - Este de Asia
@@ -105,7 +105,7 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Oeste de Europa
 - Norte de Europa
 - Oeste de Reino Unido
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia
 - Este de Asia
@@ -126,7 +126,7 @@ Sí.
 
 ## <a name="can-i-use-an-existing-workspace"></a>¿Puedo usar un área de trabajo existente?
 
-Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte el tema sobre la [actualización de registros de Azure Monitor para la nueva búsqueda de registros](../azure-monitor/log-query/log-query-overview.md).
+Sí. Si selecciona un área de trabajo existente, asegúrese de que se ha migrado al nuevo lenguaje de consulta. Si no quiere actualizar el área de trabajo, debe crear una nueva. Para más información acerca del nuevo lenguaje de consulta, consulte el tema sobre la [actualización de registros de Azure Monitor para la nueva búsqueda de registros](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>¿La cuenta de Azure Storage y el área de trabajo de Log Analytics pueden estar en suscripciones diferentes?
 
@@ -262,7 +262,7 @@ Análisis de tráfico no ofrece compatibilidad integrada para las alertas. Sin e
 - Puede usar el vínculo corto de Log Analytics en Análisis de tráfico. 
 - Use el [esquema que se documenta aquí](traffic-analytics-schema.md) para escribir las consultas. 
 - Haga clic en "Nueva regla de alertas" para crear una nueva alerta.
-- Consulte la [documentación de alertas de registro](../azure-monitor/platform/alerts-log.md) para crear la alerta.
+- Consulte la [documentación de alertas de registro](../azure-monitor/alerts/alerts-log.md) para crear la alerta.
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>¿Cómo puedo comprobar cuáles máquinas virtuales reciben más tráfico local?
 
@@ -403,4 +403,4 @@ La página de topología de subredes virtuales contiene dos secciones principale
 - En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.
 
 ## <a name="are-classic-nsgs-supported"></a>¿Se admiten los grupos de seguridad de red clásicos?
-No, Análisis de tráfico no admite los grupos de seguridad de red clásicos. Se recomienda migrar los recursos de IaaS del modelo clásico a Azure Resource Manager, ya que los recursos clásicos [dejarán de estar en uso](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consulte este artículo para comprender [cómo realizar la migración](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
+No, Análisis de tráfico no admite los grupos de seguridad de red clásicos. Se recomienda migrar los recursos de IaaS del modelo clásico a Azure Resource Manager, ya que los recursos clásicos [dejarán de estar en uso](../virtual-machines/classic-vm-deprecation.md). Consulte este artículo para comprender [cómo realizar la migración](../virtual-machines/migration-classic-resource-manager-overview.md).

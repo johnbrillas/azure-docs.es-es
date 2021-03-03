@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: de04be2495c6e81e9c5f8d32f9d876b49482c5fe
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9f52c3fd1284ce7e55680d051c5292361067fad9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678379"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673992"
 ---
 # <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-in-azure-synapse-analytics"></a>Vistas de T-SQL con grupos de SQL dedicados y grupos de SQL sin servidor en Azure Synapse Analytics
 
@@ -27,11 +27,11 @@ Las vista se pueden usar de formas diferentes para mejorar la calidad de la solu
 ### <a name="sql-pool---create-view"></a>Grupo de SQL: creación de una vista
 
 > [!NOTE]
-> En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+> En este artículo no se explica la sintaxis de CREATE VIEW. Para más información, consulte la documentación de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="architectural-abstraction"></a>Abstracción de arquitectura
 
-Se trata de un patrón de aplicación común para volver a crear tablas con la característica [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAS) seguida de un patrón de cambio de nombre de objetos mientras se cargan los datos.
+Se trata de un patrón de aplicación común para volver a crear tablas con la característica [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) (CTAS) seguida de un patrón de cambio de nombre de objetos mientras se cargan los datos.
 
 En el ejemplo siguiente se agregan registros de fecha nuevos a una dimensión de fecha. Observe cómo una nueva tabla, DimDate_New, se crea por primera vez y luego cambia de nombre para reemplazar la versión original de la tabla.
 

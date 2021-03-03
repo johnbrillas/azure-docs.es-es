@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97836540"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526296"
 ---
 # <a name="accelerate-alert-workflows"></a>Aceleración de los flujos de trabajo de alertas
 
@@ -70,11 +70,11 @@ El grupo de alertas correspondiente aparece en las soluciones de salida de asoci
 
 El grupo de alertas aparecerá en las soluciones de asociados compatibles con los siguientes prefijos:
 
-  - **cat** para QRadar, ArcSight, Syslog CEF, Syslog LEEF
+- **cat** para QRadar, ArcSight, Syslog CEF, Syslog LEEF
 
-  - **Alert Group** para mensajes de texto de Syslog
+- **Alert Group** para mensajes de texto de Syslog
 
-  - **alert_group** para objetos de Syslog
+- **alert_group** para objetos de Syslog
 
 Estos campos deben configurarse en la solución de asociado para mostrar el nombre del grupo de alertas. Si no hay ninguna alerta asociada a un grupo de alertas, el campo de la solución de asociado mostrará **ND**.
 
@@ -92,11 +92,29 @@ Los siguientes grupos de alertas se definen automáticamente:
 | Errores de comando | Problemas operativos |  |
 | Cambios en la configuración | Programar |  |
 
-Los grupos de alertas están predefinidos. Para más información acerca de las alertas asociadas a grupos de alertas y sobre la creación de grupos de alertas personalizados, póngase en contacto con [Soporte técnico de Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+Los grupos de alertas están predefinidos. Para más información acerca de las alertas asociadas a grupos de alertas y sobre la creación de grupos de alertas personalizados, póngase en contacto con [Soporte técnico de Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="customize-alert-rules"></a>Personalización de reglas de alertas
 
-Puede agregar reglas de alertas personalizadas basadas en la información que detectan los sensores individuales. Por ejemplo, defina una regla que indique a un sensor que desencadene una alerta basada en una dirección IP de origen, una dirección IP de destino o un comando (dentro de un protocolo). Cuando el sensor detecta el tráfico definido en la regla, se genera una alerta o un evento.
+Use reglas de alerta personalizadas para identificar más específicamente la actividad de identificación que le interese. 
+
+Puede agregar reglas de alertas personalizadas basadas en lo siguiente:
+
+- Una categoría, por ejemplo, un protocolo, un puerto o un archivo.
+- Direcciones de origen y destino
+- Condición basada en la categoría elegida, por ejemplo, una función asociada a un protocolo, un nombre de archivo, un puerto o un número de transporte.
+- Condición basada en la referencia de fecha y hora, por ejemplo, si se realizó una detección en un día concreto o en una determinada parte del día.
+
+Si el sensor detecta la actividad descrita en la regla, se envía la alerta.
+Información que los sensores individuales detectan. Por ejemplo, defina una regla que indique a un sensor que desencadene una alerta basada en una dirección IP de origen, una dirección IP de destino o un comando (dentro de un protocolo). Cuando el sensor detecta el tráfico definido en la regla, se genera una alerta o un evento.
+
+También puede usar acciones de reglas de alerta para indicar a Defender para IoT que haga lo siguiente:
+
+- Permitir a los usuarios acceder al archivo PCAP desde la alerta.
+- Asignar una gravedad de alerta.
+- Generar un evento en lugar de una alerta. La información detectada aparecerá en la escala de tiempo del evento.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Captura de pantalla que muestra una regla definida por el usuario.":::
 
 El mensaje de alerta indica que una regla definida por el usuario ha desencadenado la alerta.
 
@@ -106,16 +124,16 @@ Para crear una regla de alertas personalizada:
 
 1. Seleccione **Alertas personalizadas** en el menú lateral de un sensor.
 1. Seleccione el signo más ( **+** ) para crear una regla.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Captura de pantalla que muestra una regla definida por el usuario.":::
-
 1. Defina un nombre de regla.
 1. Seleccione una categoría o un protocolo en el panel **Categorías**.
 1. Defina una dirección MAC o IP de origen y de destino específicas o elija cualquier dirección.
-1. Agregue una condición. Una lista de condiciones y sus propiedades es única para cada categoría. Puede seleccionar más de una condición para cada alerta.
-1. Indica si la regla desencadena una **alarma** o un **evento**.
-1. Asigne un nivel de gravedad a la alerta.
-1. Indique si la alerta incluirá un archivo PCAP.
+1. Defina una o varias condiciones de regla. Se pueden crear dos categorías de condiciones:
+    - Condiciones basadas en valores únicos asociados a la categoría seleccionada. Seleccione Agregar y defina los valores.
+    - Condiciones basadas en el momento en que se detectó la actividad. En la sección Detecciones, seleccione un período de tiempo y un día en los que se debe producir la detección para enviar la alerta. Puede optar por enviar la alerta si la actividad se detecta en cualquier momento, durante o después del horario laboral. Use la opción Define working hours (Definir horario laboral) para indicar a Defender para IoT el horario laboral de su organización.
+1. Defina acciones de regla: 
+    - Indica si la regla desencadena una **alarma** o un **evento**.
+    - Asigne un nivel de gravedad a la alerta.
+    - Indique si la alerta incluirá un archivo PCAP.
 1. Seleccione **Guardar**.
 
 La regla se agrega a la lista de **reglas de alertas personalizadas**, en la que puede revisar los parámetros básicos de la regla, la última vez que se desencadenó la regla, etc. También puede habilitar y deshabilitar la regla desde la lista.

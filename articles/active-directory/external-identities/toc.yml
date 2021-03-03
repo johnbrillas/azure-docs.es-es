@@ -41,7 +41,7 @@
           href: b2b-fundamentals.md
         - name: Uso compartido externo de B2B y Office 365
           href: o365-external-user.md
-        - name: Canje de invitación
+        - name: Canje de invitación e inicio de sesión
           href: redemption-experience.md
         - name: Correo electrónico de invitación
           href: invitation-email-elements.md
@@ -57,9 +57,9 @@
           href: hybrid-organizations.md
         - name: Proveedores de identidades para External Identities
           href: identity-providers.md
-        - name: Registro de autoservicio de flujos de usuario (versión preliminar)
+        - name: Flujos de usuario del registro de autoservicio
           href: self-service-sign-up-overview.md
-        - name: Registro de autoservicio de conectores de API (versión preliminar)
+        - name: Conectores de API del registro de autoservicio
           href: api-connectors-overview.md
         - name: "Administración de derechos de Azure\_AD"
           href: self-service-portal.md
@@ -68,23 +68,25 @@
     - name: Guías paso a paso
       expanded: true
       items:
-        - name: Configuración de valores de colaboración externa
-          href: delegate-invitations.md
+        - name: Configuración de Colaboración B2B
+          items:
+            - name: Configuración de valores de colaboración externa
+              href: delegate-invitations.md
+            - name: Permitir o bloquear dominios
+              href: allow-deny-list.md
         - name: Invitar a usuarios externos
           items:
-            - name: Adición de usuarios de B2B por los administradores
+            - name: Incorporación e invitación de usuarios (para administradores)
               href: add-users-administrator.md
-            - name: Adición de usuarios de B2B por los trabajadores de la información
+            - name: Invitación de usuarios a una aplicación (para propietarios de aplicaciones)
               href: add-users-information-worker.md
             - name: Invitación a usuarios internos a B2B
               href: invite-internal-users.md
-            - name: Permiso o bloqueo de invitaciones
-              href: allow-deny-list.md
             - name: Incorporación de usuarios B2B sin invitación
               href: add-user-without-invite.md
-            - name: API de invitación y personalización
+            - name: Personalización de invitaciones utilizando una API
               href: customize-invitation-api.md
-        - name: Federación con proveedores de identidades
+        - name: Federación con proveedores de identidades externos
           items:
             - name: Federación de Google
               href: google-federation.md
@@ -94,9 +96,9 @@
               href: direct-federation.md
             - name: Ejemplo de federación directa con AD FS
               href: direct-federation-adfs.md
-        - name: Autenticación con código de acceso de un solo uso
+        - name: Habilitación de códigos de acceso de un solo uso (OTP)
           href: one-time-passcode.md
-        - name: Registro de autoservicio para usuarios invitados (versión preliminar)
+        - name: Adición del registro de autoservicio para usuarios invitados
           items:
             - name: Incorporación de un flujo de usuario de registro de autoservicio
               href: self-service-sign-up-user-flow.md

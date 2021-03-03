@@ -7,16 +7,19 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 8007f11cb37063cef46ac7f3ac51e23bdfaae11a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d983369db3fbd03c41c248439a5c1aabec14ea55
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226461"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535372"
 ---
 # <a name="defender-for-iot-glossary"></a>Glosario de Defender para IoT
 
 En este glosario se proporciona una breve descripción de los términos y conceptos más importantes de la plataforma de Azure Defender para IoT. Seleccione los vínculos de **Más información** para ir a los términos relacionados en el glosario. Esto le ayudará a aprender y usar las herramientas del producto con mayor rapidez.
+
+> [!Note]
+> Cualquier término con que tenga `(DB)` en su nombre es un término de generador de dispositivos basado en agente. 
 
 <a name="glossary-a"></a>
 
@@ -58,6 +61,7 @@ En este glosario se proporciona una breve descripción de los términos y concep
 | **Inventario de dispositivos: sensor** | El inventario de dispositivos muestra una amplia gama de atributos de dispositivo detectados por Defender para IoT. Hay opciones disponibles para:<br /><br />- filtrar la información mostrada.<br /><br />- exportar esta información a un archivo CSV.<br /><br />- importar los detalles del registro de Windows. | **[Group (Grupo)](#g)** <br /><br />**[Inventario de dispositivos: consola de administración local](#d)** |
 | **Inventario de dispositivos: consola de administración local** | La información del dispositivo de los sensores conectados se puede ver desde la consola de administración local en el inventario de dispositivos. Esto proporciona a los usuarios de la consola de administración local una vista completa de toda la información de la red. | **[Inventario de dispositivos: sensor](#d)<br /><br />[Inventario de dispositivos: integrador de datos](#d)** |
 | **Inventario de dispositivos: integrador de datos** | Las funcionalidades de integración de datos de la consola de administración local permiten mejorar los datos del inventario de dispositivos con información de otros recursos de la empresa. Algunos recursos de ejemplo son las CMDB, DNS, los firewalls y las API web. | **[Inventario de dispositivos: consola de administración local](#d)** |
+| **Dispositivos gemelos** `(DB)` | Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. | [Módulo gemelo](#m) <br /> <br />[Módulo gemelo de seguridad](#s) |
 
 ## <a name="e"></a>E
 
@@ -90,6 +94,7 @@ En este glosario se proporciona una breve descripción de los términos y concep
 
 | Término | Descripción | Más información |
 |--|--|--|
+| **IoT Hub** `(DB)` | Servicio administrado, hospedado en la nube, que actúa como centro de mensajes para comunicaciones bidireccionales entre la aplicación de IoT y los dispositivos que administra.  |   |
 | **Integraciones** | Expandir las funcionalidades de Defender para IoT compartiendo la información del dispositivo con los sistemas asociados. Las organizaciones pueden conectar las soluciones de seguridad, NAC, administración de incidentes y administración de dispositivos puestas previamente en silos para acelerar las respuestas en todo el sistema y mitigar los riesgos con mayor rapidez. | **[Regla de reenvío](#f)** |
 | **Subred interna** | Configuraciones de subred definidas por Defender para IoT. En algunos casos, como en los entornos donde se usan intervalos públicos como intervalos internos, puede indicar a Defender para IoT que resuelva todas las subredes como subredes internas. Las subredes se muestran en el mapa y en varios informes de Defender para IoT. | **[Subredes](#s)** |
 
@@ -103,8 +108,11 @@ En este glosario se proporciona una breve descripción de los términos y concep
 
 ## <a name="m"></a>M
 
+
 | Término | Descripción | Más información |
 |--|--|--|
+| **Microagente** `(DB)` | Proporciona funcionalidades de seguridad de profundidad para dispositivos IoT, como la seguridad y la detección de amenazas. | |
+| **Módulo gemelo** `(DB)` | Los módulos gemelos son documentos JSON que almacenan información acerca del estado del módulo, incluidos metadatos, configuraciones y condiciones. | [Dispositivo gemelo](#d) <br /> <br />[Módulo gemelo de seguridad](#s) |
 | **Silenciar evento de alertas** | Indicar a Defender para IoT que omita continuamente la actividad con dispositivos idénticos y tráficos comparables. | **[Alerta](#glossary-a)<br /><br />[Regla de exclusión](#e)<br /><br />[Confirmar evento de alertas](#glossary-a)<br /><br />[Aprender evento de alertas](#l)** |
 
 ## <a name="n"></a>N
@@ -140,6 +148,7 @@ En este glosario se proporciona una breve descripción de los términos y concep
 | Término | Descripción | Más información |
 |--|--|--|
 | **Alerta de seguridad** | Alertas que abordan problemas de seguridad, como intentos excesivos de inicio de sesión de SMB o detecciones de malware. | **[Alerta](#glossary-a)<br /><br />[Alerta operativa](#o)** |
+| **Módulo gemelo de seguridad** `(DB)` | Este módulo contiene toda la información pertinente relativa a la seguridad de cada dispositivo específico de la solución. | [Dispositivo gemelo](#d) <br /> <br />[Módulo gemelo](#m)  |
 | **Sondeo selectivo** | Defender para IoT inspecciona de forma pasiva el tráfico de TI y OT y detecta información pertinente sobre los dispositivos, sus atributos, su comportamiento, etc. En algunos casos, es posible que alguna información no sea visible en los análisis pasivos de la red.<br /><br />Cuando esto ocurre, puede usar las herramientas de sondeo detallado seguras de Defender para IoT con el fin de detectar información importante sobre los dispositivos a los que anteriormente no se podía acceder. | - |
 | **Sensor** | Máquina física o virtual en la que está instalada la plataforma de Defender para IoT. | **[Consola de administración local](#o)** |
 | **Sitio** | Ubicación de una fábrica u otra entidad. El sitio debe contener una o varias zonas en las que esté instalado un sensor. | **[Zona](#z)** |

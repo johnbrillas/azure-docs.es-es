@@ -4,12 +4,12 @@ description: Información acerca de cómo controlar las direcciones IP y la ubic
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584079"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -30,7 +30,7 @@ Este comportamiento es así de forma predeterminada, ya que le ayudará a evitar
 
 Aunque el valor predeterminado es no recopilar direcciones IP, todavía ofrecemos la flexibilidad para invalidar este comportamiento. Sin embargo, se recomienda comprobar que la recopilación no infrinja ningún requisito de cumplimiento o normativa local. 
 
-Para obtener más información sobre la administración de datos personales en Application Insights, consulte la [guía de datos personales](../platform/personal-data-mgmt.md).
+Para obtener más información sobre la administración de datos personales en Application Insights, consulte la [guía de datos personales](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Almacenamiento de datos de direcciones IP
 
@@ -245,6 +245,6 @@ Si se prueba desde localhost y el valor de `customDimensions_client-ip` es `::1`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [recopilación de datos personales](../platform/personal-data-mgmt.md) en Application Insights.
+* Obtenga más información sobre la [recopilación de datos personales](../logs/personal-data-mgmt.md) en Application Insights.
 
 * Obtenga más información sobre cómo funciona la [recopilación de direcciones IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) en Application Insights. (Este artículo es una entrada de blog externa antigua que escribió uno de nuestros ingenieros. Es anterior al comportamiento predeterminado actual donde la dirección IP se registra como `0.0.0.0`, pero se profundiza en la mecánica del elemento `ClientIpHeaderTelemetryInitializer` integrado).

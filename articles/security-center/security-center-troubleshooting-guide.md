@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460410"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570834"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 
@@ -42,7 +42,7 @@ Los clientes pueden compartir comentarios para la descripción de la alerta y la
 
 ## <a name="audit-log"></a>Registro de auditoría
 
-La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](../azure-monitor/platform/platform-logs-overview.md) del componente afectado. A través de los registros de auditoría puede determinar:
+La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](../azure-monitor/essentials/platform-logs-overview.md) del componente afectado. A través de los registros de auditoría puede determinar:
 
 * Qué operaciones se han llevado a cabo
 * Quién inició la operación
@@ -87,8 +87,8 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 | Estado de energía: desactivado | La VM está detenida.  El agente de Log Analytics solo puede instalarse en una máquina virtual que esté en ejecución. | Reinicie la VM. |
 | Falta el agente de VM de Azure o no es válido | El agente de Log Analytics todavía no está instalado.  Es necesario un agente de VM de Azure válido para que Security Center instale la extensión. | Instale, reinstale o actualice el agente de VM de Azure en la VM. |
 | Estado de máquina virtual no preparada para la instalación  | El agente de Log Analytics no está instalado todavía porque la máquina virtual no está lista para la instalación. La máquina virtual no está lista para la instalación debido a un problema con el agente de la máquina virtual o con el aprovisionamiento de máquinas virtuales. | Compruebe el estado de la máquina virtual. Vuelva a **Máquinas virtuales** en el portal y seleccione la máquina virtual para obtener información del estado. |
-|Error de instalación: error general | El agente de Log Analytics se instaló, pero se produjo un error. | [Instale manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o desinstale la extensión para que Security Center intente instalarla de nuevo. |
-| Error de instalación: agente local ya instalado | Error de instalación del agente de Log Analytics. Security Center ha identificado que un agente local (Log Analytics o System Center Operations Manager) ya está instalado en la máquina virtual. Para evitar la configuración de hospedaje múltiple, donde la máquina virtual informa a dos áreas de trabajo independientes, se detiene la instalación del agente de Log Analytics. | Hay dos maneras de resolverlo: [instalar manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) y conectarla al área de trabajo deseada. O bien, establecer el área de trabajo deseada como el área de trabajo predeterminada y habilitar el aprovisionamiento automático del agente.  Consulte [Habilitación del aprovisionamiento automático](security-center-enable-data-collection.md). |
+|Error de instalación: error general | El agente de Log Analytics se instaló, pero se produjo un error. | [Instale manualmente la extensión](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o desinstale la extensión para que Security Center intente instalarla de nuevo. |
+| Error de instalación: agente local ya instalado | Error de instalación del agente de Log Analytics. Security Center ha identificado que un agente local (Log Analytics o System Center Operations Manager) ya está instalado en la máquina virtual. Para evitar la configuración de hospedaje múltiple, donde la máquina virtual informa a dos áreas de trabajo independientes, se detiene la instalación del agente de Log Analytics. | Hay dos maneras de resolverlo: [instalar manualmente la extensión](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) y conectarla al área de trabajo deseada. O bien, establecer el área de trabajo deseada como el área de trabajo predeterminada y habilitar el aprovisionamiento automático del agente.  Consulte [Habilitación del aprovisionamiento automático](security-center-enable-data-collection.md). |
 | El agente no puede conectarse al área de trabajo | El agente de Log Analytics se instaló, pero se produjo un error debido a la conectividad de red.  Compruebe que el sistema tiene acceso a Internet o que se ha configurado un servidor proxy HTTP válido para el agente. | Consulte los requisitos de red del agente de supervisión. |
 | Agente conectado a un área de trabajo desconocida o no encontrada | Security Center identificó que el agente de Log Analytics instalado en la máquina virtual está conectado a un área de trabajo a la que no tiene acceso. | Esto puede ocurrir en dos casos. El área de trabajo se ha eliminado y ya no existe. Vuelva a instalar al agente con el área de trabajo correcta o desinstale el agente y permita que Security Center complete la instalación de aprovisionamiento automático. El segundo caso se da cuando el área de trabajo forma parte de una suscripción para la que Security Center no tiene permisos. Security Center requiere que las suscripciones permitan el acceso al proveedor de recursos de seguridad de Microsoft. Para habilitarlo, registre la suscripción en el proveedor de recursos de seguridad de Microsoft. Esto se puede hacer mediante una API, PowerShell, el portal o, simplemente, filtrando por la suscripción en el panel **Información general** de Security Center. Para más información, consulte [Proveedores de recursos y sus tipos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | El agente no responde o falta el identificador | Security Center no puede recuperar los datos de seguridad escaneados de la máquina virtual, incluso aunque el agente está instalado. | El agente no notifica ningún dato, incluidos los latidos. El agente puede estar dañado o algo está bloqueando el tráfico. O bien, el agente está proporcionando datos, pero falta un identificador de recurso de Azure, por lo que es imposible relacionar los datos con la máquina virtual de Azure. Para solucionar problemas en Linux, vea la [Guía de solución de problemas del Agente de Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para solucionar problemas de Windows, consulte [Solución de problemas con máquinas virtuales Windows](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |
@@ -98,7 +98,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 
 Para que los agentes se puedan conectar a Security Center y registrarse ahí, deben tener acceso a los recursos de red, lo que incluye los números de puerto y las direcciones URL de dominio.
 
-* Para los servidores proxy, debe asegurarse de que los recursos de servidor proxy adecuados están configurados en la configuración del agente. Lea este artículo para más información sobre [cómo cambiar la configuración del servidor proxy](../azure-monitor/platform/agent-windows.md).
+* Para los servidores proxy, debe asegurarse de que los recursos de servidor proxy adecuados están configurados en la configuración del agente. Lea este artículo para más información sobre [cómo cambiar la configuración del servidor proxy](../azure-monitor/agents/agent-windows.md).
 * Si usa un firewall para restringir el acceso a Internet, debe configurarlo para permitir el acceso a Log Analytics. No es necesario realizar ninguna acción en la configuración del agente.
 
 En la siguiente tabla se muestran los recursos necesarios para la comunicación.

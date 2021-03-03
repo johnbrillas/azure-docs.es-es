@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595149"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminación de un proyecto de Azure Migrate
 
@@ -27,7 +27,7 @@ Antes de eliminar un proyecto:
     - El área de trabajo no se elimina automáticamente. Elimínela manualmente.
     - Compruebe para qué se usa un área de trabajo antes de eliminarla. La misma área de trabajo de Log Analytics se puede usar para varios escenarios.
     - Antes de eliminar el proyecto, puede encontrar un vínculo al área de trabajo en **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, en **Área de trabajo de OMS**.
-    - Para eliminar un área de trabajo después de eliminar un proyecto, busque el área de trabajo en el grupo de recursos correspondiente y siga [estas instrucciones](../azure-monitor/platform/delete-workspace.md).
+    - Para eliminar un área de trabajo después de eliminar un proyecto, busque el área de trabajo en el grupo de recursos correspondiente y siga [estas instrucciones](../azure-monitor/logs/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Eliminación de un proyecto

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007404"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738232"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -26,7 +26,7 @@ Conozca las novedades del servicio. Estos elementos pueden ser notas de la versi
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versión preliminar pública de Read API v3.2 con compatibilidad con OCR para 73 idiomas
 La versión preliminar pública de Read API v3.2 de Computer Vision, disponible como servicio en la nube y como contenedor de Docker, incluye estas actualizaciones:
 * [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) entre los que se incluyen chino simplificado y tradicional, japonés, coreano y los idiomas procedentes del latín.
-* Orden de lectura natural para la salida de la línea de texto.
+* Orden de lectura natural para la salida de la línea de texto (solo para idiomas procedentes del latín).
 * Clasificación de estilos de escritura a mano para líneas de texto junto con una puntuación de confianza (solo para idiomas procedentes del latín).
 * Extracción de texto solo de las páginas seleccionadas de un documento.
 * Disponible como [contenedor sin distribución](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para la implementación local.
@@ -50,8 +50,8 @@ Se ha lanzado una nueva versión del [contenedor de análisis espacial](spatial-
 * **Cambio importante**: se ha cambiado el nombre del evento *personZoneEvent* a *personZoneEnterExitEvent*. Este evento lo genera la operación *personZoneEnterExitEvent* cuando una persona entra o sale de la zona y proporciona información direccional con el lado numerado de la zona que se ha atravesado.
 * La dirección URL de vídeo se puede proporcionar como "parámetro privado/ofuscado" en todas las operaciones. La ofuscación es opcional ahora y solo funcionará si se proporcionan `KEY` y `IV` como variables de entorno.
 * La calibración está habilitada de forma predeterminada para todas las operaciones. Establezca `do_calibration: false` para deshabilitarla.
-* Se ha agregado compatibilidad con la recalibración automática (que está deshabilitada de forma predeterminada) mediante el parámetro `enable_recalibration`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
-* Parámetros de calibración de la cámara en `DETECTOR_NODE_CONFIG`. Para más información, consulte [Operaciones de análisis espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
+* Se ha agregado compatibilidad con la recalibración automática (que está deshabilitada de forma predeterminada) mediante el parámetro `enable_recalibration`. Para más información, consulte [Operaciones de análisis espacial](./spatial-analysis-operations.md).
+* Parámetros de calibración de la cámara en `DETECTOR_NODE_CONFIG`. Para más información, consulte [Operaciones de análisis espacial](./spatial-analysis-operations.md).
 
 
 ## <a name="october-2020"></a>Octubre de 2020

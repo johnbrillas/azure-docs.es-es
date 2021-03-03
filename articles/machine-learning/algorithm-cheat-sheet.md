@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890976"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367063"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
 La **hoja de características de los algoritmos de Azure Machine Learning** lo ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
-Azure Machine Learning tiene una gran biblioteca de algoritmos de las familias ***clasificación***, ***sistemas de recomendación***, ***agrupación en clústeres***, ***detección de anomalías***, ***regresión*** y ***análisis de texto***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
+Azure Machine Learning tiene una gran biblioteca de algoritmos de las familias ***clasificación** _, _*_sistemas de recomendación_*_, _*_agrupación en clústeres_*_, _*_detección de anomalías_*_, _*_regresión_*_ y _ *_análisis de texto_* *. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
 Para obtener instrucciones adicionales, consulte [Selección de algoritmos](how-to-select-algorithms.md).
 

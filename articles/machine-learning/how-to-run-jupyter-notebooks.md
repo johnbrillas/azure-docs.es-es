@@ -1,5 +1,5 @@
 ---
-title: Ejecución de los cuadernos de Jupyter en el área de trabajo
+title: Ejecución de cuadernos de Jupyter en el área de trabajo
 titleSuffix: Azure Machine Learning
 description: Aprenda a ejecutar un cuaderno de Jupyter sin dejar el área de trabajo en Azure Machine Learning Studio.
 services: machine-learning
@@ -11,89 +11,27 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061841"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657339"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
+# <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
 Aprenda a ejecutar sus cuadernos de Jupyter directamente en el área de trabajo en Azure Machine Learning Studio. Aunque puede iniciar [Jupyter](https://jupyter.org/) o [JupyterLab](https://jupyterlab.readthedocs.io), también puede editar y ejecutar los cuadernos sin tener que salir del área de trabajo.
 
-## <a name="prerequisites"></a>Requisitos previos
+Para obtener información sobre cómo crear y administrar archivos, incluidos los cuadernos, consulte [Creación y administración de archivos en el área de trabajo](how-to-manage-files.md).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="create-notebooks"></a><a name="create"></a> Creación de cuadernos
-
-En el área de trabajo de Azure Machine Learning, cree un nuevo cuaderno de Jupyter Notebook y empiece a trabajar. El cuaderno recién creado se almacena en el almacenamiento predeterminado del área de trabajo. Este cuaderno se puede compartir con cualquier persona que tenga acceso al área de trabajo. 
-
-Para crear un nuevo cuaderno: 
-
-1. En [Azure Machine Learning Studio](https://ml.azure.com), abra el área de trabajo.
-1. En el lado izquierdo, seleccione **Notebooks**. 
-1. Seleccione el icono **Crear archivo** situado encima de la lista **Archivos de usuario** en la sección **Mis archivos**.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Crear un nuevo archivo":::
-
-1. Dele un nombre al archivo. 
-1. En el caso de los archivos del cuaderno de Jupyter, seleccione **Cuaderno** como tipo de archivo.
-1. Seleccione un directorio de archivos.
-1. Seleccione **Crear**.
-
-También puede crear archivos de texto.  Seleccione **Texto** como el tipo de archivo y agregue la extensión al nombre (por ejemplo, miarchivo.py o miarchivo.txt).  
-
-También puede cargar carpetas y archivos, incluidos cuadernos, con las herramientas que se encuentra en la parte superior de la página Notebooks.  Los cuadernos y la mayoría de los tipos de archivo de texto se muestran en la sección de vista previa.  Para la mayoría de los demás tipos de archivo la vista previa no está disponible.
-
-> [!IMPORTANT]
-> El contenido de los cuadernos y scripts puede leer los datos de las sesiones y acceder a los datos sin su organización en Azure.  Cargar solo archivos de fuentes de confianza. Para más información, vea [Prácticas recomendadas de código seguro](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
-
-### <a name="clone-samples"></a>Clonación de ejemplos
-
-El área de trabajo contiene una carpeta de **ejemplos** con cuadernos diseñados para ayudarle a explorar el SDK y servir como ejemplo para sus propios proyectos de aprendizaje automático.  Puede clonar estos cuadernos en su propia carpeta en el contenedor de almacenamiento del área de trabajo.  
-
-Para obtener un ejemplo, vea [Tutorial: Creación del primer experimento de Machine Learning](tutorial-1st-experiment-sdk-setup.md#azure).
-
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Uso de los archivos de Git y versión Mis archivos
-
-Puede acceder a todas las operaciones de Git mediante una ventana de terminal. Todos los archivos y carpetas de Git se almacenarán en el sistema de archivos del área de trabajo.
-
-> [!NOTE]
-> Agregue los archivos y las carpetas en cualquier parte dentro de la carpeta **~/cloudfiles/code/Users** para que estén visibles en todos los entornos de Jupyter.
-
-Para tener acceso al terminal:
-
-1. En [Azure Machine Learning Studio](https://ml.azure.com), abra el área de trabajo.
-1. En el lado izquierdo, seleccione **Notebooks**.
-1. Seleccione cualquier cuaderno situado en la sección **Archivos de usuario** en el lado izquierdo.  Si allí no tiene ningún cuaderno, primero [cree un cuaderno](#create).
-1. Seleccione un destino de **Proceso** o cree uno nuevo y espere hasta que se esté ejecutando.
-1. Seleccione el icono de **Abrir terminal**.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Abra el terminal":::.
-
-1. Si no ve el icono, seleccione los puntos **...** que se encuentran a la derecha del destino de proceso y, a continuación, seleccione **Abrir terminal**.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Abrir el terminal desde los puntos ...":::.
-
-
-Obtenga más información sobre [la clonación de repositorios de GIT de en el sistema de archivos del área de trabajo](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
-
-### <a name="copy-and-paste-in-terminal"></a>Copiar y pegar en el terminal
-
-> * Windows: `Ctrl-Insert` para copiar y `Ctrl-Shift-v` o `Shift-Insert` para pegar.
-> * Mac OS: `Cmd-c` para copiar y `Cmd-v` para pegar.
-> * Es posible que Firefox o IE no admitan los permisos del Portapapeles correctamente.
-
-### <a name="share-notebooks-and-other-files"></a>Compartición de cuadernos y otros archivos
-
-Copie y pegue la dirección URL para compartir un bloc de notas o un archivo.  Solo otros usuarios del área de trabajo pueden acceder a esta dirección URL.  Obtenga más información sobre la [concesión de acceso a su área de trabajo](how-to-assign-roles.md).
-
 ## <a name="edit-a-notebook"></a>Edición de un cuaderno
 
-Para editar un cuaderno, abra cualquiera que esté situado en la sección **Archivos de usuario** de su área de trabajo. Haga clic en la celda que desee editar. 
+Para editar un cuaderno, abra cualquiera que esté situado en la sección **Archivos de usuario** de su área de trabajo. Haga clic en la celda que desee editar.  Si no tiene ningún cuaderno en esta sección, consulte [Creación y administración de archivos en el área de trabajo](how-to-manage-files.md).
 
 Puede editar el cuaderno sin necesidad de conectarse a una instancia de proceso.  Cuando desee ejecutar las celdas en el cuaderno, seleccione o cree una instancia de proceso.  Si selecciona una instancia de proceso detenida, se iniciará automáticamente al ejecutar la primera celda.
 
@@ -101,7 +39,7 @@ Cuando se ejecuta una instancia de proceso, también puede usar la finalización
 
 También puede iniciar Jupyter o JupyterLab desde la barra de herramientas del cuaderno.  Azure Machine Learning no proporciona actualizaciones ni corrige errores de Jupyter o JupyterLab, ya que son productos de código abierto fuera de los límites del servicio de soporte técnico de Microsoft.
 
-### <a name="focus-mode"></a>Modo de enfoque
+## <a name="focus-mode"></a>Modo de enfoque
 
 Use el modo de enfoque para expandir la vista actual de forma que pueda centrarse en las pestañas activas. El modo de enfoque oculta el explorador de archivos de Notebooks.
 
@@ -110,14 +48,13 @@ Use el modo de enfoque para expandir la vista actual de forma que pueda centrars
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Cambio entre el modo de enfoque y la vista estándar":::
 
-
-### <a name="use-intellisense"></a>Usar IntelliSense
+## <a name="use-intellisense"></a>Usar IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) es una ayuda de finalización de código que incluye una serie de características: enumerar miembros, información de parámetros, información rápida y completar palabra. Estas características le ayudan a obtener más información sobre el código que está usando, realizar un seguimiento de los parámetros que está escribiendo y agregar llamadas a propiedades y métodos con solo unas cuantas pulsaciones de tecla.  
 
 Al escribir código, use Ctrl + barra espaciadora para desencadenar IntelliSense.
 
-### <a name="clean-your-notebook-preview"></a>Limpieza del cuaderno (versión preliminar)
+## <a name="clean-your-notebook-preview"></a>Limpieza del cuaderno (versión preliminar)
 
 > [!IMPORTANT]
 > La característica de recopilación actualmente está en versión preliminar pública.
@@ -133,7 +70,7 @@ Durante la creación de un cuaderno, normalmente acaba con las celdas usadas par
 
 El nuevo cuaderno solo contiene celdas de código, con todas las celdas necesarias para generar los mismos resultados que la celda seleccionada para la recopilación.
 
-### <a name="save-and-checkpoint-a-notebook"></a>Guardar y revisar un cuaderno
+## <a name="save-and-checkpoint-a-notebook"></a>Guardar y revisar un cuaderno
 
 Azure Machine Learning crea un archivo de punto de comprobación cuando se crea un archivo *ipynb*.
 
@@ -145,24 +82,34 @@ Cada cuaderno se guarda automáticamente cada 30 segundos. El guardado automát
  
 Seleccione **Puntos de control** en el menú del cuaderno para crear un punto de control con nombre y revertir el cuaderno a un punto de control guardado.
 
-## <a name="delete-a-notebook"></a>Eliminación de un cuaderno
+## <a name="export-a-notebook"></a>Exportación de un cuaderno
 
-Los cuadernos de **ejemplo** *no* se pueden eliminar.  Estos cuadernos forman parte de Studio y se actualizan cada vez que se publica un nuevo SDK.  
+En la barra de herramientas del cuaderno, seleccione el menú y, a continuación, **Exportar como** para exportar el cuaderno en cualquiera de los tipos admitidos:
 
-Los **archivos de usuario** y los cuadernos *se pueden* eliminar de cualquiera de estas formas:
+* Notebook
+* Python
+* HTML
+* LaTeX
 
-* En Studio, seleccione los puntos **...** al final de una carpeta o un archivo.  Asegúrese de usar un explorador compatible (Microsoft Edge, Chrome o Firefox).
-* En la barra de herramientas de cualquier cuaderno, seleccione [**Abrir terminal**](#terminal) para acceder a la ventana de terminal de la instancia de proceso.
-* En Jupyter o JupyterLab con sus herramientas.
+:::image type="content" source="media/how-to-run-jupyter-notebooks/export-notebook.png" alt-text="Exportación de un cuaderno al equipo":::
+
+El archivo exportado se guarda en el equipo.
 
 ## <a name="run-a-notebook-or-python-script"></a>Ejecución de un cuaderno o un script de Python
 
-Para ejecutar un cuaderno o un script de Python, primero tiene que conectarse a una [instancia de proceso](concept-compute-instance.md) en ejecución. Si no tiene una instancia de proceso, siga estos pasos para crear una: 
+Para ejecutar un cuaderno o un script de Python, primero tiene que conectarse a una [instancia de proceso](concept-compute-instance.md) en ejecución.
 
-1. Seleccione **+** en el cuaderno o la barra de herramientas del script. 
-2. Asigne un nombre al proceso y elija el **Tamaño de la máquina virtual**. 
-3. Seleccione **Crear**.
-4. La instancia de proceso se conecta automáticamente al archivo.  Ahora puede ejecutar las celdas del cuaderno o el script de Python mediante la herramienta que se encuentra a la izquierda de la instancia de proceso.
+* Si no tiene una instancia de proceso, siga estos pasos para crear una:
+
+    1. En la barra de herramientas del cuaderno o script, a la derecha de la lista desplegable Proceso, seleccione **+ Nuevo proceso**. En función del tamaño de la pantalla, es posible que se encuentre en el menú **...**
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/new-compute.png" alt-text="Creación de un nuevo proceso":::
+    1. Asigne un nombre al proceso y elija el **Tamaño de la máquina virtual**. 
+    1. Seleccione **Crear**.
+    1. La instancia de proceso se conecta automáticamente al archivo.  Ahora puede ejecutar las celdas del cuaderno o el script de Python mediante la herramienta que se encuentra a la izquierda de la instancia de proceso.
+
+* Si tiene una instancia de proceso detenida, seleccione **Start compute** (iniciar proceso) a la derecha de la lista desplegable Proceso. En función del tamaño de la pantalla, es posible que se encuentre en el menú **...**
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Inicio de la instancia de proceso":::
 
 Solo puede ver y usar las instancias de proceso que usted cree.  Los **Archivos de usuario** se almacenan de forma independiente de la máquina virtual y se comparten entre todas las instancias de proceso en el área de trabajo.
 
@@ -209,33 +156,12 @@ Estas acciones restablecerán el estado del cuaderno y todas las variables del m
 | Detención del proceso     |    No se ejecutarán las celdas.  |
 | Apertura del cuaderno en Jupyter o JupyterLab     |    Notebook se abre en una nueva pestaña.  |
 
-### <a name="add-new-kernels"></a>Incorporación de nuevos kernels
+## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
-El cuaderno buscará automáticamente todos los kernels de Jupyter instalados en la instancia de proceso conectada.  Para agregar un kernel a la instancia de proceso:
+[Use el terminal](how-to-access-terminal.md#add-new-kernels) para crear y agregar nuevos kernels a la instancia de proceso. El cuaderno buscará automáticamente todos los kernels de Jupyter instalados en la instancia de proceso conectada.
 
-1. Seleccione [**Abrir terminal**](#terminal) en la barra de herramientas del cuaderno.
-1. Use la ventana de terminal para crear un nuevo entorno.  Por ejemplo, el código siguiente crea `newenv`:
-    ```shell
-    conda create -y --name newenv
-    ```
-1. Active el entorno.  Por ejemplo, después de crear `newenv`:
+Use la lista desplegable Kernel de la derecha para cambiar a cualquiera de los kernels instalados.  
 
-    ```shell
-    conda activate newenv
-    ```
-1. Instalación del paquete PIP e ipykernel en el entorno nuevo y creación de un kernel para ese entorno conda
-
-    ```shell
-    conda install -y pip
-    conda install -y ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-1. Después de instalar el kernel, actualice la página y abra un cuaderno. Ahora verá el nuevo kernel en la lista de kernels.
-
-> [!NOTE]
-> Para la administración de paquetes en un cuaderno, use las funciones magic **%pip** o **%conda** para instalar paquetes automáticamente en el **kernel que actualmente está en ejecución**, en lugar de **!pip** o **!conda** que hacen referencia a todos los paquetes (incluidos los paquetes que se encuentran fuera del kernel que actualmente está en ejecución)
-
-Se puede instalar cualquiera de los [kernels de Jupyter](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) disponibles.
 
 ### <a name="status-indicators"></a>Indicadores de estado
 
@@ -264,10 +190,10 @@ Busque los detalles sobre las instancias de proceso en la página **Proceso** de
 
 * Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la red permita las conexiones WebSocket a *.instances.azureml.net e *.instances.azureml.ms. 
 
-* Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para <instance-name>.<region>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli).
+* Cuando se implementa la instancia de proceso en un área de trabajo de vínculo privado, solo se puede tener acceso a ella desde dentro de la red virtual. Si usa un archivo de host o DNS personalizado, agregue una entrada para <instance-name>.<region>.instances.azureml.ms con la dirección IP privada del punto de conexión privado del área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Ejecución de su primer experimento](tutorial-1st-experiment-sdk-train.md)
 * [Copia de seguridad del almacenamiento de archivos con instantáneas](../storage/files/storage-snapshots-files.md)
-* [Trabajo en entornos seguros](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
+* [Trabajo en entornos seguros](./how-to-secure-training-vnet.md#compute-instance)

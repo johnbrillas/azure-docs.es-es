@@ -4,12 +4,12 @@ description: Crear y administrar una instancia de Blockchain Data Manager para A
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867a51b60afa56005bbb297b345f8a9260160ab8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722643"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configuración de la cadena de bloques Data Manager con la CLI de Azure
 
@@ -73,9 +73,9 @@ Ejemplo de configuración de JSON para crear una instancia del administrador de 
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-    }
+    "location": "eastus",
+    "properties": {
+    }
 }
 ```
 
@@ -137,11 +137,11 @@ Ejemplo de JSON de configuración para crear un recurso de entrada en la región
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "inputType": "Ethereum",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
+    "location": "eastus",
+    "properties": {
+        "inputType": "Ethereum",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
         }
     }
 }
@@ -209,11 +209,11 @@ Ejemplo de JSON de configuración para crear un recurso de salida en la región 
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "outputType": "EventGrid",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
+    "location": "eastus",
+    "properties": {
+        "outputType": "EventGrid",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
         }
     }
 }
@@ -225,7 +225,7 @@ Ejemplo de JSON de configuración para crear un recurso de salida en la región 
 | outputType | Tipo de salida. Actualmente, se admite **EventGrid**. |
 | resourceId | Recurso al que está conectada la salida. Reemplace \<Subscription ID\>, \<Resource group\> y \<Blockchain member\> con los valores del recurso de Event Grid. |
 
-Cree una salida con el nombre de*myoutput* para *mywatcher* que se conecta a un tema de Event Grid con una cadena de configuración de JSON.
+Cree una salida con el nombre de *myoutput* para *mywatcher* que se conecta a un tema de Event Grid con una cadena de configuración de JSON.
 
 ``` azurecli-interactive
 az resource create \
@@ -286,9 +286,9 @@ Ejemplo de JSON de configuración para crear un recurso de aplicación en la reg
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "artifactType": "EthereumSmartContract",
+    "location": "eastus",
+    "properties": {
+        "artifactType": "EthereumSmartContract",
         "content": {
             "abiFileUrl": "<ABI URL>",
             "bytecodeFileUrl": "<Bytecode URL>",

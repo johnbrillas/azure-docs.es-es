@@ -3,15 +3,15 @@ title: 'Azure Service Bus: actualización automática de las unidades de mensaje
 description: En este artículo se muestra cómo puede actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581638"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus 
-Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Consulte [Información general sobre el escalado automático en Microsoft Azure](../azure-monitor/platform/autoscale-overview.md) para más información sobre la característica de escalado automático de Azure Monitor. 
+Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Consulte [Información general sobre el escalado automático en Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para más información sobre la característica de escalado automático de Azure Monitor. 
 
 La mensajería Premium de Service Bus proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama **unidad de mensajería**. Para más información sobre las unidades de mensajería, consulte la [Mensajería Premium de Service Bus](service-bus-premium-messaging.md). 
 
@@ -45,7 +45,7 @@ Esta configuración permite establecer un número fijo de unidades de mensajerí
 1. En la configuración **Unidades de mensajería**, seleccione el número de unidades de mensajería en la lista desplegable.
 1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Escalado manual de unidades de mensajería":::       
 
 
 ## <a name="custom-autoscale---default-condition"></a>Escalado automático personalizado: condición predeterminada
@@ -64,14 +64,14 @@ En el procedimiento siguiente se muestra cómo agregar una condición para aumen
 1. Seleccione **Escalado basado en una métrica**, para **Modo de escala**. 
 1. Seleccione **+Agregar una regla**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Valor predeterminado: escalado basado en una métrica":::    
 1. En la página **Escalar regla**, siga estos pasos:
     1. Seleccione una métrica de la lista desplegable **Nombre de métrica**. En este ejemplo, es **CPU**. 
     1. Seleccione un operador y los valores de umbral. En este ejemplo, son **Mayor que** y **75** para **Umbral de la métrica para desencadenar la acción de escalado**. 
     1. Seleccione una **operación** en la sección **Acción**. En este ejemplo, se ha establecido en **Aumentar**. 
     1. Luego, seleccione **Agregar**.
     
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Valor predeterminado: escalar horizontalmente si el uso de CPU es superior al 75 %":::       
 
         > [!NOTE]
         > La característica de escalado automático aumenta las unidades de mensajería del espacio de nombres si el uso total de CPU supera el 75 % en este ejemplo. Los incrementos se realizan de 1 a 2, de 2 a 4 y de 4 a 8. 
@@ -81,13 +81,13 @@ En el procedimiento siguiente se muestra cómo agregar una condición para aumen
     1. Seleccione una **operación** en la sección **Acción**. En este ejemplo, se ha establecido en **Disminuir**. 
     1. Luego, seleccione **Agregar**. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Valor predeterminado: reducir horizontalmente en caso de que el uso de CPU sea inferior al 25 %":::       
 
         > [!NOTE]
         > La característica de escalado automático disminuye las unidades de mensajería del espacio de nombres si el uso total de CPU cae por debajo del 25 % en este ejemplo. Los decrementos se realizan de 8 a 4, de 4 a 2 y de 2 a 1. 
 1. Establezca el número **mínimo**, **máximo** y **predeterminado** de unidades de mensajería.
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regla predeterminada basada en una métrica":::
 1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración de escalado automático. 
         
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Escalado a un número específico de unidades de mensajería
@@ -98,7 +98,7 @@ Siga estos pasos para configurar la regla con el fin de escalar el espacio de no
 1. Seleccione **Scale to specific messaging units** (Escalar a un número específico de unidades de mensajería) para **Modo de escala**. 
 1. En **Unidades de mensajería**, seleccione el número predeterminado de unidades de mensajería. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Valor predeterminado: escalar a un número específico de unidades de mensajería":::       
 
 ## <a name="custom-autoscale---additional-conditions"></a>Escalado automático personalizado: condiciones adicionales
 En la sección anterior se muestra cómo agregar una condición predeterminada a la configuración de escalado automático. En esta sección se muestra cómo agregar más condiciones a la configuración de escalado automático. Para estas condiciones adicionales no predeterminadas, puede establecer una programación basada en días específicos de la semana o en un intervalo de fechas. 
@@ -107,7 +107,7 @@ En la sección anterior se muestra cómo agregar una condición predeterminada a
 1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
 1. Seleccione **Agregar una condición de escala** en el bloque **Valor predeterminado**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado: agregar un vínculo de condición de escala":::    
 1. Especifique un **nombre** para la condición. 
 1. Confirme que la opción **Escalado basado en una métrica** está seleccionada. 
 1. Seleccione **+ Agregar una regla** para agregar una regla a fin de aumentar las unidades de mensajería cuando el uso total de CPU supere el 75 %. Siga los pasos de la sección sobre la [condición predeterminada](#custom-autoscale---default-condition). 
@@ -115,29 +115,29 @@ En la sección anterior se muestra cómo agregar una condición predeterminada a
 6. También puede establecer una **programación** en una condición personalizada (pero no en la condición predeterminada). Puede especificar las fechas de inicio y finalización de la condición, o seleccionar días específicos (lunes, martes, etc.) de una semana. 
     1. Si selecciona **Especifique las fechas de inicio y finalización**, seleccione la **Zona horaria**, la **Fecha y hora de inicio** y la **Fecha y hora de finalización** (como se muestra en la siguiente imagen) para que la condición esté en vigor. 
 
-       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Valores mínimo, máximo y predeterminado para el número de unidades de mensajería":::
     1. Si selecciona **Repetir en días específicos**, seleccione los días de la semana, la zona horaria, la hora de inicio y la hora de finalización en que debe aplicarse la condición. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Repetir en días específicos":::
   
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Escalado a un número específico de unidades de mensajería
 1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
 1. Seleccione **Agregar una condición de escala** en el bloque **Valor predeterminado**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado: agregar un vínculo de condición de escala":::    
 1. Especifique un **nombre** para la condición. 
 2. Seleccione la opción **Scale to specific messaging units** (Escalar a un número específico de unidades de mensajería) para **Modo de escala**. 
 1. Seleccione el número de **unidades de mensajería** en la lista desplegable. 
 6. Para la **programación**, especifique las fechas de inicio y finalización de la condición, o seleccione días específicos (lunes, martes, etc.) de una semana y las horas. 
     1. Si selecciona **Especifique las fechas de inicio y finalización**, seleccione la **Zona horaria**, la **Fecha y hora de inicio** y la **Fecha y hora de finalización** para que la condición esté en vigor. 
     
-    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Espacio de nombres de Service Bus: página Escala":::        
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Escalar a un número específico de unidades de mensajería: fechas de inicio y finalización":::        
     1. Si selecciona **Repetir en días específicos**, seleccione los días de la semana, la zona horaria, la hora de inicio y la hora de finalización en que debe aplicarse la condición.
     
-    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Escalar a un número específico de unidades de mensajería: repetir días específicas":::
 
 > [!IMPORTANT]
-> Para más información sobre cómo funciona la configuración del escalado automático, especialmente cómo se elige un perfil o condición y se evalúan varias reglas, consulte [Información acerca de la configuración de escalado automático](../azure-monitor/platform/autoscale-understanding-settings.md).          
+> Para más información sobre cómo funciona la configuración del escalado automático, especialmente cómo se elige un perfil o condición y se evalúan varias reglas, consulte [Información acerca de la configuración de escalado automático](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información acerca de las unidades de mensajería, consulte la [mensajería Prémium](service-bus-premium-messaging.md)

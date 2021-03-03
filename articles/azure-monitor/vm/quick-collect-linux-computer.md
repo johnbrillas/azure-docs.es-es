@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: ef6e31968f85407e8055315becdc1337b474ad70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dbe51930ec92ec4f89738dc5d543003f45acebf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733829"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Inicio rápido: Recopilación de datos de un equipo Linux en un entorno híbrido con Azure Monitor
 
-[Azure Monitor](../overview.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales del entorno en un área de trabajo de Log Analytics para una correlación y un análisis detallados. La instalación del [agente de Log Analytics](../agents/log-analytics-agent.md) permite a Azure Monitor recopilar datos de un centro de datos o de otro entorno en la nube. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos del servidor Linux con unos pasos sencillos. Para más información sobre las máquinas virtuales Linux de Azure, consulte [Recopilación de datos acerca de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales del entorno en un área de trabajo de Log Analytics para una correlación y un análisis detallados. La instalación del [agente de Log Analytics](../agents/log-analytics-agent.md) permite a Azure Monitor recopilar datos de un centro de datos o de otro entorno en la nube. En esta guía de inicio rápido se muestra cómo configurar y recopilar datos del servidor Linux con unos pasos sencillos. Para más información sobre las máquinas virtuales Linux de Azure, consulte [Recopilación de datos acerca de máquinas virtuales de Azure](./quick-collect-azurevm.md).  
 
 Para conocer la configuración admitida, consulte [Sistemas operativos admitidos](../agents/agents-overview.md#supported-operating-systems) y [Configuración del firewall de red](../agents/log-analytics-agent.md#network-requirements).
  
@@ -166,4 +166,4 @@ Ahora que ya recopila datos sobre el funcionamiento y el rendimiento del equipo 
 Para obtener información sobre cómo ver y analizar los datos, continúe con el tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver o analizar datos en Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Ver o analizar datos en Log Analytics](../logs/log-analytics-tutorial.md)

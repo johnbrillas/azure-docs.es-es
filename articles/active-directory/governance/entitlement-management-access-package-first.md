@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un paquete de acceso: administración de derechos de Azure AD'
-description: Tutorial paso a paso sobre cómo crear el primer paquete de acceso en la administración de derechos de Azure Active Directory.
+title: 'Tutorial: Administración del acceso a los recursos en la administración de derechos de Azure AD'
+description: Tutorial paso a paso sobre cómo crear el primer paquete de acceso mediante Azure Portal en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937899"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547407"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Tutorial: Administración del acceso a los recursos en la administración de derechos de Azure AD
 
 Administrar el acceso a todos lol recursos que necesitan los empleados, como grupos, aplicaciones y sitios, es una función importante en las organizaciones. Querrá conceder a los empleados el nivel de acceso correcto que necesitan para ser productivos y eliminar su acceso cuando ya no se precise.
 
@@ -41,8 +41,6 @@ En este tutorial, aprenderá a:
 Para consultar una demostración detallada del proceso de implementación de la administración de derechos de Azure Active Directory, incluida la creación del primer paquete de acceso, vea el siguiente vídeo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-También puede crear un paquete de acceso mediante programación con Microsoft Graph. Para ver un tutorial que muestra cómo crear un paquete de acceso mediante programación, consulte la [API de administración de derechos](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

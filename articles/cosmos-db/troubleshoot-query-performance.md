@@ -4,16 +4,16 @@ description: Aprenda a identificar, diagnosticar y solucionar problemas de consu
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559979"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ A continuación se indican algunas funciones del sistema comunes que no usa el �
 | Mayúsculas y minúsculas                         | En lugar de usar la función del sistema para normalizar los datos al realizar comparaciones, puede normalizar el uso de mayúsculas y minúsculas durante la inserción. Una consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se convierte en ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcule la hora actual antes de la ejecución de la consulta y use ese valor de cadena en la cláusula `WHERE`. |
 | Funciones matemáticas (sin agregados) | Si necesita calcular frecuentemente un valor en la consulta, considere la posibilidad de almacenarlo como propiedad en el documento JSON. |
+
+Estas funciones del sistema pueden usar índices, excepto cuando se usan en consultas con agregados:
+
+| **Función del sistema**                     | **Ideas de optimización**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Funciones del sistema espacial                        | Almacenamiento del resultado de la consulta en una vista materializada en tiempo real |
 
 Cuando se usan en la cláusula `SELECT`, las funciones del sistema ineficaces no afectarán al modo en que las consultas pueden usar índices.
 

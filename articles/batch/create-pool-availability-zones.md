@@ -3,12 +3,12 @@ title: Creación de un grupo en zonas de disponibilidad
 description: Aprenda a crear un grupo de Batch con directiva de zona para ayudarlo a protegerse de errores.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725295"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Creación de un grupo de Azure Batch en Availability Zones
 
@@ -22,7 +22,7 @@ Batch mantiene la paridad con Azure con compatibilidad de Availability Zones. Pa
 
 Para que el grupo de Batch se asigne a través de las zonas de disponibilidad, la región de Azure en la que se crea el grupo debe admitir la SKU de máquina virtual solicitada en más de una zona. Para validar esto, llame a la [API Resource SKUs List](/rest/api/compute/resourceskus/list) y compruebe el campo **locationInfo** de [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Asegúrese de que se admite más de una zona para la SKU de máquina virtual solicitada.
 
-Para las [cuentas de Batch del modo de suscripción de usuario](accounts.md#batch-accounts), asegúrese de que la suscripción en la que va a crear el grupo no tenga una restricción de oferta de zona en la SKU de máquina virtual solicitada. Para confirmar esto, llame a la [API Resource SKUs List](/rest/api/compute/resourceskus/list) y compruebe [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Si existe una restricción de zona, puede enviar una [incidencia de soporte técnico](../azure-portal/supportability/sku-series-unavailable.md) para quitar la restricción de zona.
+Para las [cuentas de Batch del modo de suscripción de usuario](accounts.md#batch-accounts), asegúrese de que la suscripción en la que va a crear el grupo no tenga una restricción de oferta de zona en la SKU de máquina virtual solicitada. Para confirmar esto, llame a la [API Resource SKUs List](/rest/api/compute/resourceskus/list) y compruebe [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Si existe una restricción de zona, puede enviar una [incidencia de soporte técnico](/troubleshoot/azure/general/region-access-request-process) para quitar la restricción de zona.
 
 Además, tenga en cuenta que no puede crear un grupo con una directiva de zona si tiene habilitada la comunicación entre nodos y usa una [SKU de máquina virtual que admite InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
@@ -83,4 +83,3 @@ Cuerpo de la solicitud
 - Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
 - Obtenga información sobre la [creación un grupo en una subred de una red virtual de Azure](batch-virtual-network.md).
 - Obtenga información sobre la [creación de un grupo de Azure Batch sin direcciones IP públicas](./batch-pool-no-public-ip-address.md).
-

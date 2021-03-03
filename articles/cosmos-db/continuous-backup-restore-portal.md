@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538860"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381875"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configuración y administración de copia de seguridad continua y restauración a un momento dado (versión preliminar) con Azure Portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Por ejemplo, si quiere restaurar al punto antes de la eliminación o actualizaci
 Puede usar Azure Portal para restaurar completamente una cuenta eliminada en un plazo de 30 días a contar de su eliminación. Siga estos pasos para restaurar una cuenta eliminada:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Busque recursos de "Azure Cosmos DB" en la barra de búsqueda global. Se muestran todas las cuentas existentes.
+1. Busque recursos de *Azure Cosmos DB* en la barra de búsqueda global. Se muestran todas las cuentas existentes.
 1. Luego, haga clic en el botón **Restaurar**. En el panel Restaurar se muestra una lista de las cuentas eliminadas que se pueden restaurar dentro del período de retención, que es de 30 días a contar del momento de la eliminación.
 1. Elija la cuenta que quiere restaurar.
 
@@ -95,7 +95,7 @@ Puede usar Azure Portal para restaurar completamente una cuenta eliminada en un 
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>Seguimiento del estado de una operación de restauración
 
-Después de iniciar una operación de restauración, seleccione el icono de campana de **Notificación** que se encuentra en la esquina superior derecha del portal. Proporciona un vínculo que muestra el estado de la cuenta que se está restaurando. Mientras la restauración esté en curso, el estado de la cuenta será "En creación" y, cuando la operación de restauración se complete, cambiará a "En línea".
+Después de iniciar una operación de restauración, seleccione el icono de campana de **Notificación** que se encuentra en la esquina superior derecha del portal. Proporciona un vínculo que muestra el estado de la cuenta que se está restaurando. Mientras la restauración esté en curso, el estado de la cuenta será *En creación* y, cuando la operación de restauración se complete, cambiará a *En línea*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="El estado de la cuenta restaurada cambia de En creación a En línea cuando se completa la operación." border="true":::
 

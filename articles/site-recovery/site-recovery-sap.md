@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369427"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711950"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
@@ -45,7 +45,7 @@ Puede usar Site Recovery para implementar una solución de recuperación ante de
 * Dispone de sistemas SAP que se ejecutan en Hyper-V de forma local. También replica los sistemas SAP en un sitio de recuperación ante desastres de un centro de datos de Azure (recuperación ante desastres de Hyper-V en Azure).
    Se requieren componentes adicionales para este escenario. Para más información, consulte [Arquitectura de replicación de Hyper-V en Azure](./hyper-v-azure-architecture.md).
 
-En este artículo, usamos un escenario de recuperación ante desastres de **Azure en Azure** . En el escenario se muestran las funcionalidades de Site Recovery de recuperación ante desastres de SAP. Debido a que la replicación de Site Recovery no es específica para la aplicación, el proceso descrito también se puede aplicar a otros escenarios.
+En este artículo, usamos un escenario de recuperación ante desastres de **Azure en Azure**. En el escenario se muestran las funcionalidades de Site Recovery de recuperación ante desastres de SAP. Debido a que la replicación de Site Recovery no es específica para la aplicación, el proceso descrito también se puede aplicar a otros escenarios.
 
 ### <a name="required-foundation-services"></a>Servicios básicos requeridos
 En el escenario que se analiza en este artículo, se implementan los servicios básicos siguientes:
@@ -119,7 +119,7 @@ Para comenzar a replicar todas las máquinas virtuales de la aplicación SAP en 
 
 ## <a name="networking-configuration"></a>Configuración de red
 
-Si usa una dirección IP estática, puede especificar la dirección IP que desea que use la máquina virtual. Para establecer la dirección IP, vaya a **Configuración de proceso y red** > **Adaptador de red** .
+Si usa una dirección IP estática, puede especificar la dirección IP que desea que use la máquina virtual. Para establecer la dirección IP, vaya a **Configuración de proceso y red** > **Adaptador de red**.
 
 ![Captura de pantalla que muestra cómo establecer una dirección IP privada en el panel del adaptador de red de Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -136,7 +136,7 @@ Un plan de recuperación admite la secuenciación de distintas capas en una apli
 ### <a name="add-scripts-to-the-recovery-plan"></a>Incorporación de scripts al plan de recuperación
 Para que las aplicaciones funcionen correctamente, es posible que tenga que realizar algunas operaciones en las máquinas virtuales de Azure. Realice estas operaciones después de la conmutación por error o durante una conmutación por error de prueba. Algunas de las operaciones posteriores a la conmutación por error también se pueden automatizar. Por ejemplo, actualice la entrada DNS y modifique los enlaces y las conexiones mediante la incorporación de los scripts correspondientes al plan de recuperación.
 
-Puede implementar los scripts de Site Recovery que se usan con más frecuencia en la cuenta de Azure Automation seleccionando **Implementar en Azure** . Si usa un script publicado, siga las instrucciones del script.
+Puede implementar los scripts de Site Recovery que se usan con más frecuencia en la cuenta de Azure Automation seleccionando **Implementar en Azure**. Si usa un script publicado, siga las instrucciones del script.
 
 [![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -150,7 +150,7 @@ Puede implementar los scripts de Site Recovery que se usan con más frecuencia e
 
 1. En Azure Portal, seleccione el almacén de Recovery Services.
 1. Seleccione el plan de recuperación que creó para las aplicaciones SAP.
-1. Seleccione **Conmutación por error de prueba** .
+1. Seleccione **Conmutación por error de prueba**.
 1. Para iniciar el proceso de conmutación por error de prueba, seleccione el punto de recuperación y la red virtual de Azure.
 1. Cuando el entorno secundario esté activo, realice las validaciones.
 1. Cuando se completen las validaciones, seleccione **Limpiar conmutación por error de prueba** para limpiar el entorno de conmutación por error.
@@ -167,5 +167,5 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre cómo crear una solución de recuperación ante desastres para las implementaciones de SAP NetWeaver con Site Recovery. Consulte las notas del producto descargables [SAP NetWeaver: Creación de una solución de recuperación ante desastres con Site Recovery](https://aka.ms/asr_sap). En las notas del producto se describen las recomendaciones para distintas arquitecturas de SAP. Puede ver las aplicaciones y los tipos de máquinas virtuales compatibles para SAP en Azure. También hay opciones de plan para probar la solución de recuperación ante desastres.
+* Más información sobre cómo crear una solución de recuperación ante desastres para las implementaciones de SAP NetWeaver con Site Recovery. Consulte las notas del producto descargables [SAP NetWeaver: Creación de una solución de recuperación ante desastres con Site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). En las notas del producto se describen las recomendaciones para distintas arquitecturas de SAP. Puede ver las aplicaciones y los tipos de máquinas virtuales compatibles para SAP en Azure. También hay opciones de plan para probar la solución de recuperación ante desastres.
 * Obtenga más información sobre cómo [replicar otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.

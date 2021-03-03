@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956130"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093470"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creación de un localizador de streaming y compilación de direcciones URL
 
@@ -27,7 +27,7 @@ En Azure Media Services, para compilar una dirección URL de streaming, primero 
 
 En este artículo se demuestra cómo crear un localizador de streaming y compilar una dirección URL de streaming mediante SDK de .NET y Java.
 
-## <a name="prerequisite"></a>Requisito previo 
+## <a name="prerequisite"></a>Requisito previo
 
 Versión preliminar de [Empaquetado dinámico](dynamic-packaging-overview.md).
 

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588056"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
 
@@ -42,13 +42,13 @@ Quiere:
 
 - Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
 
-- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+- Para ayudarle a resolver estas cuestiones, Azure Active Directory proporciona libros para la supervisión. Los [libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
 
 
 
 Este artículo:
 
-- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](../../azure-monitor/platform/workbooks-overview.md).
+- Supone que está familiarizado con cómo [crear informes interactivos con libros de Monitor](../../azure-monitor/visualize/workbooks-overview.md).
 
 - Explica cómo utilizar los libros de Monitor para comprender el efecto de las directivas de acceso condicional, para solucionar los problemas de inicio de sesión e identificar las autenticaciones heredadas.
  
@@ -60,9 +60,9 @@ Para utilizar los libros de Monitor, necesita:
 
 - Un inquilino de Azure Active Directory con una licencia Premium (P1 o P2). Aprenda cómo [obtener una licencia prémium](../fundamentals/active-directory-get-started-premium.md).
 
-- Un [área de trabajo de Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
+- Un [área de trabajo de Log Analytics.](../../azure-monitor/logs/quick-create-workspace.md)
 
-- [Acceso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) al área de trabajo de Log Analytics
+- [Acceso](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) al área de trabajo de Log Analytics
 - Los siguientes roles en Azure Active Directory (si obtiene acceso a Log Analytics a través del portal de Azure Active Directory)
     - Administrador de seguridad
     - Lector de seguridad
@@ -70,7 +70,7 @@ Para utilizar los libros de Monitor, necesita:
     - Administrador global
 
 ## <a name="roles"></a>Roles
-Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para administrar los libros:
+Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para administrar los libros:
 -   Administrador global
 -   Administrador de seguridad
 -   Lector de seguridad
@@ -91,7 +91,7 @@ Para acceder a los libros:
 
 ## <a name="sign-in-analysis"></a>Análisis de inicio de sesión
 
-Para tener acceso al libro de análisis de inicio de sesión, en la sección **Uso** , seleccione **Inicios de sesión**. 
+Para tener acceso al libro de análisis de inicio de sesión, en la sección **Uso**, seleccione **Inicios de sesión**. 
 
 Este libro muestra las siguientes tendencias de inicio de sesión:
 
@@ -257,7 +257,7 @@ Use el libro **Análisis de errores de inicios de sesión** para solucionar erro
 - Autenticación heredada 
 
 
-Para acceder a los inicios de sesión por datos de acceso condicional, en la sección **Solución de problemas** , seleccione **Sign-ins using Legacy Authentication** (Inicios de sesión que utilizan una autenticación heredada). 
+Para acceder a los inicios de sesión por datos de acceso condicional, en la sección **Solución de problemas**, seleccione **Sign-ins using Legacy Authentication** (Inicios de sesión que utilizan una autenticación heredada). 
 
 Este libro muestra las siguientes tendencias de inicio de sesión:
 
@@ -298,4 +298,4 @@ Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor propor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de informes interactivos con los libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).
+[Creación de informes interactivos con los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).

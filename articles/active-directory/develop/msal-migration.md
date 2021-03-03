@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 6517cdd7aafa7ae2fe351b349e62a66104469dcd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218237"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653786"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migración de aplicaciones a la Biblioteca de autenticación de Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __P: ¿Cómo funciona MSAL con AD FS?__
 A. MSAL.NET admite ciertos escenarios para autenticarse en AD FS 2019. Si la aplicación necesita adquirir tokens directamente desde una versión anterior de AD FS, debe permanecer en ADAL. [Más información](msal-net-adfs-support.md).
 
 __P: ¿Cómo puedo obtener ayuda para migrar mi aplicación?__  
-A. Consulte la sección [Guía de migración](#migration-guidance) de este artículo. Si después de leer la guía de la plataforma de la aplicación le quedan preguntas, puede publicarlas en [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) con la etiqueta `[azure-ad-adal-deprecation]` o abrir una incidencia en el repositorio de GitHub de la biblioteca. Vea la sección [Lenguajes y plataformas](msal-overview.md#languages-and-frameworks) del artículo información general de MSAL para obtener vínculos al repositorio de cada biblioteca.
+A. Consulte la sección [Guía de migración](#migration-guidance) de este artículo. Si después de leer la guía de la plataforma de la aplicación le quedan preguntas, puede publicarlas en [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) con la etiqueta `[azure-ad-adal-deprecation]` o abrir una incidencia en el repositorio de GitHub de la biblioteca. Vea la sección [Lenguajes y plataformas](msal-overview.md#languages-and-frameworks) del artículo información general de MSAL para obtener vínculos al repositorio de cada biblioteca.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

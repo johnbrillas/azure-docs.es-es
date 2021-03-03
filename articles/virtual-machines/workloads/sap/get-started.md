@@ -1,7 +1,8 @@
 ---
 title: Introducción a SAP en máquinas virtuales de Azure | Microsoft Docs
 description: Información sobre las soluciones SAP que se ejecutan en máquinas virtuales (VM) en Microsoft Azure
-services: virtual-machines-linux
+services: virtual-machines-sap
+ms.service: virtual-machines-sap
 documentationcenter: ''
 author: msjuergent
 manager: bburns
@@ -9,20 +10,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
-ms.service: virtual-machines-linux
-ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0d759ad0ebb1aa4f1b6a5f404812ab8149ed69e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549395"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671858"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -84,6 +83,7 @@ En esta sección encontrará documentos sobre la integración de Microsoft Powe
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 02/11/2021: cambios en la [alta disponibilidad de IBM Db2 LUW en máquinas virtuales de Azure en Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) para modificar los comandos de clúster de Pacemaker para RHEL 8. x
 - 03/02/2021: Cambio en [Configuración de Pacemaker en RHEL en Azure](./high-availability-guide-rhel-pacemaker.md) para actualizar pcmk_host_map en el comando stonith create
 - 03/02/2021: Cambio en [Configuración de Pacemaker en SLES en Azure](./high-availability-guide-suse-pacemaker.md) para agregar pcmk_host_map en el comando stonith create 
 - 03/02/2021: Más información sobre la configuración del programador de E/S para SUSE en el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cd43b6c7b11cde17bc9f9923374baf3416e5b370
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 69234d7c22f1725f6f21fe52a455e64d743f052e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709859"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Línea de base de seguridad de Azure para Azure Lighthouse
 
@@ -360,9 +360,9 @@ Con Azure Lighthouse, puede usar los registros de Azure Monitor de forma escalab
 
 Los clientes que tengan suscripciones delegadas para Azure Lighthouse pueden visualizar los datos del registro de actividad de Azure para ver todas las acciones realizadas. Esto proporciona a los clientes una visibilidad completa de las operaciones que los proveedores de servicios realizan, junto con las operaciones hechas por los usuarios en el propio inquilino de Azure Active Directory (Azure AD) del cliente.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Supervisión de los recursos delegados a escala](how-to/monitor-at-scale.md)
 
@@ -386,7 +386,7 @@ Los clientes que tengan suscripciones delegadas para Azure Lighthouse pueden vis
 
 Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Supervisión de los recursos delegados a escala](how-to/monitor-at-scale.md)
 
@@ -404,9 +404,9 @@ Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso fre
 
 En Azure Monitor, puede establecer el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de área de trabajo de Azure Storage, Data Lake o Log Analytics para el almacenamiento de archivo a largo plazo.
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Exportación de alertas y recomendaciones de Azure Security Center](../security-center/continuous-export.md): configure esta opción y el cliente no podrá establecer la retención de registros.
 

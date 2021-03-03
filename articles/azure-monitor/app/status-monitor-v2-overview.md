@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186225"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583805"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementación de Azure Application Insights Agent para servidores locales
 
@@ -67,7 +67,7 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
   - Se puede usar el cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) para comprobar que la habilitación se ha realizado correctamente.
   - Se recomienda usar [Live Metrics](./live-stream.md) para determinar rápidamente si la aplicación envía telemetría.
 
-  - También puede usar [Log Analytics](../log-query/log-analytics-tutorial.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
+  - También puede usar [Log Analytics](../logs/log-analytics-tutorial.md) para enumerar todos los roles en la nube que están enviando actualmente telemetría:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Cada una de estas opciones se describe en las [instrucciones detalladas](status-
 
 Vea la telemetría:
 
-* [Explore las métricas](../platform/metrics-charts.md) para supervisar el rendimiento y el uso.
+* [Explore las métricas](../essentials/metrics-charts.md) para supervisar el rendimiento y el uso.
 * [Busque en los eventos y los registros](./diagnostic-search.md) para diagnosticar problemas.
-* [Use Analytics](../log-query/log-query-overview.md) para consultas más avanzadas.
+* [Use Analytics](../logs/log-query-overview.md) para consultas más avanzadas.
 * [Cree paneles](./overview-dashboard.md).
 
 Agregue más telemetría:

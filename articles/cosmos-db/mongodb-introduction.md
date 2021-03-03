@@ -4,15 +4,15 @@ description: Vea cómo puede usar Azure Cosmos DB para almacenar y consultar gra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: ab335c8cc682f6b33dcb30509d682186a178c676
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861065"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658002"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,9 +24,9 @@ ms.locfileid: "97861065"
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilidad de protocolo de conexión
 
-Azure Cosmos DB implementa el protocolo de conexión para MongoDB. Esta implementación permite una compatibilidad transparente con las herramientas, los controladores y los SDK de cliente nativos de MongoDB. Azure Cosmos DB no hospeda el motor de base de datos de MongoDB. Los detalles de las características admitidas por MongoDB se pueden encontrar aquí: 
-- [API para la versión 3.6 del motor de Mongo DB de Azure Cosmos DB](mongodb-feature-support-36.md)
-- [API para la versión 3.2 del motor de Mongo DB de Azure Cosmos DB](mongodb-feature-support.md)
+Azure Cosmos DB implementa el protocolo de conexión para MongoDB. Esta implementación permite una compatibilidad transparente con las herramientas, los controladores y los SDK de cliente nativos de MongoDB. Azure Cosmos DB hospeda el motor de base de datos de MongoDB. Los detalles de las características admitidas por MongoDB se pueden encontrar aquí: 
+- [API de Azure Cosmos DB para MongoDB versión 4.0](mongodb-feature-support-40.md)
+- [API de Azure Cosmos DB para MongoDB versión 3.6](mongodb-feature-support-36.md)
 
 De forma predeterminada, las nuevas cuentas creadas mediante la API de Azure Cosmos DB para MongoDB son compatibles con la versión 3.6 del protocolo de conexión de MongoDB. Cualquier controlador cliente de MongoDB que reconozca esta versión del protocolo debería poder conectarse de forma nativa a Cosmos DB.
 

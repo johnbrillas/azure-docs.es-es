@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413384"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378713"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
 La biblioteca de JavaScript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil.
+
+En esta documentación se usa el SDK web de Azure Maps; sin embargo, los servicios de Azure Maps se pueden usar con cualquier control de mapa. [Estos](open-source-projects.md#third-part-map-control-plugins) son algunos controles conocidos de mapa de código abierto para los que el equipo de Azure Maps ha creado complementos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -258,7 +260,7 @@ Si desarrolla aplicaciones en un entorno JavaScript, puede que uno de los siguie
 
 - [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): contenedor de Angular 10 para Azure Maps.
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): un componente Blazor de Azure Maps.
-- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
+- [Componente React de Azure Maps](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps): un componente de Azure Maps para la aplicación Vue.
 
 ## <a name="next-steps"></a>Pasos siguientes

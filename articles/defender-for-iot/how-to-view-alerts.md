@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509083"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523675"
 ---
 # <a name="view-alerts"></a>Visualización de alertas
 
@@ -24,7 +24,7 @@ También puede ver alertas en el panel del sensor.
 
 Para ver las alertas:
 
-- Seleccione **Alertas** en el menú lateral. La ventana **Alertas** muestra las alertas que ha detectado el sensor.
+- Seleccione **Alertas** en el menú lateral. La ventana Alertas muestra las alertas que ha detectado el sensor.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Vista de la pantalla Alertas.":::
 
@@ -42,21 +42,21 @@ Puede ver las alertas en función de las distintas categorías de la vista princ
 
 ## <a name="search-for-alerts-of-interest"></a>Búsqueda de alertas de interés
 
-La vista principal de **Alertas** proporciona varias características de búsqueda que le ayudarán a encontrar alertas de interés.
+La vista principal de Alertas proporciona varias características de búsqueda que le ayudarán a encontrar alertas de interés.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Captura de pantalla de aprendizaje de alertas.":::
 
-### <a name="text-search"></a>Búsqueda de texto 
+### <a name="text-search"></a>Búsqueda de texto
 
-Use la opción **Free Search** (Búsqueda libre) para buscar alertas por texto, números o caracteres.
+Use la opción Free Search (Búsqueda libre) para buscar alertas por texto, números o caracteres.
 
 Para buscar:
 
-- Escriba el texto necesario en el campo **Free Search** (Búsqueda libre) y presione ENTRAR en el teclado.
+- Escriba el texto necesario en el campo Free Search (Búsqueda libre) y presione ENTRAR en el teclado.
 
 Para borrar la búsqueda:
 
-- Elimine el texto del campo **Free Search** (Búsqueda libre) y presione ENTRAR en el teclado.
+- Elimine el texto del campo Free Search (Búsqueda libre) y presione ENTRAR en el teclado.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Búsqueda de grupos de dispositivos o de direcciones IP de dispositivo
 
@@ -100,7 +100,7 @@ Los mensajes de alerta proporcionan las siguientes acciones:
 
 - Seleccione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para conocer y confirmar todas las alertas.
 
-- Seleccione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar la lista de alertas a un archivo CSV y seleccionar la opción de exportación. Elija **Exportación de alertas** para la opción para exportar a CSV normal. O bien, elija **Extended Alert Export** (Exportación de alertas extendida) para tener la posibilidad de agregar filas independientes y obtener información adicional sobre una alerta del archivo CSV.
+- Seleccione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar información de alertas a un archivo .csv. Use la opción **Export Extended Alerts** (Exportar alertas extendidas) para exportar información de alertas de filas independientes para cada alerta que abarque varios dispositivos.
 
 ## <a name="alert-pop-up-window-options"></a>Opciones de la ventana emergente Alertas
 

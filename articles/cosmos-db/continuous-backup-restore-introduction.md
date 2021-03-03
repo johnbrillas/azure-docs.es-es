@@ -8,12 +8,12 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538861"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393146"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Copia de seguridad continua con la característica de restauración a un momento dado (versión preliminar) de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB realiza la copia de seguridad de datos en segundo plano sin con
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Copia de seguridad de datos de Azure Cosmos DB en Azure Blob Storage." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-La ventana de tiempo disponible para la restauración (también conocido como período de retención) es el más bajo de los dos valores siguientes: "Últimos 30 días desde ahora" o "Hasta la creación del recurso". El momento dado para la restauración puede ser cualquier marca de tiempo dentro del período de retención.
+La ventana de tiempo disponible para la restauración (también conocido como período de retención) es el más bajo de los dos valores siguientes: *Últimos 30 días desde ahora* o *Hasta la creación del recurso*. El momento dado para la restauración puede ser cualquier marca de tiempo dentro del período de retención.
 
 En la versión preliminar pública, puede restaurar la cuenta de Azure Cosmos DB para el contenido de MongoDB o la API SQL en un momento dado en otra cuenta con [Azure Portal](continuous-backup-restore-portal.md), la [interfaz de la línea de comandos (CLI) de Azure](continuous-backup-restore-command-line.md), [Azure PowerShell](continuous-backup-restore-powershell.md) o [Azure Resource Manager](continuous-backup-restore-template.md).
 
@@ -59,17 +59,18 @@ Puede agregar estas configuraciones a la cuenta restaurada una vez completada la
 
 ## <a name="restore-scenarios"></a>Escenarios de restauración
 
-A continuación, se muestran algunos de los escenarios clave que se abordan con la característica de restauración a un momento dado. Los escenarios [a] a [c] muestran cómo desencadenar una restauración si la marca de tiempo de restauración se conoce de antemano. Sin embargo, puede haber escenarios en los que no conozca la hora exacta de un daño o una eliminación accidental. Los escenarios [d] y [e] muestran cómo _detectar_ la marca de tiempo de restauración con las API de fuente de eventos nuevas en la base de datos o los contenedores que se pueden restaurar.
+A continuación, se muestran algunos de los escenarios clave que se abordan con la característica de restauración a un momento dado. Los escenarios [a] a [c] muestran cómo desencadenar una restauración si la marca de tiempo de restauración se conoce de antemano.
+Sin embargo, puede haber escenarios en los que no conozca la hora exacta de un daño o una eliminación accidental. Los escenarios [d] y [e] muestran cómo _detectar_ la marca de tiempo de restauración con las API de fuente de eventos nuevas en la base de datos o los contenedores que se pueden restaurar.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Eventos del ciclo de vida con marcas de tiempo para una cuenta que se puede restaurar." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Restaurar una cuenta eliminada**: puede ver todas las cuentas eliminadas que se pueden restaurar en el panel **Restaurar**. Por ejemplo, si la "cuenta A" se elimina en la marca de tiempo T3. En este caso, basta la marca de tiempo justo antes de T3, la ubicación, el nombre de la cuenta de destino y el grupo de recursos para restaurar desde [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
+a. **Restaurar una cuenta eliminada**: puede ver todas las cuentas eliminadas que se pueden restaurar en el panel **Restaurar**. Por ejemplo, si la *cuenta A* se elimina en la marca de tiempo T3. En este caso, basta la marca de tiempo justo antes de T3, la ubicación, el nombre de la cuenta de destino y el grupo de recursos para restaurar desde [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Eventos del ciclo de vida con marcas de tiempo para una base de datos y contenedor que se pueden restaurar." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Restaurar los datos de una cuenta en una región determinada**: por ejemplo, si la "cuenta A" existe en dos regiones, "Este de EE. UU." y "Oeste de EE. UU." en la marca de tiempo T3. Si necesita crear una copia de la cuenta A en "Oeste de EE. UU.", puede hacer una restauración a un momento dado desde [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore) con Oeste de EE. UU. como la ubicación de destino.
+b. **Restaurar los datos de una cuenta en una región determinada**: por ejemplo, si la *cuenta A* existe en dos regiones, *Este de EE. UU.* y *Oeste de EE. UU.* en la marca de tiempo T3. Si necesita crear una copia de la cuenta A en *Oeste de EE. UU.* , puede hacer una restauración a un momento dado desde [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore) con Oeste de EE. UU. como la ubicación de destino.
 
-c. **Recuperar de una operación de escritura o eliminación accidental dentro de un contenedor con una marca de tiempo de restauración conocida**: por ejemplo, si **sabe** que el contenido del "contenedor 1" dentro de la "base de datos 1" se modificó accidentalmente en la marca de tiempo T3. Puede realizar una restauración a un momento dado desde [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore) en otra cuenta en la marca de tiempo T3 para recuperar el estado deseado del contenedor.
+c. **Recuperar de una operación de escritura o eliminación accidental dentro de un contenedor con una marca de tiempo de restauración conocida**: por ejemplo, si **sabe** que el contenido del *contenedor 1* dentro de la *base de datos 1* se modificó accidentalmente en la marca de tiempo T3. Puede realizar una restauración a un momento dado desde [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) o la [CLI](continuous-backup-restore-command-line.md#trigger-restore) en otra cuenta en la marca de tiempo T3 para recuperar el estado deseado del contenedor.
 
 d. **Restaurar una cuenta a un momento dado antes de la eliminación accidental de la base de datos**: en el [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), puede usar el panel fuente de eventos para determinar cuándo se eliminó una base de datos y buscar la hora de restauración. De un modo similar, con la [CLI de Azure](continuous-backup-restore-command-line.md#trigger-restore) y [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), puede descubrir el evento de eliminación de la base de datos si enumera la fuente de eventos de la base de datos y, luego, desencadena el comando de restauración con los parámetros necesarios.
 
@@ -81,7 +82,7 @@ Azure Cosmos DB permite aislar y restringir los permisos de restauración de un
 
 ## <a name="pricing"></a><a id="continuous-backup-pricing"></a>Precios
 
-Las cuentas de Azure Cosmos DB que tienen habilitada la copia de seguridad continua incurrirán en un cargo mensual adicional por concepto de "almacenamiento de la copia de seguridad" y "restauración de los datos". El costo de restauración se suma cada vez que se inicia la operación de restauración. Si configura una cuenta con copia de seguridad continua pero no restaura los datos, en la factura solo se incluye el costo de almacenamiento de copia de seguridad.
+Las cuentas de Azure Cosmos DB que tienen habilitada la copia de seguridad continua incurrirán en un cargo mensual adicional por concepto de *almacenamiento de la copia de seguridad* y *restauración de los datos*. El costo de restauración se suma cada vez que se inicia la operación de restauración. Si configura una cuenta con copia de seguridad continua pero no restaura los datos, en la factura solo se incluye el costo de almacenamiento de copia de seguridad.
 
 El ejemplo siguiente se basa en el precio de una cuenta de Azure Cosmos implementada en una región no gubernamental de EE. UU. Los precios y el cálculo pueden variar en función de la región que use; consulte la [página de precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para más información.
 

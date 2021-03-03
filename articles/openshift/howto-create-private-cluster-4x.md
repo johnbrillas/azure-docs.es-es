@@ -1,19 +1,19 @@
 ---
 title: Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 description: Aprenda a crear un clúster privado de Red Hat OpenShift en Azure en el que se ejecute OpenShift 4
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 633b8e6b0d9694119b5371f921af90c524936926
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740931"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633621"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 

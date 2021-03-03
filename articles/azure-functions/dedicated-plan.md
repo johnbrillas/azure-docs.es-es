@@ -3,12 +3,12 @@ title: Hospedaje dedicado de Azure Functions
 description: Conozca las ventajas de ejecutar Azure Functions en un plan de hospedaje de App Service dedicado.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ebf83aa919d91f161b247539ae20873242a8ed8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937529"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591064"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Planes de hospedaje dedicados en Azure Functions
 
@@ -33,7 +33,7 @@ Incluso con Always On habilitado, el tiempo de espera de ejecución para las fun
 
 ## <a name="scaling"></a>Ampliación
 
-Con un plan de App Service, para escalar horizontalmente de forma manual, puede agregar más instancias de máquina virtual. También puede habilitar el escalado automático, aunque este sea más lento que la escala elástica del plan Premium. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/manage-scale-up.md) para obtener más información. 
+Con un plan de App Service, para escalar horizontalmente de forma manual, puede agregar más instancias de máquina virtual. También puede habilitar el escalado automático, aunque este sea más lento que la escala elástica del plan Premium. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/manage-scale-up.md) para obtener más información. 
 
 > [!NOTE] 
 > Al ejecutar funciones de JavaScript (Node.js) en un plan de App Service, debe elegir un plan con menos CPU virtuales. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#choose-single-vcpu-app-service-plans). 

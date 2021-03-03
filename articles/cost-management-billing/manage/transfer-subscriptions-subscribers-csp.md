@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962117"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363056"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
@@ -36,6 +36,7 @@ Cuando se aprueba la solicitud, el CSP puede entregar una factura combinada a su
 
 Para transferir cualquier otra suscripción de Azure a un partner de CSP, el suscriptor debe trasladar los recursos de las suscripciones de origen a las suscripciones de CSP. Utilice las siguientes instrucciones para migrar recursos entre suscripciones.
 
+1. Establezca una [relación de revendedor](/partner-center/request-a-relationship-with-a-customer) con el cliente. Consulte la[introducción a la autorización regional de CSP](/partner-center/regional-authorization-overview) para asegurarse de que el cliente y el inquilino del asociado estén dentro de las mismas regiones autorizadas.
 1. Trabaje con su partner de CSP para crear suscripciones de CSP de Azure de destino.
 1. Asegúrese de que las suscripciones de CSP de origen y destino están en el mismo inquilino de Azure Active Directory (Azure AD).  
     No se puede cambiar al inquilino de Azure AD por una suscripción de Azure CSP. En su lugar, debe agregar o asociar la suscripción de origen al inquilino de Azure AD de CSP. Para más información, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

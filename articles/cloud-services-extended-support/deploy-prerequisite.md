@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728117"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Requisitos previos para la implementación de Azure Cloud Services (soporte extendido)
 
@@ -42,7 +42,7 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Actualizaciones necesarias del archivo de configuración de servicio (.cscfg)
 
 ### <a name="1-virtual-network"></a>1) Red virtual
-Las implementaciones del servicio en la nube (soporte extendido) deben estar en una red virtual. La red virtual se puede crear por medio de [Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) o una [plantilla de ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). Además, debe haber una referencia a la red virtual y las subredes en el archivo de configuración de servicio (.cscfg), en la sección [NetworkConfiguration](schema-cscfg-networkconfiguration.md). 
+Las implementaciones del servicio en la nube (soporte extendido) deben estar en una red virtual. La red virtual se puede crear por medio de [Azure Portal](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), la [CLI de Azure](../virtual-network/quick-create-cli.md) o una [plantilla de ARM](../virtual-network/quick-create-template.md). Además, debe haber una referencia a la red virtual y las subredes en el archivo de configuración de servicio (.cscfg), en la sección [NetworkConfiguration](schema-cscfg-networkconfiguration.md). 
 
 En el caso de las redes virtuales que pertenecen al mismo grupo de recursos que el servicio en la nube, basta con una referencia al nombre de la red virtual en el archivo de configuración de servicio (.cscfg). Si la red virtual y el servicio en la nube se encuentran en dos grupos de recursos diferentes, es necesario especificar el id. de Azure Resource Manager completo de la red virtual en el archivo de configuración de servicio (.cscfg).
  
@@ -103,7 +103,7 @@ Los tamaños siguientes están en desuso en Azure Resource Manager. Pero si quie
  Por ejemplo, `<WorkerRole name="WorkerRole1" vmsize="Medium"` se convertiría en `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 > [!NOTE]
-> Para recuperar una lista de los tamaños disponibles, vea la [lista de SKU de recursos](https://docs.microsoft.com/rest/api/compute/resourceskus/list) y aplique los siguientes filtros: <br>
+> Para recuperar una lista de los tamaños disponibles, vea la [lista de SKU de recursos](/rest/api/compute/resourceskus/list) y aplique los siguientes filtros: <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -120,10 +120,10 @@ Las implementaciones que usan los complementos antiguos de Escritorio remoto deb
 
 ## <a name="key-vault-creation"></a>Creación de Key Vault 
 
-Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. Key Vault se puede crear por medio de [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) y [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Key Vault se debe crear en la misma región y suscripción que el servicio en la nube. Para obtener más información, vea [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. Key Vault se puede crear por medio de [Azure Portal](../key-vault/general/quick-create-portal.md) y [PowerShell](../key-vault/general/quick-create-powershell.md). Key Vault se debe crear en la misma región y suscripción que el servicio en la nube. Para obtener más información, vea [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Implemente un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Implemente un servicio de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
 - Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
 - Visite el [repositorio de ejemplos de Cloud Services (soporte extendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737569"
 ---
 # <a name="monitoring-time-series-insights"></a>Supervisión de Time Series Insights
 
@@ -29,7 +29,7 @@ La página **información general** de Azure Portal de cada entorno de Time Seri
 
 Time Series Insights crea datos de supervisión mediante [Azure Monitor](../azure-monitor/overview.md), un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes.
 
-Comience leyendo el artículo [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), en el que se describen los conceptos siguientes:
+Comience leyendo el artículo [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), en el que se describen los conceptos siguientes:
 
 - ¿Qué es Azure Monitor?
 - Costos asociados con la supervisión
@@ -40,11 +40,11 @@ Comience leyendo el artículo [Supervisión de recursos de Azure con Azure Monit
 Las secciones siguientes complementan este artículo mediante la descripción de los datos específicos que se recopilan de Azure Time Series Insights. En estas secciones también se proporcionan ejemplos para configurar la recopilación y el análisis de datos con Azure Tools.
 
 > [!TIP]
-> Para comprender los costos asociados a Azure Monitor, consulte [Uso y costos estimados](../azure-monitor/platform/usage-estimated-costs.md). Para comprender el tiempo necesario para que los datos aparezcan en Azure Monitor, consulte [Tiempo de ingesta de datos de registro](../azure-monitor/platform/data-ingestion-time.md).
+> Para comprender los costos asociados a Azure Monitor, consulte [Uso y costos estimados](../azure-monitor//usage-estimated-costs.md). Para comprender el tiempo necesario para que los datos aparezcan en Azure Monitor, consulte [Tiempo de ingesta de datos de registro](../azure-monitor/logs/data-ingestion-time.md).
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Supervisión de datos de Azure Time Series Insights
 
-Azure Time Series Insights recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Consulte [Referencia de datos de supervisión de Azure Time Series Insights](how-to-monitor-tsi-reference.md) para obtener una referencia detallada de los registros y las métricas que se pueden recopilar.
 
@@ -53,7 +53,7 @@ Consulte [Referencia de datos de supervisión de Azure Time Series Insights](how
 Las métricas de la plataforma se recopilan y almacenan de forma automática, pero se pueden enrutar a otras ubicaciones mediante una configuración de diagnóstico.
 
 Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones.
-Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/platform/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar.
+Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar.
 
 Se pueden recopilar registros de las siguientes categorías de Azure Time Series Insights:
 
@@ -63,7 +63,7 @@ Se pueden recopilar registros de las siguientes categorías de Azure Time Series
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Puede analizar las métricas de Azure Time Series Insights con métricas de otros servicios de Azure mediante la opción Métricas del menú de Azure Monitor. Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md) para más información sobre esta herramienta.
+Puede analizar las métricas de Azure Time Series Insights con métricas de otros servicios de Azure mediante la opción Métricas del menú de Azure Monitor. Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md) para más información sobre esta herramienta.
 
 Para obtener una lista de las métricas de la plataforma recopiladas, consulte [Supervisión de las referencia de datos de Azure Time Series Insights](how-to-monitor-tsi-reference.md#metrics).
 
@@ -80,7 +80,7 @@ Puede acceder a los registros de los recursos como blob en una cuenta de almacen
 
 Los datos de los registros de Azure Monitor se almacenan en tablas; cada tabla tiene su propio conjunto de propiedades únicas.
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para ver una lista de los tipos de registros de recursos recopilados para Azure Time Series Insights, consulte [Referencia de datos de supervisión de Azure Time Series Insights](how-to-monitor-tsi-reference.md#resource-logs).
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Para ver una lista de los tipos de registros de recursos recopilados para Azure Time Series Insights, consulte [Referencia de datos de supervisión de Azure Time Series Insights](how-to-monitor-tsi-reference.md#resource-logs).
 
 Azure Time Series Insights almacena los datos en las siguientes tablas.
 
@@ -115,11 +115,11 @@ A continuación se muestran las consultas que puede usar para ayudarle a supervi
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../azure-monitor/platform/alerts-metric-overview.md), [registros](../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../azure-monitor/platform/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../azure-monitor/alerts/alerts-metric-overview.md), [registros](../azure-monitor/alerts/alerts-unified-log.md) y el [registro de actividad](../azure-monitor/alerts/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
 
 Al crear una regla de alerta basada en métricas de plataforma, recuerde que para las métricas de plataforma de Azure Time Series Insights que se recopilan en unidades de recuento, es posible que algunas agregaciones no estén disponibles o se puedan usar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Referencia de datos de supervisión de Azure Time Series Insights](how-to-monitor-tsi-reference.md) para obtener una referencia de los registros y las métricas creados por Azure Time Series Insights.
-* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
+* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

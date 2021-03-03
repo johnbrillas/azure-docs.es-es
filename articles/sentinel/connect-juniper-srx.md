@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0583846fcd847e92a6f001dae828d31d9d11cb00
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: b10c47a31bf1be10c278d4d9e0dce633bc7bff6c
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567838"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530644"
 ---
 # <a name="connect-your-juniper-srx-firewall-to-azure-sentinel"></a>Conexión del firewall de Juniper SRX con Azure Sentinel
 
@@ -53,7 +53,7 @@ Configure Juniper SRX para reenviar mensajes de Syslog a su área de trabajo de 
 
     1. Configure los registros que se van a recopilar.
 
-        - Seleccione los recursos y los niveles de gravedad en la configuración avanzada del área de trabajo.
+        - Seleccione los recursos y los niveles de gravedad en la configuración de los agentes del área de trabajo.
 
     1. Configure y conecte Juniper SRX
 

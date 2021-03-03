@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728168"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configuración de opciones de escalado con Azure Cloud Services (soporte extendido) 
 
 Las condiciones se pueden configurar para permitir que las implementaciones de Cloud Services (soporte extendido) se escalen y reduzcan horizontalmente. Estas condiciones pueden basarse en el uso de CPU, la carga de disco y la carga de red. 
 
 Tenga en cuenta la siguiente información al configurar el escalado de las implementaciones de Cloud Services:
-- El escalado afecta al uso de núcleos. Las instancias de rol más grandes consumen más núcleos y solo se pueden escalar dentro del límite de núcleos de la suscripción. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- Se admite el escalado basado en el umbral de mensajería en cola. Para más información, consulte [Introducción a Azure Queue Storage](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- El escalado afecta al uso de núcleos. Las instancias de rol más grandes consumen más núcleos y solo se pueden escalar dentro del límite de núcleos de la suscripción. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Se admite el escalado basado en el umbral de mensajería en cola. Para más información, consulte [Introducción a Azure Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - Para garantizar la alta disponibilidad de las aplicaciones de Cloud Services (soporte extendido), asegúrese de llevar a cabo la implementación con dos o más instancias de rol.
 - El escalado automático personalizado solo puede producirse cuando todos los roles están en un estado de **Listo**.
 
@@ -63,5 +63,5 @@ Tenga en cuenta la siguiente información al configurar el escalado de las imple
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
-- Consulte las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183386"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733217"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Creación de una zona DNS secundaria
 
@@ -81,7 +81,8 @@ También puede crear una nueva zona DNS secundaria y delegarla en la zona DNS pr
 1.  Seleccione **Siguiente: Etiquetas** y, a continuación, **Siguiente: Review + create** (Revisar y crear).
 1.  En la pestaña **Revisar y crear**, revise el resumen, corrija los errores de validación y, después, seleccione **Crear**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de pantalla de la zona secundaria seleccionada" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Captura de pantalla de la zona secundaria seleccionada" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Comprobación de la zona DNS secundaria
 Ahora que ha creado nueva zona DNS secundaria *subdomain.contoso.com*, compruebe que la delegación se ha realizado correctamente; para ello, compruebe los registros de servidor de nombres (NS) para la zona secundaria se encuentren en la zona primaria, tal como se describe a continuación.  
 

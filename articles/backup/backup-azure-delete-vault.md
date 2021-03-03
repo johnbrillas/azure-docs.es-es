@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293074"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520466"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -59,11 +59,11 @@ En primer lugar, lea la sección **[Antes de comenzar](#before-you-start)** para
 
 Para detener la protección y eliminar los datos de copia de seguridad, siga estos pasos:
 
-1. En el portal, vaya a **Almacén de Recovery Services** y, a continuación, vaya a **Elementos de copia de seguridad**. A continuación, elija los elementos protegidos en la nube (por ejemplo,Azure Virtual Machines, Azure Storage [el servicio Azure Files] o SQL Server en Azure Virtual Machines).
+1. En el portal, vaya a **Almacén de Recovery Services** y, a continuación, vaya a **Elementos de copia de seguridad**. A continuación, en la lista **Tipo de administración de copias de seguridad**, seleccione los elementos protegidos en la nube (por ejemplo,Azure Virtual Machines, Azure Storage [el servicio Azure Files] o SQL Server en Azure Virtual Machines).
 
     ![Seleccione el tipo de copia de seguridad.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Haga clic con el botón derecho para seleccionar el elemento de copia de seguridad. En función de si el elemento de copia de seguridad está protegido o no, el menú muestra el panel **Detener copia de seguridad** o **Eliminar datos de copia de seguridad**.
+2. Verá una lista de todos los elementos de la categoría. Haga clic con el botón derecho para seleccionar el elemento de copia de seguridad. En función de si el elemento de copia de seguridad está protegido o no, el menú muestra el panel **Detener copia de seguridad** o **Eliminar datos de copia de seguridad**.
 
     - Si aparece el panel **Detener copia de seguridad**, seleccione **Eliminar datos de copia de seguridad** en el menú desplegable. Escriba el nombre del elemento de copia de seguridad (este campo distingue entre mayúsculas y minúsculas) y, a continuación, seleccione un motivo en el menú desplegable. Escriba sus comentarios, si tiene alguno. Luego, seleccione **Detener copia de seguridad**.
 

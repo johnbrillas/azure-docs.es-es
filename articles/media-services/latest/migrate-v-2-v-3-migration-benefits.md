@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955078"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698848"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Paso 1: Entender las ventajas de migrar a la API de Media Services V3
 
@@ -38,7 +38,7 @@ Se han realizado mejoras significativas en Media Services con V3.
 | Actualizaciones de Azure Portal | Azure Portal se ha actualizado para incluir la administración de las entidades de la API V3. Permite a los clientes usar el portal para iniciar streaming en vivo, enviar trabajos de transformación de V3, administrar directivas de protección de contenido, puntos de conexión de streaming, obtener acceso de API, administrar cuentas de almacenamiento vinculadas y realizar tareas de supervisión. |
 | **Cuentas y almacenamiento** | |
 | Control de acceso basado en rol (RBAC) de Azure | Los clientes ahora pueden definir sus propios roles y controlar el acceso a cada entidad de la API de ARM de Media Services. Esto ayuda a controlar el acceso a los recursos por parte de las cuentas de AAD. |
-| Identidades administradas | Las identidades administradas eliminan la necesidad de que los desarrolladores administren credenciales, al proporcionar una identidad para el recurso de Azure en Azure AD. Consulte los detalles sobre las identidades administradas [aquí](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Identidades administradas | Las identidades administradas eliminan la necesidad de que los desarrolladores administren credenciales, al proporcionar una identidad para el recurso de Azure en Azure AD. Consulte los detalles sobre las identidades administradas [aquí](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Compatibilidad con vínculos privados | Los clientes tendrán acceso a los puntos de conexión de Media Services para la entrega de claves, LiveEvents y StreamingEndpoints a través de un elemento PrivateEndpoint en su red virtual. |
 | Compatibilidad con las [claves administradas por el cliente](concept-use-customer-managed-keys-byok.md) o Bring Your Own Key (BYOK) | Los clientes pueden cifrar los datos en su cuenta de Media Services mediante una clave en su instancia de Azure Key Vault. |
 | **Recursos** | |

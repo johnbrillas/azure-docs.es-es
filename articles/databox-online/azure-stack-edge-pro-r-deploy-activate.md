@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 02/23/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: c1408c25ea7e5d805d17e084899b0ffeb6cfec28
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bae12b5ad7ce6c079161f42e1d6fe3e6c08e3f4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464433"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727539"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-r-device"></a>Tutorial: Activación del dispositivo Azure Stack Edge Pro R
 
 Este tutorial describe cómo activar el dispositivo Azure Stack Edge Pro R mediante la interfaz de usuario web local.
 
-El proceso de activación puede tardar unos 5 minutos en completarse.
+El proceso de activación puede tardar unos 5 minutos en completarse.  
 
 En este tutorial, aprendió sobre lo siguiente:
 
@@ -49,7 +49,7 @@ Antes de configurar e instalar el dispositivo Azure Stack Edge Pro R, asegúres
     ![Página "Detalles de la nube" de la interfaz de usuario web local 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
     
 3. En el panel de **activación**:
-    1. Escriba la **clave de activación** que obtuvo en [Get the activation key for Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key) (Obtener la clave de activación para Azure Stack Edge Pro R).
+    1. Escriba la **clave de activación** que obtuvo en [Obtener la clave de activación para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
     1. Puede habilitar la recopilación proactiva de registros para que Microsoft recopile los registros según el estado de mantenimiento del dispositivo. Los registros recopilados de este modo se cargan en una cuenta de Azure Storage.
     

@@ -4,12 +4,12 @@ description: Supervisión de Azure Blockchain Service a través de Azure Monitor
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05147f48c4cde4cc97bf6cc9cae5c8220a389ebd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594927"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Supervisión de Azure Blockchain Service a través de Azure Monitor  
 
@@ -17,20 +17,20 @@ A medida que los clientes ejecutan escenarios de cadena de bloques de producció
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
 
-Azure Blockchain Service crea datos de supervisión mediante Azure Monitor, que es un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure. Para más información acerca de Azure Monitor, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+Azure Blockchain Service crea datos de supervisión mediante Azure Monitor, que es un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure. Para más información acerca de Azure Monitor, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
  
 
 Las secciones siguientes se basan en este artículo, donde se describen los datos específicos recopilados de Azure Blockchain Service y se proporcionan ejemplos para configurar la recopilación de datos y el análisis de estos datos con herramientas de Azure.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Supervisión de los datos recopilados de Azure Blockchain Service  
 
-Azure Blockchain Service recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) de recursos de Azure. Consulte la [referencia de datos de supervisión de Azure Blockchain Service](#monitor-azure-blockchain-service-data-reference) para obtener más detalles de los registros y las métricas creados por Azure Blockchain Service.
+Azure Blockchain Service recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data) de recursos de Azure. Consulte la [referencia de datos de supervisión de Azure Blockchain Service](#monitor-azure-blockchain-service-data-reference) para obtener más detalles de los registros y las métricas creados por Azure Blockchain Service.
 
 La página de información general de Azure Portal para cada recurso de miembro de Azure Blockchain Service incluye una breve vista de las transacciones, incluidas las solicitudes administradas y los bloques procesados. Algunos de estos datos se recopilan automáticamente y están disponibles para su análisis en cuanto crea el recurso del miembro de Azure Blockchain Service, mientras que se puede habilitar la recopilación de datos adicional con alguna configuración.
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico  
 
-Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero debe crear una configuración de diagnóstico para recopilar registros de recursos o reenviarlos fuera de Azure Monitor. Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell.
+Las métricas de la plataforma y el registro de actividad se recopilan automáticamente, pero debe crear una configuración de diagnóstico para recopilar registros de recursos o reenviarlos fuera de Azure Monitor. Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell.
 
 Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. A continuación se enumeran las categorías de Azure Blockchain Service.
 
@@ -42,13 +42,13 @@ Cuando se crea una configuración de diagnóstico, se especifican las categoría
 
 ## <a name="analyze-metric-data"></a>Análisis de datos de métricas  
 
-Puede analizar las métricas de Azure Blockchain Service con el explorador de métricas, vaya a la pestaña Métricas en la sección Supervisión de la hoja de recursos de ABS. Consulte [Introducción al explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md) para obtener más información sobre esta herramienta. Las métricas completas de Azure Blockchain Service se encuentran en las métricas estándar de Azure Blockchain Service del espacio de nombres.
+Puede analizar las métricas de Azure Blockchain Service con el explorador de métricas, vaya a la pestaña Métricas en la sección Supervisión de la hoja de recursos de ABS. Consulte [Introducción al explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md) para obtener más información sobre esta herramienta. Las métricas completas de Azure Blockchain Service se encuentran en las métricas estándar de Azure Blockchain Service del espacio de nombres.
 
 Puede usar la dimensión de **nodo** al agregar un filtro o dividir las métricas, que básicamente proporciona valores de métrica por nodos de transacción y nodos de validador del miembro de ABS.
 
 ## <a name="analyze-log-data"></a>Análisis de datos de registro
 
-Estas son algunas consultas que puede escribir en la barra de búsqueda para ayudarle a supervisar los miembros de Azure Blockchain Service. Estas consultas funcionan con el [nuevo lenguaje](../../azure-monitor/log-query/log-query-overview.md).
+Estas son algunas consultas que puede escribir en la barra de búsqueda para ayudarle a supervisar los miembros de Azure Blockchain Service. Estas consultas funcionan con el [nuevo lenguaje](../../azure-monitor/logs/log-query-overview.md).
 
 Para consultar las condiciones de error en los registros de aplicación de la cadena de bloques, use la siguiente consulta:
 
@@ -74,7 +74,7 @@ En este artículo se proporciona una referencia de datos de registro y métricas
 
 ### <a name="resource-logs"></a>Registros del recurso
 
-Todos los registros de recursos comparten un esquema común de nivel superior con pocas propiedades únicas específicas del servicio de cadena de bloques. Puede consultar el artículo [Esquema de registros de recursos de nivel superior](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema); a continuación se describen los detalles de las propiedades específicas de Azure Blockchain Service.  
+Todos los registros de recursos comparten un esquema común de nivel superior con pocas propiedades únicas específicas del servicio de cadena de bloques. Puede consultar el artículo [Esquema de registros de recursos de nivel superior](../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema); a continuación se describen los detalles de las propiedades específicas de Azure Blockchain Service.  
 
 En la tabla siguiente se enumeran las propiedades de los registros del proxy de Azure Blockchain cuando se recopilan en registros de Azure Monitor o Azure Storage.  
 
@@ -124,7 +124,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de aplicacion
 
 En las tablas siguientes se enumeran las métricas de plataforma recopiladas para Azure Blockchain Service. Todas las métricas se almacenan en las métricas estándar de **Azure Blockchain Service** del espacio de nombres.
 
-Para obtener una lista de todas las métricas compatibles de Azure Monitor (incluido Azure Blockchain Service), consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Para obtener una lista de todas las métricas compatibles de Azure Monitor (incluido Azure Blockchain Service), consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="blockchain-metrics"></a>Métricas de Blockchain
 

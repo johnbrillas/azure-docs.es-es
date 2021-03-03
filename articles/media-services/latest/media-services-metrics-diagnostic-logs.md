@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cd8c6ca67a1e475279cba8ccc3f4cb8cc7412d66
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954993"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590769"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services con Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) le permite supervisar las métricas y los registros de diagnóstico que le ayudan a comprender el rendimiento de sus aplicaciones. Todos los datos recopilados por Azure Monitor pueden clasificarse en uno de los dos tipos fundamentales: métricas y registros. Puede supervisar registros de diagnóstico de Media Services y crear alertas y notificaciones para las métricas y los registros recopilados. Puede usar el [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md) para visualizar y analizar los datos de métrica. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o bien usar servicios de terceros.
+[Azure Monitor](../../azure-monitor/overview.md) le permite supervisar las métricas y los registros de diagnóstico que le ayudan a comprender el rendimiento de sus aplicaciones. Todos los datos recopilados por Azure Monitor pueden clasificarse en uno de los dos tipos fundamentales: métricas y registros. Puede supervisar registros de diagnóstico de Media Services y crear alertas y notificaciones para las métricas y los registros recopilados. Puede usar el [Explorador de métricas](../../azure-monitor/essentials/metrics-getting-started.md) para visualizar y analizar los datos de métrica. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o bien usar servicios de terceros.
 
-Para más información, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).
+Para más información, consulte [Métricas de Azure Monitor](../../azure-monitor/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md).
 
 En este tema se analizan las [métricas de Media Services](#media-services-metrics) y los [registro de diagnóstico de Media Services](#media-services-diagnostic-logs) compatibles.
 
 ## <a name="media-services-metrics"></a>Métricas de Media Services
 
-Las métricas se recopilan a intervalos regulares independientemente de si cambia el valor o no. Son útiles para las alertas, dado que se pueden muestrear con frecuencia y se puede activar una alerta con rapidez con una lógica relativamente sencilla. Para más información sobre cómo crear alertas de métricas, consulte [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Las métricas se recopilan a intervalos regulares independientemente de si cambia el valor o no. Son útiles para las alertas, dado que se pueden muestrear con frecuencia y se puede activar una alerta con rapidez con una lógica relativamente sencilla. Para más información sobre cómo crear alertas de métricas, consulte [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 Media Services permite supervisar las métricas para los siguientes recursos:
 
@@ -89,7 +89,7 @@ Consulte [Supervisión de las métricas de Media Services](media-services-metric
 
 ## <a name="media-services-diagnostic-logs"></a>Registros de diagnóstico de Media Services
 
-Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Azure Media Services admite los siguientes registros de diagnóstico:
 
@@ -116,7 +116,7 @@ Consulte [Supervisión de los registros de diagnósticos de Media Services](medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/alerts/alerts-metric.md)
 * [Supervisión de las métricas de Media Services](media-services-metrics-howto.md)
 * [Supervisión de los registros de diagnósticos de Media Services](media-services-diagnostic-logs-howto.md)

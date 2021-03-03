@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255770"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645095"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -322,7 +322,7 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 
 * [Manténgase al día con las novedades de Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Foro de Microsoft Q&A sobre Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Foro de Microsoft Q&A sobre Azure AD](/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración del aprovisionamiento automático de usuarios](../app-provisioning/configure-automatic-user-provisioning-portal.md)

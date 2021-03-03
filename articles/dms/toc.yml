@@ -37,10 +37,8 @@
   items:
     - name: Migración de SQL Server
       items:
-        - name: a Azure SQL Database (sin conexión)
+        - name: a Azure SQL Database
           href: tutorial-sql-server-to-azure-sql.md
-        - name: a Azure SQL Database (en línea)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: a Instancia administrada de Azure SQL (sin conexión)
           href: tutorial-sql-server-to-managed-instance.md
         - name: a Instancia administrada de Azure SQL (en línea)

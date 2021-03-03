@@ -1,30 +1,31 @@
 ---
-title: Uso de máquinas virtuales de Azure Spot
-description: Aprenda a usar las máquinas virtuales de Azure Spot para ahorrar costos.
-author: cynthn
+title: Uso de máquinas virtuales de acceso puntual de Azure
+description: Aprenda a usar máquinas virtuales de acceso puntual de Azure para ahorrar costos.
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202137"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673948"
 ---
-# <a name="use-spot-vms-in-azure"></a>Uso de las máquinas virtuales de Spot en Azure
+# <a name="use-azure-spot-virtual-machines"></a>Uso de máquinas virtuales de acceso puntual de Azure 
 
-El uso de máquinas virtuales de Spot permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
+El uso de máquinas virtuales de acceso puntual de Azure permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, la infraestructura de esta plataforma expulsará las máquinas virtuales de acceso puntual de Azure. Por lo tanto, estas máquinas son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las cargas de trabajo de proceso de gran tamaño, etc.
 
-La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar máquinas virtuales de Spot, Azure las asigna si hay capacidad disponible, pero no hay un Acuerdo de Nivel de Servicio para ellas. Una máquina virtual de Spot no ofrece garantías de alta disponibilidad. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot previo aviso 30 segundos antes. 
+La cantidad de capacidad sin usar disponible varía, por ejemplo, en función del tamaño, la región o la hora del día. Al implementar máquinas virtuales de acceso puntual de Azure, Azure las asigna si hay capacidad disponible, pero no hay un Acuerdo de Nivel de Servicio para ellas. Una máquina virtual de acceso puntual de Azure no ofrece ninguna garantía de alta disponibilidad. Siempre que Azure necesite recuperar la capacidad, la infraestructura de esta plataforma expulsará las máquinas virtuales de acceso puntual de Azure con un aviso de 30 segundos. 
 
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
-Las máquinas virtuales se pueden expulsar en función de la capacidad o del precio máximo establecido. Al crear VM de Spot, puede establecer la directiva de expulsión en *Deallocate* (Desasignar) (valor predeterminado) o *Delete* (Eliminar). 
+Las máquinas virtuales se pueden expulsar en función de la capacidad o del precio máximo establecido. Al crear una máquina virtual de acceso puntual de Azure, puede establecer la directiva de expulsión en *Desasignar* (valor predeterminado) o *Eliminar*. 
 
 La directiva *Deallocate* (Desasignar) mueve las VM al estado stopped-deallocated, lo que le permite volver a implementarlas más tarde. Sin embargo, no hay ninguna garantía de que la asignación se realizará correctamente. Las VM desasignadas se siguen teniendo en cuenta en la cuota y se cobrarán los costos de almacenamiento de los discos subyacentes. 
 
@@ -47,25 +48,25 @@ Puede optar por recibir notificaciones en las VM mediante [Azure Scheduled Event
 
 ## <a name="limitations"></a>Limitaciones
 
-No se admiten los siguientes tamaños de máquina virtual para Spot:
+Los siguientes tamaños de máquina virtual no se admiten en las máquinas virtuales de acceso puntual de Azure:
  - Serie B
  - Versiones de promoción de cualquier tamaño (como los tamaños de promoción Dv2, NV, NC, H)
 
-Las máquinas virtuales de Spot se pueden implementar en cualquier región, excepto Microsoft Azure China 21Vianet.
+Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cualquier región, excepto en 21Vianet de Microsoft Azure China.
 
 <a name="channel"></a>
 
 Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
 
 -   Contrato Enterprise
--   Pago por uso
+-   Código de oferta de pago por uso 003P
 -   Patrocinados
 - Para obtener un proveedor de servicios en la nube (CSP), póngase en contacto con su asociado.
 
 
 ## <a name="pricing"></a>Precios
 
-Los precios de las máquinas virtuales de Spot varían en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Los precios de las máquinas virtuales de acceso puntual de Azure son variables, según la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 También puede consultar la información sobre con la [API de precios de venta directa de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para consultar información sobre los precios de Spot. Tanto `meterName` como `skuName` contendrán `Spot`.
 
@@ -87,24 +88,24 @@ Puede ver los precios históricos y las tasas de expulsión por tamaño en una r
 
 ##  <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**P:** Una vez creadas, ¿son las máquinas virtuales de Spot iguales que las estándar normales?
+**P:** Una vez que se crea, ¿una máquina virtual de acceso puntual de Azure es igual que una máquina virtual estándar normal?
 
-**R:** Sí, salvo que no hay ningún Acuerdo de Nivel de Servicio para las máquinas virtuales de Spot y se pueden expulsar en cualquier momento.
+**R:** Sí, salvo que no hay ningún Acuerdo de Nivel de Servicio para las máquinas virtuales de acceso puntual y se pueden expulsar en cualquier momento.
 
 
 **P:** ¿Qué se debe hacer si se produce la expulsión pero aún se necesita capacidad?
 
-**R:** Si necesita capacidad de inmediato, se recomienda usar máquinas virtuales estándar en lugar de máquinas virtuales de Spot.
+**R:** Si necesita capacidad de inmediato, se recomienda usar máquinas virtuales estándar en lugar de máquinas virtuales de acceso puntual.
 
 
-**P:** ¿Cómo se administra la cuota para las máquinas virtuales de Spot?
+**P:** ¿Cómo se administra la cuota de las máquinas virtuales de acceso puntual de Azure?
 
-**R:** Las máquinas virtuales de Spot tienen un grupo de cuotas independiente. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**R:** Las máquinas virtuales de acceso puntual de Azure tendrán un grupo de cuotas distinto. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**P:** ¿Puedo solicitar una cuota adicional para Spot?
+**P:** ¿Puedo solicitar cuota adicional para las máquinas virtuales de acceso puntual de Azure?
 
-**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
+**R:** Sí, podrá enviar la solicitud para aumentar su cuota en las máquinas virtuales de acceso puntual de Azure mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** ¿Dónde puedo publicar preguntas?
@@ -117,8 +118,8 @@ Puede ver los precios históricos y las tasas de expulsión por tamaño en una r
 **R:** Para cambiar el precio máximo, debe desasignar la máquina virtual. Luego puede cambiar el precio máximo en el portal, en la sección **Configuración** de la máquina virtual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Use la [CLI](./linux/spot-cli.md), el [portal](spot-portal.md), una [plantilla de ARM](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md) para implementar máquina virtuales de Spot.
+Para implementar máquinas virtuales de acceso puntual, use la [CLI](./linux/spot-cli.md), el [portal](spot-portal.md), una [plantilla de Resource Manager](./linux/spot-template.md) o [PowerShell](./windows/spot-powershell.md).
 
-También puede implementar un [conjunto de escalado con instancias de máquinas virtuales de Spot](../virtual-machine-scale-sets/use-spot.md).
+También puede implementar un [conjunto de escalado con instancias de máquina virtual de acceso puntual de Azure](../virtual-machine-scale-sets/use-spot.md).
 
 Si se produce un error, consulte [Códigos de error](./error-codes-spot.md).

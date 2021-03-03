@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930720"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547283"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simulación de respuestas de API
 
@@ -53,11 +53,13 @@ Los pasos de esta sección muestran cómo crear una API en blanco sin back-end.
 1. Compruebe que, en **Puertas de enlace**, está seleccionada la opción **Administrada**.
 1. Seleccione **Crear**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Respuesta de API simulada":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Crear API en blanco":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adición de una operación a la API de prueba
 
 Una API expone una o varias operaciones. En esta sección, agregue una operación a la API en blanco que creó. Al llamar a la operación después de completar los pasos de esta sección, se produce un error. Dejará de recibir errores después de realizar los pasos de la sección [Habilitación de la simulación de respuesta](#enable-response-mocking), más adelante.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Seleccione la API que creó en los pasos anteriores.
 1. Seleccione **+ Agregar operación**.
@@ -77,7 +79,7 @@ Una API expone una o varias operaciones. En esta sección, agregue una operació
 1. En el cuadro de texto **Ejemplo**, escriba `{ "sampleField" : "test" }`.
 1. Seleccione **Guardar**.
 
-:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Respuesta de API simulada" border="false":::
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Adición de operación de API" border="false":::
 
 Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionales para una operación de API en otras pestañas, por ejemplo:
 
@@ -87,6 +89,39 @@ Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionale
 |**Consultar**     |  Agregue parámetros de consulta. Además de proporcionar un nombre y una descripción, puede especificar valores que se asignan a un parámetro de consulta. Uno de los valores se puede marcar como predeterminado (opcional).        |
 |**Solicitud**     |  Defina esquemas, ejemplos y tipos de contenido de solicitud.       |
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para empezar a usar la CLI de Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para agregar una operación a la API de prueba, ejecute el comando [az apim api operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create):
+
+```azurecli
+az apim api operation create --resource-group apim-hello-word-resource-group \
+    --display-name "Test call" --api-id test-api --method GET \
+    --url-template /test --service-name apim-hello-world 
+```
+
+Ejecute el comando [az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list) para ver todas las operaciones de una API:
+
+```azurecli
+az apim api operation list --resource-group apim-hello-word-resource-group \
+    --api-id test-api --service-name apim-hello-world --output table
+```
+
+Para quitar una operación, use el comando [az apim api operation delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete). Obtenga el identificador de operación del comando anterior.
+
+```azurecli
+az apim api operation delete --resource-group apim-hello-word-resource-group \
+    --api-id test-api --operation-id 00000000000000000000000000000000 \
+    --service-name apim-hello-world
+```
+
+Mantenga esta operación para utilizarla en el resto de este artículo.
+
+---
+
 ## <a name="enable-response-mocking"></a>Habilitación de la simulación de respuesta
 
 1. Seleccione la API que creó en [Creación de una API de prueba](#create-a-test-api).
@@ -94,15 +129,15 @@ Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionale
 1. En la ventana de la derecha, asegúrese de que esté seleccionada la pestaña **Diseño**.
 1. En la ventana **Procesamiento de entrada**, seleccione **+ Agregar directiva**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Respuesta de API simulada" border="false":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Adición de directiva de procesamiento" border="false":::
 
 1. En la galería, seleccione **Mock responses** (Simular respuestas).
 
-    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Respuesta de API simulada" border="false":::
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Icono de directiva de respuestas simuladas" border="false":::
 
 1. En el cuadro de texto **API Management response** (Respuesta de API Management), escriba **200 OK, application/json**. Esta selección indica que la API debe devolver la respuesta de ejemplo que definió en la sección anterior.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Respuesta de API simulada":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Establecimiento de respuestas simuladas":::
 
 1. Seleccione **Guardar**.
 
@@ -115,11 +150,11 @@ Aunque no es necesario en este ejemplo, se pueden configurar opciones adicionale
 1. Seleccione la pestaña **Prueba**.
 1. Asegúrese de que la API de **Llamada de prueba** está seleccionada. Seleccione **Enviar** para realizar una llamada de prueba.
 
-   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Respuesta de API simulada":::
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Probar la API simulada":::
 
 1. **Respuesta HTTP** muestra el JSON especificado como un ejemplo en la primera sección del tutorial.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Respuesta de API simulada":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Simulación de respuestas HTTP":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508750"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526908"
 ---
 # <a name="manage-alert-events"></a>Administrar eventos de alerta
 
@@ -23,7 +23,8 @@ Las opciones siguientes están disponibles para administrar eventos de alerta:
  | **Learn** | Autorice el evento detectado. Para obtener más información, vea [Acerca del aprendizaje y el desaprendizaje de eventos](#about-learning-and-unlearning-events). |
  | **Confirmación** | Oculte la alerta una vez para el evento detectado. La alerta se volverá a desencadenar si el evento se vuelve a detectar. Para obtener más información, vea [Acerca de la confirmación y el desconocimiento de eventos](#about-acknowledging-and-unacknowledging-events). |
  | **Silencio** | Omita continuamente la actividad con dispositivos idénticos y tráficos comparables. Para obtener más información, vea [Acerca del silenciamiento y el no silenciamiento de eventos](#about-muting-and-unmuting-events). |
-
+ 
+También puede exportar información de alertas.
 ## <a name="about-learning-and-unlearning-events"></a>Acerca del aprendizaje y el no aprendizaje de eventos
 
 Los eventos que indican desviaciones de la red aprendida podrían reflejar cambios de red válidos. Algunos ejemplos podrían incluir un nuevo dispositivo autorizado que se unió a la red o una actualización de firmware autorizada.
@@ -68,7 +69,7 @@ En estas situaciones, el aprendizaje no está disponible. Cuando no se puede rea
 > [!NOTE] 
 > No se puede deshacer el silenciamiento de los eventos en los que se define un dispositivo de Internet como origen o destino.
 
-### <a name="what-traffic-is-muted"></a>¿Qué tráfico se silencia?
+### <a name="what-alert-activity-is-muted"></a>¿Qué actividad de alerta se silencia?
 
 Un escenario silenciado incluye los dispositivos de red y el tráfico detectado para un evento. El título de la alerta describe el tráfico que se está silenciando.
 
@@ -105,6 +106,25 @@ Cuando se silencia un evento, se omite cada vez que el origen envía un encabeza
 1. Seleccione la opción **Confirmado** en la pantalla principal de **Alertas**.
 
 2. Mantenga el mouse sobre una alerta para ver si está silenciada.  
+
+## <a name="export-alert-information"></a>Exportación de la información de alertas
+
+Exporte la información de alertas a un archivo .csv. Puede exportar la información de todas las alertas detectadas o exportar información basada en la vista filtrada. Se exporta la siguiente información:
+
+- Dirección de origen
+- Dirección de destino
+- Título de la alerta
+- Gravedad de la alerta
+- Mensaje de alerta
+- Información adicional
+- Estado confirmado
+- Disponibilidad de PCAP
+
+Para realizar la exportación:
+
+1. Seleccione Alertas en el menú lateral.
+1. Seleccione Exportar.
+1. Seleccione Export Extended Alerts (Exportar alertas extendidas) para exportar información de alertas de filas independientes para cada alerta que abarque varios dispositivos. Cuando se seleccione esta opción, el archivo. .csv creará una fila duplicada del evento de alerta con los elementos únicos de cada fila. El uso de esta opción facilita la investigación de eventos de alertas exportadas.
 
 ## <a name="see-also"></a>Consulte también
 

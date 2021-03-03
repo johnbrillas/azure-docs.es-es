@@ -4,22 +4,16 @@ description: Obtenga información sobre cómo Azure Content Delivery Network pue
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004507"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387927"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimización de la red CDN de Azure para el tipo de entrega de contenido
 
@@ -64,7 +58,11 @@ Microsoft recomienda que pruebe las variaciones en el rendimiento entre diferent
 
 ## <a name="select-and-configure-optimization-types"></a>Seleccionar y configurar los tipos de optimización
 
-Para crear un punto de conexión de CDN, seleccione el tipo de optimización que mejor coincida con el escenario y el tipo de contenido que quiere que el punto de conexión entregue. **Entrega web general** es la selección predeterminada. Para los puntos de conexión existentes de **Azure CDN Estándar de Akamai**, puede actualizar la opción de optimización en cualquier momento. Este cambio no interrumpe la entrega desde Azure CDN. 
+Para crear un punto de conexión de CDN, seleccione el tipo de optimización que mejor coincida con el escenario y el tipo de contenido que quiere que el punto de conexión entregue. 
+
+**Entrega web general** es la selección predeterminada. Solo puede actualizar los puntos de conexión privados **Azure CDN estándar de Akamai** en cualquier momento. 
+
+No puede para **Azure CDN estándar de Microsoft**, **Azure CDN estándar de Verizon** o **Azure CDN prémium de Verizon**.
 
 1. Dentro de un perfil de **Azure CDN Estándar de Akamai**, seleccione un punto de conexión.
 

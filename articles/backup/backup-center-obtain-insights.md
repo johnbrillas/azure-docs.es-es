@@ -3,16 +3,16 @@ title: Obtención de conclusiones mediante el Centro de copias de seguridad
 description: Obtenga información sobre cómo analizar las tendencias históricas y sacar conclusiones más profundas sobre las copias de seguridad con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893700"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592016"
 ---
 # <a name="obtain-insights-using-backup-center-preview"></a>Obtención de conclusiones mediante el Centro de copias de seguridad (versión preliminar)
 
-Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup (versión preliminar)](configure-reports.md), que usa [Registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) y [Libros de Azure](../azure-monitor/platform/workbooks-overview.md). Informes de Backup ofrece las siguientes funcionalidades:
+Para analizar las tendencias históricas y obtener información más detallada sobre las copias de seguridad, el Centro de copias de seguridad proporciona una interfaz para [Informes de Backup (versión preliminar)](configure-reports.md), que usa [Registros de Azure Monitor](../azure-monitor/logs/data-platform-logs.md) y [Libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Informes de Backup ofrece las siguientes funcionalidades:
 
 - Asignación y previsión del almacenamiento en la nube consumido.
 

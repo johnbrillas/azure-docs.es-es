@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589348"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Supervisión de operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ La mayoría de las operaciones de administración son [operaciones de larga dura
 Hay varias maneras de supervisar las operaciones de administración de instancias administradas:
 
 - [Implementaciones de grupos de recursos](../../azure-resource-manager/templates/deployment-history.md)
-- [Registro de actividad](../../azure-monitor/platform/activity-log.md)
+- [Registro de actividad](../../azure-monitor/essentials/activity-log.md)
 - [API de operaciones de instancia administrada](#managed-instance-operations-api)
 
 
@@ -75,11 +75,11 @@ Estas son las API:
 
 En Azure Portal, use la página de **información general** de la instancia administrada para supervisar las operaciones de instancia administrada. 
 
-Por ejemplo, la **operación de creación** está visible al inicio del proceso de creación en la página de **información general** : 
+Por ejemplo, la **operación de creación** está visible al inicio del proceso de creación en la página de **información general**: 
 
 ![Progreso de la creación de instancia administrada](./media/management-operations-monitor/monitoring-create-operation.png)
 
-Seleccione **Operación en curso** para abrir la página **Operación en curso** y ver las operaciones de **creación** o **actualización** . También puede [Cancelar](management-operations-cancel.md) operaciones desde esta página.  
+Seleccione **Operación en curso** para abrir la página **Operación en curso** y ver las operaciones de **creación** o **actualización**. También puede [Cancelar](management-operations-cancel.md) operaciones desde esta página.  
 
 ![Detalles de la operación de instancia administrada](./media/management-operations-monitor/monitoring-operation-details.png)
 

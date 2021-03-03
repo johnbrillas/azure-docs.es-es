@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590570"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de las alertas de seguridad
 
@@ -24,7 +24,7 @@ Si su suscripción tiene habilitado Azure Defender, recibirá alertas de segurid
 
 Estas alertas se pueden ver en las páginas de **Protección contra amenazas** de Azure Security Center o a través de herramientas externas como:
 
-- [Azure Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft. El conector de Sentinel obtiene las alertas de Azure Security Center y las envía al [área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md) para Azure Sentinel.
+- [Azure Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft. El conector de Sentinel obtiene las alertas de Azure Security Center y las envía al [área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md) para Azure Sentinel.
 - SIEM de terceros: enviar datos a [Azure Event Hubs](../event-hubs/index.yml). Luego, integre los datos de Event Hubs con un SIEM de terceros. Puede encontrar más información en [Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR](export-to-siem.md).
 - [La API REST](/rest/api/securitycenter/): si usa la API REST para acceder a las alertas, consulte la [documentación de Alerts API en línea](/rest/api/securitycenter/alerts).
 
@@ -187,4 +187,4 @@ Para más información sobre las distintas formas de acceder a las alertas de se
 - [Azure Sentinel](../sentinel/index.yml): SIEM nativo de la nube de Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml): servicio de ingesta de datos en tiempo real y totalmente administrado de Microsoft
 - [Exportación continua de alertas y recomendaciones de seguridad](continuous-export.md)
-- [Áreas de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md): Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, un contenedor que incluye información de configuración y datos
+- [Áreas de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md): Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, un contenedor que incluye información de configuración y datos

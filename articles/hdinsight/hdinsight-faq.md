@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699307"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -61,7 +61,7 @@ Sí. Para instalar componentes adicionales o personalizar la configuración del 
 
 - [Plataforma de aplicaciones HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) para instalar aplicaciones.
 
-Para acceder a una lista de los componentes admitidos, consulte [¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Para acceder a una lista de los componentes admitidos, consulte [¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>¿Puedo actualizar los componentes individuales que están preinstalados en el clúster?
 
@@ -234,7 +234,7 @@ Realice alguna de las siguientes acciones:
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>¿Cómo puedo configurar la auditoría para mi cuenta de almacenamiento de blobs?
 
-Para auditar cuentas de almacenamiento de blobs, configure la supervisión mediante el procedimiento que se encuentra en [Supervisión de una cuenta de almacenamiento en Azure Portal](../storage/common/storage-monitor-storage-account.md). Un registro de auditoría de HDFS solo proporciona información de auditoría para el sistema de archivos HDFS local (hdfs://mycluster).  No incluye las operaciones que se realizan en el almacenamiento remoto.
+Para auditar cuentas de almacenamiento de blobs, configure la supervisión mediante el procedimiento que se encuentra en [Supervisión de una cuenta de almacenamiento en Azure Portal](../storage/common/manage-storage-analytics-logs.md). Un registro de auditoría de HDFS solo proporciona información de auditoría para el sistema de archivos HDFS local (hdfs://mycluster).  No incluye las operaciones que se realizan en el almacenamiento remoto.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>¿Cómo puedo transferir archivos entre un contenedor de blobs y un nodo principal de HDInsight?
 

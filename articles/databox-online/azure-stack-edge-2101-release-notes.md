@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 7c1f78f405a67687168457448f62d46a39da165f
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 5c95da8d6ee88786ff983b4963c1cb96394886cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727556"
 ---
 # <a name="azure-stack-edge-pro-with-fpga-2101-release-notes"></a>Notas de la versión de Azure Stack Edge Pro con FPGA 2101
 
@@ -42,7 +42,7 @@ Esta versión también contiene las siguientes actualizaciones:
 
 ## <a name="known-issues-in-this-release"></a>Problemas conocidos en esta versión
 
-No se ha notificado ningún problema nuevo para esta versión. Todos los problemas notificados de la versión provienen de versiones anteriores. Para ver una lista de los problemas conocidos, vaya a [Problemas conocidos en la versión de disponibilidad general](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+No se ha notificado ningún problema nuevo para esta versión. Todos los problemas notificados de la versión provienen de versiones anteriores. Para ver una lista de los problemas conocidos, vaya a [Problemas conocidos en la versión de disponibilidad general](../databox-gateway/data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

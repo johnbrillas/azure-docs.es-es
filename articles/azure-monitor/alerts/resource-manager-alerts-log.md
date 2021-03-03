@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100598004"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714125"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de registros en Azure Monitor
 Este artículo incluye ejemplos de [plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para crear y configurar alertas de consulta de registros en Azure Monitor. Cada ejemplo incluye un archivo de plantilla y un archivo de parámetros con valores de ejemplo para la plantilla.
@@ -479,4 +479,4 @@ En el ejemplo siguiente se crea una regla que puede tener como destino cualquier
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Otras plantillas de ejemplo para Azure Monitor](../resource-manager-samples.md).
-* [Más información sobre reglas de alertas](../platform/alerts-overview.md).
+* [Más información sobre reglas de alertas](./alerts-overview.md).

@@ -7,12 +7,12 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3f81ae72af48ec934d1c2c2567ebdd212d8e0499
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702732"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migración de una aplicación de IoT Central v2 a v3
 
@@ -104,7 +104,7 @@ Una vez terminado el traslado, reinicie todos los dispositivos para asegurarse d
 Una vez que haya validado que todo funciona según lo previsto en la nueva aplicación de v3, elimine la aplicación de v2 antigua. Este paso garantiza que no se le facture por una aplicación que ya no usa.
 
 > [!Note]
-> Para eliminar una aplicación, debe tener permisos para eliminar recursos en la suscripción de Azure que eligiera al crear la aplicación. Para obtener más información, vea el artículo sobre el [uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../active-directory/role-based-access-control-configure.md).
+> Para eliminar una aplicación, debe tener permisos para eliminar recursos en la suscripción de Azure que eligiera al crear la aplicación. Para obtener más información, vea el artículo sobre el [uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. En la aplicación de v2, seleccione la pestaña **Administración** en el menú.
 2. Seleccione **Eliminar** para quitar de forma permanente la aplicación de IoT Central. Con esta acción se eliminan de manera permanente todos los datos asociados a esa aplicación.

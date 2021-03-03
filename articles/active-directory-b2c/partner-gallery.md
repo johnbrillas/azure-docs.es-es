@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893393"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361775"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ Para la seguridad, Microsoft se asocia con los siguientes ISV.
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
 | ![Captura de pantalla de un logotipo de Arkose Labs](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) es un proveedor de soluciones de prevención de fraudes que ayuda a las organizaciones a protegerse contra ataques de bots, ataques de adquisición de cuentas y aperturas de cuentas fraudulentas. |
+| ![Captura de pantalla de un logotipo de Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraude Protection](./partner-dynamics-365-fraud-protection.md) es una solución que ayuda a las organizaciones a ofrecer protección contra las aperturas de cuentas fraudulentas a través de la creación de huellas digitales de dispositivos. |
 | ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
 | ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
 | ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |

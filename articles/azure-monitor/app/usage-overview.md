@@ -3,12 +3,12 @@ title: Análisis de uso con Azure Application Insights | Microsoft Docs
 description: Entienda a los usuarios y lo qué hacen con la aplicación.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0888b6743a10c9934ab85a6f2b3b637b857f643a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233855"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583393"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -38,7 +38,7 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 
     Para conocer configuraciones más avanzadas para supervisar sitios web, consulte el [artículo de referencia del SDK de JavaScript](./javascript.md).
 
-3. **Código de aplicación móvil**: utilice el SDK de App Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](../learn/mobile-center-quickstart.md).
+3. **Código de aplicación móvil**: utilice el SDK de App Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](../app/mobile-center-quickstart.md).
 
 4. **Obtener telemetría**: ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
 
@@ -179,6 +179,6 @@ Todos los nuevos clientes de telemetría agregan automáticamente el valor de pr
    - [Embudos](usage-funnels.md)
    - [Retención](usage-retention.md)
    - [Flujos de usuario](usage-flows.md)
-   - [Libros](../platform/workbooks-overview.md)
+   - [Libros](../visualize/workbooks-overview.md)
    - [Adición de contexto de usuario](usage-send-user-context.md)
 

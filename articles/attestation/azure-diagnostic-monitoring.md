@@ -7,22 +7,22 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 40bc76f839cf6757b8f874112504249e611c3e1a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d01e7817906927295591353b710afe2899aacdf1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726485"
 ---
 # <a name="setting-up-diagnostics-with-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configuración de diagnósticos con el punto de conexión del Módulo de plataforma segura (TPM) de Azure Attestation
 
-Los [registros de plataforma](/azure/azure-monitor/platform/platform-logs-overview) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](/azure/azure-monitor/platform/data-platform-metrics) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos. 
+Los [registros de plataforma](../azure-monitor/essentials/platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](../azure-monitor/essentials/data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos. 
 
-El servicio de punto de conexión de TPM está habilitado con la configuración de diagnóstico y se puede usar para supervisar la actividad. Para configurar [Azure Monitor](/azure/azure-monitor/overview) para el punto de conexión de servicio de TPM con PowerShell, siga estos pasos. 
+El servicio de punto de conexión de TPM está habilitado con la configuración de diagnóstico y se puede usar para supervisar la actividad. Para configurar [Azure Monitor](../azure-monitor/overview.md) para el punto de conexión de servicio de TPM con PowerShell, siga estos pasos. 
 
 Configure el servicio Azure Attestation. 
 
-[Configuración de Azure Attestation con Azure PowerShell](/azure/attestation/quickstart-powershell#:~:text=%20Quickstart%3A%20Set%20up%20Azure%20Attestation%20with%20Azure,Register%20Microsoft.Attestation%20resource%20provider.%20Register%20the...%20More%20)
+[Configuración de Azure Attestation con Azure PowerShell](./quickstart-powershell.md)
 
 ```powershell
 
@@ -41,4 +41,4 @@ Configure el servicio Azure Attestation.
  Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
 
 ```
-Los registros de actividad se pueden encontrar en la sección Contenedores de la cuenta de almacenamiento. Puede encontrar información detallada en [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](/azure/azure-monitor/learn/tutorial-resource-logs).
+Los registros de actividad se pueden encontrar en la sección Contenedores de la cuenta de almacenamiento. Puede encontrar información detallada en [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../azure-monitor/essentials/tutorial-resource-logs.md).

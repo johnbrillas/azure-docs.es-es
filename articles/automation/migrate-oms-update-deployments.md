@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183607"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576027"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migración de implementaciones de actualización de registros de Azure Monitor a Azure Portal
 
-El portal de Operations Management Suite (OMS) está quedando [en desuso](../azure-monitor/platform/oms-portal-transition.md). Toda la funcionalidad que estaba disponible en el portal de OMS para Update Management está disponible en Azure Portal, a través de los registros de Azure Monitor. En este artículo se proporciona la información necesaria para la migración a Azure Portal.
+El portal de Operations Management Suite (OMS) está quedando [en desuso](../azure-monitor/logs/oms-portal-transition.md). Toda la funcionalidad que estaba disponible en el portal de OMS para Update Management está disponible en Azure Portal, a través de los registros de Azure Monitor. En este artículo se proporciona la información necesaria para la migración a Azure Portal.
 
 ## <a name="key-information"></a>Información importante
 
@@ -41,7 +41,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 
 ## <a name="recreate-existing-deployments"></a>Nueva creación de las implementaciones existentes
 
-Todas las implementaciones de actualizaciones creadas en el portal de OMS tienen una [búsqueda guardada](../azure-monitor/platform/computer-groups.md) que también se conoce como un grupo de equipos, con el mismo nombre que la implementación de actualizaciones existente. La búsqueda guardada incluye la lista de las máquinas que se programaron en la implementación de actualizaciones.
+Todas las implementaciones de actualizaciones creadas en el portal de OMS tienen una [búsqueda guardada](../azure-monitor/logs/computer-groups.md) que también se conoce como un grupo de equipos, con el mismo nombre que la implementación de actualizaciones existente. La búsqueda guardada incluye la lista de las máquinas que se programaron en la implementación de actualizaciones.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de pantalla de la página Implementaciones de actualizaciones con los campos Nombre y Servidores resaltados.":::
 
@@ -59,7 +59,7 @@ Para usar esta búsqueda guardada existente, siga estos pasos:
     | --- | --- |
     |Nombre |Nombre único para identificar la implementación de actualizaciones. |
     |Sistema operativo| Seleccione **Linux** o **Windows**.|
-    |Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione máquinas individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
+    |Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione máquinas individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/logs/computer-groups.md) |
     |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite. CentOS no admite estas clasificaciones de forma nativa.|
     |Actualizaciones para excluir|Escriba las actualizaciones que desea excluir. En Windows, escriba el artículo de la KB sin el prefijo **KB**. En Linux, escriba el nombre del paquete o use un carácter comodín.  |
     |Configuración de programación|Seleccione la hora de inicio y seleccione **Una vez** o **Periódico** para la periodicidad. | 

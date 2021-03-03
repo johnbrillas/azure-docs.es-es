@@ -1,25 +1,29 @@
 ---
-title: 'Incorporación de asignaciones de roles de Azure mediante plantillas de Azure Resource Manager: RBAC de Azure'
+title: 'Asignación de roles de Azure mediante plantillas de Azure Resource Manager: Azure RBAC'
 description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante plantillas de Azure Resource Manager y el control de acceso basado en roles (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 023aa086cdafc3ab1459c2f748b2181575c14191
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675343"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556021"
 ---
-# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Incorporación de asignaciones de roles mediante plantillas de Azure Resource Manager
+# <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Asignación de roles de Azure mediante plantillas de Azure Resource Manager
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Además de usar Azure PowerShell o la CLI de Azure, puede asignar roles mediante [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo asignar roles mediante plantillas.
+
+## <a name="prerequisites"></a>Prerrequisitos
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="get-object-ids"></a>Obtener los identificadores de objeto
 
@@ -73,13 +77,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Adición de una asignación de roles
+## <a name="assign-an-azure-role"></a>Asignación de un rol de Azure
 
-En Azure RBAC, para conceder acceso es preciso agregar una asignación de roles.
+En RBAC, para conceder acceso es preciso asignar un rol.
 
 ### <a name="resource-group-scope-without-parameters"></a>Ámbito del grupo de recursos (sin parámetros)
 
-La plantilla siguiente muestra una manera básica de agregar una asignación de roles. Algunos valores se especifican en la plantilla. La plantilla siguiente muestra:
+La plantilla siguiente muestra una manera básica de asignar un rol. Algunos valores se especifican en la plantilla. La plantilla siguiente muestra:
 
 -  Cómo asignar el rol de [lector](built-in-roles.md#reader) a un usuario, un grupo o una aplicación, en el ámbito de un grupo de recursos
 
@@ -206,7 +210,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### <a name="resource-scope"></a>Ámbito de recursos
 
-Si necesita agregar una asignación de roles en el nivel de un recurso, establezca la propiedad `scope` en la asignación de roles en el nombre del recurso.
+Si necesita asignar un rol en el nivel de un recurso, establezca la propiedad `scope` en la asignación de roles en el nombre del recurso.
 
 La plantilla siguiente muestra:
 
@@ -369,15 +373,6 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 A continuación se muestra un ejemplo de la asignación del rol de colaborador a una nueva entidad de servicio de identidad administrada después de implementar la plantilla.
 
 ![Asignación de roles para una nueva entidad de servicio de identidad administrada](./media/role-assignments-template/role-assignment-template-msi.png)
-
-## <a name="remove-a-role-assignment"></a>Eliminación de una asignación de rol
-
-En RBAC de Azure, para quitar el acceso a un recurso de Azure, se quita la asignación de roles. Una asignación de roles no se puede quitar mediante una plantilla. Para quitar una asignación de roles, hay que usar otras herramientas como:
-
-- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment)
-- [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

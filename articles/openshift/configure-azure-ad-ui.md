@@ -1,19 +1,19 @@
 ---
 title: 'Red Hat OpenShift en Azure con OpenShift 4: configuración de la autenticación de Azure Active Directory mediante Azure Portal y la consola web de OpenShift'
 description: Obtenga información sobre cómo configurar la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift en Azure que ejecute OpenShift 4 mediante Azure Portal y la consola web de OpenShift.
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7f01404f63a32e3a23413b8eaca64f679f7036d8
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748073"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635169"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift en Azure 4 (Portal)
 
@@ -40,7 +40,7 @@ Proporcione un nombre para la aplicación, por ejemplo **aro-azuread-auth** y re
 
 ![Nuevo registro de aplicaciones](media/aro4-ad-registerapp.png)
 
-Vaya a **Certificados y secretos** , haga clic en **Nuevo secreto de cliente** y rellene los detalles. Anote el valor de la clave, ya que lo usará en una fase posterior. No podrá recuperarlo de nuevo.
+Vaya a **Certificados y secretos**, haga clic en **Nuevo secreto de cliente** y rellene los detalles. Anote el valor de la clave, ya que lo usará en una fase posterior. No podrá recuperarlo de nuevo.
 
 ![Crear un secreto](media/aro4-ad-clientsecret.png)
 
@@ -100,12 +100,12 @@ Para encontrar la dirección URL de la consola del clúster, ejecute el siguient
 
 Inicie la dirección URL de la consola en un explorador e inicie sesión con las credenciales de `kubeadmin`.
 
-Vaya a **Administración** , haga clic en **Configuración del clúster** y, a continuación, seleccione la pestaña **Configuración global**. Desplácese para seleccionar **OAuth**.
+Vaya a **Administración**, haga clic en **Configuración del clúster** y, a continuación, seleccione la pestaña **Configuración global**. Desplácese para seleccionar **OAuth**.
 
 Desplácese hacia abajo para seleccionar **Agregar** en la sección **Proveedores de identidades** y seleccione **OpenID Connect**.
 ![Seleccionar OpenID Connect del menú desplegable Proveedores de identidades](media/aro4-oauth-idpdrop.png).
 
-Rellene el nombre como **AAD** , el **Id. de cliente** como **Id. de la aplicación** y el **Secreto de cliente**. La **URL del emisor** tiene el formato siguiente: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Reemplace el marcador de posición por el Id. de inquilino que recuperó anteriormente.
+Rellene el nombre como **AAD**, el **Id. de cliente** como **Id. de la aplicación** y el **Secreto de cliente**. La **URL del emisor** tiene el formato siguiente: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Reemplace el marcador de posición por el Id. de inquilino que recuperó anteriormente.
 
 ![Rellenar los detalles de OAuth](media/aro4-oauth-idp-1.png)
 

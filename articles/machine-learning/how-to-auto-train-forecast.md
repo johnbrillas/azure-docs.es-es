@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132089"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392330"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+La cantidad de datos necesarios para entrenar correctamente un modelo de previsión con aprendizaje automático automatizado se ve influida por los valores de `forecast_horizon`, `n_cross_validations` y `target_lags` o `target_rolling_window_size` especificados al configurar `AutoMLConfig`. 
+
+La fórmula siguiente calcula la cantidad de datos históricos que se necesitarían para construir características de serie temporal.
+
+Datos históricos mínimos necesarios: (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
+
+Se generará una excepción de error para todas las series del conjunto de datos que no cumplan con la cantidad necesaria de datos históricos para la configuración pertinente especificada. 
+
 ### <a name="featurization-steps"></a>Pasos de caracterización
 
 En todos los experimentos de aprendizaje automático automatizado se aplican técnicas de escalado automático y normalización a los datos de forma predeterminada. Estas técnicas son tipos de **caracterización** que ayudan a *ciertos* algoritmos que son sensibles a las características a diferentes escalas. Más información sobre los pasos de caracterización predeterminados en [caracterización en AutoML](how-to-configure-auto-features.md#automatic-featurization)
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Repita los pasos necesarios para cargar estos datos futuros a una trama de datos y ejecute `best_run.predict(test_data)` para predecir los valores futuros.
 
 > [!NOTE]
-> No se pueden predecir valores para períodos que superen el valor de `forecast_horizon`. El modelo debe volver a entrenarse con un horizonte mayor para predecir valores futuros más allá del actual.
+> Las predicciones en el ejemplo no se admiten para la previsión con aprendizaje automático automatizado cuando se habilitan `target_lags` o `target_rolling_window_size`.
 
 
 ## <a name="example-notebooks"></a>Cuadernos de ejemplo

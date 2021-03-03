@@ -29,6 +29,8 @@
           href: azure-netapp-files-performance-metrics-volumes.md
         - name: Bancos de pruebas de rendimiento para Linux
           href: performance-benchmarks-linux.md
+        - name: Impacto en el rendimiento de Kerberos en NFSv4.1
+          href: performance-impact-kerberos.md
         - name: Rendimiento de Oracle Database en volúmenes individuales de Azure NetApp Files
           href: performance-oracle-single-volumes.md
         - name: Preguntas frecuentes sobre el rendimiento de SMB
@@ -77,6 +79,8 @@
       href: manage-manual-qos-capacity-pool.md
     - name: Delegación de una subred en Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
+    - name: Creación y administración de conexiones de Active Directory
+      href: create-active-directory-connections.md
     - name: Creación y administración de un volumen NFS
       items:
         - name: Creación de un volumen NFS

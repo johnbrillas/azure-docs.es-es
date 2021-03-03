@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898103"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593044"
 ---
 # <a name="read-nsg-flow-logs"></a>Lectura de registros de flujos de NSG
 
@@ -189,6 +189,6 @@ Este escenario es un ejemplo de cómo leer las entradas de registros de flujos d
 
 Visite [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Uso de Grafana](network-watcher-nsg-grafana.md) y [Uso de Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para obtener más información sobre cómo ver los registros de flujos de NSG. Puede encontrar un enfoque de la función de Azure de código abierto para consumir los blobs directamente y emitir a varios consumidores de Log Analytics aquí: [Conector de registros de flujo de NSG para Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Puede usar [Análisis de tráfico de Azure](./traffic-analytics.md) para sacar conclusiones sobre los flujos de tráfico. Análisis de tráfico usa [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para permitir las consultas en el flujo de tráfico.
+Puede usar [Análisis de tráfico de Azure](./traffic-analytics.md) para sacar conclusiones sobre los flujos de tráfico. Análisis de tráfico usa [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) para permitir las consultas en el flujo de tráfico.
 
 Para obtener más información sobre los blobs de almacenamiento, visite: [Enlaces de Azure Blob Storage para Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

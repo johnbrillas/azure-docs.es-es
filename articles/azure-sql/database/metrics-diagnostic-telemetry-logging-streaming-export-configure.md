@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592721"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -58,17 +58,17 @@ Esta telemetría de diagnóstico se puede exportar a uno de los siguientes recur
 
 - **[Área de trabajo de Log Analytics](#stream-into-sql-analytics)** :
 
-  Los datos que se transmiten a un [área de trabajo de Log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) pueden ser consumidos por [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics es una solución de supervisión en la nube que proporciona supervisión inteligente de las bases de datos, lo que incluye informes de rendimiento, alertas y recomendaciones de mitigación. Los datos que se transmiten a un área de trabajo de Log Analytics se pueden analizar con otros datos de supervisión recopilados y también permiten aprovechar otras características de Azure Monitor, como las alertas y las visualizaciones.
+  Los datos que se transmiten a un [área de trabajo de Log Analytics](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) pueden ser consumidos por [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics es una solución de supervisión en la nube que proporciona supervisión inteligente de las bases de datos, lo que incluye informes de rendimiento, alertas y recomendaciones de mitigación. Los datos que se transmiten a un área de trabajo de Log Analytics se pueden analizar con otros datos de supervisión recopilados y también permiten aprovechar otras características de Azure Monitor, como las alertas y las visualizaciones.
 - **[Azure Event Hubs](#stream-into-event-hubs)** :
 
-  Los datos que se transmiten a un [centro de eventos de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) proporcionan las siguientes funcionalidades:
+  Los datos que se transmiten a un [centro de eventos de Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) proporcionan las siguientes funcionalidades:
 
   - **Transmisión de registros a sistemas de registro y telemetría de terceros**: transmita todas sus métricas y todos sus registros de recursos a un centro de eventos único para canalizar datos de registro en una herramienta SIEM o de análisis de registros de terceros.
   - **Creación de una plataforma personalizada de registro y telemetría**: la naturaleza altamente escalable de publicación y suscripción de los centros de eventos otorga la flexibilidad necesaria para ingerir métricas y registros de recursos en una plataforma de telemetría personalizada. Consulte [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) (Diseño y cambio de tamaño de una plataforma de telemetría a escala global en Azure Event Hubs) para más información.
   - **Visualización del estado del servicio mediante la transmisión de datos a Power BI**: use Event Hubs, Stream Analytics y Power BI para transformar los datos de diagnóstico en información sobre los servicios de Azure prácticamente en tiempo real. Consulte [Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para detalles sobre esta solución.
 - **[Azure Storage](#stream-into-azure-storage)** :
 
-  Los datos que se transmiten a [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) permiten archivar gran cantidad de información de telemetría de diagnóstico por una fracción del costo de las dos opciones anteriores de streaming.
+  Los datos que se transmiten a [Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) permiten archivar gran cantidad de información de telemetría de diagnóstico por una fracción del costo de las dos opciones anteriores de streaming.
 
 Esta telemetría de diagnóstico transmitida a uno de estos destinos se puede usar para medir el uso de recursos y las estadísticas de ejecución de consultas con el fin de facilitar la supervisión del rendimiento.
 
@@ -89,7 +89,7 @@ Puede habilitar y administrar las métricas y los registros de datos de telemetr
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico
 
-Puede usar el menú **Configuración de diagnóstico** de Azure Portal para habilitar y configurar el streaming de los datos de telemetría de diagnóstico. Además, puede usar PowerShell, la CLI de Azure, la [API REST](/rest/api/monitor/diagnosticsettings) y las [plantillas de Resource Manager](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) para configurar el streaming de los datos de telemetría de diagnóstico. Puede establecer los siguientes destinos para transmitir los datos de telemetría de diagnóstico: Azure Storage, Azure Event Hubs y registros de Azure Monitor.
+Puede usar el menú **Configuración de diagnóstico** de Azure Portal para habilitar y configurar el streaming de los datos de telemetría de diagnóstico. Además, puede usar PowerShell, la CLI de Azure, la [API REST](/rest/api/monitor/diagnosticsettings) y las [plantillas de Resource Manager](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md) para configurar el streaming de los datos de telemetría de diagnóstico. Puede establecer los siguientes destinos para transmitir los datos de telemetría de diagnóstico: Azure Storage, Azure Event Hubs y registros de Azure Monitor.
 
 > [!IMPORTANT]
 > La exportación de streaming de los datos de telemetría de diagnóstico no está habilitada de forma predeterminada.
@@ -102,7 +102,7 @@ Seleccione una de las siguientes pestañas para obtener una guía paso a paso pa
 
 Puede configurar un recurso de grupos elásticos para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Recurso | Telemetría de supervisión |
+| Resource | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Grupo elástico** | [Métricas básicas](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#basic-metrics) contiene el porcentaje de eDTU/CPU, el límite de eDTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, el porcentaje de sesiones, el porcentaje de trabajos, el almacenamiento, el porcentaje de almacenamiento, el límite de almacenamiento y el porcentaje de almacenamiento de XTP. |
 
@@ -166,7 +166,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de una base 
 
 Puede configurar un recurso de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Recurso | Telemetría de supervisión |
+| Resource | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Instancia administrada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
@@ -202,7 +202,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de un recurs
 
 Puede configurar un recurso de base de datos de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Recurso | Telemetría de supervisión |
+| Resource | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Base de datos de instancia** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
@@ -335,7 +335,7 @@ Puede supervisar una colección de bases de datos y colecciones de bases de dato
 2. Cree un área de trabajo de Log Analytics en la solución.
 3. Configure bases de datos para transmitir datos de telemetría de diagnóstico al área de trabajo.
 
-Puede configurar la exportación de streaming de esta telemetría de diagnóstico mediante la opción integrada **Enviar a Log Analytics** en la pestaña Configuración de diagnóstico de Azure Portal. También puede habilitar el streaming a un área de trabajo de Log Analytics mediante el uso de la configuración de diagnóstico a través de [cmdlets de PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), la [CLI de Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), la [API REST de Azure Monitor](/rest/api/monitor/diagnosticsettings) o [plantillas de Resource Manager](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
+Puede configurar la exportación de streaming de esta telemetría de diagnóstico mediante la opción integrada **Enviar a Log Analytics** en la pestaña Configuración de diagnóstico de Azure Portal. También puede habilitar el streaming a un área de trabajo de Log Analytics mediante el uso de la configuración de diagnóstico a través de [cmdlets de PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), la [CLI de Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), la [API REST de Azure Monitor](/rest/api/monitor/diagnosticsettings) o [plantillas de Resource Manager](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Creación de un recurso de Azure SQL Analytics
 
@@ -428,7 +428,7 @@ Si usa Azure SQL Analytics, puede supervisar el consumo de la ingesta de datos. 
 
 ## <a name="metrics-and-logs-available"></a>Métricas y registros disponibles
 
-La telemetría de supervisión disponible para las bases de datos únicas, las bases de datos agrupadas, los grupos elásticos, las instancias administradas y las bases de datos de instancia se documenta en esta sección del artículo. Los datos de telemetría de supervisión recopilados en SQL Analytics pueden usarse para realizar su propio análisis personalizado y desarrollo de aplicaciones mediante el lenguaje de [consultas de registro de Azure Monitor](../../azure-monitor/log-query/get-started-queries.md).
+La telemetría de supervisión disponible para las bases de datos únicas, las bases de datos agrupadas, los grupos elásticos, las instancias administradas y las bases de datos de instancia se documenta en esta sección del artículo. Los datos de telemetría de supervisión recopilados en SQL Analytics pueden usarse para realizar su propio análisis personalizado y desarrollo de aplicaciones mediante el lenguaje de [consultas de registro de Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
 ### <a name="basic-metrics"></a>Métricas básicas
 
@@ -479,7 +479,7 @@ Los detalles de los datos de telemetría disponibles para todos los registros se
 |Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: ResourceUsageStats |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -505,7 +505,7 @@ Los detalles de los datos de telemetría disponibles para todos los registros se
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -556,7 +556,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -594,7 +594,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Errors |
 |OperationName|Nombre de la operación. Siempre: ErrorEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -623,7 +623,7 @@ Obtenga más información sobre los [mensajes de error de SQL](/sql/relational-d
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: DatabaseWaitStatistics |
 |OperationName|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -652,7 +652,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Tiempos de expiración |
 |OperationName|Nombre de la operación. Siempre: TimeoutEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -675,7 +675,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Blocks |
 |OperationName|Nombre de la operación. Siempre: BlockEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -699,7 +699,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: Interbloqueos |
 |OperationName|Nombre de la operación. Siempre: DeadlockEvent |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -719,7 +719,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |Tipo|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Category|Nombre de la categoría Siempre: AutomaticTuning |
-|Recurso|Nombre del recurso |
+|Resource|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
@@ -747,8 +747,8 @@ Obtenga más información sobre el [formato de registro de Intelligent Insights]
 
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, vea lo siguiente:
 
-- [Información general sobre las métricas en Microsoft Azure](../../azure-monitor/platform/data-platform.md)
-- [Introducción a los registros de plataforma Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Información general sobre las métricas en Microsoft Azure](../../azure-monitor/data-platform.md)
+- [Introducción a los registros de plataforma Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 Para obtener información sobre Event Hubs, lea lo siguiente:
 

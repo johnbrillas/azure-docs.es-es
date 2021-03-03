@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618882"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574142"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Habilitación de auditorías de seguridad para Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ En la tabla siguiente se esbozan los escenarios para cada tipo de recurso de des
 |:---|:---|
 |Azure Storage| Este destino se debe usar cuando la necesidad principal es almacenar eventos de auditoría de seguridad para fines de archivado. Se pueden usar otros destinos para fines de archivado, pero esos destinos proporcionan funcionalidades que van más allá de la principal necesidad de archivado. <br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree una cuenta de Azure Storage](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Este destino debe usarse cuando la principal necesidad es compartir eventos de auditoría de seguridad con otro software, como software de análisis de datos o software de administración de eventos e información de seguridad (SIEM).<br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un centro de eventos mediante Azure Portal](../event-hubs/event-hubs-create.md)|
-|Área de trabajo de Azure Log Analytics| Este destino debe usarse cuando la principal necesidad es analizar y revisar auditorías de seguridad directamente en Azure Portal.<br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).|
+|Área de trabajo de Azure Log Analytics| Este destino debe usarse cuando la principal necesidad es analizar y revisar auditorías de seguridad directamente en Azure Portal.<br /><br />Antes de habilitar eventos de auditoría de seguridad de Azure AD DS, [cree un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Habilitar eventos de auditoría de seguridad mediante Azure Portal
 
@@ -100,7 +100,7 @@ Para habilitar eventos de auditoría de seguridad de Azure AD DS mediante Azure 
         > [!IMPORTANT]
         > Asegúrese de establecer la regla de autorización en el espacio de nombres del centro de eventos y no en el propio centro de eventos.
 
-    * **Áreas de trabajo de Azure Log Analytic** - [Creación de un área de trabajo de Log Analytics con Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)
+    * **Áreas de trabajo de Azure Log Analytic** - [Creación de un área de trabajo de Log Analytics con Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md)
 
 1. Obtenga el identificador de recurso del dominio administrado de Azure AD DS con el cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource). Cree una variable denominada *$aadds.ResourceId* para conservar el valor:
 
@@ -141,9 +141,9 @@ Para habilitar eventos de auditoría de seguridad de Azure AD DS mediante Azure 
 Las áreas de trabajo de Log Analytics permiten ver y analizar los eventos de auditoría de seguridad mediante Azure Monitor y el lenguaje de consulta Kusto. Este lenguaje de consulta está diseñado para un uso de solo lectura que ofrece eficaces funcionalidades analíticas con una sintaxis fácil de leer. Para obtener más información para empezar a usar el lenguaje de consulta Kusto, vea los siguientes artículos:
 
 * [Documentación sobre Azure Monitor](../azure-monitor/index.yml)
-* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Creación y uso compartido de paneles de datos de Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Creación y uso compartido de paneles de datos de Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 Las consultas de ejemplo siguientes se pueden usar para empezar a analizar eventos de auditoría de seguridad de Azure AD DS.
 

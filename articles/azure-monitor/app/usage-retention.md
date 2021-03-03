@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323543"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583380"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análisis de retención de usuarios para aplicaciones web con Application Insights
 
@@ -63,6 +63,6 @@ O en el código del servidor ASP.NET:
     - [Usuarios, sesiones, eventos](usage-segmentation.md)
     - [Embudos](usage-funnels.md)
     - [Flujos de usuario](usage-flows.md)
-    - [Libros](../platform/workbooks-overview.md)
+    - [Libros](../visualize/workbooks-overview.md)
     - [Adición de contexto de usuario](usage-send-user-context.md)
 

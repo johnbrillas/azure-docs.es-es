@@ -3,12 +3,12 @@ title: Plantilla para crear alertas de Resource Health
 description: Creación de alertas mediante programación que notifiquen cuándo dejan de estar disponibles los recursos de Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1cbe1e2d2c185906feb4ccba380cb31df864f5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537436"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588207"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -23,7 +23,7 @@ Azure Resource Health le mantiene informado sobre el estado actual y pasado de s
 Para seguir las instrucciones que aparecen en esta página, necesita de antemano algunas cosas:
 
 1. Debe instalar el [módulo de Azure PowerShell](/powershell/azure/install-az-ps)
-2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/platform/action-groups.md) configurado para recibir notificaciones
+2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/alerts/action-groups.md) configurado para recibir notificaciones
 
 ## <a name="instructions"></a>Instructions
 1. Con PowerShell, inicie sesión en su cuenta de Azure y seleccione la suscripción con la que desee interactuar
@@ -452,4 +452,4 @@ Más información sobre Resource Health:
 
 Creación de alertas de Service Health:
 -  [Configuración de alertas de Service Health](./alerts-activity-log-service-notifications-portal.md) 
--  [Esquema de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Esquema de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log-schema.md)

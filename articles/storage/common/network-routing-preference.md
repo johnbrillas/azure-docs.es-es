@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362750"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage (versión preliminar)
 
 Puede configurar las [preferencias de enrutamiento](../../virtual-network/routing-preference-overview.md) de red (versión preliminar) de la cuenta de Azure Storage para especificar cómo se enruta el tráfico de red a la cuenta desde los clientes a través de Internet. De forma predeterminada, el tráfico procedente de Internet se enruta al punto de conexión público de la cuenta de almacenamiento a través de la [red global de Microsoft](../../networking/microsoft-global-network.md). Azure Storage proporciona opciones adicionales para configurar la forma de enrutar el tráfico a la cuenta de almacenamiento.
 
 La configuración de las preferencias de enrutamiento le ofrece la flexibilidad de optimizar el tráfico en función del rendimiento de la red Premium o del costo. Cuando configure una preferencia de enrutamiento, debe especificar cómo se dirigirá el tráfico al punto de conexión público de la cuenta de almacenamiento de forma predeterminada. También puede publicar puntos de conexión específicos de la ruta para la cuenta de almacenamiento.
+
+> [!NOTE]
+> Esta característica no se admite en las cuentas de almacenamiento que están configuradas para usar el nivel de rendimiento Premium o el almacenamiento con redundancia de zona (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Red global de Microsoft frente al enrutamiento de Internet
 
@@ -90,7 +93,7 @@ La preferencia de enrutamiento de Azure Storage está disponible en las siguient
 - Oeste de Europa 
 - Centro de Emiratos Árabes Unidos
 - Este de Asia 
-- Sudeste Asiático 
+- Sudeste de Asia 
 - Japón Oriental 
 - Japón Occidental 
 - Oeste de la India

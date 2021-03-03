@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751298"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593939"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -145,7 +145,7 @@ Para cambiar las notificaciones de correo electrónico después de implementar l
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de pantalla de la página Correo electrónico, SMS, Notificación push y Voz que muestra una dirección de correo electrónico de ejemplo actualizada.":::
 
-    También puede agregar acciones adicionales al grupo de acciones; para más información sobre grupos de acciones, consulte [grupos de acciones](../azure-monitor/platform/action-groups.md)
+    También puede agregar acciones adicionales al grupo de acciones; para más información sobre grupos de acciones, consulte [grupos de acciones](../azure-monitor/alerts/action-groups.md)
 
 El siguiente es un correo electrónico de ejemplo que se envía cuando la característica cierra las máquinas virtuales.
 

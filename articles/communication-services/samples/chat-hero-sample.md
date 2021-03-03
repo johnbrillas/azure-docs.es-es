@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760794"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657033"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -36,13 +34,13 @@ En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo an
 
 ## <a name="overview"></a>Información general
 
-El ejemplo tiene una aplicación del lado cliente y una aplicación del lado servidor. La **aplicación del lado cliente** es una aplicación web React/Redux que usa el marco de interfaz de usuario Fluent de Microsoft. Esta aplicación envía solicitudes a una **aplicación del lado servidor** de ASP.NET Core que ayuda a la aplicación del lado cliente a conectarse a Azure. 
+El ejemplo tiene una aplicación del lado cliente y una aplicación del lado servidor. La **aplicación del lado cliente** es una aplicación web React/Redux que usa el marco de interfaz de usuario Fluent de Microsoft. Esta aplicación envía solicitudes a una **aplicación del lado servidor** de ASP.NET Core que ayuda a la aplicación del lado cliente a conectarse a Azure.
 
 El ejemplo tendrá una apariencia similar a la siguiente:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
 
-Cuando se presiona el botón "Start chat", la aplicación web captura un token de acceso de usuario de la aplicación del lado servidor. A continuación, este token se usa para conectar la aplicación cliente con Azure Communication Services. Una vez que se recupera el token, se le pedirá que especifique su nombre y el emoji que le representará en el chat. 
+Cuando se presiona el botón "Start chat", la aplicación web captura un token de acceso de usuario de la aplicación del lado servidor. A continuación, este token se usa para conectar la aplicación cliente con Azure Communication Services. Una vez que se recupera el token, se le pedirá que especifique su nombre y el emoji que le representará en el chat.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de pantalla que muestra la pantalla anterior al chat de la aplicación.":::
 
@@ -54,7 +52,7 @@ Componentes de la pantalla principal de chat:
 
 - **Área de chat principal**: Aquí se encuentra la experiencia de chat principal, donde los usuarios pueden enviar y recibir mensajes. Para enviar mensajes, puede usar el área de entrada y presionar Entrar (o usar el botón de envío). Los mensajes de chat recibidos se clasifican por remitente con el nombre y el emoji correctos. Verá dos tipos de notificaciones en el área de chat: 1) notificaciones de escritura cuando un usuario esté escribiendo y 2) notificaciones de envío y lectura para los mensajes.
 - **Encabezado**: Aquí es donde el usuario verá el título del hilo de chat y los controles para alternar las barras laterales de participantes y de configuración, y un botón Leave para salir de la sesión de chat.
-- **Barra lateral**: Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat. 
+- **Barra lateral**: Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat.
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -104,7 +102,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero).
 
 Para más información, consulte los siguientes artículos.

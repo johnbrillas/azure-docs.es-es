@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981347"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363073"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instrucciones de seguridad de Azure Stack Edge Pro R
 
@@ -134,6 +134,7 @@ Los siguientes iconos de riesgo se deben tener en mente al configurar y poner en
 
 * En el caso de los sistemas sin un sistema de alimentación ininterrumpida (SAI), desconecte todos los cables de alimentación de CA para desconectar por completo la alimentación de CA del equipo.
 * En el caso de los sistemas con un sistema de alimentación ininterrumpida, desconecte todos los cables de alimentación de CA y use el interruptor de alimentación de SAI para desactivar el sistema. El sistema de alimentación ininterrumpida contiene voltajes peligrosos de CA y CC.
+* Si un sistema incluye un SAI, dicho SAI se proporcionó con un cable de alimentación de entrada blindada. Debe usar el cable de alimentación de entrada blindada; no reemplace ni modifique el cable.
 
 ![Icono de advertencia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
 ![Icono de descarga eléctrica](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **ADVERTENCIA:**
@@ -210,21 +211,22 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![Icono de aviso - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp;Las modificaciones o cambios realizados en el equipo que no hayan sido aprobados expresamente por Microsoft podrían anular la autorización del usuario para operar con el equipo.
 
-CANADÁ y EE. UU.:
+#### <a name="canada-and-usa"></a>CANADÁ y EE. UU.:
 
-AVISO: Este equipo ha sido probado y cumple con los límites de un dispositivo digital de clase A, en virtud de la sección 15 de las Normas de FCC. Estos límites están diseñados para proporcionar una protección razonable contra interferencias perjudiciales cuando el equipo se hace funcionar en un entorno comercial. Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y se usa de acuerdo con el manual de instrucciones, puede causar interferencias perjudiciales para las comunicaciones de radio. El uso de este equipo en una zona residencial puede provocar interferencias perjudiciales, en cuyo caso, se requerirá que el usuario corrija la interferencia a su costa.
+> ![Icono de aviso - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp;Este equipo ha sido probado y se ajusta a los límites de los dispositivos digitales de clase A, en virtud de la sección 15 de las Normas de FCC. Estos límites están diseñados para proporcionar una protección razonable contra interferencias perjudiciales cuando el equipo se hace funcionar en un entorno comercial. Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y se usa de acuerdo con el manual de instrucciones, puede causar interferencias perjudiciales para las comunicaciones de radio. El uso de este equipo en una zona residencial puede provocar interferencias perjudiciales, en cuyo caso, se requerirá que el usuario corrija la interferencia a su costa.
 
 Este dispositivo cumple con la sección 15 de las Normas de FCC y los estándares RSS exentos de licencia de Industry Canada. El uso está sujeto a las dos condiciones siguientes: (1) este dispositivo no puede causar interferencias perjudiciales y (2) este dispositivo debe aceptar cualquier interferencia recibida, incluida una que pueda ocasionar el mal funcionamiento del dispositivo.
 
 ![Advertencia de información sobre normativa 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
 
-CAN ICES-3(A)/NMB-3(A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EE. UU.
-Estados Unidos: (800) 426-9400 Canadá: (800) 933-4750
+CAN ICES-3(A)/NMB-3(A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EE. UU. Estados Unidos: (800) 426-9400 Canadá: (800) 933-4750
 
-UNIÓN EUROPEA: Solicite una copia de la declaración de conformidad de la UE. 
+#### <a name="european-union"></a>UNIÓN EUROPEA:
 
-![Icono de advertencia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Solicite una copia de la declaración de conformidad de la UE. Envíe un correo electrónico a [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Icono Advertencia](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **ADVERTENCIA**
 
 Se trata de un producto de clase A. En un entorno doméstico, este producto puede causar interferencias de radio, en cuyo caso es posible que se pida al usuario que tome las medidas adecuadas.
 
@@ -237,7 +239,6 @@ Este símbolo en el producto o en su embalaje o baterías significa que este pro
 Este producto contiene baterías de celda de moneda.
 
 Microsoft Irlanda Sandyford Ind Est Dublín D18 KX32 IRL Número de teléfono: +353 1 295 3826 Número de fax: +353 1 706 4110
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

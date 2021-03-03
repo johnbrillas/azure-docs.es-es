@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34bbf34d53c44dcef7b8e128a93ee64201423c3e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0afe349473bcddcbf1ac35136f2991ffe82670c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897044"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576065"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integración con registros de Azure Monitor
 
@@ -36,7 +36,7 @@ Para empezar a enviar los informes de Automation State Configuration a los regis
 
 - La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/) (v2.3.0).
 - Una cuenta de Azure Automation Para más información, consulte [Introducción a Azure Automation](automation-intro.md).
-- Un área de trabajo de Log Analytics con una oferta de servicio de Automation & Control. Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+- Un área de trabajo de Log Analytics con una oferta de servicio de Automation & Control. Para más información, consulte [Introducción a los análisis de registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 - Al menos un nodo de Azure Automation State Configuration. Para más información, consulte [Incorporación de máquinas para administrarlas con State Configuration de Azure Automation](automation-dsc-onboarding.md).
 - Módulo [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0), versión 2.7.0.0 o posterior. Para conocer los pasos necesarios para la instalación, consulte [Solución de problemas de Desired State Configuration (DSC) de Azure Automation](./troubleshoot/desired-state-configuration.md).
 
@@ -91,7 +91,7 @@ Detalles de filtrado:
 * Filtre por `DscResourceStatusData` para devolver las operaciones de cada recurso de DSC llamado en la configuración de nodo aplicada a ese recurso. 
 * Filtre por `DscResourceStatusData` para devolver información de errores de los recursos de DSC con errores.
 
-Para más información sobre la creación de consultas de registros para buscar datos, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para más información sobre la creación de consultas de registros para buscar datos, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envío de un correo electrónico cuando se produce un error en cualquier comprobación de cumplimiento de State Configuration
 
@@ -105,7 +105,7 @@ Para crear una regla de alertas, primero debe crear una búsqueda de registros p
    Si ha configurado registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation. El nombre de la cuenta de Automation se deriva del campo `Resource` en la búsqueda de registros `DscNodeStatusData`.
 1. Para abrir la pantalla **Crear regla**, haga clic en **Nueva regla de alertas** en la parte superior de la página. 
 
-Para obtener más información acerca de las opciones para configurar la alerta, consulte [Crear una regla de alerta](../azure-monitor/platform/alerts-metric.md).
+Para obtener más información acerca de las opciones para configurar la alerta, consulte [Crear una regla de alerta](../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Búsqueda de recursos de DSC con errores en todos los nodos
 
@@ -199,5 +199,5 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 - Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation).
 - Para obtener información de precios, consulte [Precios de State Configuration de Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, vea [Configuración de la implementación continua con Chocolatey](automation-dsc-cd-chocolatey.md).
-- Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de Automation State Configuration con los registros de Azure Monitor, consulte [Búsquedas de registros en los registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
-- Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+- Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de Automation State Configuration con los registros de Azure Monitor, consulte [Búsquedas de registros en los registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+- Para obtener más información sobre los registros de Azure Monitor y los orígenes de recopilación de datos, consulte [Introducción a la recopilación de datos de almacenamiento en los registros de Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).

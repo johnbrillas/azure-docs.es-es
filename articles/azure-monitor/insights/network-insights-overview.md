@@ -1,21 +1,20 @@
 ---
 title: Azure Monitor para Redes
 description: Información general de Azure Monitor para redes que ofrece una vista completa del estado y las métricas de todos los recursos de red implementados sin ninguna configuración.
-ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717475"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
-Azure Monitor para redes ofrece una vista completa del [estado](../../service-health/resource-health-checks-resource-types.md) y las [métricas](../platform/metrics-supported.md) de todos los recursos de red implementados sin necesitar ninguna configuración. También proporciona acceso a funcionalidades de supervisión de red como [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [registro de flujo para los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) y [Análisis de tráfico](../../network-watcher/traffic-analytics.md). Además, proporciona otras características de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics).
+Azure Monitor para redes ofrece una vista completa del [estado](../../service-health/resource-health-checks-resource-types.md) y las [métricas](../essentials/metrics-supported.md) de todos los recursos de red implementados sin necesitar ninguna configuración. También proporciona acceso a funcionalidades de supervisión de red como [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [registro de flujo para los grupos de seguridad de red (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) y [Análisis de tráfico](../../network-watcher/traffic-analytics.md). Además, proporciona otras características de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics).
 
 Azure Monitor para redes está estructurado en torno a estos componentes clave de supervisión:
 - [Estado y métricas de red](#networkhealth)
@@ -149,4 +148,4 @@ Puede evitar el libro que ve en cualquier vista de métrica detallada o panel la
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la supervisión de red: [¿Qué es Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Conozca los escenarios para los que están concebidos los libros, aprenda a crear informes y a personalizar los ya existentes, y mucho más: [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md)
+- Conozca los escenarios para los que están concebidos los libros, aprenda a crear informes y a personalizar los ya existentes, y mucho más: [Crear informes interactivos con libros de Azure Monitor](../visualize/workbooks-overview.md)

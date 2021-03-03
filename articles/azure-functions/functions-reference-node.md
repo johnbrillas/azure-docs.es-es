@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674140"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591039"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -20,7 +20,7 @@ Como desarrollador Express.js, Node.js o JavaScript, si no está familiarizado c
 
 | Introducción | Conceptos| Aprendizaje guiado |
 | -- | -- | -- | 
-| <ul><li>[Función de Node.js mediante Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Función de Node.js con el símbolo del sistema o terminal](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Funciones de TypeScript](#typescript)</li><li>[Consideraciones y rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactorización de las API de Node.js y Express para las API sin servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Función de Node.js mediante Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Función de Node.js con el símbolo del sistema o terminal](./create-first-function-cli-node.md)</li><li>[Función de Node.js usando Azure Portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Guía del desarrollador](functions-reference.md)</li><li>[Opciones de hospedaje](functions-scale.md)</li><li>[Funciones de TypeScript](#typescript)</li><li>[Consideraciones y rendimiento](functions-best-practices.md)</li></ul> | <ul><li>[Creación de aplicaciones sin servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactorización de las API de Node.js y Express para las API sin servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Fundamentos de las funciones de JavaScript
 
@@ -745,7 +745,7 @@ Cuando se trabaja con las funciones de JavaScript, tenga en cuenta las considera
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Elección de los planes de App Service de una sola vCPU
 
-Al crear una aplicación de función que usa el plan de App Service, se recomienda que seleccione un plan de una sola vCPU, en lugar de un plan con varias vCPU. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en VM con una sola vCPU; el uso de máquinas virtuales más grandes no produce las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de una sola vCPU o bien puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json).
+Al crear una aplicación de función que usa el plan de App Service, se recomienda que seleccione un plan de una sola vCPU, en lugar de un plan con varias vCPU. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en VM con una sola vCPU; el uso de máquinas virtuales más grandes no produce las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de una sola vCPU o bien puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json).
 
 ### <a name="cold-start"></a>Arranque en frío
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362028"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559324"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal
 
@@ -58,7 +58,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="grant-access"></a>Conceder acceso
 
-En Azure RBAC, para conceder acceso es preciso crear una asignación de roles.
+En RBAC de Azure, es preciso asignar un rol de Azure para conceder acceso.
 
 1. En la lista de **Grupos de recursos**, haga clic en el nuevo grupo de recursos **rbac-resource-group**.
 
@@ -82,7 +82,7 @@ En Azure RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 1. En la lista **Seleccionar**, se puede seleccionar a usted mismo o a otro usuario.
 
-1. Haga clic en **Guardar** para crear la asignación de roles.
+1. Haga clic en **Guardar** para asignar el rol.
 
    Transcurridos unos instantes, se asigna el rol Colaborador de la máquina virtual al usuario en el ámbito del grupo de recursos rbac-resource-group.
 

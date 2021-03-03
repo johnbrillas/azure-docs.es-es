@@ -4,12 +4,12 @@ description: Aprenda a visualizar la información de solución de problemas en l
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 2ef38aa76f4ef9152e7bc55a1d74c84ef426f0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 355c665db2627fe04595a8b519b16bd475ebcadf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735155"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
@@ -71,8 +71,8 @@ Si necesita información adicional desde el maestro de Kubernetes, consulte [Hab
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: ./view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: view-master-logs.md
-[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+[aks-master-logs]: ./view-control-plane-logs.md
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

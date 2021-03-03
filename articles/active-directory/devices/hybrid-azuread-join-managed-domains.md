@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365776"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644925"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 > * Comprobación dispositivos unidos
 > * Solución de problemas
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (versión 1.1.819.0 o posterior)
 - Las credenciales de administrador global para el inquilino de Azure AD
@@ -82,7 +82,7 @@ Si no usa WPAD, puede configurar el proxy en WinHTTP a partir de la versión 170
 
 Si la organización requiere acceso a Internet mediante un servidor proxy saliente autenticado, asegúrese de que los equipos con Windows 10 pueden autenticarse correctamente en el proxy de salida. Debido a que los equipos con Windows 10 ejecutan el registro de dispositivos mediante el contexto del equipo, configure la autenticación del proxy de salida mediante el contexto del equipo. Realice un seguimiento con su proveedor de proxy de salida en relación a los requisitos de configuración.
 
-Compruebe si el dispositivo puede acceder a los recursos de Microsoft anteriores con la cuenta del sistema; para ello, utilice el script para [Probar la conectividad del registro de dispositivos](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
+Compruebe si el dispositivo puede acceder a los recursos de Microsoft anteriores con la cuenta del sistema; para ello, utilice el script para [Probar la conectividad del registro de dispositivos](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configuración de la unión a Azure AD híbrido
 

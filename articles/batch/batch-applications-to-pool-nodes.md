@@ -2,46 +2,65 @@
 title: Copia de aplicaciones y datos en nodos de grupo
 description: Obtenga información sobre cómo copiar aplicaciones y datos en nodos de grupo.
 ms.topic: how-to
-ms.date: 02/17/2020
-ms.openlocfilehash: e21b8551fb62c4335910fd05bb9590eaf6f7e35a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85954900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703654"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copia de aplicaciones y datos en nodos de grupo
 
-Azure Batch admite varias maneras de copiar datos y aplicaciones en nodos de proceso para que estén disponibles para su uso mediante tareas. Es posible que los datos y las aplicaciones sean necesarios para ejecutar todo el trabajo y, por tanto, deben instalarse en cada nodo. Algunos pueden ser necesarios solo para una tarea específica, o deben instalarse para el trabajo, pero no es necesario que estén en cada uno de los nodos. Batch dispone de herramientas para cada uno de estos escenarios.
+Azure Batch admite varias maneras de copiar datos y aplicaciones en nodos de proceso para que estén disponibles para su uso en tareas.
 
-- **Archivos de recursos de tareas de inicio de grupo**: para las aplicaciones o los datos que se deben instalar en cada nodo del grupo. Use este método junto con un paquete de aplicación o la recopilación de archivos de recursos de tareas de inicio para ejecutar un comando de instalación.  
-
-Ejemplos: 
-- Use la línea de comandos de la tarea de inicio para mover o instalar aplicaciones.
-
-- Especifique una lista de archivos o contenedores específicos en una cuenta de almacenamiento de Azure. Para obtener más información, vea cómo [agregar el elemento resourcefile en la documentación de REST](/rest/api/batchservice/pool/add#resourcefile).
-
-- Todos los trabajos que se ejecutan en el grupo ejecutan el archivo MyApplication.exe, el cual se debe instalar primero con el archivo MyApplication.msi. Si usa este método, debe establecer la propiedad **Esperar operación correcta** de la tarea de inicio en **true**. Para obtener más información, vea cómo [agregar el elemento starttask en la documentación de REST](/rest/api/batchservice/pool/add#starttask).
-
-- **Referencias de paquetes de aplicación** en el grupo: para las aplicaciones o los datos que se deben instalar en cada nodo del grupo. No hay ningún comando de instalación asociado a un paquete de aplicación, pero puede usar una tarea de inicio para ejecutar cualquier comando de instalación. Si la aplicación no requiere instalación o está formada por un gran número de archivos, puede usar este método. Los paquetes de aplicación son idóneos para un gran número de archivos porque combinan muchas referencias de archivo en una carga pequeña. Si intenta incluir más de 100 archivos de recursos independientes en una tarea, el servicio de Batch puede encontrar limitaciones internas del sistema para una sola tarea. Aparte de esto, use paquetes de aplicación si tiene requisitos de versiones estrictos; por ejemplo, puede tener muchas versiones diferentes de la misma aplicación entre las que necesita elegir. Para obtener más información, consulte el artículo [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](./batch-application-packages.md).
-
-- **Archivos de recursos de tareas de preparación del trabajo**: para las aplicaciones o los datos que se deben instalar para que el trabajo se ejecute, pero que no es necesario instalar en todo el grupo. Por ejemplo, si su grupo tiene muchos tipos diferentes de trabajos y solo uno de ellos necesita MyApplication.msi para ejecutarse, sería conveniente colocar el paso de instalación en una tarea de preparación del trabajo. Para obtener más información sobre las tareas de preparación del trabajo, consulte [Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch](./batch-job-prep-release.md).
-
-- **Archivos de recursos de tareas**: para cuando una aplicación o ciertos datos solo son relevantes para una tarea individual. Por ejemplo: Tiene cinco tareas, cada una procesa un archivo diferente y, a continuación, escribe la salida en el almacenamiento de blobs.  En este caso, se debe especificar el archivo de entrada en la recopilación de **archivos de recursos de tareas** porque cada tarea tiene su propio archivo de entrada.
+El método que elija puede depender del ámbito del archivo o de la aplicación. Es posible que se necesiten datos y aplicaciones para ejecutar todo el trabajo y, por tanto, deban instalarse en cada nodo. Algunos archivos o aplicaciones pueden ser necesarios solo para una tarea específica. Otros puede que deban instalarse para el trabajo, pero no es necesario que estén en cada nodo. Batch dispone de herramientas para cada uno de estos escenarios.
 
 ## <a name="determine-the-scope-required-of-a-file"></a>Determinación del ámbito para el que se necesita un archivo
 
 Debe determinar el ámbito de un archivo, es decir, si el archivo es necesario para un grupo, un trabajo o una tarea. Los archivos cuyo ámbito es el grupo deben usar paquetes de aplicación de grupo o una tarea de inicio. Los archivos cuyo ámbito es el trabajo deben usar una tarea de preparación del trabajo. Un buen ejemplo de archivos cuyo ámbito es el grupo o el trabajo son las aplicaciones. Los archivos cuyo ámbito es la tarea deben usar archivos de recursos de tareas.
 
-### <a name="other-ways-to-get-data-onto-batch-compute-nodes"></a>Otras formas de copiar datos en nodos de proceso de Batch
+## <a name="pool-start-task-resource-files"></a>Archivos de recursos de tareas de inicio de grupo
 
-Existen otros métodos para copiar datos en nodos de proceso de Batch que no están integrados oficialmente en la API REST de Batch. Al tener control sobre los nodos de Azure Batch y poder usar ejecutables personalizados, puede extraer datos de cualquier número de orígenes personalizados siempre que el nodo de Batch tenga conectividad al destino y siempre que usted tenga las credenciales para ese origen en el nodo de Azure Batch. Algunos ejemplos comunes son:
+En el caso de aplicaciones o datos que deban instalarse en cada nodo del grupo, use archivos de recursos de la tarea de inicio del grupo. Use este método junto con un [paquete de aplicación](batch-application-packages.md) o la recopilación de archivos de recursos de la tarea de inicio para ejecutar un comando de instalación.  
+
+Por ejemplo, puede usar la línea de comandos de la tarea de inicio para mover o instalar aplicaciones. También puede especificar una lista de archivos o contenedores en una cuenta de almacenamiento de Azure. Para más información, consulte [Add#ResourceFile en la documentación de REST](/rest/api/batchservice/pool/add#resourcefile).
+
+Si cada trabajo que se ejecuta en el grupo ejecuta una aplicación (.exe) que debe instalarse primero con un archivo .msi, deberá establecer la propiedad **esperar operación correcta** en **true**. Para más información, consulte [Add#StartTask en la documentación de REST](/rest/api/batchservice/pool/add#starttask).
+
+## <a name="application-package-references"></a>Referencias de paquetes de aplicación
+
+En el caso de las aplicaciones o los datos que deban instalarse en cada nodo del grupo, considere la posibilidad de usar [paquetes de aplicación](batch-application-packages.md). No hay ningún comando de instalación asociado a un paquete de aplicación, pero puede usar una tarea de inicio para ejecutar cualquier comando de instalación. Si la aplicación no requiere instalación o está formada por un gran número de archivos, puede usar este método.
+
+Los paquetes de aplicación son útiles cuando se tiene un gran número de archivos, ya que pueden combinar muchas referencias de archivo en una pequeña carga. Si intenta incluir más de 100 archivos de recursos independientes en una tarea, el servicio de Batch puede encontrar limitaciones internas del sistema para una sola tarea. Los paquetes de aplicación también son útiles cuando hay muchas versiones diferentes de la misma aplicación y es necesario elegir entre ellas.
+
+## <a name="job-preparation-task-resource-files"></a>Archivos de recursos de la tarea de preparación del trabajo
+
+En el caso de las aplicaciones o los datos que deban instalarse para que se ejecute el trabajo, pero que no sea necesario instalarlos en todo el grupo, considere la posibilidad de utilizar [archivos de recursos de la tarea de preparación del trabajo](./batch-job-prep-release.md).
+
+Por ejemplo, si su grupo tiene muchos tipos diferentes de trabajos y solo uno de ellos necesita un archivo .msi para ejecutarse, sería conveniente colocar el paso de instalación en una tarea de preparación del trabajo.
+
+## <a name="task-resource-files"></a>Archivos de recursos de tareas
+
+Los archivos de recursos de tareas son adecuados cuando la aplicación o los datos solo son pertinentes para una tarea.
+
+Por ejemplo, podría tener cinco tareas, cada una de las cuales procese un archivo diferente y, luego, escribir la salida en el almacenamiento de blobs. En este caso, el archivo de entrada debe especificarse en la colección de archivos de recursos de tareas, ya que cada tarea tiene su propio archivo de entrada.
+
+## <a name="additional-ways-to-get-data-onto-nodes"></a>Formas adicionales de introducir datos en nodos
+
+Dado que tiene control sobre los nodos de Azure Batch y puede ejecutar archivos ejecutables personalizados, puede extraer datos de cualquier número de orígenes personalizados. Asegúrese de que el nodo de Batch tenga conectividad con el destino y de que posea credenciales para ese origen en el nodo.
+
+Estos son algunos ejemplos de formas de transferir datos a los nodos de Batch:
 
 - Descargar datos de SQL.
 - Descargar datos de otros servicios web o de ubicaciones personalizadas.
 - Asignar un recurso compartido de red.
 
-### <a name="azure-storage"></a>Almacenamiento de Azure
+## <a name="azure-storage"></a>Almacenamiento de Azure
 
-El almacenamiento de blobs tiene objetivos de escalabilidad de descarga. Los objetivos de escalabilidad de recursos compartidos de archivos de almacenamiento de Azure son los mismos que para un solo blob. El tamaño afectará al número de nodos y grupos que necesitará.
+Tenga en cuenta que el almacenamiento de blobs tiene destinos de escalabilidad de descarga. Los objetivos de escalabilidad de recursos compartidos de archivos de almacenamiento de Azure son los mismos que para un solo blob. El tamaño afectará al número de nodos y a los grupos que necesita.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- Aprenda a usar [paquetes de aplicación con Batch](batch-application-packages.md).
+- Aprenda sobre cómo [trabajar con nodos y grupos](nodes-and-pools.md).

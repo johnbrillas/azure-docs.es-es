@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719090"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: implementación y recorrido de la plantilla de aplicación de administración inteligente
 
@@ -21,8 +21,8 @@ En este tutorial se muestra cómo implementar una plantilla de aplicación de **
 En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
-> Creación de una aplicación de administración de inventario inteligente.
-> Navegación por la aplicación. 
+> * Creación de una aplicación de administración inteligente de inventario. 
+> * Recorrido por la aplicación. 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

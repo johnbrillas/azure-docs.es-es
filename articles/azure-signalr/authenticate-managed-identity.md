@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 46d66451bb8f2cd6c5d4448131b5f4842a728fd0
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: c561bb507a5178f4a838b370a3da8af9447829f4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797432"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092551"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure SignalR
 Azure SignalR Service admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas de recursos de Azure pueden autorizar el acceso a los recursos de Azure SignalR Service con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de funciones, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.
@@ -47,13 +47,13 @@ Una vez habilitada esta configuración, se crea una identidad de servicio en Azu
 
 Ahora, asigne esta identidad de servicio a un rol del ámbito requerido de los recursos de Azure SignalR Service.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Asignar roles RBAC con Azure Portal  
-Para más información sobre cómo administrar el acceso a los recursos de Azure con RBAC y Azure Portal, consulte [este artículo](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal  
+Para más información sobre cómo administrar el acceso a los recursos de Azure con Azure RBAC y Azure Portal, consulte [este artículo](..//role-based-access-control/role-assignments-portal.md). 
 
 Después de determinar el ámbito adecuado de una asignación de roles, vaya a ese recurso en Azure Portal. Acceda a la configuración Control de acceso (IAM) del recurso y siga estas instrucciones para administrar las asignaciones de roles:
 
 1. En [Azure Portal](https://portal.azure.com/), vaya al recurso de SignalR.
-1. Seleccione **Control de acceso (IAM)** para mostrar la configuración de control de acceso de Azure SignalR. 
+1. Seleccione **Control de acceso (IAM)** para mostrar la configuración del control de acceso de Azure SignalR. 
 1. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles. Seleccione el botón **Agregar** de la barra de herramientas y luego seleccione **Agregar asignación de roles**. 
 
     ![Botón Agregar de la barra de herramientas](./media/authenticate/role-assignments-add-button.png)

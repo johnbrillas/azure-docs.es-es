@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498802"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585412"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -35,7 +35,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../../security-center/security-center-introduction.md)| Solución de protección que proporciona administración de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| Almacén de secretos seguro para las contraseñas, las cadenas de conexión y otra información que necesita para mantener sus aplicaciones en funcionamiento. |
-|[Registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)|Servicio de supervisión que recopila datos de telemetría y otros datos, y proporciona un motor de lenguaje de consultas y análisis para proporcionar información detallada sobre sus aplicaciones y recursos. Puede utilizarse solo o con otros servicios como Security Center. |
+|[Registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md)|Servicio de supervisión que recopila datos de telemetría y otros datos, y proporciona un motor de lenguaje de consultas y análisis para proporcionar información detallada sobre sus aplicaciones y recursos. Puede utilizarse solo o con otros servicios como Security Center. |
 |[Documentación de Azure Dev/Test Lab](../../devtest-labs/devtest-lab-overview.md)|Servicio que ayuda a los desarrolladores y evaluadores a crear rápidamente entornos de Azure al tiempo que se optimizan los recursos y se controlan los costos.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

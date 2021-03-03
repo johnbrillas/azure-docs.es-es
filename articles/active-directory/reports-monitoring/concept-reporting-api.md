@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2027f713baf2b8039187e933ffc7bb0b68b5cc5f
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631968"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653242"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -51,7 +51,7 @@ El punto de conexión de Microsoft Graph API para registros de auditoría es `ht
 
 Puede utilizar la [API de detecciones de riesgos Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-También puede usar la [API de registros de aprovisionamiento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para acceder mediante programación a los eventos de aprovisionamiento del inquilino. 
+También puede usar la [API de registros de aprovisionamiento](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para acceder mediante programación a los eventos de aprovisionamiento del inquilino. 
 
 ## <a name="apis-with-microsoft-graph-explorer"></a>API con el Probador de Microsoft Graph
 

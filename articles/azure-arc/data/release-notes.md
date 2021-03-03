@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391463"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de la versión: servicios de datos habilitados para Azure Arc (versión preliminar)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Enero de 2021
+
+### <a name="new-capabilities-and-features"></a>Nuevas características y funcionalidades
+
+Número de versión de la CLI de datos de Azure (`azdata`): 20.3.0. Descarga en [https://aka.ms/azdata](https://aka.ms/azdata). Puede instalar `azdata` desde [Instalación de Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+
+Otras actualizaciones incluyen:
+- Portal localizado disponible en 17 idiomas nuevos.
+- Cambios menores en los archivos .yaml nativos de Kube.
+- Nuevas versiones de Grafana y Kibana.
+- Problemas con entornos de Python cuando se usa azdata en cuadernos resueltos en Azure Data Studio.
+- La extensión pg_audit ahora está disponible para Hiperescala de PostgreSQL.
+- Ya no es necesario un identificador de copia de seguridad cuando se realiza una restauración completa de una base de datos de Hiperescala de PostgreSQL.
+- El estado (estado de mantenimiento) se indica para cada una de las instancias de PostgreSQL que forman un grupo de servidores
+
+   En versiones anteriores, el estado se agregaba en el nivel de grupo de servidores y no en el nivel de nodo de PostgreSQL.
+
+- Las implementaciones de PostgreSQL ahora respetan los parámetros de tamaño del volumen indicados en los comandos de creación.
+- Ahora se respetan los parámetros de versión del motor al editar un grupo de servidores
+- Ha cambiado la convención de nomenclatura de los pods para Hiperescala de PostgreSQL habilitada para Azure Arc.
+
+    Ahora tiene el formato `ServergroupName{c, w}-n`. Por ejemplo, un grupo de servidores con tres nodos, un nodo de coordinación y dos nodos de trabajo, se representa como:
+   - `Postgres01c-0` (nodo de coordinación)
+   - `Postgres01w-0` (nodo de trabajo)
+   - `Postgres01w-1` (nodo de trabajo)
 
 ## <a name="december-2020"></a>Diciembre de 2020
 

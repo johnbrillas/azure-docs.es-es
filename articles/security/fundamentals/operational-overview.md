@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693619"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595498"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -94,7 +94,7 @@ Security Center evalúa la configuración de los recursos para identificar probl
 >[!Note]
 >Consulte [Permisos en Azure Security Center](../../security-center/security-center-permissions.md) para obtener más información sobre los roles y las acciones permitidas en Security Center.
 
-Security Center usa Microsoft Monitoring Agent. Es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](../../azure-monitor/platform/manage-access.md) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
+Security Center usa Microsoft Monitoring Agent. Es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](../../azure-monitor/logs/manage-access.md) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ Azure Monitor incluye los siguientes componentes.
 
 ### <a name="azure-activity-log"></a>Azure Activity Log
 
-El [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Antes, se conocía como "Registro de auditoría" o "Registro operativo", ya que notifica eventos del plano de control para las suscripciones.
+El [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Antes, se conocía como "Registro de auditoría" o "Registro operativo", ya que notifica eventos del plano de control para las suscripciones.
 
 ### <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
 
-Un recurso emite [registros de diagnóstico de Azure](../../azure-monitor/platform/platform-logs-overview.md) que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso.
+Un recurso emite [registros de diagnóstico de Azure](../../azure-monitor/essentials/platform-logs-overview.md) que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso.
 
 Los registros del sistema de eventos de Windows son una categoría de registros de diagnóstico para VM. Los registros de BLOB, tabla y cola son categorías de registros de diagnóstico para cuentas de almacenamiento.
 
-Lo registros de diagnóstico son distintos del [registro de actividad](../../azure-monitor/platform/platform-logs-overview.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que el propio recurso realiza.
+Lo registros de diagnóstico son distintos del [registro de actividad](../../azure-monitor/essentials/platform-logs-overview.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que el propio recurso realiza.
 
 ### <a name="metrics"></a>Métricas
 
-Azure Monitor proporciona telemetría que le ofrece visibilidad sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las [métricas](../../azure-monitor/platform/data-platform.md) (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
+Azure Monitor proporciona telemetría que le ofrece visibilidad sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las [métricas](../../azure-monitor/data-platform.md) (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-Azure Diagnostics habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de Diagnostics desde diversos orígenes. Actualmente, se admiten [roles de servicio en la nube de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [máquinas virtuales de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que ejecutan Microsoft Windows y [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+Azure Diagnostics habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de Diagnostics desde diversos orígenes. Actualmente, se admiten [roles de servicio en la nube de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [máquinas virtuales de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que ejecutan Microsoft Windows y [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

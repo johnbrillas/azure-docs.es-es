@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562623"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581404"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -80,10 +80,10 @@ Al habilitar el [acceso condicional](../active-directory/conditional-access/over
 
 Al habilitar la recopilación de registros de auditoría, podrá ver la actividad de los usuario y administradores relacionada con Windows Virtual Desktop. Los siguientes son algunos ejemplos de registros de auditoría clave:
 
--   [Registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+-   [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 -   [Registro de actividad de Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Hosts de sesión](../azure-monitor/platform/agent-windows.md)
+-   [Hosts de sesión](../azure-monitor/agents/agent-windows.md)
 -   [Registro de diagnóstico de Windows Virtual Desktop](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Registros de Key Vault](../key-vault/general/logging.md)
 

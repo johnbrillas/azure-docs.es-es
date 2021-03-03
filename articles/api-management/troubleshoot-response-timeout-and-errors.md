@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: apimpm
 ms.service: api-management
-ms.openlocfilehash: 770a8191b1b07a7ebc779b84f443ae96d66d1c97
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 6cace4a02c8d45cacbbc34e9778b5c4a78ada27f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96839696"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576519"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>Solución de problemas de errores y tiempos de espera de respuesta del cliente con API Management
 
@@ -24,7 +24,7 @@ Las aplicaciones cliente que llaman a las API a través del servicio API Manage
 * Errores HTTP 500 intermitentes
 * Mensaje de error relativo al tiempo de expiración.
 
-Estos síntomas se manifiestan como instancias de `BackendConnectionFailure` en los [registros de recursos de Azure Monitor](../azure-monitor/platform/resource-logs.md).
+Estos síntomas se manifiestan como instancias de `BackendConnectionFailure` en los [registros de recursos de Azure Monitor](../azure-monitor/essentials/resource-logs.md).
 
 ## <a name="cause"></a>Causa
 

@@ -3,12 +3,12 @@ title: Mejora de la excelencia operativa con Advisor
 description: Use Azure Advisor para optimizar y madurar la excelencia operativa de sus suscripciones de Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579959"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Obtención de la excelencia operativa con Azure Advisor
 
@@ -38,7 +38,7 @@ Si el grupo usa un componente interno en desuso, elimine y vuelva a crear el gru
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparación de las reglas de alertas de registro no válidas
 
-Azure Advisor detecta las reglas de alertas que tienen consultas no válidas especificadas en la sección de condiciones. Puede crear reglas de alertas de registro en Azure Monitor y usarlas para ejecutar consultas de análisis en intervalos especificados. Los resultados de la consulta determinan si se debe desencadenar una alerta. Las consultas de análisis pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor le recomienda que corrija la consulta en la regla de alertas para evitar que se deshabilite automáticamente y garantizar la cobertura de la supervisión de los recursos de Azure. [Más información sobre cómo solucionar problemas de las reglas de alertas](../azure-monitor/platform/alerts-troubleshoot-log.md).
+Azure Advisor detecta las reglas de alertas que tienen consultas no válidas especificadas en la sección de condiciones. Puede crear reglas de alertas de registro en Azure Monitor y usarlas para ejecutar consultas de análisis en intervalos especificados. Los resultados de la consulta determinan si se debe desencadenar una alerta. Las consultas de análisis pueden convertirse en no válidas con el paso del tiempo debido a cambios en los comandos, las tablas o los recursos a los que se hace referencia. Advisor le recomienda que corrija la consulta en la regla de alertas para evitar que se deshabilite automáticamente y garantizar la cobertura de la supervisión de los recursos de Azure. [Más información sobre cómo solucionar problemas de las reglas de alertas](../azure-monitor/alerts/alerts-troubleshoot-log.md).
 
 ## <a name="use-azure-policy-recommendations"></a>Uso de recomendaciones de Azure Policy
 
@@ -50,9 +50,9 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 
 **Especifique las SKU de máquina virtual permitidas para las implementaciones.** Esta directiva permite especificar un conjunto de SKU de máquina virtual que su organización puede implementar.
 
-**Aplique *Auditar las máquinas virtuales que no utilizan discos administrados* .**
+**Aplique *Auditar las máquinas virtuales que no utilizan discos administrados*.**
 
-**Habilite *Heredar una etiqueta del grupo de recursos* .** Esta directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
+**Habilite *Heredar una etiqueta del grupo de recursos*.** Esta directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
 
 Advisor recomienda algunas directivas individuales de Azure que ayudan a los clientes a lograr la excelencia operativa mediante la adopción de procedimientos recomendados. Si un cliente decide asignar una directiva recomendada, suprimiremos la recomendación. Si el cliente decide quitar la directiva más adelante, Advisor suprimirá igualmente la recomendación porque se interpreta su eliminación como una señal segura de lo siguiente:
 

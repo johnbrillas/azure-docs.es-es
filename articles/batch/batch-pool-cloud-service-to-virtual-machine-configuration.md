@@ -2,13 +2,13 @@
 title: Migración de la configuración del grupo de Batch de Cloud Services a Virtual Machines
 description: Obtenga información acerca de cómo actualizar la configuración del grupo a la configuración más reciente y recomendada.
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731506"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546047"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migración de la configuración del grupo de Batch de Cloud Services a Virtual Machines
 
@@ -36,6 +36,19 @@ Al actualizar la configuración del grupo, debe tener en cuenta lo siguiente:
    > Al igual que con Virtual Machines y Virtual Machine Scale Sets, el disco administrado del SO que se usa para cada nodo conlleva un costo, que es adicional al costo de las máquinas virtuales. No hay ningún costo de disco del sistema operativo para los nodos de "cloudServiceConfiguration", ya que el disco del sistema operativo se crea en el SSD local de los nodos.
 
 - Los tiempos de inicio y eliminación de grupos y nodos pueden diferir ligeramente entre los grupos "cloudServiceConfiguration" y "virtualMachineConfiguration".
+
+## <a name="azure-data-factory-custom-activity-pools"></a>Grupos de actividades personalizadas de Azure Data Factory
+
+Los grupos de Azure Batch se pueden usar para ejecutar actividades personalizadas de Data Factory. Los grupos "cloudServiceConfiguration" que se usan para ejecutar actividades personalizadas deberán eliminarse, y será necesario crear grupos "virtualMachineConfiguration".
+
+- Las canalizaciones se deben pausar antes de eliminar o volver a crear para asegurarse de que no se interrumpirán las ejecuciones.
+- Se puede usar el mismo identificador de grupo para evitar cambios de configuración del servicio vinculado.
+- Reanude las canalizaciones cuando se hayan creado nuevos grupos.
+
+Para más información sobre el uso de Azure Batch para ejecutar actividades personalizadas de Data Factory:
+
+- [Servicio vinculado de Azure Batch](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Uso de actividades personalizadas en una canalización de Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202970"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363209"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -31,9 +31,9 @@ Por ejemplo, un generador puede crear una plantilla de dispositivo para un venti
 - Envía el estado de funcionamiento del ventilador.
 - Proporciona una propiedad de velocidad del ventilador que se puede modificar
 - Proporciona un comando para reiniciar el dispositivo
-- Le ofrece una vista global del dispositivo mediante un panel
+- Le ofrece una vista global del dispositivo mediante una vista
 
-A partir de esta plantilla de dispositivo, un operador puede crear y conectar dispositivos de ventilador reales. Todos estos ventiladores tienen medidas, propiedades y comandos que los operadores utilizan para supervisar y administrar. Los operadores usan los [paneles de dispositivos](#add-dashboards) y los formularios para interactuar con los dispositivos de ventilación. Un desarrollador de dispositivos usa la plantilla para comprender cómo interactúa el dispositivo con la aplicación. Para más información, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md).
+A partir de esta plantilla de dispositivo, un operador puede crear y conectar dispositivos de ventilador reales. Todos estos ventiladores tienen medidas, propiedades y comandos que los operadores utilizan para supervisar y administrar. Los operadores usan las [vistas de dispositivos](#add-views) y los formularios para interactuar con los dispositivos de ventilación. Un desarrollador de dispositivos usa la plantilla para comprender cómo interactúa el dispositivo con la aplicación. Para más información, consulte [Cargas de telemetría, propiedades y comandos](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Solo los generadores y administradores pueden crear, editar y eliminar plantillas de dispositivo. Cualquier usuario puede crear dispositivos en la página **Devices** (Dispositivos) a partir de las plantillas de dispositivo existentes.
@@ -46,8 +46,8 @@ En las aplicaciones de IoT Central, las plantillas de dispositivo usan modelos d
 > IoT Central requiere el modelo completo con todas las interfaces a las que se hace referencia en el mismo archivo; al importar un modelo desde el repositorio de modelos, use la palabra clave "expanded" para obtener la versión completa.
 Por ejemplo. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
 
-- Cree un modelo de dispositivo, para lo que debe usar el [lenguaje de definición de Digital Twins (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code tiene una extensión que admite la creación de modelos DTDL. Para obtener más información, consulte [Instalación y uso de las herramientas de creación de DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Luego, publique el modelo en el repositorio de modelos público. Para más información, consulte [Repositorio de modelos de dispositivo](../../iot-pnp/concepts-model-repository.md). Implemente el código del dispositivo desde el modelo y conecte el dispositivo real a la aplicación de IoT Central. IoT Central busca e importa automáticamente el modelo del dispositivo desde el repositorio público y genera una plantilla de dispositivo. Después, puede agregar las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita a la plantilla del dispositivo.
-- Cree un modelo de dispositivo mediante DTDL. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de dispositivo en la aplicación de IoT Central y agregue las propiedades, las personalizaciones y los paneles de la nube que la aplicación de IoT Central necesite.
+- Cree un modelo de dispositivo, para lo que debe usar el [lenguaje de definición de Digital Twins (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code tiene una extensión que admite la creación de modelos DTDL. Para obtener más información, consulte [Instalación y uso de las herramientas de creación de DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Luego, publique el modelo en el repositorio de modelos público. Para más información, consulte [Repositorio de modelos de dispositivo](../../iot-pnp/concepts-model-repository.md). Implemente el código del dispositivo desde el modelo y conecte el dispositivo real a la aplicación de IoT Central. IoT Central busca e importa automáticamente el modelo del dispositivo desde el repositorio público y genera una plantilla de dispositivo. Después, puede agregar las propiedades, las personalizaciones y las vistas de la nube que la aplicación de IoT Central necesita a la plantilla del dispositivo.
+- Cree un modelo de dispositivo mediante DTDL. Implemente el código del dispositivo a partir del modelo. Importe manualmente el modelo de dispositivo en la aplicación de IoT Central y agregue las propiedades, las personalizaciones y las vistas de la nube que la aplicación de IoT Central necesite.
 
 > [!TIP]
 > IoT Central requiere el modelo completo con todas las interfaces a las que se hace referencia en el mismo archivo. Al importar un modelo desde el repositorio de modelos, use la palabra clave *expanded* para obtener la versión completa.
@@ -72,8 +72,8 @@ Una plantilla de dispositivo contiene:
 
 - Un _modelo de dispositivo_ que especifica la telemetría, las propiedades y los comandos que implementa el dispositivo. Estas funcionalidades están organizadas en uno o varios componentes.
 - _Propiedades en la nube_ que definen la información que almacena la aplicación de IoT Central acerca de los dispositivos. Por ejemplo, una propiedad en la nube podría registrar la fecha en la que se realizó la última revisión de un dispositivo. Esta información nunca se comparte con el dispositivo.
-- Las _personalizaciones_ dejan que el generador reemplace algunas de las definiciones del modelo de dispositivo. Por ejemplo, el desarrollador puede reemplazar el nombre de una propiedad del dispositivo. Los nombres de propiedad aparecen los paneles y formularios de IoT Central.
-- Los _paneles y formularios_ permiten al generador crear una interfaz de usuario para que los operadores supervisen y administren los dispositivos conectados a la aplicación.
+- Las _personalizaciones_ dejan que el generador reemplace algunas de las definiciones del modelo de dispositivo. Por ejemplo, el desarrollador puede reemplazar el nombre de una propiedad del dispositivo. Los nombres de propiedad aparecen en las vistas y formularios de IoT Central.
+- Las _vistas y formularios_ permiten al generador crear una interfaz de usuario para que los operadores supervisen y administren los dispositivos conectados a la aplicación.
 
 Para crear una plantilla de dispositivo en IoT Central:
 
@@ -129,7 +129,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 
 | Campo | Descripción |
 | ----- | ----------- |
-| Display Name (Nombre para mostrar) | El nombre para mostrar del valor de telemetría que se usa en los paneles y formularios. |
+| Display Name (Nombre para mostrar) | Nombre para mostrar del valor de telemetría que se usa en las vistas y formularios. |
 | Nombre | El nombre del campo en el mensaje de telemetría. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Telemetría. |
 | Semantic Type (Tipo semántico) | El tipo semántico de la telemetría, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible. |
@@ -137,7 +137,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | severity | Solo está disponible para el tipo semántico de evento. Los niveles de gravedad son **Error**, **Información** o **Advertencia**. |
 | State Values (Valores de estado) | Solo está disponible para el tipo semántico de estado. Defina los valores de estado posibles, cada uno de los cuales tiene el nombre para mostrar, el nombre, el tipo de enumeración y el valor. |
 | Unidad | Una unidad para el valor de telemetría, como **mph**, **%** o **&deg;C**. |
-| Display Unit (Unidad de visualización) | Una unidad de visualización para su uso en paneles y formularios. |
+| Display Unit (Unidad de visualización) | Unidad de visualización para usarse en vistas y formularios. |
 | Comentario | Cualquier comentario sobre la funcionalidad de telemetría. |
 | Descripción | Una descripción de la funcionalidad de telemetría. |
 
@@ -149,7 +149,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 
 | Campo | Descripción |
 | ----- | ----------- |
-| Display Name (Nombre para mostrar) | El nombre para mostrar del valor de propiedad que se usa en los paneles y formularios. |
+| Display Name (Nombre para mostrar) | Nombre para mostrar del valor de propiedad que se usa en las vistas y formularios. |
 | Nombre | El nombre de la propiedad. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Propiedad. |
 | Semantic Type (Tipo semántico) | El tipo semántico de la propiedad, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible. |
@@ -158,7 +158,7 @@ En la siguiente tabla se muestran las opciones de configuración de una funciona
 | severity | Solo está disponible para el tipo semántico de evento. Los niveles de gravedad son **Error**, **Información** o **Advertencia**. |
 | State Values (Valores de estado) | Solo está disponible para el tipo semántico de estado. Defina los valores de estado posibles, cada uno de los cuales tiene el nombre para mostrar, el nombre, el tipo de enumeración y el valor. |
 | Unidad | Una unidad para el valor de propiedad, como **mph**, **%** o **&deg;C**. |
-| Display Unit (Unidad de visualización) | Una unidad de visualización para su uso en paneles y formularios. |
+| Display Unit (Unidad de visualización) | Unidad de visualización para usarse en vistas y formularios. |
 | Comentario | Cualquier comentario sobre la funcionalidad de propiedad. |
 | Descripción | Una descripción de la funcionalidad de propiedad. |
 
@@ -170,7 +170,7 @@ En la tabla siguiente se muestran las opciones de configuración de una funciona
 
 | Campo | Descripción |
 | ----- | ----------- |
-| Display Name (Nombre para mostrar) | El nombre para mostrar del comando que se usa en los paneles y formularios. |
+| Display Name (Nombre para mostrar) | Nombre para mostrar del comando que se usa en las vistas y formularios. |
 | Nombre | El nombre del comando. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. Este campo debe ser alfanumérico. |
 | Capability Type (Tipo de funcionalidad) | Comando. |
 | Comentario | Cualquier comentario sobre la funcionalidad del comando. |
@@ -209,7 +209,7 @@ En la tabla siguiente se muestran las opciones de configuración de una propieda
 
 | Campo | Descripción |
 | ----- | ----------- |
-| Display Name (Nombre para mostrar) | El nombre para mostrar del valor de propiedad en la nube que se usa en los paneles y formularios. |
+| Display Name (Nombre para mostrar) | Nombre para mostrar del valor de propiedad en la nube que se usa en las vistas y formularios. |
 | Nombre | El nombre de la propiedad en la nube. IoT Central genera un valor para este campo a partir del nombre para mostrar, pero puede elegir su propio valor si es necesario. |
 | Semantic Type (Tipo semántico) | El tipo semántico de la propiedad, como la temperatura, el estado o el evento. La elección del tipo semántico determina cuál de los campos siguientes está disponible. |
 | Schema | El tipo de datos de la propiedad en la nube, como doble, cadena o vector. Las opciones disponibles vienen determinadas por el tipo semántico. |
@@ -234,24 +234,24 @@ La generación de vistas predeterminadas es una forma rápida de visualizar la i
 
 Una vez que haya seleccionado **Generar vistas predeterminadas**, verá que se han agregado automáticamente en la sección **Vistas** de la plantilla del dispositivo.
 
-## <a name="add-dashboards"></a>Adición de paneles
+## <a name="add-views"></a>Adición de vistas
 
-Agregue paneles a una plantilla de un dispositivo para permitir que los operadores visualicen un dispositivo mediante gráficos y métricas. Puede tener varios paneles para una plantilla de dispositivo.
+Agregue vistas a una plantilla de dispositivo para permitir que los operadores visualicen un dispositivo mediante gráficos y métricas. Puede tener varias vistas para una plantilla de dispositivo.
 
-Para agregar un panel a una plantilla de dispositivo:
+Para agregar una vista a una plantilla de dispositivo:
 
 1. Vaya a la plantilla del dispositivo y seleccione **Vistas**.
 1. Elija **Visualización del dispositivo**.
-1. Escriba un nombre para el panel en **Dashboard Name** (Nombre del panel).
-1. Agregue iconos al panel en la lista de iconos estáticos, de propiedades, de propiedades en la nube, de telemetría y de comandos. Arrastre y coloque los iconos que desee agregar al panel.
+1. Escriba un nombre para la vista en **Nombre de vista**.
+1. Agregue iconos a la vista en la lista de iconos estáticos, de propiedades, de propiedades en la nube, de telemetría y de comandos. Arrastre y coloque los iconos que quiera agregar a la vista.
 1. Para trazar varios valores de telemetría en un único icono de gráfico, seleccione los valores de telemetría y, a continuación, seleccione **Combinar**.
 1. Configure cada icono que agregue para personalizar cómo muestra los datos. Para acceder a esta opción, seleccione el icono de engranaje o **Cambiar configuración** en el icono del gráfico.
-1. Organice y cambie el tamaño de los iconos en el panel.
+1. Organice y cambie el tamaño de los iconos en la vista.
 1. Guarde los cambios.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Configuración del dispositivo de versión preliminar para ver el panel
+### <a name="configure-preview-device-to-view"></a>Configuración del dispositivo de versión preliminar para ver la vista
 
-Para ver y probar el panel, seleccione **Configure preview device** (Configurar dispositivo de versión preliminar). Esta característica le permite ver el panel igual que lo ve el operador una vez publicado. Use esta característica para asegurarse de que las vistas muestran los datos correctos. Puede elegir entre las siguientes opciones:
+Para ver y probar la vista, seleccione **Configure preview device** (Configurar la vista previa de dispositivo). Esta característica le permite ver la vista del mismo modo que el operador una vez publicada. Use esta característica para asegurarse de que las vistas muestran los datos correctos. Puede elegir entre las siguientes opciones:
 
 - Ningún dispositivo de versión preliminar.
 - El dispositivo de prueba real que ha configurado para la plantilla de dispositivo.

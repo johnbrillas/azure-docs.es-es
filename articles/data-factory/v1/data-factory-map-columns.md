@@ -1,22 +1,18 @@
 ---
 title: Asignación de columnas de conjuntos de datos en Azure Data Factory
 description: Obtenga información acerca de cómo asignar columnas de origen a columnas de destino.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318882"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371131"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino
 > [!NOTE]
@@ -172,7 +168,7 @@ En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en l
         }
 }
 ```
-En este caso, los resultados de consulta se asignan primero a las columnas especificadas en "structure" del origen. A continuación, las columnas dev"structure" de origen se asignan a columnas "structure" de receptor con las reglas especificadas en columnMappings.  Supongamos que la consulta devuelve cinco columnas, dos columnas más que las especificas en el elemento "structure" de origen.
+En este caso, los resultados de consulta se asignan primero a las columnas especificadas en "structure" del origen. A continuación, las columnas de "structure" del origen se asignan a las columnas "structure" del receptor con las reglas especificadas en columnMappings.  Supongamos que la consulta devuelve cinco columnas, dos columnas más que las especificadas en el elemento "structure" de origen.
 
 **Flujo de asignación de columnas**
 

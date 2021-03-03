@@ -1,22 +1,21 @@
 ---
 title: 'Conectividad de servicio de la solución Monitor de rendimiento de red: Azure Log Analytics'
 description: Use la funcionalidad del Monitor de conectividad de servicio en Network Performance Monitor para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832936"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734169"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) en Azure Network Watcher antes del 29 de febrero de 2024.
+> A partir del 1 de julio de 2021, no podrá agregar nuevas pruebas en un área de trabajo existente ni habilitar un área de trabajo nueva en Network Performance Monitor. Puede seguir usando las pruebas creadas antes del 1 de julio de 2021. Para minimizar la interrupción del servicio en las cargas de trabajo actuales, [migre las pruebas desde Network Performance Monitor a la nueva instancia de Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) en Azure Network Watcher antes del 29 de febrero de 2024.
 
 Puede usar la funcionalidad Monitor de conectividad de servicio en [Network Performance Monitor](network-performance-monitor.md) para supervisar la conectividad de red con cualquier punto de conexión que tenga un puerto TCP abierto. Dichos puntos de conexión incluyen sitios web, aplicaciones SaaS, aplicaciones PaaS y bases de datos SQL. 
 
@@ -136,4 +135,4 @@ En la región de Virginia del US Gov, solo las direcciones de DOD están incorpo
 | Equipos de MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Buscar registros](../log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
+[Buscar registros](../logs/log-query-overview.md) para ver datos detallados de rendimiento de red.

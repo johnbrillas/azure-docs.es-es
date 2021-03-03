@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805364"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522876"
 ---
 # <a name="pricing-of-azure-security-center"></a>Precios de Azure Security Center
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberriesgos, que se expanden rápidamente.
@@ -118,10 +118,18 @@ Si ya tiene una licencia de Microsoft Defender para punto de conexión, no tendr
 Para confirmar su descuento, póngase en contacto con el equipo de soporte técnico de Security Center y especifique el identificador de área de trabajo, la región y la información de licencia pertinentes de cada licencia.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Mi suscripción tiene Azure Defender para servidores habilitado, ¿pagaré por los servidores que no estén en ejecución? 
-No. Al habilitar [Azure Defender para servidores](defender-for-servers-introduction.md) en una suscripción, se le facturará por horas solo por los servidores en ejecución. No se le cobrará por ningún servidor mientras esté desactivado. 
+No. Si habilita [Azure Defender para servidores](defender-for-servers-introduction.md) en una suscripción, no se le cobrará por las máquinas que estén en el estado de energía desasignado mientras estén en ese estado. Las máquinas se facturan según su estado de energía, como se muestra en la tabla siguiente:
 
-> [!TIP]
-> Esto también es aplicable a los otros tipos de recursos protegidos por Security Center. 
+| State        | Descripción                                                                                                                                      | Facturación del uso de la instancia |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Iniciando     | La máquina virtual se está iniciando.                                                                                                                               | No facturado            |
+| En ejecución      | Estado de funcionamiento normal para una máquina virtual                                                                                                                    | Facturado                |
+| Deteniéndose     | Se trata de un estado transitorio. Cuando haya terminado, aparecerá como Detenido.                                                                           | Facturado                |
+| Detenido      | Se ha apagado la máquina virtual desde dentro del sistema operativo invitado o está utilizando las API de PowerOff. El hardware aún está asignado a la máquina virtual y permanece en el host. | Facturado                |
+| Desasignando | Estado transitorio. Cuando haya terminado, la máquina virtual aparecerá como Desasignado.                                                                             | No facturado            |
+| Desasignado  | La máquina virtual se ha detenido correctamente y se ha eliminado del host.                                                                                  | No facturado            |
+
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines muestra una máquina desasignada":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>¿Se me cobrará por máquinas sin el agente de Log Analytics instalado?
 Sí. Al habilitar [Azure Defender para servidores](defender-for-servers-introduction.md) en una suscripción, las máquinas de esa suscripción obtienen una serie de protecciones incluso si no ha instalado el agente de Log Analytics.

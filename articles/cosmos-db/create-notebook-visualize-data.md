@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339505"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380804"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ En este artículo se describe cómo usar cuadernos de Jupyter Notebook integrado
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Habilitar la compatibilidad con cuadernos al crear la cuenta de Azure Cosmos](enable-notebooks.md)
+* [Habilitación de cuadernos en una cuenta de Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Creación de los recursos e importación de datos
  
@@ -143,7 +143,7 @@ df_cosmos.head(10)
 
 En esta sección ejecutará algunas consultas en los datos recuperados.
 
-* **Query1** : ejecute una consulta de tipo Agrupar por en la estructura DataFrame para obtener la suma de los ingresos totales por ventas en cada país y región, y mostrar cinco elementos de los resultados. En una nueva celda del cuaderno, ejecute el siguiente código:
+* **Query1**: ejecute una consulta de tipo Agrupar por en la estructura DataFrame para obtener la suma de los ingresos totales por ventas en cada país y región, y mostrar cinco elementos de los resultados. En una nueva celda del cuaderno, ejecute el siguiente código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()

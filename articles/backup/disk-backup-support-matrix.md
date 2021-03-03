@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707224"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de compatibilidad de Azure Disk Backup (en versión preliminar)
 
@@ -58,7 +58,7 @@ Se anunciarán más regiones cuando estén disponibles.
 
 - Actualmente (durante la versión preliminar), no se admite el uso de PowerShell y la CLI de Azure para configurar la copia de seguridad y la restauración de discos.
 
-- Al configurar la copia de seguridad, el disco seleccionado para realizar la copia de seguridad y el grupo de recursos de instantáneas en el que se almacenarán las instantáneas deben formar parte de la misma suscripción. No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) del disco administrado. Para obtener más información sobre cómo elegir un grupo de recursos de instantáneas, vea [Configuración de la copia de seguridad](backup-managed-disks.md#configure-backup).
+- Al configurar la copia de seguridad, el disco seleccionado para realizar la copia de seguridad y el grupo de recursos de instantáneas en el que se almacenarán las instantáneas deben formar parte de la misma suscripción. No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Obtenga más información sobre las [instantáneas incrementales](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco administrado. Para obtener más información sobre cómo elegir un grupo de recursos de instantáneas, vea [Configuración de la copia de seguridad](backup-managed-disks.md#configure-backup).
 
 - Para que las operaciones de copia de seguridad y restauración se completen correctamente, la identidad administrada del almacén de Backup requiere las asignaciones de roles. Use solo las definiciones de roles que se proporcionan en la documentación. No se admite el uso de otros roles como propietario, colaborador, etc. Puede encontrar problemas de permisos si inicia la configuración de operaciones de copia de seguridad o restauración poco después de asignar roles. Esto se debe a que las asignaciones de roles tardan unos minutos en surtir efecto.
 

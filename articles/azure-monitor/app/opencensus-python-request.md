@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 3b029a9cb14a81c80072847dc17d6b71f480743f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746584"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585675"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Seguimiento de las solicitudes entrantes con OpenCensus para Python
 
@@ -177,6 +177,6 @@ OpenCensus no cuenta con una extensión para FastAPI. Para escribir su propio mi
 * [Mapa de aplicación](./app-map.md)
 * [Disponibilidad](./monitor-web-app-availability.md)
 * [Búsqueda](./diagnostic-search.md)
-* [Consulta de Log (Analytics)](../log-query/log-query-overview.md)
+* [Consulta de Log (Analytics)](../logs/log-query-overview.md)
 * [Diagnósticos de transacción](./transaction-diagnostics.md)
 

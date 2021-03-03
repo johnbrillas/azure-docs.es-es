@@ -14,33 +14,31 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897584"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093438"
 ---
 # <a name="creating-filters-with-cli"></a>Creación de filtros con la CLI
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
+Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido.
 
 Para obtener una descripción detallada de esta característica y los escenarios donde se utiliza, vea [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
-En este tema se muestra cómo configurar un filtro para un recurso Vídeo bajo demanda y usar la CLI para Media Services v3 para crear [Filtros de cuenta](/cli/azure/ams/account-filter?view=azure-cli-latest) y [Filtros de recurso](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+En este tema se muestra cómo configurar un filtro para un recurso Vídeo bajo demanda y usar la CLI para Media Services v3 para crear [Filtros de cuenta](/cli/azure/ams/account-filter?view=azure-cli-latest) y [Filtros de recurso](/cli/azure/ams/asset-filter?view=azure-cli-latest).
 
 > [!NOTE]
 > No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree una cuenta de Media Services](./create-account-howto.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
+- [Cree una cuenta de Media Services](./create-account-howto.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## <a name="define-a-filter"></a>Definición de un filtro 
+## <a name="define-a-filter"></a>Definición de un filtro
 
 En el siguiente ejemplo se definen las condiciones de selección de seguimiento que se agregan al manifiesto final. Este filtro incluye las pistas de audio con EC-3 y las pistas de vídeo con velocidad de bits en el intervalo 0 a 1000000.
 
@@ -82,7 +80,7 @@ En el siguiente ejemplo se definen las condiciones de selección de seguimiento 
 
 ## <a name="create-account-filters"></a>Creación de filtros de cuenta
 
-El siguiente comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) crea un filtro de cuenta con selecciones de seguimiento de filtro [definidas anteriormente](#define-a-filter). 
+El siguiente comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) crea un filtro de cuenta con selecciones de seguimiento de filtro [definidas anteriormente](#define-a-filter).
 
 El comando permite pasar un parámetro `--tracks` opcional que contiene un valor JSON que representa las selecciones de seguimiento.  Use @{file} para cargar el valor JSON desde un archivo. Si usa la CLI de Azure localmente, especifique la ruta de acceso completa al de archivo:
 
@@ -130,7 +128,7 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 
 ## <a name="next-step"></a>Paso siguiente
 
-[Streaming de vídeos](stream-files-tutorial-with-api.md) 
+[Streaming de vídeos](stream-files-tutorial-with-api.md)
 
 ## <a name="see-also"></a>Consulte también
 

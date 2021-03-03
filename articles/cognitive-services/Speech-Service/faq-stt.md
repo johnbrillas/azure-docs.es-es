@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388624"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -140,7 +140,7 @@ Consulte [Cuotas y límites de los servicios de Voz](speech-services-quotas-and-
 
 Para obtener resultados más rápidos, use una de las [regiones](custom-speech-overview.md#set-up-your-azure-account) donde se disponga de hardware dedicado para el entrenamiento. En general, el servicio procesa aproximadamente 10 horas de datos de audio al día en regiones con este hardware. Solo puede procesar aproximadamente 1 hora de datos de audio al día en otras regiones. Puede copiar el modelo totalmente entrenado en otra región mediante la [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). El entrenamiento con solo texto es mucho más rápido y normalmente finaliza en cuestión de minutos.
 
-Algunos modelos base no se pueden personalizar con datos de audio. Para ellos, el servicio solo utilizará el texto de la transcripción para el entrenamiento y omitirá los datos de audio. Así, el entrenamiento se completará mucho más rápido y los resultados serán los mismos que los del entrenamiento solo con texto.
+Algunos modelos base no se pueden personalizar con datos de audio. Para ellos, el servicio solo utilizará el texto de la transcripción para el entrenamiento y omitirá los datos de audio. Así, el entrenamiento se completará mucho más rápido y los resultados serán los mismos que los del entrenamiento solo con texto. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
 
 ## <a name="accuracy-testing"></a>Pruebas de precisión
 

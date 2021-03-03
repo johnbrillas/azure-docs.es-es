@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653858"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739685"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparación de los recursos de Azure para la recuperación ante desastres en Hyper-V
 
@@ -56,7 +56,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta.  El nombre que elija debe ser único dentro de Azure, tener de 3 a 24 caracteres y usar solo letras minúsculas y números. Para este tutorial, use **contosovmsacct1910171607**.
 3. En **Modelo de implementación**, seleccione **Resource Manager**.
 4. En **Tipo de cuenta** seleccione **Storage (uso general v1)** . No seleccione Blob Storage.
-5. En **Replicación**, seleccione el valor predeterminado **Almacenamiento con redundancia geográfica con acceso de lectura** como redundancia de almacenamiento. Deje la opción "Se requiere transferencia segura" como deshabilitada.
+5. En **Replicación**, seleccione el valor predeterminado **Almacenamiento con redundancia geográfica con acceso de lectura** como redundancia de almacenamiento.
 6. En **Rendimiento**, seleccione **Estándar**. A continuación, en **Nivel de acceso**, seleccione la opción predeterminada **Frecuente**.
 7. En **Suscripción**, elija la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 8. En **Grupo de recursos**, especifique un nuevo grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Use **ContosoRG** en este tutorial.
@@ -83,7 +83,7 @@ El nuevo almacén aparecerá en **Panel** > **Todos los recursos** y en la pági
 Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de la conmutación por error, se unen a esta red.
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Redes** > **Red virtual**. Deje Resource Manager seleccionado como modelo de implementación.
-2. En **Nombre**, escriba un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Use **ContosoASRnet**en este tutorial.
+2. En **Nombre**, escriba un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Use **ContosoASRnet** en este tutorial.
 3. Especifique el grupo de recursos en el que desea crear la red. En este tutorial, use el grupo de recursos existente **contosoRG**.
 4. En **Intervalo de direcciones** , escriba **10.0.0.0/24** como intervalo de la red. No hay ninguna subred para esta red.
 5. En **Suscripción**, seleccione la suscripción en la que se creará la red.

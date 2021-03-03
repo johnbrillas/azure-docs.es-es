@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 11/06/2020
-ms.openlocfilehash: db85594ad4fef37ec7411f7d5791fdb5279ec504
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c9e6107e981d2bae96c5d9f368c8122d3ce245f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581659"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570938"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Supervisión de Azure IoT Hub
 
@@ -32,7 +32,7 @@ La información que se muestra en el panel Información general es útil, pero s
 
 Azure IoT Hub crea datos de supervisión mediante [Azure Monitor](../azure-monitor/overview.md), un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes.
 
-Comience con el artículo [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), en el que se describen los conceptos siguientes:
+Comience con el artículo [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), en el que se describen los conceptos siguientes:
 
 - ¿Qué es Azure Monitor?
 - Costos asociados con la supervisión
@@ -44,7 +44,7 @@ Las secciones siguientes se basan en este artículo, donde se describen los dato
 
 ## <a name="monitoring-data"></a>Supervisión de datos
 
-Azure IoT Hub recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
+Azure IoT Hub recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Vea [Referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md) para obtener información detallada sobre las métricas y los registros creados por Azure IoT Hub.
 
@@ -68,31 +68,31 @@ En la captura de pantalla siguiente se muestra una configuración de diagnóstic
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Panel Configuración de diagnóstico para un centro de IoT.":::
 
-Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/platform/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de Azure IoT Hub se enumeran en [Registros de recursos en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs).
+Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de Azure IoT Hub se enumeran en [Registros de recursos en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs).
 
 Al enrutar métricas de la plataforma de IoT Hub a otras ubicaciones, tenga en cuenta lo siguiente:
 
 - Las métricas de plataforma siguientes no se pueden exportar a través de la configuración de diagnóstico: *Dispositivos conectados (versión preliminar)* y *Número total de dispositivos (versión preliminar)* .
 
-- Las métricas multidimensionales, por ejemplo algunas [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), se exportan en la actualidad como métricas planas de una sola dimensión que se agregan a través de valores de dimensión. Para obtener más información, vea [Exportación de métricas de plataforma a otras ubicaciones](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Las métricas multidimensionales, por ejemplo algunas [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), se exportan en la actualidad como métricas planas de una sola dimensión que se agregan a través de valores de dimensión. Para obtener más información, vea [Exportación de métricas de plataforma a otras ubicaciones](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Puede analizar las métricas de Azure IoT Hub con las de otros servicios de Azure mediante el explorador de métricas si abre **Métricas** en el menú de **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md) para más información sobre esta herramienta.
+Puede analizar las métricas de Azure IoT Hub con las de otros servicios de Azure mediante el explorador de métricas si abre **Métricas** en el menú de **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md) para más información sobre esta herramienta.
 
 En Azure Portal, puede seleccionar **Métricas** en **Supervisión** en el panel izquierdo del centro de IoT para abrir el explorador de métricas con el ámbito establecido de forma predeterminada en las métricas de plataforma emitidas por el centro de IoT:
 
 :::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Página del explorador de métricas de un centro de IoT.":::
 
-Para obtener una lista de las métricas de plataforma recopiladas para Azure IoT Hub, vea [Métricas en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#metrics). Para obtener una lista de las métricas de plataforma recopiladas para todos los servicios de Azure, vea [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Para obtener una lista de las métricas de plataforma recopiladas para Azure IoT Hub, vea [Métricas en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#metrics). Para obtener una lista de las métricas de plataforma recopiladas para todos los servicios de Azure, vea [Métricas compatibles con Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 Para las métricas de plataforma de IoT Hub que se recopilan en unidades de recuento, es posible que algunas agregaciones no estén disponibles o se puedan usar. Para obtener más información, vea [Agregaciones admitidas en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Algunas métricas de IoT Hub, como las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), son multidimensionales. Para estas métricas, puede aplicar [filtros](../azure-monitor/platform/metrics-charts.md#filters) y [divisiones](../azure-monitor/platform/metrics-charts.md#apply-splitting) en los gráficos en función de una dimensión.
+Algunas métricas de IoT Hub, como las [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), son multidimensionales. Para estas métricas, puede aplicar [filtros](../azure-monitor/essentials/metrics-charts.md#filters) y [divisiones](../azure-monitor/essentials/metrics-charts.md#apply-splitting) en los gráficos en función de una dimensión.
 
 ## <a name="analyzing-logs"></a>Análisis de datos
 
-Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas. Los datos de estas tablas están asociados a un área de trabajo de Log Analytics y se pueden consultar en Log Analytics. Para obtener más información sobre los registros de Azure Monitor, vea [Información general sobre los registros Azure Monitor](../azure-monitor/platform/data-platform-logs.md) en la documentación de Azure Monitor. 
+Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas. Los datos de estas tablas están asociados a un área de trabajo de Log Analytics y se pueden consultar en Log Analytics. Para obtener más información sobre los registros de Azure Monitor, vea [Información general sobre los registros Azure Monitor](../azure-monitor/logs/data-platform-logs.md) en la documentación de Azure Monitor. 
 
 Para enrutar los datos a registros de Azure Monitor, debe crear una configuración de diagnóstico para enviar los registros de recursos o las métricas de plataforma a un área de trabajo de Log Analytics. Para obtener más información, vea [Recopilación y enrutamiento](#collection-and-routing).
 
@@ -102,17 +102,17 @@ En Azure Portal, puede seleccionar **Registros** en **Supervisión** en el panel
 
 Para obtener una lista de las tablas que usan los registros de Azure Monitor y que Log Analytics puede consultar, vea [Tablas de registros de Azure Monitor en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Puede encontrar el esquema y las categorías de registros de recursos recopilados para Azure IoT Hub en [Registros de recursos en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs).
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Puede encontrar el esquema y las categorías de registros de recursos recopilados para Azure IoT Hub en [Registros de recursos en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs).
 
-El [registro de actividad](../azure-monitor/platform/activity-log.md) es un registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.  
+El [registro de actividad](../azure-monitor/essentials/activity-log.md) es un registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.  
 
 Al enrutar métricas de plataforma de IoT Hub a registros de Azure Monitor, tenga en cuenta lo siguiente:
 
 - Las métricas de plataforma siguientes no se pueden exportar a través de la configuración de diagnóstico: *Dispositivos conectados (versión preliminar)* y *Número total de dispositivos (versión preliminar)* .
 
-- Las métricas multidimensionales, por ejemplo algunas [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), se exportan en la actualidad como métricas planas de una sola dimensión que se agregan a través de valores de dimensión. Para obtener más información, vea [Exportación de métricas de plataforma a otras ubicaciones](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Las métricas multidimensionales, por ejemplo algunas [métricas de enrutamiento](monitor-iot-hub-reference.md#routing-metrics), se exportan en la actualidad como métricas planas de una sola dimensión que se agregan a través de valores de dimensión. Para obtener más información, vea [Exportación de métricas de plataforma a otras ubicaciones](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-Para obtener algunas consultas comunes con IoT Hub, vea [Consultas de Kusto de ejemplo](#sample-kusto-queries). Para obtener más información sobre el uso de consultas de Log Analytics, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para obtener algunas consultas comunes con IoT Hub, vea [Consultas de Kusto de ejemplo](#sample-kusto-queries). Para obtener más información sobre el uso de consultas de Log Analytics, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="sdk-version-in-iot-hub-logs"></a>Versión del SDK en registros de IoT Hub
 
@@ -153,7 +153,7 @@ AzureDiagnostics
 ### <a name="sample-kusto-queries"></a>Ejemplos de consultas de Kusto
 
 > [!IMPORTANT]
-> Al seleccionar **Registros** en el menú del centro de IoT, Log Analytics se abre con el ámbito de la consulta establecido en el centro de IoT actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si quiere ejecutar una consulta que incluya datos de otros centros de IoT o de otros servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../azure-monitor/log-query/scope.md) para obtener más información.
+> Al seleccionar **Registros** en el menú del centro de IoT, Log Analytics se abre con el ámbito de la consulta establecido en el centro de IoT actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si quiere ejecutar una consulta que incluya datos de otros centros de IoT o de otros servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../azure-monitor/logs/scope.md) para obtener más información.
 
 A continuación se muestran las consultas que puede usar para facilitar la supervisión del centro de IoT.
 
@@ -289,7 +289,7 @@ class Program
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../azure-monitor/platform/alerts-metric-overview.md), [registros](../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../azure-monitor/platform/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../azure-monitor/alerts/alerts-metric-overview.md), [registros](../azure-monitor/alerts/alerts-unified-log.md) y el [registro de actividad](../azure-monitor/alerts/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
 
 Al crear una regla de alerta basada en métricas de plataforma, recuerde que para las métricas de plataforma de IoT Hub que se recopilan en unidades de recuento, es posible que algunas agregaciones no estén disponibles o se puedan usar. Para obtener más información, vea [Agregaciones admitidas en la referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
@@ -305,4 +305,4 @@ Para obtener información más detallada sobre la supervisión de las conexiones
 
 - Vea [Referencia de supervisión de datos de Azure IoT Hub](monitor-iot-hub-reference.md) para obtener una referencia de las métricas, los registros y otros valores importantes creados por [nombre del servicio].
 
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

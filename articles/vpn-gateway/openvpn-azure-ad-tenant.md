@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3055c9dd1294af81c6c52603dd60bb5aa6075abd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777866"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390171"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
@@ -84,7 +84,7 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 1. Seleccione **Aceptar** cuando se le solicite.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Captura de pantalla que muestra el mensaje de aceptación de los permisos solicitados para su organización con detalles y la opción Aceptar." border="false":::
-1. En el Azure AD, en **Aplicaciones empresariales** , verá la **VPN de Azure** en la lista.
+1. En el Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Captura de pantalla que muestra la página Todas las aplicaciones." lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear una puerta de enlace de VPN de punto a sitio.
@@ -98,7 +98,7 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 
    * **Audiencia:** valor de ApplicationID de la aplicación empresarial de Azure AD "Azure VPN"```{AppID of the "Azure VPN" AD Enterprise app}```
 
-   * **Emisor** : dirección URL del servicio de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Emisor**: dirección URL del servicio de token seguro ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="VPN de Azure" border="false":::
@@ -117,4 +117,4 @@ Siga los pasos descritos en [Incorporación o eliminación de usuarios mediante 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para conectarse a la red virtual, debe crear y configurar un perfil de cliente VPN. Consulte [Configurar un cliente VPN para conexiones P2S VPN](openvpn-azure-ad-client.md).
+Cree y configure un perfil de cliente VPN. Consulte [Configurar un cliente VPN para conexiones P2S VPN](openvpn-azure-ad-client.md).

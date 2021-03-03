@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: Guías paso a paso
   items:
-    - name: Habilitación de Azure VMware Solution
+    - name: Solicitud de la cuota del host y habilitación de Azure VMware Solution
       href: enable-azure-vmware-solution.md
     - name: Ahorro de costos con una instancia reservada
       href: reserved-instance.md
@@ -60,6 +60,8 @@
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Administración de DHCP
       href: manage-dhcp.md
+    - name: Configuración de componentes de red de NSX
+      href: configure-nsx-network-components-azure-portal.md
     - name: Implementación de la recuperación ante desastres para máquinas virtuales
       href: disaster-recovery-for-virtual-machines.md
     - name: Implementación de una máquina virtual a través de la biblioteca de contenido
@@ -112,7 +114,7 @@
       href: faq.yml
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/

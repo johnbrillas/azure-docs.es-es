@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372031"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546064"
 ---
 # <a name="machine-learning-features"></a>Características del aprendizaje automático
 
@@ -160,11 +160,9 @@ Dirección de envío (entidad con aprendizaje automático)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Característica obligatoria con entidades precompiladas
 
-La ciudad, el estado y el país o región suelen ser un conjunto cerrado de listas, lo que significa que no cambian mucho con el tiempo. Estas entidades podrían tener las características recomendadas pertinentes y estas características podrían marcarse como obligatorias. Significa que no se devuelve la dirección de envío completa si no se encuentran las entidades con características obligatorias.
+Las entidades pregeneradas como la ciudad, el estado y el país o región suelen ser un conjunto cerrado de listas, lo que significa que no cambian mucho con el tiempo. Estas entidades podrían tener las características recomendadas pertinentes y estas características podrían marcarse como obligatorias. Sin embargo, la marca `isRequired` solo está relacionada con la entidad a la que se asigna y no afecta a la jerarquía. Si no se encuentra la característica de subentidad pregenerada, esto no afectará a la detección y devolución de la entidad primaria.
 
-¿Qué ocurre si la ciudad, el estado o el país se encuentran en la expresión, pero en una ubicación o una jerga que LUIS no espera? Si desea proporcionar algún procesamiento posterior para ayudar a resolver la entidad, debido a una puntuación de confianza baja de LUIS, no marque la característica como obligatoria.
-
-Otro ejemplo de una característica obligatoria para la dirección de envío es hacer que el número de la calle sea un número [precompilado](luis-reference-prebuilt-entities.md) obligatorio. Esto permite que el usuario pueda escribir "1 Microsoft Way" o "One Microsoft Way". Ambos se resolverán en el numeral "1" para la subentidad de número de la calle.
+Como ejemplo de una característica necesaria, considere la posibilidad de detectar direcciones. Considere la posibilidad de hacer que el número de la calle sea un requisito. Esto permitiría que un usuario especificara "1 Microsoft Way" o "One Microsoft Way", y ambos se resolverían en el número "1" para la subentidad del número de la calle. Consulte el artículo sobre [entidades pregeneradas](luis-reference-prebuilt-entities.md) para más información.
 
 ### <a name="required-feature-using-list-entities"></a>Característica obligatoria con entidades de lista
 
@@ -226,7 +224,7 @@ Después de crear la entidad de aprendizaje automático, debe agregar expresione
 
 En el ejemplo de reserva de billetes, etiquete las expresiones de ejemplo en la intención con la entidad `TicketBooking` y las subentidades del texto.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de la entidad de reserva de billetes":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Expresiones de ejemplo de etiqueta":::
 
 ### <a name="example-pizza-ordering-app"></a>Ejemplo: aplicación de pedidos de pizza
 
@@ -234,13 +232,13 @@ En un segundo ejemplo, imagine una aplicación para una pizzería, que recibe pe
 
 La entidad de aprendizaje automático de este ejemplo es más compleja, pues tiene subentidades anidadas, listas de frases, entidades precompiladas y entidades personalizadas.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de la entidad de reserva de billetes":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de la entidad de pedidos de pizza":::
 
 En este ejemplo se usan características en el nivel de subentidad y en el elemento secundario del nivel de subentidad. Determinar qué nivel obtiene qué tipo de lista de frases o modelo como una característica es una parte importante del diseño de la entidad.
 
 Aunque las subentidades pueden tener muchas listas de frases como características que ayudan a detectar la entidad, cada subentidad solo tiene un modelo como una característica. En este [aplicación de pizzería](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), estos modelos son principalmente listas.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de la entidad de reserva de billetes":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Intención de pedido de pizza con expresiones de ejemplo etiquetadas":::
 
 La expresiones de ejemplo correctamente etiquetadas aparecen de modo que se muestre cómo se anidan las entidades. 
 

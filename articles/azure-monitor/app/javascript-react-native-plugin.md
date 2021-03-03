@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 3dac47aa7cf93ca882c4c1d0d191dabf0eb7178c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88226973"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593593"
 ---
 # <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Complemento Native React para el SDK de JavaScript de Application Insights
 
@@ -59,4 +59,4 @@ appInsights.loadAppInsights();
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre el SDK de JavaScript, consulte la [documentación del SDK de JavaScript de Application Insights](javascript.md).
-- Para obtener información sobre el lenguaje de consulta de Kusto y la consulta de datos en Log Analytics, consulte la [información general sobre la consulta de registro](../../azure-monitor/log-query/log-query-overview.md).
+- Para obtener información sobre el lenguaje de consulta de Kusto y la consulta de datos en Log Analytics, consulte la [información general sobre la consulta de registro](../../azure-monitor/logs/log-query-overview.md).

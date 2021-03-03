@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362036"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Azure API Management
 La posibilidad de limitar las solicitudes entrantes es un rol clave de Azure API Management. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.
@@ -40,14 +40,14 @@ En Azure API Management, los límites de frecuencia suelen propagarse más rápi
 > Debido a la naturaleza distribuida de la arquitectura de limitación, el límite de velocidad nunca es completamente preciso. La diferencia entre la cantidad configurada y la cantidad real de solicitudes permitidas varía según el volumen y la frecuencia de solicitudes, la latencia del back-end y otros factores.
 
 ## <a name="product-based-throttling"></a>Limitación basada en producto
-Hasta la fecha, las funcionalidades de limitación de velocidad se han circunscrito al ámbito de una suscripción de producto concreta, que se define en Azure Portal. Resulta útil para que el proveedor de la API aplique límites a los desarrolladores que inicien sesión para usar su API, pero no ayuda, por ejemplo, a imponer limitaciones a los usuarios finales individuales de la API. Es posible que un solo usuario de la aplicación del desarrollador consuma toda la cuota e impida que otros clientes del desarrollador puedan usar la aplicación. Además, es posible que varios clientes que generen un gran volumen de solicitudes limiten el acceso a los usuarios ocasionales.
+Las funcionalidades de limitación de velocidad que tienen como ámbito una suscripción determinada resultan útiles para que el proveedor de API aplique límites a los desarrolladores que se han registrado para usar la API. Sin embargo, no resulta útil para, por ejemplo, limitar a los usuarios finales individuales de la API. Es posible que un único usuario de la aplicación del desarrollador consuma toda la cuota e impida que otros clientes del desarrollador puedan usar la aplicación. Además, es posible que varios clientes que generen un gran volumen de solicitudes limiten el acceso a los usuarios ocasionales.
 
 ## <a name="custom-key-based-throttling"></a>Limitación por claves personalizadas
 
 > [!NOTE]
 > Las directivas `rate-limit-by-key` y `quota-by-key` no están disponibles en el nivel Consumo de Azure API Management. 
 
-Las nuevas directivas [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) y [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) ofrecen una solución más flexible para el control del tráfico. Estas nuevas directivas permiten definir expresiones para identificar las claves que se usan para realizar un seguimiento del uso del tráfico. El funcionamiento de esto se ilustra más claramente con un ejemplo. 
+Las directivas [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) y [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) ofrecen una solución más flexible para el control del tráfico. Estas directivas permiten definir expresiones para identificar las claves que se usan para realizar un seguimiento del uso del tráfico. El funcionamiento de esto se ilustra más claramente con un ejemplo. 
 
 ## <a name="ip-address-throttling"></a>Limitación por dirección IP
 Las siguientes directivas restringen una única dirección IP de cliente a solo 10 llamadas por minuto, con un total de 1 000 000 llamadas y 10 000 kilobytes de ancho de banda al mes. 
@@ -77,7 +77,7 @@ Si se autentica un usuario final, puede generarse una clave de limitación basad
 En este ejemplo se muestra cómo extraer el encabezado de autorización, se convierte en objeto `JWT` y se usa el firmante del token para identificar al usuario y usarlo como clave de limitación de velocidad. Si la identidad del usuario se almacena en el `JWT` como una de las otras notificaciones, ese valor podría usarse en su lugar.
 
 ## <a name="combined-policies"></a>Directivas de combinación
-Aunque las nuevas directivas de limitación proporcionan más control que las directivas existentes de limitación, sigue siendo útil combinar ambas capacidades. La limitación por clave de suscripción de producto ([Limitar tarifa de llamadas por suscripción](./api-management-access-restriction-policies.md#LimitCallRate) y [Establecer cuota de uso por suscripción](./api-management-access-restriction-policies.md#SetUsageQuota)) es una excelente manera de habilitar la monetización de una API mediante el cobro por niveles de uso. El control más preciso de poder limitar por usuario es complementario e impide que el comportamiento de un usuario degrade la experiencia de otro. 
+Aunque las directivas de limitación basadas en el usuario proporcionan más control que las directivas de limitación basadas en la suscripción, sigue siendo útil combinar ambas funcionalidades. La limitación por clave de suscripción de producto ([Limitar tarifa de llamadas por suscripción](./api-management-access-restriction-policies.md#LimitCallRate) y [Establecer cuota de uso por suscripción](./api-management-access-restriction-policies.md#SetUsageQuota)) es una excelente manera de habilitar la monetización de una API mediante el cobro por niveles de uso. El control más preciso de poder limitar por usuario es complementario e impide que el comportamiento de un usuario degrade la experiencia de otro. 
 
 ## <a name="client-driven-throttling"></a>Limitación controlada por cliente
 Cuando la clave de limitación se define con una [expresión de directiva](./api-management-policy-expressions.md), es el proveedor de la API el que elige el ámbito de la limitación. Pero puede que un desarrollador desee controlar cómo limita la frecuencia de sus propios clientes. Esto lo podría habilitar el proveedor de la API introduciendo un encabezado personalizado que permita a la aplicación cliente del desarrollador comunicar la clave a la API.

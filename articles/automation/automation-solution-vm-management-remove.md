@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723850"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Eliminación de la característica Start/Stop VMs during off-hours de la cuenta de Automation
 
@@ -94,7 +94,7 @@ Mientras se comprueba la información y se elimina la cuenta, puede hacer un seg
 
 ## <a name="delete-the-feature"></a>Eliminación de la característica
 
-Para eliminar la característica Start/Stop VMs during off-hours de la cuenta de Automation, realice los pasos siguientes. En este proceso no se elimina la cuenta de Automation ni el área de trabajo de Log Analytics. Si no desea conservar el área de trabajo Log Analytics, debe eliminarla manualmente. Para obtener más información sobre cómo eliminar el área de trabajo, consulte [Eliminación y recuperación de un área de trabajo de Azure Log Analytics](../azure-monitor/platform/delete-workspace.md).
+Para eliminar la característica Start/Stop VMs during off-hours de la cuenta de Automation, realice los pasos siguientes. En este proceso no se elimina la cuenta de Automation ni el área de trabajo de Log Analytics. Si no desea conservar el área de trabajo Log Analytics, debe eliminarla manualmente. Para obtener más información sobre cómo eliminar el área de trabajo, consulte [Eliminación y recuperación de un área de trabajo de Azure Log Analytics](../azure-monitor/logs/delete-workspace.md).
 
 1. Vaya a la cuenta de Automation y seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
 

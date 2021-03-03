@@ -3,12 +3,12 @@ title: 'Libro sobre tiempo de inactividad, Acuerdo de Nivel de Servicio e interr
 description: Calcule e informe sobre el Acuerdo de Nivel de Servicio para la prueba web a través de un panel único para todos los recursos de Application Insights y las suscripciones a Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989234"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714058"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Libro sobre tiempo de inactividad, Acuerdo de Nivel de Servicio e interrupciones
 
@@ -51,13 +51,13 @@ La pestaña **Interrupciones y tiempo de inactividad** tiene información sobre 
 
 ## <a name="edit-the-report"></a>Editar el informe
 
-Puede editar el informe como cualquier otro [libro de Azure Monitor](../platform/workbooks-overview.md). Puede personalizar las consultas o visualizaciones en función de las necesidades de su equipo.
+Puede editar el informe como cualquier otro [libro de Azure Monitor](../visualize/workbooks-overview.md). Puede personalizar las consultas o visualizaciones en función de las necesidades de su equipo.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF que muestra la selección del botón Editar para cambiar la visualización a un gráfico circular." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Todas las consultas se pueden ejecutar en [Log Analytics](../log-query/log-analytics-overview.md) y usarse en otros informes o paneles. Quite la restricción de parámetros y reutilice la consulta principal.
+Todas las consultas se pueden ejecutar en [Log Analytics](../logs/log-analytics-overview.md) y usarse en otros informes o paneles. Quite la restricción de parámetros y reutilice la consulta principal.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF de la consulta de registros." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ El informe se puede compartir con sus equipos, con la dirección o anclarse a un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Sugerencias para la optimización de consultas de Log Analytics](../log-query/query-optimization.md).
-- Aprenda a [crear un gráfico en los libros](../platform/workbooks-chart-visualizations.md).
+- [Sugerencias para la optimización de consultas de Log Analytics](../logs/query-optimization.md).
+- Aprenda a [crear un gráfico en los libros](../visualize/workbooks-chart-visualizations.md).
 - Obtenga información sobre cómo supervisar su sitio web con las [pruebas de disponibilidad](monitor-web-app-availability.md).

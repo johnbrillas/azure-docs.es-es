@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4aa4e0566093f01e5f14691158f37c630c753b00
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219916"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714755"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -371,10 +371,12 @@ En algunos casos, una aplicación puede depender de recursos de Azure que no se 
 
 Los tipos de operaciones que puede realizar una instancia de recursos en los datos de la cuenta de almacenamiento se determinan mediante las [asignaciones de roles de Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) de la instancia de recurso. Las instancias de recursos deben estar en el mismo inquilino que la cuenta de almacenamiento, pero pueden pertenecer a cualquier suscripción del inquilino.
 
-La lista de servicios de Azure admitidos aparece en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo.
+> [!NOTE]
+> Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública.
 
 > [!NOTE]
-> Esta característica está en versión preliminar pública y está disponible en todas las regiones de la nube pública. 
+> Actualmente, las reglas de instancia de recurso solo se admiten en Azure Synapse. La compatibilidad con otros servicios de Azure que aparecen en la sección [Acceso de confianza basado en la identidad administrada asignada por el sistema](#trusted-access-system-assigned-managed-identity) de este artículo estará disponible en las próximas semanas.
+
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -415,7 +417,7 @@ Instale el módulo en versión preliminar **Az. Storage**.
 Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
 ```
 
-Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 #### <a name="grant-access"></a>Conceder acceso
 
@@ -565,7 +567,7 @@ Los recursos de algunos servicios, **cuando están registrados en su suscripció
 | Azure File Sync          | Microsoft.StorageSync      | Permite transformar el servidor de archivos local en una memoria caché para recursos compartidos de archivos de Azure. Permite la sincronización de varios sitios, la recuperación rápida ante desastres y la copia de seguridad en la nube. [Más información](../files/storage-sync-files-planning.md) |
 | HDInsight de Azure          | Microsoft.HDInsight        | Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Azure Import/Export      | Microsoft.ImportExport     | Habilita la importación de datos a Azure Storage o la exportación de datos desde Azure Storage mediante el servicio de importación y exportación de Azure Storage. [Más información](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure Monitor            | Microsoft.Insights         | Permite escribir datos de supervisión en una cuenta de almacenamiento protegida, incluidos los registros de recursos, los registros de inicio de sesión y de auditoría de Azure Active Directory y los registros de Microsoft Intune. [Más información](../../azure-monitor/roles-permissions-security.md). |
 | Conexión a Azure         | Microsoft.Network          | Almacene y analice los registros de tráfico de red, incluidos los servicios de Network Watcher y Análisis de tráfico. [Más información](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 

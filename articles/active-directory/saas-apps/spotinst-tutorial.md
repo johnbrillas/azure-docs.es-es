@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181418"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Spotinst
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar Spotinst con Azure Active Directory (A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -171,9 +171,9 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Captura de pantalla que muestra la sección para agregar usuario, donde puede especificar los valores descritos.](./media/spotinst-tutorial/adduser2.png)
 
-    * En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario, por ejemplo, **BrittaSimon**.
+    * En el cuadro de texto **Nombre completo**, escriba el nombre completo del usuario, por ejemplo, `BrittaSimon`.
 
-    * En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico del usuario, en este caso, `brittasimon\@contoso.com`.
+    * En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico del usuario, en este caso, `brittasimon@contoso.com`.
 
     * Seleccione los detalles específicos de su organización para el **rol de la organización, el rol de cuenta y las cuentas**.
 

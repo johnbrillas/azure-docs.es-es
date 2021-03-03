@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35efcd4059ab654178fb87c133a6f64721caf7d2
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989065"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652103"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -882,7 +882,7 @@ En el código de ejemplo, las solicitudes se autentican mediante el paquete Micr
 
 También se requiere un token de portador para usar las [pruebas de Postman ](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas y realizar la depuración local con localhost. El código de ejemplo usa entornos ASP.NET Core para cambiar las opciones de autenticación durante la fase de desarrollo y habilitar el uso de un token autofirmado.
 
-Para más información sobre varios entornos de ASP.NET Core, consulte [Uso de varios entornos en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+Para más información sobre varios entornos de ASP.NET Core, consulte [Uso de varios entornos en ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 El código siguiente exige que las solicitudes a cualquier punto de conexión del servicio se autentiquen mediante un token de portador firmado con una clave personalizada:
 

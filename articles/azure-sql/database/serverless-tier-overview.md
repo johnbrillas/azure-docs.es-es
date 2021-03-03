@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393248"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ El nivel de proceso sin servidor para bases de datos únicas de Azure SQL Databa
 ### <a name="performance-configuration"></a>Configuración del rendimiento
 
 - Los valores **mínimos de núcleos virtuales** y los valores **máximos de núcleos virtuales** son parámetros configurables que definen el intervalo de capacidad de proceso disponible para la base de datos. Los límites de memoria y E/S son proporcionales al intervalo de núcleos virtuales especificado.  
-- La **demora de pausa automática** es un parámetro configurable que define el período de tiempo de que la base de datos debe estar inactiva antes de pausarse automáticamente. La base de datos se reanuda automáticamente cuando se produce el siguiente inicio de sesión u otra actividad.  Como alternativa, puede la pausa automática se puede deshabilitar.
+- La **demora de pausa automática** es un parámetro configurable que define el período de tiempo de que la base de datos debe estar inactiva antes de pausarse automáticamente. La base de datos se reanuda automáticamente cuando se produce el siguiente inicio de sesión u otra actividad.  Como alternativa, se puede deshabilitar la pausa automática.
 
 ### <a name="cost"></a>Coste
 
@@ -57,7 +57,7 @@ Este nivel de proceso sin servidor ofrece una relación entre precio y rendimien
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Escenarios adecuados para el proceso aprovisionado
 
 - Bases de datos únicas con patrones de uso más regular y predecible y mayor uso promedio de proceso a lo largo del tiempo.
-- Bases de datos que no pueden tolerar compensaciones de rendimiento resultantes de recortes de memoria más frecuentes o de una demora en la reanudación automática desde un estado de pausa.
+- Bases de datos que no pueden tolerar compensaciones de rendimiento resultantes de recortes de memoria más frecuentes o de demoras en la reanudación automática desde un estado de pausa.
 - Varias bases de datos con patrones de uso impredecibles e intermitentes que se pueden consolidar en grupos elásticos para una mejor optimización de la relación precio-rendimiento.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Comparación con el nivel de proceso aprovisionado
@@ -93,19 +93,19 @@ A diferencia de las bases de datos de proceso aprovisionadas, la memoria de la c
 - La utilización de la memoria caché activa se considera baja cuando el tamaño total de las entradas de caché más recientes está por debajo de un determinado umbral durante un período de tiempo.
 - Cuando se desencadena la reclamación de la memoria caché, el tamaño de la caché de destino se reduce de forma incremental a una fracción del tamaño anterior y la reclamación solo continúa si el uso sigue siendo bajo.
 - Cuando se produce la reclamación de memoria caché, la directiva para seleccionar las entradas de esta que se van a expulsar es la misma directiva de selección que para las bases de datos de proceso aprovisionadas cuando la presión de memoria es elevada.
-- El tamaño de la memoria caché no se reduce nunca por debajo del límite de memoria mínimo definido por el número mínimo de núcleos virtuales cuyo valor se puede configurar.
+- El tamaño de la memoria caché no se reduce nunca por debajo del límite de memoria mínimo definido por el número mínimo de núcleos virtuales, cuyo valor se puede configurar.
 
 En el caso de las bases de datos sin servidor y las de proceso aprovisionadas, se pueden expulsar entradas de la caché si se usa toda la memoria disponible.
 
-Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber un retraso adicional después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación y las operaciones de limpieza de QDS generan registros fantasmas marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de dichos registros, lo que puede conllevar la lectura de páginas de datos en la caché.
+Tenga en cuenta que cuando el uso de la CPU es bajo, el uso de la memoria caché activa puede ser alto en función del patrón de uso y prevenir la reclamación de memoria.  Además, puede haber retrasos adicionales después de que la actividad del usuario se detenga antes de que se produzca la recuperación de memoria, debido a que los procesos en segundo plano periódicos responden a la actividad anterior del usuario.  Por ejemplo, las operaciones de eliminación y las operaciones de limpieza de QDS generan registros fantasmas marcados para su eliminación, pero no se eliminan físicamente hasta que se ejecuta el proceso de limpieza de dichos registros, lo que puede conllevar la lectura de páginas de datos en la caché.
 
 #### <a name="cache-hydration"></a>Hidratación de la memoria caché
 
 La memoria caché de SQL crece a medida que se capturan datos del disco de la misma manera y a la misma velocidad que para las bases de datos aprovisionadas. Cuando la base de datos está ocupada, la memoria caché puede crecer sin restricciones hasta el límite máximo de memoria.
 
-## <a name="autopausing-and-autoresuming"></a>Pausa y reanudación automáticas
+## <a name="auto-pause-and-auto-resume"></a>Pausa automática y reanudación automática
 
-### <a name="autopausing"></a>Pausa automática
+### <a name="auto-pause"></a>Pausa automática
 
 La pausa automática se desencadena si todas las condiciones siguientes se cumplen durante la demora de pausa automática:
 
@@ -124,11 +124,11 @@ Las características siguientes no admiten la pausa automática, pero admiten el
 
 Se impide temporalmente la pausa automática durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.  En tales casos, se vuelve a permitir la pausa automática una vez finalizada la actualización del servicio.
 
-### <a name="autoresuming"></a>Reanudación automática
+### <a name="auto-resuming"></a>Reanudación automática
 
 La reanudación automática se desencadena si se cumple cualquiera de las siguientes condiciones en cualquier momento:
 
-|Característica|Desencadenamiento de reanudación automática|
+|Característica|Desencadenador de reanudación automática|
 |---|---|
 |Autenticación y autorización|Inicio de sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor.<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor.|
@@ -155,7 +155,7 @@ Si una base de datos sin servidor está en pausa, la primera vez que se inicie s
 
 ### <a name="latency"></a>Latencia
 
-La latencia de la reanudación y la pausa automáticas de una base de datos sin servidor es, por lo general, de 1 minuto para la reanudación automática y de 1 a 10 minutos para la pausa automática.
+La latencia de la reanudación y la pausa automáticas de una base de datos sin servidor es, por lo general, de 1 minuto para la reanudación automática y de 1 a 10 minutos para la pausa automática.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Cifrado de datos transparente administrado por el cliente (BYOK)
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Para más información, consulte [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Traslado de una base de datos del nivel de proceso aprovisionado al nivel de proceso sin servidor
 
@@ -241,7 +241,7 @@ ALTER DATABASE testdb
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Para más información, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Traslado de una base de datos del nivel de proceso sin servidor al nivel de proceso aprovisionado
 

@@ -1,17 +1,16 @@
 ---
 title: Solución Azure Key Vault en Azure Monitor | Microsoft Docs
 description: Puede utilizar la solución Azure Key Vault en Azure Monitor para revisar los registros de Azure Key Vault.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 24869841a106a68234cfec600d9a98e519f8c6cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938838"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734203"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución Azure Key Vault Analytics en Azure Monitor
 
@@ -149,5 +148,5 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use las [consultas de registros de Azure Monitor](../log-query/log-query-overview.md) para ver datos detallados de Azure Key Vault.
+* Use las [consultas de registros de Azure Monitor](../logs/log-query-overview.md) para ver datos detallados de Azure Key Vault.
 

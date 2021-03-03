@@ -1,17 +1,16 @@
 ---
 title: Solución Azure Networking Analytics en Azure Monitor | Microsoft Docs
 description: Puede usar la solución Azure Networking Analytics en Azure Monitor para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: b8b03378e82810bc2b9680805bacf8360f322a94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708142"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión de redes de Azure en Azure Monitor
 
@@ -113,11 +112,11 @@ Los libros de Network Insights le permiten aprovechar las funcionalidades más r
 
 * Consola centralizada para la supervisión y solución de problemas con datos de [métricas](../insights/network-insights-overview.md#resource-health-and-metrics) y registros.
 
-* Lienzo flexible que admite la creación de [visualizaciones](../platform/workbooks-overview.md#visualizations) enriquecidas personalizadas.
+* Lienzo flexible que admite la creación de [visualizaciones](../visualize/workbooks-overview.md#visualizations) enriquecidas personalizadas.
 
-* La capacidad de usar y [compartir plantillas de libro](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) con una comunidad más amplia.
+* La capacidad de usar y [compartir plantillas de libro](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) con una comunidad más amplia.
 
-Para más información acerca de las funcionalidades de la nueva solución de libros, consulte [Libros de Azure Monitor](../platform/workbooks-overview.md)
+Para más información acerca de las funcionalidades de la nueva solución de libros, consulte [Libros de Azure Monitor](../visualize/workbooks-overview.md)
 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migración de la solución Azure Gateway Analytics a libros de Azure Monitor
 
@@ -129,7 +128,7 @@ Para más información acerca de las funcionalidades de la nueva solución de li
 > [!NOTE]
 > Todos los datos anteriores están disponibles en el libro desde el momento en que se ha habilitado originalmente la configuración de diagnóstico. No es necesario realizar ninguna transferencia de datos.
 
-2. Acceda al [libro de información predeterminada](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) del recurso de Application Gateway. Toda la información existente compatible con la solución de análisis de Application Gateway ya estará presente en el libro. Puede ampliarla mediante la incorporación de [visualizaciones](../platform/workbooks-overview.md#visualizations) personalizadas basadas en datos de métricas y registros.
+2. Acceda al [libro de información predeterminada](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) del recurso de Application Gateway. Toda la información existente compatible con la solución de análisis de Application Gateway ya estará presente en el libro. Puede ampliarla mediante la incorporación de [visualizaciones](../visualize/workbooks-overview.md#visualizations) personalizadas basadas en datos de métricas y registros.
 
 3. Después de ver toda la información sobre las métricas y registros, para quitar la solución de análisis de Azure Gateway del área de trabajo, puede eliminarla de la página de recursos de la solución.
 
@@ -232,5 +231,5 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use las [consultas de registro de Azure Monitor](../log-query/log-query-overview.md) para ver datos de diagnósticos detallados de Azure.
+* Use las [consultas de registro de Azure Monitor](../logs/log-query-overview.md) para ver datos de diagnósticos detallados de Azure.
 

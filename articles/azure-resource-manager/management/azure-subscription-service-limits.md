@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5d003392eeeca56bbfb0033db22e6bde4ae5e136
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920481"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520702"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -170,7 +170,7 @@ Los valores más recientes para las cuotas de Proceso de Machine Learning pueden
 
 ### <a name="application-insights"></a>Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="azure-policy-limits"></a>Límites de Azure Policy
 
@@ -364,6 +364,9 @@ Para los límites de SQL Database, consulte [Límites de recursos de SQL Datab
 
 Para conocer los límites de Azure Synapse Analytics, consulte [Límites de recursos de Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
+## <a name="azure-files-and-azure-file-sync"></a>Azure Files y Azure File Sync
+Para más información sobre los límites de Azure Files y File Sync, vea [Objetivos de escalabilidad y rendimiento de Azure Files](../../storage/files/storage-files-scale-targets.md).
+
 ## <a name="storage-limits"></a>Límites de Storage
 
 <!--like # storage accts -->
@@ -378,16 +381,6 @@ Para más información sobre los límites de escalabilidad de las cuentas de alm
 ### <a name="azure-blob-storage-limits"></a>Límites de almacenamiento de blobs de Azure
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### <a name="azure-files-limits"></a>Límites de Azure Files
-
-Para más información sobre los límites de Azure Files, consulte [Objetivos de escalabilidad y rendimiento de Azure Files](../../storage/files/storage-files-scale-targets.md).
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### <a name="azure-file-sync-limits"></a>Límites de Azure File Sync
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-queue-storage-limits"></a>Límites de Azure Queue Storage
 

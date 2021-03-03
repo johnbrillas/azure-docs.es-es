@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186378"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573993"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -75,7 +75,8 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Se admiten las siguientes versiones de ASP.NET Core: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+> [!IMPORTANT]
+> Se admiten las siguientes versiones de ASP.NET Core: ASP.NET Core 2.1 y 3.1. Las versiones 2.0, 2.2 y 3.0 se han retirado y ya no se admiten. Actualice a una [versión compatible](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que la instrumentación automática funcione.
 
 Actualmente, la orientación del marco de trabajo completo de ASP.NET Core, la implementación independiente y las aplicaciones basadas en Linux **no se admiten** con la supervisión basada en agentes o extensiones. (La [instrumentación manual](./asp-net-core.md) a través de código funcionará en todos los escenarios anteriores).
 
@@ -90,7 +91,7 @@ Actualmente, la orientación del marco de trabajo completo de ASP.NET Core, la i
 
      ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource-01.png)
 
-2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. ASP.NET Core ofrece una **recopilación recomendada** o **deshabilitada** para ASP.NET Core 2.1, 2.2, 3.0 y 3.1.
+2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. ASP.NET Core ofrece una **recopilación recomendada** o **deshabilitada** para ASP.NET Core 2.1 y 3.1.
 
     ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -420,6 +421,12 @@ Si desea probar el servidor sin código y la supervisión de cliente para ASP.NE
 
 Al utilizar la supervisión sin código, solo se requiere la cadena de conexión. Sin embargo, todavía se recomienda establecer la clave de instrumentación para mantener la compatibilidad con versiones anteriores de SDK cuando se realiza la instrumentación manual.
 
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>¿Cuál es la diferencia entre las métricas estándar de Application Insights frente a las métricas de Azure App Service?
+
+Application Insights recopila datos de telemetría de las solicitudes que se hicieron a la aplicación. Si el error se produjo en Web Apps/IIS y la solicitud no llegó a la aplicación de usuario, Application Insights no tendrá ningún dato de telemetría sobre él.
+
+La duración de `serverresponsetime` calculada por Application Insights no coincide necesariamente con el tiempo de respuesta del servidor observado por Web Apps. Esto se debe a que Application Insights solo cuenta la duración cuando la solicitud real llega a la aplicación de usuario. Si la solicitud se bloquea o pone en cola en IIS, ese tiempo de espera se incluirá en las métricas de Web Apps, pero no en las métricas de Application Insights.
+
 ## <a name="release-notes"></a>Notas de la versión
 
 Para obtener las actualizaciones y correcciones de errores más recientes, [consulte las notas de la versión](./web-app-extension-release-notes.md).
@@ -427,8 +434,8 @@ Para obtener las actualizaciones y correcciones de errores más recientes, [cons
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample): supervisar Azure Functions con Application Insights
-* [Microsoft Azure Diagnostics](../platform/diagnostics-extension-to-application-insights.md) para enviar este tipo de información a Application Insights.
-* [Supervise las métricas del estado del servicio](../platform/data-platform.md) para asegurarse de que el servicio está disponible y responde adecuadamente.
-* [Reciba notificaciones de alerta](../platform/alerts-overview.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
+* [Microsoft Azure Diagnostics](../agents/diagnostics-extension-to-application-insights.md) para enviar este tipo de información a Application Insights.
+* [Supervise las métricas del estado del servicio](../data-platform.md) para asegurarse de que el servicio está disponible y responde adecuadamente.
+* [Reciba notificaciones de alerta](../alerts/alerts-overview.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * Use [aplicaciones y páginas web de Application Insights para JavaScript](javascript.md) para obtener la telemetría del cliente de los exploradores que visitan una página web.
 * [Configure pruebas web de disponibilidad](monitor-web-app-availability.md) para recibir una alerta si el sitio deja de estar activo.

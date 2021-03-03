@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319311"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655724"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
@@ -30,10 +30,7 @@ Cuándo usar Event Grid para las acciones controladas por eventos:
 * Streaming de eventos desde Azure Machine Learning a varios puntos de conexión
 * Desencadenamiento de una canalización de Machine Learning cuando se detecta un desfase
 
-> [!NOTE] 
-> Actualmente, los eventos runStatusChanged solo se desencadenan cuando el estado de ejecución es **failed**
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para usar Event Grid, necesita acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ## <a name="the-event-model--types"></a>Modelo de evento y tipos
@@ -67,14 +64,14 @@ Las suscripciones para eventos de Azure Machine Learning están protegidas por e
 
 1. Vaya a Azure Portal y seleccione una suscripción nueva o existente. 
 
-1. Seleccione la pestaña de filtros y desplácese hacia abajo hasta los filtros avanzados. En **Clave** y **Valor** , proporcione los tipos de propiedad por los que desee filtrar. Aquí puede ver que el evento solo se desencadenará cuando el tipo de ejecución sea una ejecución de canalización o de paso de canalización.  
+1. Seleccione la pestaña de filtros y desplácese hacia abajo hasta los filtros avanzados. En **Clave** y **Valor**, proporcione los tipos de propiedad por los que desee filtrar. Aquí puede ver que el evento solo se desencadenará cuando el tipo de ejecución sea una ejecución de canalización o de paso de canalización.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrado de eventos":::
 
 
 + **Filtrado por tipo de evento:** Una suscripción de eventos puede especificar uno o varios tipos de evento de Azure Machine Learning.
 
-+ **Filtrado por asunto del evento:** Azure Event Grid admite filtros de asunto en función de las coincidencias de __comienza por__ y __termina en__ , con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. Distintos eventos de aprendizaje automático tienen un formato de asunto diferente.
++ **Filtrado por asunto del evento:** Azure Event Grid admite filtros de asunto en función de las coincidencias de __comienza por__ y __termina en__, con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. Distintos eventos de aprendizaje automático tienen un formato de asunto diferente.
 
   | Tipo de evento | Formato de asunto | Asunto de ejemplo |
   | ---------- | ----------- | ----------- |
@@ -84,7 +81,7 @@ Las suscripciones para eventos de Azure Machine Learning están protegidas por e
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Filtrado avanzado** : Azure Event Grid también admite el filtrado avanzado basado en el esquema de eventos publicados. Los detalles del esquema de eventos de Azure Machine Learning se pueden encontrar en [Esquema de eventos de Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Entre los filtrados avanzados de ejemplo que puede realizar se incluyen:
++ **Filtrado avanzado**: Azure Event Grid también admite el filtrado avanzado basado en el esquema de eventos publicados. Los detalles del esquema de eventos de Azure Machine Learning se pueden encontrar en [Esquema de eventos de Azure Event Grid para Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Entre los filtrados avanzados de ejemplo que puede realizar se incluyen:
 
   En el caso del evento `Microsoft.MachineLearningServices.ModelRegistered`, filtrar el valor de etiqueta del modelo:
 
@@ -120,7 +117,7 @@ Azure Event Grid permite a los clientes compilar controladores de mensajes des
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. Seleccione el tipo de evento que se va a consumir. Por ejemplo, en la captura de pantalla siguiente se ha seleccionado __Modelo registrado__ , __Modelo implementado__ , __Ejecución completada__ y __Desfase del conjunto de datos detectado__ :
+1. Seleccione el tipo de evento que se va a consumir. Por ejemplo, en la captura de pantalla siguiente se ha seleccionado __Modelo registrado__, __Modelo implementado__, __Ejecución completada__ y __Desfase del conjunto de datos detectado__:
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 

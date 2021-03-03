@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008561"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094005"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -110,7 +110,7 @@ Sí, durante una implementación de Git, Kudu debe detectar que va a implementar
 
 **Utilizo mi propio contenedor personalizado. Deseo que la plataforma monte un recurso compartido de SMB en el directorio `/home/`.**
 
-Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/`**se compartirá** entre instancias de escala y los archivos que se escriben **se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *false* deshabilitará el montaje.
+Si el valor de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` no se ha **especificado** o es *true*, el directorio `/home/`**no se compartirá** entre instancias de escala y los archivos que se escriben **no se conservarán** al reiniciar. Establecer de forma explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en *true* habilitará el montaje.
 
 **Mi contenedor personalizado tarda mucho tiempo en iniciarse y la plataforma reinicia el contenedor antes de que finalice el inicio.**
 

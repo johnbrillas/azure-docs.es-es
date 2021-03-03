@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150327"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594233"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -153,7 +153,7 @@ Para realizar el intercambio con vista previa:
 
     Cuando se complete la fase 1, se le notificará en el cuadro de diálogo. Vaya a `https://<app_name>-<source-slot-name>.azurewebsites.net` para obtener una vista previa del intercambio en la ranura de origen. 
 
-3. Cuando esté listo para completar el intercambio pendiente, seleccione **Completar intercambio** en **Acción de intercambio** y seleccione**Completar intercambio**.
+3. Cuando esté listo para completar el intercambio pendiente, seleccione **Completar intercambio** en **Acción de intercambio** y seleccione **Completar intercambio**.
 
     Para cancelar un intercambio pendiente, seleccione **Cancelar intercambio** en su lugar.
 
@@ -222,7 +222,7 @@ Si tiene problemas, consulte [Solución de problemas con los intercambios](#trou
 
 ## <a name="monitor-a-swap"></a>Supervisión de un intercambio
 
-Si el [intercambio](#AboutConfiguration) tarda mucho tiempo en completarse, puede obtener información sobre su estado en el [registro de actividad](../azure-monitor/platform/platform-logs-overview.md).
+Si el [intercambio](#AboutConfiguration) tarda mucho tiempo en completarse, puede obtener información sobre su estado en el [registro de actividad](../azure-monitor/essentials/platform-logs-overview.md).
 
 En la página de recursos de la aplicación del portal, en el panel izquierdo, seleccione **Registro de actividad**.
 

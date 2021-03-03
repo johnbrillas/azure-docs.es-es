@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763815"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586229"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones de [Azure App Service](./overview.md).
@@ -61,7 +61,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación son:
 Para más información, consulte:
 
 * [Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
-* [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-overview.md)
+* [Recibir notificaciones de alerta](../azure-monitor/alerts/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>estado de extremo web
 Si ejecuta la aplicación en el plan de tarifa **Estándar**, App Service le permite supervisar dos puntos de conexión de tres ubicaciones geográficas.

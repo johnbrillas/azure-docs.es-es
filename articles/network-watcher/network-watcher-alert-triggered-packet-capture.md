@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570973"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -332,7 +332,7 @@ El ejemplo siguiente es un código de PowerShell que se puede usar en la funció
 
     ![Copia de la dirección URL de la función][2]
 
-Si necesita propiedades personalizadas en la carga útil de la solicitud POST del webhook, consulte [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/platform/alerts-webhooks.md).
+Si necesita propiedades personalizadas en la carga útil de la solicitud POST del webhook, consulte [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configuración de una alerta en una máquina virtual
 
@@ -340,7 +340,7 @@ Se pueden configurar alertas para que avisen a los usuarios cuando una métrica 
 
 ### <a name="create-the-alert-rule"></a>Creación de la regla de alerta
 
-Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede encontrar documentación más detallada sobre la configuración de alertas en [Creación de alertas en Azure Monitor para servicios de Azure (Azure Portal)](../azure-monitor/platform/alerts-classic-portal.md). Escriba los siguientes valores en la hoja **Regla de alertas** y, a continuación, seleccione **Aceptar**.
+Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede encontrar documentación más detallada sobre la configuración de alertas en [Creación de alertas en Azure Monitor para servicios de Azure (Azure Portal)](../azure-monitor/alerts/alerts-classic-portal.md). Escriba los siguientes valores en la hoja **Regla de alertas** y, a continuación, seleccione **Aceptar**.
 
   |**Configuración** | **Valor** | **Detalles** |
   |---|---|---|

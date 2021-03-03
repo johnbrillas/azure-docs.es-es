@@ -3,12 +3,12 @@ title: Escenarios de diagnóstico comunes de Azure Service Fabric
 description: Más información sobre la solución de problemas comunes de supervisión y diagnóstico en aplicaciones de Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257742"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580476"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnóstico de escenarios comunes con Service Fabric
 
@@ -133,9 +133,9 @@ Consulte estos vínculos para obtener la lista completa de contadores de rendimi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Búsqueda de errores comunes de activación de paquetes de código](./service-fabric-diagnostics-code-package-errors.md)
-* [Definición de alertas en Application Insights](../azure-monitor/platform/alerts-log.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](../azure-monitor/alerts/alerts-log.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales
-* Obtenga más información sobre las [alertas](../azure-monitor/platform/alerts-overview.md) de los registros de Azure Monitor como ayuda para la detección y diagnóstico.
-* Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conectar equipos sin acceso a Internet a los registros de Azure Monitor a través de la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
-* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Obtenga más información sobre las [alertas](../azure-monitor/alerts/alerts-overview.md) de los registros de Azure Monitor como ayuda para la detección y diagnóstico.
+* Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conectar equipos sin acceso a Internet a los registros de Azure Monitor a través de la puerta de enlace de Log Analytics](../azure-monitor/agents/gateway.md).
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/logs/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
 * Lea en [¿Qué son los registros de Azure Monitor?](../azure-monitor/overview.md) una introducción más detallada de los registros de Azure Monitor y conozca qué ofrecen.

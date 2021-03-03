@@ -8,12 +8,16 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
+ms.openlocfilehash: 8afc8ca9b0dedb10ecdb30e8abb22a5d0986de5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674028"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723884"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -70,7 +74,7 @@ when making changes in one don't forget the other two.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs** , seleccione **Agregar**.
+2. En la página **WebJobs**, seleccione **Agregar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -108,7 +112,7 @@ when making changes in one don't forget the other two.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs** , seleccione **Agregar**.
+2. En la página **WebJobs**, seleccione **Agregar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -146,7 +150,7 @@ when making changes in one don't forget the other two.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs** , seleccione **Agregar**.
+2. En la página **WebJobs**, seleccione **Agregar**.
 
    ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -188,11 +192,11 @@ Para más información, consulte [Programar un trabajo Web desencadenado](webjob
    
    ![Botón Registros](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
-2. En la página **Detalles del WebJob** , seleccione una hora para ver los detalles de una ejecución.
+2. En la página **Detalles del WebJob**, seleccione una hora para ver los detalles de una ejecución.
    
    ![Detalles del WebJob](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. En la página **Detalles de ejecución del WebJob** , seleccione **Alternar salida** para ver el texto del contenido del registro.
+3. En la página **Detalles de ejecución del WebJob**, seleccione **Alternar salida** para ver el texto del contenido del registro.
    
     ![Detalles de ejecución del trabajo web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 

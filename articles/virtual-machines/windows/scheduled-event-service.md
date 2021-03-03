@@ -3,16 +3,16 @@ title: Supervisión de los eventos programados para las máquinas virtuales en A
 description: Aprenda a supervisar los eventos programados en las máquinas virtuales de Azure.
 author: mysarn
 ms.service: virtual-machines
-ms.subservice: monitoring
+ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702277"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674700"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Supervisión de los eventos programados para las máquinas virtuales de Azure
 
@@ -25,7 +25,7 @@ En este artículo, le mostraremos cómo puede usar los eventos programados para 
 
 Scheduled Events está disponible como parte de [Azure Instance Metadata Service](instance-metadata-service.md), que está disponible en todas las máquinas virtuales de Azure. Los clientes pueden escribir automatizaciones para consultar el punto de conexión de sus máquinas virtuales para buscar notificaciones de mantenimiento programado y realizar mitigaciones, tales como guardar el estado y sacar la máquina virtual de la rotación. Se recomienda crear la automatización para registrar Scheduled Events de modo que pueda tener un registro de auditoría de los eventos de mantenimiento de Azure. 
 
-En este artículo, le guiaremos a través de la captura de mantenimiento de Scheduled Events en Log Analytics. Después, se desencadenarán algunas acciones de notificación básicas, como enviar un correo electrónico al equipo y obtener una vista histórica de todos los eventos que han afectado a las máquinas virtuales. Para la agregación y automatización de eventos usaremos [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md), pero puede usarse cualquier solución de supervisión para recopilar estos registros y desencadenar la automatización.
+En este artículo, le guiaremos a través de la captura de mantenimiento de Scheduled Events en Log Analytics. Después, se desencadenarán algunas acciones de notificación básicas, como enviar un correo electrónico al equipo y obtener una vista histórica de todos los eventos que han afectado a las máquinas virtuales. Para la agregación y automatización de eventos usaremos [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md), pero puede usarse cualquier solución de supervisión para recopilar estos registros y desencadenar la automatización.
 
 ![Diagrama que muestra el ciclo de vida de los eventos](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ En este ejemplo, tendrá que crear una [máquina virtual Windows en un conjunto 
 
 No elimine el grupo de recursos del grupo al final del tutorial.
 
-También necesitará [crear un área de trabajo de Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) que se usará para agregar información de las máquinas virtuales del conjunto de disponibilidad.
+También necesitará [crear un área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) que se usará para agregar información de las máquinas virtuales del conjunto de disponibilidad.
 
 ## <a name="set-up-the-environment"></a>Configuración del entorno
 
@@ -132,7 +132,7 @@ Se instalará [Microsoft Monitoring Agent](../extensions/oms-windows.md) en la m
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Creación de una regla de alerta con Azure Monitor 
 
 
-Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consulta](../../azure-monitor/log-query/log-analytics-tutorial.md) siguiente para buscar los eventos de programación.
+Una vez que los eventos se insertan en Log Analytics, puede ejecutar la [consulta](../../azure-monitor/logs/log-analytics-tutorial.md) siguiente para buscar los eventos de programación.
 
 1. En la parte superior de la página, seleccione **Registros** y pegue lo siguiente en el cuadro de texto:
 

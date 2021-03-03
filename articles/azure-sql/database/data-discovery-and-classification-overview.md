@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185366"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392772"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -183,6 +183,13 @@ Puede usar las API REST para administrar las clasificaciones y recomendaciones m
 - [Obtener](/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de la columna especificada.
 - [Enumerar las actuales por base de datos](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
 - [Enumerar las recomendadas por base de datos](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>Preguntas más frecuentes: funcionalidades de clasificación avanzadas
+
+**Pregunta**: ¿[Azure Purview](https://docs.microsoft.com/azure/purview/overview) reemplazará a Clasificación y detección de datos de SQL o Clasificación y detección de datos de SQL se retirará pronto?
+**Respuesta**: Seguimos admitiendo Clasificación y detección de datos de SQL y le animamos a que adopte [Azure Purview](https://docs.microsoft.com/azure/purview/overview), que tiene capacidades más ricas para impulsar las funciones de clasificación avanzadas y la gobernanza de datos. Si decidimos retirar cualquier servicio, característica, API o SKU, recibirá un aviso previo con una ruta de migración o de transición. Obtenga más información sobre las directivas del ciclo de vida de Microsoft aquí.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Pasos siguientes
 

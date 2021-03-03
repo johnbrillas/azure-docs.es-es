@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033364"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097271"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Actualización de ofertas existentes en el Marketplace comercial
 
@@ -31,6 +31,10 @@ Use estos pasos para actualizar una oferta que se ha publicado correctamente en 
     - **Cambios sin publicar**: La sección se ha actualizado y completado. Se han proporcionado todos los datos necesarios y no ha habido errores en las actualizaciones.
     - **Incompletos**: Las actualizaciones realizadas en la sección han introducido errores que tienen que corregirse o es necesario proporcionar más información.
 2. Seleccione **Publicar** para publicar la oferta actualizada. Luego, la oferta pasará por los [pasos de validación y publicación](../review-publish-offer.md#validation-and-publishing-steps) estándar.
+
+## <a name="changing-offer-type"></a>Cambio del tipo de oferta
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > Debe revisar la versión preliminar de la oferta una vez que esté disponible y seleccionar **Transmitir** para publicar su oferta actualizada para los destinatarios previstos (públicos o privados).

@@ -3,16 +3,16 @@ title: Intercambio de mensajes con Azure Service Bus
 description: Creación de tareas y flujos de trabajo automatizados que envíen y reciban mensajes mediante Azure Service Bus en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019723"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367425"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -169,7 +169,7 @@ Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por o
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retrasos en el efecto de las actualizaciones de la aplicación lógica
 
-Si el intervalo de sondeo de un desencadenador de Service Bus es pequeño —por ejemplo, 10 segundos— es posible que las actualizaciones de la aplicación lógica no surtan efecto hasta transcurridos 10 minutos. Para solucionar este problema, puede aumentar temporalmente el intervalo de sondeo a un valor mayor, como 30 segundos o 1 minuto, antes de actualizar la aplicación lógica. Después de realizar la actualización, puede restablecer el intervalo de sondeo al valor original. 
+Si el intervalo de sondeo de un desencadenador de Service Bus es pequeño —por ejemplo, 10 segundos— es posible que las actualizaciones de la aplicación lógica no surtan efecto hasta transcurridos 10 minutos. Para solucionar este problema, puede deshabilitar la aplicación lógica, realizar los cambios y, a continuación, volver a habilitar la aplicación lógica.
 
 <a name="connector-reference"></a>
 

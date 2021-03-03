@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: Características de varios modelos
           href: multi-model-features.md
+        - name: Mantenimiento programado
+          items:
+            - name: Ventana de mantenimiento
+              href: database/maintenance-window.md
+            - name: Configuración de ventana de mantenimiento
+              href: database/maintenance-window-configure.md
+            - name: Preguntas más frecuentes sobre la ventana de mantenimiento
+              href: database/maintenance-window-faq.yml
+            - name: Notificaciones anticipadas
+              href: database/advance-notifications.md
         - name: OLTP en memoria (optimización en memoria
           href: in-memory-oltp-overview.md
         - name: Tablas temporales
@@ -143,8 +153,10 @@
       items:
         - name: Solicitud de aumento de cuota
           href: database/quota-increase-request.md
-        - name: Automatización de trabajos
+        - name: Automatización de trabajos con trabajos elásticos
           href: database/job-automation-overview.md
+        - name: Automatización de trabajos con Agente SQL
+          href: database/job-automation-managed-instances.md
         - name: Continuidad empresarial
           items:
             - name: Configuración de un grupo de conmutación por error
@@ -989,6 +1001,8 @@
           href: managed-instance/alerts-create.md
         - name: Inicio manual de una conmutación por error en una instancia administrada
           href: managed-instance/user-initiated-failover.md
+        - name: Migración de bases de datos mediante Log Replay Service
+          href: managed-instance/log-replay-service-migrate.md
     - name: Ejemplos
       items:
         - name: Azure CLI
@@ -1123,7 +1137,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

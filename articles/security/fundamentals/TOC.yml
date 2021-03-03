@@ -10,8 +10,6 @@
   items:
     - name: Funcionalidades técnicas de seguridad
       href: technical-capabilities.md
-    - name: Controles de seguridad integrados
-      href: security-controls.md
 - name: Plataforma e infraestructura de Azure
   items:
     - name: Seguridad de la infraestructura

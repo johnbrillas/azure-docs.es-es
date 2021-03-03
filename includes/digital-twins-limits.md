@@ -5,16 +5,19 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370122"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
-En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twins.
+En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twins. 
+
+> [!TIP]
+> Para conocer las recomendaciones de modelado que operan dentro de estos límites funcionales, consulte [Procedimientos recomendados para diseñar modelos](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
 
 | Área | Capacidad | Límite predeterminado | ¿Ajustable? |
 | --- | --- | --- | --- |
@@ -28,6 +31,7 @@ En la tabla siguiente se enumeran los límites funcionales de Azure Digital Twin
 | Enrutamiento | Número de rutas de una instancia de Azure Digital Twins | 6 | Sí |
 | Modelos | Número de modelos de una instancia de Azure Digital Twins | 10 000 | Sí |
 | Modelos | Número de modelos que se pueden cargar en una única llamada a la API | 250 | No |
+| Modelos | Tamaño máximo (del cuerpo JSON en una solicitud PUT o PATCH) de un solo modelo | 1 MB | No |
 | Modelos | Número de elementos devueltos en una única página | 100 | No |
 | Consultar | Número de elementos devueltos en una única página | 100 | Sí |
 | Consultar | Número de expresiones `AND` / `OR` de una consulta | 50 | Sí |

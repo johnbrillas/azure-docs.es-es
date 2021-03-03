@@ -1,22 +1,17 @@
 ---
 title: Registro de sesión en la actividad de copia
 description: Obtenga información sobre cómo habilitar el registro de sesión en la actividad de copia en Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: c54b81ca25602fa77ad66bbb818df3cd8eee39a1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518864"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385275"
 ---
 #  <a name="session-log-in-copy-activity"></a>Registro de sesión en la actividad de copia
 
@@ -60,9 +55,10 @@ En el ejemplo siguiente se proporciona una definición JSON para habilitar el re
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 }
@@ -101,6 +97,9 @@ Cuando la actividad de copia se ha ejecutado completamente, puede ver la ruta de
 
 ```
 
+> [!NOTE]
+> Cuando la propiedad `enableCopyActivityLog` está establecida en `Enabled`, los nombres de los archivos de registro los genera el sistema.
+
 ### <a name="the-schema-of-the-log-file"></a>Esquema del archivo de registro
 
 El esquema de un archivo de registro es el siguiente.
@@ -108,7 +107,7 @@ El esquema de un archivo de registro es el siguiente.
 Columna | Descripción 
 -------- | -----------  
 Timestamp | Marca de tiempo cuando ADF lee, escribe u omite el objeto.
-Nivel | Nivel de registro de este elemento. Puede ser "Warning" (Advertencia) o "Info".
+Nivel | Nivel de registro de este elemento. Puede ser "Warning" o "Info".
 OperationName | Comportamiento operativo de la actividad de copia de ADF en cada objeto. Puede ser "FileRead", "FileWrite", "FileSkip" o "TabularRowSkip".
 OperationItem | Nombres de archivo o filas omitidas.
 Message | Más información que se mostrará si el archivo se ha leído del almacén de origen o se ha escrito en el almacén de destino. También puede ser el motivo por el que se ha omitido el archivo o las filas.

@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148646"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579332"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -27,7 +27,7 @@ En las secciones siguientes se describe cómo crear un grupo de contenedores con
 
 Para habilitar el registro en las instancias de los contenedores, necesita lo siguiente:
 
-* [Área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 * [CLI de Azure](/cli/azure/install-azure-cli) (o [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obtención de las credenciales de Log Analytics
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Para más información acerca de cómo realizar consultas en registros y configurar alertas en registros de Azure Monitor, consulte:
 
-* [Descripción de las búsquedas de registros en los registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Alertas unificadas en Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+* [Descripción de las búsquedas de registros en los registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Alertas unificadas en Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Supervisión de la CPU y la memoria de los contenedores

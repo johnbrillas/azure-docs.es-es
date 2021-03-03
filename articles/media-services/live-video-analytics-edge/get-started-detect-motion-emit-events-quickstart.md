@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730293"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -69,10 +69,10 @@ Para este inicio rápido, se recomienda usar el [script de configuración de rec
     1. **Interfaz de red**: permite que una máquina virtual de Azure se comunique con recursos de Internet o Azure, entre otros.
     1. **Conexión bastión**: le permite conectarse a la máquina virtual mediante el explorador y Azure Portal.
     1. **Dirección IP pública**: facilita la comunicación de los recursos de Azure con los servicios de Azure orientados al público y a Internet.
-    1. **Red virtual**: hace posible que muchos tipos de recursos de Azure, como las máquinas virtuales, se comuniquen de forma segura entre sí, con Internet y con las redes locales. Obtenga más información sobre las [redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Red virtual**: hace posible que muchos tipos de recursos de Azure, como las máquinas virtuales, se comuniquen de forma segura entre sí, con Internet y con las redes locales. Obtenga más información sobre las [redes virtuales](../../virtual-network/virtual-networks-overview.md).
     1. **IoT Hub**: funciona como un centro de mensajes común para la comunicación bidireccional entre la aplicación de IoT, los módulos de IoT Edge y los dispositivos que administra.
     1. **Cuenta de Media Services**: ayuda a administrar y transmitir contenido multimedia en Azure.
-    1. **Cuenta de almacenamiento**: debe tener una cuenta de almacenamiento principal y puede tener cualquier número de cuentas de almacenamiento secundarias asociadas a la cuenta de Media Services. Para más información, consulte [Cuentas de Azure Storage con cuentas de Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Cuenta de almacenamiento**: debe tener una cuenta de almacenamiento principal y puede tener cualquier número de cuentas de almacenamiento secundarias asociadas a la cuenta de Media Services. Para más información, consulte [Cuentas de Azure Storage con cuentas de Azure Media Services](../latest/storage-account-concept.md).
     1. **Registro de contenedor**: ayuda a almacenar y administrar las imágenes privadas del contenedor de Docker y los artefactos relacionados.
 
 En la salida del script, una tabla de recursos enumera el nombre del centro de IoT. Busque el tipo de recurso **`Microsoft.Devices/IotHubs`** y anote el nombre, ya que lo necesitará en el paso siguiente.  
@@ -119,7 +119,7 @@ Siga estas instrucciones para conectarse a su centro de IoT mediante la extensi�
 1. Cuando aparezca un cuadro de entrada, escriba la cadena de conexión de IoT Hub. En Cloud Shell, puede obtener la cadena de conexión de *~/clouddrive/lva-sample/appsettings.json*.
 
 > [!NOTE]
-> Es posible que se le pida que proporcione información del punto de conexión integrado de IoT Hub. Para obtener esa información, en Azure Portal, vaya a su instancia de IoT Hub y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
+> Es posible que se le pida que proporcione información del punto de conexión integrado de IoT Hub. Para obtener esa información, en Azure Portal, vaya a su centro de IoT y busque la opción **Puntos de conexión integrados** en el panel de navegación izquierdo. Haga clic ahí y busque el **punto de conexión compatible con el centro de eventos** en la sección **Punto de conexión compatible con el centro de eventos**. Copie y use el texto del cuadro. El punto de conexión será similar a este:  
     ```
     Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
     ```

@@ -3,15 +3,15 @@ title: Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure
 description: Descripción del ciclo de vida de soporte técnico y las versiones admitidas de Red Hat OpenShift en Azure
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 5b5ae695ac11ae687a9b076005a765feaa46f83c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049514"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634335"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida del soporte técnico de Red Hat OpenShift en Azure 4
 

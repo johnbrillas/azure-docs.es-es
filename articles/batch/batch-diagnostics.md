@@ -4,22 +4,22 @@ description: Registre y analice los eventos de registro de diagnóstico de los r
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994118"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592670"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
-En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-platform-metrics.md) y [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado.
+En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/essentials/data-platform-metrics.md) y [registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/alerts/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
 Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas.
 
-Consulte la [lista de métricas admitidas de Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
+Consulte la [lista de métricas admitidas de Batch](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Las métricas se caracterizan por:
 
@@ -68,9 +68,9 @@ Para configurar una alerta de métrica en Azure Portal:
 5. En la sección **Alert rule details** (Detalles de la regla de alerta), escriba un **nombre de la regla de alertas** y una **descripción** y seleccione **Severity** (Gravedad).
 6. Seleccione **Crear regla de alertas**.
 
-Para más información sobre la creación de alertas de métricas, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) y [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Para más información sobre la creación de alertas de métricas, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) y [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](/rest/api/monitor/) de Azure Monitor. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte la información sobre las consultas de búsqueda en [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/learn/tutorial-response.md).
+También puede configurar una alerta casi en tiempo real mediante la [API REST](/rest/api/monitor/) de Azure Monitor. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte la información sobre las consultas de búsqueda en [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 
@@ -88,7 +88,7 @@ Un escenario común consiste en seleccionar una cuenta de Azure Storage como des
 Como alternativa, puede:
 
 - Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-about.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real.
-- Envíe los registros de diagnóstico a los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
+- Envíe los registros de diagnóstico a los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md), donde puede analizarlos o exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
 > Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales.
@@ -105,7 +105,7 @@ Para crear una configuración de diagnóstico en Azure Portal, siga los pasos qu
 6. Seleccione **ServiceLog**, **AllMetrics**, o ambas.
 7. Seleccione **Guardar** para crear la configuración de diagnóstico.
 
-También puede [habilitar la recopilación a través de Azure Monitor en Azure Portal](../azure-monitor/platform/diagnostic-settings.md) para configurar las opciones de diagnóstico, mediante una [plantilla de Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+También puede [habilitar la recopilación a través de Azure Monitor en Azure Portal](../azure-monitor/essentials/diagnostic-settings.md) para configurar las opciones de diagnóstico, mediante una [plantilla de Resource Manager](../azure-monitor/essentials/resource-manager-diagnostic-settings.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento
 
@@ -135,7 +135,7 @@ A continuación se muestra un ejemplo de una entrada `PoolResizeCompleteEvent` e
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivado de registros de recurso de Azure en la cuenta de almacenamiento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
+Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivado de registros de recurso de Azure en la cuenta de almacenamiento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
 
 ### <a name="service-log-events"></a>Eventos de registro del servicio
 

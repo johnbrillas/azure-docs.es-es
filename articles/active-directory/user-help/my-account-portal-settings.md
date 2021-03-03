@@ -9,22 +9,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 7dcaae80842f06714759cb5c933a62ccd85aac63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 249b013a35df8978a7296086b4e5ada3b78b2c52
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798098"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093835"
 ---
 # <a name="view-or-change-your-settings-in-the-my-account-portal"></a>Visualización o cambio de la configuración en el portal Mi cuenta
 
 Puede ver o cambiar la configuración de la cuenta en el portal Mi cuenta, como el idioma o la zona horaria, en la página **Configuración y privacidad** del portal **Mi cuenta**.
 
+>[!Note]
+> Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
+
 ## <a name="view-and-manage-your-language-and-regional-settings"></a>Visualización y administración de la configuración regional y de idioma
 
-1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myaccount.microsoft.com/. Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+
+   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
 
 1. Seleccione **Configuración y privacidad** en el panel de navegación izquierdo o seleccione el vínculo **Ver configuración y privacidad** en el bloque **Configuración y privacidad**.
 

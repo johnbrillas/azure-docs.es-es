@@ -3,12 +3,12 @@ title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993727"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386040"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
@@ -81,7 +81,7 @@ Cree una clave de API independiente para cada una de las plantillas de versión 
 
 Ahora, cuando utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se pueden ver en las siguientes ubicaciones:
 
-El panel de uso, donde también puede crear anotaciones de versión manualmente:
+El panel **Uso**, donde también puede crear anotaciones de versión manualmente:
 
 ![Captura de pantalla del gráfico de barras con el número de visitas de usuario mostradas durante un período de horas. Las anotaciones de versión aparecen como marcas de verificación verdes sobre el gráfico e indican el momento dado en que se produjo una versión](./media/annotations/usage-pane.png)
 

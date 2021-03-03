@@ -1,21 +1,17 @@
 ---
 title: Comparación de Azure Data Factory con Azure Data Factory versión 1
 description: En este artículo se comparan Azure Data Factory con Azure Data Factory versión 1.
-services: data-factory
-documentationcenter: ''
 author: kromerm
-manager: anandsub
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: makromer
-ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dc5a4c92ee4ac0acd4a69ef94fec0981e328d829
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638251"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393724"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
 
@@ -69,7 +65,7 @@ Las canalizaciones se pueden desencadenar a petición (según eventos, es decir,
 La actividad [Execute Pipeline](control-flow-execute-pipeline-activity.md) permite que una canalización de Data Factory invoque otra.
 
 ### <a name="delta-flows"></a>Flujos delta
-Un caso de uso importante en los patrones de extracción, transformación y carga de datos es la "carga diferencial", en la que se cargan solo los datos que han cambiado desde la última iteración de una canalización. Las nuevas funcionalidades de la versión actual, como la [actividad de búsqueda](control-flow-lookup-activity.md), la programación flexible y el flujo de control habilitan este caso de uso de forma natural. Para ver un tutorial con instrucciones detalladas, consulte [Tutorial: Copia incremental](tutorial-incremental-copy-powershell.md).
+Un caso de uso clave en los patrones de extracción, transformación y carga de datos es la "carga diferencial", en la que se cargan solo los datos que han cambiado desde la última iteración de una canalización. Las nuevas funcionalidades de la versión actual, como la [actividad de búsqueda](control-flow-lookup-activity.md), la programación flexible y el flujo de control habilitan este caso de uso de forma natural. Para ver un tutorial con instrucciones detalladas, consulte [Tutorial: Copia incremental](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Otras actividades del flujo de control
 Estas son otras actividades del flujo de control compatibles con la versión actual de Data Factory. 
@@ -118,13 +114,13 @@ Para más información, consulte [Diferencias entre la actividad personalizada d
 ## <a name="sdks"></a>SDK
  La versión actual de Data Factory proporciona un conjunto más completo de SDK que se puede usar para crear, administrar y supervisar canalizaciones.
 
-- **.NET SDK** : .NET SDK se actualiza para la versión actual.
+- **.NET SDK**: .NET SDK se actualiza para la versión actual.
 
-- **PowerShell** : los cmdlets de PowerShell se actualizan en la versión actual. Los cmdlets de la versión actual tienen **DataFactoryV2** en el nombre, por ejemplo, Get-AzDataFactoryV2. 
+- **PowerShell**: los cmdlets de PowerShell se actualizan en la versión actual. Los cmdlets de la versión actual tienen **DataFactoryV2** en el nombre, por ejemplo, Get-AzDataFactoryV2. 
 
-- **SDK de Python** : este SDK es una novedad de la versión actual.
+- **SDK de Python**: este SDK es una novedad de la versión actual.
 
-- **API REST** : la API REST se actualiza en la versión actual. 
+- **API REST**: la API REST se actualiza en la versión actual. 
 
 Los SDK que se actualizan en la versión actual no son compatibles con los clientes de la versión 1. 
 

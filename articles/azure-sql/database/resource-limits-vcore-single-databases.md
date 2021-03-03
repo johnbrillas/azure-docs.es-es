@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2021
-ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735249"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518052"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,14 +42,14 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Mínimo y máximo de núcleos virtuales|0,5 - 1|0,5 - 2|0,5 - 4|0,75 - 6|1,0 - 8|
 |Mínimo y máximo de memoria (GB)|2,02 - 3|2,05 - 6|2,10 - 12|2,25 - 18|3,00 - 24|
 |Retraso mínimo y máximo de la pausa automática (minutos)|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Compatible con almacén de columnas|Sí*|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|1024|1024|1024|1536|
 |Tamaño máximo de registro (GB)|154|307|307|307|461|
 |Tamaño máximo de datos de TempDB (GB)|32|64|128|192|256|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máx. de IOPS de datos *|320|640|1280|1920|2560|
+|Máx. de IOPS de datos \*\*|320|640|1280|1920|2560|
 |Velocidad de registro máx. (Mbps)|4.5.|9|18|27|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|75|150|300|450|600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
@@ -58,7 +58,8 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+\* Los objetivos de servicio con configuraciones de máximo de núcleos virtuales más pequeñas pueden tener memoria insuficiente para crear y usar índices de almacén de columnas.  Si surgen problemas de rendimiento con el almacén de columnas, aumente la configuración del máximo de núcleos virtuales para aumentar la cantidad de memoria disponible.  
+\*\* El valor máximo de los tamaños de E/S oscila entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
@@ -103,7 +104,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5760|6400|7680|10240|12800|
 |Velocidad de registro máx. (Mbps)|36|36|36|36|36|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|1350|1\.500|1800|2400|3000|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|1350|1.500|1800|2400|3000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|
@@ -129,7 +130,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tamaño máximo de registro (TB)|Sin límite |Sin límite |Sin límite |Sin límite |Sin límite |Sin límite |
 |Tamaño máximo de datos de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|IOPS de SSD local máx.*|4000 |8000 |12000 |16000 |20 000 |24000 |
+|IOPS de SSD local máx.*|4000 |8000 |12000 |16000 |20000 |24000 |
 |Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
@@ -212,7 +213,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tamaño máximo de registro (TB)|Sin límite |Sin límite |Sin límite |Sin límite |Sin límite |Sin límite |Sin límite |
 |Tamaño máximo de datos de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
-|IOPS de SSD local máx. *|64000 |72 000 |80000 |96 000 |160 000 |192 000 |204800 |
+|IOPS de SSD local máx. *|64000 |72 000 |80000 |96 000 |128000 |160 000 |204800 |
 |Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1800|2000|2400|3200|4000|8000|

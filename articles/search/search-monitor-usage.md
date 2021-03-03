@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935014"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592375"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Supervisión de operaciones y actividades de Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Puede usar las API siguientes para recuperar la misma información que se encuen
 
 ### <a name="activity-logs-and-service-health"></a>Registros de actividad y estado del servicio
 
-En la página [**Registro de actividad**](../azure-monitor/platform/activity-log.md#view-the-activity-log) del portal se recopila información de Azure Resource Manager y se notifican los cambios en el estado del servicio. Puede supervisar si en el registro de actividad hay condiciones críticas, de error y de advertencia relacionadas con el estado del servicio.
+En la página [**Registro de actividad**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) del portal se recopila información de Azure Resource Manager y se notifican los cambios en el estado del servicio. Puede supervisar si en el registro de actividad hay condiciones críticas, de error y de advertencia relacionadas con el estado del servicio.
 
 Entre las entradas comunes se incluyen referencias a las claves de API: notificaciones de información genéricas como *Obtener la clave de administrador* y *Obtener claves de consulta*. Estas actividades indican las solicitudes realizadas con la clave de administración (creación o eliminación de objetos) o la clave de consulta, pero no muestran la propia solicitud. Para obtener información de este nivel de detalle, debe configurar el registro de diagnóstico.
 
@@ -90,7 +90,7 @@ Azure Monitor proporciona varias opciones de almacenamiento y la que seleccione 
 * Elija Almacenamiento de blobs de Azure si quiere [visualizar datos de registro](search-monitor-logs-powerbi.md) en un informe de Power BI.
 * Elija Log Analytics si quiere explorar los datos a través de consultas de Kusto.
 
-Azure Monitor tiene su propia estructura de facturación y los registros de diagnóstico a los que se hace referencia en esta sección tienen un costo asociado. Para obtener más información, vea [Uso y costos estimados en Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor tiene su propia estructura de facturación y los registros de diagnóstico a los que se hace referencia en esta sección tienen un costo asociado. Para obtener más información, vea [Uso y costos estimados en Azure Monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Supervisión del acceso de los usuarios
 
@@ -107,4 +107,4 @@ No hay ninguna forma de registrar esta información por separado de la cadena de
 La fluidez con Azure Monitor es esencial para supervisar todos los servicios de Azure, lo que incluye recursos como Azure Cognitive Search. Si no conoce Azure Monitor, dedique un tiempo a leer los artículos relacionados con los recursos. Además de los tutoriales, el siguiente artículo es un buen punto de partida.
 
 > [!div class="nextstepaction"]
-> [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)

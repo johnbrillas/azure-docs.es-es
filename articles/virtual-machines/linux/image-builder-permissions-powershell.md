@@ -3,16 +3,17 @@ title: Configuración de permisos del servicio Azure Image Builder mediante Powe
 description: Configure los requisitos para el servicio Azure VM Image Builder, incluidos los permisos y privilegios mediante PowerShell.
 author: danielsollondon
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 4f617d680b42a2bb7590cf5aaed657c0469f811d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882423"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695403"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configuración de permisos del servicio Azure Image Builder mediante PowerShell
 
@@ -133,7 +134,7 @@ $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $role_definition="aibRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
@@ -181,7 +182,7 @@ $res_group = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $role_definition="aibRoleNetworking.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
@@ -214,4 +215,4 @@ New-AzRoleAssignment @parameters
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Introducción a Azure Image Builder](../image-builder-overview.md).
+Para más información, vea [Introducción a Azure Image Builder](../image-builder-overview.md).

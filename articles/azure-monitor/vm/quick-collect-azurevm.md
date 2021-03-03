@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 6cc9c6af4592956b6498e826ef65b556e5780f34
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e267682118c4ba6fe25c11a4ae5088916d0e6fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626554"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736991"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recopilación de datos de una máquina virtual de Azure con Azure Monitor
 
@@ -141,4 +141,4 @@ Ahora que recopila datos sobre el funcionamiento y el rendimiento de las máquin
 Para obtener información sobre cómo ver y analizar los datos, continúe con el tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver o analizar datos en Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Ver o analizar datos en Log Analytics](../logs/log-analytics-tutorial.md)

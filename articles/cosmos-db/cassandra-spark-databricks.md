@@ -8,17 +8,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5aaf31d8c629e0770b913485de175c38f708390c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359632"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516573"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Acceso a datos de Cassandra API de Azure Cosmos DB desde Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-En este artículo se explica cómo trabajar con Cassandra API de Azure Cosmos DB desde Spark en [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
+En este artículo se explica cómo trabajar con Cassandra API de Azure Cosmos DB desde Spark en [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -62,7 +62,7 @@ Los programas que se van a ejecutar como procesos automatizados de Azure Databri
 
 Los siguientes son vínculos que le ayudarán a empezar a compilar programas de Spark Scala para interactuar con Cassandra API de Azure Cosmos DB.
 * [Conexión a Cassandra API de Azure Cosmos DB desde un programa Spark Scala](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
-* [Ejecución de un programa de Spark Scala como un trabajo automatizado en Azure Databricks](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Ejecución de un programa de Spark Scala como un trabajo automatizado en Azure Databricks](/azure/databricks/jobs)
 * [Lista completa de ejemplos de código para trabajar con Cassandra API](cassandra-spark-generic.md#next-steps)
 
 ## <a name="next-steps"></a>Pasos siguientes

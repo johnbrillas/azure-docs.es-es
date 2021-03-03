@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103896"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645898"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft.
 
@@ -36,6 +36,9 @@ En las secciones siguientes, aprenderá a:
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Eliminación de una aplicación creada por el usuario o por la organización
 
 Las aplicaciones que el usuario o la empresa han registrado están representadas tanto por un objeto de aplicación como por un objeto de entidad de servicio en el inquilino. Para obtener más información, vea [Objetos de aplicación y objetos de entidad de servicio](./app-objects-and-service-principals.md).
+
+> [!NOTE]
+> Si se elimina una aplicación, también se eliminará el objeto de entidad de servicio del directorio principal de la aplicación. En las aplicaciones multiinquilino, los objetos de entidad de servicio de otros directorios no se eliminarán.
 
 Para eliminar una aplicación, debe aparecer como propietario de la aplicación o tener privilegios de administrador.
 

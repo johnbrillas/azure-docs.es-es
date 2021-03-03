@@ -4,12 +4,12 @@ description: Obtenga información sobre la administración de certificados en un
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901273"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099513"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Administración de certificados en clústeres de Service Fabric
 
@@ -427,6 +427,7 @@ La extensión KVVM, como agente de aprovisionamiento, se ejecuta de forma contin
 Es posible que haya observado la marca "linkOnRenewal" de la extensión KVVM y el hecho de que se ha establecido en false. Aquí abordaremos en profundidad el comportamiento que controla esta marca y sus consecuencias en el funcionamiento de un clúster. Tenga en cuenta que este comportamiento es específico de Windows.
 
 Según su [definición](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -456,7 +457,7 @@ Como surgió de los fragmentos de código JSON anteriores, se requiere una secue
 
 Para disponer la creación de una identidad administrada o asignarla a otro recurso, el operador de implementación debe tener el rol necesario (ManagedIdentityOperator) en la suscripción o el grupo de recursos, además de los roles necesarios para administrar los demás recursos a los que se hace referencia en la plantilla. 
 
-Desde el punto de vista de la seguridad, recuerde que (el conjunto de escalado de) la máquina virtual se considera un límite de seguridad con respecto a su identidad de Azure. Esto significa que cualquier aplicación hospedada en la VM podría, en principio, obtener un token de acceso que represente a la VM: los tokens de acceso de la identidad administrada se obtienen del punto de conexión de IMDS sin autenticar. Si considera que la VM es un entorno compartido o de varios inquilinos, es posible que este método de recuperación de certificados de clúster no sea el indicado. No obstante, es el único mecanismo de aprovisionamiento adecuado para la sustitución automática de certificados.
+Desde el punto de vista de la seguridad, recuerde que la máquina virtual (conjunto de escalado) se considera un límite de seguridad con respecto a su identidad de Azure. Esto significa que cualquier aplicación hospedada en la VM podría, en principio, obtener un token de acceso que represente a la VM: los tokens de acceso de la identidad administrada se obtienen del punto de conexión de IMDS sin autenticar. Si considera que la VM es un entorno compartido o de varios inquilinos, es posible que este método de recuperación de certificados de clúster no sea el indicado. No obstante, es el único mecanismo de aprovisionamiento adecuado para la sustitución automática de certificados.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Solución de problemas y preguntas frecuentes
 

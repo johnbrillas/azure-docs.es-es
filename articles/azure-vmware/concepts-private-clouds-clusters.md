@@ -3,12 +3,12 @@ title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de Azure VMware Solution y los clústeres de vSphere.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538931"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391395"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
@@ -25,7 +25,7 @@ En este artículo se describen todos estos conceptos.
 
 ## <a name="private-clouds"></a>Nubes privadas
 
-Las nubes privadas contienen clústeres vSAN que se han creado con hosts dedicados sin sistema operativo de Azure. Cada nube privada puede tener varios clústeres administrados por el mismo servidor vCenter y NSX-T Manager. Puede implementar y administrar nubes privadas en el portal, la CLI o PowerShell. 
+Las nubes privadas contienen clústeres vSAN que se han creado con hosts dedicados sin sistema operativo de Azure. Cada nube privada puede tener varios clústeres administrados por el mismo servidor de vCenter y NSX-T Manager. Puede implementar y administrar nubes privadas en el portal, la CLI o PowerShell. 
 
 Al igual que con otros recursos, las nubes privadas se instalan y administran desde una suscripción a Azure. El número de nubes privadas dentro de una suscripción es escalable. Inicialmente, hay un límite de una nube privada por suscripción.
 
@@ -73,6 +73,7 @@ Ahora que ha visto los conceptos de nube privada de Azure VMware Solution, puede
 - [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
+[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838

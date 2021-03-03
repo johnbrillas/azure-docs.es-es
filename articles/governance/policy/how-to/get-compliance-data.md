@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920243"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577120"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -131,7 +131,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 
 El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito con un comando **POST** de API REST mediante las siguientes estructuras de URI:
 
-- Suscripción
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
@@ -683,7 +683,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Si tiene vinculada a la suscripción un [área de trabajo de Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con el valor `AzureActivity` de la [solución Activity Log Analytics](../../../azure-monitor/platform/activity-log.md), también puede ver los resultados referentes a elementos no compatibles de la evaluación de los recursos nuevos y actualizados mediante consultas sencillas de Kusto y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
+Si tiene vinculada a la suscripción un [área de trabajo de Log Analytics](../../../azure-monitor/logs/log-query-overview.md) con el valor `AzureActivity` de la [solución Activity Log Analytics](../../../azure-monitor/essentials/activity-log.md), también puede ver los resultados referentes a elementos no compatibles de la evaluación de los recursos nuevos y actualizados mediante consultas sencillas de Kusto y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Captura de pantalla de registros de Azure Monitor que muestran acciones de Azure Policy en la tabla AzureActivity." border="false":::
 

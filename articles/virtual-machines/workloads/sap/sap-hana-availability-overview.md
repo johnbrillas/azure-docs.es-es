@@ -8,26 +8,25 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac74bb4b37535d0c0b095ea300afc15aa0978ed8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a440344a93f9dd610774a33b3960ab1a71f57c65
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950132"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671585"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Alta disponibilidad de SAP HANA para máquinas virtuales de Azure
 
 Puede usar numerosas funcionalidades de Azure que permiten implementar bases de datos críticas como SAP HANA en máquinas virtuales de Azure. Este artículo proporciona una guía sobre cómo lograr disponibilidad para instancias de SAP HANA que se hospedan en máquinas virtuales de Azure. En el artículo, se describen varios escenarios que se pueden implementar utilizando la infraestructura de Azure para aumentar la disponibilidad de SAP HANA en Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por supuesto que está familiarizado con los conceptos básicos de la infraestructura como servicio (IaaS) en Azure, por ejemplo: 
 
@@ -51,7 +50,7 @@ También es conveniente estar familiarizado con estos artículos acerca de SAP H
 - [Network Recommendations for SAP HANA System Replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html) (Recomendaciones de red para la replicación del sistema de SAP HANA)
 - [SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) (Replicación del sistema de SAP HANA)
 - [SAP HANA Service Auto-Restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) (Servicio de reinicio automático de SAP HANA)
-- [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html) (Configuración de la replicación del sistema de SAP HANA)
+- [Configure SAP HANA system replication (Configuración de la replicación del sistema de SAP HANA)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
 Más allá de estar familiarizado con la implementación de máquinas virtuales en Azure, también se recomienda leer el artículo [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../manage-availability.md) antes de continuar con la definición de la arquitectura de disponibilidad en Azure.
 

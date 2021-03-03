@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380243"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726434"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-Si utiliza filtros en las marcas de características, debe incluir el espacio de nombres [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) y agregar una llamada a [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) en la que especifique el nombre de tipo del filtro que desea utilizar como tipo genérico del método. Para más información sobre el uso de filtros de características para habilitar y deshabilitar la funcionalidad de forma dinámica, consulte [Habilitar el lanzamiento preconfigurado de características para audiencias de destino](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+Si utiliza filtros en las marcas de características, debe incluir el espacio de nombres [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) y agregar una llamada a [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) en la que especifique el nombre de tipo del filtro que desea utilizar como tipo genérico del método. Para más información sobre el uso de filtros de características para habilitar y deshabilitar la funcionalidad de forma dinámica, consulte [Habilitar el lanzamiento preconfigurado de características para audiencias de destino](./howto-targetingfilter-aspnet-core.md).
 
 El ejemplo siguiente muestra cómo usar un filtro de características integrado que se llama `PercentageFilter`:
 
@@ -211,14 +211,14 @@ Por convención, la sección `FeatureManagement` de este documento JSON se usa p
 
 * `FeatureA` está *activada*.
 * `FeatureB` está *desactivada*.
-* `FeatureC` especifica un filtro denominado `Percentage` con una propiedad `Parameters`. `Percentage` es un filtro configurable. En este ejemplo, `Percentage` especifica una probabilidad del 50 por ciento de que la marca `FeatureC` esté *activada*. Para ver una guía paso a paso sobre el uso de filtros de características, consulte [Uso de filtros de características para habilitar las marcas de características condicionales](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
+* `FeatureC` especifica un filtro denominado `Percentage` con una propiedad `Parameters`. `Percentage` es un filtro configurable. En este ejemplo, `Percentage` especifica una probabilidad del 50 por ciento de que la marca `FeatureC` esté *activada*. Para ver una guía paso a paso sobre el uso de filtros de características, consulte [Uso de filtros de características para habilitar las marcas de características condicionales](./howto-feature-filters-aspnet-core.md).
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Uso de la inyección de dependencias para acceder a IFeatureManager 
 
-En algunas operaciones, como la comprobación manual de los valores de marcas de características, es necesario obtener una instancia de [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias. En el ejemplo siguiente, se agrega un argumento de tipo `IFeatureManager` a la firma del constructor para un controlador. El tiempo de ejecución resuelve automáticamente la referencia y proporciona un de la interfaz al llamar al constructor. Si utiliza una plantilla de aplicación en la que el controlador ya tiene uno o más argumentos de inyección de dependencias en el constructor, como `ILogger`, puede agregar `IFeatureManager` como argumento adicional:
+En algunas operaciones, como la comprobación manual de los valores de marcas de características, es necesario obtener una instancia de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias. En el ejemplo siguiente, se agrega un argumento de tipo `IFeatureManager` a la firma del constructor para un controlador. El tiempo de ejecución resuelve automáticamente la referencia y proporciona un de la interfaz al llamar al constructor. Si utiliza una plantilla de aplicación en la que el controlador ya tiene uno o más argumentos de inyección de dependencias en el constructor, como `ILogger`, puede agregar `IFeatureManager` como argumento adicional:
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

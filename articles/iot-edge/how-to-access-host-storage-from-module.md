@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d1504b03e3dbe99cbdeac23df2623a5390b3d9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447824"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635428"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Acceso de los módulos al almacenamiento local de un dispositivo
 
@@ -36,7 +36,7 @@ También puede configurar el almacenamiento local directamente en el manifiesto 
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -52,7 +52,7 @@ También puede configurar el almacenamiento local directamente en el manifiesto 
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -85,7 +85,7 @@ Puede encontrar más detalles sobre las opciones de creación en la [documentaci
 
 ## <a name="encrypted-data-in-module-storage"></a>Datos cifrados en el almacenamiento de módulos
 
-Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show) de la CLI de Azure.
+Cuando los módulos invocan la API de carga de trabajo del demonio de IoT Edge para cifrar datos, la clave de cifrado se deriva mediante el id. de módulo y el id. de generación del módulo. Un id. de generación se usa para proteger los secretos si se quita un módulo de la implementación y, posteriormente, se implementa otro módulo con el mismo id. de módulo en el mismo dispositivo. Puede ver el id. de generación de un módulo mediante el comando [az iot hub module-identity show](/cli/azure/ext/azure-iot/iot/hub/module-identity) de la CLI de Azure.
 
 Si quiere compartir archivos entre módulos de varias generaciones, no debe contener ningún secreto o se podrá descifrar.
 

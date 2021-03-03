@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442004"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648628"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Incorporación de Facebook como proveedor de identidades para identidades externas
 
-Puede agregar Facebook a los flujos de usuario del registro de autoservicio (versión preliminar) para que los usuarios puedan iniciar sesión en sus aplicaciones con sus propias cuentas de Facebook. Para que los usuarios puedan iniciar sesión con Facebook, primero deberá [habilitar el registro de autoservicio](self-service-sign-up-user-flow.md) del inquilino. Después de agregar Facebook como proveedor de identidades, configure un flujo de usuario para la aplicación y seleccione Facebook como una de las opciones de inicio de sesión.
+Puede agregar Facebook a los flujos de usuario del registro de autoservicio para que los usuarios puedan iniciar sesión en sus aplicaciones utilizando las cuentas de Facebook. Para que los usuarios puedan iniciar sesión con Facebook, primero deberá [habilitar el registro de autoservicio](self-service-sign-up-user-flow.md) del inquilino. Después de agregar Facebook como proveedor de identidades, configure un flujo de usuario para la aplicación y seleccione Facebook como una de las opciones de inicio de sesión.
+
+Cuando haya agregado Facebook como una de las opciones de inicio de sesión en la página **Iniciar sesión**, el usuario solo tendrá que escribir el correo electrónico que utiliza para iniciar sesión en Facebook o seleccionar **Opciones de inicio de sesión** y elegir **Iniciar sesión con Facebook**. En los dos casos, accederá automáticamente a la página de inicio de sesión de Facebook, donde tendrá que autenticarse.
+
+![Opciones de inicio de sesión para usuarios de Facebook](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > Los usuarios solo pueden usar sus cuentas de Facebook para suscribirse a través de aplicaciones mediante el registro de autoservicio y los flujos de usuario. No se puede invitar a los usuarios y canjear su invitación mediante una cuenta de Facebook.
@@ -32,20 +36,20 @@ Para usar una cuenta de Facebook como [proveedor de identidades](identity-provid
 
 > [!NOTE]  
 > Use las direcciones URL siguientes en los pasos 9 y 16 que verá a continuación.
-> - En **URL del sitio** , escriba la dirección de la aplicación, como `https://contoso.com`.
+> - En **URL del sitio**, escriba la dirección de la aplicación, como `https://contoso.com`.
 > - En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. Puede encontrar el valor `<tenant-ID>` en la hoja de información general de Azure Active Directory.
 
 
 1. Inicie sesión en [Facebook for developers](https://developers.facebook.com/) con las credenciales de su cuenta de Facebook.
 2. Si aún no lo ha hecho, debe registrarse como desarrollador de Facebook. Para ello, seleccione **Get Started** (Comenzar) en la esquina superior derecha de la página, acepte las directivas de Facebook y complete los pasos de registro.
-3. Seleccione **Mis aplicaciones** y después **Crear una aplicación** .
+3. Seleccione **Mis aplicaciones** y después **Crear una aplicación**.
 4. Especifique el valor de **Display Name** (Nombre para mostrar) y un valor de **Contact Email** (Correo electrónico de contacto) válido.
 5. Seleccione **Create App ID** (Crear identificador de aplicación). Es posible que deba aceptar las políticas de la plataforma Facebook y realizar una comprobación de seguridad en línea.
 6. Seleccione **Settings** (Configuración)  > **Basic** (Básica).
-7. Elija una **Categoría** , por ejemplo, Negocios y Páginas. Este valor es obligatorio para Facebook, pero no se usa para Azure AD.
+7. Elija una **Categoría**, por ejemplo, Negocios y Páginas. Este valor es obligatorio para Facebook, pero no se usa para Azure AD.
 8. En la parte inferior de la página, seleccione **Add Platform** (Agregar plataforma) y, después, seleccione **Website** (Sitio web).
-9. En la **dirección URL del sitio** , escriba la dirección URL adecuada (indicada anteriormente).
-10. En la **dirección URL de la directiva de privacidad** , escriba la dirección URL de la página donde se mantiene la información de privacidad de la aplicación; por ejemplo, `http://www.contoso.com`.
+9. En la **dirección URL del sitio**, escriba la dirección URL adecuada (indicada anteriormente).
+10. En la **dirección URL de la directiva de privacidad**, escriba la dirección URL de la página donde se mantiene la información de privacidad de la aplicación; por ejemplo, `http://www.contoso.com`.
 11. Seleccione **Save changes** (Guardar los cambios).
 12. En la parte superior de la página, copie el valor de **App ID** (Id. de la aplicación).
 13. Seleccione **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Use ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de la aplicación** es una credencial de seguridad importante.
@@ -53,22 +57,22 @@ Para usar una cuenta de Facebook como [proveedor de identidades](identity-provid
 15. En **Facebook Login** (Inicio de sesión de Facebook), seleccione **Settings** (Configuración).
 16. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba la dirección URL adecuada (indicada anteriormente).
 17. Seleccione **Save Changes** (Guardar cambios) en la parte inferior de la página.
-18. Para que la aplicación de Facebook esté disponible para Azure AD, seleccione el selector de Estado situado en la parte superior derecha de la página y **actívelo** para hacer que la aplicación sea pública y, después, seleccione **Switch Mode** (Modo de conmutador). En este momento el estado debería cambiar de **Desarrollo** a **Activo** .
+18. Para que la aplicación de Facebook esté disponible para Azure AD, seleccione el selector de Estado situado en la parte superior derecha de la página y **actívelo** para hacer que la aplicación sea pública y, después, seleccione **Switch Mode** (Modo de conmutador). En este momento el estado debería cambiar de **Desarrollo** a **Activo**.
     
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configuración de una cuenta de Facebook como proveedor de identidades
 Ahora podrá establecer el identificador y el secreto de cliente de Facebook, ya sea escribiéndolo en el portal de Azure AD o con PowerShell. Puede probar la configuración de Facebook al suscribirse a través de un flujo de usuario en una aplicación habilitada para el registro de autoservicio.
 
 ### <a name="to-configure-facebook-federation-in-the-azure-ad-portal"></a>Para configurar la federación de Facebook en el portal de Azure AD
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure AD.
-2. En **Servicios de Azure** , seleccione **Azure Active Directory** .
-3. En el menú de la izquierda, seleccione **External Identities** .
-4. Seleccione **All identity providers** (Todos los proveedores de identidades) y,a continuación, **Facebook** .
-5. En el **id. de cliente** , escriba el **id.de aplicación** de Facebook que creó anteriormente.
-6. En el **secreto de cliente** , escriba el **secreto de aplicación** que ha anotado.
+2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
+3. En el menú de la izquierda, seleccione **External Identities**.
+4. Seleccione **All identity providers** (Todos los proveedores de identidades) y,a continuación, **Facebook**.
+5. En el **id. de cliente**, escriba el **id.de aplicación** de Facebook que creó anteriormente.
+6. En el **secreto de cliente**, escriba el **secreto de aplicación** que ha anotado.
 
    ![Captura de pantalla que muestra la página para agregar un proveedor de identidades de redes sociales.](media/facebook-federation/add-social-identity-provider-page.png)
 
-7. Seleccione **Guardar** .
+7. Seleccione **Guardar**.
 ### <a name="to-configure-facebook-federation-by-using-powershell"></a>Para configurar la federación de Facebook con PowerShell
 1. Instale la versión más reciente de Azure AD PowerShell para el módulo Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Ejecute el siguiente comando: `Connect-AzureAD`.
@@ -84,10 +88,10 @@ Ahora podrá establecer el identificador y el secreto de cliente de Facebook, ya
 La configuración de la federación de Facebook se puede eliminar. Si lo hace, los usuarios que se hayan registrado a través de flujos de usuario con sus cuentas de Facebook ya no podrán iniciar sesión. 
 
 ### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Para eliminar la federación de Facebook en el portal de Azure AD: 
-1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory** . 
-2. Seleccione **External Identities** .
-3. Seleccione **Todos los proveedores de identidades** .
-4. En la línea de **Facebook** , seleccione el menú contextual ( **...** ) y, después, seleccione **Eliminar** . 
+1. Vaya a [Azure Portal](https://portal.azure.com). En el panel izquierdo, seleccione **Azure Active Directory**. 
+2. Seleccione **External Identities**.
+3. Seleccione **Todos los proveedores de identidades**.
+4. En la línea de **Facebook**, seleccione el menú contextual ( **...** ) y, después, seleccione **Eliminar**. 
 5. Seleccione **Sí** para confirmar la eliminación.
 
 ### <a name="to-delete-facebook-federation-by-using-powershell"></a>Para eliminar la federación de Facebook con PowerShell: 

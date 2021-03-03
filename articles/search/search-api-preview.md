@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: bf2ff2fc20d3581a297881fbd9e6db15d825814d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/02/2021
+ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519004"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670890"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Características en versión preliminar de Azure Cognitive Search
 
@@ -23,6 +23,9 @@ Se han quitado de la lista las características en versión preliminar que pasan
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |---------|------------------|-------------|---------------|
+| [**Búsqueda semántica**](semantic-search-overview.md) | Relevancia (puntuación) | Un algoritmo de clasificación, un tipo de consulta y una respuesta de consulta semánticos. | [API REST Search 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**Corrector ortográfico**](cognitive-search-aml-skill.md) | Consultar | Corrección ortográfica opcional en entradas de términos de consulta para consultas simples, completas y semánticas. | [API REST Search 2020-06-30-Preview](/rest/api/searchservice/) |
+| Indexador de SharePoint Online | Origen de datos del indexador | Nuevo origen de datos para la indexación basada en indexador de contenido de SharePoint. | [API REST Search 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Aptitud de Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Enriquecimiento con inteligencia artificial| Nuevo tipo de aptitud para integrar un punto de conexión de inferencia desde Azure Machine Learning. Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use la [API REST de búsqueda 2020-06-30-Preview](/rest/api/searchservice/) o 2019-05-06-Preview. También está disponible en el portal, en el diseño de aptitudes, suponiendo que Cognitive Search y los servicios Azure Machine Learning estén implementados en la misma suscripción. |
 | [**Parámetro featuresMode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevancia (puntuación) | Expansión de puntuación de relevancia para incluir detalles: puntuación de similitud por campo, frecuencia de términos por campo y número de tokens únicos coincidentes por campo. Puede consumir estos puntos de datos en [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](/rest/api/searchservice/preview-api/search-documents) con api-version=2020-06-30-Preview o 2019-05-06-Preview. |
 | [**Sesiones de depuración**](cognitive-search-debug-session.md) | Portal, enriquecimiento con IA (conjunto de aptitudes) | Editor de conjunto de aptitudes en sesión que se usa para investigar y resolver problemas en un conjunto de aptitudes. Las correcciones que se aplican durante una sesión de depuración se pueden guardar en un conjunto de aptitudes en el servicio. | Solo en el portal, mediante los vínculos de página intermedia en la página de información general para abrir una sesión de depuración. |

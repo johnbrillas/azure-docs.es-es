@@ -6,34 +6,33 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dd95fc8fd0ab0099ac7404d4ca4e4b1851f650f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 8a16ecd2ee6ed939b2afd0e51e9cf531e419c8af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359615"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656404"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+En este artículo se proporciona información general sobre el control de acceso de Azure Cosmos DB.
 
-Azure Cosmos DB usa dos tipos de claves para autenticar usuarios y proporcionar acceso a sus datos y recursos. 
+Azure Cosmos DB proporciona tres maneras de controlar el acceso a los datos.
 
-|Tipo de clave|Recursos|
+| Tipo de control de acceso | Características |
 |---|---|
-|[Claves principales](#primary-keys) |Se utilizan para los recursos administrativos: cuentas de base de datos, bases de datos, usuarios y permisos|
-|[Tokens de recursos](#resource-tokens)|Se usan para recursos de aplicaciones: contenedores, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF|
+| [Claves principales](#primary-keys) | Secreto compartido que permite cualquier operación de administración o de datos. Se incluye en las variantes de lectura y escritura y de solo lectura. |
+| [Control de acceso basado en rol](#rbac) (versión preliminar) | Modelo de permisos específico basado en roles mediante identidades de Azure Active Directory (AAD) para la autenticación. |
+| [Tokens de recursos](#resource-tokens)| Modelo de permisos específico basado en permisos y usuarios nativos de Azure Cosmos DB. |
 
-<a id="primary-keys"></a>
+## <a name="primary-keys"></a>Claves principales <a id="primary-keys"></a>
 
-## <a name="primary-keys"></a>Claves principales
+Las claves principales proporcionan acceso a todos los recursos administrativos de la cuenta de base de datos. Cada cuenta consta de dos claves principales: una principal y una secundaria. El fin de las claves dobles es que se pueda regenerar, o distribuir claves, lo que proporciona un acceso continuo a su cuenta y datos. Para obtener más información sobre las claves principales, consulte el artículo [Seguridad de bases de datos](database-security.md#primary-keys).
 
-Las claves principales proporcionan acceso a todos los recursos administrativos de la cuenta de base de datos. Cada cuenta consta de dos claves principales: una principal y una secundaria. El fin de las claves dobles es que pueda regenerar, o distribuir claves, lo que proporciona un acceso continuo a su cuenta y sus datos. Para obtener más información sobre las claves principales, consulte el artículo [Seguridad de bases de datos](database-security.md#primary-keys).
-
-### <a name="key-rotation"></a>Rotación de claves<a id="key-rotation"></a>
+### <a name="key-rotation"></a>Rotación de claves <a id="key-rotation"></a>
 
 El proceso de rotación de la clave principal es simple. 
 
@@ -63,6 +62,22 @@ CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 El ejemplo de código siguiente ilustra cómo usar un punto de conexión y la clave principal de la cuenta de Azure Cosmos DB para crear una instancia de un objeto `CosmosClient`:
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
+
+## <a name="role-based-access-control-preview"></a>Control de acceso basado en rol (versión preliminar) <a id="rbac"></a>
+
+Azure Cosmos DB expone un sistema de control de acceso basado en roles integrado que le permite:
+
+- Autenticar las solicitudes de datos con una identidad de Azure Active Directory (Azure AD).
+- Autorizar las solicitudes de datos con un modelo de permisos basado en roles específico.
+
+RBAC de Azure Cosmos DB es el método de control de acceso ideal en situaciones en las que:
+
+- No quiere usar un secreto compartido como la clave principal y prefiere depender de un mecanismo de autenticación basado en tokens.
+- Quiere usar identidades de Azure AD para autenticar las solicitudes.
+- Necesita un modelo de permisos específico para restringir estrechamente qué operaciones de base de datos pueden realizar las identidades.
+- Desea materializar las directivas de control de acceso como "roles" que puede asignar a varias identidades.
+
+Consulte [Configuración del control de acceso basado en rol para la cuenta de Azure Cosmos DB](how-to-setup-rbac.md) para obtener más información sobre RBAC de Azure Cosmos DB.
 
 ## <a name="resource-tokens"></a>Tokens de recursos <a id="resource-tokens"></a>
 
@@ -97,7 +112,7 @@ Las bibliotecas cliente de Cosmos DB nativas controlan la generación y administ
 
 Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## <a name="users"></a>Usuarios<a id="users"></a>
+### <a name="users"></a>Usuarios<a id="users"></a>
 
 Los usuarios de Azure Cosmos DB están asociados a una base de datos de Cosmos.  Cada base de datos puede contener cero, o más, usuarios de Cosmos DB. En el siguiente código de ejemplo se muestra cómo crear un usuario de Cosmos DB mediante el [SDK de .NET v3 de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -111,7 +126,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Cada usuario de Cosmos DB tiene un método ReadAsync() que se puede usar para recuperar la lista de [permisos](#permissions) asociados al usuario.
 
-## <a name="permissions"></a>Permisos<a id="permissions"></a>
+### <a name="permissions"></a>Permisos<a id="permissions"></a>
 
 Un recurso de permiso está asociado a un usuario y está asignado en el contenedor, así como en el nivel de clave de partición. Cada usuario puede contener cero o más permisos. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar acceder a un contenedor específico o a los datos de una clave de partición específica. Hay dos niveles de acceso disponibles que puede proporcionar un recurso de permiso:
 
@@ -127,7 +142,7 @@ Si habilita los [registros de diagnóstico en solicitudes del plano de datos](co
 
 * **resourceTokenPermissionMode**: esta propiedad indica el modo de permiso que estableció al crear el token de recurso. El modo de permiso puede tener valores como "all" o "read".
 
-### <a name="code-sample-to-create-permission"></a>Ejemplo de código para crear permisos
+#### <a name="code-sample-to-create-permission"></a>Ejemplo de código para crear permisos
 
 El código de ejemplo siguiente muestra cómo crear un recurso de permisos, leer el token de dicho recurso y asociar los permisos al [usuario](#users) creado anteriormente.
 
@@ -142,7 +157,7 @@ user.CreatePermissionAsync(
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 
-### <a name="code-sample-to-read-permission-for-user"></a>Ejemplo de código para los permisos de lectura del usuario
+#### <a name="code-sample-to-read-permission-for-user"></a>Ejemplo de código para los permisos de lectura del usuario
 
 En el siguiente fragmento de código se muestra cómo recuperar el permiso asociado al usuario creado anteriormente y crear una instancia de un nuevo elemento CosmosClient en nombre del usuario, en el ámbito de una única clave de partición.
 
@@ -152,6 +167,15 @@ PermissionProperties permissionProperties = await user.GetPermission("permission
 
 CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permissionProperties.Token);
 ```
+
+## <a name="differences-between-rbac-and-resource-tokens"></a>Diferencias entre RBAC y los tokens de recursos
+
+| Asunto | RBAC | Tokens de recursos |
+|--|--|--|
+| Authentication  | Con Azure Active Directory (Azure AD) | Basado en los usuarios de Azure Cosmos DB nativos<br>La integración de tokens de recursos con Azure AD requiere trabajo adicional para unir identidades de Azure AD y usuarios de Azure Cosmos DB. |
+| Authorization | Basada en roles: las definiciones de roles asignan acciones permitidas y se pueden asignar a varias identidades. | Basada en permisos: para cada usuario de Azure Cosmos DB se debe asignar permisos de acceso a datos. |
+| Ámbito del token | Un token de AAD lleva la identidad del solicitante. Esta identidad se compara con todas las definiciones de roles asignadas para realizar la autorización. | Un token de recurso lleva el permiso concedido a un usuario de Azure Cosmos DB específico en un recurso de Azure Cosmos DB específico. Las solicitudes de autorización en diferentes recursos pueden requerir distintos tokens. |
+| Actualización de tokens | ¿Actualizan automáticamente los SDK de Azure Cosmos DB el token de Azure AD cuando este expira? | No se admite la actualización del token del recurso. Cuando expira un token del recurso, es necesario emitir uno nuevo. |
 
 ## <a name="add-users-and-assign-roles"></a>Incorporación de usuarios y asignación de roles
 

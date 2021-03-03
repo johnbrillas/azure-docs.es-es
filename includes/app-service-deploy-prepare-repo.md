@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: add0d392f39ab476c6d75f704d5b2e2e0faaa77c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aed23bf5008f850b19a1e5a8c7b0ff21f329eb3a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004367"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560452"
 ---
 ## <a name="prepare-your-repository"></a>Preparación del repositorio
 
-Para obtener compilaciones automáticas del servidor de compilación de Kudu para Azure App Service, asegúrese de que la raíz del repositorio tiene los archivos correctos del proyecto.
+Para obtener compilaciones automáticas del servidor de compilación de Azure App Service, asegúrese de que la raíz del repositorio tiene los archivos correctos del proyecto.
 
 | Tiempo de ejecución | Archivos del directorio raíz |
 |-|-|
@@ -34,6 +34,6 @@ Para obtener compilaciones automáticas del servidor de compilación de Kudu par
 Para personalizar la implementación, puede incluir un archivo *.deployment* en la raíz del repositorio. Para más información, consulte el artículo sobre la [personalización de las implementaciones](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) y el artículo sobre el [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Si desarrolla en Visual Studio, deje que [Visual Studio cree un repositorio en su lugar](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). El proyecto está listo inmediatamente para su implementación mediante GIT.
+> Si desarrolla en Visual Studio, deje que [Visual Studio cree un repositorio en su lugar](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio&preserve-view=true). El proyecto está listo inmediatamente para su implementación mediante GIT.
 >
 

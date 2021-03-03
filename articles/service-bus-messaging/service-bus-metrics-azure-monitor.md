@@ -2,13 +2,13 @@
 title: Métricas de Azure Service Bus en Azure Monitor | Microsoft Docs
 description: En este artículo se explica cómo usar Azure Monitor para supervisar las entidades de Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916889"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570570"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -21,9 +21,9 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com) o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como los registros de Azure Monitor y Event Hubs. Para más información, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a las métricas desde [Azure Portal](https://portal.azure.com) o usar las API de Azure Monitor (REST y .NET) y soluciones de análisis como los registros de Azure Monitor y Event Hubs. Para más información, consulte [Métricas en Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
-De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un período mayor, se pueden archivar los datos de las métricas en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) de Azure Monitor.
+De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 30 días. Si es necesario conservar los datos durante un período mayor, se pueden archivar los datos de las métricas en una cuenta de Azure Storage. Este valor se configura en la [configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) de Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Acceso a métricas del portal
 
@@ -74,7 +74,7 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|Mensajes entrantes|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Mensajes entrantes|Número de eventos o mensajes enviados a Service Bus durante un período determinado. Esta métrica no incluye mensajes que se reenvían automáticamente.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 |Mensajes salientes|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 | error de Hadoop| Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
 | Mensajes activos| Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
@@ -100,7 +100,7 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 > [!NOTE] 
 > Estas métricas están disponibles solo con el nivel **Premium**. 
 > 
-> Estas son las métricas importantes que supervisar en busca de posibles interrupciones de un espacio de nombres de nivel Premium: **Uso de CPU por espacio de nombres** y **Uso del tamaño de memoria por espacio de nombres**. [Configure alertas](../azure-monitor/platform/alerts-metric.md) para estas métricas usando Azure Monitor.
+> Estas son las métricas importantes que supervisar en busca de posibles interrupciones de un espacio de nombres de nivel Premium: **Uso de CPU por espacio de nombres** y **Uso del tamaño de memoria por espacio de nombres**. [Configure alertas](../azure-monitor/alerts/alerts-metric.md) para estas métricas usando Azure Monitor.
 > 
 > La otra métrica que se podría supervisar es: **Solicitudes limitadas**. Con todo, esto no debería ser un problema siempre y cuando el espacio de nombres permanezca dentro de sus límites de memoria, CPU y conexiones desacopladas correspondientes. Para más información, vea [Limitación en el nivel Prémium de Azure Service Bus](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier).
 

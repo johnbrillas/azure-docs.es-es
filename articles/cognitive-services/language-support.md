@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369195"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706289"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Compatibilidad con idiomas naturales para Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Azure Cognitive Services permite crear aplicaciones que ven, oyen, hablan y enti
 Estas instancias de Cognitive Services son independientes del idioma y no tienen limitaciones basadas en el lenguaje humano.
 
 * [Anomaly Detector (versión preliminar)](./anomaly-detector/index.yml)
-* [Custom Vision](./Custom-Vision-Service/index.yml)
+* [Custom Vision](./custom-vision-service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
@@ -32,7 +32,7 @@ Estas instancias de Cognitive Services son independientes del idioma y no tienen
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Form Recognizer (versión preliminar)](./form-recognizer/language-support.md)
-* [Ink Recognizer (versión preliminar)](./ink-recognizer/language-support.md)
+* [Ink Recognizer (versión preliminar)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Idioma

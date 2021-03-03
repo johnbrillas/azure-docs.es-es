@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735529"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -63,10 +63,10 @@ Agregar disco en máquina virtual de Hyper-V replicada | No compatible. Deshabil
 Red de host: Formación de equipos NIC | Sí | Sí
 Red de host: VLAN | Sí | Sí
 Red de host: IPv4 | Sí | Sí
-Red de host: IPv6 | No | Sin
+Red de host: IPv6 | No | No
 Red de máquina virtual invitada: Formación de equipos NIC | No | No
 Red de máquina virtual invitada: IPv4 | Sí | Sí
-Red de máquina virtual invitada: IPv6 | Sin | Sí
+Red de máquina virtual invitada: IPv6 | No | Sí
 Red de máquina virtual invitada: Dirección IP estática (Windows) | Sí | Sí
 Red de máquina virtual invitada: Dirección IP estática (Linux) | No | No
 Red de máquina virtual invitada: Varias NIC | Sí | Sí
@@ -89,7 +89,7 @@ IP reservada | Sí | Sí
 IPv4 | Sí | Sí
 Conservar la dirección IP de origen | Sí | Sí
 Punto de conexión de servicio de red virtual de Azure<br/> (sin firewalls de Azure Storage) | Sí | Sí
-Redes aceleradas | Sin | Sin
+Redes aceleradas | No | No
 
 
 ## <a name="hyper-v-host-storage"></a>Almacenamiento de host de Hyper-V
@@ -110,17 +110,17 @@ VHD/VHDX | Sí | Sí
 VM de generación 2 | Sí | Sí
 EFI/UEFI<br></br>La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.| Sí | Sí
 Disco en clúster compartido | No | No
-Disco cifrado | Sin | Sin
+Disco cifrado | No | No
 NFS | N/D | N/D
-SMB 3.0 | Sin | No
+SMB 3.0 | No | No
 RDM | N/D | N/D
 Disco > 1 TB | Sí, hasta 4095 GB | Sí, hasta 4095 GB
 Disco: sector físico y lógico de 4 K | No compatible: Gen 1, Gen 2 | No compatible: Gen 1, Gen 2
 Disco: Sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
 Administración de volúmenes lógicos (LVM). Se admite LVM solo en discos de datos. Azure proporciona un único disco de sistema operativo. | Sí | Sí
 Volumen con disco seccionado > 1 TB | Sí | Sí
-Espacios de almacenamiento | Sin | Sin
-Agregar/quitar disco en caliente | No | Sin
+Espacios de almacenamiento | No | No
+Agregar/quitar disco en caliente | No | No
 Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | Sí | Sí
 
@@ -131,9 +131,9 @@ Varias rutas (MPIO) | Sí | Sí
 Almacenamiento con redundancia local | Sí | Sí
 Almacenamiento con redundancia geográfica | Sí | Sí
 Almacenamiento con redundancia geográfica con acceso de lectura | Sí | Sí
-Almacenamiento con redundancia de zona | Sin | Sin
-Almacenamiento de acceso esporádico | Sin | No
-Almacenamiento de acceso frecuente| No | Sin
+Almacenamiento con redundancia de zona | No | No
+Almacenamiento de acceso esporádico | No | No
+Almacenamiento de acceso frecuente| No | No
 Blobs en bloques | No | No
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
@@ -143,7 +143,7 @@ Standard Storage | Sí | Sí
 Servicio Import/Export | No | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
-Opción de transferencia segura | Sí
+Opción de transferencia segura | Sí | Sí
 
 
 ## <a name="azure-compute-features"></a>Características de proceso de Azure

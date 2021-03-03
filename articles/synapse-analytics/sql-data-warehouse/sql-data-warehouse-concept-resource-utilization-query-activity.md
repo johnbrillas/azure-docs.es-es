@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 75c0058f2d4878016281656935cbd82f79b859fd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 96a076ef144af1d32e9ef3ec2903557b8edff006
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120009"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586704"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics proporciona una experiencia de supervisión enriquecida 
 
 ## <a name="resource-utilization"></a>Utilización de recursos
 
-En Azure Portal para Synapse SQL hay disponibles las métricas siguientes. Estas métricas se exponen a través de [Azure Monitor](../../azure-monitor/platform/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
+En Azure Portal para Synapse SQL hay disponibles las métricas siguientes. Estas métricas se exponen a través de [Azure Monitor](../../azure-monitor/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
 
 | Nombre de la métrica             | Descripción                                                  | Tipo de agregación |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -57,7 +57,7 @@ Para ver la lista de las DMV que se aplican al SQL de Synapse, vea esta [documen
 
 ## <a name="metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico 
 
-Las métricas y los registros se pueden exportar a Azure Monitor, específicamente al componente de [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), y se puede acceder a ellos mediante programación a través de las [consultas de registros](../../azure-monitor/log-query/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). La latencia del registro para Synapse SQL es de entre 10 y 15 minutos. Para más detalles sobre los factores que afectan a la latencia, consulte la siguiente documentación.
+Las métricas y los registros se pueden exportar a Azure Monitor, específicamente al componente de [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), y se puede acceder a ellos mediante programación a través de las [consultas de registros](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). La latencia del registro para Synapse SQL es de entre 10 y 15 minutos. Para más detalles sobre los factores que afectan a la latencia, consulte la siguiente documentación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

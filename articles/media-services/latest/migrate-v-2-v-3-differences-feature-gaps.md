@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898416"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702460"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Diferencias entre características de Azure Media Services v2 y v3
 
@@ -42,7 +42,7 @@ La API v3 tiene las siguientes diferencias entre características con respecto a
     - Hemos agregado compatibilidad con la asignación de canales de audio al codificador Standard.  Consulte la sección sobre [audio en la documentación de codificación en Media Services de Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Si usaba características o formatos de salida avanzadas de un producto con licencia de terceros, como MXF o ProRes, use la solución de asociado de Azure de Telestream, que será transaccional en el momento en que se retire la versión v2. También puede usar Imagine Communications o [Bitmovin](http://bitmovin.com).
 
-- Ya no se admite la propiedad "availability set" en el punto de conexión de streaming de v2. Consulte el proyecto de ejemplo y la guía para lograr la entrega de [VoD de alta disponibilidad](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) en la API v3.
+- Ya no se admite la propiedad "availability set" en el punto de conexión de streaming de v2. Consulte el proyecto de ejemplo y la guía para lograr la entrega de [VoD de alta disponibilidad](./media-services-high-availability-encoding.md) en la API v3.
 
 - En Media Services v3, no se puede especificar el vector de inicialización de FairPlay. Aunque no afecta a los clientes que usan Media Services tanto para el empaquetado como para la entrega de licencias, puede ser un problema al usar un sistema DRM de terceros para entregar las licencias de FairPlay (modo híbrido).
 

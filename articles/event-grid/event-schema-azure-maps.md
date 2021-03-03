@@ -2,21 +2,19 @@
 title: Azure Maps como origen de Event Grid
 description: Describe las propiedades y los esquemas que se proporcionan para los eventos de Azure Maps con Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/11/2021
+ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461993"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363693"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como origen de Event Grid
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure Maps. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](./event-schema.md). También proporciona una lista de inicios rápidos y tutoriales para usar Azure Maps como un origen de eventos.
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
-
-### <a name="available-event-types"></a>Tipos de eventos disponibles
+## <a name="available-event-types"></a>Tipos de eventos disponibles
 
 Una cuenta de Azure Maps emite los siguientes tipos de eventos:
 
@@ -26,8 +24,9 @@ Una cuenta de Azure Maps emite los siguientes tipos de eventos:
 | Microsoft.Maps.GeofenceExited | Se genera cuando se mueven las coordenadas recibidas desde dentro de una determinada geovalla a fuera |
 | Microsoft.Maps.GeofenceResult | Se genera cada vez que una consulta de geovalla devuelve un resultado, independientemente del estado |
 
-### <a name="event-examples"></a>Ejemplos de eventos
+## <a name="example-events"></a>Eventos de ejemplo
 
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceEntered**
 
 ```JSON
@@ -96,70 +95,154 @@ En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceResult**
 }
 ```
 
-### <a name="event-properties"></a>Propiedades de evento
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceEntered**
 
+```JSON
+{   
+   "id":"7f8446e2-1ac7-4234-8425-303726ea3981", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":-999.0, 
+            "nearestLat":47.618786, 
+            "nearestLon":-122.132151 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceEntered", 
+   "time":"2018-11-08T00:54:17.6408601Z", 
+   "specversion":"1.0" 
+}
+```
+
+En el ejemplo siguiente, se muestra el esquema de un evento **GeofenceResult** 
+
+```JSON
+{   
+   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
+   "source":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
+   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
+   "data":{   
+      "geometries":[   
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"1", 
+            "distance":999.0, 
+            "nearestLat":47.609833, 
+            "nearestLon":-122.148274 
+         }, 
+         {   
+            "deviceId":"device_1", 
+            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
+            "geometryId":"2", 
+            "distance":999.0, 
+            "nearestLat":47.621954, 
+            "nearestLon":-122.131841 
+         } 
+      ], 
+      "expiredGeofenceGeometryId":[   
+      ], 
+      "invalidPeriodGeofenceGeometryId":[   
+      ] 
+   }, 
+   "type":"Microsoft.Maps.GeofenceResult", 
+   "time":"2018-11-08T00:52:08.0954283Z", 
+   "specversion":"1.0" 
+}
+```
+---
+
+## <a name="event-properties"></a>Propiedades de evento
+
+# <a name="event-grid-event-schema"></a>[Esquema de eventos de Event Grid](#tab/event-grid-event-schema)
 Un evento tiene los siguientes datos de nivel superior:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | string | Ruta al asunto del evento definida por el anunciante. |
-| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | string | Identificador único para el evento |
-| datos | object | Datos de eventos de geovalla. |
-| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| `topic` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `eventType` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `eventTime` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos de eventos de geovalla. |
+| `dataVersion` | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| `metadataVersion` | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+
+# <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
+Un evento tiene los siguientes datos de nivel superior:
+
+| Propiedad | Tipo | Descripción |
+| -------- | ---- | ----------- |
+| `source` | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| `subject` | string | Ruta al asunto del evento definida por el anunciante. |
+| `type` | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| `time` | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| `id` | string | Identificador único para el evento |
+| `data` | object | Datos de eventos de geovalla. |
+| `specversion` | string | Versión de especificación del esquema CloudEvents. |
+
+---
 
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| apiCategory | string | Categoría de API del evento. |
-| apiName | string | Nombre de API del evento. |
-| issues | object | Se enumeran los problemas que se encontraron durante el procesamiento. Si se devuelve algún problema, no se devolverán geometrías con la respuesta. |
-| responseCode | number | Código de respuesta HTTP |
-| geometries | object | Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
+| `apiCategory` | string | Categoría de API del evento. |
+| `apiName` | string | Nombre de API del evento. |
+| `issues` | object | Se enumeran los problemas que se produjeron durante el procesamiento. Si se devuelve algún problema, no se devolverán geometrías con la respuesta. |
+| `responseCode` | number | Código de respuesta HTTP |
+| `geometries` | object | Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
 
 Se devuelve el objeto de error cuando se produce un error en la API de Maps. El objeto de error tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| error | ErrorDetails |Se devuelve este objeto cuando se produce un error en la API de Maps  |
+| `error` | ErrorDetails |Se devuelve este objeto cuando se produce un error en la API de Maps  |
 
 Se devuelve el objeto ErrorDetails cuando se produce un error en la API de Maps. El objeto ErrorDetails tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| código | string | El código de estado HTTP. |
-| message | string | Si está disponible, una descripción legible del error. |
-| innererror | InnerError | Si está disponible, un objeto que contiene información específica del servicio sobre el error. |
+| `code` | string | El código de estado HTTP. |
+| `message` | string | Si está disponible, una descripción legible del error. |
+| `innererror` | InnerError | Si está disponible, un objeto que contiene información específica del servicio sobre el error. |
 
 InnerError es un objeto que contiene información específica del servicio sobre el error. El objeto InnerError tiene las siguientes propiedades: 
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| código | string | El mensaje de error. |
+| `code` | string | El mensaje de error. |
 
 El objeto "geometries" muestra los identificadores de geometría de las geovallas que han expirado en relación con la hora que especificó el usuario en la solicitud. El objeto "geometries" tiene elementos de geometría con las siguientes propiedades: 
 
 | Propiedad | Tipo | Descripción |
 |:-------- |:---- |:----------- |
-| deviceid | string | Identificador del dispositivo. |
-| distancia | string | <p>Distancia entre la coordenada y el borde más cercano de la geovalla. Un número positivo significa que la coordenada está fuera de la geovalla. Si la coordenada está fuera de la geovalla, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es 999. Un número negativo significa que la coordenada está dentro de la geovalla. Si la coordenada está dentro del polígono, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es -999. Un valor de 999 significa que hay una gran confianza en que la coordenada está fuera de la geovalla. Un valor de 999 significa que hay una gran confianza en que la coordenada está dentro de la geovalla.<p> |
-| geometryid |string | El identificador único identifica la geometría de la geovalla. |
-| nearestlat | number | Latitud del punto más cercano de la geometría. |
-| nearestlon | number | Longitud del punto más cercano de la geometría. |
-| udId | string | El identificador único devuelto desde el servicio de carga del usuario al cargar una geovalla. No se incluirá en la API POST de geovalla. |
+| `deviceid` | string | Identificador del dispositivo. |
+| `distance` | string | <p>Distancia entre la coordenada y el borde más cercano de la geovalla. Un número positivo significa que la coordenada está fuera de la geovalla. Si la coordenada está fuera de la geovalla, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es 999. Un número negativo significa que la coordenada está dentro de la geovalla. Si la coordenada está dentro del polígono, pero es superior al valor de la distancia de searchBuffer al borde más cercano de la geovalla, el valor es -999. Un valor de 999 significa que hay una gran confianza en que la coordenada está fuera de la geovalla. Un valor de 999 significa que hay una gran confianza en que la coordenada está dentro de la geovalla.<p> |
+| `geometryid` |string | Identificador único que identifica la geometría de la geovalla. |
+| `nearestlat` | number | Latitud del punto más cercano de la geometría. |
+| `nearestlon` | number | Longitud del punto más cercano de la geometría. |
+| `udId` | string | Identificador único devuelto desde el servicio de carga del usuario al cargar una geovalla. No se incluirá en la API POST de geovalla. |
 
 El objeto data tiene las siguientes propiedades:
 
 | Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
-| expiredGeofenceGeometryId | string[] | Muestra el identificador de geometría de la geovalla que ha expirado en relación con la hora que especificó el usuario en la solicitud. |
-| geometries | geometries[] |Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
-| invalidPeriodGeofenceGeometryId | string[]  | Muestra el identificador de geometría de la geovalla que está en un período no válido en relación con la hora que especificó el usuario en la solicitud. |
-| isEventPublished | boolean | El valor es "true" si se publica al menos un evento en el suscriptor de eventos de Azure Maps y "false" en caso contrario. |
+| `expiredGeofenceGeometryId` | string[] | Muestra el identificador de geometría de la geovalla que ha expirado en relación con la hora que especificó el usuario en la solicitud. |
+| `geometries` | geometries[] |Muestra las geometrías de valla que contienen la posición de la coordenada o superpone searchBuffer en torno a esa posición. |
+| `invalidPeriodGeofenceGeometryId` | string[]  | Muestra el identificador de geometría de la geovalla que está en un período no válido en relación con la hora que especificó el usuario en la solicitud. |
+| `isEventPublished` | boolean | El valor es "true" si se publica al menos un evento en el suscriptor de eventos de Azure Maps y "false" en caso contrario. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 |Título  |Descripción  |

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595977"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de Azure Monitor en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -49,7 +49,7 @@ Realice los siguientes pasos para crear un área de trabajo de Log Analytics. Un
 
         ![Pestaña Revisar y crear del área de trabajo de Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-Para obtener más información, consulte los pasos detallados que se indican en [Creación de un área de trabajo de Log Analytics a través de Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Para obtener más información, consulte los pasos detallados que se indican en [Creación de un área de trabajo de Log Analytics a través de Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -57,7 +57,7 @@ Para obtener más información, consulte los pasos detallados que se indican en 
 
 Siga estos pasos para habilitar la información de contenedor en el área de trabajo. 
 
-1. Siga los pasos detallados que se indican en [Cómo agregar la solución Azure Monitor para contenedores](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use el siguiente archivo de plantilla `containerSolution.json`:
+1. Siga los pasos detallados que se indican en [Cómo agregar la solución Azure Monitor para contenedores](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use el siguiente archivo de plantilla `containerSolution.json`:
 
     ```yml
     {

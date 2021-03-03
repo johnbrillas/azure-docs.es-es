@@ -4,153 +4,48 @@ description: En este artículo se proporciona una descripción de cómo se integ
 documentationcenter: .net
 author: spelluru
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 02/11/2021
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 658107bb74396891c8e6e05a9e8074a9416a5f6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629154"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369669"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Introducción a la integración de Azure Service Bus en Event Grid
-
-Azure Service Bus ha iniciado una nueva integración en Azure Event Grid. El principal escenario de esta característica es que aquellas colas o suscripciones de Service Bus que tengan un bajo volumen de mensajes, no tienen que tener un sondeo de receptor de mensajes en todo momento. 
-
-Service Bus puede ahora emitir eventos a Event Grid cuando haya mensajes en una cola o suscripción y no haya ningún receptor presente. Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus, escuchar estos eventos y reaccionar a ellos iniciando un receptor. Con esta característica, puede usar Service Bus en modelos de programación reactiva.
+Service Bus puede ahora emitir eventos a Event Grid cuando haya mensajes en una cola o suscripción y no haya ningún receptor presente. Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus, escuchar estos eventos y reaccionar a ellos iniciando un receptor. Con esta característica, puede usar Service Bus en modelos de programación reactiva. El principal escenario de esta característica es que aquellas colas o suscripciones de Service Bus que tengan un bajo volumen de mensajes, no tienen que tener un sondeo de receptor de mensajes en todo momento. 
 
 Para habilitar la característica necesita los siguientes elementos:
 
 * Un espacio de nombres Premium de Service Bus con al menos una cola de Service Bus o un tema de Service Bus que tenga como mínimo una suscripción.
-* Acceso de colaborador al espacio de nombres de Service Bus.
+* Acceso de colaborador al espacio de nombres de Service Bus. Vaya al espacio de nombres de Service Bus en Azure Portal, seleccione **Control de acceso (IAM)** y, a continuación, seleccione la pestaña **Asignaciones de rol**. Compruebe que dispone de acceso de colaborador al espacio de nombres. 
 * Además, se necesita una suscripción a Event Grid para el espacio de nombres de Service Bus. Esta suscripción recibe una notificación de Event Grid que indica que hay mensajes que se deben recopilar. Los suscriptores típicos pueden ser la característica Logic Apps de Azure App Service, Azure Functions, o un webhook que se ponga en contacto con una aplicación web. El suscriptor, a continuación, procesa los mensajes. 
 
 ![19][]
 
+[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="event-grid-subscriptions-for-service-bus-namespaces"></a>Suscripciones de Event Grid para espacios de nombres de Service Bus
+Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus de tres formas diferentes:
 
-### <a name="verify-that-you-have-contributor-access"></a>Comprobación de que dispone de acceso de colaborador
-Vaya al espacio de nombres de Service Bus, seleccione **Control de acceso (IAM)** y, a continuación, seleccione la pestaña **Asignaciones de roles**. Compruebe que dispone de acceso de colaborador al espacio de nombres. 
+- Azure Portal. Vea los siguientes tutoriales para aprender a usar Azure Portal con el fin de crear suscripciones de Event Grid para eventos de Service Bus con Azure Logic Apps y Azure Functions como controladores. 
+    - [Azure Logic Apps](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
+    - [Funciones de Azure](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
+* CLI de Azure. En el siguiente ejemplo de la CLI se muestra cómo crear una suscripción de Azure Functions para un [tema del sistema](../event-grid/system-topics.md) creado por un espacio de nombres de Service Bus.
 
-### <a name="events-and-event-schemas"></a>Eventos y esquemas de evento
-
-Service Bus envía actualmente eventos para dos escenarios:
-
-* [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
-* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
-* [DeadletterMessagesAvailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
-
-Además, Service Bus usa la seguridad estándar de Event Grid y [mecanismos de autenticación](../event-grid/security-authentication.md).
-
-Para más información, consulte [Esquema de eventos de Azure Event Grid](../event-grid/event-schema.md).
-
-#### <a name="active-messages-available-event"></a>Evento de mensajes activos disponibles
-
-Este evento se genera si hay mensajes activos en una cola o suscripción y no hay receptores a la escucha.
-
-El esquema para este evento es el siguiente:
-
-```JSON
-{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}
-```
-
-#### <a name="deadletter-messages-available-event"></a>Evento de mensajes fallidos disponibles
-
-Obtiene un evento como mínimo por cada cola de mensajes fallidos que contenga mensajes y ningún receptor activo.
-
-El esquema para este evento es el siguiente:
-
-```JSON
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### <a name="active-messages-available-periodic-notifications"></a>Notificaciones periódicas de mensajes activos disponibles
-
-Este evento se genera periódicamente si tiene mensajes activos en la cola o suscripción específica, aunque haya agentes de escucha activos en esa cola o suscripción específica.
-
-El esquema para el evento es el siguiente.
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### <a name="deadletter-messages-available-periodic-notifications"></a>Notificaciones periódicas de mensajes fallidos disponibles
-
-Este evento se genera periódicamente si tiene mensajes fallidos en la cola o suscripción específica, aunque haya agentes de escucha activos en la entidad fallida de esa cola o suscripción específica.
-
-El esquema para el evento es el siguiente.
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
+     ```azurecli-interactive
+    namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
+    
+    az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME>" --endpoint "<your_endpoint_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
+    ```
+- PowerShell. Este es un ejemplo:
+    ```powershell-interactive
+    $namespaceID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -NamespaceName "<YOUR NAMESPACE NAME>").Id
+    
+    New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME>" -ResourceId $namespaceID -Endpoint "<YOUR ENDPOINT URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
+    ```
 ### <a name="how-many-events-are-emitted-and-how-often"></a>¿Cuál es la frecuencia y la cantidad de eventos que se emiten?
 
 Si tiene varias colas y temas o suscripciones en el espacio de nombres, obtendrá al menos un evento por cola y uno por suscripción. Los eventos se emiten inmediatamente si no hay ningún mensaje en la entidad de Service Bus y llega un mensaje nuevo. O bien, los eventos se emiten cada dos minutos, a menos que Service Bus detecte un receptor activo. El examen de los mensajes no interrumpe los eventos.
@@ -161,74 +56,10 @@ De forma predeterminada, Service Bus emite eventos para todas las entidades del 
 
 Por ejemplo, si desea obtener eventos solo para una cola o suscripción del espacio de nombres, puede utilizar los filtros *Begins with* (Comienza por) o *Ends with* (Termina con) que proporciona Event Grid. En algunas interfaces, los filtros se denominan *Prefijo* y *Sufijo*. Si desea obtener eventos para varias colas y suscripciones (pero no para todas), puede crear varias suscripciones de Event Grid y proporcionar un filtro para cada una.
 
-## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Creación de suscripciones de Event Grid para espacios de nombres de Service Bus
-
-Puede crear suscripciones de Event Grid para los espacios de nombres de Service Bus de tres formas diferentes:
-
-* En Azure Portal
-* En la [CLI de Azure](#azure-cli-instructions)
-* En [PowerShell](#powershell-instructions)
-
-## <a name="azure-portal-instructions"></a>Instrucciones de Azure Portal
-
-Para crear una nueva suscripción de Event Grid, haga lo siguiente:
-1. En Azure Portal, vaya hasta su espacio de nombres.
-2. En el panel izquierdo, seleccione **Event Grid**. 
-3. Seleccione **Suscripción de eventos**.  
-
-   La siguiente imagen muestra un espacio de nombres que tiene una suscripción de Event Grid:
-
-   ![Suscripciones de Event Grid](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
-
-   La siguiente imagen muestra cómo suscribirse a una función o a un webhook sin ningún filtro concreto:
-
-   ![21][]
-
-## <a name="azure-cli-instructions"></a>Instrucciones para la CLI de Azure
-
-En primer lugar, asegúrese de que dispone de la CLI de Azure versión 2.0 o posterior instalada. [Descargue el instalador](/cli/azure/install-azure-cli). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
-
-Ejecute el código siguiente:
-
- ```azurecli-interactive
-az login
-
-az account set -s "<Azure subscription name>"
-
-namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
-
-az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
-```
-
-Si está usando BASH 
-
-## <a name="powershell-instructions"></a>Instrucciones para PowerShell
-
-Asegúrese de que tiene instalado Azure PowerShell. [Descargue el instalador](/powershell/azure/install-Az-ps). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
-
-```powershell-interactive
-Connect-AzAccount
-
-Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
-
-# This might be installed already
-Install-Module Az.ServiceBus
-
-$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
-mespaceName "<YOUR NAMESPACE NAME>").Id
-
-New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
-```
-
-Desde aquí, puede explorar las demás opciones de configuración o comprobar que los eventos fluyen.
-
 ## <a name="next-steps"></a>Pasos siguientes
-
-* Obtenga [ejemplos](service-bus-to-event-grid-integration-example.md) de Service Bus y Event Grid.
-* Más información acerca de [Event Grid](../event-grid/index.yml).
-* Más información acerca de [Azure Functions](../azure-functions/index.yml).
-* Más información acerca de [Logic Apps](../logic-apps/index.yml).
-* Más información acerca de [Service Bus](/azure/service-bus/).
+Vea los siguientes tutoriales: 
+- [Azure Logic Apps para controlar mensajes de Service Bus recibidos a través de Event Grid](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
+- [Azure Functions para controlar mensajes de Service Bus recibidos a través de Event Grid](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

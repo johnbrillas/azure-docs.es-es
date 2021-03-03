@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705507"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -56,7 +56,7 @@ Entre los escenarios clave que puede realizar con Standard Load Balancer se incl
 
 - Habilitación de la compatibilidad con el **[equilibrio de carga](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ipv6-overview.md)** .
 
-- Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](../azure-monitor/overview.md).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio. [Información para Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) ofrece un panel preconfigurado con visualizaciones útiles para estas métricas.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
+- Standard Load Balancer proporciona métricas multidimensionales mediante [Azure Monitor](../azure-monitor/overview.md).  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio. [Información para Azure Load Balancer](./load-balancer-insights.md) ofrece un panel preconfigurado con visualizaciones útiles para estas métricas.  También se admite Resource Health. Consulte **[Diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md)** para más información.
 
 - Servicios de equilibrio de carga en **[varios puertos, varias direcciones IP, o en ambos](./load-balancer-multivip-overview.md)** .
 

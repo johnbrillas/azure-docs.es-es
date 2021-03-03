@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979233"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095568"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -159,7 +159,7 @@ Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob S
 
 La fuente de cambios es un registro de los cambios que se organizan en *segmentos* **horarios**, pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
 
-Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesan.
+Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesen.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -268,7 +268,7 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 - Los registros de eventos de cambio en los que `eventType` tiene un valor de `Control` son registros del sistema interno y no reflejan un cambio en los objetos de la cuenta. Puede omitir estos registros sin problemas.
 
-- Los valores del contenedor de propiedades `storageDiagnonstics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos. Puede omitir esas propiedades sin problemas.
+- Los valores del contenedor de propiedades `storageDiagnostics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos. Puede omitir esas propiedades sin problemas.
 
 - El tiempo representado por el segmento es **aproximado** con límites de 15 minutos. Por lo tanto, para garantizar el consumo de todos los registros dentro de un tiempo especificado, consuma el segmento de hora consecutivo anterior y siguiente.
 

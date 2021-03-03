@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636884"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376367"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -45,17 +45,17 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
 Siga este vínculo para más información acerca de la [actualización automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partir del 1 de noviembre de 2020, comenzaremos a implementar un proceso de retirada en el que las versiones de Azure AD Connect que se publicaron hace más de 18 meses dejarán de usarse. En ese momento se iniciará el proceso con la retirada de todas las versiones de Azure AD Connect 1.3.20.0 (publicada el 24/4/2019) y anteriores, y se pasará a evaluar la retirada de las versiones anteriores de Azure AD Connect cada vez que se publique una nueva versión.
+> A partir del 1 de abril de 2024, se retirarán las versiones de Azure AD Connect publicadas antes del 1 de mayo de 2018, versión 1.1.751.0 y anteriores. 
 >
 > Debe asegurarse de que está ejecutando una versión reciente de Azure AD Connect para lograr una experiencia de soporte técnico óptima. 
 >
->Si ejecuta una versión en desuso de Azure AD Connect es posible que no tenga las últimas correcciones de seguridad, mejoras de rendimiento, herramientas de diagnóstico y solución de problemas, y mejoras de servicio. Asimismo, si necesita soporte técnico, es posible que no podamos proporcionarle el nivel de servicio que requiere su organización.
+>Si ejecuta una versión retirada de Azure AD Connect es posible que no tenga las últimas correcciones de seguridad, mejoras de rendimiento, herramientas de diagnóstico y solución de problemas, y mejoras de servicio. Asimismo, si necesita soporte técnico, es posible que no podamos proporcionarle el nivel de servicio que requiere su organización.
 >
->Si ha habilitado Azure AD Connect para la sincronización, pronto comenzará a recibir notificaciones de estado automáticamente, que le avisarán sobre las próximas retiradas si ejecuta una de las versiones anteriores.
+
 >
 >Consulte [este artículo](./how-to-upgrade-previous-version.md) para obtener más información sobre cómo actualizar Azure AD Connect a la versión más reciente.
 >
->Para obtener información sobre el historial de versiones en desuso, consulte [Archivo del historial de lanzamiento de versiones de Azure AD Connect](reference-connect-version-history-archive.md).
+>Para obtener información sobre el historial de versiones retiradas, consulte [Archivo del historial de lanzamiento de versiones de Azure AD Connect](reference-connect-version-history-archive.md).
 
 ## <a name="15450"></a>1.5.45.0
 

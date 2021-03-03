@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32e5c55bbaa7357c1f13200213dbaed19986825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878145"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694349"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
-
 
 Azure Disk Encryption para máquinas virtuales Linux usa la característica DM-Crypt de Linux para proporcionar un cifrado completo tanto del disco del sistema operativo como de los discos de datos. Además, proporciona cifrado del disco temporal cuando se usa la característica EncryptFormatAll.
 
@@ -408,7 +407,6 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
 - Volcado de memoria de kernel (kdump).
 - Oracle ACFS (ASM Cluster File System).
-- Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Discos de NVMe de las máquinas virtuales de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md)).
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
 - Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.
@@ -416,7 +414,6 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
 - Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
 - Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](../disk-encryption.md).
-- [Tamaños de máquina virtual de Azure sin disco temporal local](../azure-vms-no-temp-disk.md); concretamente, Dv4, Dsv4, Ev4 y Esv4.
 - Cifrado de máquinas virtuales en clústeres de conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes

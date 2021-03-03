@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220293"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091047"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -85,7 +85,8 @@ Se aplican los siguientes requisitos principales:
 * Todas las maquinas, incluidos los controladores de dominio, en las que se instalen componentes de protección con contraseña de Azure AD deben tener instalado Universal C Runtime.
     * Puede obtener el tiempo de ejecución al asegurarse de que tenga todas las actualizaciones de Windows Update. O bien, puede obtenerlo en un paquete de actualización del sistema operativo específico. Para más información, consulte [Actualización para Universal C RunTime en Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Necesita una cuenta con privilegios de administrador de dominio de Active Directory en el dominio raíz del bosque para registrar el bosque de Windows Server Active Directory en Azure AD.
-* El servicio de distribución de claves debe habilitarse en todos los controladores de dominio del dominio que ejecutan Windows Server 2012. De manera predeterminada, este servicio se habilita a través de inicio de un desencadenador manual.
+* El servicio de distribución de claves debe habilitarse en todos los controladores de dominio del dominio que ejecutan Windows Server 2012 y versiones posteriores. De manera predeterminada, este servicio se habilita a través de inicio de un desencadenador manual.
+
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy para la protección con contraseña de Azure AD. Esta conectividad debe permitir que el controlador de dominio acceda al puerto 135 del asignador de puntos de conexión RPC y al puerto del servidor RPC del servicio de proxy.
     * De manera predeterminada, el puerto del servidor RPC es un puerto RPC dinámico, pero se puede configurar para [usar un puerto estático](#static).
 * Todas las máquinas donde se instalará el servicio de proxy de Protección con contraseña de Azure AD deben tener acceso de red a los puntos de conexión siguientes:

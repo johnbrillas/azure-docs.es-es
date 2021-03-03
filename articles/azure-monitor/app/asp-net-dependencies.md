@@ -4,12 +4,12 @@ description: Supervise las llamadas de dependencia de su aplicación web o local
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263936"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652010"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -29,7 +29,7 @@ Los SDK de Application Insights para .NET y .NET Core se suministran con `Depend
 |[Azure Storage (blobs, tablas, colas)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Llamadas realizadas con el cliente de Azure Storage. |
 |[SDK de cliente de EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versión 1.1.0 y posteriores. |
 |[SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versión 3.0.0 y posteriores. |
-|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
+|Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
 
 Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](./api-custom-events-metrics.md#trackdependency).
 
@@ -109,9 +109,10 @@ En el caso de las aplicaciones de ASP.NET, se recopila texto de la consulta SQL 
 Además de los pasos específicos de la plataforma anteriores, también **debe optar explícitamente por habilitar la colección de comandos SQL** al modificar el archivo applicationInsights.config con lo siguiente:
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 En los casos anteriores, la forma correcta de validar que el motor de instrumentación está instalado correctamente es comprobar que la versión de SDK de la `DependencyTelemetry` recopilada sea "rddp". Un valor "rdddsd" o "rddf" indica que las dependencias se recopilan a través de las devoluciones de llamada de DiagnosticSource o EventSource y, por lo tanto, no se puede capturar la consulta SQL completa.

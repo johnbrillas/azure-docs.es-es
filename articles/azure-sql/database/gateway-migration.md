@@ -10,25 +10,41 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690539"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
-A los clientes se les avisará de antemano mediante notificaciones de estado del servicio de cualquier cambio en las puertas de enlace disponibles en cada región. Los clientes pueden [usar Azure Portal para configurar las alertas del registro de actividad](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+A los clientes se les avisará de antemano mediante notificaciones de estado del servicio de cualquier cambio en las puertas de enlace disponibles en cada región. Los clientes pueden [usar Azure Portal para configurar las alertas del registro de actividad](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 La información más actualizada se mantendrá en la tabla [Direcciones IP de la puerta de enlace de Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses).
 
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+## <a name="march-2021"></a>Marzo de 2021
+Las siguientes puertas de enlace de SQL en varias regiones están en proceso de desactivación:
+
+- Sur de Brasil: 104.41.11.5
+- Este de Asia: 191.234.2.139
+- Este de EE. UU: 191.238.6.43
+- Este de Japón: 191.237.240.43
+- Japón Occidental: 191.238.68.11
+- Norte de Europa: 191.235.193.75
+- Centro y Sur de EE. UU. 23.98.162.75
+- Sudeste de Asia: 23.100.117.95
+- Oeste de Europa: 191.237.232.75
+- Oeste de EE. UU.: 23.99.34.75
+
+No se prevé ningún impacto para los clientes, ya que estas puertas de enlace (que se ejecutan en hardware anterior) no enrutan el tráfico de los clientes. Las direcciones IP de estas puertas de enlace se desactivarán el 15 de marzo de 2021.
+
 ## <a name="february-2021"></a>Febrero de 2021
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 
@@ -40,15 +56,15 @@ Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 
 - Centro de Australia: 20.36.104.6, 20.36.104.7 
-- Centro de Australia 2: 20.36.112.6 
+- Centro de Australia 2:  20.36.112.6 
 - Sur de Brasil: 191.234.144.16, 191.234.152.3 
 - Este de Canadá: 40.69.105.9, 40.69.105.10
 - Centro de la India: 104.211.86.30, 104.211.86.31 
 - Este de Asia: 13.75.32.14 
 - Centro de Francia: 40.79.137.8, 40.79.145.12 
-- Sur de Francia: 40.79.177.10, 40.79.177.12
+- Sur de Francia: 40.79.177.10 ,40.79.177.12
 - Centro de Corea del Sur: 52.231.17.22, 52.231.17.23
-- India occidental: 104.211.144.4
+- Oeste de la India: 104.211.144.4
 
 Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 31 de enero de 2021.
 
@@ -75,7 +91,7 @@ Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las si
 - Sudeste de Australia: 191.239.192.109 y 13.73.109.251
 - Centro de EE. UU.: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 y 104.208.21.1
 - Este de Asia: 191.234.2.139, 52.175.33.150 y 13.75.32.4
-- Este de EE. UU.: 40.121.158.30, 40.79.153.12, 191.238.6.43 y 40.78.225.32
+- Este de EE. UU: 40.121.158.30, 40.79.153.12, 191.238.6.43 y 40.78.225.32
 - Este de EE. UU. 2: 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 y 104.208.150.3
 - Centro de Francia: 40.79.137.0 y 40.79.129.1
 - Japón Occidental: 104.214.148.156, 40.74.100.192, 191.238.68.11 y 40.74.97.10
@@ -85,7 +101,7 @@ Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las si
 
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **10 de septiembre de 2020**:
 
-- Centro-oeste de EE. UU.: 13.78.248.43 
+- Centro-oeste de EE. UU.: 13.78.248.43 
 - Norte de Sudáfrica: 102.133.120.2  
 
 Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
@@ -93,7 +109,7 @@ Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. E
 - Norte de Europa: 13.74.104.113 
 - Oeste de EE. UU. 2: 40.78.248.10 
 - Oeste de Europa: 52.236.184.163 
-- Centro y Sur de EE. UU.: 20.45.121.1, 20.49.88.1 
+- Centro y Sur de EE. UU. 20.45.121.1, 20.49.88.1 
 
 Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
 - Este de Japón: 40.79.184.8, 40.79.192.5

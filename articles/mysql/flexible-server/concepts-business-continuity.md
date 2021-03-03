@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240722"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715061"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Introducción a la continuidad empresarial con Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -27,7 +27,7 @@ En la tabla siguiente se muestran las características que ofrece un servidor fl
 | **Copia de seguridad y recuperación** | Un servidor flexible realiza automáticamente copias de seguridad diarias de los archivos de base de datos y copias de seguridad de los registros de transacciones de forma continuada. Las copias de seguridad se pueden conservar durante cualquier período entre 1 y 35 días. Es posible restaurar el servidor de bases de datos a un momento dado dentro del período de retención de la copia de seguridad. El tiempo de recuperación depende del tamaño de los datos que se van a restaurar más el tiempo necesario para realizar la recuperación del registro. Vea [Conceptos: copia de seguridad y restauración](./concepts-backup-restore.md) para obtener más detalles. |Datos de copia de seguridad conservados dentro de la región |
 | **Copia de seguridad con redundancia local** | Las copias de seguridad de un servidor flexible se almacenan de forma automática y segura en un almacenamiento con redundancia local dentro de una región y la misma zona de disponibilidad. Las copias de seguridad con redundancia local replican los archivos de datos de la copia de seguridad del servidor tres veces dentro de una única ubicación física de la región primaria. El almacenamiento de copia de seguridad con redundancia local proporciona una durabilidad mínima del 99,999999999 % (once nueves) de los objetos a lo largo de un año determinado. Vea [Conceptos: copia de seguridad y restauración](./concepts-backup-restore.md) para obtener más detalles.| Aplicable en todas las regiones |
 | **Alta disponibilidad con redundancia de zona** | Un servidor flexible se puede implementar en modo de alta disponibilidad, que implementa los servidores principal y en espera en dos zonas de disponibilidad diferentes dentro de una región. Esto protege frente a errores de nivel de zona y, además, ayuda a reducir el tiempo de inactividad de la aplicación durante eventos de tiempo de inactividad, ya sean planeados o no. Los datos del servidor principal se replican de forma sincrónica en la réplica en espera. Durante cualquier evento de tiempo de inactividad, el servidor de bases de datos se conmuta por error automáticamente en la réplica en espera. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles. | Es compatible con los niveles de proceso de uso general y optimizado para memoria. Está disponible únicamente en regiones con varias zonas.|
-| **Recursos compartidos de archivos Premium** | Los archivos de base de datos se almacenan en recursos compartidos Premium de Azure de gran durabilidad y confiabilidad que proporcionan redundancia de datos con tres copias de réplica almacenadas en una zona de disponibilidad con capacidades de recuperación de datos automáticas. Vea [Recursos compartidos de archivos Premium](../../storage/files/storage-how-to-create-premium-fileshare.md) para obtener más detalles. | Datos almacenados en una zona de disponibilidad |
+| **Recursos compartidos de archivos Premium** | Los archivos de base de datos se almacenan en recursos compartidos Premium de Azure de gran durabilidad y confiabilidad que proporcionan redundancia de datos con tres copias de réplica almacenadas en una zona de disponibilidad con capacidades de recuperación de datos automáticas. Vea [Recursos compartidos de archivos Premium](../../storage/files/storage-how-to-create-file-share.md) para obtener más detalles. | Datos almacenados en una zona de disponibilidad |
 
 > [!IMPORTANT]
 > No se ofrece ningún contrato de nivel de servicio de tiempo de actividad, RTO ni RPO durante el período de versión preliminar. Los detalles que se proporcionan en esta página solo tienen fines informativos y de planeación.
@@ -42,7 +42,7 @@ Estos son algunos escenarios de mantenimiento planeado que conllevan tiempo de i
 | **Nueva implementación de software (Azure)** | La implementación de nuevas características o correcciones de errores se produce automáticamente como parte del mantenimiento planeado del servicio, y es posible programar cuándo se realizan esas actividades. Para obtener más información, vea la [documentación](https://aka.ms/servicehealthpm) y el [portal](https://aka.ms/servicehealthpm). |
 | **Actualizaciones de versiones secundarias (Azure)** | Azure Database for MySQL revisa automáticamente los servidores de bases de datos según la versión secundaria determinada por Azure. Se produce como parte del mantenimiento planeado del servicio. Esto provocaría un breve tiempo de inactividad en términos de segundos y el servidor de base de datos se reiniciará automáticamente con la nueva versión secundaria. Para obtener más información, vea la [documentación](../concepts-monitoring.md#planned-maintenance-notification) y el [portal](https://aka.ms/servicehealthpm).|
 
-Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona** , primero realiza operaciones en el servidor en espera y, después, en el principal sin conmutación por error. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
+Cuando el servidor flexible se configura con **alta disponibilidad con redundancia de zona**, primero realiza operaciones en el servidor en espera y, después, en el principal sin conmutación por error. Vea [Conceptos: alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
 
 ## <a name="unplanned-downtime-mitigation"></a>Mitigación del tiempo de inactividad no planeado
 
@@ -65,5 +65,5 @@ Estos son algunos escenarios de error no planeados y el proceso de recuperación
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md).
+- Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
 - Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 0656a9eabb692453331c5c4b229ce26f41ecfdf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730208"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creación y administración de proyectos de Azure Migrate
 
 En este artículo se describe cómo crear, administrar y eliminar proyectos de [Azure Migrate](migrate-services-overview.md). 
 
-Azure Migrate clásico se retira en febrero de 2024. Después de febrero de 2024, ya no se admitirá la versión clásica de Azure Migrate y se eliminarán los metadatos de inventario del proyecto clásico. Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate. Vea las [preguntas más frecuentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar el proceso de creación.
+Azure Migrate clásico se retira en febrero de 2024. Después de febrero de 2024, ya no se admitirá la versión clásica de Azure Migrate y se eliminarán los metadatos de inventario del proyecto clásico. Si usa proyectos de Azure Migrate clásico, elimine esos proyectos y siga los pasos para crear un proyecto de Azure Migrate nuevo. Los proyectos o componentes de Azure Migrate clásico no se pueden actualizar a Azure Migrate. Vea las [preguntas más frecuentes](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar el proceso de creación.
 
 El proyecto de Azure Migrate se usa para almacenar los metadatos de detección, valoración y migración recopilados del entorno que se va a evaluar o migrar. En un proyecto puede realizar un seguimiento de los recursos detectados, crear evaluaciones y organizar migraciones a Azure.  
 
@@ -87,7 +87,7 @@ Busque un proyecto como se indica a continuación:
 3. Seleccione la suscripción y el proyecto de Azure Migrate adecuados.
 
 
-### <a name="find-a-legacy-project"></a>Búsqueda de un proyecto heredado
+### <a name="find-a-classic-azure-migrate-project"></a>Búsqueda de un proyecto de Azure Migrate clásico
 
 Si creó el proyecto en la [versión anterior](migrate-services-overview.md#azure-migrate-versions) de Azure Migrate, haga lo siguiente para buscarlo:
 
@@ -127,7 +127,7 @@ Observe lo siguiente:
        
     - Si ya ha eliminado el proyecto de migración, seleccione **Grupos de recursos** en el panel izquierdo de Azure Portal y busque el área de trabajo.
        
-2. [Siga las instrucciones](../azure-monitor/platform/delete-workspace.md) para eliminar el área de trabajo.
+2. [Siga las instrucciones](../azure-monitor/logs/delete-workspace.md) para eliminar el área de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

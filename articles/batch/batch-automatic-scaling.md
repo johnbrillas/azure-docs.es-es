@@ -4,12 +4,12 @@ description: Habilite el escalado automático en un grupo en la nube para ajusta
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737299"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381433"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -128,6 +128,7 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 | $PendingTasks |La suma de $ActiveTasks y $RunningTasks. |
 | $SucceededTasks |El número de tareas que finalizó correctamente. |
 | $FailedTasks |El número de tareas erróneas. |
+| $TaskSlotsPerNode |El número de ranuras de tareas que pueden usarse para ejecutar tareas simultáneas en un solo nodo de ejecución en el grupo. |
 | $CurrentDedicatedNodes |El número actual de dedicado de nodos de ejecución dedicados. |
 | $CurrentLowPriorityNodes |Número actual de nodos de ejecución de prioridad baja, incluidos todos los nodos con prioridad. |
 | $PreemptedNodeCount | El número de nodos en el grupo que se encuentran en estado reemplazado. |

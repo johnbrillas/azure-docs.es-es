@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492117"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650943"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -96,9 +96,10 @@ La biblioteca cliente de llamada de Communication Services admite las siguientes
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Número de secuencias salientes que se pueden enviar simultáneamente** |1 vídeo + 1 uso compartido de pantalla | 1 vídeo |
-|**número de secuencias entrantes que se pueden representar simultáneamente** |1 vídeo + 1 uso compartido de pantalla| 6 vídeo + 1 uso compartido de pantalla |
+|**Número de secuencias salientes que se pueden enviar simultáneamente** |Un uso compartido de audio/vídeo o un uso compartido de audio/pantalla | Uno de audio/vídeo | 
+|**número de secuencias entrantes que se pueden representar simultáneamente** |Un uso compartido de audio/vídeo o un uso compartido de audio/pantalla| Seis usos compartidos de audio/vídeo o un uso compartido de pantalla |
 
+Tenga en cuenta que en los escenarios de grupo, se usa una secuencia de audio mixta para admitir todos los participantes de audio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -106,6 +107,6 @@ La biblioteca cliente de llamada de Communication Services admite las siguientes
 > [Introducción a las llamadas](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Para más información, consulte los siguientes artículos.
-- Familiarización con los [flujos de llamada](../call-flows.md) generales
+- Familiarización con los [flujos de llamada](../call-flows.md) generales 
 - Más información sobre los [tipos de llamada](../voice-video-calling/about-call-types.md)
-- [Planeación de una solución RTC](../telephony-sms/plan-solution.md)
+- Más información sobre los [tipos de números de teléfono](../telephony-sms/plan-solution.md)

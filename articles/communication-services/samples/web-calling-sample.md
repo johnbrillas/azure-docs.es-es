@@ -9,22 +9,20 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592796"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658104"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
 
-El ejemplo de la llamada web es una aplicación web que sirve como tutorial detallado de las distintas funcionalidades que proporciona la biblioteca cliente de llamadas web de Communication Services. 
+El ejemplo de la llamada web es una aplicación web que sirve como tutorial detallado de las distintas funcionalidades que proporciona la biblioteca cliente de llamadas web de Communication Services.
 
 Este ejemplo se ha creado para desarrolladores y hace que sea muy fácil empezar a trabajar con Communication Services. Su interfaz de usuario se divide en varias secciones, y cada una de ellas incluye un botón "Mostrar código" que permite copiar código directamente desde el explorador en su propia aplicación de Communication Services.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Introducción al ejemplo de llamada web
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Este ejemplo está disponible en GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
@@ -36,7 +34,7 @@ Cuando el [ejemplo de llamada web](https://github.com/Azure-Samples/communicatio
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Tutorial de llamadas web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## <a name="user-provisioning-and-sdk-initialization"></a>Aprovisionamiento de usuario e inicialización de SDK 
+## <a name="user-provisioning-and-sdk-initialization"></a>Aprovisionamiento de usuario e inicialización de SDK
 
 Haga clic en "Provisioning user and initialize SDK" (Aprovisionamiento de usuario e inicialización del SDK) para inicializar el SDK mediante un token aprovisionado por el servicio de aprovisionamiento de tokens de back-end. Este servicio de back-end está en `/project/webpack.config.js`.
 
@@ -52,7 +50,7 @@ Ya está listo para empezar a realizar llamadas mediante el recurso de Communica
 
 El SDK de llamada web de Communication Services permite llamadas **1:1**, **1: N** y **grupales**.
 
-En el caso de las llamadas salientes 1:1 o 1:N, puede especificar varias identidades de usuario de Communication Services a las que llamar mediante valores separados por comas. También puede especificar números de teléfono tradicionales (RTC) a los que llamar mediante valores separados por comas. 
+En el caso de las llamadas salientes 1:1 o 1:N, puede especificar varias identidades de usuario de Communication Services a las que llamar mediante valores separados por comas. También puede especificar números de teléfono tradicionales (RTC) a los que llamar mediante valores separados por comas.
 
 Cuando llame a números de teléfono tradicionales, especifique su identificador alternativo de autor de llamada. Haga clic en el botón "Place call" (Realizar llamada) para realizar una llamada saliente:
 
@@ -80,7 +78,7 @@ En este ejemplo también se proporcionan fragmentos de código para las siguient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Para más información, consulte los siguientes artículos.

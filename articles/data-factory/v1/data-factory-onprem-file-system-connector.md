@@ -1,23 +1,18 @@
 ---
 title: Copia de datos hacia o desde un sistema de archivos con Azure Data Factory
 description: Aprenda a copiar datos hacia el sistema de archivos local y desde él con Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9acd2adb68347978bb123d2239eedbb3e5595bc3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847605"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387400"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copia de datos hacia y desde el sistema de archivos local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -73,7 +68,7 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |Asegúrese de que la propiedad type esté establecida en **OnPremisesFileServer**. |Sí |
-| host |Especifica la ruta de acceso raíz de la carpeta que quiere copiar. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en [Ejemplos de definiciones de servicio vinculado y conjunto de datos](#sample-linked-service-and-dataset-definitions) . |Sí |
+| host |Especifica la ruta de acceso raíz de la carpeta que quiere copiar. Use el carácter de escape "\" con los caracteres especiales de la cadena. Consulte los casos que se exponen en [Ejemplos de definiciones de servicio vinculado y conjunto de datos](#sample-linked-service-and-dataset-definitions) . |Sí |
 | userid |Especifique el identificador del usuario que tiene acceso al servidor. |No (si elige encryptedCredential) |
 | password |Especifique la contraseña del usuario (identificador de usuario). |No (si elige encryptedCredential) |
 | encryptedCredential |Especifique las credenciales cifradas que puede obtener mediante la ejecución del cmdlet New-AzDataFactoryEncryptValue. |No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato) |
@@ -477,7 +472,7 @@ Además, se recomienda usar la propiedad **encryptedCredential** en lugar de usa
 
 En el ejemplo se supone que ha creado una tabla "MyTable" en Azure SQL y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
 
-El valor ``“external”: ”true”`` informa a Data Factory de que el conjunto de datos es externo a la factoría de datos y no la produce ninguna actividad de dicha factoría.
+El valor ``"external": "true"`` informa a Data Factory de que el conjunto de datos es externo a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
 ```JSON
 {

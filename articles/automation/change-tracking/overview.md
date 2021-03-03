@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572617"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -34,9 +34,9 @@ Seguimiento de cambios e inventario hace uso de [Supervisión de la integridad d
 
 La habilitación de todas las características incluidas en Seguimiento de cambios e inventario podría generar cargos adicionales. Antes de continuar, revise la información que aparece en [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/) y [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Seguimiento de cambios e inventario reenvía los datos a los registros de Azure Monitor y estos datos recopilados se almacenan en un área de trabajo de Log Analytics. La característica Supervisión de la integridad de los archivos (FIM) solo está disponible cuando **Azure Defender para servidores** está habilitado. Consulte [Precios de Azure Security Center](../../security-center/security-center-pricing.md) para más información. FIM carga los datos en la misma área de trabajo de Log Analytics que la creada para almacenar datos de Seguimiento de cambios e inventario. Se recomienda supervisar el área de trabajo de Log Analytics vinculada para realizar un seguimiento de su uso exacto. Para obtener más información sobre cómo analizar el uso de los datos de los registros de Azure Monitor, consulte [Administrar el uso y los costos](../../azure-monitor/platform/manage-cost-storage.md).
+Seguimiento de cambios e inventario reenvía los datos a los registros de Azure Monitor y estos datos recopilados se almacenan en un área de trabajo de Log Analytics. La característica Supervisión de la integridad de los archivos (FIM) solo está disponible cuando **Azure Defender para servidores** está habilitado. Consulte [Precios de Azure Security Center](../../security-center/security-center-pricing.md) para más información. FIM carga los datos en la misma área de trabajo de Log Analytics que la creada para almacenar datos de Seguimiento de cambios e inventario. Se recomienda supervisar el área de trabajo de Log Analytics vinculada para realizar un seguimiento de su uso exacto. Para obtener más información sobre cómo analizar el uso de los datos de los registros de Azure Monitor, consulte [Administrar el uso y los costos](../../azure-monitor/logs/manage-cost-storage.md).
 
-Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows y los demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, el agente los envía a Azure Monitor para su procesamiento. Los registros de Azure Monitor aplican la lógica a los datos recibidos, los anotan y hacen que estén disponibles para el análisis.
+Las máquinas conectadas al área de trabajo de Log Analytics usan el [agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para recopilar datos sobre los cambios en el software instalado, los servicios de Microsoft, los archivos y el Registro de Windows y los demonios de Linux de los servidores supervisados. Cuando los datos están disponibles, el agente los envía a Azure Monitor para su procesamiento. Los registros de Azure Monitor aplican la lógica a los datos recibidos, los anotan y hacen que estén disponibles para el análisis.
 
 > [!NOTE]
 > Change Tracking e Inventario requiere vincular un área de trabajo de Log Analytics a la cuenta de Automation. Para ver una lista definitiva de regiones admitidas, consulte [Asignaciones de áreas de trabajo](../how-to/region-mappings.md). Las asignaciones de regiones no afectan a la capacidad de administrar VM en una región independiente de la cuenta de Automation.
@@ -48,7 +48,7 @@ Seguimiento de cambios e inventario no admite o tiene las siguientes limitacione
 - Recursión para el seguimiento del registro de Windows
 - Sistemas de archivos de red
 - Otros métodos de instalación
-- Archivos **_.exe_* almacenados en Windows
+- Archivos * **.exe** almacenados en Windows
 - Los valores y la columna **Tamaño máximo de archivos** no se usan en la implementación actual.
 - Si intenta recopilar más de 2500 archivos en un ciclo de recopilación de 30 minutos, el rendimiento de Seguimiento de cambios e inventario podría degradarse.
 - Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
@@ -58,7 +58,7 @@ Seguimiento de cambios e inventario no admite o tiene las siguientes limitacione
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Vea [Sistemas operativos admitidos](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) para obtener una lista de las versiones del sistema operativo Windows y Linux compatibles con el agente de Log Analytics.
+Change Tracking e Inventario se admite en todos los sistemas operativos que cumplen los requisitos del agente de Log Analytics. Vea [Sistemas operativos admitidos](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) para obtener una lista de las versiones del sistema operativo Windows y Linux compatibles con el agente de Log Analytics.
 
 Para comprender los requisitos de cliente para TLS 1.2, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -159,7 +159,7 @@ En la siguiente tabla se muestran los límites de elementos sometidos a seguimie
 |Servicios|250|
 |Demonios|250|
 
-El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+El uso medio de datos de Log Analytics para una máquina con Change Tracking e Inventario es aproximadamente de 40 MB al mes, según su entorno. Con la característica Uso y costos estimados del área de trabajo de Log Analytics, puede ver los datos ingeridos por Change Tracking e Inventario en un gráfico de uso. Use esta vista de datos para evaluar el uso de los datos y determinar cómo afecta a su factura. Consulte [Información útil del uso y los costos estimados](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Datos de servicio de Microsoft
 

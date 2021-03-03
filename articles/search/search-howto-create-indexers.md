@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509391"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676471"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Creación de indizadores en Azure Cognitive Search
 
@@ -143,6 +143,20 @@ Por lo general, el procesamiento programado coincide con una necesidad de indexa
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
+## <a name="change-detection-and-indexer-state"></a>Detección de cambios y estado del indizador
+
+Los indizadores pueden detectar cambios en los datos subyacentes y solo procesar los documentos nuevos o actualizados en cada ejecución del indizador. Por ejemplo, si el estado del indizador indica que una ejecución se realizó correctamente con `0/0` documentos procesados, significa que el indizador no encontró filas o blobs nuevos o modificados en el origen de datos subyacente.
+
+La forma en que un indizador admite la detección de cambios varía según el origen de datos:
+
++ Azure Blob Storage, Azure Table Storage y Azure Data Lake Storage Gen2 marcan cada actualización de blob o fila con una fecha y hora. Los distintos indizadores usan esta información para determinar qué documentos se van a actualizar en el índice. La detección de cambios integrada significa que un indizador puede reconocer documentos nuevos y actualizados, sin necesidad de que el usuario realice ninguna configuración adicional.
+
++ Azure SQL y Cosmos DB proporcionan características de detección de cambios en sus plataformas. Puede especificar la directiva de detección de cambios en la definición del origen de datos.
+
+En el caso de las cargas de indexación de gran tamaño, un indizador también realiza un seguimiento del último documento procesado mediante una "marca de límite superior" interna. El marcador nunca se expone en la API, aunque internamente el indizador registra en dónde se detuvo. Cuando se reanuda la indexación, ya sea a través de una ejecución programada o una invocación a petición, el indizador consulta la marca de límite superior para continuar donde se quedó.
+
+Si tiene que borrar la marca de límite superior para volver a indexar en su totalidad, puede usar [restablecer indizador](/rest/api/searchservice/reset-indexer). Para volver a indexar más selectivamente, use [restablecer aptitudes](/rest/api/searchservice/preview-api/reset-skills) o [restablecer documentos](/rest/api/searchservice/preview-api/reset-documents). A través de las API de restablecimiento, puede borrar el estado interno y vaciar la memoria caché si ha habilitado el [enriquecimiento incremental](search-howto-incremental-index.md). Para obtener más información sobre los antecedentes y la comparación de cada opción de restablecimiento, consulte [Ejecución o restablecimiento de indizadores, aptitudes y documentos](search-howto-run-reset-indexers.md).
+
 ## <a name="know-your-data"></a>Conozca los datos
 
 Los indexadores esperan un conjunto de filas tabular, en el que cada fila se convierte en un documento de búsqueda completo o parcial del índice. A menudo, hay una correspondencia uno a uno entre una fila y el documento de búsqueda resultante, donde todos los campos del conjunto de filas rellenan por completo cada documento. No obstante, puede usar indexadores para generar solo parte de un documento, por ejemplo, si usa varios indexadores o enfoques para crear el índice. 
@@ -151,7 +165,7 @@ Para acoplar los datos relacionales a un conjunto de filas, debe crear una vista
 
 Además de los datos acoplados, es importante extraer solo los datos en los que se puedan realizar búsquedas. Los datos en los que pueden realizar búsquedas son alfanuméricos. Cognitive Search no puede realizar búsquedas en datos binarios en ningún formato, pero puede extraer y deducir descripciones de texto de los archivos de imagen (consulte [Enriquecimiento con IA](cognitive-search-concept-intro.md)) para crear contenido en el que se puedan realizar búsquedas. Del mismo modo, mediante el enriquecimiento con IA, los modelos de lenguaje natural pueden analizar textos grandes para buscar estructuras o información relevante, lo que genera contenido nuevo que se puede agregar a un documento de búsqueda.
 
-Dado que los indexadores no solucionan problemas de datos, es posible que se necesiten otras formas de limpieza o manipulación de datos. Para más información, consulte la documentación del [producto de Azure Database](/azure/?product=databases).
+Dado que los indexadores no solucionan problemas de datos, es posible que se necesiten otras formas de limpieza o manipulación de datos. Para más información, consulte la documentación del [producto de Azure Database](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Conozca su índice
 

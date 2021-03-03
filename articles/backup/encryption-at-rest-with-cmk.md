@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735867"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369465"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -36,6 +36,7 @@ En este artículo se tratan los temas siguientes:
 - El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA 2048** y deben estar en estado **habilitado**.
 
 - Actualmente no se admite la migración del almacén de Recovery Services cifrado de CMK entre grupos de recursos y suscripciones.
+- Al trasladar un almacén de Recovery Services ya cifrado con claves administradas por el cliente a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y la clave administrada por el cliente (que debe estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
 
 - Esta característica se puede configurar mediante Azure Portal y PowerShell.
 
@@ -119,32 +120,6 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 
 1. Seleccione **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
 
-**Con PowerShell**:
-
-Use el comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
-
-Ejemplo:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Salida:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 
 Debe **habilitar la eliminación temporal y la protección de purga** en el almacén de Azure Key Vault que almacena la clave de cifrado. Puede hacerlo desde la interfaz de usuario de Azure Key Vault, como se muestra a continuación. (También tiene la posibilidad de configurar estas propiedades al crear el almacén de Key Vault). Obtenga más información sobre estas propiedades de Key Vault [aquí](../key-vault/general/soft-delete-overview.md).
@@ -197,7 +172,7 @@ También puede habilitar la eliminación temporal y la protección de purga a tr
 
 Una vez comprobado lo anterior, continúe con la selección de la clave de cifrado para el almacén.
 
-Para asignar la clave:
+#### <a name="to-assign-the-key-in-the-portal"></a>Para asignar la clave en el portal
 
 1. Vaya al almacén de Recovery Services -> **Propiedades**.
 
@@ -230,6 +205,32 @@ Para asignar la clave:
     Las actualizaciones de la clave de cifrado también se registran en el registro de actividad del almacén.
 
     ![Registro de actividades](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### <a name="to-assign-the-key-with-powershell"></a>Para asignar la clave con PowerShell
+
+Use el comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
+
+Ejemplo:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Salida:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > El proceso para actualizar o cambiar la clave de cifrado sigue siendo el mismo. Si desea actualizar y usar una clave de otro almacén de Key Vault (diferente del que se está usando actualmente), asegúrese de lo siguiente:

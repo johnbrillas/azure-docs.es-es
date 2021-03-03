@@ -3,12 +3,12 @@ title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 0f58cbdaa641af24cef53c3cfd9604cf1b0c1c3b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538948"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364892"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
@@ -49,7 +49,7 @@ En la tabla se muestran los privilegios **CloudAdmin** y **CloudGlobalAdmin**.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acceso e identidad de NSX-T Manager
 
-Use la cuenta "administrador" para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar enrutadores T1, conmutadores lógicos y todos los servicios. Los privilegios proporcionan acceso al enrutador NSX-T T0. Un cambio en el enrutador T0 podría provocar una degradación en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en el enrutador NSX-T T0.
+Use la cuenta *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
   
 ## <a name="next-steps"></a>Pasos siguientes
 

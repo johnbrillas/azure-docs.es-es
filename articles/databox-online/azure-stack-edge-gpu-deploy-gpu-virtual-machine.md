@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804928"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730718"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Máquinas virtuales con GPU para el dispositivo Azure Stack Edge Pro
 
@@ -110,8 +110,8 @@ Siga estos pasos al implementar máquinas virtuales con GPU en el dispositivo:
 1. Una vez creada la máquina virtual, implemente la extensión de GPU mediante la plantilla de extensiones. En el caso de las máquinas virtuales Linux, consulte [Extensión de GPU para Linux](#gpu-extension-for-linux) y, para máquinas virtuales Windows, consulte [Extensión de GPU para Windows](#gpu-extension-for-windows).
 
 1. Para comprobar la instalación de la extensión de GPU, conéctese a la máquina virtual con GPU:
-    1. Si usa una máquina virtual Windows, siga los pasos descritos en [Conexión a una máquina virtual Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Compruebe la instalación](#verify-windows-driver-installation).
-    1. Si usa una máquina virtual Linux, siga los pasos descritos en [Conexión a una máquina virtual Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Compruebe la instalación](#verify-linux-driver-installation).
+    1. Si usa una máquina virtual Windows, siga los pasos descritos en [Conexión a una máquina virtual Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Compruebe la instalación](#verify-windows-driver-installation).
+    1. Si usa una máquina virtual Linux, siga los pasos descritos en [Conexión a una máquina virtual Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Compruebe la instalación](#verify-linux-driver-installation).
 
 1. Si es necesario, puede volver a cambiar la red de proceso. 
 
@@ -206,7 +206,7 @@ $RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
 > [!NOTE]
-> La implementación de la extensión es un trabajo de larga duración y tarda unos 10 minutos en completarse.
+> La implementación de la extensión es un trabajo de larga duración y tarda unos 10 minutos en completarse.
 
 Este es una salida de ejemplo:
 
@@ -456,7 +456,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 ``` 
 
 > [!NOTE]
-> La implementación de la extensión es un trabajo de larga duración y tarda unos 10 minutos en completarse.
+> La implementación de la extensión es un trabajo de larga duración y tarda unos 10 minutos en completarse.
 
 Este es una salida de ejemplo:
 
@@ -498,7 +498,7 @@ PS C:\WINDOWS\system32>
 
 #### <a name="track-deployment-status"></a>Seguimiento del estado de la implementación    
     
-La implementación de la plantilla es un trabajo de larga duración. Para comprobar el estado de implementación de las extensiones de una máquina virtual determinada, abra otra sesión de PowerShell (ejecutar como administrador). Ejecute el siguiente comando: 
+Template Deployment es un trabajo de larga duración. Para comprobar el estado de implementación de las extensiones de una máquina virtual determinada, abra otra sesión de PowerShell (ejecutar como administrador). Ejecute el siguiente comando: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
@@ -545,7 +545,7 @@ La salida de la ejecución de las extensiones se registra en el archivo siguient
 
 Siga estos pasos para comprobar la instalación del controlador:
 
-1. Conéctese a la máquina virtual con GPU. Siga las instrucciones que se indican en [Conexión a una máquina virtual Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Conéctese a la máquina virtual con GPU. Siga las instrucciones que se indican en [Conexión a una máquina virtual Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Este es una salida de ejemplo:
 

@@ -2,13 +2,13 @@
 title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights'
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/14/2021
+ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934853"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719855"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -65,7 +65,6 @@ Para obtener instrucciones sobre cómo crear pruebas web de Visual Studio, cons
 |Configuración| Explicación
 |----|----|----|
 |**Casi en tiempo real (versión preliminar)** | Se recomienda usar alertas casi en tiempo real. La configuración de este tipo de alertas se realiza después de crear la prueba de disponibilidad.  |
-|**Clásico** | Ya no se recomienda usar alertas clásicas para nuevas pruebas de disponibilidad.|
 |**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
 
 ## <a name="configuration"></a>Configuración

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 39ba8a5884abb4be9fa0b8e32a292e06738e1550
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5caa41b852bf55a11489db6c0bab871b20720e05
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935644"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670658"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -197,7 +197,7 @@ Ahora que hay dos marcos de datos, la siguiente tarea consiste en crear la fórm
 > [!Note]
 > Para guardar el modelo, necesitará el rol de Azure de *colaborador de datos de Storage Blob*. En la cuenta de almacenamiento, vaya a **Access Control (IAM)** y seleccione **Agregar asignación de roles**. Asigne el rol de colaborador de datos de Storage Blob al servidor de Azure SQL Database. Solo los miembros con el privilegio de propietario pueden realizar este paso. 
 >
->Para conocer los distintos roles integrados de Azure, consulte [esta guía](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+>Para conocer los distintos roles integrados de Azure, consulte [esta guía](../../role-based-access-control/built-in-roles.md).
 
 ```python
 ## Create a new logistic regression object for the model
@@ -256,9 +256,9 @@ Después de finalizar la ejecución de la aplicación, cierre el cuaderno para l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentación de .NET para Apache Spark](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)
 - [Documentación oficial de Apache Spark](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
-> Parte de la documentación oficial de Apache Spark se basa en el uso de la consola de Spark, que no está disponible en Apache Spark en Azure Synapse Analytics. En su lugar, use las experiencias de [cuaderno](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) o [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Parte de la documentación oficial de Apache Spark se basa en el uso de la consola de Spark, que no está disponible en Apache Spark en Azure Synapse Analytics. En su lugar, use las experiencias de [cuaderno](../quickstart-apache-spark-notebook.md) o [IntelliJ](../spark/intellij-tool-synapse.md).

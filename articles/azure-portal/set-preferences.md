@@ -4,12 +4,12 @@ description: Puede cambiar la configuración predeterminada de Azure Portal para
 keywords: tiempo de espera, idioma, regional
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094117"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588794"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Administración de las preferencias y la configuración de Azure Portal
 
@@ -71,7 +71,7 @@ Para leer todas las notificaciones recibidas durante la sesión actual, seleccio
 
 ![Haga una captura de pantalla que muestre el encabezado global de Azure Portal con notificaciones resaltadas](./media/set-preferences/read-notifications.png)
 
-Si desea leer las notificaciones de sesiones anteriores, busque eventos en el registro de actividad. Para más información, consulte [Visualización del registro de actividad](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+Si desea leer las notificaciones de sesiones anteriores, busque eventos en el registro de actividad. Para más información, consulte [Visualización del registro de actividad](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>Cambio de la configuración de tiempo de espera de inactividad
 

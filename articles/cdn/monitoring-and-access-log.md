@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501346"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575455"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Supervisión en tiempo real, métricas y registros de acceso para Azure CDN
 Con Azure CDN de Microsoft, puede supervisar los recursos de las siguientes maneras para ayudarle a solucionar problemas, realizar seguimientos y depurar incidencias. 
@@ -215,7 +215,7 @@ Las métricas se muestran en gráficos y se puede acceder a ellas a través de P
 
 Azure CDN de Microsoft mide y envía sus métricas a intervalos de 60 segundos. Las métricas pueden tardar hasta 3 minutos en aparecer en el portal. 
 
-Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform-metrics.md).
+Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Métricas compatibles con Azure CDN de Microsoft**
 
@@ -226,7 +226,7 @@ Para obtener más información, vea [Información general sobre las métricas en
 | ResponseSize | Número de bytes enviados como respuestas desde el perímetro de CDN a los clientes. |Punto de conexión </br> País del cliente. </br> Región del cliente. </br> Estado de HTTP </br> Código de estado HTTP. |
 | TotalLatency | El tiempo total desde la solicitud de cliente recibida por CDN **hasta el último byte de respuesta enviado desde CDN al cliente**. |Punto de conexión </br> País del cliente. </br> Región del cliente. </br> Estado de HTTP </br> Código de estado HTTP. |
 
-**_Proporción de aciertos de bytes = (salida desde el perímetro - salida desde el origen)/salida desde el perímetro_*
+***Proporción de aciertos de bytes = (salida desde el perímetro - salida desde el origen)/salida desde el perímetro**
 
 Escenarios excluidos en el cálculo de la proporción de aciertos de bytes:
 
@@ -265,7 +265,7 @@ Seleccione **Nueva regla de alertas** para las métricas que aparecen en la secc
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configuración de alertas para el punto de conexión de CDN." border="true":::
 
-La alerta se cobrará en función de Azure Monitor. Para más información sobre alertas, consulte [Alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md).
+La alerta se cobrará en función de Azure Monitor. Para más información sobre alertas, consulte [Alertas de Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas adicionales
 Puede habilitar métricas adicionales con Azure Log Analytics y registros sin procesar por un costo adicional.
@@ -299,4 +299,4 @@ Para más información sobre Azure CDN y los otros servicios de Azure que se me
 
 * Más información sobre [Azure Monitor](../azure-monitor/overview.md).
 
-* Configuración de [Log Analytics en Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configuración de [Log Analytics en Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

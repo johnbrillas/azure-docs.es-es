@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 05d312296b48f35ea87c5443cc587989e2d11fd5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587966"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
 
@@ -27,7 +27,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 
@@ -116,7 +116,7 @@ Aquí se muestra cómo configurar manualmente los contadores de rendimiento reco
     -   Información del procesador(\*)\\Tiempo de procesador
     -   Retraso de entrada de usuario por sesión(\*)\\Retraso máximo de entrada
 
-Obtenga más información sobre los contadores de rendimiento en [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Obtenga más información sobre los contadores de rendimiento en [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Los contadores adicionales que configure no aparecerán en la herramienta de diagnóstico. Para que aparezca en la herramienta de diagnóstico, debe preparar el archivo de configuración de la herramienta. Las instrucciones sobre cómo hacerlo con administración avanzada estarán disponibles en GitHub en un futuro.
@@ -199,7 +199,7 @@ Para establecer el URI de redirección:
 
 Antes de que la herramienta de diagnóstico esté disponible para los usuarios, asegúrese de que tienen los siguientes permisos:
 
-- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
+- Los usuarios necesitan acceso de lectura para Log Analytics. Para más información, consulte [Introducción a roles, permisos y seguridad con Azure Monitor](../../azure-monitor/roles-permissions-security.md).
 -  Los usuarios también necesitan acceso de lectura para el inquilino de Windows Virtual Desktop (rol de lector de RDS). Para más información, consulte [Acceso delegado en Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 También debe proporcionar a los usuarios la siguiente información:

@@ -1,24 +1,28 @@
 ---
-title: Configuración de replicación geográfica para Azure Cache for Redis | Microsoft Docs
-description: Obtenga información sobre cómo replicar las instancias de Azure Cache for Redis en distintas regiones geográficas.
+title: Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
+description: Obtenga información sobre cómo replicar las instancias de Azure Cache for Redis entre regiones de Azure.
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a04ffbcec8eda6663a12a8a08a81e00c5d0b5c7f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536885"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646972"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
 
-Replicación geográfica proporciona un mecanismo para vincular dos instancias de Azure Cache for Redis de nivel Premium. Una memoria caché se elige como la caché vinculada principal y la otra, como la caché vinculada secundaria. La caché vinculada secundaria pasa a ser de solo lectura, por lo que los datos escritos en la caché principal se replican en la caché vinculada secundaria. TLS protege la transferencia de datos entre las instancias de caché principal y secundaria. La replicación geográfica se puede usar para configurar una memoria caché que abarque dos regiones de Azure. En este artículo se proporciona una guía para configurar la replicación geográfica para las instancias de Azure Cache for Redis de nivel Premium.
+En este artículo, aprenderá a configurar una instancia de Azure Cache con replicación geográfica mediante Azure Portal.
+
+La replicación geográfica une dos instancias de Azure Cache for Redis prémium y crea una relación de replicación de datos. Estas instancias de caché se encuentran normalmente en diferentes regiones de Azure, aunque ello no es necesario. Una instancia actúa como la principal y la otra como la secundario. La principal controla las solicitudes de lectura y escritura y propaga los cambios a la secundaria. Este proceso continúa hasta que se quita el vínculo entre las dos instancias.
 
 > [!NOTE]
-> La replicación geográfica está diseñada como una solución de recuperación ante desastres. De forma predeterminada, la aplicación escribirá en la región primaria y leerá desde ahí. Opcionalmente, se puede configurar para leer desde la región secundaria. La replicación geográfica no proporciona conmutación por error automática debido a problemas de latencia de red agregada entre regiones si el resto de la aplicación permanece en la región primaria. Deberá administrar e iniciar la conmutación por error desvinculando la caché secundaria. Esto la promoverá para ser la nueva instancia principal.
+> La replicación geográfica está diseñada como una solución de recuperación ante desastres.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Requisitos previos de la replicación geográfica
 
@@ -51,11 +55,11 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 ## <a name="add-a-geo-replication-link"></a>Agregar un vínculo de replicación geográfica
 
-1. Para vincular dos cachés para la replicación geográfica, primero haga clic en **Replicación geográfica** en el menú Recursos de la caché que vaya a ser la caché vinculada principal. A continuación, haga clic en **Agregar vínculo de replicación de caché** desde la hoja **Replicación geográfica** .
+1. Para vincular dos cachés para la replicación geográfica, primero haga clic en **Replicación geográfica** en el menú Recursos de la caché que vaya a ser la caché vinculada principal. A continuación, haga clic en **Agregar vínculo de replicación de caché** desde la hoja **Replicación geográfica**.
 
     ![Agregar vínculo](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Haga clic en el nombre de la caché secundaria deseada en la lista **Cachés compatibles** . Si la caché secundaria no aparece en la lista, compruebe que se cumplen los [requisitos previos de replicación geográfica](#geo-replication-prerequisites) para la caché secundaria. Para filtrar las cachés por región, haga clic en la región en el mapa para mostrar solo esas cachés en la lista de **cachés disponibles** .
+2. Haga clic en el nombre de la caché secundaria deseada en la lista **Cachés compatibles**. Si la caché secundaria no aparece en la lista, compruebe que se cumplen los [requisitos previos de replicación geográfica](#geo-replication-prerequisites) para la caché secundaria. Para filtrar las cachés por región, haga clic en la región en el mapa para mostrar solo esas cachés en la lista de **cachés disponibles**.
 
     ![Cachés compatibles de replicación geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -67,7 +71,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     ![Vincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Puede ver el progreso del proceso de replicación en la hoja **Replicación geográfica** .
+4. Puede ver el progreso del proceso de replicación en la hoja **Replicación geográfica**.
 
     ![Estado de la vinculación](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +79,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     ![Captura de pantalla que destaca cómo ver el estado de vinculación de las memorias caché principales y secundarias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto** .
+    Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto**.
 
     ![Estado de cachés](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -83,7 +87,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 ## <a name="remove-a-geo-replication-link"></a>Quitar un vínculo de replicación geográfica
 
-1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** en la hoja **Replicación geográfica** .
+1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** en la hoja **Replicación geográfica**.
     
     ![Desvincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -195,3 +199,4 @@ Sí, puede configurar un [firewall](./cache-configure.md#firewall) con la replic
 Más información sobre las características de Azure Cache for Redis.
 
 * [Niveles de servicio de Azure Cache for Redis](cache-overview.md#service-tiers)
+* [Alta disponibilidad en Azure Cache for Redis](cache-high-availability.md)

@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587611"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363175"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Distintas formas de autorizar el acceso para poner datos en cola con la CLI de Azure
 
@@ -34,6 +34,9 @@ Los comandos de la CLI de Azure para leer y escribir datos de colas incluyen el 
 
 Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de Azure, versión 2.0.46 o posterior. Ejecute `az --version` para comprobar la versión instalada.
 
+> [!NOTE]
+> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios que no disponen ya de las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos de la cola.
+
 > [!IMPORTANT]
 > Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno `AZURE_STORAGE_KEY`. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
 >
@@ -41,7 +44,7 @@ Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de 
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autorización con credenciales de Azure AD
 
-Al iniciar sesión en la CLI de Azure con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. La CLI de Azure usa automáticamente ese token para autorizar las operaciones de datos posteriores en Blob Storage o Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
+Al iniciar sesión en la CLI de Azure con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. La CLI de Azure usa automáticamente ese token para autorizar las operaciones de datos posteriores en Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
 Puede asignar permisos en los datos de cola a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (Azure RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
@@ -55,7 +58,7 @@ Para más información sobre los permisos requeridos para cada operación de Azu
 
 En el ejemplo siguiente se muestra cómo crear una cola desde la CLI de Azure mediante las credenciales de Azure AD. Para crear la cola, será preciso iniciar sesión en la CLI de Azure y se necesitan un grupo de recursos y una cuenta de almacenamiento.
 
-1. Antes de crear la cola, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
+1. Antes de crear la cola, asígnese a sí mismo el rol [Colaborador de datos de Queue Storage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.

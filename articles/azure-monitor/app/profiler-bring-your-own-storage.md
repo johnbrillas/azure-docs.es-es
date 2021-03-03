@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202545"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589664"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configuración de Traiga su propio almacenamiento (BYOS) para Application Insights Profiler y Snapshot Debugger
 
@@ -21,9 +21,9 @@ Cuando se usa Application Insights Profiler o Snapshot Debugger, los artefactos 
 Con Traiga su propio almacenamiento, estos artefactos se cargan en una cuenta de almacenamiento que usted controla. Esto significa que controla la directiva de cifrado en reposo, la directiva de administración de la vigencia y el acceso a la red. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento.
 
 > [!NOTE]
-> Si está habilitando Private Link, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de Private Link para Application Insights, [consulte la documentación](../platform/private-link-security.md).
+> Si está habilitando Private Link, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de Private Link para Application Insights, [consulte la documentación](../logs/private-link-security.md).
 >
-> Si está habilitando las claves administradas de cliente, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de las claves administradas de cliente, [consulte la documentación](../platform/customer-managed-keys.md).
+> Si está habilitando las claves administradas de cliente, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de las claves administradas de cliente, [consulte la documentación](../logs/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>¿Cómo se tiene acceso a la cuenta de almacenamiento?
 1. Los agentes que se ejecutan en Virtual Machines o App Service cargarán artefactos (perfiles, instantáneas y símbolos) en los contenedores de blobs de su cuenta. Este proceso implica ponerse en contacto con el servicio Application Insights Profiler o Snapshot Debugger para obtener un token de SAS (firma de acceso compartido) para un nuevo blob en la cuenta de almacenamiento.

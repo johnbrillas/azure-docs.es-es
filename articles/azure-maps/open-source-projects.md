@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8be747d2027291203272a960efe6b26368471a50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601593"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735053"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -66,11 +66,14 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 | [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 
 **Complementos de control de mapa de terceros**
+<a name="third-part-map-control-plugins"></a>
 
 | Nombre de proyecto | Descripción |
 |-|-|
-| [Complemento Leaftlet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Un complemento de [folleto](https://leafletjs.com/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- 
+| [Complemento Cesium de Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Complemento de [Cesium JS](https://cesium.com/cesiumjs/) que facilita la integración de servicios de Azure Maps como [capas de mosaico](/rest/api/maps/renderv2/getmaptilepreview) y [servicios de geocodificación](/rest/api/maps/search). |
+| [Complemento Leaftlet de Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Un complemento de [folleto](https://leafletjs.com/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Complemento OpenLayers de Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Complemento [OpenLayers](https://www.openlayers.org/) de JavaScript que facilita la superposición de las capas de mosaico en los [servicios de mosaico de Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Herramientas y recursos**
 
 | Nombre de proyecto | Descripción |

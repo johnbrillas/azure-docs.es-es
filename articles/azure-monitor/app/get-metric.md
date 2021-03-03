@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930567"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584185"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Recopilación de métricas personalizadas en .NET y .NET Core
 
@@ -109,7 +109,7 @@ Si examinamos el recurso de Application Insights en la experiencia de Log Analy
 > [!NOTE]
 > Aunque el elemento de telemetría sin procesar no contenía una propiedad ni campo de suma explícitos, se crea uno automáticamente después de la ingesta. En este caso, las propiedades `value` y `valueSum` representan lo mismo.
 
-También puede acceder a los datos de telemetría de la métrica personalizada en la sección [_Métricas_](../platform/metrics-charts.md) del portal. Tanto para [una métrica basada en registros como para una métrica personalizada](pre-aggregated-metrics-log-metrics.md). (La captura de pantalla siguiente es un ejemplo de métrica basada en registros). ![Vista del Explorador de métricas](./media/get-metric/metrics-explorer.png)
+También puede acceder a los datos de telemetría de la métrica personalizada en la sección [_Métricas_](../essentials/metrics-charts.md) del portal. Tanto para [una métrica basada en registros como para una métrica personalizada](pre-aggregated-metrics-log-metrics.md). (La captura de pantalla siguiente es un ejemplo de métrica basada en registros). ![Vista del Explorador de métricas](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Almacenamiento en caché de referencias de métricas para uso de alto rendimiento
 
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * [Más información ](./worker-service.md) sobre la supervisión de aplicaciones de servicio de trabajo.
 * Más información sobre las [métricas basadas en registros y agregadas previamente](./pre-aggregated-metrics-log-metrics.md).
-* [Explorador de métricas](../platform/metrics-getting-started.md)
+* [Explorador de métricas](../essentials/metrics-getting-started.md)
 * Cómo habilitar Application Insights para [aplicaciones ASP.NET Core](asp-net-core.md)
 * Cómo habilitar Application Insights para [aplicaciones ASP.NET](asp-net.md)

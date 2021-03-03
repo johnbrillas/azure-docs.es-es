@@ -1,32 +1,33 @@
 ---
-title: Uso de una plantilla para implementar máquinas virtuales de Azure Spot
-description: Aprenda a usar una plantilla para implementar máquinas virtuales de Spot para ahorrar costos.
+title: Uso de una plantilla para implementar máquinas virtuales de acceso puntual de Azure
+description: Aprenda a usar una plantilla para implementar máquinas virtuales de acceso puntual de Azure para ahorrar costos.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 04319066c59dda5d240f527d86894674a505eaed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200794"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669351"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implementación de máquinas virtuales de Spot con una plantilla de Resource Manager
+# <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Implementación de máquinas virtuales de acceso puntual de Azure mediante una plantilla de Resource Manager
 
-El uso de [máquinas virtuales de Spot](../spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de Spot. Por lo tanto, estas son excelentes para cargas de trabajo que soportan interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las grandes cargas de trabajo de proceso, etc.
+El uso de [máquinas virtuales de acceso puntual de Azure](../spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de acceso puntual de Azure. Por lo tanto, las máquinas virtuales de acceso puntual de Azure son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo/pruebas, las grandes cargas de trabajo de proceso, etc.
 
-Los precios de las máquinas virtuales de Spot varían en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Los precios de las máquinas virtuales de acceso puntual de Azure son variables, en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de Spot se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el actual de Spot o el de una máquina virtual estándar, el menor de los dos, siempre que haya capacidad y cuota disponibles. Para más información sobre la configuración del precio máximo, consulte [Máquinas virtuales de Spot - Precios](../spot-vms.md#pricing).
+Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de acceso puntual de Azure se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la VM será el precio actual de las máquinas virtuales de acceso puntual de Azure o, de ser menor, el de una VM estándar, siempre que haya capacidad y cuota disponibles. Para obtener más información sobre cómo se establece el precio máximo, consulte [Máquinas virtuales de acceso puntual de Azure: Precios](../spot-vms.md#pricing).
 
 
 ## <a name="use-a-template"></a>Uso de una plantilla
 
-Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"` o una versión posterior. Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la plantilla:
+Para implementaciones de plantilla de máquina virtual de acceso puntual de Azure, use `"apiVersion": "2019-03-01"` o posterior. Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la plantilla:
 
 ```json
 "priority": "Spot",
@@ -36,7 +37,7 @@ Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"
 }
 ```
 
-Esta es una plantilla de ejemplo con las propiedades agregadas para una máquina virtual de Spot. Reemplace los nombres de recurso por los suyos y `<password>`, por una contraseña para la cuenta de administrador local en la máquina virtual.
+Esta es una plantilla de ejemplo con las propiedades agregadas para una máquina virtual de acceso puntual de Azure. Reemplace los nombres de recurso por los suyos y `<password>`, por una contraseña para la cuenta de administrador local en la máquina virtual.
 
 ```json
 {
@@ -175,7 +176,7 @@ Esta es una plantilla de ejemplo con las propiedades agregadas para una máquina
 
 ## <a name="simulate-an-eviction"></a>Simulación de una expulsión
 
-Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una VM de Spot para probar de qué manera la aplicación responderá a una expulsión repentina. 
+Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar de qué manera la aplicación responderá a una expulsión repentina. 
 
 Reemplazar lo siguiente por su propia información: 
 
@@ -190,8 +191,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede crear una máquina virtual de Spot con [Azure PowerShell](../windows/spot-powershell.md) o la [CLI de Azure](spot-cli.md).
+También puede crear una máquina virtual de acceso puntual de Azure con [Azure PowerShell](../windows/spot-powershell.md) o la [CLI de Azure](spot-cli.md).
 
-Consulte la información sobre precios con la [API de precios de venta directa de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para conocer los precios de Spot. Tanto `meterName` como `skuName` contendrán `Spot`.
+Consulte la información sobre precios con la [API de precios de venta directa de Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) para conocer los precios de máquinas virtuales de acceso puntual de Azure. Tanto `meterName` como `skuName` contendrán `Spot`.
 
 Si se produce un error, consulte [Códigos de error](../error-codes-spot.md).

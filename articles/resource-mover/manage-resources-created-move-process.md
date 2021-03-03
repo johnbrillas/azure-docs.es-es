@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3c4c4e86e2461ea1d05af284e724a5a2991f040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727046"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Administración de recursos creados para el movimiento de máquinas virtuales
 
@@ -24,7 +24,7 @@ Después de mover las máquinas virtuales entre regiones, hay una serie de recur
 
 Elimine manualmente la colección de movimientos y los recursos de Site Recovery creados para el movimiento de máquinas virtuales.
 
-1. Revise los recursos pertenecientes al grupo ```ResourceMoverRG-<sourceregion>-<target-region>```.
+1. Revise los recursos pertenecientes al grupo ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>```.
 2. Compruebe que la máquina virtual y todos los demás recursos de origen de la colección de movimientos se han movido o eliminado. De este modo, se garantiza que no haya recursos pendientes que los utilicen.
 2. Elimine estos recursos.
 
@@ -34,4 +34,4 @@ Elimine manualmente la colección de movimientos y los recursos de Site Recovery
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe a [mover una máquina virtual](tutorial-move-region-virtual-machines.md) a otra región con Resource Mover.
+Pruebe a [migrar una máquina virtual](tutorial-move-region-virtual-machines.md) a otra región con Resource Mover.

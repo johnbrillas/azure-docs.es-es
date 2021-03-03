@@ -3,18 +3,18 @@ title: Supervisión de los cambios en la delegación en el inquilino de administ
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089430"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593143"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
 Como proveedor de servicios, es posible que desee conocer cuándo se delegan las suscripciones o grupos de recursos del cliente al inquilino mediante [Azure Lighthouse](../overview.md), o cuándo se eliminan los recursos delegados anteriormente.
 
-En el inquilino de administración, el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) realiza un seguimiento de la actividad de delegación en el nivel del inquilino. Esta actividad registrada incluye cualquier delegación agregada o eliminada de todos los inquilinos del cliente.
+En el inquilino de administración, el [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) realiza un seguimiento de la actividad de delegación en el nivel del inquilino. Esta actividad registrada incluye cualquier delegación agregada o eliminada de todos los inquilinos del cliente.
 
 En este tema se explican los permisos necesarios para supervisar la actividad de delegación en el inquilino (en todos los clientes). También incluye un script de ejemplo que muestra un método para realizar consultas e informes sobre estos datos.
 
@@ -104,7 +104,7 @@ Al consultar estos datos, tenga en cuenta lo siguiente:
 - Si se delegan varios grupos de recursos en una sola implementación, se devolverán entradas independientes para cada grupo de recursos.
 - Los cambios realizados en una delegación anterior (como la actualización de la estructura de permisos) se registrarán como una delegación agregada.
 - Como se indicó anteriormente, una cuenta tiene que tener el rol integrado de Azure Lector de supervisión en el ámbito raíz (/) para poder acceder a estos datos en el nivel de inquilino.
-- Puede usar estos datos en sus propios flujos de trabajo e informes. Por ejemplo, puede usar [HTTP Data Collector API (versión preliminar pública)](../../azure-monitor/platform/data-collector-api.md) para registrar datos en Azure Monitor desde un cliente de la API REST y, después, usar [grupos de acciones](../../azure-monitor/platform/action-groups.md) para crear notificaciones o alertas.
+- Puede usar estos datos en sus propios flujos de trabajo e informes. Por ejemplo, puede usar [HTTP Data Collector API (versión preliminar pública)](../../azure-monitor/logs/data-collector-api.md) para registrar datos en Azure Monitor desde un cliente de la API REST y, después, usar [grupos de acciones](../../azure-monitor/alerts/action-groups.md) para crear notificaciones o alertas.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información sobre cómo incorporar clientes a [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
-- Más información sobre [Azure Monitor](../../azure-monitor/index.yml) y el [registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Más información sobre [Azure Monitor](../../azure-monitor/index.yml) y el [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Revise el libro de ejemplo [Registros de actividad por dominio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para aprender a mostrar los registros de actividad de Azure entre suscripciones con una opción para filtrarlos por nombre de dominio.

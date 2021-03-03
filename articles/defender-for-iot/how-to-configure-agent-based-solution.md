@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e32b9c690db70baeda7dec2f9f1270f82c6881bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809652"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733302"
 ---
 # <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configuración de una solución basada en agente de Azure Defender para IoT  
 
@@ -57,7 +57,7 @@ Puede elegir agregar el almacenamiento de un tipo de información adicional, com
 
 Para habilitar Log Analytics para trabajar con un microagente: 
 
-1. Vaya a **Configuración del área de trabajo** > **Recopilación de datos** y cambie el control de alternancia a **Activado**. 
+1. Vaya a **Configuración del área de trabajo** > **Recopilación de datos** y cambie el control de alternancia a  **Activado**. 
 
 1. Cree un área de trabajo de Log Analytics o adjunte uno existente. 
 
@@ -71,7 +71,7 @@ Todos los meses los 5 primeros gigabytes de datos ingeridos por cliente en el 
 
 Para cambiar la configuración del área de trabajo de Log Analytics: 
 
-1. En IoT Hub, en el menú **Seguridad**, seleccione **Configuración**. 
+1. En IoT Hub, en el menú **Seguridad**, seleccione  **Configuración**. 
 
 1. Seleccione la pantalla  **Recopilación de datos**  y modifique la configuración del área de trabajo de Log Analytics que se ajuste a sus necesidades. 
 
@@ -87,16 +87,16 @@ Para acceder a las alertas del área de trabajo de Log Analytics después de la 
 
 1. Seleccione **Investigate recommendations in Log Analytics workspace** (Investigar recomendaciones en el área de trabajo de Log Analytics). 
  
-Para más información sobre cómo consultar datos de Log Analytics, consulte  [Introducción a las consultas en Log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+Para más información sobre cómo consultar datos de Log Analytics, consulte  [Introducción a las consultas en Log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## <a name="turn-off-defender-for-iot"></a>Desactivación de Defender para IoT 
 
 Para activar o desactivar el servicio Defender para IoT en una instancia de IoT Hub concreta: 
 
-1. En IoT Hub, en el menú **Seguridad**, seleccione **Configuración**.
+1. En IoT Hub, en el menú **Seguridad**, seleccione  **Configuración**.
 
 1. Seleccione la pantalla  **Recopilación de datos**  y modifique la configuración del área de trabajo de Log Analytics que se ajuste a sus necesidades.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-Pase al siguiente artículo para [configurar una solución](quickstart-configure-your-solution.md). 
+Pase al siguiente artículo para [configurar una solución](quickstart-configure-your-solution.md).

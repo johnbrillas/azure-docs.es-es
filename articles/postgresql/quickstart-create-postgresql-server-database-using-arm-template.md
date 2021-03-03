@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/14/2020
-ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/11/2021
+ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331648"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382198"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -68,32 +68,32 @@ Seleccione el siguiente vínculo para implementar la plantilla de servidor de Az
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-En la página **Implementación de Azure Database for PostgreSQL con red virtual** :
+En la página **Implementación de Azure Database for PostgreSQL con red virtual**:
 
-1. En **Grupo de recursos** , seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
+1. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
 
 2. Si ha creado un grupo de recursos, seleccione una **ubicación** para el grupo de recursos y el nuevo servidor.
 
-3. Escriba un **nombre de servidor** , **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
+3. Escriba un **nombre de servidor**, **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Implementación de Azure Database for PostgreSQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal":::
 
 4. Cambie los valores predeterminados si lo desea:
 
     * **Subscription** (Suscripción): la suscripción de Azure que desea usar para el servidor.
-    * **Sku Capacity** (Capacidad de SKU): la capacidad del núcleo virtual, que puede ser *2* (el valor predeterminado), *4* , *8* , *16* , *32* o *64*.
-    * **Sku Name** (Nombre de SKU): el prefijo del nivel de SKU, la familia del SKU y la capacidad del SKU, unidos por guiones bajos, como *B_Gen5_1* , *GP_Gen5_2* (el valor predeterminado) o *MO_Gen5_32*.
-    * **Sku Size MB** (Tamaño de SKU, en MB): el tamaño de almacenamiento, en megabytes, del servidor de Azure Database for PostgreSQL (valor predeterminado, *51200* ).
-    * **Nivel de SKU** : el nivel de implementación, como *Basic* , *GeneralPurpose* (el valor predeterminado) o *MemoryOptimized*.
+    * **Sku Capacity** (Capacidad de SKU): la capacidad del núcleo virtual, que puede ser *2* (el valor predeterminado), *4*, *8*, *16*, *32* o *64*.
+    * **Sku Name** (Nombre de SKU): el prefijo del nivel de SKU, la familia del SKU y la capacidad del SKU, unidos por guiones bajos, como *B_Gen5_1*, *GP_Gen5_2* (el valor predeterminado) o *MO_Gen5_32*.
+    * **Sku Size MB** (Tamaño de SKU, en MB): el tamaño de almacenamiento, en megabytes, del servidor de Azure Database for PostgreSQL (valor predeterminado, *51200*).
+    * **Nivel de SKU**: el nivel de implementación, como *Basic*, *GeneralPurpose* (el valor predeterminado) o *MemoryOptimized*.
     * **Sku Family** (Familia de SKU): *Gen4* o *Gen5* (el valor predeterminado), que indica la generación de hardware de la implementación de servidores.
-    * **Postgresql Version** (Versión de Postgresql): la versión del servidor de PostgreSQL que se va a implementar, como  *9.5* ,  *9.6* ,  *10*  u *11* (el valor predeterminado).
-    * **Backup Retention Days** (Días de retención de copia de seguridad): el período deseado para la conservación de copias de seguridad con redundancia geográfica, en días (el valor predeterminado es *7* ).
+    * **Postgresql Version** (Versión de Postgresql): la versión del servidor de PostgreSQL que se va a implementar, como *9.5*, *9.6*, *10* u *11* (el valor predeterminado).
+    * **Backup Retention Days** (Días de retención de copia de seguridad): el período deseado para la conservación de copias de seguridad con redundancia geográfica, en días (el valor predeterminado es *7*).
     * **Geo Redundant Backup** (Copia de seguridad con redundancia geográfica): *Habilitado* o *Deshabilitado* (el valor predeterminado), en función de los requisitos de la recuperación ante desastres geográfica (Geo-DR).
-    * **Virtual Network Name** (Nombre de red virtual): el nombre de la red virtual (el valor predeterminado es *azure_postgresql_vnet* ).
-    * **Subnet Name** (Nombre de subred): el nombre de la subred (el valor predeterminado es *azure_postgresql_subnet* ).
-    * **Virtual Network Rule Name** (Nombre de regla de red virtual): el nombre de la regla de red virtual que permite la subred (el valor predeterminado es *AllowSubnet* ).
-    * **Vnet Address Prefix** (Prefijo de dirección de red virtual): el prefijo de dirección de la red virtual (valor predeterminado, *10.0.0.0/16* ).
-    * **Subnet Prefix** (Prefijo de subred): el prefijo de dirección de la subred (valor predeterminado, *10.0.0.0/16* ).
+    * **Virtual Network Name** (Nombre de red virtual): el nombre de la red virtual (el valor predeterminado es *azure_postgresql_vnet*).
+    * **Subnet Name** (Nombre de subred): el nombre de la subred (el valor predeterminado es *azure_postgresql_subnet*).
+    * **Virtual Network Rule Name** (Nombre de regla de red virtual): el nombre de la regla de red virtual que permite la subred (el valor predeterminado es *AllowSubnet*).
+    * **Vnet Address Prefix** (Prefijo de dirección de red virtual): el prefijo de dirección de la red virtual (valor predeterminado, *10.0.0.0/16*).
+    * **Subnet Prefix** (Prefijo de subred): el prefijo de dirección de la subred (valor predeterminado, *10.0.0.0/16*).
 
 5. Consulte los términos y condiciones y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 
@@ -174,6 +174,34 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>Exportación de una plantilla de ARM desde el portal
+Puede [exportar una plantilla de ARM](../azure-resource-manager/templates/export-template-portal.md) desde Azure Portal. Hay dos maneras de exportar una plantilla:
+
+- [Exportar desde el grupo de recursos o el recurso](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Esta opción genera una plantilla nueva a partir de los recursos existentes. La plantilla exportada es una "instantánea" del estado actual del grupo de recursos. Puede exportar un grupo de recursos completo o recursos específicos dentro de ese grupo de recursos.
+- [Exportar antes de la implementación o desde el historial](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Esta opción recupera una copia exacta de una plantilla usada para la implementación.
+
+Al exportar la plantilla, en la sección ```"properties":{ }``` del recurso del servidor PostgreSQL observará que ```administratorLogin``` y ```administratorLoginPassword``` no se incluyen por motivos de seguridad. **DEBE** agregar estos parámetros a la plantilla antes de implementarla o, de lo contrario, se producirá un error en la plantilla.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

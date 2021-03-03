@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430469"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098102"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -118,6 +118,7 @@ El estado del indexador se puede supervisar en el portal o mediante [Get Indexer
 Tras esta introducción, el siguiente paso es revisar las propiedades y los parámetros del indexador, su programación y su supervisión. Como alternativa, puede volver a la lista de [orígenes de datos admitidos](#supported-data-sources), donde podrá obtener más información acerca de cualquier origen concreto.
 
 + [Creación de indexadores](search-howto-create-indexers.md)
++ [Restablecimiento y ejecución de indexadores](search-howto-run-reset-indexers.md)
 + [Programación de indexadores](search-howto-schedule-indexers.md)
 + [Definición de asignaciones de campos](search-indexer-field-mappings.md)
 + [Supervisión del estado del indexador](search-howto-monitor-indexers.md)

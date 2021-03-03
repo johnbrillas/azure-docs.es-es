@@ -2,18 +2,18 @@
 title: Introducción a un escenario de recuperación ante desastres de Oracle en el entorno de Azure | Microsoft Docs
 description: Un escenario de recuperación ante desastres para Oracle Database 12c en el entorno de Azure
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 68b5b9dfd205628c9d7c430df4c0230267752e01
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880631"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669949"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperación ante desastres para Oracle Database 12c en el entorno de Azure
 

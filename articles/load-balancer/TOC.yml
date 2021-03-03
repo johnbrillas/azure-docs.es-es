@@ -33,11 +33,15 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configuración del reenvío de puertos de Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
-    - name: 'Creación de un equilibrador de carga entre regiones: Azure Portal'
-      href: tutorial-cross-region-portal.md
+    - name: Equilibrador de carga entre regiones
+      items:
+        - name: 'Creación de un equilibrador de carga entre regiones: Azure Portal'
+          href: tutorial-cross-region-portal.md
+        - name: 'Creación de un equilibrador de carga entre regiones: PowerShell'
+          href: tutorial-cross-region-powershell.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -89,6 +93,8 @@
       href: backend-pool-management.md
     - name: Standard Load Balancer y Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Recuperación de la información mediante Azure Instance Metadata Service
+      href: instance-metadata-service-load-balancer.md
 - name: Instrucciones
   items:
     - name: Configuración del portal
@@ -113,7 +119,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
@@ -144,6 +150,8 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configuración del equilibrador de carga solo de salida
       href: egress-only.md
+    - name: Recuperación de metadatos mediante Azure IMDS
+      href: howto-load-balancer-imds.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de Azure Load Balancer
@@ -152,8 +160,6 @@
           href: load-balancer-troubleshoot-health-probe-status.md
         - name: Tráfico de grupo de back-end (VM)
           href: load-balancer-troubleshoot-backend-traffic.md
-        - name: Errores de implementación frecuentes
-          href: load-balancer-common-deployment-errors.md
         - name: Problemas comunes de la conexión saliente
           href: troubleshoot-outbound-connection.md
         - name: Problemas de estado y de disponibilidad de entrada de los recursos
@@ -164,7 +170,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
     - name: Azure PowerShell
       href: /powershell/module/az.network
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models
@@ -181,6 +187,10 @@
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
+    - name: Códigos de error comunes de Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
+    - name: Errores de implementación frecuentes
+      href: load-balancer-common-deployment-errors.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

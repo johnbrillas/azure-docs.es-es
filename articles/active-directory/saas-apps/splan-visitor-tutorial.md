@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704226"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644704"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Splan Visitor
 
@@ -120,8 +120,8 @@ Cree un usuario de prueba llamado **Britta Simon** en Splan Visitor. Trabaje con
 Pruebe la configuración de inicio de sesión único de Azure AD con alguna de las siguientes opciones:
 
 * **Portal de Azure**: Seleccione **Probar esta aplicación** para iniciar sesión automáticamente en la instancia de Splan Visitor para la que configuró el inicio de sesión único.
-* **Portal Aplicaciones de Microsoft**: Seleccione el icono **Splan Visitor** para iniciar sesión automáticamente en la instancia de Splan Visitor para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Portal Aplicaciones de Microsoft**: Seleccione el icono **Splan Visitor** para iniciar sesión automáticamente en la instancia de Splan Visitor para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de configurar Splan Visitor, puede [aprender a aplicar controles de sesión en Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Los controles de sesión protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional.
+Después de configurar Splan Visitor, puede [aprender a aplicar controles de sesión en Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Los controles de sesión protegen la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional.

@@ -3,12 +3,12 @@ title: Uso de la configuración de diagnóstico en almacenes de Recovery Service
 description: En este artículo, se explica cómo se utilizan los nuevos y los antiguos eventos de diagnóstico de Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2130f06e17dd2b5cf8461d4e58342ee41c14f96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002892"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575409"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Uso de la configuración de diagnóstico en almacenes de Recovery Services
 
@@ -37,7 +37,7 @@ Los datos de estos eventos se pueden enviar a una cuenta de almacenamiento, al �
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Uso de la configuración de diagnóstico con Log Analytics
 
-Ahora, puede usar Azure Backup para enviar datos de diagnóstico de los almacenes a tablas de Log Analytics dedicadas a la copia de seguridad. Estas tablas se denominan [tablas específicas de recursos](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Ahora, puede usar Azure Backup para enviar datos de diagnóstico de los almacenes a tablas de Log Analytics dedicadas a la copia de seguridad. Estas tablas se denominan [tablas específicas de recursos](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 Para enviar los datos de diagnóstico de un almacén a Log Analytics:
 

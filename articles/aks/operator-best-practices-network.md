@@ -5,12 +5,12 @@ description: Procedimientos recomendados con los recursos de red virtual y la co
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482732"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366575"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Al crear y administrar clústeres en Azure Kubernetes Service (AKS), se proporci
 Este artículo de procedimientos recomendados se centra en la conectividad de red y la seguridad para los operadores del clúster. En este artículo aprenderá a:
 
 > [!div class="checklist"]
-> * Comparar los modos de red de kubenet y de Azure CNI en AKS
+> * Comparar los modos de red kubenet y Azure Container Networking Interface (CNI) en AKS
 > * Planear la conectividad y el direccionamiento IP necesarios
 > * Distribuir el tráfico mediante equilibradores de carga, controladores de entrada o un firewall de aplicaciones web (WAF)
 > * Conectarse de forma segura a los nodos del clúster
@@ -33,11 +33,13 @@ Las redes virtuales proporcionan conectividad básica para que los nodos de AKS 
 * **Redes de kubenet**: cuando el clúster se implementa y usa el complemento [kubenet][kubenet] de Kubernetes, Azure administra los recursos de red virtual.
 * **Redes de Azure CNI**: se implementan en una red virtual y usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes. Los pods reciben direcciones IP individuales que se pueden enrutar a otros servicios de red o recursos locales.
 
+En las implementaciones de producción, tanto kubenet como Azure CNI son opciones válidas.
+
+### <a name="cni-networking"></a>Redes de CNI
+
 Container Networking Interface (CNI) es un protocolo independiente del proveedor que permite que el entorno de ejecución del contenedor realice solicitudes a un proveedor de red. Azure CNI asigna direcciones IP a los nodos y los pods, y proporciona características de administración de direcciones IP(IPAM) cuando se conecta a redes virtuales de Azure existentes. Cada recurso de nodo y pod recibe una dirección IP en la red virtual de Azure y no se necesita más enrutamiento para la comunicación con otros servicios o recursos.
 
 ![Diagrama que muestra dos nodos con puentes que conectan cada uno a una única red virtual de Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
-
-En las implementaciones de producción, tanto kubenet como Azure CNI son opciones válidas.
 
 Una ventaja importante de las redes de Azure CNI para producción es que el modelo de red permite separar el control y la administración de los recursos. Desde una perspectiva de seguridad, se suele preferir que distintos equipos administren y protejan los recursos. Las redes de Azure CNI permiten la conexión directa a recursos de Azure existentes, a recursos locales o a otros servicios mediante direcciones IP asignadas a cada pod.
 
@@ -51,6 +53,8 @@ Como cada pod y cada nodo recibe su propia dirección IP, planee los intervalos 
 
 Para calcular la dirección IP necesaria, consulte [Configuración de redes de Azure CNI en AKS][advanced-networking].
 
+Cuando se crea un clúster con Azure CNI Networking, se especifican otros intervalos de direcciones para su uso por parte del clúster, como la dirección del puente de Docker, la IP del servicio DNS y el intervalo de direcciones de servicio. En general, estos intervalos de direcciones no deben superponerse entre sí y no deben superponerse con las redes asociadas al clúster, incluidas las redes virtuales, las subredes, las redes locales y las redes emparejadas. Para obtener detalles específicos sobre los límites y el tamaño de estos intervalos de direcciones, consulte [Configuración de redes de Azure CNI en AKS][advanced-networking].
+
 ### <a name="kubenet-networking"></a>Redes de kubenet
 
 Aunque las redes de kubenet no requieren configuración de las redes virtuales antes de la implementación del clúster, existen algunos inconvenientes:
@@ -58,7 +62,9 @@ Aunque las redes de kubenet no requieren configuración de las redes virtuales a
 * Los nodos y los pods se colocan en subredes IP diferentes. El enrutamiento definido por el usuario (UDR) y el reenvío de IP se usan para enrutar el tráfico entre los pods y los nodos. Este enrutamiento adicional puede reducir el rendimiento de las redes.
 * Las conexiones a redes locales existentes o el emparejamiento con otras redes virtuales de Azure pueden ser complejos.
 
-Kubenet es adecuado para implementaciones pequeñas o cargas de trabajo de prueba, ya que no es necesario crear la red virtual y las subredes independientemente del clúster de AKS. Los sitios web sencillos con poco tráfico o que sirven para levantar y desplazar cargas de trabajo en contenedores también se pueden beneficiar de la sencillez de los clústeres de AKS que se implementan con redes de kubenet. Para la mayoría de las implementaciones de producción, debe planificar y usar redes de Azure CNI. También puede [configurar sus propios intervalos de direcciones IP y redes virtuales con kubenet][aks-configure-kubenet-networking].
+Kubenet es adecuado para implementaciones pequeñas o cargas de trabajo de prueba, ya que no es necesario crear la red virtual y las subredes independientemente del clúster de AKS. Los sitios web sencillos con poco tráfico o que sirven para levantar y desplazar cargas de trabajo en contenedores también se pueden beneficiar de la sencillez de los clústeres de AKS que se implementan con redes de kubenet. Para la mayoría de las implementaciones de producción, debe planificar y usar redes de Azure CNI.
+
+También puede [configurar sus propios intervalos de direcciones IP y redes virtuales con kubenet][aks-configure-kubenet-networking]. De forma similar a las redes de Azure CNI, estos intervalos de direcciones no deben superponerse entre sí y no deben superponerse con las redes asociadas al clúster, incluidas las redes virtuales, las subredes, las redes locales y las redes emparejadas. Para obtener detalles específicos sobre los límites y el tamaño de estos intervalos de direcciones, consulte [Uso de redes kubenet con sus propios intervalos de direcciones IP en AKS][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribución del tráfico de entrada
 

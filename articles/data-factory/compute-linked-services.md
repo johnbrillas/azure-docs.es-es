@@ -1,21 +1,17 @@
 ---
 title: Entornos de proceso compatibles con Azure Data Factory
 description: Entornos de proceso que se pueden usar con las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606222"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368530"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 
@@ -131,7 +127,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 | clusterUserName                   | Nombre de usuario de acceso al clúster. | No       |
 | clusterPassword                   | Contraseña de tipo cadena segura de acceso al clúster. | No       |
 | clusterSshUserName         | Nombre de usuario para que SSH se conecte de forma remota al nodo del clúster (para Linux). | No       |
-| clusterSshPassword         | Contraseña de tipo cadena segura para que SSH se conecte de forma remota los nodos del clúster (para Linux). | No       |
+| clusterSshPassword         | Contraseña de tipo cadena segura para que SSH se conecte de forma remota al nodo del clúster (para Linux). | No       |
 | scriptActions | Especifique el script para [personalizaciones de clúster de HDInsight](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) durante la creación del clúster a petición. <br />Actualmente, la herramienta de creación de interfaces de usuario de Azure Data Factory admite la especificación de únicamente 1 acción de script, pero puede superar esta limitación en JSON (especifique varias acciones de script en JSON). | No |
 
 
@@ -397,7 +393,7 @@ Un servicio vinculado de Azure Machine Learning Studio (clásico) se crea para r
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | La propiedad type se debe establecer en: **AzureML**. | Sí                                      |
 | mlEndpoint             | La dirección URL de puntuación por lotes.                   | Sí                                      |
-| apiKey                 | La API del modelo de área de trabajo publicado.     | Sí                                      |
+| apiKey                 | API del modelo de área de trabajo publicado.     | Sí                                      |
 | updateResourceEndpoint | Dirección URL de recursos de actualización de un punto de conexión de servicio web de Azure Machine Learning Studio (clásico) empleada para actualizar el servicio web predictivo con el archivo de modelo entrenado. | No                                       |
 | servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Obligatorio si se especifica updateResourceEndpoint |
 | servicePrincipalKey    | Especifique la clave de la aplicación.           | Obligatorio si se especifica updateResourceEndpoint |
@@ -547,12 +543,12 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | name                 | Nombre del servicio vinculado               | Sí   |
 | type                 | La propiedad type se debe establecer en: **Azure Databricks**. | Sí                                      |
 | dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
-| accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | No                                       |
+| accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](/azure/databricks/dev-tools/api/latest/authentication#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | No                                       |
 | MSI          | Use la identidad administrada de Data Factory (asignada por el sistema) para autenticarse en Azure Databricks. No es necesario el token de acceso cuando se usa la autenticación de "MSI".  | No                                       |
 | existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
 | instancePoolId    | Identificador del grupo de instancias de un grupo existente en el área de trabajo de Databricks.  | No  |
 | newClusterVersion    | Versión de Spark del clúster. Crea un clúster de trabajo en Databricks. | No  |
-| newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | No                |
+| newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Cadena con formato Int32, en que "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | No                |
 | newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster.                | No               |
 | newClusterSparkConf  | Conjunto de pares de clave-valor de configuración de Spark opcionales especificado por el usuario. Los usuarios también pueden pasar una cadena de opciones adicionales de JVM al controlador y los ejecutores con spark.driver.extraJavaOptions y spark.executor.extraJavaOptions respectivamente. | No  |
 | newClusterInitScripts| Conjunto de scripts de inicialización opcional definido por el usuario para el nuevo clúster. Especificación de la ruta de acceso DBFS a los scripts init. | No  |

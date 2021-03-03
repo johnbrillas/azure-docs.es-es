@@ -3,12 +3,12 @@ title: Solución de problemas de red con el registro
 description: Síntomas, causas y resolución de problemas comunes al acceder a un registro de contenedor de Azure en una red virtual o detrás de un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 75c94d40663a7058dab7ed691183dd578964edcc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699613"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solución de problemas de red con el registro
 
@@ -140,5 +140,5 @@ Si no encuentra aquí una solución para su problema, vea las siguientes opcione
   * [Solución de problemas de inicio de sesión del registro](container-registry-troubleshoot-login.md) 
   * [Solución de problemas de rendimiento del registro](container-registry-troubleshoot-performance.md)
 * Opciones de [soporte técnico de la comunidad](https://azure.microsoft.com/support/community/)
-* [Preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/products/)
+* [Preguntas y respuestas de Microsoft](/answers/products/)
 * [Abrir una incidencia de soporte técnico](https://azure.microsoft.com/support/create-ticket/)

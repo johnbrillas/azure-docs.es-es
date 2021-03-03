@@ -54,8 +54,12 @@
       href: ensure-tags-exists-on-new-virtual-machines.md
     - name: Envío de un correo electrónico cuando se desconecta algún dispositivo de IoT Hub
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Respuesta a eventos de Service Bus
-      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Control de eventos de Service Bus a través de Event Grid
+      items:
+        - name: "Azure\_Logic\_Apps"
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+        - name: Azure Functions
+          href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Datos de flujo de Event Hubs
       href: event-grid-event-hubs-integration.md
     - name: Enrutamiento de eventos de Media Services
@@ -262,14 +266,18 @@
       items:
         - name: Publicación de eventos de forma segura a través de un vínculo privado
           href: configure-private-endpoints.md
+        - name: Entrega de eventos mediante la identidad administrada
+          href: managed-service-identity.md
+        - name: Entrega de eventos de forma segura a través de un vínculo privado
+          href: consume-private-endpoints.md
         - name: Configuración de la dirección IP del firewall
           href: configure-firewall.md
         - name: Protección de webhook con Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: 'Entrega de eventos, identidad administrada y vínculo privado'
-          href: managed-service-identity.md
     - name: Solución de problemas
       items:
+        - name: Solución de problemas de Event Grid
+          href: troubleshoot-issues.md
         - name: Habilitar registros de diagnóstico
           href: enable-diagnostic-logs-topic.md
         - name: Solución de errores

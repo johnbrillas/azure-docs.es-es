@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690981"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Ejemplos de Azure PowerShell para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de Azure Power
 |---|---|
 |**Creación y configuración de instancias administradas**||
 | [Creación y administración de una instancia administrada](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script de PowerShell muestra cómo crear y administrar una instancia administrada mediante Azure PowerShell. |
-| [Creación y administración de una instancia administrada con una plantilla de Azure Resource Manager](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell muestra cómo crear y administrar una instancia administrada mediante Azure PowerShell y una plantilla de Azure Resource Manager.|
+| [Creación y administración de una instancia administrada con una plantilla de Azure Resource Manager](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell muestra cómo crear y administrar una instancia administrada mediante Azure PowerShell y una plantilla de Azure Resource Manager.|
 | [Restauración de una base de datos a una instancia administrada de otra región con replicación geográfica](../managed-instance/scripts/restore-geo-backup.md) | Este script de PowerShell realiza una copia de seguridad de una base de datos y la restaura en otra región. Esto se conoce como escenario de recuperación ante desastres de una restauración geográfica. |
 | **Configuración del cifrado de datos transparente**||
 | [Administración del cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell configura el cifrado de datos transparente en el escenario Bring Your Own Key para Instancia administrada de Azure SQL, con una clave de Azure Key Vault.|

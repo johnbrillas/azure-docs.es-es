@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857365"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388947"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Evaluación y mejora de la precisión de Habla personalizada
 
@@ -115,10 +115,15 @@ Tenga en cuenta estos detalles:
 * Cuando la calidad de las transcripciones varía, puede duplicar las frases cuya calidad sea excepcionalmente buena (como las transcripciones excelentes que incluyan frases clave) para aumentar su ponderación.
 * El servicio de voz usará automáticamente las transcripciones para mejorar el reconocimiento de las palabras y frases específicas del dominio, como si se hubieran agregado como texto relacionado.
 * El entrenamiento con audio aportará más ventajas si el audio también es difícil de entender para las personas. En la mayoría de los casos, debe iniciar el entrenamiento simplemente con texto relacionado.
-* Una operación de entrenamiento puede tardar varios días en completarse. Para mejorar la velocidad de entrenamiento, asegúrese de crear la suscripción al Servicio de voz en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
+* Una operación de entrenamiento puede tardar varios días en completarse. Para mejorar la velocidad de entrenamiento, asegúrese de crear la suscripción al servicio Voz en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
 
 > [!NOTE]
-> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio.
+> No todos los modelos base son compatibles con el entrenamiento con audio. Si un modelo base no es compatible, el Servicio de voz solo usará el texto de las transcripciones y omitirá el audio. Consulte la [compatibilidad con idiomas](language-support.md#speech-to-text) para obtener una lista de los modelos base que admiten el entrenamiento con datos de audio.
+
+> [!NOTE]
+> En los casos en los que cambia el modelo base utilizado para el entrenamiento y tiene audio en el conjunto de datos de entrenamiento, compruebe *siempre* si el nuevo modelo base seleccionado [admite el entrenamiento con datos de audio](language-support.md#speech-to-text). Si el modelo base usado anteriormente no admitía el entrenamiento con datos de audio, y el conjunto de datos de entrenamiento contiene audio, el tiempo de entrenamiento con el nuevo modelo base aumentará **drásticamente** y puede pasar de horas a días e incluso más. Esto es especialmente cierto si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
+>
+> Si se encuentra con el problema que se describe en el párrafo anterior, puede reducir rápidamente el tiempo de entrenamiento reduciendo la cantidad de audio del conjunto de datos o eliminándolo por completo y dejando solo el texto. La ultima opción es muy recomendable si la suscripción del servicio Voz **no** está en una [región con hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para el entrenamiento.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adición de nuevas palabras con su pronunciación
 

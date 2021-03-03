@@ -2,18 +2,18 @@
 title: Configuración de ASM de Oracle en una máquina virtual Linux en Azure | Microsoft Docs
 description: Ponga en funcionamiento rápidamente ASM de Oracle en el entorno de Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 6f0b58374ae3eb972993b544117d8cbb98371ce5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b180a0f148db5222a288958724ad248acd18b565
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602621"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673853"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 

@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491433"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591737"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -102,6 +102,10 @@ PNS no garantiza ningún Acuerdo de Nivel de Servicio por la entrega de notifica
 ### <a name="is-there-any-latency-guarantee"></a>¿Hay alguna garantía de latencia?
 
 Debido a la naturaleza de las notificaciones push (la entrega la realiza un PNS externo específico para la plataforma), no hay ninguna garantía de latencia. Habitualmente, la mayoría de las notificaciones push se entregan en cuestión de minutos.
+
+### <a name="where-does-azure-notification-hubs-store-data"></a>¿Dónde almacena los datos Azure Notification Hubs?
+
+Azure Notification Hubs almacena los datos de registro del cliente en la región seleccionada por el cliente. Notification Hubs ofrece cobertura de recuperación ante desastres de metadatos (el nombre de Notification Hubs, la cadena de conexión y otra información crítica). En todas las regiones, excepto Sur de Brasil y Sudeste Asiático, la copia de seguridad de metadatos se hospeda en otra región (normalmente la región emparejada de Azure). En el caso de las regiones Sur de Brasil y Sudeste Asiático, las copias de seguridad se almacenan en la misma región para adaptarse a los requisitos de residencia de datos de dichas regiones.
 
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>¿Qué es necesario considerar a la hora de diseñar una solución con espacios de nombres y centros de notificaciones?
 
@@ -192,7 +196,7 @@ También puede acceder a las métricas mediante programación. Para más informa
 
 - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET). En este ejemplo, se utiliza el nombre de usuario y la contraseña. Si quiere usar un certificado, sobrecargue el método FromServicePrincipal para proporcionar un certificado, tal y como se muestra en [este ejemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/) (Obtención de métricas y registros de actividad de un recurso)
-- [Tutorial sobre la API de REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Tutorial sobre la API de REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > La entrega correcta de las notificaciones significa simplemente que las notificaciones push se entregaron al PNS externo (por ejemplo APNs para iOS y macOS, o FCM para dispositivos Android). Entregar las notificaciones a los dispositivos de destino es responsabilidad del PNS. Habitualmente, el PNS no muestra las métricas de entrega a terceros.  
@@ -207,7 +211,7 @@ También puede acceder a las métricas mediante programación. Para más informa
 [Modelo de seguridad de Notification Hubs]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Tutorial sobre inserciones seguras de Notification Hubs]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Solución de problemas de Notification Hubs]: ./notification-hubs-push-notification-fixer.md
-[Métricas de Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Notification Hubs]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Procedimiento: cómo exportar y modificar registros en bloque]: ./export-modify-registrations-bulk.md
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

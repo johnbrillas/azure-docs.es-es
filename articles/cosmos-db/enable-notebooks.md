@@ -5,30 +5,31 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/22/2019
+ms.date: 02/09/2021
 ms.author: dech
-ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: references_regions
+ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187823"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547832"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU.., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
+> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en [29 regiones](#supported-regions). Para usar cuadernos, [cree una cuenta de Cosmos](#create-a-new-cosmos-account) o [habilite los notebooks de una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones. 
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB.
 
-## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Habilitación de cuadernos en una cuenta nueva de Cosmos
-
+## <a name="create-a-new-cosmos-account"></a>Creación de una cuenta de Cosmos
+A partir del 10 de febrero de 2021, las nuevas cuentas de Azure Cosmos creadas en una de las [regiones admitidas](#supported-regions) tendrán automáticamente los cuadernos habilitados. No se necesita ninguna configuración adicional para habilitar los cuadernos. Use estas instrucciones para crear una cuenta:
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 1. Seleccione **Crear un recurso** > **Bases de datos** > **Azure Cosmos DB**.
-1. En la página **Creación de una cuenta de Azure Cosmos DB**, seleccione **Notebooks**. 
+1. Especifique la configuración básica de la cuenta. 
  
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selección de la opción Cuadernos en la hoja Creación de una cuenta de Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Página de la nueva cuenta de Azure Cosmos DB":::
 
 1. Seleccione **Revisar + crear**. Puede omitir las opciones **Red** y **Etiquetas**. 
 1. Revise la configuración de la cuenta y seleccione **Crear**. La operación de creación de la cuenta tarda unos minutos. Espere hasta que la página del portal muestre **Se completó la implementación** . 
@@ -74,6 +75,45 @@ También puede seleccionar **Nuevo Notebook** para crear un notebook o cargar un
 
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Creación o carga de un cuaderno nuevo":::
 
+## <a name="supported-regions"></a>Regiones admitidas
+Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en 29 regiones de Azure. Las cuentas de Azure Cosmos creadas en estas regiones tendrán los cuadernos habilitados automáticamente. Los cuadernos son gratis con su cuenta. 
+
+- Centro de Australia
+- Centro de Australia 2
+- Este de Australia
+- Sudeste de Australia
+- Sur de Brasil
+- Centro de Canadá
+- Este de Canadá
+- Centro de la India
+- Centro de EE. UU.
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Centro de Francia
+- Sur de Francia
+- Norte de Alemania
+- Centro-oeste de Alemania
+- Japón Occidental
+- Corea del Sur
+- Centro-Norte de EE. UU
+- Norte de Europa
+- Centro-sur de EE. UU.
+- Sudeste de Asia
+- Norte de Suiza
+- Centro de Emiratos Árabes Unidos
+- Sur de Reino Unido
+- Oeste de Reino Unido
+- Centro-Oeste de EE. UU.
+- Oeste de Europa
+- Oeste de la India
+- Oeste de EE. UU. 2
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Conozca las ventajas de los [cuadernos de Jupyter para Azure Cosmos DB](cosmosdb-jupyter-notebooks.md).
+* Conozca las ventajas de los [cuadernos de Jupyter para Azure Cosmos DB](cosmosdb-jupyter-notebooks.md).
+* [Exploración de la galería de ejemplos de Notebook](https://cosmos.azure.com/gallery.html)
+* [Uso de características y comandos de cuadernos de Python](use-python-notebook-features-and-commands.md)
+* [Uso de características y comandos de cuadernos de C#](use-csharp-notebook-features-and-commands.md)
+* [Importación de cuadernos desde un repositorio de GitHub](import-github-notebooks.md)
+
+

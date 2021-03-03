@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093628"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572653"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Administración de Change Tracking e Inventario
 
@@ -167,7 +167,7 @@ Puede realizar varias búsquedas en los registros de Azure Monitor para consulta
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información sobre las configuraciones de ámbito, consulte [Limitación del ámbito de implementación de Change Tracking e Inventario](manage-scope-configurations.md).
-* Si necesita buscar en los registros almacenados en los registros de Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+* Si necesita buscar en los registros almacenados en los registros de Azure Monitor, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 * Si finaliza con las implementaciones, consulte [Eliminación de Change Tracking e Inventario](remove-feature.md).
 * Para eliminar las máquinas virtuales de Change Tracking e Inventario, consulte [Eliminación de máquinas virtuales de Change Tracking e Inventario](remove-vms-from-change-tracking.md).
 * Para solucionar problemas de la característica, consulte [Solución de problemas de Change Tracking e Inventario](../troubleshoot/change-tracking.md).

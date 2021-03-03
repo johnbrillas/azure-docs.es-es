@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ce0d3a06846cbc3aa37ab836564150e6f2c34ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499193"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362818"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Habla personalizada
 
 > [!NOTE]
 > En esta página se supone que ha leído [Preparación de los datos de Habla personalizada](./how-to-custom-speech-test-and-train.md) y que ha cargado un conjunto de datos para su inspección.
 
-Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el [portal de Habla personalizada](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto. Esta herramienta le ayuda a inspeccionar la calidad del modelo de conversión de voz a texto de línea de base de Microsoft, a inspeccionar un modelo personalizado entrenado o a comparar la transcripción con dos modelos.
+Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. En [Speech Studio](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionado es correcto. Esta herramienta le ayuda a inspeccionar la calidad del modelo de conversión de voz a texto de línea de base de Microsoft, a inspeccionar un modelo personalizado entrenado o a comparar la transcripción con dos modelos.
 
 En este documento, aprenderá a inspeccionar visualmente la calidad del modelo de conversión de voz en texto de línea de base de Microsoft o de los modelos personalizados que haya entrenado. También aprenderá a usar el editor de transcripciones en línea para crear y perfeccionar conjuntos de datos de audio con etiqueta.
 
@@ -30,7 +30,7 @@ En este documento, aprenderá a inspeccionar visualmente la calidad del modelo d
 
 Para crear una prueba, siga estas instrucciones:
 
-1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
+1. Inicie sesión en [Speech Studio](https://speech.microsoft.com/customspeech).
 2. Vaya a **Speech-to-text > Custom Speech > [nombre del proyecto] > Pruebas**.
 3. Haga clic en **Add test** (Agregar prueba).
 4. Seleccione **Inspect quality (Audio-only data)** (Inspeccionar la calidad [solo datos de audio]). Asigne un nombre y una descripción a la prueba y seleccione el conjunto de datos de audio.

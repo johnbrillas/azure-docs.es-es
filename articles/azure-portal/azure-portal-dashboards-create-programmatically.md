@@ -3,12 +3,12 @@ title: Creación mediante programación de paneles de Azure
 description: Use un panel de Azure Portal como plantilla para crear paneles de Azure mediante programación. Incluye referencia JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745815"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095179"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -46,7 +46,7 @@ Después de configurar el panel, el siguiente paso es publicar el panel con el c
 
 ![Uso compartido de un panel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Al seleccionar **Compartir**, se le pide que elija en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Al seleccionar **Compartir**, se le pide que elija en qué suscripción y grupo de recursos se va a publicar. Debe tener acceso de escritura a la suscripción y al grupo de recursos que elija. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ![Cambios en el uso compartido y el acceso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

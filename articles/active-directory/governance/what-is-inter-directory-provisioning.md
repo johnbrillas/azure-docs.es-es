@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168515"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643852"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>¿Qué es el aprovisionamiento entre directorios?
 
@@ -33,7 +33,7 @@ Actualmente, Azure AD admite tres métodos para realizar el aprovisionamiento e
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md): la herramienta de Microsoft diseñada para satisfacer y lograr sus objetivos de identidad híbrida, incluido el aprovisionamiento entre directorios de Active Directory en Azure AD.
 
-- [Aprovisionamiento en la nube de Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md): un nuevo agente de Microsoft diseñado para satisfacer y lograr sus objetivos de identidad híbrida.  Proporciona una experiencia sencilla de aprovisionamiento entre directorios entre Active Directory y Azure AD.
+- [Aprovisionamiento en la nube de Azure AD Connect](../cloud-sync/what-is-cloud-sync.md): un nuevo agente de Microsoft diseñado para satisfacer y lograr sus objetivos de identidad híbrida.  Proporciona una experiencia sencilla de aprovisionamiento entre directorios entre Active Directory y Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016): la solución local de administración de identidades y acceso de Microsoft que le ayuda a administrar los usuarios, las credenciales, las directivas y el acceso en su organización. Además, Microsoft Identity Manager proporciona un aprovisionamiento avanzado entre directorios para lograr entornos de identidades híbridas para Active Directory, Azure AD y otros directorios.
 

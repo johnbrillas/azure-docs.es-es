@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626667"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519803"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -30,9 +30,9 @@ Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastant
 
 En este escenario, se usará la convención de nomenclatura:
 
-* "VNet de NVA" para redes virtuales en las que los usuarios han implementado una NVA y que han conectado otras redes virtuales como radios (VNet 2 y VNet 4 en la **matriz de conectividad** a continuación).
-* "Radios de NVA" para las redes virtuales conectadas a una red virtual de NVA (VNet 5, VNet 6, VNet 7 y VNet 8 en la **matriz de conectividad** a continuación).
-* "VNet no de NVA" para redes virtuales conectadas a Virtual WAN que no tienen una NVA u otras redes virtuales emparejadas con ellas (VNet 1 y VNet 3 en la **matriz de conectividad** a continuación).
+* "VNet de NVA" para redes virtuales en las que los usuarios han implementado una NVA y han conectado otras redes virtuales como radios (VNet 2 y VNet 4 en la **Figura 2** más adelante en el artículo).
+* "Radios de NVA" para las redes virtuales conectadas a una red virtual de NVA (VNet 5, VNet 6, VNet 7 y VNet 8 en la **Figura 2** más adelante en el artículo).
+* "VNet no de NVA" para redes virtuales conectadas a Virtual WAN que no tienen una NVA u otras redes virtuales emparejadas con ellas (VNet 1 y VNet 3 en la **Figura 2** más adelante en el artículo).
 * "Centros" para los centros de Virtual WAN administrados por Microsoft, a los que se conectan las redes virtuales de NVA. No es necesario que las redes virtuales de radios de NVA estén conectadas a centros de Virtual WAN, solo a redes virtuales de NVA.
 
 En la siguiente matriz de conectividad se resumen los flujos admitidos en este escenario:
@@ -49,7 +49,7 @@ En la siguiente matriz de conectividad se resumen los flujos admitidos en este e
 Cada una de las celdas de la matriz de conectividad describe cómo se comunica una red virtual o una rama (el lado "De" del flujo, los encabezados de fila de la tabla) con una red virtual o una rama de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla). "Directo" significa que Virtual WAN proporciona la conectividad de forma nativa, "Emparejamiento" significa que la conectividad la proporciona una ruta definida por el usuario en la red virtual, "Sobre la red virtual de la NVA" significa que la conectividad atraviesa la NVA implementada en la red virtual de la NVA. Tenga en cuenta lo siguiente.
 
 * Los radios de NVA no están administrados por Virtual WAN. Como consecuencia, el usuario mantiene los mecanismos con los que se comunicarán con otras redes virtuales o ramas. La conectividad a la red virtual de NVA se proporciona mediante un emparejamiento de VNet, y una ruta predeterminada a 0.0.0.0/0 que apunta a la NVA como próximo salto debe cubrir la conectividad a Internet, a otros radios y a las ramas.
-* Las redes virtuales de NVA sabrán sobre sus propios radios de NVA, pero no sobre los radios de NVA conectados a otras redes virtuales de NVA. Por ejemplo, en la tabla 1, VNet 2 sabe sobre VNet 5 y VNet 6, pero no sobre otros radios, como VNet 7 y VNet 8. Se requiere una ruta estática para insertar los prefijos de otros radios en redes virtuales de NVA
+* Las redes virtuales de NVA sabrán sobre sus propios radios de NVA, pero no sobre los radios de NVA conectados a otras redes virtuales de NVA. Por ejemplo, en la Figura 2 mostrada más adelante en este artículo, VNet 2 sabe sobre VNet 5 y VNet 6, pero no sobre otros radios, como VNet 7 y VNet 8. Se requiere una ruta estática para insertar los prefijos de otros radios en redes virtuales de NVA
 * Del mismo modo, las ramas y las redes virtuales que no son de NVA no sabrán sobre ningún radio de NVA, ya que los radios de NVA no están conectados a centros de Virtual WAN. Como consecuencia, aquí también se necesitarán rutas estáticas.
 
 Teniendo en cuenta que los radios de NVA no están administrados por Virtual WAN, todas las demás filas muestran el mismo patrón de conectividad. Por lo tanto, una sola tabla de rutas (la predeterminada) hará lo siguiente:

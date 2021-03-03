@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 6fd995fbedafaf91ef98389e556286be218227a8
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 36cb4644dae82802f93e7f6c654005b58d877c20
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87088978"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101672698"
 landingContent:
 - title: Acerca de los conjuntos de escalado de máquinas virtuales
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: Azure Portal
       url: quick-create-portal.md
     - text: Azure PowerShell
       url: quick-create-powershell.md
@@ -39,6 +39,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Modos de orquestación
+      url: virtual-machine-scale-sets-orchestration-modes.md
     - text: Directiva de reducción horizontal
       url: virtual-machine-scale-sets-scale-in-policy.md
     - text: Notificación de finalización

@@ -3,15 +3,15 @@ title: 'Versión preliminar del portal para la asociación de aplicaciones en fo
 description: Configuración de la asociación de aplicaciones en formato MSIX para Windows Virtual Desktop mediante Azure Portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185961"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373477"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configuración de la asociación de aplicaciones en formato .MSIX con Azure Portal
 
@@ -65,7 +65,7 @@ A continuación, debe descargar y configurar la interfaz de administración de l
 
 Para configurar la interfaz de administración:
 
-1. [Abra el portal de vista previa](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Abra Azure Portal](https://portal.azure.com).
 2. Si recibe un mensaje que le pregunta si la extensión es de confianza, seleccione **Permitir**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ Para publicar las aplicaciones:
 ## <a name="assign-a-user-to-an-app-group"></a>Asignación de un usuario a un grupo de aplicaciones
 
 Después de asignar las aplicaciones de MSIX a un grupo de aplicaciones, deberá conceder a los usuarios acceso a ellas. Puede asignar el acceso agregando usuarios o grupos de usuarios a un grupo de aplicaciones con aplicaciones de MSIX publicadas. Para ello, siga las instrucciones que se detallan en [Administración de grupos de aplicaciones con Azure Portal](manage-app-groups.md) para asignar usuarios a un grupo de aplicaciones.
+
+>[!NOTE]
+>Las aplicaciones remotas de asociación de aplicaciones en formato MSIX pueden desaparecer de la fuente al probar las aplicaciones remotas durante la versión preliminar pública. Las aplicaciones no aparecen porque el grupo de hosts que usa en el entorno de evaluación recibe la atención de un agente de Escritorio remoto en el entorno de producción. Dado que el agente de Escritorio remoto en el entorno de producción no registra la presencia de las aplicaciones remotas de asociación de aplicaciones en formato MSIX, las aplicaciones no aparecerán en la fuente.
 
 ## <a name="change-msix-package-state"></a>Cambio del estado del paquete de MSIX
 

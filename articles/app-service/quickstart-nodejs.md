@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359109"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735121"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -69,7 +72,7 @@ En esta sección, implementará la aplicación de Node.js en Azure con VS Code 
 
     ![Inicio de sesión en Azure](media/quickstart-nodejs/sign-in.png)
 
-1. En el explorador de **AZURE APP SERVICE** de VS Code, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure. También puede invocar el mismo comando desde la **Paleta de comandos** ( **Ctrl**+**Mayús**+**P** ); para hacerlo, escriba "deploy to web app" y elija **Azure App Service: Deploy to Web App** (Azure App Service: Implementar en aplicación web).
+1. En el explorador de **AZURE APP SERVICE** de VS Code, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure. También puede invocar el mismo comando desde la **Paleta de comandos** (**Ctrl**+**Mayús**+**P**); para hacerlo, escriba "deploy to web app" y elija **Azure App Service: Deploy to Web App** (Azure App Service: Implementar en aplicación web).
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.":::
         
@@ -137,7 +140,7 @@ Puede implementar los cambios en esta aplicación si realiza modificaciones en V
 
 Puede ver la salida del registro (llamadas a `console.log`) desde la aplicación directamente en la ventana de salida de VS Code.
 
-1. En el explorador de **AZURE APP SERVICE** , haga clic con el botón derecho en el nodo de la aplicación y elija **Start Streaming Logs** (Iniciar transmisión de registros).
+1. En el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en el nodo de la aplicación y elija **Start Streaming Logs** (Iniciar transmisión de registros).
 
     ![Inicio de transmisión de registros](media/quickstart-nodejs/view-logs.png)
 
@@ -263,7 +266,7 @@ Primero, abra la carpeta de la aplicación en VS Code.
 code .
 ```
 
-En el explorador de **AZURE APP SERVICE** , seleccione el icono de flecha arriba azul para implementar la aplicación en Azure.
+En el explorador de **AZURE APP SERVICE**, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure.
 
 :::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Captura de pantalla del menú Azure App Service de Visual Studio Code con la flecha azul de implementación seleccionada.":::
 
@@ -310,7 +313,7 @@ Para implementar los cambios en esta aplicación, siga el mismo proceso y selecc
 
 En esta sección aprenderá a ver (o "copiar") los registros desde la aplicación de App Service en ejecución. Las llamadas realizadas a `console.log` en la aplicación se muestran en la ventana de salida en Visual Studio Code.
 
-Busque la aplicación en el explorador de **AZURE APP SERVICE** , haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
+Busque la aplicación en el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
 
 La ventana de salida de VS Code se abre con una conexión a la transmisión de registros.
 

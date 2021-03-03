@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42c1d06051c283f0e911c4cd166884ddd060f45
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201232"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633281"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -78,4 +78,4 @@ El elemento **BuildingBlocks** contiene los siguientes elementos que deben espec
 
 - [Localización](localization.md): le ofrece compatibilidad con varios idiomas. La compatibilidad de localización en directivas permite configurar la lista de idiomas admitidos en una directiva y elegir un idioma predeterminado. Las cadenas y colecciones específicas del idioma también se admiten.
 
-- [DisplayControls](display-controls.md): define los controles que se van a mostrar en una página. Los controles de visualización tienen una funcionalidad especial e interactúan con los perfiles técnicos de validación de back-end. Los controles de visualización se encuentran actualmente en **versión preliminar**.
+- [DisplayControls](display-controls.md): define los controles que se van a mostrar en una página. Los controles de visualización tienen una funcionalidad especial e interactúan con los perfiles técnicos de validación de back-end. 

@@ -6,44 +6,46 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
+dev_langs:
+- TSQL
 ms.topic: how-to
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 02/07/2020
-ms.openlocfilehash: 76f9fb4ed5c3b88b3a1f69e352f50079586ec336
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.date: 02/01/2021
+ms.openlocfilehash: 11b94ba5bcedf56f0115b8730dc58f808aff5c58
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663339"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371607"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Base de datos elástica (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este artículo se proporcionan muchos escenarios de ejemplo para empezar a trabajar con trabajos elásticos mediante T-SQL.
 
-En los ejemplos se utilizan los [procedimientos almacenados](#job-stored-procedures) y las [vistas](#job-views) disponibles en la [*base de datos de trabajo*](job-automation-overview.md#job-database).
+En los ejemplos se utilizan los [procedimientos almacenados](#job-stored-procedures) y las [vistas](#job-views) disponibles en la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database).
 
 Transact-SQL (T-SQL) se utiliza para crear, configurar, ejecutar y administrar los trabajos. La creación del agente de trabajos elásticos no se admite en T-SQL, por lo que debe crear primero un *agente de trabajos elásticos* mediante el portal o [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
 ## <a name="create-a-credential-for-job-execution"></a>Creación de una credencial para la ejecución del trabajo
 
-La credencial se usa para conectarse a las bases de datos de destino para la ejecución del script. La credencial necesita permisos adecuados en las bases de datos especificadas por el grupo de destino para ejecutar correctamente el script. Cuando se utiliza un [servidor SQL lógico](logical-servers.md) o un miembro del grupo de destino del grupo, se recomienda encarecidamente crear una credencial maestra para actualizar la credencial antes de la expansión del grupo o del servidor en el momento de ejecución del trabajo. La credencial de ámbito de base de datos se crea en la base de datos del agente de trabajo. La misma credencial debe usarse para *crear un inicio de sesión* y *crear un usuario desde el inicio de sesión para conceder los permisos de base de datos de inicio de sesión* en las bases de datos de destino.
+La credencial se usa para conectarse a las bases de datos de destino para la ejecución del script. La credencial necesita permisos adecuados en las bases de datos especificadas por el grupo de destino para ejecutar correctamente el script. Cuando se utiliza un [servidor SQL lógico](logical-servers.md) o un miembro del grupo de destino del grupo, se recomienda encarecidamente crear una credencial para actualizar la credencial antes de la expansión del grupo o del servidor en el momento de ejecución del trabajo. La credencial de ámbito de base de datos se crea en la base de datos del agente de trabajo. La misma credencial debe usarse para *crear un inicio de sesión* y *crear un usuario desde el inicio de sesión para conceder los permisos de base de datos de inicio de sesión* en las bases de datos de destino.
 
 ```sql
---Connect to the job database specified when creating the job agent
+--Connect to the new job database specified when creating the Elastic Job agent
 
--- Create a db master key if one does not already exist, using your own password.  
+-- Create a database master key if one does not already exist, using your own password.  
 CREATE MASTER KEY ENCRYPTION BY PASSWORD='<EnterStrongPasswordHere>';  
   
--- Create a database scoped credential.  
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
+-- Create two database scoped credentials.  
+-- The credential to connect to the Azure SQL logical server, to execute jobs
+CREATE DATABASE SCOPED CREDENTIAL job_credential WITH IDENTITY = 'job_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
-
--- Create a database scoped credential for the master database of server1.
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
+-- The credential to connect to the Azure SQL logical server, to refresh the database metadata in server
+CREATE DATABASE SCOPED CREDENTIAL refresh_credential WITH IDENTITY = 'refresh_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
 ```
@@ -51,20 +53,20 @@ GO
 ## <a name="create-a-target-group-servers"></a>Creación de un grupo de destino (servidores)
 
 En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 -- Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group 'ServerGroup1'
+EXEC jobs.sp_add_target_group 'ServerGroup1';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
+@target_group_name = 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server1.database.windows.net'
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net';
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -74,29 +76,29 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-an-individual-database"></a>Exclusión de una base de datos individual
 
 En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor, excepto en la denominada *MappingDB*.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = N'London.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server2.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net';
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +107,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name = N'MappingDB'
+@database_name = N'MappingDB';
 GO
 
 --View the recently created target group and target group members
@@ -116,21 +118,21 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Creación de un grupo de destino (grupos)
 
 En el ejemplo siguiente se muestra cómo establecer como destino todas las bases de datos de uno o varios grupos elásticos.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing pool(s)
-EXEC jobs.sp_add_target_group 'PoolGroup'
+EXEC jobs.sp_add_target_group 'PoolGroup';
 
 -- Add an elastic pool(s) target member
 EXEC jobs.sp_add_target_group_member
-'PoolGroup',
+@target_group_name = 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
 @server_name = 'server1.database.windows.net',
-@elastic_pool_name = 'ElasticPool-1'
+@elastic_pool_name = 'ElasticPool-1';
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -140,20 +142,20 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Implementación del nuevo esquema en muchas bases de datos
 
 En el ejemplo siguiente se muestra cómo implementar el nuevo esquema en todas las bases de datos.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test';
 
 -- Add job step for create table
 EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
 @command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name = 'myjobcred',
-@target_group_name = 'PoolGroup'
+@credential_name = 'job_credential',
+@target_group_name = 'PoolGroup';
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>Recopilación de datos mediante los parámetros integrados
@@ -188,7 +190,7 @@ Si desea crear manualmente la tabla antes de tiempo, debe tener las siguientes p
 3. Un índice no agrupado denominado `IX_<TableName>_Internal_Execution_ID` en la columna internal_execution_id.
 4. Todos los permisos enumerados anteriormente, salvo el permiso `CREATE TABLE` en la base de datos.
 
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute los siguientes comandos:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute los siguientes comandos:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -200,32 +202,34 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 EXEC jobs.sp_add_jobstep
 @job_name = 'ResultsJob',
 @command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name = 'myjobcred',
+@credential_name = 'job_credential',
 @target_group_name = 'PoolGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = '<resultsdb>',
-@output_table_name = '<resutlstable>'
-Create a job to monitor pool performance
+@output_table_name = '<resutlstable>';
+
+--Create a job to monitor pool performance
+
 --Connect to the job database specified when creating the job agent
 
--- Add a target group containing master database
-EXEC jobs.sp_add_target_group 'MasterGroup'
+-- Add a target group containing Elastic Job database
+EXEC jobs.sp_add_target_group 'ElasticJobGroup';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name = 'MasterGroup',
+@target_group_name = 'ElasticJobGroup',
 @target_type = 'SqlDatabase',
 @server_name = 'server1.database.windows.net',
-@database_name = 'master'
+@database_name = 'master';
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
 @job_name = 'ResultsPoolsJob',
 @description = 'Demo: Collection Performance data from all pools',
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,61 +250,61 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name = 'myjobcred',
-@target_group_name = 'MasterGroup',
+@credential_name = 'job_credential',
+@target_group_name = 'ElasticJobGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = 'resultsdb',
-@output_table_name = 'resutlstable'
+@output_table_name = 'resutlstable';
 ```
 
 ## <a name="view-job-definitions"></a>Visualización de definiciones de trabajos
 
 En el ejemplo siguiente se muestra cómo ver las definiciones de trabajos actuales.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- View all jobs
-SELECT * FROM jobs.jobs
+SELECT * FROM jobs.jobs;
 
 -- View the steps of the current version of all jobs
 SELECT js.* FROM jobs.jobsteps js
 JOIN jobs.jobs j
-  ON j.job_id = js.job_id AND j.job_version = js.job_version
+  ON j.job_id = js.job_id AND j.job_version = js.job_version;
 
 -- View the steps of all versions of all jobs
-select * from jobs.jobsteps
+SELECT * FROM jobs.jobsteps;
 ```
 
 ## <a name="begin-unplanned-execution-of-a-job"></a>Inicio de la ejecución no planeada de un trabajo
 
 En el ejemplo siguiente se muestra cómo iniciar un trabajo inmediatamente.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Execute the latest version of a job
-EXEC jobs.sp_start_job 'CreateTableTest'
+EXEC jobs.sp_start_job 'CreateTableTest';
 
 -- Execute the latest version of a job and receive the execution id
-declare @je uniqueidentifier
-exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output
-select @je
+declare @je uniqueidentifier;
+exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output;
+select @je;
 
-select * from jobs.job_executions where job_execution_id = @je
+select * from jobs.job_executions where job_execution_id = @je;
 
 -- Execute a specific version of a job (e.g. version 1)
-exec jobs.sp_start_job 'CreateTableTest', 1
+exec jobs.sp_start_job 'CreateTableTest', 1;
 ```
 
 ## <a name="schedule-execution-of-a-job"></a>Programación de la ejecución de un trabajo
 
 El ejemplo siguiente muestra cómo programar un trabajo para una ejecución futura.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -309,13 +313,13 @@ EXEC jobs.sp_update_job
 @job_name = 'ResultsJob',
 @enabled=1,
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 ```
 
 ## <a name="monitor-job-execution-status"></a>Supervisión del estado de ejecución de trabajos
 
 En el ejemplo siguiente se muestra cómo ver los detalles del estado de ejecución de todos los trabajos.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -323,27 +327,27 @@ Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-data
 --View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all top-level execution status for all jobs
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 -- View all active executions
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
 
 En el ejemplo siguiente se muestra cómo cancelar un trabajo.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -351,23 +355,23 @@ Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-data
 -- View all active executions to determine job execution id
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1 AND job_name = 'ResultPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 GO
 
 -- Cancel job execution with the specified job execution id
-EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
+EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef';
 ```
 
 ## <a name="delete-old-job-history"></a>Eliminación del historial de trabajos antiguos
 
 En el ejemplo siguiente se muestra cómo eliminar el historial de trabajos anteriores a una fecha concreta.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job’s executions older than the specified date
-EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
+-- Delete history of a specific job's executions older than the specified date
+EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
@@ -375,19 +379,19 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Eliminación de un trabajo y de todo el historial de trabajos
 
 En el ejemplo siguiente se muestra cómo eliminar un trabajo y el historial de todos los trabajos relacionados.  
-Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](job-automation-overview.md#elastic-job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
-EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
+EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
 ## <a name="job-stored-procedures"></a>Procedimientos almacenados de trabajos
 
-Los siguientes procedimientos almacenados se encuentran en la [base de datos de trabajos](job-automation-overview.md#job-database).
+Los siguientes procedimientos almacenados se encuentran en la [base de datos de trabajos](job-automation-overview.md#elastic-job-database).
 
 |Procedimiento almacenado  |Descripción  |
 |---------|---------|
@@ -651,7 +655,7 @@ Número de veces que reintentará la ejecución si se produce un error en el int
 Cantidad máxima de tiempo permitida para la ejecución del paso. Si se supera este tiempo, la ejecución del trabajo terminará con el valor TimedOut para el ciclo de vida. step_timeout_seconds es int, con un valor predeterminado de 43 200 segundos (12 horas).
 
 [ **\@output_type =** ] 'output_type'  
-Si no es null, tipo de destino en el que se escribirá el primer conjunto de resultados del comando. output_type es nvarchar(50), con un valor predeterminado de NULL.
+Si no es NULL, tipo de destino en el que se escribirá el primer conjunto de resultados del comando. output_type es nvarchar(50), con un valor predeterminado de NULL.
 
 Si se especifica, el valor debe ser SqlDatabase.
 
@@ -674,7 +678,7 @@ Si no es null, nombre de la base de datos que contiene la tabla de destino de sa
 Si no es null, nombre del esquema SQL que contiene la tabla de destino de salida. Si output_type es igual a SqlDatabase, el valor predeterminado es dbo. output_schema_name es nvarchar(128).
 
 [ **\@output_table_name =** ] 'output_table_name'  
-Si no es null, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. output_table_name es nvarchar(128), con un valor predeterminado de NULL.
+Si no es NULL, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. output_table_name es nvarchar(128), con un valor predeterminado de NULL.
 
 [ **\@job_version =** ] job_version OUTPUT  
 Parámetro de salida al que se asignará el número de versión de trabajo nuevo. job_version es int.
@@ -782,7 +786,7 @@ Número de veces que reintentará la ejecución si se produce un error en el int
 Cantidad máxima de tiempo permitida para la ejecución del paso. Si se supera este tiempo, la ejecución del trabajo terminará con el valor TimedOut para el ciclo de vida. step_timeout_seconds es int, con un valor predeterminado de 43 200 segundos (12 horas).
 
 [ **\@output_type =** ] 'output_type'  
-Si no es null, tipo de destino en el que se escribirá el primer conjunto de resultados del comando. Para restablecer el valor de output_type a NULL, establece el valor de este parámetro en '' (cadena vacía). output_type es nvarchar(50), con un valor predeterminado de NULL.
+Si no es NULL, tipo de destino en el que se escribirá el primer conjunto de resultados del comando. Para restablecer el valor de output_type a NULL, establece el valor de este parámetro en '' (cadena vacía). output_type es nvarchar(50), con un valor predeterminado de NULL.
 
 Si se especifica, el valor debe ser SqlDatabase.
 
@@ -799,7 +803,7 @@ Si no es null, nombre de la base de datos que contiene la tabla de destino de sa
 Si no es null, nombre del esquema SQL que contiene la tabla de destino de salida. Si output_type es igual a SqlDatabase, el valor predeterminado es dbo. Para restablecer el valor de output_schema_name a NULL, establece el valor de este parámetro en '' (cadena vacía). output_schema_name es nvarchar(128).
 
 [ **\@output_table_name =** ] 'output_table_name'  
-Si no es null, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. Para restablecer el valor de output_server_name a NULL, establece el valor de este parámetro en '' (cadena vacía). output_table_name es nvarchar(128), con un valor predeterminado de NULL.
+Si no es NULL, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. Para restablecer el valor de output_server_name a NULL, establece el valor de este parámetro en '' (cadena vacía). output_table_name es nvarchar(128), con un valor predeterminado de NULL.
 
 [ **\@job_version =** ] job_version OUTPUT  
 Parámetro de salida al que se asignará el número de versión de trabajo nuevo. job_version es int.
@@ -1041,7 +1045,7 @@ Nombre de la base de datos que debe agregarse al grupo de destino especificado. 
 Nombre del grupo elástico que se debe agregar al grupo de destino especificado. elastic_pool_name debe especificarse cuando target_type es ‘SqlElasticPool’. elastic_pool_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino especificado. El valor elastic_pool_name debe especificarse cuando el elemento target_type es "SqlShardMap". shart_map_name es nvarchar(128), sin ningún valor predeterminado.
+Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino especificado. El valor elastic_pool_name debe especificarse cuando target_type es "SqlShardMap". shart_map_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 Número de identificación de destino asignado al miembro del grupo de destino si se agregó al grupo de destino. target_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.
@@ -1065,27 +1069,27 @@ En el ejemplo siguiente se agregan todas las bases de datos de los servidores de
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
-USE ElasticJobs ;
+USE ElasticJobs;
 GO
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information'
+EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'London.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'NewYork.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'NewYork.database.windows.net';
 GO
 
 --View the recently added members to the target group
@@ -1139,12 +1143,12 @@ GO
 
 -- Retrieve the target_id for a target_group_members
 declare @tid uniqueidentifier
-SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net'
+SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net';
 
 -- Remove a target group member of type server
 EXEC jobs.sp_delete_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
-@target_id = @tid
+@target_id = @tid;
 GO
 ```
 
@@ -1202,7 +1206,7 @@ GO
 
 ## <a name="job-views"></a>Vistas de trabajos
 
-Las siguientes vistas están disponibles en la [base de datos de trabajos](job-automation-overview.md#job-database).
+Las siguientes vistas están disponibles en la [base de datos de trabajos](job-automation-overview.md#elastic-job-database).
 
 |Ver  |Descripción  |
 |---------|---------|
@@ -1235,11 +1239,11 @@ Muestra el historial de ejecuciones de trabajos.
 |**current_attempts** | int | Número de veces que se reintentó el paso. El trabajo principal será 0 y las ejecuciones del trabajo secundario, 1 o un valor mayor según la directiva de ejecución.
 |**current_attempt_start_time** | datetime2(7) | Fecha y hora en que el trabajo inició la ejecución. NULL indica que se trata de la ejecución del trabajo principal.
 |**last_message** | nvarchar(max) | Mensaje del historial de trabajos o pasos.
-|**target_type** | nvarchar(128) | Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
+|**target_type** | nvarchar(128) | Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son "SqlServer", "SqlElasticPool" o "SqlDatabase". NULL indica que se trata de la ejecución del trabajo principal.
 |**target_id** | UNIQUEIDENTIFIER | Identificador único del miembro del grupo de destino.  NULL indica que se trata de la ejecución del trabajo principal.
 |**target_group_name** | nvarchar(128) | Nombre del grupo de destino. NULL indica que se trata de la ejecución del trabajo principal.
-|**target_server_name** | nvarchar(256)  | Nombre del servidor incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. NULL indica que se trata de la ejecución del trabajo principal.
-|**target_database_name** | nvarchar(128) | Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
+|**target_server_name** | nvarchar(256)  | Nombre del servidor incluido en el grupo de destino. Solo se especifica si target_type es "SqlServer". NULL indica que se trata de la ejecución del trabajo principal.
+|**target_database_name** | nvarchar(128) | Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es "SqlDatabase". NULL indica que se trata de la ejecución del trabajo principal.
 
 ### <a name="jobs-view"></a>vista jobs
 
@@ -1283,8 +1287,8 @@ Muestra todos los pasos de la versión actual de cada trabajo.
 |**job_version**|int|Versión del trabajo (se actualiza automáticamente cada vez que el trabajo se modifica).|
 |**step_id**|int|Identificador único del paso (en este trabajo).|
 |**step_name**|nvarchar(128)|Nombre único (de este trabajo) para el paso.|
-|**command_type**|nvarchar(50)|Tipo de comando que se ejecutará en el paso de trabajo. Para v1, el valor debe ser igual a ‘TSql’, que es el valor predeterminado.|
-|**command_source**|nvarchar(50)|Ubicación del comando. Para v1, ‘Inline’ es el valor predeterminado y el único aceptado.|
+|**command_type**|nvarchar(50)|Tipo de comando que se ejecutará en el paso de trabajo. Para v1, el valor debe ser igual a "TSql", que es el valor predeterminado.|
+|**command_source**|nvarchar(50)|Ubicación del comando. Para v1, "Inline" es el valor predeterminado y el único aceptado.|
 |**command**|nvarchar(max)|Comandos que ejecutarán los trabajos elásticos por medio de command_type.|
 |**credential_name**|nvarchar(128)|Nombre de la credencial de ámbito de base de datos usada para la ejecución del trabajo.|
 |**target_group_name**|nvarchar(128)|Nombre del grupo de destino.|
@@ -1331,16 +1335,16 @@ Muestra todos los miembros de todos los grupos de destino.
 |-----|-----|-----|
 |**target_group_name**|nvarchar(128|Nombre del grupo de destino, una colección de bases de datos. |
 |**target_group_id**|UNIQUEIDENTIFIER|Identificador único del grupo de destino.|
-|**membership_type**|int|Especifica si se incluirá o excluirá el miembro del grupo de destino en el grupo de destino. Los valores válidos de target_group_name son ‘Include’ o ‘Exclude’.|
+|**membership_type**|int|Especifica si se incluirá o excluirá el miembro del grupo de destino en el grupo de destino. Los valores válidos de target_group_name son "Include" o "Exclude".|
 |**target_type**|nvarchar(128)|Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlShardMap’.|
 |**target_id**|UNIQUEIDENTIFIER|Identificador único del miembro del grupo de destino.|
 |**refresh_credential_name**|nvarchar(128)|Nombre de la credencial de ámbito de base de datos usada para conectarse al miembro del grupo de destino.|
 |**subscription_id**|UNIQUEIDENTIFIER|Identificador único de la suscripción.|
 |**resource_group_name**|nvarchar(128)|Nombre del grupo de recursos en el que reside el miembro del grupo de destino.|
-|**server_name**|nvarchar(128)|Nombre del servidor incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. |
-|**database_name**|nvarchar(128)|Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’.|
-|**elastic_pool_name**|nvarchar(128)|Nombre del grupo elástico incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’.|
-|**shard_map_name**|nvarchar(128)|Nombre de los mapas de particiones incluidos en el grupo de destino. Solo se especifica si target_type es ‘SqlShardMap’.|
+|**server_name**|nvarchar(128)|Nombre del servidor incluido en el grupo de destino. Solo se especifica si target_type es "SqlServer". |
+|**database_name**|nvarchar(128)|Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es "SqlDatabase".|
+|**elastic_pool_name**|nvarchar(128)|Nombre del grupo elástico incluido en el grupo de destino. Solo se especifica si target_type es "SqlElasticPool".|
+|**shard_map_name**|nvarchar(128)|Nombre de los mapas de particiones incluidos en el grupo de destino. Solo se especifica si target_type es "SqlShardMap".|
 
 ## <a name="resources"></a>Recursos
 

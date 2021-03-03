@@ -3,21 +3,21 @@ title: Uso de Azure Image Builder para máquinas virtuales Linux que permiten ac
 description: Creación de imágenes de máquina virtual Linux con Azure Image Builder que permiten acceder a una red virtual de Azure existente
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: cbff2358dcf8685298e31f18c430c35ec7de4948
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b523168429aa05a148a6e814881d1338a1bb39cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695624"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Uso de Azure Image Builder para máquinas virtuales Linux que permiten acceder a una red virtual de Azure existente
 
-En este artículo se muestra cómo puede usar Azure Image Builder para crear una imagen de Linux personalizada básica que tenga acceso a los recursos existentes en una red virtual. La VM de creación que cree se implementará en una red virtual nueva o existente que especifique en la suscripción. Cuando se usa una red virtual de Azure existente, el servicio Azure Image Builder no requiere conectividad de red pública.
+En este artículo se muestra cómo puede usar Azure Image Builder para crear una imagen de Linux personalizada básica que tenga acceso a los recursos existentes en una red virtual. La máquina virtual de creación que cree se implementará en una red virtual nueva o existente que especifique en la suscripción. Cuando se usa una red virtual de Azure existente, el servicio Azure Image Builder no requiere conectividad de red pública.
 
 > [!IMPORTANT]
 > Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
@@ -139,9 +139,9 @@ Para más información sobre la conexión en red de Image Builder, consulte [Opc
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" existingVNETLinux.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" existingVNETLinux.json
@@ -316,4 +316,4 @@ Si ha creado una red virtual para este inicio rápido, puede eliminarla red virt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre las [galerías de imágenes compartidas de Azure](shared-image-galleries.md).
+Obtenga más información sobre las [galerías de imágenes compartidas de Azure](../shared-image-galleries.md).

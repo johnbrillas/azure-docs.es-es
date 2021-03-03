@@ -1,22 +1,18 @@
 ---
 title: Notas de la versión de Data Management Gateway
 description: Notas de la versión de Data Management Gateway
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001633"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363923"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -46,12 +42,12 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Mejoras-
--   Puede agregar entradas DNS para permitir Service Bus en vez de permitir todas las direcciones IP de Azure del firewall (en caso necesario). Más detalles aquí.
--   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
--   Solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
--   Solucionado: problema de índice fuera de rango al copiar de Document DB a SQL Server con la característica de idempotencia.
--   Solucionado: el script de limpieza SQL no funciona con SQL Server desde el Asistente para copia.
--   Solucionado: el nombre de columna con espacio al final no funciona en la actividad de copia.
+-    Puede agregar entradas DNS para permitir Service Bus en vez de permitir todas las direcciones IP de Azure del firewall (en caso necesario). Más detalles aquí.
+-    Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
+-    Solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
+-    Solucionado: problema de índice fuera de rango al copiar de Document DB a SQL Server con la característica de idempotencia.
+-    Solucionado: el script de limpieza SQL no funciona con SQL Server desde el Asistente para copia.
+-    Solucionado: el nombre de columna con espacio al final no funciona en la actividad de copia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Mejoras-

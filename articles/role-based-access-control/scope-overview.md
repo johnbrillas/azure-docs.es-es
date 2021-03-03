@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856164"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555925"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Descripción del ámbito de RBAC de Azure
 
@@ -32,7 +32,7 @@ Los grupos de administración son un nivel de ámbito superior a las suscripcion
 
 ## <a name="scope-format"></a>Formato de ámbito
 
-Si agrega asignaciones de roles mediante la línea de comandos, deberá especificar el ámbito. Para las herramientas de la línea de comandos, el ámbito es una cadena potencialmente larga que identifica el ámbito exacto de la asignación. En Azure Portal, este ámbito suele aparecer como el *identificador del recurso*.
+Si asigna roles mediante la línea de comandos, deberá especificar el ámbito. Para las herramientas de la línea de comandos, el ámbito es una cadena potencialmente larga que identifica el ámbito exacto de la asignación. En Azure Portal, este ámbito suele aparecer como el *identificador del recurso*.
 
 El ámbito se compone de una serie de identificadores separados por el carácter de barra diagonal (/). Esta cadena se puede considerar como la expresión de la siguiente jerarquía, en la que el texto sin los marcadores de posición (`{}`) son identificadores fijos:
 
@@ -122,6 +122,6 @@ Es bastante sencillo determinar el ámbito de un grupo de administración, una s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Pasos para agregar una asignación de roles](role-assignments-steps.md)
+- [Pasos para asignar un rol de Azure](role-assignments-steps.md)
 - [Proveedores de recursos para servicios de Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [¿Qué son los grupos de administración de Azure?](../governance/management-groups/overview.md)

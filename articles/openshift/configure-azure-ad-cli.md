@@ -1,19 +1,19 @@
 ---
 title: 'Red Hat OpenShift en Azure con OpenShift 4: configuración de la autenticación de Azure Active Directory mediante la línea de comandos'
 description: Obtenga información sobre cómo configurar la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift en Azure que ejecute OpenShift 4 mediante la línea de comandos.
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0d69fa10408618fb188b42e1dd8f7b9d02820cc3
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0e9e7c5fccf56077e138ffe24226344257bb3a13
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862418"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636295"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift 4 en Azure (CLI)
 

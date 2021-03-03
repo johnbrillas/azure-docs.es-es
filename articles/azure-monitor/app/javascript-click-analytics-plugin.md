@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593631"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Complemento Click Analytics Auto-collection para el SDK de JavaScript para Application Insights
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Consulte el [repositorio de GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) y el [paquete NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para el complemento Click Analytics Auto-Collection.
 - Use el [análisis de eventos en la experiencia de uso](usage-segmentation.md) para analizar los principales clics y segmentarlos por dimensiones disponibles.
-- Busque los datos de clic en el campo de contenido del atributo customDimensions de la tabla CustomEvents de [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Consulte la [aplicación de ejemplo](https://go.microsoft.com/fwlink/?linkid=2152871) para obtener orientación adicional.
-- Compile un [libro](../platform/workbooks-overview.md) para crear visualizaciones personalizadas de los datos de clic.
+- Busque los datos de clic en el campo de contenido del atributo customDimensions de la tabla CustomEvents de [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Consulte la [aplicación de ejemplo](https://go.microsoft.com/fwlink/?linkid=2152871) para obtener orientación adicional.
+- Compile un [libro](../visualize/workbooks-overview.md) para crear visualizaciones personalizadas de los datos de clic.

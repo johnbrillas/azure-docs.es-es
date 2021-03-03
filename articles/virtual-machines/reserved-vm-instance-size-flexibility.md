@@ -3,17 +3,17 @@ title: 'Flexibilidad en el tamaño de las máquinas virtuales: Azure Reserved VM
 description: Obtenga información sobre a qué serie de tamaño se aplica un descuento de reserva cuando compra una instancia reservada de máquina virtual.
 author: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/02/2021
 ms.author: yashar
-ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980446"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673960"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances
 

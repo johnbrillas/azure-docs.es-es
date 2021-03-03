@@ -4,12 +4,12 @@ description: Inserte unas cuantas líneas de código en su aplicación de dispos
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 881c657b25d04834d83221c738c578b8281752b7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927811"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593753"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -108,7 +108,7 @@ En proyectos de Node.js, puede usar `new applicationInsights.TelemetryClient(ins
 
 ## <a name="trackevent"></a>TrackEvent
 
-En Application Insights, un *evento personalizado* es un punto de datos que se puede mostrar en el [Explorador de métricas](../platform/metrics-charts.md) como recuento agregado, y como repeticiones individuales en [Búsqueda de diagnóstico](./diagnostic-search.md). (No está relacionado con MVC ni con "eventos" de otro marco).
+En Application Insights, un *evento personalizado* es un punto de datos que se puede mostrar en el [Explorador de métricas](../essentials/metrics-charts.md) como recuento agregado, y como repeticiones individuales en [Búsqueda de diagnóstico](./diagnostic-search.md). (No está relacionado con MVC ni con "eventos" de otro marco).
 
 Inserte llamadas a `TrackEvent` en el código para contabilizar diversos eventos: la frecuencia con la que los usuarios eligen una determinada característica, con la que logran unos determinados objetivos o con la que cometen determinados tipos de errores.
 
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados en Analytics
 
-Los datos de telemetría están disponibles en la tabla `customEvents` de la [pestaña Registros de Application Insights](../log-query/log-query-overview.md) o en la [experiencia de uso](usage-overview.md). Los eventos pueden proceder de `trackEvent(..)` o del [complemento Click Analytics Auto-collection](javascript-click-analytics-plugin.md).
+Los datos de telemetría están disponibles en la tabla `customEvents` de la [pestaña Registros de Application Insights](../logs/log-query-overview.md) o en la [experiencia de uso](usage-overview.md). Los eventos pueden proceder de `trackEvent(..)` o del [complemento Click Analytics Auto-collection](javascript-click-analytics-plugin.md).
 
  
 
@@ -204,7 +204,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Métricas personalizadas en Analytics
 
-La telemetría está disponible en la tabla `customMetrics` de [Analytics de Application Insights](../log-query/log-query-overview.md). Cada fila representa una llamada a `trackMetric(..)` en la aplicación.
+La telemetría está disponible en la tabla `customMetrics` de [Analytics de Application Insights](../logs/log-query-overview.md). Cada fila representa una llamada a `trackMetric(..)` en la aplicación.
 
 * `valueSum`: es la suma de las medidas. Para obtener el valor medio, divídalo por `valueCount`.
 * `valueCount`: el número de medidas que se agregaron en esta llamada a `trackMetric(..)`.
@@ -274,7 +274,7 @@ Las duraciones de carga de página resultantes que se muestran en el Explorador 
 
 ### <a name="page-telemetry-in-analytics"></a>Telemetría de páginas en Analytics
 
-En [Analytics](../log-query/log-query-overview.md) hay dos tablas en las que se muestran datos de operaciones de explorador:
+En [Analytics](../logs/log-query-overview.md) hay dos tablas en las que se muestran datos de operaciones de explorador:
 
 * La tabla `pageViews` contiene datos sobre la URL y el título de la página.
 * La tabla `browserTimings` contiene datos sobre el rendimiento del cliente, como el tiempo que se tarda en procesar los datos entrantes.
@@ -310,7 +310,7 @@ Sin embargo, lo que se recomienda para enviar telemetría de solicitudes es que 
 
 ## <a name="operation-context"></a>Contexto de operación
 
-Puede correlacionar los elementos de telemetría juntos mediante su asociación con el contexto de la operación. El módulo de seguimiento de solicitud estándar realiza esta operación para excepciones y otros eventos enviados al procesar una solicitud HTTP. En [Búsqueda](./diagnostic-search.md) y [Análisis](../log-query/log-query-overview.md), puede encontrar fácilmente cualquier evento asociado a la solicitud mediante su identificador de operación.
+Puede correlacionar los elementos de telemetría juntos mediante su asociación con el contexto de la operación. El módulo de seguimiento de solicitud estándar realiza esta operación para excepciones y otros eventos enviados al procesar una solicitud HTTP. En [Búsqueda](./diagnostic-search.md) y [Análisis](../logs/log-query-overview.md), puede encontrar fácilmente cualquier evento asociado a la solicitud mediante su identificador de operación.
 
 Para más información sobre la correlación, vea [Correlación de telemetría en Application Insights](./correlation.md).
 
@@ -348,7 +348,7 @@ Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para 
 
 ### <a name="requests-in-analytics"></a>Solicitudes en Analytics
 
-En [Analytics de Application Insights](../log-query/log-query-overview.md), las solicitudes aparecen en la tabla `requests`.
+En [Analytics de Application Insights](../logs/log-query-overview.md), las solicitudes aparecen en la tabla `requests`.
 
 Si el [muestreo](./sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackRequest(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de solicitudes y la duración media segmentada por nombres de solicitudes, use código como el siguiente:
 
@@ -361,7 +361,7 @@ requests
 
 Enviar excepciones a Application Insights:
 
-* Para [contarlas](../platform/metrics-charts.md), como indicación de la frecuencia de un problema.
+* Para [contarlas](../essentials/metrics-charts.md), como indicación de la frecuencia de un problema.
 * Para [examinar los casos individuales](./diagnostic-search.md).
 
 Los informes incluyen los seguimientos de la pila.
@@ -430,7 +430,7 @@ Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es n
 
 ### <a name="exceptions-in-analytics"></a>Excepciones en Analytics
 
-En [Analytics de Application Insights](../log-query/log-query-overview.md), las excepciones aparecen en la tabla `exceptions`.
+En [Analytics de Application Insights](../logs/log-query-overview.md), las excepciones aparecen en la tabla `exceptions`.
 
 Si el [muestreo](./sampling.md) está en uso, en la propiedad `itemCount` se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackException(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de excepciones segmentadas por tipo de excepción, use código como el siguiente:
 
@@ -525,7 +525,7 @@ En [Búsqueda](./diagnostic-search.md), puede filtrar fácilmente todos los mens
 
 ### <a name="traces-in-analytics"></a>Seguimientos en Analytics
 
-En [Analytics de Application Insights](../log-query/log-query-overview.md), las llamadas a TrackTrace aparecen en la tabla `traces`.
+En [Analytics de Application Insights](../logs/log-query-overview.md), las llamadas a TrackTrace aparecen en la tabla `traces`.
 
 Si el [muestreo](./sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a `trackTrace()`, el proceso de muestreo solo transmite una. Para obtener un recuento correcto de llamadas de seguimiento, debería codificar por tanto como `traces | summarize sum(itemCount)`.
 
@@ -607,7 +607,7 @@ Para desactivar el módulo de seguimiento de dependencias estándar en C#, edite
 
 ### <a name="dependencies-in-analytics"></a>Dependencias en Analytics
 
-En [Analytics de Application Insights](../log-query/log-query-overview.md), las llamadas de trackDependency aparecen en la tabla `dependencies`.
+En [Analytics de Application Insights](../logs/log-query-overview.md), las llamadas de trackDependency aparecen en la tabla `dependencies`.
 
 Si el [muestreo](./sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackDependency(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de dependencias segmentadas por componente de destino, use código como el siguiente:
 
@@ -695,7 +695,7 @@ Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un iden
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-En el [Explorador de métricas](../platform/metrics-charts.md), puede crear un gráfico que cuente los **Usuarios autenticados** y las **Cuentas de usuario**.
+En el [Explorador de métricas](../essentials/metrics-charts.md), puede crear un gráfico que cuente los **Usuarios autenticados** y las **Cuentas de usuario**.
 
 También puede [Buscar](./diagnostic-search.md) puntos de datos de cliente con cuentas y nombres de usuario específicos.
 
@@ -816,7 +816,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Mediciones y propiedades personalizadas en Analytics
 
-En [Analytics](../log-query/log-query-overview.md), las métricas y propiedades personalizadas aparecen en los atributos `customMeasurements` y `customDimensions` de cada registro de telemetría.
+En [Analytics](../logs/log-query-overview.md), las métricas y propiedades personalizadas aparecen en los atributos `customMeasurements` y `customDimensions` de cada registro de telemetría.
 
 Por ejemplo, si agregó una propiedad llamada "game" a la telemetría de solicitudes, esta consulta cuenta el número de apariciones de diferentes valores de "game" y muestra la media de la métrica personalizada "score":
 

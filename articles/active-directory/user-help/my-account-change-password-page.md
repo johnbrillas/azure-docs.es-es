@@ -9,21 +9,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1cfae18265dc00cda9fb66f7b9b5dbbdf6d64d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798200"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092390"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Cambio de la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña
 
 La página **Cambiar contraseña** del portal **Mi cuenta** le ayuda a actualizar una contraseña existente para su cuenta profesional o educativa, suponiendo que recuerde la contraseña y que no esté bloqueado en su cuenta. Si no recuerda la contraseña, si está bloqueado en la cuenta o nunca ha obtenido ninguna contraseña de su organización, puede usar la información de seguridad y el dispositivo móvil para restablecer la contraseña.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar una contraseña conocida para una cuenta profesional o educativa existente. Si es un usuario que intenta entrar en una cuenta personal, como Xbox, Hotmail.com o Outlook.com, pruebe las sugerencias del artículo [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Si es un administrador que intenta encontrar más información sobre cómo probar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte el [autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md).
+>Este artículo está destinado a los usuarios que intentan actualizar una contraseña conocida para una cuenta profesional o educativa existente. Si es un usuario que intenta entrar en una cuenta personal, como Xbox, Hotmail.com o Outlook.com, pruebe las sugerencias del artículo [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Si ve un error al iniciar sesión con un cuenta Microsoft personal, puede seguir iniciando sesión con el nombre de dominio de su organización (por ejemplo, contoso.com) o el **Id. de inquilino** de su organización desde el administrador en una de las siguientes direcciones URL:
+>
+>   - https://myaccount.microsoft.com?tenantId=*nombre_de_dominio*
+>   - https://myaccount.microsoft.com?tenant=*id_de_inquilino*
+>
+>Si es un administrador que intenta encontrar más información sobre cómo probar el autoservicio de restablecimiento de contraseña para los empleados u otros usuarios, consulte el [autoservicio de restablecimiento de contraseña](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Actualización de una contraseña desde la página Cambiar contraseña
 

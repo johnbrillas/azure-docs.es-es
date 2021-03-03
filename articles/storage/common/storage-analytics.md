@@ -9,18 +9,18 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a5ccaa95c8f29395770395076f75f36019a4355c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737688"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
 El análisis de Azure Storage realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento.
 
-Para utilizar Storage Analytics, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde [Azure Portal](https://portal.azure.com). Para saber más, vea [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) y [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) para habilitar Storage Analytics para cada servicio.
+Para utilizar Storage Analytics, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde [Azure Portal](https://portal.azure.com). Para saber más, vea [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Set Blob Service Properties](/rest/api/storageservices/set-blob-service-properties), [Set Queue Service Properties](/rest/api/storageservices/set-queue-service-properties), [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) y [Set File Service Properties](/rest/api/storageservices/Get-File-Service-Properties) para habilitar Storage Analytics para cada servicio.
 
 Los datos agregados se almacenan en un blob conocido (para el registro) y en tablas conocidas (para las métricas), a los que se puede tener acceso mediante las API de Blob service y de Table service.
 
@@ -46,6 +46,6 @@ Las solicitudes realizadas al servicio de almacenamiento de una cuenta son factu
 Al examinar los datos de Storage Analytics, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
+* [Supervisión de una cuenta de almacenamiento en Azure Portal](./manage-storage-analytics-logs.md)
 * [Métricas de Storage Analytics](storage-analytics-metrics.md)
 * [Registro de Storage Analytics](storage-analytics-logging.md)

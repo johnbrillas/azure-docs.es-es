@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390647"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
-> 
 > [!IMPORTANT]
-> A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión.
+> A partir del 30 de abril de 2019, ya no se admite la versión 1.2.* de la aplicación de orquestación de revisiones. Asegúrese de haber actualizado a la última versión. Las actualizaciones de VM, donde "Windows Update" aplica las revisiones del sistema operativo sin reemplazar el disco de este, no se admiten. 
 
 > [!NOTE]
-> Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado.
->
+> Las obtención de [actualizaciones de imágenes de sistema operativo automáticas en el conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) es el procedimiento recomendado para mantener el sistema operativo revisado en Azure. Las actualizaciones automáticas de imágenes del sistema operativo basadas en un conjunto de escalado de máquinas virtuales requieren una durabilidad Silver o superior en un conjunto de escalado. En los tipos de nodo con el nivel de durabilidad Bronce, no se admite; en este caso, use la aplicación de orquestación de revisiones.
 
- La aplicación de orquestación de revisiones (POA) es un contenedor alrededor del servicio Administrador de reparaciones de Azure Service Fabric, que habilita la programación de revisiones del sistema operativo basada en la configuración para clústeres que no están hospedados en Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante dominio de actualización para aplicar revisiones en los hosts de clúster de Service Fabric sin incurrir en tiempo de inactividad.
+La aplicación de orquestación de revisiones (POA) es un contenedor alrededor del servicio Administrador de reparaciones de Azure Service Fabric, que habilita la programación de revisiones del sistema operativo basada en la configuración para clústeres que no están hospedados en Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante dominio de actualización para aplicar revisiones en los hosts de clúster de Service Fabric sin incurrir en tiempo de inactividad.
 
 POA es una aplicación de Service Fabric que automatiza la instalación de revisiones de sistema operativo en un clúster de Service Fabric sin instalación en tiempo de inactividad.
 
@@ -63,7 +61,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.

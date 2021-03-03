@@ -1,5 +1,5 @@
 ---
-title: 'Pasos para agregar una asignación de roles: Azure RBAC'
+title: 'Pasos para asignar un rol de Azure: RBAC de Azure'
 description: Conozca los pasos para asignar roles de Azure a usuarios, grupos, entidades de servicio o identidades administradas mediante el control de acceso basado en roles de Azure (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117255"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556043"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Pasos para agregar una asignación de roles
+# <a name="steps-to-assign-an-azure-role"></a>Pasos para asignar un rol de Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En este artículo se describen los pasos de alto nivel para agregar una asignación de roles mediante [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), la [CLI de Azure](role-assignments-cli.md)o la [API de REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En este artículo se describen los pasos generales para asignar roles de Azure mediante [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), la [CLI de Azure](role-assignments-cli.md)o la [API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Paso 1: determinar quién necesita acceso
 
@@ -79,16 +79,16 @@ Para asignar roles, debe haber iniciado sesión con un usuario que tenga asignad
 
 Si la cuenta de usuario no tiene permisos para asignar un rol dentro de la suscripción, verá un mensaje de error indicando que su cuenta "no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write'". En este caso, póngase en contacto con los administradores de la suscripción, ya que ellos pueden asignar los permisos en su nombre.
 
-## <a name="step-5-add-role-assignment"></a>Paso 5. Agregar asignación de roles
+## <a name="step-5-assign-role"></a>Paso 5. Asignación de un rol
 
-Una vez que conozca la entidad de seguridad, el rol y el ámbito, podrá asignar el rol. Puede agregar asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST. Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Puede tener un máximo de **500** asignaciones de roles en cada grupo de administración.
+Una vez que conozca la entidad de seguridad, el rol y el ámbito, podrá asignar el rol. Puede asignar roles mediante Azure Portal, Azure PowerShell, la CLI de Azure, los SDK de Azure o las API REST. Puede tener hasta **2000** asignaciones de roles en cada suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Puede tener un máximo de **500** asignaciones de roles en cada grupo de administración.
 
-Consulte los artículos siguientes para obtener pasos detallados sobre cómo agregar asignaciones de roles.
+Consulte los artículos siguientes para conocer los pasos detallados sobre cómo asignar roles.
 
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](role-assignments-portal.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](role-assignments-powershell.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md)
+- [Asignación de roles de Azure mediante Azure Portal](role-assignments-portal.md)
+- [Asignación de roles de Azure mediante Azure PowerShell](role-assignments-powershell.md)
+- [Asignación de roles de Azure mediante la CLI de Azure](role-assignments-cli.md)
+- [Asignación de roles de Azure mediante la API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

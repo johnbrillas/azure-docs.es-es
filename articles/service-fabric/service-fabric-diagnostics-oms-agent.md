@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570141"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Supervisión del rendimiento con registros de Azure Monitor
 
@@ -91,6 +91,6 @@ Ahora que ha agregado el agente de Log Analytics, vaya al portal de Log Analytic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Recopile los [contadores de rendimiento](service-fabric-diagnostics-event-generation-perf.md) correspondientes. Para configurar el agente de Log Analytics para recopilar contadores de rendimiento específicos, revise [Configuración orígenes de datos](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/platform/alerts-overview.md) que ayuden a la detección y el diagnóstico.
+* Recopile los [contadores de rendimiento](service-fabric-diagnostics-event-generation-perf.md) correspondientes. Para configurar el agente de Log Analytics para recopilar contadores de rendimiento específicos, revise [Configuración orígenes de datos](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Configure los registros de Azure Monitor para configurar [alertas automáticas](../azure-monitor/alerts/alerts-overview.md) que ayuden a la detección y el diagnóstico.
 * Como alternativa, puede recopilar los contadores de rendimiento a través de la [extensión de Azure Diagnostics y enviarlos a Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).

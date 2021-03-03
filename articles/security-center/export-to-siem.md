@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3ddc385b9d489e0c2ab4abf35a6ade011970342b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791909"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572952"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Transmisión de alertas a una solución de administración de servicios de TI, SIEM o SOAR
 
@@ -63,22 +63,22 @@ Puede usar esta API para transmitir alertas del **inquilino completo** (y datos 
 - **Power BI** - [Conexión a la Microsoft Graph Security API en Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow** - [Instrucciones para instalar y configurar la aplicación de Microsoft Graph Security API desde el almacén de ServiceNow](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar** - [Módulo de compatibilidad de dispositivos de IBM para Azure Security Center a través de Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo Alto Networks** , **Anomali** , **Lookout** , **InSpark** , etc: [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, etc: [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Obtenga más información sobre Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Transmisión de alertas con Azure Monitor 
 
-Para transmitir alertas en **ArcSight** , **Splunk** , **SumoLogic** , servidores Syslog, **LogRhythm** , **plataforma de observabilidad de Logz.io Cloud** y otras soluciones de supervisión. Conecte Security Center con Azure monitor a través de Azure Event Hubs:
+Para transmitir alertas en **ArcSight**, **Splunk**, **SumoLogic**, servidores Syslog, **LogRhythm**, **plataforma de observabilidad de Logz.io Cloud** y otras soluciones de supervisión. Conecte Security Center con Azure monitor a través de Azure Event Hubs:
 
 1. Habilite la [exportación continua](continuous-export.md) para transmitir alertas de Security Center a una instancia dedicada de Azure Event Hubs en el nivel de suscripción. 
     > [!TIP]
     > Para hacer esto en el nivel de grupo de administración mediante Azure Policy, consulte [Creación de configuraciones de automatización de exportación continua a gran escala](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies).
 
-1. [Conecte la instancia de Azure Event Hubs a su solución preferida mediante los conectores integrados de Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+1. [Conecte la instancia de Azure Event Hubs a su solución preferida mediante los conectores integrados de Azure Monitor](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
-1. También puede transmitir los registros sin procesar a la instancia de Azure Event Hubs y conectarse a su solución preferida. Obtenga más información en [Datos de supervisión disponibles](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available).
+1. También puede transmitir los registros sin procesar a la instancia de Azure Event Hubs y conectarse a su solución preferida. Obtenga más información en [Datos de supervisión disponibles](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 
 > [!TIP]
 > Para ver los esquemas de eventos de los tipos de datos exportados, visite el artículo sobre los [esquemas de eventos del centro de eventos](https://aka.ms/ASCAutomationSchemas).

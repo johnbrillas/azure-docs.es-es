@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 30c7e6b1412373cf3bfe1c511206aa4b916bf1ee
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091670"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557496"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -80,7 +80,7 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
 1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](role-assignments-portal.md). Si usa Privileged Identity Management, consulte [Detección de recursos de Azure para administrar](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Para obtener más información sobre la asignación de roles, consulte [Asignaciones de roles de Azure mediante Azure Portal](role-assignments-portal.md). Si usa Privileged Identity Management, consulte [Detección de recursos de Azure para administrar](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) o [Asignación de roles de recursos de Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. Siga los pasos de la sección siguiente para quitar el acceso con privilegios elevados.
 
@@ -149,7 +149,7 @@ Para quitarse a usted o a otro usuario la asignación del rol de administrador d
 
 Utilice los siguientes pasos básicos para elevar los privilegios de acceso de un administrador global mediante la CLI de Azure.
 
-1. Use el comando [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) para llamar al punto de conexión `elevateAccess`, que le concede el rol de administrador de accesos de usuario en el ámbito raíz (`/`).
+1. Use el comando [az rest](/cli/azure/reference-index#az_rest) para llamar al punto de conexión `elevateAccess`, que le concede el rol de administrador de accesos de usuario en el ámbito raíz (`/`).
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -157,7 +157,7 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
 
 1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles mediante la CLI de Azure](role-assignments-cli.md).
+    Para obtener más información sobre la asignación de roles, consulte [Asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md).
 
 1. Siga los pasos de una sección posterior para quitar el acceso con privilegios elevados.
 
@@ -213,7 +213,7 @@ Utilice los siguientes pasos básicos para elevar los privilegios de acceso de u
 
 1. Haga los cambios que tenga que hacer con privilegios de acceso elevados.
 
-    Para más información sobre la asignación de roles, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md).
+    Para obtener más información sobre la asignación de roles, consulte [Asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md).
 
 1. Siga los pasos de una sección posterior para quitar el acceso con privilegios elevados.
 
@@ -330,4 +330,4 @@ Cuando llama a `elevateAccess`, se crea una asignación de roles para usted, por
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de los distintos roles](rbac-and-directory-admin-roles.md)
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](role-assignments-rest.md)
+- [Asignación de roles de Azure mediante la API REST](role-assignments-rest.md)

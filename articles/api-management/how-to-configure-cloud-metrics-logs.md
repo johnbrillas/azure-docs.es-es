@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254541"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574059"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas en la nube para la puerta de enlace autohospedada de Azure API Management
 
@@ -32,10 +32,10 @@ La característica se puede habilitar o deshabilitar con la clave `telemetry.met
 
 | Campo  | Valor predeterminado | Descripción |
 | ------------- | ------------- | ------------- |
-| telemetry.metrics.cloud  | `true` | Habilita el registro mediante Azure Monitor. El valor puede ser `true` o `false`. |
+| telemetry.metrics.cloud  | `true` | Habilita el registro mediante Azure Monitor. El valor puede ser `true`, `false`. |
 
 
-A continuación se muestra una configuración de ejemplo:
+A continuación se muestra un ejemplo de configuración:
 
 ```yaml
     apiVersion: v1
@@ -59,7 +59,7 @@ La puerta de enlace autohospedada actualmente emite las siguientes métricas a t
 
 Actualmente, la puerta de enlace autohospedada no envía [registros de diagnóstico](./api-management-howto-use-azure-monitor.md#activity-logs) a la nube. Sin embargo, es posible [configurar y conservar los registros localmente](how-to-configure-local-metrics-logs.md) donde se implementa la puerta de enlace autohospedada. 
 
-Si una puerta de enlace está implementada en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), puede habilitar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) para recopilar registros de los contenedores y verlos en Log Analytics. 
+Si una puerta de enlace está implementada en [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), puede habilitar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) para recopilar registros de los contenedores y verlos en Log Analytics. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

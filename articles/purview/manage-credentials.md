@@ -1,32 +1,34 @@
 ---
 title: Creación y administración de credenciales para exámenes
-description: En este artículo se explican los pasos para crear y administrar credenciales en Azure Purview.
+description: Conozca los pasos necesarios para crear y administrar credenciales en Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.openlocfilehash: 4c964f3661e120026189a75d331e6db975b41c70
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.date: 02/11/2021
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756082"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673521"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
-En este artículo se describe cómo se pueden crear credenciales en Azure Purview para reutilizar y aplicar rápidamente la información de autenticación guardada a los exámenes de orígenes de datos.
+En este artículo se describe cómo se pueden crear credenciales en Azure Purview. Estas credenciales guardadas le permiten volver a usar y aplicar rápidamente la información de autenticación guardada a los exámenes del origen de datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un almacén de claves de Azure. Para aprender a crear una, consulte el [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../key-vault/general/quick-create-portal.md).
+- Un almacén de claves de Azure. Para aprender a crear una, consulte el [Inicio rápido: Creación de un almacén de claves mediante Azure Portal](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Introducción
-Una credencial es información de autenticación que Azure Purview usa para la autenticación en los orígenes de datos registrados. Se puede crear un objeto de credencial para varios tipos de escenarios de autenticación (como la autenticación básica con nombre de usuario y contraseña). Capturará la información específica necesaria según el tipo de método de autenticación elegido. Las credenciales usan los secretos existentes de Azure Key Vault para recuperar información confidencial de autenticación durante el proceso de creación de la credencial.
 
-## <a name="using-purview-managed-identity-to-set-up-scans"></a>Uso de la identidad administrada de Purview para configurar exámenes
-Si usa la identidad administrada de Purview para configurar exámenes, no tendrá que crear explícitamente una credencial y vincular el almacén de claves a Purview para almacenarlos. Para instrucciones detalladas sobre cómo agregar la identidad administrada de Purview para acceder y examinar orígenes de datos, consulte las secciones de autenticación específicas para los orígenes de datos siguientes:
+Una credencial es información de autenticación que Azure Purview puede usar para autenticarse en los orígenes de datos registrados. Se puede crear un objeto de credencial para varios tipos de escenarios de autenticación, como la autenticación básica que requiere el nombre de usuario y la contraseña. La credencial captura información específica necesaria para autenticarse, en función del tipo de método de autenticación elegido. Las credenciales usan los secretos existentes de Azure Key Vault para recuperar información confidencial de autenticación durante el proceso de creación de la credencial.
+
+## <a name="use-purview-managed-identity-to-set-up-scans"></a>Uso de una identidad administrada de Purview para configurar exámenes
+
+Si usa la identidad administrada de Purview para configurar exámenes, no tendrá que crear explícitamente una credencial y vincular el almacén de claves a Purview para almacenarlos. Para encontrar instrucciones detalladas sobre cómo agregar la identidad administrada de Purview para acceder a los orígenes de datos y examinarlos, consulte a continuación las secciones de autenticación específicas de los orígenes de datos:
 
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
@@ -39,59 +41,79 @@ Si usa la identidad administrada de Purview para configurar exámenes, no tendr�
 
 Para crear una credencial, primero debe asociar una o varias de las instancias de Azure Key Vault existentes a su cuenta de Azure Purview.
 
-1. En el menú de navegación de Azure Purview, vaya al centro de administración y, después, a las credenciales.
+1. En [Azure Portal](https://portal.azure.com), seleccione la cuenta de Azure Purview. Vaya a **Management Center** (Centro de administración) y, luego, a **Credentiales** (Credenciales).
 
-2. En la barra de comandos de Credentials (Credenciales), seleccione Manage Key Vault connections (Administrar conexiones de Key Vault)
+2. En la página **Credentials** (Credenciales), seleccione **Manage Key Vault connections** (Administrar conexiones de Key Vault).
 
-    :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Administración de las conexiones de AKV.":::
+   :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Administración de conexiones de Azure Key Vault":::
 
-3. Seleccione + New (+ Nuevo) en el panel Manage Key Vault connections (Administrar conexiones de Key Vault). 
+3. Seleccione **+ New** (+ Nuevo) en la página Manage Key Vault connections (Administrar conexiones de Key Vault).
 
-4. Rellene la información necesaria y seleccione Create (Crear).
+4. Rellene la información necesaria y seleccione **Create** (Crear).
 
-5. Confirme que el almacén de claves se ha asociado correctamente a la cuenta de Azure Purview.
+5. Confirme que el almacén de claves se ha asociado correctamente a la cuenta de Azure Purview, como se muestra en este ejemplo:
 
-    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="Visualización de las conexiones de AKV.":::
+   :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="Vista de conexiones de Azure Key Vault para confirmar.":::
 
 ## <a name="grant-the-purview-managed-identity-access-to-your-azure-key-vault"></a>Concesión de acceso a la identidad administrada de Purview a la instancia de Azure Key Vault
 
-Vaya al almacén de claves -> Directivas de acceso -> Agregar directiva de acceso. Conceda el permiso Obtener de la lista desplegable Permisos de los secretos y establezca Seleccionar la entidad de seguridad en Purview MSI. 
+1. Vaya a Azure Key Vault.
 
-:::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Incorporación de Purview MSI a AKV.":::
+2. Seleccione la página **Directivas de acceso**.
 
+3. Seleccione **Agregar directiva de acceso**.
 
-:::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Agregar directiva de acceso":::
+   :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Incorporación de Purview MSI a AKV.":::
 
+4. En el menú desplegable **Secrets permissions** (Permisos de secretos), seleccione los permisos **Obtener** y **Enumerar**.
 
-:::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Guardado de la directiva de acceso.":::
+5. En **Seleccionar la entidad de seguridad**, elija la identidad administrada de Purview. Puede buscar el MSI de Purview con el nombre de la instancia de Purview **o** el identificador de aplicación de la identidad administrada. Actualmente no se admiten identidades compuestas (nombre de identidad administrada + identificador de la aplicación).
+
+   :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Agregar directiva de acceso":::
+
+6. Seleccione **Agregar**.
+
+7. Seleccione **Guardar** para guardar la directiva de acceso.
+
+   :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Guardado de la directiva de acceso.":::
 
 ## <a name="create-a-new-credential"></a>Creación de una credencial
 
-Tipos de credenciales que admite Purview a día de hoy:
-* Autenticación básica: agregará la **contraseña** como secreto al almacén de claves.
-* Entidad de servicio: agregará la **clave de entidad de servicio** como secreto al almacén de claves. 
-* Autenticación de SQL: agregará la **contraseña** como secreto al almacén de claves.
-* Clave de cuenta: agregará la **clave de cuenta** como secreto al almacén de claves.
+Estos tipos de credenciales se admiten en Purview:
 
-Para más información, consulte [Incorporación de un secreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+- Autenticación básica: se agrega la **contraseña** como un secreto en el almacén de claves.
+- Entidad de servicio: se agrega la **clave de entidad de servicio** como un secreto en el almacén de claves.
+- Autenticación de SQL: se agrega la **contraseña** como un secreto en el almacén de claves.
+- Clave de cuenta: se agrega la **clave de cuenta** como un secreto en el almacén de claves.
+- ARN de rol: en los orígenes de datos de Amazon S3, agregue su **ARN de rol** en AWS. 
 
-Después de almacenar los secretos en el almacén de claves, ya puede crear la nueva credencial; para ello, seleccione + New (+ Nuevo) en la barra de comandos de Credentials (Credenciales). Proporcione la información necesaria, incluida la selección del método de autenticación y la instancia de Key Vault de donde seleccionar el secreto. Una vez rellenos todos los detalles, haga clic en Create (Crear).
+Para más información, consulte [Incorporación de un secreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) y [Creación de un rol de AWS para Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
-:::image type="content" source="media/manage-credentials/new-credential.png" alt-text="Nueva credencial.":::
+Después de almacenar los secretos en el almacén de claves:
 
-Compruebe que la nueva credencial aparece en la vista de la lista de credenciales y está lista para usarse.
+1. En Azure Purview, vaya a la página Credentials (Credenciales).
 
-:::image type="content" source="media/manage-credentials/view-credentials.png" alt-text="Visualización de la credencial.":::
+2. Cree la credencial seleccionando **+ New** (+ Nuevo).
+
+3. Proporcione la información necesaria. Seleccione el **método de autenticación** y una **conexión a Key Vault** desde la que seleccionar un secreto.
+
+4. Una vez rellenados todos los detalles, seleccione **Create** (Crear).
+
+   :::image type="content" source="media/manage-credentials/new-credential.png" alt-text="Nueva credencial.":::
+
+5. Compruebe que la nueva credencial aparece en la vista de lista y que está preparada para usarse.
+
+   :::image type="content" source="media/manage-credentials/view-credentials.png" alt-text="Visualización de la credencial.":::
 
 ## <a name="manage-your-key-vault-connections"></a>Administración de las conexiones del almacén de claves
 
 1. Busque las conexiones del almacén de claves por el nombre.
 
-    :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Búsqueda del almacén de claves":::
+   :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Búsqueda del almacén de claves":::
 
-1. Elimine una o más conexiones de almacén de claves.
- 
-    :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Eliminar el almacén de claves":::
+2. Elimine una o más conexiones de almacén de claves.
+
+   :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Eliminar el almacén de claves":::
 
 ## <a name="manage-your-credentials"></a>Administración de las credenciales
 
@@ -100,3 +122,7 @@ Compruebe que la nueva credencial aparece en la vista de la lista de credenciale
 2. Seleccione y actualice una credencial existente.
 
 3. Elimine una o varias credenciales.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md)

@@ -4,16 +4,16 @@ description: Analice el uso y el rendimiento de la aplicación de escritorio de 
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15331494b40021f10c162fba75abf6fe88d2d419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827876"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583313"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows clásicas
 
-Las aplicaciones hospedadas en el entorno local, en Azure y en otras nubes pueden aprovechar las ventajas de Application Insights. La única limitación es la necesidad de [permitir la comunicación](./ip-addresses.md) al servicio de Application Insights. Para supervisar las aplicaciones de la Plataforma universal de Windows (UWP), se recomienda [Visual Studio App Center](../learn/mobile-center-quickstart.md).
+Las aplicaciones hospedadas en el entorno local, en Azure y en otras nubes pueden aprovechar las ventajas de Application Insights. La única limitación es la necesidad de [permitir la comunicación](./ip-addresses.md) al servicio de Application Insights. Para supervisar las aplicaciones de la Plataforma universal de Windows (UWP), se recomienda [Visual Studio App Center](../app/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar datos de telemetría a Application Insights desde una aplicación Windows clásica
 1. En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](./create-new-resource.md). 
@@ -177,6 +177,6 @@ namespace WindowsFormsApp2
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un panel](./overview-dashboard.md)
 * [Búsqueda de diagnóstico](./diagnostic-search.md)
-* [Exploración de métricas](../platform/metrics-charts.md)
-* [Escribir consultas de Analytics](../log-query/log-query-overview.md)
+* [Exploración de métricas](../essentials/metrics-charts.md)
+* [Escribir consultas de Analytics](../logs/log-query-overview.md)
 

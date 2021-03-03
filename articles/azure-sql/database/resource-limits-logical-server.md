@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492405"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691236"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Límites de recursos para los servidores de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ En este artículo se proporciona información general sobre los límites de recu
 
 ## <a name="maximum-resource-limits"></a>Límites de recursos máximos
 
-| Recurso | Límite |
+| Resource | Límite |
 | :--- | :--- |
 | Bases de datos por servidor | 5000 |
 | Número predeterminado de servidores por suscripción en cualquier región | 20 |
@@ -70,7 +70,7 @@ Al encontrar un uso elevado de espacio, las opciones de mitigación incluyen:
 - Aumentar el tamaño máximo de la base de datos o del grupo elástico, o agregar más almacenamiento. Consulte [Scale single database resources](single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Si la base de datos está en un grupo elástico, se puede mover fuera del grupo para que su espacio de almacenamiento no se comparta con otras bases de datos.
 - Reduzca una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
-- Compruebe si el uso elevado de espacio se debe a un pico en el tamaño del almacén de versiones persistentes (PVS). PVS es una parte de cada base de datos y se utiliza para implementar la [recuperación acelerada de la base de datos](../accelerated-database-recovery.md). Para determinar el tamaño actual del PVS, consulte [Solución de problemas de PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo común para un tamaño grande de PVS es una transacción abierta durante mucho tiempo (horas), lo que impide la limpieza de versiones anteriores en PVS.
+- Compruebe si el uso elevado de espacio se debe a un pico en el tamaño del almacén de versiones persistentes (PVS). PVS es una parte de cada base de datos y se utiliza para implementar la [recuperación acelerada de la base de datos](../accelerated-database-recovery.md). Para determinar el tamaño actual del PVS, consulte [Solución de problemas de PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Un motivo común para un tamaño grande de PVS es una transacción abierta durante mucho tiempo (horas), lo que impide la limpieza de versiones anteriores en PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sesiones y trabajos (solicitudes)
 
@@ -106,11 +106,11 @@ Cuando aparecen errores de memoria insuficiente, las opciones de mitigación inc
 
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabajo de usuario y procesos internos
 
-El consumo de CPU y memoria de las cargas de trabajo de usuario en cada base de datos se indica en las vistas [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en las columnas `avg_cpu_percent` y `avg_memory_usage_percent`. En el caso de los grupos elásticos, el consumo de recursos de nivel de grupo se indica en la vista [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). El consumo de CPU de la carga de trabajo de usuario también se indica a través de la métrica de Azure Monitor `cpu_percent`, para [bases de datos únicas](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) y [grupos elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) en el nivel de grupo.
+El consumo de CPU y memoria de las cargas de trabajo de usuario en cada base de datos se indica en las vistas [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en las columnas `avg_cpu_percent` y `avg_memory_usage_percent`. En el caso de los grupos elásticos, el consumo de recursos de nivel de grupo se indica en la vista [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). El consumo de CPU de la carga de trabajo de usuario también se indica a través de la métrica de Azure Monitor `cpu_percent`, para [bases de datos únicas](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) y [grupos elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) en el nivel de grupo.
 
 Azure SQL Database requiere recursos de proceso para implementar características de servicio principales, como alta disponibilidad y recuperación ante desastres, copia de seguridad y restauración de bases de datos, supervisión, Almacén de consultas, ajuste automático, etc. El sistema reserva una parte limitada de los recursos generales para estos procesos internos mediante mecanismos de [Regulación de recursos](#resource-governance), lo que permite que el resto de los recursos estén disponibles para las cargas de trabajo de usuario. A veces, cuando los procesos internos no usan recursos de proceso, el sistema los pone a disposición de las cargas de trabajo de usuario.
 
-El consumo total de CPU y memoria de las cargas de trabajo de usuario y de los procesos internos se indica en las vistas [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en las columnas `avg_instance_cpu_percent` y `avg_instance_memory_percent`. Estos datos también se indican a través de las métricas de Azure Monitor `sqlserver_process_core_percent` y `sqlserver_process_memory_percent` para [bases de datos únicas](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) y [grupos elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) en el nivel de grupo.
+El consumo total de CPU y memoria de las cargas de trabajo de usuario y de los procesos internos se indica en las vistas [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en las columnas `avg_instance_cpu_percent` y `avg_instance_memory_percent`. Estos datos también se indican a través de las métricas de Azure Monitor `sqlserver_process_core_percent` y `sqlserver_process_memory_percent` para [bases de datos únicas](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) y [grupos elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) en el nivel de grupo.
 
 En las vistas [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) y [sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database), se muestra un desglose más detallado del consumo reciente de recursos por parte de cargas de trabajo de usuario y procesos internos. Para obtener más información sobre los grupos de recursos y los grupos de cargas de trabajo a los que se hace referencia en estas vistas, consulte [Regulación de recursos](#resource-governance). Estas vistas informan sobre el uso de recursos por parte de cargas de trabajo de usuario y procesos internos específicos en los grupos de recursos y grupos de cargas de trabajo asociados.
 

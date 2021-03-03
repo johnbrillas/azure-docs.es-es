@@ -1,14 +1,14 @@
 ---
-title: Implementación de Azure VMware Solution
-description: Pasos para implementar Azure VMware Solution mediante Azure Portal.
+title: Creación de una nube privada de Azure VMware Solution
+description: Pasos para crear una nube privada de Azure VMware Solution mediante Azure Portal.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725411"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "91578329"
    | **Nombre del recurso** | Nombre de la nube privada de Azure VMware Solution. |
    | **SKU** | Seleccione el valor de SKU siguiente: AV36 |
    | **Hosts** | Número de hosts que se van a agregar al clúster de nube privada. El valor predeterminado es 3, que se puede aumentar o reducir después de la implementación.  |
-   | **Contraseña del administrador de vCenter** | Escriba una contraseña de administrador de la nube. |
-   | **Contraseña de administrador de NSX-T** | Escriba una contraseña de administrador de NSX-T. |
    | **Bloque de direcciones** | Escriba un bloque de direcciones IP para la red CIDR para la nube privada; por ejemplo, 10.175.0.0/22. |
    | **Virtual Network** | Seleccione una red virtual o cree una nueva para la nube privada de Azure VMware Solution.  |
 
@@ -40,4 +38,4 @@ ms.locfileid: "91578329"
 
 1. Comprobación de que la implementación se ha realizado correctamente. Navegue hasta el grupo de recursos que creó y seleccione la nube privada.  Una vez que se haya completado la implementación, se mostrará el estado **Correcto**. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="En la pestaña Básico, escriba los valores de los campos." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Comprobación de que la implementación se ha realizado correctamente." border="true":::

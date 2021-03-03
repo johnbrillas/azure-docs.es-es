@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8ed21d8689bf5340c1bde0a7f782bb8614f7cf11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700208"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Acerca de Azure Cloud Services (soporte extendido)
 
@@ -21,7 +21,7 @@ ms.locfileid: "98762824"
 > Cloud Services (soporte extendido) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cloud Services (soporte extendido) es un nuevo modelo de implementación basado en  [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) del producto  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), y se encuentra actualmente en versión preliminar pública. Cloud Services (soporte extendido) tiene la ventaja principal de proporcionar resistencia regional junto con la paridad de características con Azure Cloud Services implementado mediante Azure Service Manager. También ofrece algunas funcionalidades de ARM como el control de acceso basado en rol (RBAC), etiquetas y directivas, y admite plantillas de implementación.  
+Cloud Services (soporte extendido) es un nuevo modelo de implementación basado en  [Azure Resource Manager](../azure-resource-manager/management/overview.md) del producto  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), y se encuentra actualmente en versión preliminar pública. Cloud Services (soporte extendido) tiene la ventaja principal de proporcionar resistencia regional junto con la paridad de características con Azure Cloud Services implementado mediante Azure Service Manager. También ofrece algunas funcionalidades de ARM como el control de acceso basado en rol (RBAC), etiquetas y directivas, y admite plantillas de implementación.  
 
 Con este cambio, el modelo de implementación basado en Azure Service Manager para Cloud Services pasará a llamarse [Cloud Services (clásico)](../cloud-services/cloud-services-choose-me.md). Conservará la capacidad de compilar e implementar rápidamente sus aplicaciones y servicios web y en la nube. Podrá escalar su infraestructura de servicios en la nube en función de la demanda actual y garantizar que se mantiene el rendimiento de sus aplicaciones al tiempo que se reducen los costes.  
 
@@ -41,11 +41,11 @@ Se requieren cambios mínimos en los archivos de configuración de servicios (.c
 
 Las principales diferencias entre Cloud Services (clásico) y Cloud Services (soporte extendido) con respecto a la implementación son las siguientes: 
 
-- Las implementaciones de Azure Resource Manager usan [plantillas de ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), que son un archivo JSON (notación de objetos JavaScript) que define tanto la infraestructura como la configuración de un proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. El archivo de configuración del servicio y de definición del servicio deben ser coherentes con la [plantilla de ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) al implementar Cloud Services (soporte extendido). Para ello, se puede [crear manualmente la plantilla de ARM](deploy-template.md) o utilizar [PowerShell](deploy-powershell.md), [Portal](deploy-portal.md) y [Visual Studio](deploy-visual-studio.md).  
+- Las implementaciones de Azure Resource Manager usan [plantillas de ARM](../azure-resource-manager/templates/overview.md), que son un archivo JSON (notación de objetos JavaScript) que define tanto la infraestructura como la configuración de un proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. El archivo de configuración del servicio y de definición del servicio deben ser coherentes con la [plantilla de ARM](../azure-resource-manager/templates/overview.md) al implementar Cloud Services (soporte extendido). Para ello, se puede [crear manualmente la plantilla de ARM](deploy-template.md) o utilizar [PowerShell](deploy-powershell.md), [Portal](deploy-portal.md) y [Visual Studio](deploy-visual-studio.md).  
 
-- Los clientes deben usar [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) para [administrar certificados en Cloud Services (soporte extendido)](certificates-and-key-vault.md). Azure Key Vault le permite almacenar y administrar de forma segura las credenciales de la aplicación, como secretos, claves y certificados, en un repositorio central y seguro en la nube. Asimismo, las aplicaciones pueden autenticarse en Key Vault en tiempo de ejecución para recuperar las credenciales. 
+- Los clientes deben usar [Azure Key Vault](../key-vault/general/overview.md) para [administrar certificados en Cloud Services (soporte extendido)](certificates-and-key-vault.md). Azure Key Vault le permite almacenar y administrar de forma segura las credenciales de la aplicación, como secretos, claves y certificados, en un repositorio central y seguro en la nube. Asimismo, las aplicaciones pueden autenticarse en Key Vault en tiempo de ejecución para recuperar las credenciales. 
 
-- Todos los recursos implementados a través de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) deben estar dentro de una red virtual. Las redes virtuales y las subredes se crean en Azure Resource Manager con las API de Azure Resource Manager existentes y se debe hacer referencia a ellas en la sección NetworkConfiguration de .cscfg al implementar Cloud Services (soporte extendido).   
+- Todos los recursos implementados a través de [Azure Resource Manager](../azure-resource-manager/templates/overview.md) deben estar dentro de una red virtual. Las redes virtuales y las subredes se crean en Azure Resource Manager con las API de Azure Resource Manager existentes y se debe hacer referencia a ellas en la sección NetworkConfiguration de .cscfg al implementar Cloud Services (soporte extendido).   
 
 - Cada servicio de Cloud Services (soporte extendido) es una única implementación independiente. Cloud Services (soporte extendido) no admite varias ranuras dentro de un único servicio en la nube.  
     - La capacidad de intercambio de VIP<sup>*</sup> se puede utilizar para intercambiar entre dos servicios de Cloud Services (soporte extendido). Para probar y ensayar una nueva versión de un servicio en la nube, implemente un servicio de Cloud Services (soporte extendido) y etiquételo como "con intercambio de VIP" con otro servicio de Cloud Services (soporte extendido)  
@@ -57,13 +57,13 @@ Las principales diferencias entre Cloud Services (clásico) y Cloud Services (so
 
 ## <a name="migration-to-azure-resource-manager"></a>Migración a Azure Resource Manager
 
-Cloud Services (soporte extendido) proporciona dos rutas de acceso para migrar desde [Azure Service Manager](https://docs.microsoft.com/powershell/azure/servicemanagement/overview?view=azuresmps-4.0.0&preserve-view=true ) a [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+Cloud Services (soporte extendido) proporciona dos rutas de acceso para migrar desde [Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) a [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Los clientes implementan servicios en la nube directamente en Azure Resource Manager y, a continuación, eliminan el antiguo servicio en la nube en Azure Service Manager. 
 2) La migración en contexto permite migrar Cloud Services (clásico) con un tiempo de inactividad mínimo o nulo a Cloud Services (soporte extendido). 
 
 ### <a name="additional-migration-options"></a>Opciones de migración adicionales
 
-Al evaluar los planes de migración de Cloud Services (clásico) a Cloud Services (soporte extendido), es posible que desee investigar otros servicios de Azure, como: [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [App Service](https://docs.microsoft.com/azure/app-service/overview), [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes) y [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). Estos servicios seguirán incorporando funcionalidades adicionales, mientras que Cloud Services (soporte extendido) mantendrá principalmente la paridad de características con Cloud Services (clásico). 
+Al evaluar los planes de migración de Cloud Services (clásico) a Cloud Services (soporte extendido), es posible que desee investigar otros servicios de Azure, como: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](../aks/intro-kubernetes.md) y [Azure Service Fabric](../service-fabric/service-fabric-overview.md). Estos servicios seguirán incorporando funcionalidades adicionales, mientras que Cloud Services (soporte extendido) mantendrá principalmente la paridad de características con Cloud Services (clásico). 
 
 En función de la aplicación, Cloud Services (soporte extendido) puede requerir menos esfuerzo para pasar a Azure Resource Manager en comparación con otras opciones. Si la aplicación no evoluciona, Cloud Services (soporte extendido) es una opción viable para tener en cuenta, ya que proporciona una ruta de migración rápida. Por el contrario, si la aplicación evoluciona continuamente y necesita un conjunto de características más moderno, explore otros servicios de Azure para abordar mejor sus requisitos actuales y futuros. 
 

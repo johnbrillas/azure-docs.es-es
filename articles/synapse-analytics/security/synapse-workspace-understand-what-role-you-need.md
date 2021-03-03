@@ -1,19 +1,19 @@
 ---
 title: Descripción de los roles necesarios para realizar tareas comunes en Synapse
 description: En este artículo se describen los roles RBAC de Synapse integrados que se necesitan para realizar tareas específicas.
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109800"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384459"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Descripción de los roles necesarios para realizar tareas comunes en Synapse
 
@@ -87,7 +87,7 @@ Ver los registros de la ejecución del cuaderno y el trabajo |Operador de proces
 Cancelar cualquier trabajo del cuaderno o de Spark que se ejecute en un grupo de Apache Spark|Operador de proceso de Synapse en el grupo de Apache Spark.|bigDataPools/useCompute
 Crear un cuaderno o una definición de trabajo|Usuario de Synapse o </br>propietario, colaborador o lector de Azure en el área de trabajo</br> *Se requieren permisos adicionales para ejecutar, publicar o confirmar cambios*|leer</br></br></br></br></br> 
 Mostrar y abrir una definición de trabajo o un cuaderno publicado, incluida la revisión de las salidas guardadas|Usuario o editor de artefactos de Synapse, colaborador de Synapse en el área de trabajo|artefactos/lectura
-Ejecutar un cuaderno y revisar su salida|Administrator de Apache Spark de Synapse, operador de proceso de Synapse en el grupo de Apache Spark seleccionado|bigDataPools/useCompute 
+Ejecutar un cuaderno y revisar su salida, o bien enviar un trabajo de Spark|Administrator de Apache Spark de Synapse, operador de proceso de Synapse en el grupo de Apache Spark seleccionado|bigDataPools/useCompute 
 Publicar o eliminar una definición de trabajo o un cuaderno (incluida la salida) en el servicio|Editor de artefactos en el área de trabajo, administrador de Apache Spark de Synapse|cuadernos/escritura, eliminación
 Confirmar cambios en una definición de trabajo o un cuaderno en el repositorio de Git|Permisos de Git|ninguno
 CANALIZACIONES, ENTORNOS DE EJECUCIÓN, FLUJOS DE DATOS, CONJUNTOS DE DATOS Y DESENCADENADORES|

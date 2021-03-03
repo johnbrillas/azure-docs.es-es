@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707853"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579028"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Métricas de supervisión en Azure Database for PostgreSQL: Servidor flexible
 
@@ -21,7 +21,7 @@ ms.locfileid: "91707853"
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
-Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un [historial de hasta 93 días](../../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). Puede configurar alertas en las métricas. Otras opciones incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivado del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../../azure-monitor/platform/data-platform-metrics.md).
+Azure Database for PostgreSQL proporciona diversas métricas que proporcionan información sobre el comportamiento de los recursos que admiten el servidor PostgreSQL. Cada métrica se emite con una frecuencia de un minuto y tiene un [historial de hasta 93 días](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). Puede configurar alertas en las métricas. Otras opciones incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivado del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Las métricas siguientes están disponibles para el servidor flexible de PostgreSQL:

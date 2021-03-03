@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: edf48bc75817b3510264d852eb9cc717ed022f33
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915483"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379692"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -56,7 +56,7 @@ En el archivo POM, haga referencia al paquete `azure-communication-chat` con las
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -66,9 +66,8 @@ Para la autenticación, el cliente debe hacer referencia al paquete `azure-commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
-
 ```
 
 ## <a name="object-model"></a>Modelo de objetos
@@ -83,7 +82,7 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 | ChatThreadAsyncClient | Esta clase es necesaria para la funcionalidad de subproceso de chat asincrónica. Obtiene una instancia de a través de la clase ChatAsyncClient y la usa para enviar, recibir, actualizar o eliminar mensajes, agregar, quitar u obtener usuarios, enviar notificaciones de escritura y confirmaciones de lectura. |
 
 ## <a name="create-a-chat-client"></a>Creación de un cliente de chat
-Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Los tokens de acceso de usuario permiten compilar aplicaciones cliente que se autentiquen directamente en Azure Communication Services. Después de generar estos tokens en el servidor, vuelva a pasarlos a un dispositivo cliente. Debe usar la clase CommunicationUserCredential de la biblioteca de cliente común para pasar el token al cliente de chat. 
+Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos. Los tokens de acceso de usuario permiten compilar aplicaciones cliente que se autentiquen directamente en Azure Communication Services. Después de generar estos tokens en el servidor, vuelva a pasarlos a un dispositivo cliente. Debe usar la clase CommunicationTokenCredential de la biblioteca de cliente común para pasar el token al cliente de chat. 
 
 Al agregar las instrucciones de importación, asegúrese de agregar solo las importaciones de los espacios de nombres com.azure.communication.chat y com.azure.communication.chat.models, y no del espacio de nombres com.azure.communication.chat.implementation. En el archivo App.java que se generó a través de Maven, puede usar el código siguiente para empezar con:
 
@@ -112,8 +111,8 @@ public class App
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
 
-        // Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
-        CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+        // Create a CommunicationTokenCredential with the given access token, which is only valid until the token is valid
+        CommunicationTokenCredential userCredential = new CommunicationTokenCredential(userAccessToken);
 
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
@@ -132,27 +131,27 @@ Use el método `createChatThread` para crear un subproceso de chat.
 `createChatThreadOptions` se usa para describir la solicitud de subproceso.
 
 - Use `topic` para proporcionar un tema a este chat; el tema puede actualizarse después de crear el subproceso de chat mediante la función `UpdateThread`.
-- Use `members` para enumerar los miembros del subproceso que se van a agregar al subproceso. `ChatThreadMember` toma el usuario que ha creado en el inicio rápido de [Token de acceso de usuario](../../access-tokens.md).
+- Use `participants` para enumerar los participantes de la conversación que se van a agregar a la misma. `ChatParticipant` toma el usuario que ha creado en el inicio rápido de [Token de acceso de usuario](../../access-tokens.md).
 
-La respuesta `chatThreadClient` se usa para realizar operaciones en el subproceso de chat creado: agregar miembros al subproceso de chat, enviar o eliminar un mensaje, etc. Contiene una propiedad `chatThreadId` que es el id. único del subproceso de chat. La propiedad es accesible para el método público .getChatThreadId().
+La respuesta `chatThreadClient` se usa para realizar operaciones en el subproceso de chat creado: agregar participantes a la conversación del chat, enviar o eliminar un mensaje, etc. Contiene una propiedad `chatThreadId` que es el id. único del subproceso de chat. La propiedad es accesible para el método público .getChatThreadId().
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(firstUser)
-    .setDisplayName("Member Display Name 1");
+    .setDisplayName("Participant Display Name 1");
     
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(secondUser)
-    .setDisplayName("Member Display Name 2");
+    .setDisplayName("Participant Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
-    .setMembers(members);
+    .setParticipants(participants);
 ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
 String chatThreadId = chatThreadClient.getChatThreadId();
 ```
@@ -163,7 +162,7 @@ Utilice el método `sendMessage` para enviar un mensaje al subproceso recién cr
 `sendChatMessageOptions` se utiliza para describir la solicitud del mensaje de chat.
 
 - Utilice `content` para proporcionar el contenido del mensaje de chat.
-- Use `priority` para especificar el nivel de prioridad del mensaje de chat, como "Normal" o "Alta"; esta propiedad se puede usar para que un indicador de la interfaz de usuario haga que el destinatario de la aplicación se fije en el mensaje o para ejecutar la lógica de negocios personalizada.
+- Utilice `type` usa para especificar el tipo de contenido del mensaje de chat, texto o HTML.
 - Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente.
 
 La respuesta `sendChatMessageResult` contiene un `id`, que es el identificador único del mensaje.
@@ -171,7 +170,7 @@ La respuesta `sendChatMessageResult` contiene un `id`, que es el identificador �
 ```Java
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Message content")
-    .setPriority(ChatMessagePriority.NORMAL)
+    .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name");
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
@@ -181,7 +180,7 @@ String chatMessageId = sendChatMessageResult.getId();
 
 ## <a name="get-a-chat-thread-client"></a>Obtención de un cliente de subproceso de chat
 
-El método `getChatThreadClient` devuelve un cliente de subproceso para un subproceso que ya existe. Se puede usar para realizar operaciones en el subproceso creado: agregar miembros, enviar un mensaje, etc. `chatThreadId` es el id. único del subproceso de chat existente.
+El método `getChatThreadClient` devuelve un cliente de subproceso para un subproceso que ya existe. Se puede usar para realizar operaciones en la conversación creada: agregar participantes, enviar un mensaje, etc. `chatThreadId` es el identificador único de la conversación del chat existente.
 
 ```Java
 String chatThreadId = "Id";
@@ -206,7 +205,7 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` devuelve distintos tipos de mensajes que se pueden identificar mediante `chatMessage.getType()`. Estos tipos son:
 
-- `Text`: mensaje de chat normal enviado por un miembro del subproceso.
+- `Text`: mensaje de chat normal enviado por un participante de la conversación.
 
 - `ThreadActivity/TopicUpdate`: mensaje del sistema que indica que el tema se ha actualizado.
 
@@ -216,44 +215,44 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 Para obtener más información, consulte [Tipos de mensajes](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Adición de un usuario como miembro al subproceso de chat
+## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Adición de un usuario como participante a la conversación del chat
 
-Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para enviar mensajes al subproceso de chat, y agregar o quitar otros miembros. Deberá empezar por obtener un token de acceso y una identidad nuevos para ese usuario. Antes de llamar al método addMembers, asegúrese de que ha adquirido un token de acceso y una identidad nuevos para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
+Una vez que se crea un subproceso de chat, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para enviar mensajes a la conversación del chat, y agregar o quitar otros participantes. Deberá empezar por obtener un token de acceso y una identidad nuevos para ese usuario. Antes de llamar al método addParticipants, asegúrese de que ha adquirido un token de acceso y una identidad nuevos para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
 
-Utilice el método `addMembers` para agregar miembros de subproceso al subproceso identificado por threadId.
+Utilice el método `addParticipants` para agregar participantes a la conversación identificada por threadId.
 
-- Use `members` para enumerar los miembros que se van a agregar al subproceso de chat.
-- El elemento obligatorio `user` es la identidad CommunicationUser que creó mediante CommunicationIdentityClient en el inicio rápido [Token de acceso de usuario](../../access-tokens.md).
-- El elemento opcional `display_name` es el nombre para mostrar del miembro del subproceso.
-- El elemento opcional `share_history_time` es la hora a partir de la cual el historial de chat se compartió con el miembro. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el miembro, establézcala en la fecha actual. Para compartir el historial parcialmente, establezca la opción en la fecha necesaria.
+- Use `listParticipants` para enumerar los participantes que se van a agregar a la conversación del chat.
+- `user` es obligatorio y es el elemento de CommunicationUser que creó mediante CommunicationIdentityClient en el inicio rápido [Token de acceso de usuario](../../access-tokens.md).
+- `display_name` es opcional y es el nombre para mostrar del participante de la conversación.
+- `share_history_time` es opcional y es la hora a partir de la cual el historial de chat se compartió con el participante. Para compartir el historial desde el inicio del subproceso de chat, establezca esta propiedad en cualquier fecha igual o anterior a la hora de creación del subproceso. Para no compartir ningún historial anterior a la hora en que se agregó el participante, establézcala en la fecha actual. Para compartir el historial parcialmente, establezca la opción en la fecha necesaria.
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(user1)
     .setDisplayName("Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(user2)
     .setDisplayName("Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
-AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembersOptions()
-    .setMembers(members);
-chatThreadClient.addMembers(addChatThreadMembersOptions);
+AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
+    .setParticipants(participants);
+chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
 ## <a name="remove-user-from-a-chat-thread"></a>Eliminación de un usuario de un subproceso de chat
 
-De forma similar a la adición de un usuario a un subproceso, puede quitar usuarios de un subproceso de chat. Para ello, debe realizar un seguimiento de las identidades de usuario de los miembros que ha agregado.
+De forma similar a la adición de un usuario a un subproceso, puede quitar usuarios de un subproceso de chat. Para ello, debe realizar un seguimiento de las identidades de usuario de los participantes que ha agregado.
 
-Use `removeMember`, donde `user` es la identidad CommunicationUser que ha creado.
+Use `removeParticipant`, donde `user` es el elemento CommunicationUserIdentifier que ha creado.
 
 ```Java
-chatThreadClient.removeMember(user);
+chatThreadClient.removeParticipant(user);
 ```
 
 ## <a name="run-the-code"></a>Ejecución del código

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257920"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580059"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -302,7 +302,7 @@ Los conectores y el servicio se encargan de todas las tareas de alta disponibili
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Contadores de rendimiento y registros de eventos de Windows
 
-Los conectores tienen registros de administración y sesión. Los registros de administración incluyen eventos importantes y sus errores. Los registros de sesión incluyen todas las transacciones y sus detalles de procesamiento. Los registros y contadores se encuentran en los registros de eventos de Windows; para más información, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](./application-proxy-connectors.md#under-the-hood). Siga este [tutorial para configurar orígenes de datos de registro de eventos en Azure Monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Los conectores tienen registros de administración y sesión. Los registros de administración incluyen eventos importantes y sus errores. Los registros de sesión incluyen todas las transacciones y sus detalles de procesamiento. Los registros y contadores se encuentran en los registros de eventos de Windows; para más información, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](./application-proxy-connectors.md#under-the-hood). Siga este [tutorial para configurar orígenes de datos de registro de eventos en Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guía y pasos para la solución de problemas
 

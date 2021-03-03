@@ -3,15 +3,16 @@ title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
 description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735187"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651466"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -67,6 +68,9 @@ Para empezar a crear el grupo de hosts:
 
      > [!div class="mx-imgBorder"]
      > ![Captura de pantalla de Azure Portal que muestra el campo "Location" (Ubicación) con la ubicación East US (Este de EE. UU.) seleccionada. Junto al campo aparece texto que dice que los metadatos se almacenarán en el este de EE. UU.](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Si desea crear el grupo de hosts en [una región admitida](data-locations.md) fuera de EE. UU., deberá volver a registrar el proveedor de recursos. Tras el registro, debería ver las demás regiones en la lista desplegable para seleccionar la ubicación. Aprenda a realizar el registro de nuevo en nuestro artículo de solución de problemas [Creación de grupos de hosts](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects).
 
 8. En "Host pool type" (Tipo de grupo de hosts), seleccione si el grupo de hosts será **Personal** o **Pooled** (Agrupado).
 

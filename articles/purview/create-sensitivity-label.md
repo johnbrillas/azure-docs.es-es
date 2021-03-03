@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630283"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669634"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -41,17 +41,17 @@ Las etiquetas de confidencialidad de Azure Purview se pueden usar para aplicar a
 Para más información, consulte:
 
 - [Información sobre las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels) en la documentación de Microsoft 365
-- [¿Qué son las reglas de etiquetado automático?](#what-are-autolabeling-rules)
+- [¿Qué son las reglas de etiquetado automático?](#what-are-auto-labeling-rules)
 - [Tipos de datos admitidos para las etiquetas de confidencialidad en Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Etiquetado de columnas de bases de datos SQL](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>¿Qué son las reglas de etiquetado automático?
+#### <a name="what-are-auto-labeling-rules"></a>¿Qué son las reglas de etiquetado automático?
 
 Los datos aumentan y cambian constantemente. El seguimiento de los datos que no tienen etiqueta actualmente y la acción de aplicar etiquetas manualmente no solo es difícil, sino que también es innecesario. 
 
 Las reglas de etiquetado automático son condiciones que especifica el usuario, que indica cuándo se debe aplicar una etiqueta determinada. Cuando se cumplen estas condiciones, la etiqueta se asigna automáticamente a los datos, conservando etiquetas de confidencialidad coherentes en los datos a gran escala.
 
-Al crear las etiquetas, asegúrese de definir reglas de etiquetado automático para los [archivos](#define-autolabeling-rules-for-files) y las [columnas de bases de datos](#define-autolabeling-rules-for-database-columns) para aplicar las etiquetas automáticamente con cada examen de datos. 
+Al crear las etiquetas, asegúrese de definir reglas de etiquetado automático para los [archivos](#define-auto-labeling-rules-for-files) y las [columnas de bases de datos](#define-auto-labeling-rules-for-database-columns) para aplicar las etiquetas automáticamente con cada examen de datos. 
 
 Después de examinar los datos en Purview, puede ver las etiquetas que se aplican automáticamente en el catálogo de Purview y los informes de conclusiones.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de datos admitidos para las etiquetas de confidencialidad en Azure Purview
@@ -125,8 +125,8 @@ Una vez que extienda el etiquetado a los recursos de Azure Purview, puede selecc
 
     En concreto, defina reglas de etiquetado automático para archivos y columnas de bases de datos:
 
-    - [Definición de reglas de etiquetado automático para archivos](#define-autolabeling-rules-for-files)
-    - [Definición de reglas de etiquetado automático para columnas de base de datos](#define-autolabeling-rules-for-database-columns)
+    - [Definición de reglas de etiquetado automático para archivos](#define-auto-labeling-rules-for-files)
+    - [Definición de reglas de etiquetado automático para columnas de base de datos](#define-auto-labeling-rules-for-database-columns)
 
     Para obtener más información sobre las opciones del asistente, consulte [Qué pueden hacer las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) en la documentación de Microsoft 365.
 
@@ -156,7 +156,7 @@ Continúe [examinando los datos para aplicar etiquetas automáticamente](#scan-y
 - [Visualización de las etiquetas en los recursos](#view-labels-on-assets)
 - [Visualización de los informes de conclusiones para las clasificaciones y las etiquetas de confidencialidad](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Definición de reglas de etiquetado automático para archivos
+#### <a name="define-auto-labeling-rules-for-files"></a>Definición de reglas de etiquetado automático para archivos
 
 Defina las reglas de etiquetado automático para los archivos en el asistente cuando cree o edite la etiqueta. 
 
@@ -168,7 +168,7 @@ Por ejemplo:
  
 Para obtener más información, consulte [Aplicación automática de una etiqueta de confidencialidad a los datos](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) en la documentación de Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Definición de reglas de etiquetado automático para columnas de base de datos
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Definición de reglas de etiquetado automático para columnas de base de datos
 
 Defina las reglas de etiquetado automático para las columnas de base de datos en el asistente cuando cree o edite la etiqueta. 
 
@@ -218,5 +218,3 @@ Busque información sobre los datos clasificados y etiquetados en Azure Purview 
 
 > [!div class="nextstepaction"]
 > [Conclusiones de etiquetas de confidencialidad](sensitivity-insights.md)
-
-

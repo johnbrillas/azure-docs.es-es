@@ -5,35 +5,32 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5783f8092a6435b43ab8720df18cc5200e390d46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428307"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378254"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
+# <a name="best-practices-for-performance-and-reliability-of-azure-functions"></a>Procedimientos recomendados para aumentar el rendimiento y la confiabilidad de Azure Functions
 
 En este artículo se proporcionan instrucciones para mejorar el rendimiento y la confiabilidad de sus aplicaciones de función [sin servidor](https://azure.microsoft.com/solutions/serverless/).  
 
-## <a name="general-best-practices"></a>Procedimientos recomendados generales
-
 Éstos son los procedimientos recomendados para crear y diseñar las soluciones sin servidor mediante Azure Functions.
 
-### <a name="avoid-long-running-functions"></a>Evitar funciones de ejecución prolongada
+## <a name="avoid-long-running-functions"></a>Evitar funciones de ejecución prolongada
 
-Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Para más información sobre los tiempos de expiración de un plan de hospedaje determinado, consulte [Duración del tiempo de tiempo de expiración de una aplicación de funciones](functions-scale.md#timeout). 
+Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Para más información sobre los tiempos de expiración de un plan de hospedaje determinado, consulte [Duración del tiempo de tiempo de expiración de una aplicación de funciones](functions-scale.md#timeout).
 
-Una función puede llegar a ser grande debido a sus numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales. 
+Una función puede llegar a ser grande debido a sus numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales.
 
 Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Es habitual que los webhooks requieran una respuesta inmediata. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata.
 
-
-### <a name="cross-function-communication"></a>Comunicación entre funciones
+## <a name="cross-function-communication"></a>Comunicación entre funciones
 
 [Durable Functions](durable/durable-functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md) se han creado para administrar las transiciones de estado y las comunicaciones entre varias funciones.
 
-Si no usa Durable Functions ni Logic Apps para integrar varias funciones, es mejor usar colas de almacenamiento para la comunicación entre funciones. La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar que otras opciones de almacenamiento. 
+Si no usa Durable Functions ni Logic Apps para integrar varias funciones, es mejor usar colas de almacenamiento para la comunicación entre funciones. La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar que otras opciones de almacenamiento.
 
 Los mensajes individuales de una cola de almacenamiento tienen un límite de tamaño de 64 KB. Si tiene que pasar mensajes más grandes entre funciones, se podría usar una cola de Azure Service Bus para admitir tamaños de mensaje de hasta 256 KB en el nivel Estándar y hasta 1 MB en el nivel Premium.
 
@@ -41,28 +38,26 @@ Temas de Service Bus son útiles si necesita filtrado de mensajes antes del proc
 
 Los concentradores de eventos son útiles para admitir comunicaciones de gran volumen.
 
+## <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado
 
-### <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado 
-
-Si es posible, las funciones no deben tener estado y ser idempotentes. Asociar cualquier información de estado necesaria con los datos. Por ejemplo, un pedido para procesar probablemente tendría un miembro `state` asociado. Una función podría procesar un pedido en función de ese estado mientras que la propia función permanece sin estado. 
+Si es posible, las funciones no deben tener estado y ser idempotentes. Asociar cualquier información de estado necesaria con los datos. Por ejemplo, un pedido para procesar probablemente tendría un miembro `state` asociado. Una función podría procesar un pedido en función de ese estado mientras que la propia función permanece sin estado.
 
 Las funciones idempotentes se recomiendan especialmente con desencadenadores de temporizador. Por ejemplo, si tiene algo que debe ejecutarse una vez al día obligatoriamente, escríbalo para poder ejecutarse en cualquier momento durante el día con los mismos resultados. La función puede salir cuando no haya ningún trabajo para un día determinado. Asimismo, si una ejecución anterior no se pudo completar, la siguiente ejecución debe continuar donde se quedó.
 
-
-### <a name="write-defensive-functions"></a>Escritura de funciones defensivas
+## <a name="write-defensive-functions"></a>Escritura de funciones defensivas
 
 Suponga que la función podría encontrarse con una excepción en cualquier momento. Diseñe las funciones con la capacidad de continuar a partir de un punto de error anterior durante la siguiente ejecución. Considere un escenario que requiere las siguientes acciones:
 
 1. Consulta de 10 000 filas en una base de datos.
 2. Cree un mensaje de cola para cada una de esas filas para procesar más abajo la línea.
- 
+
 Dependiendo de lo complejo que sea el sistema, es posible que haya servicios de bajada implicados con un comportamiento incorrecto, interrupciones de red, límites de cuota alcanzados, etc. Todo esto puede afectar a su función en cualquier momento. Debe diseñar las funciones para que estén preparadas para ello.
 
 ¿Cómo reacciona el código si se produce un error después de insertar 5000 de esos elementos en una cola para su procesamiento? Realice un seguimiento de elementos de un conjunto que ha completado. En caso contrario, podría insertarlos la próxima vez. Esta doble inserción puede afectar seriamente al flujo de trabajo, por lo que debe [hacer que las funciones sean idempotentes](functions-idempotent.md). 
 
 Si ya se ha procesado un elemento de la cola, permita que la función sea no operativa.
 
-Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages). 
+Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages).
 
 ## <a name="function-organization-best-practices"></a>Procedimientos recomendados de la organización de funciones
 
@@ -85,7 +80,7 @@ Las aplicaciones de funciones tienen un archivo `host.json`, que se usa para con
 
 Todas las funciones de un proyecto local se implementan juntas como conjunto de archivos en la aplicación de funciones en Azure. Es posible que tenga que implementar funciones individuales por separado o usar características como [ranuras de implementación](./functions-deployment-slots.md) para algunas funciones y no para otras. En tales casos, debe implementar estas funciones (en proyectos de código independientes) en diferentes aplicaciones de funciones.
 
-### <a name="organize-functions-by-privilege"></a>Organización de funciones por privilegio 
+### <a name="organize-functions-by-privilege"></a>Organización de funciones por privilegio
 
 Las cadenas de conexión y otras credenciales almacenadas en la configuración de la aplicación proporcionan a todas las funciones de la aplicación de funciones el mismo conjunto de permisos en el recurso asociado. Considere la posibilidad de minimizar el número de funciones con acceso a credenciales específicas moviendo las funciones que no las utilizan a una aplicación de funciones independiente. Siempre puede usar técnicas como el [encadenamiento de funciones](/learn/modules/chain-azure-functions-data-using-bindings/) para pasar datos entre funciones de diferentes aplicaciones de funciones.  
 
@@ -99,7 +94,7 @@ Vuelva a usar las conexiones con los recursos externos, siempre que le sea posib
 
 ### <a name="avoid-sharing-storage-accounts"></a>Evitar compartir cuentas de almacenamiento
 
-Al crear una aplicación de función, debe asociarla a una cuenta de almacenamiento. La conexión de la cuenta de almacenamiento se mantiene en [el ajuste de la aplicación AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Al crear una aplicación de función, debe asociarla a una cuenta de almacenamiento. La conexión de la cuenta de almacenamiento se mantiene en [el ajuste de la aplicación AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage).
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -123,9 +118,9 @@ En C#, evite siempre las referencias a la propiedad `Result` o las llamadas al m
 
 ### <a name="use-multiple-worker-processes"></a>Uso de varios procesos de trabajo
 
-De forma predeterminada, cualquier instancia de host de Functions utiliza un único proceso de trabajo. Para mejorar el rendimiento, especialmente con los tiempos de ejecución de un solo subproceso, como Python, use [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar el número de procesos de trabajo por host (hasta 10). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos. 
+De forma predeterminada, cualquier instancia de host de Functions utiliza un único proceso de trabajo. Para mejorar el rendimiento, especialmente con los tiempos de ejecución de un solo subproceso, como Python, use [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar el número de procesos de trabajo por host (hasta 10). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos.
 
-FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda. 
+FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda.
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Recepción de mensajes en lotes siempre que sea posible
 

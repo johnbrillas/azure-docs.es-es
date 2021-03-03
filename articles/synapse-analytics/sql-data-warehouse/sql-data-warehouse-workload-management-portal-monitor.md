@@ -11,17 +11,17 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 04a3fa79a6940a5b7a4bb98d08aa8be48a442903
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: eb7dcb9a384360d698c49a97f649bf75588d94f7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728607"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574220"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics: supervisión del portal de administración de cargas de trabajo
 
 En este artículo se explica cómo supervisar la actividad de consultas y la utilización de recursos para [grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md#workload-groups).
-Para más información sobre cómo configurar el Explorador de métricas de Azure consulte el artículo [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Consulte la sección [Utilización de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) en la documentación de Supervisión de Azure Synapse Analytics para obtener más información sobre cómo supervisar el consumo de recursos del sistema.
+Para más información sobre cómo configurar el Explorador de métricas de Azure consulte el artículo [Introducción al Explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Consulte la sección [Utilización de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) en la documentación de Supervisión de Azure Synapse Analytics para obtener más información sobre cómo supervisar el consumo de recursos del sistema.
 Hay dos categorías diferentes de métricas de grupo de cargas de trabajo que se proporcionan para supervisar la administración de cargas de trabajo: asignación de recursos y actividad de consultas.  Estas métricas se pueden dividir y filtrar por grupo de cargas de trabajo.  Las métricas se pueden dividir y filtrar en función de si están definidas por el sistema (grupos de cargas de trabajo de clase de recurso) o definidas por el usuario (creadas por el usuario con la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)).
 
 ## <a name="workload-management-metric-definitions"></a>Definiciones de métricas de administración de cargas de trabajo

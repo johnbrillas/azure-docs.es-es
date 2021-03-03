@@ -9,16 +9,46 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431004"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375568"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de Azure Machine Learning.
+
+
+## <a name="2021-02-09"></a>09-02-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1220"></a>SDK de Azure Machine Learning para Python v1.22.0
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-core**
+    + Se corrigió un error en el que se agregó una dependencia PIP adicional al archivo YML de Conda para los modelos de visión.
+  + **azureml-automl-runtime**
+    + Se corrigió un error en el que los modelos de previsión clásica (por ejemplo, AutoArima) podían recibir datos de entrenamiento en los que las filas con valores de destino imputados no estaban presentes. Este infringía el contrato de datos de estos modelos. * Se han corregido varios errores con el comportamiento de retardo por repetición en el operador de retardo de serie temporal. Anteriormente, la operación de retardo por repetición no marcaba todas las filas imputadas correctamente y, por tanto, no siempre generaba los valores de retardo de repetición correctos. También se han corregido algunos problemas de compatibilidad entre el operador de retardo y el operador de ventana con desplazamiento con el comportamiento de retraso por repetición. Anteriormente, provocada que el operador de ventana con desplazamiento quitara algunas filas de los datos de entrenamiento que de otro modo debería usar.
+  + **azureml-core**
+    + Adición de compatibilidad para la autenticación de tokens por público.
+    + Agregue `process_count` a [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para admitir trabajos multiproceso de PyTorch de varios procesos.
+  + **azureml-pipeline-steps**
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) ahora está disponible de forma general y ya no es experimental.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): agregue los argumentos allowed_failed_count y allowed_failed_percent para comprobar el umbral de errores en el nivel de minilote. El umbral de error ahora tiene tres tipos:
+       + error_threshold: número de elementos de minilote con errores permitidos. 
+       + allowed_failed_count: número de minilotes con errores permitidos. 
+       + allowed_failed_percent: porcentaje de minilotes con errores permitidos. 
+       
+       Un trabajo se detendrá si supera cualquiera de estos valores. error_threshold es necesario para mantener la compatibilidad con versiones anteriores. Establezca el valor en -1 para ignorarlo.
+    + Control de espacio en blanco fijo en el nombre de AutoMLStep.
+    + HyperDriveStep ahora admite ScriptRunConfig
+  + **azureml-train-core**
+    + Las ejecuciones de HyperDrive que se invoquen desde un ScriptRun ahora se considerarán una ejecución secundaria.
+    + Agregue `process_count` a [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para admitir trabajos multiproceso de PyTorch de varios procesos.
+  + **azureml-widgets**
+    + Agregue el widget ParallelRunStepDetails para visualizar el estado de una clase ParallelRunStep.
+    + Permite a los usuarios de hyperdrive ver un eje adicional en el gráfico de coordenadas paralelas que muestra el valor de métrica correspondiente a cada conjunto de hiperparámetros de cada ejecución secundaria.
+
 
  ## <a name="2021-01-31"></a>31-01-2021
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Experiencia con Notebooks de Azure Machine Learning Studio (actualización de enero)
@@ -35,6 +65,7 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
   + rendimiento mejorado. 
   + Se han mejorado la velocidad y la confiabilidad del kernel.
   
+
  ## <a name="2021-01-25"></a>25-01-2021
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>SDK de Azure Machine Learning para Python v1.21.0
@@ -145,7 +176,7 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
     + HyperDriveRun.get_children_sorted_by_primary_metric() should complete faster now
     + Control de errores mejorado en el SDK de HyperDrive.
     +  Se han dejado de utilizar todas las clases Estimator a favor del uso de ScriptRunConfig para configurar ejecuciones de experimento. Entre las clases en desuso se incluyen:
-        + MMLBaseEstimator
+        + MMLBase
         + Estimador
         + PyTorch 
         + TensorFlow 
@@ -162,7 +193,7 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 ## <a name="2020-11-30"></a>30/11/2020
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Experiencia con los cuadernos de Estudio de Azure Machine Learning (actualización de noviembre)
 + **Nuevas características:**
-   + Terminal nativo. Los usuarios ahora podrán acceder a un terminal integrado, así como a la operación de Git, por medio del [terminal integrado](./how-to-run-jupyter-notebooks.md#terminal).
+   + Terminal nativo. Los usuarios ahora podrán acceder a un terminal integrado, así como a la operación de Git, por medio del [terminal integrado](./how-to-access-terminal.md).
   + Carpeta duplicada. 
   + Desplegable de costos de procesos. 
   + Pylance para procesos sin conexión. 
@@ -1979,7 +2010,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2258,7 +2289,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2316,7 +2347,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

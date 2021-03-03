@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606706"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700004"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Tutorial: Extracción masiva de datos de formularios mediante Azure Data Factory
 
@@ -65,7 +65,7 @@ A continuación, el cuaderno de Azure Databricks usa los modelos entrenados para
 
 El trabajo pendiente de formularios puede estar en el entorno local o en un servidor FTP. En este tutorial se usan los formularios de una cuenta de Azure Data Lake Storage Gen 2. Puede transferir los archivos allí mediante Azure Data Factory, Explorador de Azure Storage o AzCopy. Los conjuntos de datos de entrenamiento y puntuación pueden estar en diferentes contenedores, pero los conjuntos de datos de entrenamiento de todos los tipos de formularios deben estar en el mismo contenedor (aunque pueden estar en carpetas diferentes).
 
-Para crear un lago de datos, siga las instrucciones de [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Para crear un lago de datos, siga las instrucciones de [Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Creación de una tabla de parametrización
 
@@ -89,7 +89,7 @@ Se usarán los siguientes campos en la tabla:
 
 ### <a name="create-the-table"></a>Creación de la tabla
 
-[Cree una instancia de Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) y, a continuación, ejecute el siguiente script de SQL en el [editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) para crear la tabla necesaria.
+[Cree una instancia de Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase) y, a continuación, ejecute el siguiente script de SQL en el [editor de consultas](../../azure-sql/database/connect-query-portal.md) para crear la tabla necesaria.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Usará Azure Databricks para almacenar y ejecutar el código de Python que inter
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Creación de un ámbito de secreto respaldado por Azure Key Vault
 
-Para hacer referencia a los secretos de la instancia de Azure Key Vault que hemos creado anteriormente, debe crear un ámbito secreto en Databricks. Siga los pasos que se indican en [Creación de un ámbito de secreto compatible con Azure Key Vault](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Para hacer referencia a los secretos de la instancia de Azure Key Vault que hemos creado anteriormente, debe crear un ámbito secreto en Databricks. Siga los pasos que se indican en [Creación de un ámbito de secreto compatible con Azure Key Vault](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Creación de un clúster de Databricks
 
@@ -461,7 +461,7 @@ Ahora se puede crear un cuaderno de puntuación. Al igual que con el cuaderno de
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatización del entrenamiento y la puntuación con Azure Data Factory
 
-El único paso que queda es configurar el servicio Azure Data Factory (ADF) para automatizar los procesos de entrenamiento y puntuación. En primer lugar, siga los pasos que se indican en [Crear una factoría de datos](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Después de crear el recurso de Azure Data Factory, tiene que crear tres canalizaciones: una para el entrenamiento y dos para la puntuación (se explica a continuación).
+El único paso que queda es configurar el servicio Azure Data Factory (ADF) para automatizar los procesos de entrenamiento y puntuación. En primer lugar, siga los pasos que se indican en [Crear una factoría de datos](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Después de crear el recurso de Azure Data Factory, tiene que crear tres canalizaciones: una para el entrenamiento y dos para la puntuación (se explica a continuación).
 
 ### <a name="training-pipeline"></a>Canalización de entrenamiento
 

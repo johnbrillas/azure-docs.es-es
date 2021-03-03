@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808456"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580377"
 ---
 ![Gráfico en el que se muestran las especificaciones de Dsv3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ En este caso, la aplicación que se ejecuta en una máquina virtual Standard_D8s
 - Como los tres discos que usan el almacenamiento en caché de host están dentro de los límites en caché de 16 000, esas solicitudes se completan correctamente. No se produce ningún límite de rendimiento de almacenamiento.
 - Como los dos discos que no usan el almacenamiento en caché de host están dentro de los límites no almacenados en caché de 12 800, esas solicitudes también se completan correctamente. No se produce ningún límite.
 
-## <a name="disk-performance-metrics"></a>Métricas de rendimiento de discos
-
-En Azure hay métricas que proporcionan información sobre el rendimiento de las máquinas virtuales y los discos. Estas métricas se pueden ver a través de Azure Portal. También se pueden recuperar a través de una llamada API. Las métricas se calculan en intervalos de un minuto. Las métricas siguientes están disponibles para obtener conclusiones sobre la E/S de máquina virtual y disco, y también sobre el rendimiento:
-
-- **Profundidad de la cola del disco del SO**: el número actual de solicitudes de E/S pendientes que esperan a que se lean desde el SO o se escriban en este.
-- **Bytes de lectura de disco de SO por segundo**: el número de bytes que se leen en un segundo desde el disco del sistema operativo.
-- **Operaciones de lectura en discos de SO por segundo**: el número de operaciones de entrada que se leen en un segundo desde el disco del sistema operativo.
-- **Bytes de escritura en disco del SO por segundo**: el número de bytes que se escriben en un segundo desde el disco del sistema operativo.
-- **Operaciones de escritura en disco de sistema operativo por segundo**: el número de operaciones de salida que se escriben en un segundo desde el disco del sistema operativo.
-- **Profundidad de la cola de disco de datos**: el número actual de solicitudes de E/S pendientes que esperan a que se lean desde los discos de datos o se escriban en estos.
-- **Bytes de lectura de discos de datos por segundo**: el número de bytes que se leen en un segundo desde los discos de datos.
-- **Operaciones de lectura de disco de datos por segundo**: el número de operaciones de entrada que se leen en un segundo desde los discos de datos.
-- **Bytes de escritura de discos de datos por segundo**: el número de bytes que se escriben en un segundo desde el disco de datos.
-- **Operaciones de escritura de discos de datos por segundo**: el número de operaciones de salida que se escriben en un segundo desde los discos de datos.
-- **Bytes de lectura de disco por segundo**: el número de bytes totales que se leen en un segundo desde los discos conectados a una máquina virtual.
-- **Operaciones de lectura de disco por segundo**: el número de operaciones de entrada que se leen en un segundo desde todos los discos conectados a una máquina virtual.
-- **Bytes de escritura en disco por segundo**: el número de bytes que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
-- **Operaciones de escritura por segundo en disco**: el número de operaciones de salida que se escriben en un segundo desde todos los discos conectados a una máquina virtual.
-
-## <a name="storage-io-utilization-metrics"></a>Métricas de uso de E/S de almacenamiento
-Las siguientes métricas ayudan a diagnosticar cuellos de botella en la combinación de discos y máquinas virtuales. Estas métricas solo están disponibles cuando se usa una VM con Premium habilitado. Estas métricas están disponibles para todos los tipos de disco, excepto los Ultra. 
-
-Métricas que ayudan a diagnosticar el límite de E/S de disco:
-
-- **Porcentaje de consumo de IOPS de disco de datos**: el porcentaje calculado por la IOPS de disco de datos completada con respecto a la IOPS del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del disco de datos.
-- **Porcentaje de ancho de banda consumido del disco de datos**: el porcentaje calculado por el rendimiento de disco de datos completado con respecto al rendimiento del disco de datos aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del disco de datos.
-- **Porcentaje de consumo de IOPS de disco del sistema operativo**: el porcentaje calculado por la IOPS de disco del sistema operativo completada con respecto a la IOPS del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de IOPS del sistema operativo.
-- **Porcentaje de ancho de banda consumido del sistema operativo**: el porcentaje calculado por el rendimiento del sistema operativo completado con respecto al rendimiento del sistema operativo aprovisionado. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del sistema operativo.
-
-Métricas que ayudan a diagnosticar el límite de E/S de máquinas virtuales:
-
-- **Porcentaje de consumo de IOPS en caché de la máquina virtual**: el porcentaje calculado por la IOPS total completado con respecto al límite máximo de IOPS de máquinas virtuales en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual en caché.
-- **Porcentaje de consumo de ancho de banda en caché de máquinas virtuales**: el porcentaje calculado por el rendimiento total de disco completado en el límite máximo del rendimiento de las máquinas virtuales almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual en caché.
-- **Porcentaje de consumo de IOPS que no se encuentra almacenado en caché de máquinas virtuales**: el porcentaje calculado por la IOPS total de una máquina virtual completado en el límite máximo de IOPS de máquinas virtuales que no se encuentran almacenadas en caché. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución con respecto al límite de IOPS de la máquina virtual que no se encuentra almacenada en caché.
-- **Porcentaje de consumo de ancho de banda que no está almacenado en caché de máquinas virtuales**: el porcentaje calculado por el rendimiento total de disco de una máquina virtual completado en el límite máximo del rendimiento de las máquinas virtuales aprovisionadas. Si esta cantidad es del 100 %, se restringe la E/S de la aplicación en ejecución respecto al límite de ancho de banda del ancho de banda de la máquina virtual que no está en caché.
-
-## <a name="storage-io-utilization-metrics-example"></a>Ejemplo de métricas de uso de E/S de almacenamiento
-
-Veamos un ejemplo de cómo utilizar estas nuevas métricas de uso de E/S de almacenamiento para depurar la ubicación de un cuello de botella en nuestro sistema. La configuración del sistema es la misma que la del ejemplo anterior, con la excepción de que el disco del sistema operativo conectado *no* se almacena en caché.
-
-**Configuración:**
-
-- Standard_D8s_v3
-  - IOPS en caché: 16 000
-  - IOPS no almacenadas en caché: 12.800
-- Disco de SO P30
-  - IOPS: 5.000
-  - Almacenamiento en caché de host: **Disabled** (Deshabilitado)
-- Dos discos de datos P30 × 2
-  - IOPS: 5.000
-  - Almacenamiento en caché de host: **Lectura/escritura**
-- Dos discos de datos P30 × 2
-  - IOPS: 5.000
-  - Almacenamiento en caché de host: **Disabled** (Deshabilitado)

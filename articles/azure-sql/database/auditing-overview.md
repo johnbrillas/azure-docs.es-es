@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509594"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572296"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ Para configurar la escritura de registros de auditoría en un área de trabajo d
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obtener información más detallada sobre las áreas de trabajo de Log Analytics en Azure Monitor, consulte [Diseño de la implementación de registros de Azure Monitor](../../azure-monitor/platform/design-logs-deployment.md).
+Para obtener información más detallada sobre las áreas de trabajo de Log Analytics en Azure Monitor, consulte [Diseño de la implementación de registros de Azure Monitor](../../azure-monitor/logs/design-logs-deployment.md).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
 
@@ -170,7 +170,7 @@ Si eligió escribir registros de auditoría en registros de Azure Monitor:
     ![Información de seguridad de Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Como alternativa, también puede acceder a los registros de auditoría desde la hoja Log Analytics. Abra el área de trabajo de Log Analytics y, en la sección **General**, haga clic en **Registros**. Puede comenzar con una consulta simple, como: *buscar "SQLSecurityAuditEvents"* para ver los registros de auditoría.
-    Desde aquí, también puede usar los [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ejecutar búsquedas avanzadas en los datos de registro de auditoría. Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de registros de Azure Monitor, consulte la [referencia de búsqueda de registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+    Desde aquí, también puede usar los [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md) para ejecutar búsquedas avanzadas en los datos de registro de auditoría. Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de registros de Azure Monitor, consulte la [referencia de búsqueda de registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Si eligió escribir registros de auditoría en el centro de eventos:
 

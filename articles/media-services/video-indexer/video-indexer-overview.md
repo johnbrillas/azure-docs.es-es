@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783808"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530236"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
@@ -84,7 +84,7 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 * **Enumeración de altavoz**: asigna y comprende las palabras que transmitió cada altavoz y cuándo. Se pueden detectar dieciséis altavoces en un solo archivo de audio.
 * **Estadísticas de altavoz**: Proporciona las estadísticas de las relaciones de voz de los altavoces.
 * **Moderación de contenido textual**: detecta texto explícito en la transcripción de audio.
-* **Efectos de audio**: identifica los efectos de audio, como palmadas, voces y silencios.
+* **Efectos de audio** (versión preliminar pública): detecta los siguientes efectos de audio en los segmentos del contenido que no son de voz: disparo de un arma, rotura de un cristal, alarma, sirena, explosión, ladridos, gritos, risas, reacciones de una multitud (júbilo, aplausos y abucheos) y silencio. Nota: El conjunto completo de eventos solo está disponible cuando se elige "Advanced Audio Analysis" (Análisis de audio avanzado) en Upload preset (Cargar valores predeterminados); de lo contrario, solo estarán disponibles los eventos de silencio y reacciones de una multitud.
 * **Detección de emociones**: identifica emociones en función de la voz (lo que se dice) y el tono (cómo se dice). La emoción podría ser felicidad, tristeza, ira o miedo.
 * **Traducción**: crea traducciones de la transcripción de audio en 54 idiomas diferentes.
 

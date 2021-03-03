@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f319f912520a69a0c68f89a3d4178f63cc45ca1f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356555"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575691"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Carga de métricas a Azure Monitor
 
@@ -126,7 +126,7 @@ Para cargar las métricas de las instancias administradas de SQL habilitadas par
    >[!NOTE]
    >Espere al menos 30 minutos después de que se creen las instancias de datos habilitadas para Azure Arc para la primera carga.
    >
-   >Asegúrese de `upload` las métricas inmediatamente después de `export` ya que Azure Monitor solo acepta métricas para los últimos 30 minutos. [Más información](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting).
+   >Asegúrese de `upload` las métricas inmediatamente después de `export` ya que Azure Monitor solo acepta métricas para los últimos 30 minutos. [Más información](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 Si ve un error que indica "Error al obtener métricas" durante la exportación, compruebe si la recopilación de datos está establecida en `true`, ejecutando el comando siguiente:
@@ -199,7 +199,7 @@ Las operaciones de creación, lectura, actualización y eliminación (CRUD) en l
 
 Durante la versión preliminar, este proceso se produce por la noche. Las instrucciones generales es cargar el uso solo una vez al día. Cuando la información de uso se exporta y se carga varias veces dentro del mismo período de 24 horas, solo se actualiza el inventario de recursos en Azure Portal, pero no en el uso de recursos.
 
-En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
+En el caso de la carga de métricas, Azure Monitor solo acepta los últimos 30 minutos de datos ([Más información](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Las instrucciones para cargar métricas es cargar las métricas inmediatamente después de crear el archivo de exportación para que pueda ver todo el conjunto de datos en Azure Portal. Por ejemplo, si exportó las métricas a las 14:00 horas y ejecutó el comando de carga a las 14:50. Como Azure Monitor solo acepta datos de los últimos 30 minutos, es posible que no vea ningún dato en el portal. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,24 +1,21 @@
 ---
 title: Copia incremental de datos con Captura de datos modificados
 description: En este tutorial, creará una canalización de Azure Data Factory que copia de forma incremental en Azure Storage los datos diferenciales de una tabla de una base de datos de Instancia administrada de Azure SQL.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.date: 02/18/2021
+ms.openlocfilehash: a00ec8698b188b8fa87935e498e8cfab3aeab5aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724989"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga en una instancia de Azure Blob Storage los datos diferenciales según la información de **captura de datos modificados (CDC)** de la base de datos de Instancia administrada de Azure SQL de origen.  
 
@@ -90,10 +87,10 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +110,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
    El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
-    *El nombre "ADFTutorialDataFactory" de factoría de datos no está disponible.*
+    *El nombre de factoría de datos "ADFTutorialDataFactory" no está disponible.*
 3. Seleccione **V2** para la **versión**.
 4. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
 5. Para el **grupo de recursos**, realice uno de los siguientes pasos:

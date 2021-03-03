@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366367"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364586"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acceso condicional: Usuarios y grupos
 
@@ -42,6 +42,9 @@ Las siguientes opciones están disponibles para su inclusión al crear una direc
    - Usuarios y grupos
       - Permite dirigirse a conjuntos específicos de usuarios. Por ejemplo, las organizaciones pueden seleccionar un grupo que contenga todos los miembros del departamento de recursos humanos cuando tenga una aplicación de Recursos Humanos seleccionada como aplicación en la nube. Un grupo puede ser cualquier tipo de grupo en Azure AD, como grupos de distribución y de seguridad dinámicos o asignados. La directiva se aplicará a los usuarios y grupos anidados.
 
+> [!IMPORTANT]
+> Al seleccionar qué usuarios y grupos se incluyen en una directiva de acceso condicional, existe un límite en cuanto al número de usuarios individuales que se pueden agregar directamente a dicha directiva. Si se debe agregar directamente una gran cantidad de usuarios individuales a una directiva de acceso condicional, se recomienda colocar los usuarios en un grupo y asignar el grupo a la directiva en su lugar.
+
 > [!WARNING]
 > Si los usuarios o grupos son miembros de más de 2048 grupos, es posible que se bloquee su acceso. Este límite se aplica a la pertenencia a grupos directa y anidada.
 
@@ -66,7 +69,7 @@ Las siguientes opciones están disponibles para su exclusión al crear una direc
 
 ### <a name="preventing-administrator-lockout"></a>Impedir el bloqueo de administrador
 
-Para evitar que un administrador se bloquee fuera de su directorio al crear una directiva que se aplica a **todos los usuarios** y a **todas las aplicaciones** , verá la siguiente advertencia.
+Para evitar que un administrador se bloquee fuera de su directorio al crear una directiva que se aplica a **todos los usuarios** y a **todas las aplicaciones**, verá la siguiente advertencia.
 
 > No se bloquee. Se recomienda aplicar primero una directiva a un pequeño conjunto de usuarios para comprobar que se comporta según lo esperado. También se recomienda excluir al menos un administrador de esta directiva. Esto garantiza que sigue teniendo acceso y puede actualizar una directiva si es necesario un cambio. Revise los usuarios y las aplicaciones afectados.
 

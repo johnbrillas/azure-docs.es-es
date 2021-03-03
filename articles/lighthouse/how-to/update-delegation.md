@@ -1,14 +1,14 @@
 ---
 title: Actualización de una delegación
 description: Obtenga información sobre cómo actualizar una delegación para un cliente previamente incorporado a Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791346"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555766"
 ---
 # <a name="update-a-delegation"></a>Actualización de una delegación
 
@@ -48,7 +48,7 @@ Si está actualizando la oferta solo para ajustar las autorizaciones y mantiene 
 El acceso a la delegación puede retirarlo cualquier usuario del inquilino de administración al que se haya concedido el [rol de eliminación de la asignación de registro de servicios administrados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) en la delegación original. Si ningún usuario del inquilino de administración tiene este rol, puede pedir al cliente que [retire el acceso a la oferta en Azure Portal](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> Si quitó la delegación anterior siguiendo los pasos anteriores y sigue sin poder implementar la nueva plantilla de ARM, es posible que necesite [quitar la definición de registro por completo](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Esto lo puede hacer cualquier usuario con el rol Propietario en el inquilino del cliente.  
+> Si quitó la delegación anterior siguiendo los pasos anteriores y sigue sin poder implementar la nueva plantilla de ARM, es posible que necesite [quitar la definición de registro por completo](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Esto lo puede hacer cualquier usuario con un rol que tenga el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](../../role-based-access-control/built-in-roles.md#owner), en el inquilino del cliente.  
 
 ## <a name="deploy-the-arm-template"></a>Implementación de la plantilla de ARM
 

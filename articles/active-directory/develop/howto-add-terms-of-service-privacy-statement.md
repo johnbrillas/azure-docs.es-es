@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013675"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104202"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
@@ -58,11 +58,11 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Mediante Azure Portal
 Siga estos pasos en Azure Portal.
 
-1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> y seleccione el inquilino de AzureAD correcto (no B2C).
-2. Navegue hasta la sección **Registros de aplicaciones** y seleccione la aplicación.
-3. Abra el panel **Personalización de marca**.
+1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> y seleccione el inquilino de Azure AD correcto (no B2C).
+2. Vaya a la sección **Registros de aplicaciones** y seleccione la aplicación.
+3. En **Administrar**, seleccione **Personalización de marca**.
 4. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.
-5. Guarde los cambios.
+5. Seleccione **Guardar**.
 
     ![Las propiedades de la aplicación incluyen las direcciones URL de las condiciones del servicio y de la declaración de privacidad.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 

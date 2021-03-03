@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827563"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593852"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Consulta de registros de Start/Stop VMs during off-hours
 
-Azure Automation envía dos tipos de registros al área de trabajo de Log Analytics vinculada: registros de trabajo y flujos de trabajo. En este artículo se revisan los datos disponibles para [consultar](../azure-monitor/log-query/log-query-overview.md) en Azure Monitor.
+Azure Automation envía dos tipos de registros al área de trabajo de Log Analytics vinculada: registros de trabajo y flujos de trabajo. En este artículo se revisan los datos disponibles para [consultar](../azure-monitor/logs/log-query-overview.md) en Azure Monitor.
 
 ## <a name="job-logs"></a>Registros de trabajo
 
@@ -72,5 +72,5 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar la característica, vea [Configuración de Stop/Start VMs during off-hours](automation-solution-vm-management-config.md).
-* Para obtener información sobre las alertas de registro durante la implementación de características, vea [Creación de alertas de registro con Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Para obtener información sobre las alertas de registro durante la implementación de características, vea [Creación de alertas de registro con Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 * Para resolver los errores de características, consulte [Solución de problemas de Start/Stop VMs during off-hours](troubleshoot/start-stop-vm.md).

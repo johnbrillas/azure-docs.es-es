@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788237"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544840"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -22,20 +22,21 @@ ms.locfileid: "98788237"
 
 Azure Firewall incluye las siguientes características:
 
-- [Alta disponibilidad integrada](#built-in-high-availability)
-- [Zonas de disponibilidad](#availability-zones)
-- [Escalabilidad a la nube sin restricciones](#unrestricted-cloud-scalability)
-- [Reglas de filtrado de FQDN de aplicación](#application-fqdn-filtering-rules)
-- [Reglas de filtrado de tráfico de red](#network-traffic-filtering-rules)
-- [Etiquetas de nombre de dominio completo](#fqdn-tags)
-- [Etiquetas de servicio](#service-tags)
-- [Información sobre amenazas](#threat-intelligence)
-- [Compatibilidad con SNAT saliente](#outbound-snat-support)
-- [Compatibilidad con DNAT entrante](#inbound-dnat-support)
-- [Varias direcciones IP públicas](#multiple-public-ip-addresses)
-- [Registro de Azure Monitor](#azure-monitor-logging)
-- [Tunelización forzada](#forced-tunneling)
-- [Certificaciones](#certifications)
+- Alta disponibilidad integrada
+- Zonas de disponibilidad
+- Escalabilidad a la nube sin restricciones
+- Reglas de filtrado de FQDN de aplicación
+- Reglas de filtrado de tráfico de red
+- Etiquetas FQDN
+- Etiquetas de servicio
+- Información sobre amenazas
+- Compatibilidad con SNAT saliente
+- Compatibilidad con DNAT entrante
+- Varias direcciones IP públicas
+- Registro de Azure Monitor
+- Tunelización forzada
+- Categorías web (versión preliminar)
+- Certificaciones
 
 ## <a name="built-in-high-availability"></a>Alta disponibilidad integrada
 
@@ -97,7 +98,7 @@ Puede asociar [varias direcciones IP públicas](deploy-multi-public-ip-powershe
 Esto admite los siguientes escenarios:
 
 - **DNAT**: puede traducir varias instancias de puerto estándar para los servidores back-end. Por ejemplo, si tiene dos direcciones IP públicas, puede traducir el puerto TCP 3389 (RDP) para ambas direcciones IP.
-- **SNAT**: hay disponibles puertos adicionales para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall. Considere la posibilidad de usar un [prefijo de dirección IP pública](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuración.
+- **SNAT**: hay más puertos disponibles para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall. Considere la posibilidad de usar un [prefijo de dirección IP pública](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuración.
 
 ## <a name="azure-monitor-logging"></a>Registro de Azure Monitor
 
@@ -110,6 +111,24 @@ El libro de Azure Firewall proporciona un lienzo flexible para el análisis de d
 ## <a name="forced-tunneling"></a>Tunelización forzada
 
 Puede configurar Azure Firewall para enrutar todo el tráfico vinculado a Internet a un próximo salto designado, en lugar de ir directamente a Internet. Por ejemplo, puede tener un servidor perimetral local u otra aplicación virtual de red (NVA) para procesar el tráfico de red antes de que pase a Internet. Para más información, consulte [Tunelización forzada de Azure Firewall](forced-tunneling.md).
+
+## <a name="web-categories-preview"></a>Categorías web (versión preliminar)
+
+Las categorías web hacen que los administradores puedan permitir o denegar el acceso de los usuarios a categorías de sitios web como, por ejemplo, sitios web de apuestas, de redes sociales u otros. Las categorías web se incluyen en Azure Firewall Estándar, pero son más avanzadas en la versión preliminar de Azure Firewall Prémium. Frente a la funcionalidad de categorías web de la SKU Estándar que coincide con la categoría basada en un nombre de dominio completo, la SKU Prémium coincide con la categoría según la dirección URL completa tanto para el tráfico HTTP como para el HTTPS. Para más información sobre la versión preliminar de Azure Firewall Prémium, ve [Características en versión preliminar de Azure Firewall Prémium](premium-features.md).
+
+Por ejemplo, si Azure Firewall intercepta una solicitud HTTPS para `www.google.com/news`, se espera la siguiente categorización: 
+
+- Firewall Estándar: solo se examinará la parte del nombre de dominio completo, por lo que `www.google.com` se clasificará como *Motor de búsqueda*. 
+
+- Firewall Prémium: se examinará la dirección URL completa, por lo que se `www.google.com/news` clasificará como *Noticias*.
+
+Las categorías se organizan en función de la gravedad en **Responsabilidad**, **Ancho de banda alto**, **Uso empresarial**, **Pérdida de productividad**, **Navegación general** y **Sin categoría**.
+
+### <a name="category-exceptions"></a>Excepciones de las categorías
+
+Puede crear excepciones a las reglas de la categoría web. Cree una colección de reglas de permiso o denegación independiente con una prioridad más alta dentro del grupo de recopilación de reglas. Por ejemplo, puede configurar una colección de reglas que permita `www.linkedin.com` con prioridad 100, con una colección de reglas que deniegue las **redes sociales** con prioridad 200. Esto crea la excepción para la categoría web **Redes sociales** predefinida.
+
+
 
 ## <a name="certifications"></a>Certificaciones
 

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373154"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586870"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -76,7 +76,7 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
    ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para más información, consulte las [limitaciones conocidas de Log Analytics](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Seleccione **Guardar**.
 
@@ -151,7 +151,7 @@ Estas son algunas de las métricas emitidas por Azure Data Factory, versión 2:
 | SSISPackageExecutionFailed           | Métricas de ejecución de paquetes SSIS con errores    | Count    | Total                | El número total de ejecuciones de paquetes SSIS con errores en un período de minutos. |
 | SSISPackageExecutionSucceeded        | Métricas de ejecución de paquetes SSIS correcta | Count    | Total                | El número total de ejecuciones de paquetes SSIS correctas en un período de minutos. |
 
-Para acceder a las métricas, complete las instrucciones que aparecen en la [plataforma de datos de Azure Monitor](../azure-monitor/platform/data-platform.md).
+Para acceder a las métricas, complete las instrucciones que aparecen en la [plataforma de datos de Azure Monitor](../azure-monitor/data-platform.md).
 
 > [!NOTE]
 > Solo se emiten los eventos de las ejecuciones de actividades y canalizaciones desencadenadas y completadas. Las ejecuciones de depuración y en curso **no** se emiten. Por otro lado, se emiten eventos de **todas** las ejecuciones de paquetes SSIS, incluidas las que se completan y están en curso, independientemente de sus métodos de invocación. Por ejemplo, puede invocar las ejecuciones de paquetes en SQL Server Data Tools (SSDT) habilitado para Azure mediante T-SQL en SSMS, el Agente SQL Server u otras herramientas designadas, y como ejecuciones desencadenadas o de depuración de las actividades de ejecución de paquetes SSIS en canalizaciones de ADF.
@@ -848,7 +848,7 @@ Para migrar mediante lift-and-shift las cargas de trabajo de SSIS, puede [aprovi
 
 Una vez aprovisionado, puede [comprobar el estado operativo de SSIS IR mediante Azure PowerShell o en el centro de **Monitor** del portal de ADF](./monitor-integration-runtime.md#azure-ssis-integration-runtime). Con el modelo de implementación de proyectos, los registros de ejecución de paquetes SSIS se almacenan en tablas o vistas internas de SSISDB, de modo que puede consultarlas, analizarlas y presentarlas visualmente mediante herramientas designadas, como SSMS. Con el modelo de implementación de paquetes, los registros de ejecución de paquetes SSIS se pueden almacenar en el sistema de archivos o en Azure Files como archivos CSV que todavía debe analizar y procesar con otras herramientas designadas antes de que pueda consultarlas, analizarlas y presentarlas visualmente.
 
-Ahora, con la integración de [Azure Monitor](../azure-monitor/platform/data-platform.md), puede consultar, analizar y presentar visualmente todas las métricas y registros generados a partir de operaciones de SSIS IR y ejecuciones de paquetes SSIS en Azure Portal. Además, puede generar alertas sobre dichas métricas.
+Ahora, con la integración de [Azure Monitor](../azure-monitor/data-platform.md), puede consultar, analizar y presentar visualmente todas las métricas y registros generados a partir de operaciones de SSIS IR y ejecuciones de paquetes SSIS en Azure Portal. Además, puede generar alertas sobre dichas métricas.
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>Configuración de las opciones de diagnóstico y del área de trabajo para las operaciones de SSIS
 
@@ -856,9 +856,9 @@ Para enviar todas las métricas y los registros generados por las operaciones de
 
 ### <a name="ssis-operational-metrics"></a>Métricas operativas de SSIS
 
-Las [métricas](../azure-monitor/platform/data-platform-metrics.md) operativas de SSIS son contadores de rendimiento o valores numéricos que describen el estado de las operaciones de inicio y detención de SSIS IR, así como de las ejecuciones de paquetes SSIS en un momento determinado. Forman parte de las [métricas de ADF en Azure Monitor](#data-factory-metrics).
+Las [métricas](../azure-monitor/essentials/data-platform-metrics.md) operativas de SSIS son contadores de rendimiento o valores numéricos que describen el estado de las operaciones de inicio y detención de SSIS IR, así como de las ejecuciones de paquetes SSIS en un momento determinado. Forman parte de las [métricas de ADF en Azure Monitor](#data-factory-metrics).
 
-Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, al activar la casilla _AllMetrics_, las métricas operativas de SSIS estarán disponibles para los [análisis interactivos con el Explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md), la [presentación en el panel de Azure](../azure-monitor/learn/tutorial-app-dashboards.md) y las [alertas casi en tiempo real](../azure-monitor/platform/alerts-metric.md).
+Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, al activar la casilla _AllMetrics_, las métricas operativas de SSIS estarán disponibles para los [análisis interactivos con el Explorador de métricas de Azure](../azure-monitor/essentials/metrics-getting-started.md), la [presentación en el panel de Azure](../azure-monitor/app/tutorial-app-dashboards.md) y las [alertas casi en tiempo real](../azure-monitor/alerts/alerts-metric.md).
 
 ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -874,9 +874,9 @@ Para generar alertas relativas a las métricas operativas de SSIS desde Azure Po
 
 ### <a name="ssis-operational-logs"></a>Registros operativos de SSIS
 
-Los [registros](../azure-monitor/platform/data-platform-logs.md) operativos de SSIS son eventos generados por las operaciones de SSIS IR y las ejecuciones de paquetes SSIS que proporcionan suficiente contexto sobre los problemas identificados y son útiles para el análisis de la causa principal. 
+Los [registros](../azure-monitor/logs/data-platform-logs.md) operativos de SSIS son eventos generados por las operaciones de SSIS IR y las ejecuciones de paquetes SSIS que proporcionan suficiente contexto sobre los problemas identificados y son útiles para el análisis de la causa principal. 
 
-Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, puede seleccionar los registros operativos de SSIS correspondientes y enviarlos a Log Analytics, que se basa en Azure Data Explorer. Allí, estarán disponibles para [realizar análisis mediante el lenguaje de consulta enriquecido](../azure-monitor/log-query/log-query-overview.md), [presentarlos en el panel de Azure](../azure-monitor/learn/tutorial-app-dashboards.md) y [realizar alertas casi en tiempo real](../azure-monitor/platform/alerts-log.md).
+Al configurar las opciones de diagnóstico y el área de trabajo de la instancia de ADF en Azure Monitor, puede seleccionar los registros operativos de SSIS correspondientes y enviarlos a Log Analytics, que se basa en Azure Data Explorer. Allí, estarán disponibles para [realizar análisis mediante el lenguaje de consulta enriquecido](../azure-monitor/logs/log-query-overview.md), [presentarlos en el panel de Azure](../azure-monitor/app/tutorial-app-dashboards.md) y [realizar alertas casi en tiempo real](../azure-monitor/alerts/alerts-log.md).
 
 ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 

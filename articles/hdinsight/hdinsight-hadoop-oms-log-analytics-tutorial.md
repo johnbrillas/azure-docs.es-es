@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590830"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
 Aprenda a usar habilitar los registros de Azure Monitor para supervisar las operaciones de los clústeres de Hadoop en HDInsight. Y a agregar una solución de supervisión de HDInsight.
 
-Los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) son un servicio de Azure Monitor que supervisa los entornos locales y en la nube. La supervisión sirve para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión. Los datos se usan para proporcionar análisis en varios orígenes.
+Los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md) son un servicio de Azure Monitor que supervisa los entornos locales y en la nube. La supervisión sirve para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión. Los datos se usan para proporcionar análisis en varios orígenes.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un área de trabajo de Log Analytics. Considere el área de trabajo como un entorno de registros de Azure Monitor único, con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones. Para más instrucciones, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Un área de trabajo de Log Analytics. Considere el área de trabajo como un entorno de registros de Azure Monitor único, con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones. Para más instrucciones, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * Un clúster de HDInsight de Azure. Actualmente, puede usar los registros de Azure Monitor con los siguientes tipos de clúster de HDInsight:
 
@@ -144,7 +144,7 @@ Dado que el clúster es un clúster nuevo de marca, el informe no muestra ningun
 
 ## <a name="configuring-performance-counters"></a>Configuración de contadores de rendimiento
 
-Azure Monitor admite la recopilación y el análisis de las métricas de rendimiento de los nodos del clúster. Para obtener más información, consulte [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Azure Monitor admite la recopilación y el análisis de las métricas de rendimiento de los nodos del clúster. Para obtener más información, consulte [Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Auditoría de clústeres
 

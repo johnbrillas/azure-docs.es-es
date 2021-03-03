@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f4d77cc3b2f2182b02d47f047070b819daa5f3c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329583"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589015"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -42,13 +42,13 @@ Para explorar aún más las funcionalidades del portal de Application Insights, 
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuración de Application Insights con EventFlow
 
-Si va a usar EventFlow para agregar eventos, asegúrese de importar el paquete NuGet `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`. Debe incluirse el código siguiente en la sección *outputs* de *eventFlowConfig.json* :
+Si va a usar EventFlow para agregar eventos, asegúrese de importar el paquete NuGet `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`. Debe incluirse el código siguiente en la sección *outputs* de *eventFlowConfig.json*:
 
 ```json
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
@@ -65,13 +65,13 @@ Si desarrolla en .NET, existe la probabilidad de que vaya a usar algunos de los 
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Ir al recurso de Application Insights en Azure Portal
 
-Tras configurar Application Insights como salida de eventos y registros, la información debería empezar a mostrarse en el recurso de Application Insights al cabo de pocos minutos. Vaya al recurso de Application Insights, lo que le llevará al panel de recursos de Application Insights. Seleccione *Buscar* en la barra de tareas de Application Insights para ver los últimos seguimientos que ha recibido y poder filtrarlos.
+Tras configurar Application Insights como salida de eventos y registros, la información debería empezar a mostrarse en el recurso de Application Insights al cabo de pocos minutos. Vaya al recurso de Application Insights, lo que le llevará al panel de recursos de Application Insights. Seleccione **Buscar** en la barra de tareas de Application Insights para ver los últimos seguimientos que ha recibido y poder filtrarlos.
 
-El *Explorador de métricas* es una herramienta útil para crear paneles personalizados basados en métricas sobre las que las aplicaciones, los servicios y el clúster pueden informar. Vea [Exploración de métricas en Application Insights](../azure-monitor/platform/metrics-charts.md) para configurar algunos gráficos por su cuenta en función de los datos que recopile.
+El *Explorador de métricas* es una herramienta útil para crear paneles personalizados basados en métricas sobre las que las aplicaciones, los servicios y el clúster pueden informar. Vea [Exploración de métricas en Application Insights](../azure-monitor/essentials/metrics-charts.md) para configurar algunos gráficos por su cuenta en función de los datos que recopile.
 
-Al hacer clic en **Analytics** , se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../azure-monitor/log-query/log-query-overview.md).
+Al hacer clic en **Analytics**, se le remitirá al portal de Analytics en Application Insights, donde puede consultar eventos y seguimientos con un ámbito más amplio y más opciones. Lea más información en [Analytics en Application Insights](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Definición de alertas en Application Insights](../azure-monitor/platform/alerts-log.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](../azure-monitor/alerts/alerts-log.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza un análisis proactivo de la telemetría que se envía a Application Insights para avisar de posibles problemas de rendimiento

@@ -3,17 +3,17 @@ title: Creación de un punto de conexión privado para una conexión segura
 titleSuffix: Azure Cognitive Search
 description: Configure un punto de conexión privado en una red virtual para establecer una conexión segura con un servicio Azure Cognitive Search.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779947"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545537"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -21,8 +21,10 @@ En este artículo, usará Azure Portal para crear una nueva instancia del servi
 
 Los puntos de conexión privados se proporcionan mediante [Azure Private Link](../private-link/private-link-overview.md), como un servicio independiente. Para más información sobre los costos, consulte la [página de precios](https://azure.microsoft.com/pricing/details/private-link/).
 
-> [!Important]
-> El soporte técnico del punto de conexión privado de Azure Cognitive Search se puede configurar con Azure Portal o la [API REST de administración, versión 2020-03-13](/rest/api/searchmanagement/). Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Podrá ver y administrar información de nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como índice, indizador y definiciones del conjunto de aptitudes. Como alternativa al portal, puede usar la [extensión de VS Code](https://aka.ms/vscode-search) para interactuar con los distintos componentes del servicio.
+Puede crear un punto de conexión privado en Azure Portal, como se describe en este artículo. También puede usar la [API de REST de administración, versión 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search) o la [CLI de Azure](/cli/azure/search).
+
+> [!NOTE]
+> Cuando el punto de conexión de servicio es privado, se deshabilitan algunas características del portal. Puede ver y administrar la información de nivel de servicio, pero la información de índices, indexadores y conjuntos de aptitudes se oculta por motivos de seguridad. Como alternativa al portal, puede usar la [extensión de VS Code](https://aka.ms/vscode-search) para interactuar con los distintos componentes del servicio.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>¿Por qué usar un punto de conexión privado para obtener un acceso seguro?
 

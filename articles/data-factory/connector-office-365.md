@@ -1,22 +1,17 @@
 ---
 title: Copia de datos de Office 365 con Azure Data Factory
 description: Obtenga información sobre cómo copiar datos desde Office 365 a almacenes de datos receptores compatibles mediante una actividad de copia de una canalización de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 365896fec555340c3932192aa82086d140d4db0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632998"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393010"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copia de datos de Office 365 en Azure con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -91,7 +86,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Office 3
 >- Si es un desarrollador empresarial que va a desarrollar una aplicación con los datos de Office 365 para usarla en su organización, debe proporcionar el mismo identificador de inquilino para ambas propiedades, que es el identificador de inquilino de AAD de su organización.
 >- Si es un ISV que va a desarrollar una aplicación para los clientes, office365TenantId será el identificador de inquilino de AAD (instalador de la aplicación) del cliente y servicePrincipalTenantId será el identificador de inquilino de AAD de la empresa.
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 {
@@ -161,7 +156,7 @@ Para copiar datos de Office 365, se admiten las siguientes propiedades en la se
 | endTime | Valor DateTime de fin para el filtro. | Sí, si se especifica `dateFilterColumn` |
 | outputColumns | Matriz de las columnas que se van a copiar en el receptor. | No |
 
-**Ejemplo** :
+**Ejemplo**:
 
 ```json
 "activities": [

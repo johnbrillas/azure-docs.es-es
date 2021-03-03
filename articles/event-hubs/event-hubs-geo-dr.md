@@ -2,13 +2,13 @@
 title: 'Recuperación ante desastres geográfica: Azure Event Hubs| Microsoft Docs'
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222889"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390681"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -75,24 +75,27 @@ La siguiente sección contiene información general del proceso de conmutación 
 En primer lugar cree un espacio de nombres principal o use uno ya existente, y un nuevo espacio de nombres secundario, luego emparéjelos. Este emparejamiento le proporciona un alias que puede usar para conectarse. Al usar un alias, no es necesario que cambie las cadenas de conexión. Solo pueden agregarse nuevos espacios de nombres al emparejamiento de la conmutación por error. 
 
 1. Cree el espacio de nombres principal.
-1. Cree el espacio de nombres secundario en la suscripción y el grupo de recursos que tiene el espacio de nombres principal. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
+1. Cree el espacio de nombres secundario en la suscripción y el grupo de recursos que tiene el espacio de nombres principal, pero en una región diferente. Este paso es opcional. Puede crear el espacio de nombres secundario mientras crea el emparejamiento en el paso siguiente. 
 1. En Azure Portal, vaya al espacio de nombres principal.
 1. Seleccione **Recuperación geográfica** en el menú de la izquierda e **Iniciar el emparejamiento** en la barra de herramientas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicio del emparejamiento desde el espacio de nombres principal":::    
-1. En la página **Iniciar el emparejamiento**, seleccione un espacio de nombres secundario existente o cree uno en la suscripción y el grupo de recursos que tiene el espacio de nombres principal. Seleccione **Crear**. En el ejemplo siguiente, se selecciona un espacio de nombres secundario existente. 
+1. En la página **Iniciar el emparejamiento**, realice estos pasos:
+    1. Seleccione un espacio de nombres secundario existente o cree uno en la suscripción y el grupo de recursos que tiene el espacio de nombres principal. En este ejemplo, se ha seleccionado un espacio de nombres existente.  
+    1. En **Alias**, escriba un alias para el emparejamiento de recuperación ante desastres con localización geográfica. 
+    1. Seleccione **Crear**. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selección del espacio de nombres secundario":::        
-1. Ahora, cuando seleccione **Recuperación geográfica** para el espacio de nombres principal, debería ver la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica) que se parece a la siguiente imagen:
+1. Debería ver la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica). Para navegar a esta página desde el espacio de nombres principal, también puede seleccionar la opción **Recuperación geográfica** en el menú de la izquierda.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página Geo-DR alias (Alias de recuperación ante desastres geográfica)":::    
+1. En la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica), seleccione **Directivas de acceso compartido** para acceder a la cadena de conexión principal del alias. Use esta cadena de conexión en lugar de usar directamente la cadena de conexión al espacio de nombres principal o secundario. 
 1. En esta página de **Información general**, puede realizar las siguientes acciones: 
     1. Dividir el emparejamiento entre los espacios de nombres principal y secundario. Seleccione **Interrumpir el emparejamiento** en la barra de herramientas. 
     1. Conmutar por error manualmente al espacio de nombres secundario. Seleccione **Conmutación por error** en la barra de herramientas. 
     
         > [!WARNING]
         > La conmutación por error activará el espacio de nombres secundario y quitará el espacio de nombres principal del emparejamiento de la recuperación ante desastres geográfica. Cree otro espacio de nombres para tener un nuevo par de recuperación ante desastres geográfica. 
-1. En la página **Geo-DR Alias** (Alias de recuperación ante desastres geográfica), seleccione **Directivas de acceso compartido** para acceder a la cadena de conexión principal del alias. Use esta cadena de conexión en lugar de usar directamente la cadena de conexión al espacio de nombres principal o secundario. 
 
 Por último, debe agregar alguna supervisión para detectar si es necesario realizar una conmutación por error. En la mayoría de los casos, el servicio forma parte de un ecosistema mayor, por lo que las conmutaciones por error automáticas raramente son posibles, ya que, a menudo, las conmutaciones por error tienen que realizarse en sincronía con el subsistema o infraestructura restantes.
 
@@ -133,9 +136,9 @@ Tenga en cuenta y recuerde las siguientes consideraciones:
 
 1. Por motivos de diseño, la recuperación ante desastres geográfica de Event Hubs no replica datos y, por lo tanto, no se puede volver a usar el valor de desplazamiento anterior del centro de eventos principal en el centro de eventos secundario. Se recomienda reiniciar el receptor de eventos con uno de los siguientes métodos:
 
-- *EventPosition.FromStart()* : si quiere leer todos los datos en el centro de eventos secundario.
-- *EventPosition.FromEnd()* : si quiere leer todos los datos nuevos desde el momento de conexión con el centro de eventos secundario.
-- *EventPosition.FromEnqueuedTime(dateTime)* : si quiere leer todos los datos recibidos en el centro de eventos secundario a partir de una hora y fecha determinadas.
+   - *EventPosition.FromStart()* : si quiere leer todos los datos en el centro de eventos secundario.
+   - *EventPosition.FromEnd()* : si quiere leer todos los datos nuevos desde el momento de conexión con el centro de eventos secundario.
+   - *EventPosition.FromEnqueuedTime(dateTime)* : si quiere leer todos los datos recibidos en el centro de eventos secundario a partir de una hora y fecha determinadas.
 
 2. En el planeamiento de la conmutación por error, también debe considerar el factor de tiempo. Por ejemplo, si se pierde la conectividad durante más de 15 a 20 minutos, puede decidir iniciar la conmutación por error. 
  
@@ -153,6 +156,8 @@ La SKU de Event Hubs estándar es compatible con [Availability Zones](../availab
 > La compatibilidad de Availability Zones con Azure Event Hubs estándar solo está disponible en aquellas [regiones de Azure](../availability-zones/az-region.md) en las que hay zonas de disponibilidad.
 
 Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Event Hubs no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
+
+Al utilizar zonas de disponibilidad, tanto los metadatos como los datos (eventos) se replican entre centros de datos en la zona de disponibilidad. 
 
 ![3][]
 

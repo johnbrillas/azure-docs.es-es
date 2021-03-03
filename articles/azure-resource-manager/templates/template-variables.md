@@ -1,28 +1,82 @@
 ---
 title: Variables en plantillas
-description: Se describe cómo definir variables en una plantilla de Azure Resource Manager (plantilla de ARM).
+description: Se describe cómo definir variables en una plantilla de Azure Resource Manager (plantilla de ARM) y un archivo de Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: feecc4b5df77e6a3bf51294cb12aabf44899dde5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 02/12/2021
+ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874441"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364467"
 ---
-# <a name="variables-in-arm-template"></a>Variables en la plantilla de ARM
+# <a name="variables-in-arm-templates"></a>Variables en plantillas de ARM
 
-En este artículo se describe cómo definir y usar variables en una plantilla de Azure Resource Manager (plantilla de ARM). Las variables se utilizan para simplificar la plantilla. En lugar de repetir expresiones complicadas en toda la plantilla, defina una variable que contenga la expresión complicada. A continuación, haga referencia a esa variable en toda la plantilla tanto como sea necesario.
+En este artículo se describe cómo definir y usar variables en una plantilla de Azure Resource Manager (plantilla de ARM) o archivo de Bicep. Las variables se utilizan para simplificar la plantilla. En lugar de repetir expresiones complicadas en toda la plantilla, defina una variable que contenga la expresión complicada. A continuación, use esa variable en toda la plantilla tanto como sea necesario.
 
 Resource Manager resuelve las variables antes de iniciar las operaciones de implementación. Siempre que la variable se use en la plantilla, Resource Manager la reemplaza por el valor resuelto.
 
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
 ## <a name="define-variable"></a>Definición de la variable
 
-Al definir una variable, proporcione un valor o una expresión de plantilla que se resuelva como un [tipo de datos](template-syntax.md#data-types). Puede usar el valor de un parámetro u otra variable al construir la variable.
+Al definir una variable, no se especifica un [tipo de datos](template-syntax.md#data-types) para la variable. En su lugar, se especifica un valor o una expresión de plantilla. El tipo de variable se infiere a partir del valor resuelto. En el siguiente ejemplo se establece una variable en una cadena.
 
-Puede usar las [funciones de plantilla](template-functions.md) en la declaración de variables, pero no puede usar la función [reference](template-functions-resource.md#reference) ni ninguna de las funciones [list](template-functions-resource.md#list). Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
+# <a name="json"></a>[JSON](#tab/json)
 
-El ejemplo siguiente muestra una variable de definición. Crea un valor de cadena para un nombre de cuenta de almacenamiento. Usa varias funciones de plantilla para obtener un valor de parámetro y lo concatena a una cadena única.
+```json
+"variables": {
+  "stringVar": "example value"
+},
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var stringVar = 'example value'
+```
+
+---
+
+Puede usar el valor de un parámetro u otra variable al construir la variable.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"parameters": {
+  "inputValue": {
+    "defaultValue": "deployment parameter",
+    "type": "string"
+  }
+},
+"variables": {
+  "stringVar": "myVariable",
+  "concatToVar": "[concat(variables('stringVar'), '-addtovar') ]",
+  "concatToParam": "[concat(parameters('inputValue'), '-addtoparam')]"
+}
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param inputValue string = 'deployment parameter'
+
+var stringVar = 'myVariable'
+var concatToVar =  '${stringVar}-addtovar'
+var concatToParam = '${inputValue}-addtoparam'
+```
+
+---
+
+Puede usar las [funciones de plantilla](template-functions.md) para construir el valor de la variable.
+
+En las plantillas JSON, puede usar la función [reference](template-functions-resource.md#reference) o cualquiera de las funciones [list](template-functions-resource.md#list) en la declaración de variables. Estas funciones obtienen el estado de tiempo de ejecución de un recurso y no se pueden ejecutar antes de la implementación cuando se resuelven variables.
+
+Las funciones reference y list son válidas cuando se declara una variable en un archivo de Bicep.
+
+En el ejemplo siguiente se crea un valor de cadena para un nombre de cuenta de almacenamiento. Usa varias funciones de plantilla para obtener un valor de parámetro y lo concatena a una cadena única.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "variables": {
@@ -30,9 +84,21 @@ El ejemplo siguiente muestra una variable de definición. Crea un valor de caden
 },
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+```
+
+---
+
 ## <a name="use-variable"></a>Uso de la variable
 
-En la plantilla, debe hacer referencia al valor del parámetro con la función [variables](template-functions-deployment.md#variables). En el ejemplo siguiente se muestra cómo usar la variable para una propiedad de recurso.
+En el ejemplo siguiente se muestra cómo usar la variable para una propiedad de recurso.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+En una plantilla JSON, debe hacer referencia al valor de la variable mediante la función [variables](template-functions-deployment.md#variables).
 
 ```json
 "resources": [
@@ -44,17 +110,46 @@ En la plantilla, debe hacer referencia al valor del parámetro con la función [
 ]
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+En un archivo de Bicep, se hace referencia al valor de la variable al proporcionar el nombre de la variable.
+
+```bicep
+resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+```
+
+---
+
 ## <a name="example-template"></a>Plantilla de ejemplo
 
-La plantilla siguiente no implementa ningún recurso. Simplemente muestra algunas maneras de declarar variables.
+La plantilla siguiente no implementa ningún recurso. Muestra algunas maneras de declarar variables de distintos tipos.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Actualmente, Bicep no admite bucles.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/variables.bicep":::
+
+---
+
 ## <a name="configuration-variables"></a>Variables de configuración
 
-Puede definir variables que contengan valores relacionados para configurar un entorno. La variable se define como un objeto con los valores. En el ejemplo siguiente se muestra un objeto que contiene valores para dos entornos: **test** y **prod**. Se pasa uno de estos valores durante la implementación.
+Puede definir variables que contengan valores relacionados para configurar un entorno. La variable se define como un objeto con los valores. En el ejemplo siguiente se muestra un objeto que contiene valores para dos entornos: **test** y **prod**. Pase uno de estos valores durante la implementación.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.bicep":::
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

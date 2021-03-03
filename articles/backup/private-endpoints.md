@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054879"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728219"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -27,26 +27,29 @@ Este artículo le ayudará a comprender el proceso de creación de puntos de con
 - No se admiten redes virtuales con directivas de red para los puntos de conexión privados. Deberá deshabilitar las directivas de red antes de continuar.
 - Debe volver a registrar el proveedor de recursos de Recovery Services con la suscripción si lo registró antes del 1 de mayo de 2020. Para volver a registrar el proveedor, vaya a la suscripción en Azure Portal, haga clic en el **Proveedor de recursos** en la barra de navegación izquierda, seleccione **Microsoft.RecoveryServices** y **Volver a registrar**.
 - Si el almacén tiene habilitados los puntos de conexión privados, no se puede realizar la [restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore) de las copias de seguridad de bases de datos SQL y SAP HANA.
+- Al trasladar un almacén de Recovery Services que ya usa puntos de conexión privados a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y crear nuevos puntos de conexión privados según sea necesario (que deben estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
 
 ## <a name="recommended-and-supported-scenarios"></a>Escenarios recomendados y admitidos
 
 Aunque los puntos de conexión privados están habilitados para el almacén, solo se usan para la copia de seguridad y restauración de las cargas de trabajo de SQL y SAP HANA en una máquina virtual de Azure y en las copias de seguridad del agente de MARS. También puede usar el almacén para realizar copias de seguridad de otras cargas de trabajo (si bien no requerirán los puntos de conexión privados). Además de la copia de seguridad de las cargas de trabajo de SQL y SAP HANA y de las copias de seguridad mediante el agente de MARS, los puntos de conexión privados también se usan para realizar la recuperación de archivos para la copia de seguridad de máquinas virtuales de Azure. Para más información, vea la tabla siguiente:
 
-| Copia de seguridad de cargas de trabajo en máquinas virtuales de Azure (SQL, SAP HANA), copia de seguridad mediante el agente de MARS | Se recomienda el uso de puntos de conexión privados para permitir la creación y restauración de copias de seguridad sin necesidad de incluir en una lista de permitidos las direcciones IP o FQDN para Azure Backup o Azure Storage de las redes virtuales. En ese escenario, asegúrese de que las máquinas virtuales que hospedan las bases de datos SQL pueden comunicarse con direcciones IP o FQDN de Azure AD. |
+| Copia de seguridad de cargas de trabajo en máquinas virtuales de Azure (SQL, SAP HANA), copia de seguridad mediante el agente de MARS | Se recomienda el uso de puntos de conexión privados para permitir copias de seguridad y restauración sin necesidad de agregar las listas de direcciones IP o FQDN a una lista de permitidos para Azure Backup o Azure Storage desde las redes virtuales. En ese escenario, asegúrese de que las máquinas virtuales que hospedan las bases de datos SQL pueden comunicarse con direcciones IP o FQDN de Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Copia de seguridad de la máquina virtual de Azure**                                         | La copia de seguridad de la máquina virtual no requiere que permita el acceso a direcciones IP o FQDN. Por lo tanto, no requiere puntos de conexión privados para la copia de seguridad y restauración de discos.  <br><br>   Sin embargo, la recuperación de archivos desde un almacén que contiene puntos de conexión privados se restringe a redes virtuales que contienen un punto de conexión privado para el almacén. <br><br>    Al usar discos no administrados de la ACL, asegúrese de que la cuenta de almacenamiento que contiene los discos permite el acceso a **servicios de Microsoft de confianza** si forma parte de la ACL. |
 | **Copia de seguridad de Azure Files**                                      | Las copias de seguridad de Azure Files se almacenan en la cuenta de almacenamiento local. Por lo tanto, no requiere puntos de conexión privados para la copia de seguridad y restauración. |
 
-## <a name="creating-and-using-private-endpoints-for-backup"></a>Creación y uso de puntos de conexión privados para Azure Backup
+## <a name="get-started-with-creating-private-endpoints-for-backup"></a>Introducción a la creación de puntos de conexión privados para Backup
 
-En esta sección se tratan los pasos necesarios para crear y usar puntos de conexión privados para Azure Backup dentro de las redes virtuales.
+En las siguientes secciones se tratan los pasos necesarios para crear y usar puntos de conexión privados para Azure Backup dentro de las redes virtuales.
 
 >[!IMPORTANT]
 > Se recomienda encarecidamente que siga los pasos en la misma secuencia que se mencionan en este documento. Si no lo hace, puede que el almacén sea incompatible con el uso de puntos de conexión privados y que tenga que reiniciar el proceso con un nuevo almacén.
 
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-Consulte [esta sección](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a crear un almacén mediante el cliente de Azure Resource Manager. Esto crea un almacén con su identidad administrada ya habilitada. Obtenga más información sobre los almacenes de Recovery Services [aquí](./backup-azure-recovery-services-vault-overview.md).
+Los puntos de conexión privados para Backup solo se pueden crear para almacenes de Recovery Services que no tengan ningún elemento protegido (o que no hayan intentado protegerse o registrarse en él en el pasado). Por lo tanto, se recomienda crear un nuevo almacén para comenzar. Para más información sobre la creación de un nuevo almacén, consulte [Creación y configuración de un almacén de Recovery Services](backup-create-rs-vault.md).
+
+Consulte [esta sección](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a crear un almacén mediante el cliente de Azure Resource Manager. Esto crea un almacén con su identidad administrada ya habilitada.
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Habilitar la identidad administrada del almacén
 
@@ -69,7 +72,7 @@ Para crear los puntos de conexión privados necesarios para Azure Backup, el al
 
 - El grupo de recursos que contiene la red virtual de destino
 - El grupo de recursos donde se crearán los puntos de conexión privados
-- El grupo de recursos que contiene las zonas DNS privadas, como se explica [aquí](#creating-private-endpoints-for-backup) de forma detallada.
+- El grupo de recursos que contiene las zonas DNS privadas, como se explica [aquí](#create-private-endpoints-for-azure-backup) de forma detallada.
 
 Se recomienda conceder el rol **Colaborador** para estos tres grupos de recursos en el almacén (identidad administrada). En los pasos siguientes se describe cómo hacer esto para un determinado grupo de recursos (esto se debe hacer para cada uno de los tres grupos de recursos):
 
@@ -84,41 +87,39 @@ Se recomienda conceder el rol **Colaborador** para estos tres grupos de recursos
 
 Para administrar los permisos de forma más detallada, consulte [Crear roles y permisos manualmente](#create-roles-and-permissions-manually).
 
-## <a name="creating-and-approving-private-endpoints-for-azure-backup"></a>Creación y aprobación de puntos de conexión privados para Azure Backup
+## <a name="create-private-endpoints-for-azure-backup"></a>Creación de puntos de conexión privados para Azure Backup
 
-### <a name="creating-private-endpoints-for-backup"></a>Creación de puntos de conexión privados para Azure Backup
+En esta sección se explica cómo crear un punto de conexión privado para el almacén.
 
-En esta sección se describe el proceso de creación de un punto de conexión privado para el almacén.
+1. Navegue hasta el almacén creado anteriormente y vaya a **Conexiones de punto de conexión privado** en la barra de navegación izquierda. Seleccione **+ Punto de conexión privado** en la parte superior para comenzar la creación de un nuevo punto de conexión privado para este almacén.
 
-1. En la barra de búsqueda, busque y seleccione **Private Link**. Esto le llevará al **Centro de Private Link**.
-
-    ![Buscar Private Link](./media/private-endpoints/search-for-private-link.png)
-
-1. En la barra de navegación de la izquierda, seleccione **Puntos de conexión privados**. Una vez en el panel de **Puntos de conexión privados**, seleccione **+Agregar** para empezar a crear un punto de conexión privado para el almacén.
-
-    ![Agregar un punto de conexión privado en el Centro de Private Link](./media/private-endpoints/add-private-endpoint.png)
+    ![Creación de un punto de conexión privado](./media/private-endpoints/new-private-endpoint.png)
 
 1. Una vez que empiece el proceso para **Crear un punto de conexión privado**, se le pedirá que especifique los detalles para crear la conexión de punto de conexión privado.
+  
+    1. **Aspectos básicos**: Rellene los detalles básicos de los puntos de conexión privados. La región debe ser la misma que la del almacén y el recurso de los que se hará una copia de seguridad.
 
-    1. **Aspectos básicos**: Rellene los detalles básicos de los puntos de conexión privados. La región debe ser la misma que la del almacén y el recurso.
+        ![Rellene los detalles básicos](./media/private-endpoints/basics-tab.png)
 
-        ![Rellene los detalles básicos](./media/private-endpoints/basic-details.png)
+    1. **Recursos**: esta pestaña requiere que seleccione el recurso de PaaS para el que quiere crear la conexión. Seleccione **Microsoft.RecoveryServices/vaults** del tipo de recurso para la suscripción deseada. Una vez hecho esto, elija el nombre del almacén de Recovery Services como **Recurso** y **AzureBackup** como el **Subrecurso de destino**.
 
-    1. **Recursos**: Esta pestaña requiere que mencione el recurso de PaaS para el que desea crear la conexión. Seleccione **Microsoft.RecoveryServices/vaults** del tipo de recurso para la suscripción deseada. Una vez hecho esto, elija el nombre del almacén de Recovery Services como **Recurso** y **AzureBackup** como el **Subrecurso de destino**.
+        ![Selección del recurso para la conexión](./media/private-endpoints/resource-tab.png)
 
-        ![Rellene la pestaña Recursos](./media/private-endpoints/resource-tab.png)
+    1. **Configuración**: En Configuración, especifique la red virtual y la subred en la que desea que se cree el punto de conexión privado. Esta será la red virtual donde está presente la máquina virtual.
 
-    1. **Configuración**: En Configuración, especifique la red virtual y la subred en la que desea que se cree el punto de conexión privado. Esta será la red virtual donde está presente la máquina virtual. Puede optar por **integrar el punto de conexión privado** con una zona DNS privada. Como alternativa, también puede usar un servidor DNS personalizado o crear una zona DNS privada.
+        Para conectarse de manera privada, necesita los registros DNS necesarios. Según la configuración de la red, puede elegir una de las siguientes opciones:
 
-        ![Rellene la pestaña Configuración](./media/private-endpoints/configuration-tab.png)
+          - Integrar el punto de conexión privado con una zona DNS privada: seleccione **Sí** si quiere realizar la integración.
+          - Usar el servidor DNS personalizado: seleccione **No** si quiere usar su propio servidor DNS.
 
-        Consulte [esta sección](#dns-changes-for-custom-dns-servers) si quiere usar los servidores DNS personalizados en lugar de integrarlos con las zonas DNS privadas de Azure.  
+        La administración de registros DNS para ambas opciones se [describe más adelante](#manage-dns-records).
+
+          ![Especificación de la red virtual y la subred](./media/private-endpoints/configuration-tab.png)
 
     1. Opcionalmente, puede agregar **Etiquetas** para el punto de conexión privado.
-
     1. Continúe para **Revisar y crear** una vez que haya terminado de escribir los detalles. Una vez finalizada la validación, seleccione **Crear** para crear el punto de conexión privado.
 
-## <a name="approving-private-endpoints"></a>Aprobar puntos de conexión privados
+## <a name="approve-private-endpoints"></a>Aprobación de puntos de conexión privados
 
 Si el usuario que crea el punto de conexión privado también es el propietario del almacén de Recovery Services, el punto de conexión privado creado anteriormente se aprobará automáticamente. De lo contrario, el propietario del almacén debe aprobar el punto de conexión privado antes de poder usarlo. En esta sección se describe la aprobación manual de los puntos de conexión privados a través de Azure Portal.
 
@@ -130,7 +131,90 @@ Consulte la sección [Aprobación manual de los puntos de conexión privados med
 
     ![Aprobación de puntos de conexión privados](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="using-private-endpoints-for-backup"></a>Uso de puntos de conexión privados para Azure Backup
+## <a name="manage-dns-records"></a>Administración de registros DNS
+
+Tal y como se ha descrito anteriormente, necesita los registros DNS necesarios en sus servidores o zonas DNS privados para conectarse de manera privada. Puede integrar su punto de conexión privado directamente con zonas DNS privadas de Azure, o usar los servidores DNS personalizados para ello, en función de las preferencias de red. Tendrá que realizar este procedimiento con los tres servicios: Backup, blobs y colas.
+
+### <a name="when-integrating-private-endpoints-with-azure-private-dns-zones"></a>Durante la integración de puntos de conexión privados con las zonas DNS privadas de Azure
+
+Si decide integrar su punto de conexión privado con zonas DNS privadas, Backup agregará los registros DNS necesarios. Puede ver las zonas DNS privadas que se están usando en la **Configuración DNS** del punto de conexión privado. Si estas zonas DNS no están presentes, se crearán automáticamente al crear el punto de conexión privado. Sin embargo, debe comprobar que la red virtual (que contiene los recursos de los que se va a realizar la copia de seguridad) esté vinculada correctamente a las tres zonas DNS privadas, como se describe a continuación.
+
+![Configuración DNS en la zona DNS privada de Azure](./media/private-endpoints/dns-configuration.png)
+
+#### <a name="validate-virtual-network-links-in-private-dns-zones"></a>Validación de vínculos de red virtual en zonas DNS privadas
+
+Haga lo siguiente para **cada zona DNS privada** indicada anteriormente (para Backup, blobs y colas):
+
+1. Vaya a la opción **Vínculos de red virtual** correspondiente en la barra de navegación izquierda.
+1. Debe ver una entrada para la red virtual para la que ha creado el punto de conexión privado, como se muestra a continuación:
+
+    ![Red virtual para el punto de conexión privado](./media/private-endpoints/virtual-network-links.png)
+
+1. Si no ve ninguna entrada, agregue un vínculo de red virtual a todas las zonas DNS que no tengan una.
+
+    ![Agregar el vínculo de red virtual](./media/private-endpoints/add-virtual-network-link.png)
+
+### <a name="when-using-custom-dns-server-or-host-files"></a>Durante el uso de un servidor DNS personalizado o archivos de host
+
+Si usa servidores DNS personalizados, deberá crear las zonas DNS necesarias y agregar los registros DNS necesarios para los puntos de conexión privados a los servidores DNS. En el caso de los blobs y las colas, también puede usar reenviadores condicionales.
+
+#### <a name="for-the-backup-service"></a>En el caso del servicio de Backup
+
+1. En el servidor DNS, cree una zona DNS para Backup según la siguiente convención de nomenclatura:
+
+    |Zona |Servicio |
+    |---------|---------|
+    |`privatelink.<geo>.backup.windowsazure.com`   |  Copia de seguridad        |
+
+    >[!NOTE]
+    > En el texto anterior, `<geo>` hace referencia al código de región (por ejemplo, *eus* y *ne* para Este de EE. UU. y Norte de Europa respectivamente). Consulte las siguientes listas para ver los códigos de región:
+    >
+    > - [Todas las nubes públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
+
+1. A continuación, es necesario agregar los registros DNS necesarios. Para ver los registros que deben agregarse a la zona DNS de Backup, navegue hasta el punto de conexión privado que creó anteriormente y vaya a la opción **Configuración DNS** en la barra de navegación izquierda.
+
+    ![Configuración DNS para el servidor DNS personalizado](./media/private-endpoints/custom-dns-configuration.png)
+
+1. Agregue una entrada para cada FQDN e IP que se muestra como registros de tipo D en la zona DNS para Backup. Si usa un archivo de host para la resolución de nombres, realice las entradas correspondientes en el archivo de host para cada IP y FQDN según el formato siguiente:
+
+    `<private ip><space><backup service privatelink FQDN>`
+
+>[!NOTE]
+>Como se muestra en la captura de pantalla anterior, los FQDN se describen como `xxxxxxxx.<geo>.backup.windowsazure.com` y no como `xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`. En tales casos, asegúrese de incluir (y, si es necesario, agregar) el elemento `.privatelink.` según el formato indicado.
+
+#### <a name="for-blob-and-queue-services"></a>En el caso de los servicios de blob y cola
+
+En el caso de los blobs y las colas, puede usar reenviadores condicionales o crear zonas DNS en el servidor DNS.
+
+##### <a name="if-using-conditional-forwarders"></a>Si usa reenviadores condicionales
+
+Si usa reenviadores condicionales, agregue los reenviadores para los FQDN de blobs y colas de la siguiente manera:
+
+|FQDN  |IP  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  168.63.129.16       |
+|`privatelink.queue.core.windows.net`     | 168.63.129.16        |
+
+##### <a name="if-using-private-dns-zones"></a>Si usa zonas DNS privadas
+
+Si usa zonas DNS para blobs y colas, primero deberá crear estas zonas DNS y agregar después los registros D necesarios.
+
+|Zona |Servicio  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  Blob     |
+|`privatelink.queue.core.windows.net`     | Cola        |
+
+En este momento, solo crearemos las zonas para los blobs y las colas al usar servidores DNS personalizados. La adición de registros DNS se realizará más adelante en dos pasos:
+
+1. Cuando se registra la primera instancia de copia de seguridad; es decir, cuando se configura la copia de seguridad por primera vez.
+1. Cuando se ejecuta la primera copia de seguridad.
+
+Realizaremos estos pasos en las secciones siguientes.
+
+## <a name="use-private-endpoints-for-backup"></a>Uso de puntos de conexión privados para Backup
 
 Una vez que los puntos de conexión privados creados para el almacén de la red virtual se han aprobado, puede empezar a usarlos para realizar las copias de seguridad y restauraciones.
 
@@ -138,21 +222,80 @@ Una vez que los puntos de conexión privados creados para el almacén de la red 
 >Asegúrese de haber completado correctamente todos los pasos mencionados previamente en el documento antes de continuar. En resumen, debe haber completado los pasos de la siguiente lista:
 >
 >1. Se creó un (nuevo) almacén de Recovery Services
->1. Se habilitó el almacén para usar la identidad administrada asignada por el sistema
->1. Se asignaron los permisos relevantes a la identidad administrada del almacén
->1. Se creó un punto de conexión privado para el almacén
->1. Se aprobó el punto de conexión privado (si no se aprobó automáticamente)
+>2. Se habilitó el almacén para usar la identidad administrada asignada por el sistema
+>3. Se asignaron los permisos relevantes a la identidad administrada del almacén
+>4. Se creó un punto de conexión privado para el almacén
+>5. Se aprobó el punto de conexión privado (si no se aprobó automáticamente)
+>6. Se garantizó que todos los registros DNS se agregaron correctamente (excepto los registros de blobs y colas para los servidores personalizados, que se tratarán en las secciones siguientes).
 
-### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Copia de seguridad y restauración de cargas de trabajo en máquinas virtuales de Azure (SQL, SAP HANA)
+### <a name="check-vm-connectivity"></a>Comprobación de la conectividad de VM
 
-Una vez que se crea y aprueba el punto de conexión privado, no se requiere ningún cambio adicional del lado del cliente para usar el punto de conexión privado. Toda la comunicación y la transferencia de datos desde la red segura al almacén se realizará a través del punto de conexión privado.
-Sin embargo, si quita los puntos de conexión privados del almacén después de haber registrado un servidor (SQL/SAP HANA), deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
+En la VM de la red bloqueada, asegúrese de cumplir con lo siguiente:
+
+1. La VM debe tener acceso a AAD.
+2. Ejecute **nslookup** en la dirección URL de copia de seguridad (`xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`) de la VM para confirmar la conectividad. Esto debe devolver la dirección IP privada asignada a la red virtual.
+
+### <a name="configure-backup"></a>Configuración de la copia de seguridad
+
+Una vez que confirme que se completó correctamente la lista de comprobación anterior y el acceso, puede seguir configurando la copia de seguridad de las cargas de trabajo en el almacén. Si usa un servidor DNS personalizado, deberá agregar entradas DNS para los blobs y las colas que están disponibles después de configurar la primera copia de seguridad.
+
+#### <a name="dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration"></a>Registros DNS para blobs y colas (solo para servidores DNS o archivos de host personalizados) después del primer registro
+
+Después de configurar la copia de seguridad para al menos un recurso en un almacén habilitado para puntos de conexión privados, agregue los registros DNS necesarios para los blobs y las colas tal como se describe a continuación.
+
+1. Navegue hasta el grupo de recursos y busque el punto de conexión privado que creó.
+1. Aparte del nombre de punto de conexión privado que asignó, verá que se crearon otros dos puntos de conexión privados. Estos comienzan con `<the name of the private endpoint>_ecs` y tienen el sufijo `_blob` y `_queue` respectivamente.
+
+    ![Recursos de punto de conexión privado](./media/private-endpoints/private-endpoint-resources.png)
+
+1. Navegue a cada uno de estos puntos de conexión privados. En la opción de configuración DNS de cada uno de los dos puntos de conexión privados, verá un registro con un FQDN y una dirección IP. Agregue ambos valores al servidor DNS personalizado, además de los descritos anteriormente.
+Si usa un archivo de host, realice las entradas correspondientes en el archivo de host para cada IP o FQDN según el formato siguiente:
+
+    `<private ip><space><blob service privatelink FQDN>`<br>
+    `<private ip><space><queue service privatelink FQDN>`
+
+    ![Configuración DNS de blob](./media/private-endpoints/blob-dns-configuration.png)
+
+Además de lo anterior, es necesaria otra entrada después de la primera copia de seguridad, que se describe [más adelante](#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+
+### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-and-sap-hana"></a>Copia de seguridad y restauración de cargas de trabajo en VM de Azure (SQL y SAP HANA)
+
+Una vez que se crea y se aprueba el punto de conexión privado, no se requiere ningún otro cambio del lado cliente para usar el punto de conexión privado (a menos que esté usando grupos de disponibilidad de SQL, que se describen más adelante en esta sección). Toda la comunicación y la transferencia de datos desde la red segura al almacén se realizará a través del punto de conexión privado. Sin embargo, si quita los puntos de conexión privados del almacén después de haber registrado un servidor (SQL o SAP HANA), deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
+
+#### <a name="dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup"></a>Registros DNS para blobs (solo para servidores DNS o archivos de host personalizados) después de la primera copia de seguridad
+
+Después de ejecutar la primera copia de seguridad y de usar un servidor DNS personalizado (sin reenvío condicional), es probable que se produzca un error en la copia de seguridad. Si eso ocurre, haga lo siguiente:
+
+1. Navegue hasta el grupo de recursos y busque el punto de conexión privado que creó.
+1. Además de los tres puntos de conexión privados descritos anteriormente, ahora verá un cuarto punto de conexión privado cuyo nombre empieza por `<the name of the private endpoint>_prot` y contiene el sufijo `_blob`.
+
+    ![Punto de conexión privado con el sufijo "prot"](./media/private-endpoints/private-endpoint-prot.png)
+
+1. Navegue hasta este nuevo punto de conexión privado. En la opción Configuración DNS, verá un registro con un FQDN y una dirección IP. Agregue los valores al servidor DNS privado, además de los descritos anteriormente.
+
+    Si usa un archivo de host, realice las entradas correspondientes en el archivo de host para cada IP y FQDN según el formato siguiente:
+
+    `<private ip><space><blob service privatelink FQDN>`
+
+>[!NOTE]
+>En este momento, debe poder ejecutar **nslookup** desde la VM y resolver las direcciones IP privadas cuando se realice en las direcciones URL de almacenamiento y copia de seguridad del almacén.
+
+### <a name="when-using-sql-availability-groups"></a>Durante el uso de grupos de disponibilidad de SQL
+
+Cuando use grupos de disponibilidad de SQL, deberá aprovisionar el reenvío condicional en el DNS de grupo de disponibilidad personalizado como se describe a continuación:
+
+1. Inicie sesión en su controlador de dominio.
+1. En la aplicación DNS, agregue reenviadores condicionales para las tres zonas DNS (Backup, blobs y colas) a la dirección IP 168.63.129.16 o la dirección IP del servidor DNS personalizado, según sea necesario. Las siguientes capturas de pantallas se muestran cuando se reenvía a la dirección IP del host de Azure. Si usa su propio servidor DNS, reemplácelo por la dirección IP del servidor DNS.
+
+    ![Reenviadores condicionales en el administrador de DNS](./media/private-endpoints/dns-manager.png)
+
+    ![Nuevo reenviador condicional](./media/private-endpoints/new-conditional-forwarder.png)
 
 ### <a name="backup-and-restore-through-mars-agent"></a>Copia de seguridad y restauración mediante el agente de MARS
 
 Al usar el agente de MARS para realizar una copia de seguridad de los recursos locales, asegúrese de que la red local (que contiene los recursos de los que se va a realizar la copia de seguridad) está emparejada con la red virtual de Azure que contiene un punto de conexión privado para el almacén, para que pueda usarla. Después, puede continuar con la instalación del agente de MARS y configurar la copia de seguridad como se detalla aquí. Sin embargo, debe asegurarse de que toda la comunicación para la copia de seguridad se produzca solo a través de la red emparejada.
 
-Sin embargo, si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
+Pero si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
 
 ## <a name="additional-topics"></a>Otros temas
 
@@ -337,7 +480,11 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
         -Name $privateEndpointConnectionName `
         -PrivateLinkServiceId $vault.ID `
         -GroupId "AzureBackup"  
-  
+
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $VMResourceGroupName
+$subnet = $vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq '<subnetName>'}
+
+
 $privateEndpoint = New-AzPrivateEndpoint `
         -ResourceGroupName $vmResourceGroupName `
         -Name $privateEndpointName `
@@ -381,64 +528,6 @@ $privateEndpoint = New-AzPrivateEndpoint `
     }
     }
     ```
-
-### <a name="dns-changes-for-custom-dns-servers"></a>Cambios de DNS para los servidores DNS personalizados
-
-#### <a name="create-dns-zones-for-custom-dns-servers"></a>Crear zonas DNS para los servidores DNS personalizados
-
-Debe crear tres zonas DNS privadas y vincularlas a la red virtual. Tenga en cuenta que, a diferencia de los blobs y colas, las direcciones URL públicas del servicio de copia de seguridad no se registran en el DNS público de Azure para la redirección a las zonas DNS de Private Link. 
-
-| **Zona**                                                     | **Servicio** |
-| ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Copia de seguridad      |
-| `privatelink.blob.core.windows.net`                            | Blob        |
-| `privatelink.queue.core.windows.net`                           | Cola       |
-
->[!NOTE]
->En el texto anterior, *geo* hace referencia al código de región. Por ejemplo, *wcus* y *ne* para el Centro-oeste de EE. UU. y el Norte de Europa respectivamente.
-
-Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para ver los códigos de región. Consulte los siguientes vínculos de las convenciones de nomenclatura de direcciones URL en regiones nacionales:
-
-- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-#### <a name="adding-dns-records-for-custom-dns-servers"></a>Agregar registros DNS para servidores DNS personalizados
-
-Esto requiere que se creen entradas para cada FQDN del punto de conexión privado en la zona DNS privada.
-
-Debe tenerse en cuenta que vamos a usar los puntos de conexión privados creados para Backup, Blob y Queue service.
-
-- El punto de conexión privado para el almacén usa el nombre especificado al crear el punto de conexión privado
-- Los puntos de conexión privados para Blob y Queue service tienen como prefijo el nombre del mismo para el almacén.
-
-Por ejemplo, en la siguiente imagen se muestran los tres puntos de conexión privados creados para una conexión de punto de conexión privado con el nombre *pee2epe*:
-
-![Tres puntos de conexión privados para una conexión de punto de conexión privado](./media/private-endpoints/three-private-endpoints.png)
-
-Zona DNS para el servicio de Azure Backup (`privatelink.<geo>.backup.windowsazure.com`):
-
-1. Vaya a su punto de conexión privado para Azure Backup en el **Centro de Private Link**. La página de información general muestra el FQDN y las direcciones IP privadas del punto de conexión privado.
-
-1. Agregue una entrada para cada FQDN y la dirección IP privada como un registro de tipo A.
-
-    ![Agregar entrada para cada FQDN y dirección IP privada](./media/private-endpoints/add-entry-for-each-fqdn-and-ip.png)
-
-Zona DNS para Blob service (`privatelink.blob.core.windows.net`):
-
-1. Vaya a su punto de conexión privado para Blob en el **Centro de Private Link**. La página de información general muestra el FQDN y las direcciones IP privadas del punto de conexión privado.
-
-1. Agregue una entrada para el FQDN y la dirección IP privada como un registro de tipo A.
-
-    ![Agregue una entrada para el FQDN y la dirección IP privada como un registro de tipo A para Blob service](./media/private-endpoints/add-type-a-record-for-blob.png)
-
-Zona DNS para Queue service (`privatelink.queue.core.windows.net`):
-
-1. Vaya a su punto de conexión privado para la cola en el **Centro de Private Link**. La página de información general muestra el FQDN y las direcciones IP privadas del punto de conexión privado.
-
-1. Agregue una entrada para el FQDN y la dirección IP privada como un registro de tipo A.
-
-    ![Agregue una entrada para el FQDN y la dirección IP privada como un registro de tipo A para Queue service](./media/private-endpoints/add-type-a-record-for-queue.png)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

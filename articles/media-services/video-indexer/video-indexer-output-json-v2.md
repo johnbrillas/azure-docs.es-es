@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831573"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530746"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examen de la salida de Video Indexer
 
@@ -104,7 +104,7 @@ En esta sección se muestra el resumen de la información detallada.
 |faces/animatedCharacters|Puede contener cero o más rostros. Para información más detallada, consulte [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|Puede contener cero o más palabras clave. Para más información, consulte [keywords](#keywords).|
 |sentiments|Puede contener cero o más opiniones. Para más información, consulte [sentiments](#sentiments).|
-|audioEffects| Puede contener cero o más efectos de audio. Para más información, consulte [audioEffects](#audioeffects).|
+|audioEffects| Puede contener cero o más efectos de audio. Para más información, consulte [audioEffects](#audioeffects-public-preview).|
 |labels| Puede contener cero o más etiquetas. Para más información, consulte [labels](#labels).|
 |brands| Puede contener cero o más marcas. Para más información, consulte [brands](#brands).|
 |estadísticas | Para más información, consulte [statistics](#statistics).|
@@ -181,7 +181,7 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |labels|La conclusión [labels](#labels).|
 |shots|La conclusión [shots](#shots).|
 |brands|La conclusión [brands](#brands).|
-|audioEffects|La conclusión [audioEffects](#audioeffects).|
+|audioEffects|La conclusión [audioEffects](#audioeffects-public-preview).|
 |sentiments|La conclusión [sentiments](#sentiments).|
 |visualContentModeration|La conclusión [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|La conclusión [visualContentModeration](#textualcontentmoderation).|
@@ -590,26 +590,28 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 |SpeakerLongestMonolog|Monólogo más largo del orador. Si el orador tiene períodos de silencio dentro del monólogo, se incluyen. Los silencios al principio y al final del monólogo se eliminan.| 
 |SpeakerTalkToListenRatio|El cálculo se basa en el tiempo invertido en el monólogo del orador (sin los silencios intermedios) dividido por el tiempo total del vídeo. El tiempo se redondea a tres decimales.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="audioeffects-public-preview"></a>Efectos de audio (versión preliminar pública)
 
-|Nombre|Descripción|
+|Nombre|Descripción
 |---|---|
 |id|Identificador del efecto de audio.|
-|type|Tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
-|instances|Lista de los intervalos de tiempo donde apareció este efecto de audio.|
+|type|Tipo de efecto de audio.|
+|instances|Lista de los intervalos de tiempo donde apareció este efecto de audio. Cada instancia tiene un campo de confiabilidad.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]

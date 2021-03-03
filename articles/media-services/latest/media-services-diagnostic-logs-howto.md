@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3093d20fbe0a1ded68e34e816b7fc865a237ad92
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576312"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
@@ -183,9 +183,9 @@ Puede que tenga que esperar hasta cinco minutos antes de que el evento aparezca 
 
 ## <a name="see-also"></a>Consulte también
 
-* [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)
-* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Métricas de Azure Monitor](../../azure-monitor/data-platform.md)
+* [Registros de diagnóstico de Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

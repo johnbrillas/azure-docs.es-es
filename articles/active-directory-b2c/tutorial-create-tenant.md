@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cb680221447594b4784f61112655d507397b1c00
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725760"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648856"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     ![Creación de un formulario del inquilino con valores de ejemplo en Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Seleccione **Revisar + crear**.
-1. Revise la configuración del directorio. Seleccione **Crear**. Para [solución de problemas de implementación](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+1. Revise la configuración del directorio. Seleccione **Crear**. Para [solución de problemas de implementación](../azure-resource-manager/templates/common-deployment-errors.md).
 
 Puede vincular varios inquilinos de Azure AD B2C a una única suscripción de Azure con fines de facturación. Para vincular un inquilino, debe ser administrador en el inquilino de Azure AD B2C y tener asignado al menos un rol de colaborador en la suscripción de Azure. Consulte [Vinculación de un inquilino de Azure AD B2C a una suscripción](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

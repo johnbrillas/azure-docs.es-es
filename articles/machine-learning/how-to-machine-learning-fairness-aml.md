@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222775"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366991"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Uso de Azure Machine Learning con el paquete de código abierto Fairlearn para evaluar la equidad de los modelos de ML (versión preliminar)
 
@@ -214,10 +214,15 @@ En el ejemplo siguiente se muestra cómo usar el paquete de equidad. Cargaremos 
     1. Al hacer clic en **Experimentos** en el panel izquierdo, verá una lista de experimentos que se han ejecutado en Azure Machine Learning.
     1. Seleccione un experimento determinado para ver todas las ejecuciones de ese experimento.
     1. Seleccione una ejecución y luego, la pestaña **Equidad** en el panel de visualización de la explicación.
+    1. Una vez que se abra la pestaña **Equidad**, haga clic en un **id. de equidad** en el menú de la derecha.
+    1. Para configurar el panel, seleccione el atributo de confidencialidad, la métrica de rendimiento y la métrica de equidad de interés en la página de evaluación de equidad.
+    1. Cambie el tipo de gráfico de uno a otro para observar los daños en la **asignación** y en la **calidad del servicio**.
 
 
-    [![Panel de equidad](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Asignación del panel de equidad](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Calidad de servicio del panel de equidad](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Panel de modelos**
     1. Si registró el modelo original siguiendo los pasos anteriores, puede seleccionar **Modelos** en el panel izquierdo para verlo.
     1. Seleccione un modelo y luego, la pestaña **Equidad** para ver el panel de visualización de la explicación.

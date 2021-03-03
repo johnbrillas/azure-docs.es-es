@@ -1,17 +1,16 @@
 ---
 title: Solución de administración de Office 365 en Azure
 description: Este artículo proporciona detalles sobre la configuración y el uso de la solución Office 365 en Azure.  Incluye una descripción detallada de los registros de Office 365 creados en Azure Monitor.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807757"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728644"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -118,7 +117,7 @@ La solución de administración de Office 365 permite supervisar el entorno de O
 - Supervise las actividades del administrador para realizar el seguimiento de cambios de configuración u operaciones de privilegios elevados.
 - Detecte e investigue comportamientos de usuario no deseados, que puede personalizar para las necesidades de la organización.
 - Demuestre el cumplimiento de las normas y las auditorías. Por ejemplo, puede supervisar las operaciones de acceso a archivos en los archivos confidenciales, lo que pueden ayudarle con el proceso de cumplimiento y auditoría.
-- Solucione problemas operativos mediante [consultas de registros](../log-query/log-query-overview.md) en los datos de actividad de Office 365 de su organización.
+- Solucione problemas operativos mediante [consultas de registros](../logs/log-query-overview.md) en los datos de actividad de Office 365 de su organización.
 
 
 ## <a name="uninstall"></a>Desinstalación
@@ -473,6 +472,6 @@ En la tabla siguiente se proporcionan ejemplos de consultas de registros para lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use las [consultas de registros de Azure Monitor](../log-query/log-query-overview.md) para ver datos detallados sobre la actualización.
-* [Cree sus propios paneles](../learn/tutorial-logs-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
-* [Cree alertas](../platform/alerts-overview.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  
+* Use las [consultas de registros de Azure Monitor](../logs/log-query-overview.md) para ver datos detallados sobre la actualización.
+* [Cree sus propios paneles](../visualize/tutorial-logs-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
+* [Cree alertas](../alerts/alerts-overview.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  

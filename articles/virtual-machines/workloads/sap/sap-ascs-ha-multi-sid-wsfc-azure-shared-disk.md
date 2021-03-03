@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8b216fafad5cd2f7406320dce3ec28b8830015d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655992"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673755"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidad de varios SID de una instancia de ASCS/SCS de SAP con clústeres de conmutación por error de Windows Server y disco compartido de Azure
 
@@ -104,7 +103,7 @@ Instalaremos un nuevo SID de SAP, **PR2**, además de la instancia de ASCS/SCS d
 | --- | --- | --- |---| ---|
 | Primer clúster ASCS/SCS de nodo de clúster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | Segundo clúster ASCS/SCS de nodo de clúster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nombre de red del clúster | pr1clust |10.0.0.42 (**solo** para el clúster de Win 2016) | N/D | N/D |
+| Nombre de red del clúster | pr1clust |10.0.0.42 (**solo** para el clúster de Win 2016) | N/D | N/D |
 | Nombre de red del clúster de ASCS de **SID1** | pr1-ascscl |10.0.0.43 | N/D | N/D |
 | Nombre de red del clúster de ERS de **SID1** (**solo** para ERS2) | pr1-erscl |10.0.0.44 | N/D | N/D |
 | Nombre de red del clúster de ASCS de **SID2** | pr2-ascscl |10.0.0.45 | N/D | N/D |

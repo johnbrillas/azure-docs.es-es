@@ -4,23 +4,26 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 3b2fb1c4e7a08619a0321e188b54bb581f97fd6d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628963"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661554"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../create-communication-resource.md).
-- `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener `User Access Token`](../../access-tokens.md)
+- Un recurso implementado de Communication Services. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- `User Access Token` para habilitar el cliente de llamada. Para más información sobre [cómo obtener un `User Access Token`](../../access-tokens.md)
 - Opcional: Complete el inicio rápido para [empezar a agregar llamadas a su aplicación](../getting-started-with-calling.md)
 
 ## <a name="setting-up"></a>Instalación
 
 ### <a name="install-the-package"></a>Instalar el paquete
+
+> [!NOTE]
+> En este documento se usa la versión 1.0.0-beta.8 de la biblioteca de cliente para llamadas.
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
 Busque el nivel de proyecto build.gradle y asegúrese de agregar `mavenCentral()` a la lista de repositorios en `buildscript` y `allprojects`
@@ -48,7 +51,7 @@ A continuación, en el nivel de módulo build.gradle, agregue las siguientes lí
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 
@@ -56,13 +59,14 @@ dependencies {
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Las siguientes clases e interfaces controlan algunas de las características principales de la biblioteca cliente de llamadas de Azure Communication Services:
+Las clases e interfaces siguientes controlan algunas de las características principales de la biblioteca cliente para llamadas de Azure Communication Services:
 
 | Nombre                                  | Descripción                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient es el punto de entrada principal a la biblioteca cliente de llamadas.|
+| CallClient| CallClient es el punto de entrada principal a la biblioteca cliente para llamadas.|
 | CallAgent | CallAgent se usa para iniciar y administrar llamadas. |
-| CommunicationUserCredential | CommunicationUserCredential se usa como la credencial de token para crear una instancia de CallAgent.|
+| CommunicationTokenCredential | CommunicationTokenCredential se usa como la credencial de token para crear una instancia de CallAgent.|
+| CommunicationIdentifier | CommunicationIdentifier se usa como un tipo de participante diferente que podría formar parte de una llamada.|
 
 ## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>Inicialización de CallClient, creación de CallAgent y acceso a DeviceManager
 
@@ -73,28 +77,28 @@ Para tener acceso a `DeviceManager`, debe crearse primero una instancia de callA
 ```java
 String userToken = '<user token>';
 CallClient callClient = new CallClient();
-CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
-CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
-DeviceManage deviceManager = await callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential).get();
+DeviceManage deviceManager = callClient.getDeviceManager().get();
 ```
 Para establecer un nombre para mostrar para el autor de la llamada, use este método alternativo:
 
 ```java
 String userToken = '<user token>';
 CallClient callClient = new CallClient();
-CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 CallAgentOptions callAgentOptions = new CallAgentOptions();
 callAgentOptions.setDisplayName("Alice Bob");
-CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
-DeviceManage deviceManager = await callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = callClient.getDeviceManager().get();
 ```
 
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Realización de una llamada saliente y unión a una llamada grupal
 
-Para crear e iniciar una llamada, es necesario llamar al método `CallAgent.call()` y proporcionar el `Identifier` de los destinatarios.
+Para crear e iniciar una llamada, es necesario llamar al método `CallAgent.startCall()` y proporcionar el `Identifier` de los destinatarios.
 Para unirse a una llamada grupal, debe llamar al método `CallAgent.join()` y proporcionar el groupId. Los identificadores de grupo deben tener el formato GUID o UUID.
 
 La creación y el inicio de la llamada son sincrónicos. La instancia de llamada le permite suscribirse a todos los eventos de la llamada.
@@ -104,9 +108,9 @@ Para realizar una llamada a otro usuario de Communication Services, invoque el m
 ```java
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-CommunicationUser acsUserId = new CommunicationUser(<USER_ID>);
-CommunicationUser participants[] = new CommunicationUser[]{ acsUserId };
-call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
+CommunicationUserIdentifier acsUserId = new CommunicationUserIdentifier(<USER_ID>);
+CommunicationUserIdentifier participants[] = new CommunicationUserIdentifier[]{ acsUserId };
+call oneToOneCall = callAgent.startCall(appContext, participants, startCallOptions);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Realización de una llamada 1:n con usuarios y RTC
@@ -116,17 +120,17 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 Para realizar una llamada 1:n a un usuario y un número de RTC, debe especificar el número de teléfono del destinatario.
 El recurso de Communication Services debe estar configurado para permitir llamadas RTC:
 ```java
-CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
-PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
+CommunicationUserIdentifier acsUser1 = new CommunicationUserIdentifier(<USER_ID>);
+PhoneNumberIdentifier acsUser2 = new PhoneNumberIdentifier("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callAgent.call(participants, startCallOptions);
+Call groupCall = callAgent.startCall(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-video-camera"></a>Realización de una llamada 1:1 con videocámara
 > [!WARNING]
-> Actualmente, solo se admite una secuencia de vídeo local saliente. Para realizar una llamada con vídeo, debe enumerar las cámaras locales mediante la API `deviceManager` `getCameraList`.
+> Actualmente, solo se admite una secuencia de vídeo local saliente. Para realizar una llamada con vídeo, debe enumerar las cámaras locales mediante la API `deviceManager` `getCameras`.
 Una vez que seleccione la cámara deseada, úsela para crear una instancia de `LocalVideoStream` y pásela a `videoOptions` como elemento de la matriz `localVideoStream` a un método `call`.
 Una vez que la llamada se conecta, iniciará automáticamente el envío de una secuencia de vídeo desde la cámara seleccionada hasta los demás participantes.
 
@@ -135,7 +139,7 @@ Una vez que la llamada se conecta, iniciará automáticamente el envío de una s
 Consulte [Versión preliminar de la cámara local](#local-camera-preview) para obtener más detalles.
 ```java
 Context appContext = this.getApplicationContext();
-VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameras().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
 
@@ -145,20 +149,20 @@ View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 
-CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
+CommunicationUserIdentifier[] participants = new CommunicationUserIdentifier[]{ new CommunicationUserIdentifier("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
 startCallOptions.setVideoOptions(videoOptions);
-Call call = callAgent.call(context, participants, startCallOptions);
+Call call = callAgent.startCall(context, participants, startCallOptions);
 ```
 
 ### <a name="join-a-group-call"></a>Unión a una llamada grupal
 Para iniciar una llamada grupal nueva o unirse a una en curso, debe llamar al método "join" y pasar un objeto con una propiedad `groupId`. El valor debe ser un GUID.
 ```java
 Context appContext = this.getApplicationContext();
-GroupCallContext groupCallContext = new groupCallContext("<GUID>");
+GroupCallLocator groupCallLocator = new GroupCallLocator("<GUID>");
 JoinCallOptions joinCallOptions = new JoinCallOptions();
 
-call = callAgent.join(context, groupCallContext, joinCallOptions);
+call = callAgent.join(context, groupCallLocator, joinCallOptions);
 ```
 
 ### <a name="accept-a-call"></a>Aceptación de una llamada
@@ -166,37 +170,31 @@ Para aceptar una llamada, llame al método "accept" en un objeto de llamada.
 
 ```java
 Context appContext = this.getApplicationContext();
-Call incomingCall = retrieveIncomingCall();
-incomingCall.accept(context).get();
+IncomingCall incomingCall = retrieveIncomingCall();
+Call call = incomingCall.accept(context).get();
 ```
 
 Para aceptar una llamada con la cámara de vídeo activada:
 
 ```java
 Context appContext = this.getApplicationContext();
-Call incomingCall = retrieveIncomingCall();
+IncomingCall incomingCall = retrieveIncomingCall();
 AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
-incomingCall.accept(context, acceptCallOptions).get();
+Call call = incomingCall.accept(context, acceptCallOptions).get();
 ```
 
-La llamada entrante se puede obtener mediante la suscripción al evento `CallsUpdated` en el objeto `callAgent` y el recorrido en bucle por las llamadas agregadas:
+La llamada entrante se puede obtener mediante la suscripción al evento `onIncomingCall` en el objeto `callAgent`:
 
 ```java
 // Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
 public Call retrieveIncomingCall() {
-    Call incomingCall;
-    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
-        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+    IncomingCall incomingCall;
+    callAgent.addOnIncomingCallListener(new IncomingCallListener() {
+        void onIncomingCall(IncomingCall inboundCall) {
             // Look for incoming call
-            List<Call> calls = callsUpdatedEvent.getAddedCalls();
-            for (Call call : calls) {
-                if (call.getState() == CallState.Incoming) {
-                    incomingCall = call;
-                    break;
-                }
-            }
+            incomingCall = inboundCall;
         }
     });
     return incomingCall;
@@ -320,11 +318,12 @@ Agregue la siguiente definición de servicio al archivo `AndroidManifest.xml`, e
         </service>
 ```
 
-- Una vez recuperada la carga, puede pasarse a la biblioteca cliente de *Communication Services* que se va a administrar llamando al método *handlePushNotification* en una instancia de *CallAgent*. Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
+- Una vez recuperada la carga, puede pasarse a la biblioteca cliente de *Communication Services* que se va a analizar en un objeto *IncomingCallInformation* interno que se administrará llamando al método *handlePushNotification* en una instancia de *CallAgent*. Se crea una instancia de `CallAgent` mediante la llamada al método `createCallAgent(...)` en la clase `CallClient`.
 
 ```java
 try {
-    callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
+    IncomingCallInformation notification = IncomingCallInformation.fromMap(pushNotificationMessageDataFromFCM);
+    Future handlePushNotificationFuture = callAgent.handlePushNotification(notification).get();
 }
 catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
@@ -354,7 +353,7 @@ Durante una llamada, puede acceder a las propiedades de la llamada y realizar va
 Obtenga el id. único de esta llamada:
 
 ```java
-String callId = call.getCallId();
+String callId = call.getId();
 ```
 
 Para información sobre los demás participantes de la llamada, revise la colección `remoteParticipant` de la instancia de `call`:
@@ -377,12 +376,12 @@ CallState callState = call.getState();
 
 Devuelve una cadena que representa el estado actual de una llamada:
 * "None": estado inicial de la llamada
-* "Incoming": indica que hay una llamada entrante que se debe aceptar o rechazar
 * "Connecting": estado de transición inicial una vez que se realiza o acepta la llamada
-* "Ringing": en el caso de una llamada saliente, indica que se está llamando a los participantes remotos. Aparece con el estado "Incoming" para ellos
+* "Ringing": en el caso de una llamada saliente, indica que se está llamando a los participantes remotos.
 * "EarlyMedia": indica un estado en el que se reproduce un anuncio antes de conectar la llamada
 * "Connected": se conecta la llamada
-* "Hold": la llamada se pone en espera, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
+* "LocalHold": la llamada se pone en espera, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
+* "RemoteHold": la llamada la pone en espera un participante remoto, no fluye ningún elemento multimedia entre el punto de conexión local y los participantes remotos
 * "Disconnecting": estado de transición antes de que la llamada pase al estado "Disconnected"
 * "Disconnected": estado final de la llamada
 
@@ -395,16 +394,24 @@ int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-Para ver si la llamada actual es una llamada entrante, revise la propiedad `isIncoming`:
+Para ver si la llamada actual es una llamada entrante o saliente, revise la propiedad `callDirection`:
 
 ```java
-boolean isIncoming = call.getIsIncoming();
+CallDirection callDirection = call.getCallDirection(); 
+// callDirection == CallDirection.Incoming for incoming call
+// callDirection == CallDirection.Outgoing for outgoing call
 ```
 
 Para ver si el micrófono actual está silenciado, revise la propiedad `muted`:
 
 ```java
 boolean muted = call.getIsMicrophoneMuted();
+```
+
+Para ver si se está grabando la llamada actual, inspeccione la propiedad `isRecordingActive`:
+
+```java
+boolean recordinggActive = call.getIsRecordingActive();
 ```
 
 Para revisar las secuencias de vídeo activas, compruebe la colección `localVideoStreams`:
@@ -429,27 +436,27 @@ Para iniciar un vídeo, tiene que enumerar las cámaras con la API `getCameraLis
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
-currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
-videoOptions = new VideoOptions(currentVideoStream);
-Future startVideoFuture = call.startVideo(currentVideoStream);
+LocalVideoStream currentLocalVideoStream = new LocalVideoStream(desiredCamera, appContext);
+VideoOptions videoOptions = new VideoOptions(currentLocalVideoStream);
+Future startVideoFuture = call.startVideo(currentLocalVideoStream);
 startVideoFuture.get();
 ```
 
 Una vez que logre empezar a enviar vídeo, se agregará una instancia de `LocalVideoStream` a la colección `localVideoStreams` en la instancia de llamada.
 
 ```java
-currentVideoStream == call.getLocalVideoStreams().get(0);
+currentLocalVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
-Para detener el vídeo local, pase la instancia `localVideoStream` disponible en la colección `localVideoStreams`:
+Para detener el vídeo local, pase la instancia `LocalVideoStream` disponible en la colección `localVideoStreams`:
 
 ```java
-call.stopVideo(localVideoStream).get();
+call.stopVideo(currentLocalVideoStream).get();
 ```
 
-Puede cambiar a un dispositivo de cámara distinto mientras se envía vídeo si invoca `switchSource` en una instancia de `localVideoStream`:
+Puede cambiar a un dispositivo de cámara distinto mientras se envía vídeo si invoca `switchSource` en una instancia de `LocalVideoStream`:
 ```java
-localVideoStream.switchSource(source).get();
+currentLocalVideoStream.switchSource(source).get();
 ```
 
 ## <a name="remote-participants-management"></a>Administración de participantes remotos
@@ -468,7 +475,7 @@ Todo participante remoto especificado tiene un conjunto de propiedades y colecci
 * Obtenga el identificador de este participante remoto.
 "Identity" es uno de los tipos de "Identifier":
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
+CommunicationIdentifier participantIdentifier = remoteParticipant.getIdentifier();
 ```
 
 * Obtenga el estado de este participante remoto.
@@ -477,10 +484,12 @@ ParticipantState state = remoteParticipant.getState();
 ```
 El estado puede ser uno de los siguientes:
 * "Idle": estado inicial
+* "EarlyMedia": se reproduce un anuncio antes de que el participante se conecte a la llamada
+* "Ringing": la llamada del participante está sonando
 * "Connecting": estado de transición mientras el participante se conecta a la llamada
 * "Connected": el participante se conecta a la llamada
 * "Hold": el participante está en espera
-* "EarlyMedia": se reproduce un anuncio antes de que el participante se conecte a la llamada
+* "InLobby": el participante está esperando que se admita en la sala. Actualmente solo se usa en el escenario de interoperabilidad de Teams
 * "Disconnected": estado final; el participante se desconecta de la llamada
 
 
@@ -510,10 +519,11 @@ List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [
 Para agregar un participante a una llamada (ya sea un usuario o un número de teléfono), puede invocar `addParticipant`. Esto devolverá de manera sincrónica la instancia del participante remoto.
 
 ```java
-const acsUser = new CommunicationUser("<acs user id>");
-const acsPhone = new PhoneNumber("<phone number>");
+const acsUser = new CommunicationUserIdentifier("<acs user id>");
+const acsPhone = new PhoneNumberIdentifier("<phone number>");
 RemoteParticipant remoteParticipant1 = call.addParticipant(acsUser);
-RemoteParticipant remoteParticipant2 = call.addParticipant(acsPhone);
+AddPhoneNumberOptions addPhoneNumberOptions = new AddPhoneNumberOptions(new PhoneNumberIdentifier("<alternate phone number>"));
+RemoteParticipant remoteParticipant2 = call.addParticipant(acsPhone, addPhoneNumberOptions);
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Eliminación del participante de una llamada
@@ -521,9 +531,10 @@ Para quitar un participante de una llamada (ya sea un usuario o un número de te
 Esto se resolverá de manera asincrónica una vez que el participante se quite de la llamada.
 El participante también se quitará de la colección `remoteParticipants`.
 ```java
-RemoteParticipant remoteParticipant = call.getParticipants().get(0);
-call.removeParticipant(acsUser).get();
-call.removeParticipant(acsPhone).get();
+RemoteParticipant acsUserRemoteParticipant = call.getParticipants().get(0);
+RemoteParticipant acsPhoneRemoteParticipant = call.getParticipants().get(1);
+call.removeParticipant(acsUserRemoteParticipant).get();
+call.removeParticipant(acsPhoneRemoteParticipant).get();
 ```
 
 ## <a name="render-remote-participant-video-streams"></a>Representación de secuencias de vídeo de participantes remotos
@@ -635,13 +646,13 @@ Para acceder a los dispositivos locales, puede usar métodos de enumeración en 
 
 ```java
 //  Get a list of available video devices for use.
-List<VideoDeviceInfo> localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
+List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDeviceInfo, VideoDeviceInfo...]
 
 // Get a list of available microphone devices for use.
-List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophones(); // [AudioDeviceInfo, AudioDeviceInfo...]
 
 // Get a list of available speaker devices for use.
-List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakers(); // [AudioDeviceInfo, AudioDeviceInfo...]
 ```
 
 ### <a name="set-default-microphonespeaker"></a>Establecimiento de micrófono/altavoz predeterminados
@@ -652,13 +663,13 @@ Si no se establecen los valores predeterminados del cliente, Communication Servi
 ```java
 
 // Get the microphone device that is being used.
-AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophoneList().get(0);
+AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophones().get(0);
 
 // Set the microphone device to use.
 deviceManager.setMicrophone(defaultMicrophone);
 
 // Get the speaker device that is being used.
-AudioDeviceInfo defaultSpeaker = deviceManager.getSpeakerList().get(0);
+AudioDeviceInfo defaultSpeaker = deviceManager.getSpeakers().get(0);
 
 // Set the speaker device to use.
 deviceManager.setSpeaker(defaultSpeaker);
@@ -697,10 +708,10 @@ PropertyChangedListener callStateChangeListener = new PropertyChangedListener()
         Log.d("The call state has changed.");
     }
 }
-call.addOnCallStateChangedListener(callStateChangeListener);
+call.addOnStateChangedListener(callStateChangeListener);
 
 //unsubscribe
-call.removeOnCallStateChangedListener(callStateChangeListener);
+call.removeOnStateChangedListener(callStateChangeListener);
 ```
 
 ### <a name="collections"></a>Colecciones

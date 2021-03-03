@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2254762ec2cc9d99946afaef12f452fdfbfea9e2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 14bc7b6f45b04f230252e85cd10b7246529cb751
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898246"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095151"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -441,5 +441,4 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general](media-services-overview.md)
-- [Actualizaciones de la documentación de Media Services v3](docs-release-notes.md)
 - [Notas de la versión de Media Services v2](../previous/media-services-release-notes.md)

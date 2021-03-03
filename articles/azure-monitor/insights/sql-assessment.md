@@ -1,17 +1,16 @@
 ---
 title: Optimización del entorno de SQL Server con Azure Monitor | Microsoft Docs
 description: Con Azure Monitor, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f2319ea6ba314c08a67651667837f05df5765a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325991"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723238"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Azure Monitor
 
@@ -44,9 +43,9 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 Para llevar a cabo la comprobación de estado en los servidores de SQL Server, necesitan un agente y conectividad a Azure Monitor mediante alguno de los siguientes métodos admitidos:
 
-1. Instale [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+1. Instale [Microsoft Monitoring Agent (MMA)](../agents/agent-windows.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Azure Monitor, el servidor se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
-3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) una vez que habilite la solución en el área de trabajo.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) una vez que habilite la solución en el área de trabajo.  
 
 El agente de su instancia de SQL Server que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración a Azure Monitor.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
@@ -257,5 +256,5 @@ Los resultados pueden exportarse a Excel para su revisión.
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Registre consultas](../log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos de SQL Health Check.
+* [Registre consultas](../logs/log-query-overview.md) para aprender a analizar recomendaciones y datos de SQL Health Check.
 
