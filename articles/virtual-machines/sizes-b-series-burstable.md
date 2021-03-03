@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097697"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594387"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 
@@ -109,7 +109,7 @@ Para un D16s_v3 que tiene 16 vCPU y 64 GiB de memoria, la tarifa por hora es de 
 
 **R.** : la métrica **Credit** permite ver cuántos créditos ha acumulado su máquina virtual, mientras que la métrica **ConsumedCredit** le mostrará cuántos créditos de la CPU ha consumido la máquina virtual desde el banco.    Podrá ver estas métricas desde el panel de métricas del portal o mediante programación a través de las API de Azure Monitor.
 
-Para más información acerca de cómo acceder a los datos de las métricas de Azure, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Para más información acerca de cómo acceder a los datos de las métricas de Azure, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: ¿Cómo se acumulan y consumen los créditos?
 

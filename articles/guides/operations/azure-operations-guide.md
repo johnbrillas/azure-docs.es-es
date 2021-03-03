@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895261"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093053"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -200,7 +200,7 @@ Si se supera la cantidad de crédito, el servicio se deshabilita hasta que se in
 
 Azure RBAC cuenta con varios roles integrados que puede usar para asignar permisos. Para que un usuario sea administrador de una suscripción de Azure, asígnele el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros.
 
-Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visualización de la información de facturación en Azure Portal
 
@@ -304,7 +304,7 @@ Estos son algunos ejemplos de [roles integrados en Azure](../../role-based-acces
 
 - **Colaborador de la cuenta de almacenamiento**: un usuario con este rol puede administrar las cuentas de almacenamiento pero no puede administrar el acceso a las cuentas de almacenamiento.
 
-Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

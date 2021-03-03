@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196629"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595749"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Línea base de seguridad de Azure para Azure Private Link
 
@@ -28,9 +28,9 @@ Esta línea base de seguridad aplica la guía de [Azure Security Benchmark](../s
 
 Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -50,7 +50,7 @@ Además, habilite los datos integrados en Azure Sentinel o en una SIEM de tercer
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Registro y supervisión para Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Además, habilite los datos integrados en Azure Sentinel o en una SIEM de tercer
 
 **Guía**: Habilite los registros de actividad de Azure Monitor, que registran operaciones realizadas en recursos de Private Link (por ejemplo, quién inició una operación, cuándo se produjo, cuál es el estado de esa operación y otra información de auditoría útil). 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Registro y supervisión para Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -80,7 +80,7 @@ Además, habilite los datos integrados en Azure Sentinel o en una SIEM de tercer
 
 **Instrucciones**: Para registros relacionados con Private Link, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización dentro de Azure Monitor. Utilice las cuentas de Azure Storage para el almacenamiento de registros a largo plazo o con fines de archivo.
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Otra opción es habilitar e incorporar datos en Azure Sentinel o en una herramie
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Descripción del área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Descripción del área de trabajo de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -114,7 +114,7 @@ Habilite los datos integrados en Azure Sentinel o en una SIEM de terceros, en fu
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -192,7 +192,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles de Azur
 
 - [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../azure-monitor/platform/action-groups.md)
+- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../azure-monitor/alerts/action-groups.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -318,7 +318,7 @@ Haga que el servicio sea privado para su consumo desde otras redes virtuales (so
 
 - [Registros de diagnóstico de un grupo de seguridad de red](private-link-overview.md#logging-and-monitoring)
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596668"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -93,7 +93,7 @@ En **Supervisión**, puede habilitar o deshabilitar **Configuración de diagnós
 
 Para más información sobre la configuración común de Azure que se muestra, consulte los artículos siguientes:
 
-- [Registro de actividad](../azure-monitor/platform/platform-logs-overview.md)
+- [Registro de actividad](../azure-monitor/essentials/platform-logs-overview.md)
 - [Control de acceso (IAM)](../role-based-access-control/overview.md)
 - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Bloqueos](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

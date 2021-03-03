@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8607355069bbae5983239ddbd3e8752143f31497
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218304"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676347"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Inicio rápido: Uso de grupos de SQL sin servidor
 
@@ -22,7 +22,7 @@ El grupo de SQL sin servidor de Synapse es un servicio de consulta sin servidor 
 
 Este inicio rápido muestra cómo realizar consultas en: archivos CSV, Apache Parquet y JSON.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Elija un cliente SQL para emitir consultas:
 
@@ -153,7 +153,7 @@ Los archivos se almacenan en un contenedor *json*, carpeta *books* y contienen u
 
 ### <a name="query-json-files"></a>Consulta de archivo JSON
 
-En la consulta siguiente se muestra cómo usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de un libro con el título *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+En la consulta siguiente se muestra cómo usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de un libro con el título *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT

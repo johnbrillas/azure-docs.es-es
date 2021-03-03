@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 42ed42a1fc9a2750cc928b5fd03eb4b32f770276
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355518"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644092"
 ---
 # <a name="identity-providers-for-external-identities"></a>Proveedores de identidades para External Identities
 
@@ -26,10 +26,7 @@ Sin embargo, puede permitir que los usuarios inicien sesión con varios proveedo
 
 - **Google**: La federación de Google permite a usuarios externos canjear invitaciones que les haya enviado si inician sesión en sus aplicaciones con sus propias cuentas de Gmail. La federación de Google también se puede usar en los flujos de usuario de registro de autoservicio.
    > [!IMPORTANT]
-   > **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > En la versión preliminar del registro de autoservicio actual, si un flujo de usuario está asociado a una aplicación y le envía a un usuario una invitación a esa aplicación, el usuario no podrá utilizar una cuenta de Gmail para canjear la invitación. Como solución alternativa, el usuario puede pasar por el proceso de registro de autoservicio. O bien, para canjear la invitación, puede acceder a otra aplicación o usar el portal Mis aplicaciones en https://myapps.microsoft.com.
+   > **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa Google Federation o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
 
 - **Facebook**: al compilar una aplicación, puede configurar el registro de autoservicio y habilitar la federación de Facebook para que los usuarios puedan suscribirse a la aplicación con sus propias cuentas de Facebook. Facebook solo se puede usar para flujos de usuario de registro de autoservicio y no está disponible como una opción de inicio de sesión cuando los usuarios canjean las invitaciones que les envíe.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390579"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095568"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -268,7 +268,7 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 - Los registros de eventos de cambio en los que `eventType` tiene un valor de `Control` son registros del sistema interno y no reflejan un cambio en los objetos de la cuenta. Puede omitir estos registros sin problemas.
 
-- Los valores del contenedor de propiedades `storageDiagnonstics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos. Puede omitir esas propiedades sin problemas.
+- Los valores del contenedor de propiedades `storageDiagnostics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos. Puede omitir esas propiedades sin problemas.
 
 - El tiempo representado por el segmento es **aproximado** con límites de 15 minutos. Por lo tanto, para garantizar el consumo de todos los registros dentro de un tiempo especificado, consuma el segmento de hora consecutivo anterior y siguiente.
 

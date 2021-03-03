@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995393"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670702"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar aplicaciones Spark
 
@@ -239,5 +239,5 @@ Los datos de entrada/salida mediante conjuntos de datos distribuidos resistentes
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentación de .NET para Apache Spark](/dotnet/spark)
 

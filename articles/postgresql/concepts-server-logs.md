@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 621d5a6a91a8c22c52e6febc7c2638571f5bf113
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481302"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595800"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registros en Azure Database for PostgreSQL con un único servidor
 
@@ -62,19 +62,19 @@ Puede habilitar la configuración de diagnóstico para el servidor de Postgres m
 Para habilitar los registros de recursos mediante Azure Portal:
 
    1. En el portal, vaya a *Configuración de diagnóstico*  en el menú de navegación del servidor de Postgres.
-   2. Seleccione *Agregar configuración de diagnóstico* .
+   2. Seleccione *Agregar configuración de diagnóstico*.
    3. Asigne un nombre a esta configuración. 
    4. Seleccione el punto de conexión preferido (cuenta de almacenamiento, centro de eventos, análisis de registros). 
-   5. Seleccione el tipo de registro **PostgreSQLLogs** .
+   5. Seleccione el tipo de registro **PostgreSQLLogs**.
    7. Guarde la configuración.
 
-Para habilitar los registros de recursos mediante PowerShell, la CLI o la API REST, consulte el artículo sobre la [configuración de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
+Para habilitar los registros de recursos mediante PowerShell, la CLI o la API REST, consulte el artículo sobre la [configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="access-resource-logs"></a>Acceso a los registros de recursos
 
-La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
-Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics** , por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 A continuación se muestran consultas que puede intentar iniciar. Puede configurar alertas basadas en las consultas.
 
@@ -96,7 +96,7 @@ La consulta anterior mostrará los resultados de las últimas 6 horas para cualq
 
 ### <a name="log-format"></a>Formato de registro
 
-En la tabla siguiente se describen los campos del tipo **PostgreSQLLogs** . En función del punto de conexión de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen. 
+En la tabla siguiente se describen los campos del tipo **PostgreSQLLogs**. En función del punto de conexión de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen. 
 
 |**Campo** | **Descripción** |
 |---|---|

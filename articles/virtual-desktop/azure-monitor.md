@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0be6decf28fcbb2edacd5019f567d26403b1f31
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9da1071686dafa003a5a49d0864b77644493344
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465879"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594466"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Uso de Azure Monitor para Windows Virtual Desktop para supervisar implementaciones (versión preliminar)
 
@@ -98,7 +98,7 @@ Puede obtener más información sobre cómo habilitar el diagnóstico en todos l
 
 ## <a name="configure-log-analytics"></a>Configuración de Log Analytics
 
-Para empezar a usar Azure Monitor para Windows Virtual Desktop, también necesitará, al menos, un área de trabajo de Log Analytics para recopilar datos del entorno que planea supervisar y suministrarlos al libro. Si ya tiene una configuración, vaya a [Configuración de contadores de rendimiento](#set-up-performance-counters). Si desea configurar una nueva área de trabajo de Log Analytics para la suscripción de Azure que contiene el entorno de Windows Virtual Desktop, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Para empezar a usar Azure Monitor para Windows Virtual Desktop, también necesitará, al menos, un área de trabajo de Log Analytics para recopilar datos del entorno que planea supervisar y suministrarlos al libro. Si ya tiene una configuración, vaya a [Configuración de contadores de rendimiento](#set-up-performance-counters). Si desea configurar una nueva área de trabajo de Log Analytics para la suscripción de Azure que contiene el entorno de Windows Virtual Desktop, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 >[!NOTE]
 >Se aplicarán los cargos de almacenamiento estándar de Log Analytics. Para empezar, se recomienda elegir el modelo de pago por uso y ajustarlo a medida que escale la implementación y recopile más datos. Para obtener más información, consulte la sección [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -107,7 +107,7 @@ Para empezar a usar Azure Monitor para Windows Virtual Desktop, también necesit
 
 Debe habilitar los contadores de rendimiento específicos para la recopilación en el intervalo de ejemplo correspondiente, en el área de trabajo de Log Analytics. Estos contadores de rendimiento son los únicos contadores que necesitará para supervisar Windows Virtual Desktop. Puede deshabilitar todos los demás para ahorrar costos.
 
-Si ya tiene los contadores de rendimiento habilitados y desea quitarlos, siga las instrucciones de [Configuración de contadores de rendimiento](../azure-monitor/platform/data-sources-performance-counters.md) para volver a configurarlos. Aunque en el artículo se describe cómo agregar contadores, también puede quitarlos en la misma ubicación.
+Si ya tiene los contadores de rendimiento habilitados y desea quitarlos, siga las instrucciones de [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md) para volver a configurarlos. Aunque en el artículo se describe cómo agregar contadores, también puede quitarlos en la misma ubicación.
 
 Si aún no ha configurado los contadores de rendimiento, aquí se muestra cómo configurarlos para Azure Monitor para Windows Virtual Desktop:
 
@@ -128,7 +128,7 @@ También puede agregar nuevos contadores de rendimiento después de la configura
 >[!NOTE]
 >Los contadores de rendimiento de retraso de entrada solo son compatibles con Windows 10 RS5 y versiones posteriores o Windows Server 2019 y versiones posteriores.
 
-Para obtener más información sobre cómo agregar manualmente contadores de rendimiento que aún no están habilitados para la recopilación, consulte [Configuración de contadores de rendimiento](../azure-monitor/platform/data-sources-performance-counters.md).
+Para obtener más información sobre cómo agregar manualmente contadores de rendimiento que aún no están habilitados para la recopilación, consulte [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md).
 
 ### <a name="set-up-windows-events"></a>Configuración de eventos de Windows
 
@@ -171,7 +171,7 @@ Para instalar el agente de Log Analytics, haga lo siguiente:
 
 ## <a name="optional-configure-alerts"></a>Opcional: configuración de MPIO
 
-Puede configurar Azure Monitor para Windows Virtual Desktop para que notifique si se produce alguna alerta de Azure Monitor grave en la suscripción seleccionada. Para ello, siga las instrucciones de [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/learn/tutorial-response.md).
+Puede configurar Azure Monitor para Windows Virtual Desktop para que notifique si se produce alguna alerta de Azure Monitor grave en la suscripción seleccionada. Para ello, siga las instrucciones de [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 

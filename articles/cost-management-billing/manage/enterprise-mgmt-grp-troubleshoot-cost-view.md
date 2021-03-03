@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d78621697d53f429624dc22a8e91ba4367dcfd18
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371854"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093969"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales
 
@@ -41,7 +41,7 @@ Si recibe el mensaje de error que indica que **este recurso no está disponible*
 
 ![Captura de pantalla que muestra el mensaje "recurso no disponible".](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Pida acceso al administrador de suscripciones de Azure o al administrador del grupo de administración. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Pida acceso al administrador de suscripciones de Azure o al administrador del grupo de administración. Para más información, consulte [Asignación de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

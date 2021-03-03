@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461302"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670685"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Identidad administrada del área de trabajo de Azure Synapse
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá sobre la identidad administrada en el área de tra
 
 La identidad administrada para recursos de Azure es una característica de Azure Active Directory. Esta característica proporciona a los servicios de Azure una identidad de sistema administrada automáticamente en Azure AD. Puede usar la funcionalidad de identidad administrada para autenticarse en cualquier servicio que admita la autenticación de Azure AD.
 
-Identidad administrada para recursos de Azure es el nuevo nombre del servicio conocido anteriormente como Managed Service Identity (MSI). Consulte [Identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para más información.
+Identidad administrada para recursos de Azure es el nuevo nombre del servicio conocido anteriormente como Managed Service Identity (MSI). Consulte [Identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) para más información.
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Identidad administrada del área de trabajo de Azure Synapse
 

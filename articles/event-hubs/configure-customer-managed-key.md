@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Ev
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430686"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595988"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). El servicio de Event Hubs usa Azure Storage para almacenar los datos. Todos los datos almacenados con Azure Storage se cifran con claves administradas por Microsoft. Si usa su propia clave (también conocida como Bring Your Own Key [BYOK] o clave administrada por el cliente), los datos se cifran mediante la clave administrada por Microsoft, pero además la clave administrada por Microsoft se cifrará mediante la clave administrada por el cliente. Esta característica permite crear, rotar, deshabilitar y revocar el acceso a las claves administradas por el cliente que se usan para cifrar claves administradas por Microsoft. La habilitación de la característica BYOK es un proceso que solo hay que configurar una vez en el espacio de nombres.
@@ -70,7 +70,7 @@ Al revocar el acceso a las claves de cifrado, no se purgan los datos de Event Hu
 Una vez revocada la clave de cifrado, el servicio Event Hubs en el espacio de nombres cifrado dejará de ser operativo. Si el acceso a la clave está habilitado o si se ha restaurado la clave eliminada, el servicio Event Hubs seleccionará la clave para que pueda acceder a los datos desde el espacio de nombres de Event Hubs cifrado.
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos 
-La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
+La configuración de los registros de diagnóstico para los espacios de nombres habilitados para BYOK proporciona la información necesaria sobre las operaciones. Estos registros pueden habilitarse y, posteriormente, transmitirse a un centro de eventos, analizarse mediante análisis de registros o transmitirse al almacenamiento para realizar análisis personalizados. Para más información acerca de los registros de diagnóstico, consulte [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Habilitación de registros de usuario
 Siga estos pasos para habilitar registros para las claves administradas por el cliente.

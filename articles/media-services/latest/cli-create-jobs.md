@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9291d53822f0fbb80f759908933db58f2224c3d7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98891427"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091901"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Ejemplo de CLI: creación y envío de un trabajo
 
@@ -31,8 +31,6 @@ En Media Services v3, cuando se envían trabajos para procesar los vídeos, es n
 ## <a name="prerequisites"></a>Prerequisites 
 
 [Cree una cuenta de Media Services](./create-account-howto.md).
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de ejemplo
 

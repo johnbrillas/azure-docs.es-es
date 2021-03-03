@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564776"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594452"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -28,7 +28,7 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones):
 
-- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../azure-monitor/platform/platform-logs-overview.md) de Azure puede agregar a las notificaciones destinatarios y opciones de mensajería, como correo electrónico, SMS y webhooks.  
+- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../azure-monitor/essentials/platform-logs-overview.md) de Azure puede agregar a las notificaciones destinatarios y opciones de mensajería, como correo electrónico, SMS y webhooks.  
 - Con la notificación, aparece una *ventana de autoservicio*. Durante este período, que suele ser de treinta y cinco días, puede encontrar cuál de las máquinas virtuales se incluye en la ola. Puede iniciar el mantenimiento de forma anticipada según sus propias necesidades de programación.
 - Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa, Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
@@ -89,7 +89,7 @@ La columna **Mantenimiento de autoservicio** aparece ahora en la lista de conjun
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
 
-Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales a esta comunicación mediante la creación de alertas de registro de actividad. Para más información, consulte [Supervise la actividad de suscripción con Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
+Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales a esta comunicación mediante la creación de alertas de registro de actividad. Para más información, consulte [Supervise la actividad de suscripción con Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Monitor**. 
@@ -99,7 +99,7 @@ Azure comunica una programación para el mantenimiento planeado enviando un corr
    - **Servicios**: Seleccione **Virtual Machine Scale Sets y Virtual Machines**.
    - **Tipo**: Seleccione **Mantenimiento planeado**. 
     
-Para más información sobre cómo configurar las alertas de registro de actividad, consulte [Creación de alertas de registro de actividad](../azure-monitor/platform/activity-log-alerts.md).
+Para más información sobre cómo configurar las alertas de registro de actividad, consulte [Creación de alertas de registro de actividad](../azure-monitor/alerts/activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Inicio del mantenimiento en el conjunto de escalado de máquinas virtuales desde el portal

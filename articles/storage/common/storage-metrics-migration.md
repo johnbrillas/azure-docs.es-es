@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ff4c3c5ae8629879fca6e9e683a9c77d0e2f144b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781930"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596112"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transición a las métricas de Azure Monitor
 
-El **31 de agosto de 2023** , las métricas de Storage Analytics, también denominadas *métricas clásicas* , se retirarán. Para obtener más información, consulte el [anuncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si usa métricas clásicas, asegúrese de realizar la transición a las métricas de Azure Monitor antes de esa fecha. En este artículo le ayudamos a realizar la transición. 
+El **31 de agosto de 2023**, las métricas de Storage Analytics, también denominadas *métricas clásicas*, se retirarán. Para obtener más información, consulte el [anuncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si usa métricas clásicas, asegúrese de realizar la transición a las métricas de Azure Monitor antes de esa fecha. En este artículo le ayudamos a realizar la transición. 
 
 ## <a name="steps-to-complete-the-transition"></a>Pasos para completar la transición
 
@@ -35,7 +35,7 @@ Para realizar la transición a las métricas de Azure Monitor, se recomienda el 
    > [!NOTE]
    > Las métricas de Azure Monitor están habilitadas de manera predeterminada, por lo que no es necesario hacer nada para empezar a capturar métricas. Sin embargo, debe crear gráficos o paneles para ver las métricas. 
  
-5. Si ha creado reglas de alertas basadas en métricas de almacenamiento clásico, [cree reglas de alerta](../../azure-monitor/platform/alerts-overview.md) basadas en métricas de Azure Monitor. 
+5. Si ha creado reglas de alertas basadas en métricas de almacenamiento clásico, [cree reglas de alerta](../../azure-monitor/alerts/alerts-overview.md) basadas en métricas de Azure Monitor. 
 
 6. Una vez que haya podido ver todas las métricas de Azure Monitor, puede desactivar el registro clásico. 
 
@@ -53,7 +53,7 @@ En lo que se refiere a la compatibilidad de las métricas, las métricas clásic
 
 Si la actividad de la cuenta no desencadena una métrica, las métricas clásicas mostrarán el valor cero (0) para esa métrica. Las métricas de Azure Monitor omitirán los datos por completo, lo que genera informes más limpios. Por ejemplo, con las métricas clásicas, si no se detectan errores de tiempo de espera del servidor, el valor de `ServerTimeoutError` de la tabla de métricas se establece en 0. Azure Monitor no devuelve ningún dato cuando se consulta el valor de la métrica `Transactions` con la dimensión `ResponseType` igual a `ServerTimeoutError`. 
 
-Para más información sobre las métricas en Azure Monitor, consulte [Métricas en Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Para más información sobre las métricas en Azure Monitor, consulte [Métricas en Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

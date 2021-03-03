@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f91d5eebfae990f60b47f2c98f364046bafbf04
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963302"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594359"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Estados y ciclo de vida de las máquinas virtuales
 
@@ -428,4 +428,4 @@ Para recuperar el estado de energía de todas las máquinas virtuales de la susc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../azure-monitor/insights/monitor-vm-azure.md).
+Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../azure-monitor/vm/monitor-vm-azure.md).
