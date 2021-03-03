@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219237"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573000"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -25,7 +25,7 @@ Use Azure Monitor para enrutar los registros de inicio de sesión y [auditoría]
 Puede enrutar los eventos de registro a:
 
 * Una [cuenta de Azure Storage](../storage/blobs/storage-blobs-introduction.md).
-* Un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (para analizar los datos, crear paneles y alertar sobre eventos específicos).
+* Un [área de trabajo de Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (para analizar los datos, crear paneles y alertar sobre eventos específicos).
 * Un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure (e integrarlo en sus instancias de Splunk y Sumo Logic).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -38,7 +38,7 @@ En este artículo, aprenderá a transferir los registros a un área de trabajo d
 
 ## <a name="deployment-overview"></a>Introducción a la implementación
 
-Azure AD B2C aprovecha la [supervisión de Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar la *configuración de diagnóstico* en Azure Active Directory dentro de su inquilino de Azure AD B2C, use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) para [delegar un recurso](../lighthouse/concepts/azure-delegated-resource-management.md), lo que permite que su instancia de Azure AD B2C (el **proveedor de servicios**) administre un recurso de Azure AD (el **cliente**). Después de completar los pasos de este artículo, tendrá acceso al grupo de recursos *azure-ad-b2c-monitor* que contiene el [área de trabajo Log Analytics](../azure-monitor/learn/quick-create-workspace.md) en el portal de **Azure AD B2C**. También podrá transferir los registros desde Azure AD B2C al área de trabajo de Log Analytics.
+Azure AD B2C aprovecha la [supervisión de Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Para habilitar la *configuración de diagnóstico* en Azure Active Directory dentro de su inquilino de Azure AD B2C, use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) para [delegar un recurso](../lighthouse/concepts/azure-delegated-resource-management.md), lo que permite que su instancia de Azure AD B2C (el **proveedor de servicios**) administre un recurso de Azure AD (el **cliente**). Después de completar los pasos de este artículo, tendrá acceso al grupo de recursos *azure-ad-b2c-monitor* que contiene el [área de trabajo Log Analytics](../azure-monitor/logs/quick-create-workspace.md) en el portal de **Azure AD B2C**. También podrá transferir los registros desde Azure AD B2C al área de trabajo de Log Analytics.
 
 Durante esta implementación, autorizará a un usuario o grupo en el directorio de Azure AD B2C para configurar la instancia del área de trabajo de Log Analytics en el inquilino que contiene su suscripción a Azure. Para crear la autorización, implemente una plantilla de [Azure Resource Manager](../azure-resource-manager/index.yml) en el inquilino de Azure AD que contiene la suscripción.
 
@@ -62,7 +62,7 @@ Un **área de trabajo de Log Analytics** es un entorno único de datos de regist
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el **inquilino de Azure AD**.
-1. [Crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md). En este ejemplo se usa un área de trabajo de Log Analytics denominada *AzureAdB2C*, en un grupo de recursos denominado *azure-ad-b2c-monitor*.
+1. [Crear un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md). En este ejemplo se usa un área de trabajo de Log Analytics denominada *AzureAdB2C*, en un grupo de recursos denominado *azure-ad-b2c-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. Administración de recursos delegados
 
@@ -144,9 +144,9 @@ Una vez que haya implementado la plantilla y esperado unos minutos a que se comp
 
 La configuración de diagnóstico define dónde se deben enviar los registros y las métricas de un recurso. Los posibles destinos son:
 
-- [Cuenta de Almacenamiento de Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- Soluciones de [Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
-- [Área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Cuenta de Almacenamiento de Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- Soluciones de [Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Área de trabajo de Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 En este ejemplo, se usa el área de trabajo de Log Analytics para crear un panel.
 
@@ -171,7 +171,7 @@ Para establecer la configuración de supervisión de los registros de actividad 
 1. Seleccione **Guardar**.
 
 > [!NOTE]
-> Pueden transcurrir hasta 15 minutos para que un evento emitido [aparezca en un área de trabajo de Log Analytics](../azure-monitor/platform/data-ingestion-time.md). Obtenga más información acerca de las [latencias de informes de Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), que pueden afectar a la obsolescencia de los datos y desempeñar un papel importante en la generación de informes.
+> Pueden transcurrir hasta 15 minutos para que un evento emitido [aparezca en un área de trabajo de Log Analytics](../azure-monitor/logs/data-ingestion-time.md). Obtenga más información acerca de las [latencias de informes de Active Directory](../active-directory/reports-monitoring/reference-reports-latencies.md), que pueden afectar a la obsolescencia de los datos y desempeñar un papel importante en la generación de informes.
 
 Si ve el mensaje de error "Para configurar los valores de diagnóstico para usar Azure Monitor para el directorio de Azure AD B2C, debe configurar la administración de recursos delegada", asegúrese de iniciar sesión con un usuario que sea miembro del [grupo de seguridad](#32-select-a-security-group) y [seleccione su suscripción](#4-select-your-subscription).
 
@@ -181,7 +181,7 @@ Ahora puede configurar el área de trabajo de Log Analytics para visualizar los 
 
 ### <a name="61-create-a-query"></a>6.1 Creación de una consulta
 
-Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada. Para más información, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada. Para más información, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. En el **área de trabajo de Log Analytics**, seleccione **Registros**.
 1. En el editor de consultas, pegue la siguiente consulta del [lenguaje de consulta Kusto](/azure/data-explorer/kusto/query/). Esta consulta muestra el uso de la directiva por operación durante los últimos X días. El período predeterminado está establecido en 90 días (90d). Tenga en cuenta que la consulta solo se centra en operaciones en las que se emite un token o código mediante la directiva.
@@ -228,7 +228,7 @@ Para obtener más ejemplos, consulte el [repositorio de GitHub SIEM](https://aka
 
 ### <a name="62-create-a-workbook"></a>6.2 Creación de un libro
 
-Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Permiten acceder a varios orígenes de datos desde Azure y combinarlos en experiencias interactivas unificadas. Para más información, consulte [Libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Permiten acceder a varios orígenes de datos desde Azure y combinarlos en experiencias interactivas unificadas. Para más información, consulte [Libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 Siga las instrucciones que se indican a continuación para crear un nuevo libro mediante una plantilla de la galería de JSON. En este libro se proporciona un panel de **Información del usuario** y **Autenticación** para el inquilino de Azure AD B2C.
 
@@ -259,10 +259,10 @@ El libro mostrará los informes en forma de panel.
 
 ## <a name="create-alerts"></a>Creación de alertas
 
-Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecutar automáticamente consultas guardadas o búsquedas de registros personalizadas a intervalos regulares. Puede crear alertas basadas en métricas de rendimiento específicas o cuando se creen determinados eventos, haya un evento ausente o se cree una serie de eventos dentro de una ventana de tiempo determinada. Por ejemplo, las alertas se pueden usar para recibir una notificación cuando el número medio de inicios de sesión supere un determinado umbral. Para más información, consulte [Creación de alertas](../azure-monitor/learn/tutorial-response.md).
+Las alertas se crean mediante reglas de alertas en Azure Monitor y pueden ejecutar automáticamente consultas guardadas o búsquedas de registros personalizadas a intervalos regulares. Puede crear alertas basadas en métricas de rendimiento específicas o cuando se creen determinados eventos, haya un evento ausente o se cree una serie de eventos dentro de una ventana de tiempo determinada. Por ejemplo, las alertas se pueden usar para recibir una notificación cuando el número medio de inicios de sesión supere un determinado umbral. Para más información, consulte [Creación de alertas](../azure-monitor/alerts/tutorial-response.md).
 
 
-Use las siguientes instrucciones para crear una nueva alerta de Azure, que enviará una [notificación de correo electrónico](../azure-monitor/platform/action-groups.md#configure-notifications) siempre que haya un descenso del 25 % en el **total de solicitudes** en comparación con el período anterior. La alerta se ejecutará cada 5 minutos y buscará el descenso en períodos que comprenden las últimas 24 horas. Las alertas se crean mediante el lenguaje de consulta Kusto.
+Use las siguientes instrucciones para crear una nueva alerta de Azure, que enviará una [notificación de correo electrónico](../azure-monitor/alerts/action-groups.md#configure-notifications) siempre que haya un descenso del 25 % en el **total de solicitudes** en comparación con el período anterior. La alerta se ejecutará cada 5 minutos y buscará el descenso en períodos que comprenden las últimas 24 horas. Las alertas se crean mediante el lenguaje de consulta Kusto.
 
 
 1. En el **área de trabajo de Log Analytics**, seleccione **Registros**. 
@@ -296,7 +296,7 @@ Una vez creada la alerta, vaya al **área de trabajo de Log Analytics** y selecc
 
 ### <a name="configure-action-groups"></a>Configuración de grupos de acciones
 
-Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Puede incluir el envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas. Siga la guía [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/platform/action-groups.md).
+Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Puede incluir el envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas. Siga la guía [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/alerts/action-groups.md).
 
 A continuación se incluye un ejemplo de un correo electrónico de notificación de alerta. 
 
@@ -306,7 +306,7 @@ A continuación se incluye un ejemplo de un correo electrónico de notificación
 
 Para incorporar varios registros de inquilino de Azure AD B2C a la misma área de trabajo de Log Analytics (o a una cuenta de Azure Storage o instancia de Event Hubs), necesitará implementaciones independientes con distintos valores de **nombre de oferta de MSP**. Asegúrese de que el área de trabajo de Log Analytics se encuentra en el mismo grupo de recursos que el que ha configurado en [Crear o elegir un grupo de recursos](#1-create-or-choose-resource-group).
 
-Cuando trabaje con varias áreas de trabajo de Log Analytics, use [consultas entre áreas de trabajo](../azure-monitor/log-query/cross-workspace-query.md) para crear consultas que funcionen en varias áreas de trabajo. Por ejemplo, la consulta siguiente realiza una unión de dos registros de auditoría de distintos inquilinos basados en la misma categoría (por ejemplo, autenticación):
+Cuando trabaje con varias áreas de trabajo de Log Analytics, use [consultas entre áreas de trabajo](../azure-monitor/logs/cross-workspace-query.md) para crear consultas que funcionen en varias áreas de trabajo. Por ejemplo, la consulta siguiente realiza una unión de dos registros de auditoría de distintos inquilinos basados en la misma categoría (por ejemplo, autenticación):
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -316,12 +316,12 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## <a name="change-the-data-retention-period"></a>Cambio del período de retención de datos
 
-Los registros de Azure Monitor están diseñados para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure. De forma predeterminada, los registros se conservan durante 30 días, pero la duración de la retención se puede aumentar hasta 2 años. Obtenga información acerca de cómo [administrar el uso y los costos con los registros de Azure Monitor](../azure-monitor/platform/manage-cost-storage.md). Después de seleccionar el plan de tarifa, puede [cambiar el período de retención de datos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+Los registros de Azure Monitor están diseñados para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure. De forma predeterminada, los registros se conservan durante 30 días, pero la duración de la retención se puede aumentar hasta 2 años. Obtenga información acerca de cómo [administrar el uso y los costos con los registros de Azure Monitor](../azure-monitor/logs/manage-cost-storage.md). Después de seleccionar el plan de tarifa, puede [cambiar el período de retención de datos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte más ejemplos en la [galería de SIEM](https://aka.ms/b2csiem) de Azure AD B2C. 
 
-* Para obtener más información sobre cómo agregar y establecer la configuración de diagnóstico en Azure Monitor, consulte [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../azure-monitor/insights/monitor-azure-resource.md).
+* Para obtener más información sobre cómo agregar y establecer la configuración de diagnóstico en Azure Monitor, consulte [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../azure-monitor/essentials/monitor-azure-resource.md).
 
 * Para obtener información sobre la transmisión de registros de Azure AD a un centro de eventos, consulte [Tutorial: Transmisión de registros de Azure Active Directory a un centro de eventos de Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

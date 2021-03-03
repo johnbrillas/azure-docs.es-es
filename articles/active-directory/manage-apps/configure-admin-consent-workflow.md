@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38b8cf38d2d75493ef50c4f206758c6289be079
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259594"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643769"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
 
@@ -159,4 +159,4 @@ Para más información acerca de cómo dar consentimiento a las aplicaciones, co
 
 [Permisos y consentimiento en la plataforma de identidad de Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD en Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure AD en Microsoft Q&A](/answers/topics/azure-active-directory.html)

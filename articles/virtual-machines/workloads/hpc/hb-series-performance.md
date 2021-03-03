@@ -3,17 +3,17 @@ title: Rendimiento del tamaño de máquina virtual de la serie HB
 description: Conozca los resultado de la prueba de rendimiento de los distintos tamaños de las máquinas virtuales de la serie HB en Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 10d1bfea4527eb7ab9a341de8f12a32cb59597eb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1f2d24279d3e74774da05eba42c0e916370d4f1c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966979"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672152"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales de la serie HB
 
@@ -30,7 +30,7 @@ Se han realizado varias pruebas de rendimiento en los distintos tamaños de la s
 
 ## <a name="mpi-latency"></a>Latencia de MPI
 
-Se ejecuta la prueba de latencia de MPI del conjunto de pruebas OSU de microrealización. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
+Se ejecuta la prueba de latencia de MPI del conjunto de pruebas OSU de microrrealización. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
 
 ```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
@@ -40,7 +40,7 @@ Se ejecuta la prueba de latencia de MPI del conjunto de pruebas OSU de microreal
 
 ## <a name="mpi-bandwidth"></a>Ancho de banda de MPI
 
-Se ejecuta la prueba de ancho de banda de MPI del conjunto de pruebas OSU de microrealización. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
+Se ejecuta la prueba de ancho de banda de MPI del conjunto de pruebas OSU de microrrealización. Los scripts de ejemplo se encuentran en [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)
 
 ```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
@@ -51,7 +51,7 @@ Se ejecuta la prueba de ancho de banda de MPI del conjunto de pruebas OSU de mic
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
 
-El [paquete Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) tiene muchas pruebas de InfiniBand, como la de latencia (ib_send_lat) y ancho de banda (ib_send_bw). El siguiente es un ejemplo de comando.
+El [paquete Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) tiene muchas pruebas de InfiniBand, como la de latencia (ib_send_lat) y la de ancho de banda (ib_send_bw). El siguiente es un ejemplo de comando.
 
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
@@ -59,5 +59,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de informática de alto rendimiento (HPC).
+- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute) encontrará los anuncios más recientes y algunos ejemplos y resultados de informática de alto rendimiento (HPC).
 - Si quiere una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916798"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634075"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -185,7 +185,7 @@ Para ver los esquemas de eventos de los tipos de datos exportados, visite el art
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualización de las recomendaciones y alertas exportadas en Azure Monitor
 
-También puede elegir ver las alertas o las recomendaciones de seguridad exportadas en [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+También puede elegir ver las alertas o las recomendaciones de seguridad exportadas en [Azure Monitor](../azure-monitor/alerts/alerts-overview.md). 
 
 Azure Monitor proporciona un conjunto de alertas unificadas que consta de varias alertas de Azure, como el registro de diagnóstico, las alertas de métricas y las alertas personalizadas basadas en las consultas del área de trabajo de Log Analytics.
 
@@ -195,13 +195,13 @@ Para ver las alertas y recomendaciones de Security Center en Azure Monitor, conf
 
     ![Página de alertas de Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
+1. En la página de creación de reglas, configure la nueva regla (de la misma manera que configuraría una [regla de alertas de registro en Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
     * En **Recurso**, seleccione el área de trabajo de Log Analytics a la que exportó las recomendaciones y las alertas de seguridad.
 
     * En **Condición**, seleccione **Custom log search** (Búsqueda de registros personalizada). En la página que aparece, configure la consulta, el período de retrospectiva y el período de frecuencia. En la consulta de búsqueda, puede escribir *SecurityAlert* o *SecurityRecommendation* para consultar los tipos de datos que Security Center exporta continuamente al habilitar la característica de exportación continua a Log Analytics. 
     
-    * Opcionalmente, en [Grupo de acciones](../azure-monitor/platform/action-groups.md), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
+    * Opcionalmente, en [Grupo de acciones](../azure-monitor/alerts/action-groups.md), configure el grupo de acciones que desea desencadenar. Los grupos de acciones pueden desencadenar el envío de correo electrónico, los vales de ITSM, los webhooks, etc.
     ![Regla de alerta de Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (según las reglas de exportación continua configuradas y la condición definida en la regla de alerta de Azure Monitor) en las alertas de Azure Monitor, con el desencadenamiento automático de un grupo de acciones (si se proporciona).
@@ -210,7 +210,7 @@ Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (segú
 
 Para descargar un informe en formato CSV con alertas o recomendaciones, abra las páginas **Alertas de seguridad** o **Recomendaciones** y seleccione el botón para **Download CSV report** (Descargar informe en CSV).
 
-[![Descargar datos de alertas como un archivo CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Descargar datos de alertas como un archivo CSV" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > Estos informes contienen alertas y recomendaciones para los recursos de las suscripciones seleccionadas actualmente.

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416842"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674324"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Conexión a una cuenta de almacenamiento de Azure segura desde un área de trabajo de Synapse
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo conectarse a una cuenta de almacenamiento de 
 
 
 ## <a name="secured-azure-storage-accounts"></a>Cuentas de almacenamiento de Azure protegidas
-Azure Storage proporciona un modelo de seguridad por capas que permite proteger y controlar el acceso a las cuentas de almacenamiento. Puede configurar reglas de firewall de IP para que el tráfico desde intervalos de direcciones IP públicas seleccionados tenga acceso a su cuenta de almacenamiento. Además, puede configurar reglas de red para que el tráfico desde redes virtuales seleccionadas tenga acceso a su cuenta de almacenamiento. Puede combinar reglas de firewall de IP que permitan el acceso desde intervalos de direcciones IP seleccionados, y reglas de red que concedan acceso desde redes virtuales seleccionadas en la misma cuenta de almacenamiento. Estas reglas se aplican al punto de conexión público de una cuenta de almacenamiento. No necesita ninguna regla de acceso para permitir el tráfico desde puntos de conexión privados administrados creados en el área de trabajo hacia una cuenta de almacenamiento. Las reglas de firewall de almacenamiento se pueden aplicar a cuentas de almacenamiento existentes, o a nuevas cuentas de almacenamiento al crearlas. Puede obtener más información sobre la protección de cuentas de almacenamiento [aquí](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Azure Storage proporciona un modelo de seguridad por capas que permite proteger y controlar el acceso a las cuentas de almacenamiento. Puede configurar reglas de firewall de IP para que el tráfico desde intervalos de direcciones IP públicas seleccionados tenga acceso a su cuenta de almacenamiento. Además, puede configurar reglas de red para que el tráfico desde redes virtuales seleccionadas tenga acceso a su cuenta de almacenamiento. Puede combinar reglas de firewall de IP que permitan el acceso desde intervalos de direcciones IP seleccionados, y reglas de red que concedan acceso desde redes virtuales seleccionadas en la misma cuenta de almacenamiento. Estas reglas se aplican al punto de conexión público de una cuenta de almacenamiento. No necesita ninguna regla de acceso para permitir el tráfico desde puntos de conexión privados administrados creados en el área de trabajo hacia una cuenta de almacenamiento. Las reglas de firewall de almacenamiento se pueden aplicar a cuentas de almacenamiento existentes, o a nuevas cuentas de almacenamiento al crearlas. Puede obtener más información sobre la protección de cuentas de almacenamiento [aquí](../../storage/common/storage-network-security.md).
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Áreas de trabajo de Synapse y redes virtuales
 Al crear un área de trabajo de Synapse, puede elegir habilitar una red virtual administrada para asociarla. Si no habilita la red virtual administrada para el área de trabajo al crearla, el área de trabajo se encuentra en una red virtual compartida junto con otras áreas de trabajo de Synapse que no tienen asociada una red virtual administrada. Si ha habilitado la red virtual administrada al crear el área de trabajo, el área de trabajo está asociada a una red virtual dedicada administrada por Azure Synapse. Estas redes virtuales no se crean en la suscripción del cliente. Por lo tanto, no se podrá conceder al tráfico desde estas redes virtuales acceso a la cuenta de almacenamiento protegida mediante las reglas de red descritas anteriormente.  

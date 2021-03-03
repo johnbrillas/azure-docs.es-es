@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323272"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584027"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -33,7 +33,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > El comando `python -m pip install opencensus-ext-azure` supone que tiene una variable de entorno `PATH` establecida para la instalación de Python. Si no ha configurado esta variable, deberá proporcionar la ruta de acceso completa del directorio a la ubicación del archivo ejecutable de Python. El resultado es un comando como el siguiente: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de telemetría a Azure Monitor. Son seguimiento, métricas y registros. Para obtener más información sobre estos tipos de telemetría, consulte [la información general sobre la plataforma de datos](../platform/data-platform.md). Utilice las instrucciones siguientes para enviar estos tipos de telemetría a través de los tres exportadores.
+El SDK emplea tres exportadores de Azure Monitor para enviar distintos tipos de telemetría a Azure Monitor. Son seguimiento, métricas y registros. Para obtener más información sobre estos tipos de telemetría, consulte [la información general sobre la plataforma de datos](../data-platform.md). Utilice las instrucciones siguientes para enviar estos tipos de telemetría a través de los tres exportadores.
 
 ## <a name="telemetry-type-mappings"></a>Asignaciones de tipos de telemetría
 
@@ -438,7 +438,7 @@ Como se muestra, hay tres exportadores de Azure Monitor diferentes que admiten O
 Cada exportador acepta los mismos argumentos para la configuración, que se pasan a través de los constructores. Aquí puede ver los detalles de cada uno de ellos:
 
 - `connection_string`: La cadena de conexión usada para conectarse a su recurso de Azure Monitor. Tiene prioridad sobre `instrumentation_key`.
-- `enable_standard_metrics`: Usado para `AzureMetricsExporter`. Indica al exportador que envíe las métricas de los [contadores de rendimiento](../platform/app-insights-metrics.md#performance-counters) de forma automática a Azure Monitor. Su valor predeterminado es `True`.
+- `enable_standard_metrics`: Usado para `AzureMetricsExporter`. Indica al exportador que envíe las métricas de los [contadores de rendimiento](../essentials/app-insights-metrics.md#performance-counters) de forma automática a Azure Monitor. Su valor predeterminado es `True`.
 - `export_interval`: Se utiliza para especificar la frecuencia en segundos de exportación.
 - `instrumentation_key`: La clave de instrumentación utilizada para conectarse al recurso de Azure Monitor.
 - `logging_sampling_rate`: Usado para `AzureLogHandler`. Proporciona una frecuencia de muestreo [0, 1.0] para exportar registros. Su valor predeterminado es 1.0.
@@ -458,7 +458,7 @@ En la lista de **Activo**:
 - En el caso de la telemetría enviada con el exportador de métricas de Azure Monitor, las métricas enviadas se muestran en `customMetrics`.
 - En el caso de la telemetría enviada con el exportador de registros de Azure Monitor, los registros se muestran en `traces`. Las excepciones aparecen en `exceptions`.
 
-Para obtener información más detallada sobre cómo usar las consultas y los registros, consulte [Registros en Azure Monitor](../platform/data-platform-logs.md).
+Para obtener información más detallada sobre cómo usar las consultas y los registros, consulte [Registros en Azure Monitor](../logs/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Más información sobre OpenCensus para Python
 
@@ -473,11 +473,11 @@ Para obtener información más detallada sobre cómo usar las consultas y los re
 * [Seguimiento de las solicitudes entrantes](./opencensus-python-dependency.md)
 * [Seguimiento de las solicitudes salientes](./opencensus-python-request.md)
 * [Mapa de aplicación](./app-map.md)
-* [Supervisión del rendimiento de un extremo a otro](../learn/tutorial-performance.md)
+* [Supervisión del rendimiento de un extremo a otro](../app/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alertas
 
 * [Pruebas de disponibilidad](./monitor-web-app-availability.md): cree pruebas para asegurarse de que el sitio sea visible en la Web.
 * [Diagnósticos inteligentes](./proactive-diagnostics.md): estas pruebas se realizan automáticamente, por lo que no es preciso hacer nada para configurarlas. Le indican si la aplicación tiene una tasa de solicitudes con error inusual.
-* [Alertas de métricas](../platform/alerts-log.md): Establezca alertas que le adviertan si una métrica supera un umbral. Puede establecerlas en las métricas personalizadas que codifique en la aplicación.
+* [Alertas de métricas](../alerts/alerts-log.md): Establezca alertas que le adviertan si una métrica supera un umbral. Puede establecerlas en las métricas personalizadas que codifique en la aplicación.
 

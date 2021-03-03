@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500349"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673352"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Protección y uso de directivas en máquinas virtuales en Azure
 
@@ -73,4 +73,4 @@ Mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](./tutorial-azure-security.md).
+- Siga los pasos para supervisar la seguridad de la máquina virtual mediante Azure Security Center para [Linux](../security/fundamentals/overview.md) o [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

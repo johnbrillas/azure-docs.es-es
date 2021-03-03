@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878094"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592346"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendaciones de seguridad para Blob Storage
 
@@ -71,7 +71,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
 | Hacer un seguimiento de cómo se autorizan las solicitudes | Habilite el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Para más información, consulte [Supervisión de Azure Blob Storage](monitor-blob-storage.md) o [Registro de Azure Storage Analytics con supervisión clásica](../common/storage-analytics-logging.md). | - |
-| Configuración de alertas en Azure Monitor | Configure alertas de registro para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Para obtener más información, consulte [Alertas de registro en Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Configuración de alertas en Azure Monitor | Configure alertas de registro para evaluar los registros de los recursos según una frecuencia establecida y activar una alerta en función de los resultados. Para obtener más información, consulte [Alertas de registro en Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

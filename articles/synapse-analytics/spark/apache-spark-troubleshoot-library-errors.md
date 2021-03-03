@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416745"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670630"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Solución de errores de instalación de biblioteca 
 Para que el código de terceros o el código compilado localmente esté disponible para las aplicaciones, puede instalar una biblioteca en uno de los grupos de Apache Spark sin servidor. Los paquetes que aparecen en el archivo requirements.txt se descargan de PyPi cuando se inicia el grupo. Este archivo de requisitos se usa cada vez que se crea una instancia de Spark desde ese grupo de Spark. Una vez instalada una biblioteca para un grupo de Spark, está disponible para todas las sesiones que usan el mismo grupo. 
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Si recibe un error, es probable que le falten los permisos necesarios. Para saber cómo obtener los permisos necesarios, consulte este documento: [Asignación de los permisos Colaborador de datos de Storage Blob o Propietario de datos de Storage Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+Si recibe un error, es probable que le falten los permisos necesarios. Para saber cómo obtener los permisos necesarios, consulte este documento: [Asignación de los permisos Colaborador de datos de Storage Blob o Propietario de datos de Storage Blob](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 Además, si ejecuta una canalización, el MSI del área de trabajo también debe tener los permisos Propietario de datos de Storage Blob o Colaborador de datos de Storage Blob. Para información sobre cómo conceder este permiso a su identidad de área de trabajo, visite: [Concesión de permisos a una identidad administrada de área de trabajo](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -98,4 +98,3 @@ Para volver a crear el entorno y validar las actualizaciones, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Visualización de las bibliotecas predeterminadas: [Compatibilidad de las versiones de Azure Spark](apache-spark-version-support.md)
-

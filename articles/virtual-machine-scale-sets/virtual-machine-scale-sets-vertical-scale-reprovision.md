@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b172f1f7137b53e98384d92c9c709694eaf0b7e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029287"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594497"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 
@@ -118,7 +118,7 @@ Una vez que importe los runbooks, agregue un webhook al runbook para que, de est
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adición de una alerta al conjunto de escalado de máquinas virtuales
 
-A continuación, se presenta un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+A continuación, se presenta un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Para más información sobre cómo crear alertas, consulte los artículos siguientes:
 
-* [Ejemplos de PowerShell de Azure Monitor](../azure-monitor/samples/powershell-samples.md)
-* [Ejemplos de la CLI multiplataforma de Azure Monitor](../azure-monitor/samples/cli-samples.md)
+* [Ejemplos de PowerShell de Azure Monitor](../azure-monitor/powershell-samples.md)
+* [Ejemplos de la CLI multiplataforma de Azure Monitor](../azure-monitor/cli-samples.md)
 
 ## <a name="summary"></a>Resumen
 

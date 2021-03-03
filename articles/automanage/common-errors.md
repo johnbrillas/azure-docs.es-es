@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697762"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644449"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Solución de errores de incorporación de Automanage habituales
 Es posible que Automanage no pueda incorporar una máquina en el servicio. En este documento se explica cómo solucionar errores de implementación, se comparten algunos motivos comunes por los que se puede producir un error en las implementaciones y se describen los siguientes pasos posibles en la mitigación.
@@ -37,7 +37,7 @@ Si no ve ninguna implementación con errores en el grupo de recursos o la suscri
 Error |  Mitigación
 :-----|:-------------|
 Error de permisos insuficiente de la cuenta de Automanage | Esto puede ocurrir si ha cambiado recientemente una suscripción que contiene una nueva cuenta de Automanage a un nuevo inquilino. Los pasos para resolver esto se encuentran [aquí](./repair-automanage-account.md).
-Región del área de trabajo que no cumple los requisitos de asignación de región | Automanage no pudo incorporar su máquina, pero el área de trabajo de Log Analytics a la que se vincula la máquina actualmente no se asigna a una región de Automation compatible. Asegúrese de que el área de trabajo de Log Analytics existente y la cuenta de Automation se encuentran en una [asignación de región compatible](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+Región del área de trabajo que no cumple los requisitos de asignación de región | Automanage no pudo incorporar su máquina, pero el área de trabajo de Log Analytics a la que se vincula la máquina actualmente no se asigna a una región de Automation compatible. Asegúrese de que el área de trabajo de Log Analytics existente y la cuenta de Automation se encuentran en una [asignación de región compatible](../automation/how-to/region-mappings.md).
 "Error en la asignación; no hay información adicional disponible" | Abra un caso con el soporte técnico de Microsoft Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -46,4 +46,3 @@ Región del área de trabajo que no cumple los requisitos de asignación de regi
 
 > [!div class="nextstepaction"]
 > [Habilitación de Automanage para máquinas virtuales en Azure Portal](quick-create-virtual-machines-portal.md)
-

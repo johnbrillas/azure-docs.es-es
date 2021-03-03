@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 184f42b6da0133068e0a0218353e49c37e3c8c47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2625e4a4954dc74fd0037c6563d0a32734c90b01
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730262"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096254"
 ---
 # <a name="azure-security-baseline-for-content-delivery-network"></a>Base de referencia de seguridad de Azure para Content Delivery Network
 
@@ -78,7 +78,7 @@ Además, use los roles integrados para asignar los permisos y crear solo el rol 
 
 - [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md) 
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -182,9 +182,9 @@ Content Delivery Network registra todo el tráfico de red que procesa para el ac
 
 Habilite los registros de recursos de Azure. Puede usar Azure Security Center y Azure Policy para habilitar los registros de recursos y la recopilación de datos de registro. Estos registros pueden ser críticos para la investigación posterior de incidentes de seguridad y la realización de ejercicios forenses.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Descripción de la recopilación de datos de Azure Security Center](../security-center/security-center-enable-data-collection.md)
 

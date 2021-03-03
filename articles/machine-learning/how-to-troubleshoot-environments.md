@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881642"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657305"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Solución de problemas en las compilaciones de imágenes
 
@@ -153,8 +153,8 @@ Consulte los siguientes escenarios para solucionar los posibles errores del lado
 
 Problemas posibles:
 - Es posible que el nombre de la ruta de acceso al registro de contenedor no se resuelva correctamente. Compruebe que los nombres de las imágenes usan barras diagonales dobles y que la dirección de las barras diagonales en los hosts de Linux y Windows es la correcta.
-- Si un registro de contenedor que está detrás de una red virtual usa un punto de conexión privado en [una región no admitida](/azure/private-link/private-link-overview#availability), configure el registro de contenedor mediante el punto de conexión de servicio (acceso público) desde el portal, e inténtelo de nuevo.
-- Después de colocar el registro de contenedor detrás de una red virtual, ejecute la [plantilla de Azure Resource Manager](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) para que el área de trabajo pueda comunicarse con la instancia del registro de contenedor.
+- Si un registro de contenedor que está detrás de una red virtual usa un punto de conexión privado en [una región no admitida](../private-link/private-link-overview.md#availability), configure el registro de contenedor mediante el punto de conexión de servicio (acceso público) desde el portal, e inténtelo de nuevo.
+- Después de colocar el registro de contenedor detrás de una red virtual, ejecute la [plantilla de Azure Resource Manager](./how-to-network-security-overview.md) para que el área de trabajo pueda comunicarse con la instancia del registro de contenedor.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Obtiene un error 401 de un registro de contenedor del área de trabajo
 
@@ -166,7 +166,7 @@ Si hay una compilación de imagen en curso, el cliente SDK bloquea Conda. Si el 
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>La imagen personalizada de Docker no está en el registro
 
-Compruebe si se usa la [etiqueta correcta](/azure/machine-learning/how-to-use-environments#create-an-environment) y que `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` deshabilita Conda y usa los paquetes instalados del usuario.
+Compruebe si se usa la [etiqueta correcta](./how-to-use-environments.md#create-an-environment) y que `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` deshabilita Conda y usa los paquetes instalados del usuario.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Obtiene uno de los siguientes problemas comunes de la red virtual
 
@@ -184,9 +184,9 @@ Compruebe si se usa la [etiqueta correcta](/azure/machine-learning/how-to-use-en
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>No se pueden ejecutar experimentos cuando el almacenamiento tiene habilitada la seguridad de red
 
-Si usa imágenes de Docker predeterminadas y habilita las dependencias administradas por el usuario, debe usar las [etiquetas de servicio](/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry y AzureFrontDoor.FirstParty para agregar Azure Container Registry y sus dependencias a la lista de permitidos.
+Si usa imágenes de Docker predeterminadas y habilita las dependencias administradas por el usuario, debe usar las [etiquetas de servicio](./how-to-network-security-overview.md) MicrosoftContainerRegistry y AzureFrontDoor.FirstParty para agregar Azure Container Registry y sus dependencias a la lista de permitidos.
 
- Para obtener más información, consulte [Habilitar redes virtuales](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ Para obtener más información, consulte [Habilitar redes virtuales](./how-to-network-security-overview.md).
 
 ### <a name="you-need-to-create-an-icm"></a>Debe crear un ICM
 

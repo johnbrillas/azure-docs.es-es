@@ -6,20 +6,20 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491229"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591083"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Supervisión de Azure Functions con registros de Azure Monitor
 
-Azure Functions ofrece integración con los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para supervisar las funciones. En este artículo se muestra cómo configurar Azure Functions para enviar los registros generados por el sistema y generados por el usuario a los registros de Azure Monitor.
+Azure Functions ofrece integración con los [registros de Azure Monitor](../azure-monitor/logs/data-platform-logs.md) para supervisar las funciones. En este artículo se muestra cómo configurar Azure Functions para enviar los registros generados por el sistema y generados por el usuario a los registros de Azure Monitor.
 
-Los registros de Azure Monitor le ofrecen la posibilidad de consolidar registros de distintos recursos en la misma área de trabajo, donde se pueden analizar con [consultas](../azure-monitor/log-query/log-query-overview.md) para recuperar, consolidar y analizar rápidamente los datos recopilados.  Puede crear y probar consultas mediante [Log Analytics](../azure-monitor/log-query/log-query-overview.md) en Azure Portal y después analizar los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](../azure-monitor/visualizations.md) o las [reglas de alertas](../azure-monitor/platform/alerts-overview.md).
+Los registros de Azure Monitor le ofrecen la posibilidad de consolidar registros de distintos recursos en la misma área de trabajo, donde se pueden analizar con [consultas](../azure-monitor/logs/log-query-overview.md) para recuperar, consolidar y analizar rápidamente los datos recopilados.  Puede crear y probar consultas mediante [Log Analytics](../azure-monitor/logs/log-query-overview.md) en Azure Portal y después analizar los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](../azure-monitor/visualizations.md) o las [reglas de alertas](../azure-monitor/alerts/alerts-overview.md).
 
-Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto/query/) utilizado por Azure Data Explorer, que es adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](../azure-monitor/log-query/get-started-queries.md).
+Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto/query/) utilizado por Azure Data Explorer, que es adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](../azure-monitor/logs/get-started-queries.md).
 
 > [!NOTE]
 > La integración con los registros de Azure Monitor se encuentra actualmente en su versión preliminar pública para las versiones 2 y 3 correspondientes a las aplicaciones de funciones que se ejecutan en planes de hospedaje de consumo, Premium y dedicados de Windows.
@@ -124,5 +124,5 @@ FunctionAppLogs
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise la [introducción a Azure Functions](functions-overview.md).
-- Obtenga más información sobre los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md).
-- Obtenga más información sobre el [lenguaje de consulta](../azure-monitor/log-query/get-started-queries.md).
+- Obtenga más información sobre los [registros de Azure Monitor](../azure-monitor/logs/data-platform-logs.md).
+- Obtenga más información sobre el [lenguaje de consulta](../azure-monitor/logs/get-started-queries.md).

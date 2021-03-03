@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184474"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593408"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 
@@ -113,7 +113,7 @@ También puede crear un panel en Azure Monitor para Azure NetApp Files si va a l
 
 ### <a name="azure-monitor-api-access"></a>Acceso a la API Azure Monitor
 
-Puede acceder a los contadores de Azure NetApp Files si usa las llamadas de API REST. Consulte [Métricas compatibles con Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para obtener los contadores para los volúmenes y los grupos de capacidad.
+Puede acceder a los contadores de Azure NetApp Files si usa las llamadas de API REST. Consulte [Métricas compatibles con Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para obtener los contadores para los volúmenes y los grupos de capacidad.
 
 En el ejemplo siguiente se muestra una dirección URL de GET para ver el tamaño del volumen lógico:
 

@@ -1,40 +1,38 @@
 ---
-title: Uso de Azure Policy para aplicar configuraciones de clúster a escala (versión preliminar)
+title: Uso de Azure Policy para aplicar configuraciones de clúster a escala
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Uso de Azure Policy para aplicar configuraciones de clúster a escala
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
-ms.openlocfilehash: b80e50cb4823632f054de3b7f9da71392f8578d7
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 7f85050666c383ba49730bd88ce1f26d55607e7a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560184"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652154"
 ---
-# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Uso de Azure Policy para aplicar configuraciones de clúster a escala (versión preliminar)
+# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Uso de Azure Policy para aplicar configuraciones de clúster a escala
 
 ## <a name="overview"></a>Información general
 
-Puede usar Azure Policy para exigir cualquiera de los siguientes recursos para que se aplique `Microsoft.KubernetesConfiguration/sourceControlConfigurations` de forma específica:
-*  Recurso `Microsoft.Kubernetes/connectedclusters`.
-* Recurso `Microsoft.ContainerService/managedClusters` habilitado para GitOps. 
+Azure Policy se puede usar para aplicar configuraciones ( tipo de recurso de `Microsoft.KubernetesConfiguration/sourceControlConfigurations`) a escala en clústeres Kubernetes habilitados para Azure Arc (`Microsoft.Kubernetes/connectedclusters`).
 
 Para usar Azure Policy, seleccione una definición de directiva existente y cree una asignación de directiva. Al crear la asignación de directiva:
 1. Establezca el ámbito de la asignación.
     * El ámbito será un grupo de recursos o una suscripción de Azure. 
-2. Establezca los parámetros para el elemento `sourceControlConfiguration` que se creará. 
+2. Establezca los parámetros de la configuración que se va a crear. 
 
-Una vez que se haya creado la asignación, el motor de Azure Policy identificará todos los recursos `connectedCluster` o `managedCluster` que se encuentren dentro del ámbito y aplicará `sourceControlConfiguration` a cada uno de ellos.
+Una vez que se crea la asignación, el motor de Azure Policy identifica todos los clústeres de Kubernetes habilitado para Azure Arc que se encuentran dentro del ámbito y aplica la configuración a todos ellos.
 
-Puede habilitar varios repositorios de Git como orígenes verdaderos para cada clúster mediante el uso de varias asignaciones de directivas. Cada asignación de directiva se configuraría para utilizar un repositorio de Git diferente; por ejemplo, un repositorio para el operador central de TI/clústeres y otros repositorios para los equipos de aplicaciones.
+Si usa, varias asignaciones de directiva, puede crear varias configuraciones y que cada una de ellas apunte a un repositorio de Git diferente. Por ejemplo, un repositorio para el operador de clúster/TI central y otros para los equipos de la aplicación.
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Compruebe tener permisos de `Microsoft.Authorization/policyAssignments/write` en el ámbito (suscripción o grupo de recursos) en el que quiere crear esta asignación de directiva.
+Compruebe que tiene permisos de `Microsoft.Authorization/policyAssignments/write` en el ámbito (suscripción o grupo de recursos) en el que va a crear esta asignación de directiva.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
@@ -54,24 +52,21 @@ Compruebe tener permisos de `Microsoft.Authorization/policyAssignments/write` en
     * Para obtener más información, consulte la guía de [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md) y el [artículo Corrección de recursos no compatibles con Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 1. Seleccione **Revisar + crear**.
 
-Después de crear la asignación de directiva, se aplicará `sourceControlConfiguration` para cualquiera de los siguientes recursos ubicados en el ámbito de la asignación:
-* Nuevos recursos `connectedCluster`.
-* Nuevos recursos `managedCluster` con los agentes de GitOps instalados. 
+Después de crear la asignación de directiva, la configuración se aplica a los nuevos clústeres de Kubernetes habilitado para Azure Arc creados en el ámbito de la asignación de directiva.
 
-Para los clústeres existentes, tendrá que ejecutar manualmente una tarea de corrección. Normalmente, esta tarea de asignación de directiva tarda entre 10 y 20 minutos en surtir efecto.
+En los clústeres existentes, será preciso ejecutar manualmente una tarea de corrección. Normalmente, esta tarea de asignación de directiva tarda entre 10 y 20 minutos en surtir efecto.
 
 ## <a name="verify-a-policy-assignment"></a>Comprobación de una asignación de directiva
 
-1. En Azure Portal, vaya a uno de los recursos `connectedCluster`.
+1. En el Azure Portal, vaya a uno de los clústeres de Kubernetes habilitado para Azure Arc.
 1. En la sección **Configuración** de la barra lateral, seleccione **Directivas**. 
-    * La experiencia de usuario del clúster de AKS todavía no se ha implementado.
     * En la lista de directivas, debería ver la asignación de directiva que ha creado antes con **Estado de cumplimiento** establecido en *Conforme*.
 1. En la sección **Configuración** de la barra lateral, seleccione **Configuraciones**.
-    * En la lista de configuraciones, debería ver el elemento `sourceControlConfiguration` creado por la asignación de directiva.
+    * En la lista de configuraciones, debería ver la configuración creada por la asignación de directiva.
 1. Use `kubectl` para interrogar al clúster. 
-    * Debería ver el espacio de nombres y los artefactos creados por `sourceControlConfiguration`.
-    * En cinco minutos, debería ver en el clúster los artefactos que se describen en los manifiestos del repositorio de Git configurado.
+    * Debería ver el espacio de nombres y los artefactos creados por los recursos de las configuraciones.
+    * En un plazo de 5 minutos (suponiendo que el clúster tenga conectividad de red a Azure), debería ver que los objetos descritos por los manifiestos en el repositorio de Git, se crean en el clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de Azure Monitor para contenedores con clústeres de Kubernetes habilitados para Arc](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+* [Configuración de Azure Monitor para contenedores con clústeres de Kubernetes habilitados para Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234008"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574793"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -292,7 +292,7 @@ La manera más rápida de encontrar la versión de Microsoft .NET que está inst
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>¿Por qué no funciona el escalado automático según lo previsto?
 
-Si con el escalado automático de Azure no se ha escalado o reducido la instancia de la aplicación web horizontalmente como se esperaba, puede que esté trabajando en un escenario en el que se ha decidido intencionadamente no escalar para evitar un bucle infinito debido a oscilaciones. Esto suele suceder cuando no hay un margen suficiente entre los umbrales de escalado y reducción horizontal. Para aprender a evitar las oscilaciones y leer sobre otros procedimientos recomendados del escalado automático, consulte [Procedimientos recomendados de escalado automático](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Si con el escalado automático de Azure no se ha escalado o reducido la instancia de la aplicación web horizontalmente como se esperaba, puede que esté trabajando en un escenario en el que se ha decidido intencionadamente no escalar para evitar un bucle infinito debido a oscilaciones. Esto suele suceder cuando no hay un margen suficiente entre los umbrales de escalado y reducción horizontal. Para aprender a evitar las oscilaciones y leer sobre otros procedimientos recomendados del escalado automático, consulte [Procedimientos recomendados de escalado automático](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>¿Por qué a veces el escalado automático solo escala parcialmente?
 

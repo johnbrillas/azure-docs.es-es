@@ -10,25 +10,24 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 97ac8a63740bb3a0df74a2a698cacecf842760e9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b7d780ce6362e34c801b4da25332bff90f0b7515
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366473"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659280"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de teléfono en Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services le permite usar números de teléfono para realizar llamadas de voz y enviar mensajes SMS con la red telefónica conmutada pública (RTC). En este documento revisaremos los tipos de número de teléfono, las opciones de configuración y la disponibilidad de regiones para planear la solución de telefonía y SMS con Communication Services.
 
 ## <a name="number-types-and-features"></a>Tipos de números y características
-Communication Services ofrece dos tipos de número de teléfono: **local** y **gratuito**. 
+Communication Services ofrece dos tipos de número de teléfono: **local** y **gratuito**.
 
 ### <a name="local-numbers"></a>Números locales
-Los números locales (geográficos) son números de teléfono de 10 dígitos que se componen de los códigos de área locales de Estados Unidos. Por ejemplo, `+1 (206) XXX-XXXX` es un número local con el código de área `206`. Este código de área está asignado a la ciudad de Seattle. Estos números de teléfono suelen ser usados por personas y empresas locales. Azure Communication Services ofrece números locales de Estados Unidos. Estos números se pueden usar para realizar llamadas telefónicas, pero no para enviar mensajes SMS. 
+Los números locales (geográficos) son números de teléfono de 10 dígitos que se componen de los códigos de área locales de Estados Unidos. Por ejemplo, `+1 (206) XXX-XXXX` es un número local con el código de área `206`. Este código de área está asignado a la ciudad de Seattle. Estos números de teléfono suelen ser usados por personas y empresas locales. Azure Communication Services ofrece números locales de Estados Unidos. Estos números se pueden usar para realizar llamadas telefónicas, pero no para enviar mensajes SMS.
 
 ### <a name="toll-free-numbers"></a>Números de teléfono gratuitos
 Los números gratuitos son números de teléfono de 10 dígitos con códigos de área distintos, a los que se puede llamar desde cualquier número de teléfono de forma gratuita. Por ejemplo, `+1 (800) XXX-XXXX` es un número gratuito en la región de Estados Unidos. Estos números de teléfono se suelen usar con fines de servicio al cliente. Azure Communication Services ofrece números de teléfono gratuitos de Estados Unidos. Estos números se pueden usar para realizar llamadas telefónicas y para enviar mensajes SMS. Los números de teléfono gratuitos no se pueden usar para personas y solo se pueden asignar a aplicaciones.
@@ -37,9 +36,9 @@ Los números gratuitos son números de teléfono de 10 dígitos con códigos de
 
 Si la aplicación va a usar el número de teléfono (por ejemplo, para realizar llamadas o enviar mensajes en nombre del servicio), puede seleccionar un número de teléfono gratuito o local (geográfico). Puede seleccionar un número de teléfono gratuito si la aplicación envía mensajes SMS o realiza llamadas.
 
-Si el número de teléfono lo utiliza una persona (por ejemplo, un usuario de la aplicación que realiza las llamadas), debe usar un número de teléfono local (geográfico). 
+Si el número de teléfono lo utiliza una persona (por ejemplo, un usuario de la aplicación que realiza las llamadas), debe usar un número de teléfono local (geográfico).
 
-En la tabla siguiente se resumen estos tipos de números de teléfono: 
+En la tabla siguiente se resumen estos tipos de números de teléfono:
 
 | Tipo de número de teléfono | Ejemplo                              | Disponibilidad de país    | Funcionalidad del número de teléfono |Caso de uso común                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
@@ -47,7 +46,7 @@ En la tabla siguiente se resumen estos tipos de números de teléfono:
 | Gratuito         | \+ 1 (*código* de área gratuito) XXX XX XX | US                      | Llamadas (salientes), SMS (entrantes y salientes)| Asignación de números de teléfono a sistemas o bots de respuesta interactiva de voz (IVR) y aplicaciones de SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Características de los números de teléfono en Azure Communication Services 
+### <a name="phone-number-features-in-azure-communication-services"></a>Características de los números de teléfono en Azure Communication Services
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -55,7 +54,7 @@ Para la mayoría de los números de teléfono, puede configurar un conjunto de c
 
 Las características disponibles dependen del país en el que opera, el caso de uso y el tipo de número de teléfono que haya seleccionado. Estas características varían según el país debido a los requisitos normativos. Azure Communication Services ofrece las siguientes características para los números de teléfono:
 
-- **One-way outbound SMS** (SMS de salida unidireccional): esta opción permite enviar mensajes SMS a los usuarios. Resulta útil para escenarios de autenticación en dos fases y de notificación. 
+- **One-way outbound SMS** (SMS de salida unidireccional): esta opción permite enviar mensajes SMS a los usuarios. Resulta útil para escenarios de autenticación en dos fases y de notificación.
 - **Two-way inbound and outbound SMS** (SMS de entrada y salida bidireccional): esta opción permite enviar y recibir mensajes de los usuarios mediante números de teléfono. Resulta útil en escenarios de atención al cliente.
 - **One-way outbound telephone calling** (Llamada telefónica de salida unidireccional): esta opción permite realizar llamadas a los usuarios y configurar el identificador del autor de la llamada para las llamadas salientes que realice el servicio. Resulta útil en escenarios de atención al cliente y de notificación mediante voz.
 
@@ -72,7 +71,7 @@ En la tabla siguiente se muestra dónde puede adquirir los diferentes tipos de n
 
 ## <a name="azure-subscriptions-eligibility"></a>Elegibilidad de las suscripciones de Azure
 
-Para adquirir un número de teléfono, debe disponer de una suscripción de Azure de pago. No se pueden adquirir números de teléfono en cuentas de evaluación gratuita ni mediante créditos gratuitos de Azure. 
+Para adquirir un número de teléfono, debe disponer de una suscripción de Azure de pago. No se pueden adquirir números de teléfono en cuentas de evaluación gratuita ni mediante créditos gratuitos de Azure.
 
 Actualmente, la disponibilidad de números de teléfono está restringida a las suscripciones de Azure que tienen una dirección de facturación en Estados Unidos.
 

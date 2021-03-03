@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980616"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586270"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -200,7 +200,7 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 <sup>1</sup> Para las aplicaciones Java SE, agregue "$WEBSITE _AZMON_PREVIEW_ENABLED" a la configuración de la aplicación y establézcala en 1 o en true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
-* [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307170"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677610"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Creación de una definición de trabajo de Apache Spark en Synapse Studio
 
@@ -32,7 +32,7 @@ En este tutorial se describen las tareas siguientes:
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 
-* Un área de trabajo de Azure Synapse Analytics. Para obtener instrucciones, consulte [Creación de un área de trabajo de Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* Un área de trabajo de Azure Synapse Analytics. Para obtener instrucciones, consulte [Creación de un área de trabajo de Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Un grupo de Apache Spark sin servidor.
 * Una cuenta de almacenamiento de ADLS Gen2. Debe ser el **propietario de los datos del blob de almacenamiento** del sistema de archivos de ADLS Gen2 con el que quiere trabajar. Si no lo es, debe agregar el permiso manualmente.
 * Si no desea usar el almacenamiento predeterminado del área de trabajo, vincule la cuenta de almacenamiento de ADLS Gen2 necesaria en Synapse Studio. 

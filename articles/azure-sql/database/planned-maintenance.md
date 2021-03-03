@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333042"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664124"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,12 @@ Todas las aplicaciones cliente de producción que se conecten a un servicio de b
 
 Si la base de datos experimenta errores de inicio de sesión, compruebe la ventana de [Resource Health](../../service-health/resource-health-overview.md#get-started) en [Azure Portal](https://portal.azure.com) para conocer el estado actual. La sección del historial de estado contiene el motivo del tiempo de inactividad de cada evento (si está disponible).
 
+## <a name="maintenance-window-feature"></a>Característica de ventana de mantenimiento
+
+La característica de ventana de mantenimiento permite configurar las programaciones de ventanas de mantenimiento predecibles para las bases de datos de Azure SQL y las instancias administrada de SQL aptas. Para más información, consulte [Ventana de mantenimiento](maintenance-window.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre [Resource Health](resource-health-to-troubleshoot-connectivity.md) para Azure SQL Database e Instancia administrada de Azure SQL.
 - Para obtener más información sobre la lógica de reintento, vea [Lógica de reintento para errores transitorios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Configure las programaciones de ventana de mantenimiento con la característica de [ventana de mantenimiento](maintenance-window.md).

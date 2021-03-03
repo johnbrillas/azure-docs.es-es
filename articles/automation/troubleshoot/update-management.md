@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890788"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579745"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -135,7 +135,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 1. Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
-2. Asegúrese de que las notificaciones de la máquina se envían al área de trabajo correcta. Para obtener instrucciones sobre cómo comprobar este aspecto, consulte [Comprobación de la conectividad del agente a Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Asegúrese también de que esta área de trabajo esté vinculada a su cuenta de Azure Automation. Para ello, vaya a la cuenta de Automation y seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
+2. Asegúrese de que las notificaciones de la máquina se envían al área de trabajo correcta. Para obtener instrucciones sobre cómo comprobar este aspecto, consulte [Comprobación de la conectividad del agente a Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Asegúrese también de que esta área de trabajo esté vinculada a su cuenta de Azure Automation. Para ello, vaya a la cuenta de Automation y seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
 
 3. Asegúrese de que la máquina se muestre en el área de trabajo de Log Analytics vinculada a la cuenta de Automation. Ejecute la siguiente consulta en el área de trabajo de Log Analytics.
 
@@ -144,7 +144,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
    | summarize by Computer, Solutions
    ```
 
-    Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe [volver a instalar el agente](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
     Si el equipo aparece en los resultados de la consulta, compruebe en la propiedad **Solutions** que aparezca **updates**. Así se comprueba si está registrado en Update Management. Si no es así, compruebe si hay problemas de configuración de ámbito. La [configuración de ámbito](../update-management/scope-configuration.md) determina qué máquinas se configuran para Update Management. Para configurar el ámbito para el equipo de destino, vea [Habilitación de máquinas en el área de trabajo](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -162,7 +162,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Escenario: No se puede registrar el proveedor de recursos de Automation para las suscripciones
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Al trabajar con implementaciones de características en la cuenta de Automation, se produce el siguiente error:
 
@@ -190,7 +190,7 @@ Para registrar el proveedor de recursos de Automation, realice los pasos siguien
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Escenario: Faltan algunas máquinas en la actualización programada con una programación dinámica
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 No aparecen todas las máquinas incluidas en una versión preliminar de la actualización en la lista de máquinas revisadas durante una ejecución programada.
 
@@ -240,7 +240,7 @@ Utilice el procedimiento siguiente si la suscripción está configurada para el 
 
 ## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Escenario: Las máquinas esperadas no aparecen en la versión preliminar del grupo dinámico
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Las máquinas virtuales de los ámbitos seleccionados de un grupo dinámico no aparecen en la lista de versión preliminar de Azure Portal. Esta lista consta de todas las máquinas recuperadas por una consulta de ARG para los ámbitos seleccionados. Los ámbitos se filtran para las máquinas que tienen instalado Hybrid Runbook Worker y para las que tiene permisos de acceso.
 
@@ -305,7 +305,7 @@ Las máquinas aparecen en los resultados de la consulta de ARG, pero todavía no
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Escenario: Componentes de Update Management habilitados, mientras la máquina virtual se sigue mostrando como configurada
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la implementación:
 
@@ -359,7 +359,7 @@ Si usa una imagen clonada, los distintos nombres de equipo tienen el mismo ident
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Escenario: Recibe un error de la suscripción vinculada al crear una implementación de actualización para las máquinas en otro inquilino de Azure
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Encuentra el error siguiente al intentar crear una implementación de actualización para las máquinas en otro inquilino de Azure:
 
@@ -387,7 +387,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Escenario: Reinicios inexplicables
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en **No reiniciar nunca**, las máquinas todavía se reinician después de instalar las actualizaciones.
 
@@ -401,7 +401,7 @@ Revise las claves del Registro enumeradas en [Configuración de actualizaciones 
 
 ## <a name="scenario-machine-shows-failed-to-start-in-an-update-deployment"></a><a name="failed-to-start"></a>Escenario: Una máquina muestra "No se pudo iniciar" en una implementación de actualizaciones
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Una máquina muestra un estado `Failed to start`. Al ver los detalles específicos de la máquina, ve el siguiente error:
 
@@ -428,7 +428,7 @@ Cuando proceda, use [grupos dinámicos](../update-management/configure-groups.md
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Escenario: Las actualizaciones se instalan sin una implementación
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Al inscribir una máquina Windows en Update Management, puede ver las actualizaciones instaladas sin una implementación.
 
@@ -446,7 +446,7 @@ Para más información, consulte [Configuración de actualizaciones automáticas
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece el siguiente mensaje de error:
 
@@ -465,7 +465,7 @@ La máquina ya se ha implementado en otra área de trabajo para Update Managemen
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Escenario: La máquina no se puede comunicar con el servicio
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -495,7 +495,7 @@ Revise la red y asegúrese de que están permitidas las direcciones y los puerto
 
 ## <a name="scenario-unable-to-create-self-signed-certificate"></a><a name="unable-to-create-selfsigned-cert"></a>Escenario: Error al crear el certificado autofirmado
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Aparece uno de los siguientes mensajes de error:
 
@@ -513,7 +513,7 @@ Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\Pr
 
 ## <a name="scenario-the-scheduled-update-failed-with-a-maintenancewindowexceeded-error"></a><a name="mw-exceeded"></a>Escenario: Error en la actualización programada con un error MaintenanceWindowExceeded
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 La ventana de mantenimiento predeterminada para las actualizaciones es de 120 minutos. Puede aumentar la ventana de mantenimiento a un máximo de seis 6 horas o 360 minutos.
 
@@ -527,7 +527,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Escenario: La máquina aparece como "No evaluado" y se muestra una excepción HRESULT
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 * Tiene máquinas que aparecen como `Not assessed` en **Cumplimiento** y verá un mensaje de excepción debajo de él.
 * Se muestra un código de error HRESULT en el portal.
@@ -572,7 +572,7 @@ También puede descargar y ejecutar el [solucionador de problemas de Windows Upd
 
 ## <a name="scenario-update-run-returns-failed-status-linux"></a>Escenario: La ejecución de la actualización devuelve un estado Error (Linux)
 
-### <a name="issue"></a>Incidencia
+### <a name="issue"></a>Problema
 
 Se inicia una ejecución de actualización, pero encuentra errores durante la ejecución.
 
@@ -632,4 +632,4 @@ Si su problema no aparece o no puede resolverlo, intente uno de los siguientes c
 
 * Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente.
-* Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+* Registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

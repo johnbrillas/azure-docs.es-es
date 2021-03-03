@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 0dd49117448cf02e2c22e362600e4f9e889b6555
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3a950727034d4be822e0b9554424074a1aaebf33
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390783"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649927"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-fusion-erp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Oracle Fusion ERP
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Oracle Fusion ERP con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Oracle Fusion ERP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -130,8 +130,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Oracle Fusion ERP y comience el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Oracle Fusion ERP en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Oracle Fusion ERP. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Oracle Fusion ERP en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Oracle Fusion ERP. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Oracle Fusion ERP, puede aplicar el control de sesión, que protege la filtración y la infiltración de información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado Oracle Fusion ERP, puede aplicar el control de sesión, que protege la filtración y la infiltración de información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

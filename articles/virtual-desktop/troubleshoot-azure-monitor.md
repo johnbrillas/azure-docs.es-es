@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571350"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Solución de problemas de Azure Monitor para Windows Virtual Desktop (versión preliminar)
 
@@ -26,9 +26,9 @@ Si el libro de configuración no funciona correctamente para automatizar la inst
 
 - Para habilitar manualmente los diagnósticos o acceder al área de trabajo de Log Analytics, consulte [Envío de diagnósticos de Windows Virtual Desktop a Log Analytics](diagnostics-log-analytics.md).
 - Para instalar manualmente la extensión de Log Analytics en un host, consulte [Extensión de máquina virtual de Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md).
-- Para configurar una nueva área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
-- Para obtener más información sobre cómo leer contadores de rendimiento, consulte [Configuración de contadores de rendimiento](../azure-monitor/platform/data-sources-performance-counters.md).
-- Para configurar eventos para un área de trabajo de Log Analytics, consulte [Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
+- Para configurar una nueva área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
+- Para obtener más información sobre cómo leer contadores de rendimiento, consulte [Configuración de contadores de rendimiento](../azure-monitor/agents/data-sources-performance-counters.md).
+- Para configurar eventos para un área de trabajo de Log Analytics, consulte [Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>Los datos no se muestran correctamente
 
@@ -44,7 +44,7 @@ Si los datos no se muestran correctamente, compruebe la configuración y los per
 
 - Es posible que tenga que abrir los puertos de salida en el firewall del servidor para permitir que Azure Monitor envíe datos al portal. Consulte [Puertos de salida](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
 
-- ¿No ve los datos de la actividad reciente? Puede esperar 15 minutos y actualizar la fuente. Azure Monitor tiene un período de latencia de 15 minutos para rellenar los datos de registro. Para más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+- ¿No ve los datos de la actividad reciente? Puede esperar 15 minutos y actualizar la fuente. Azure Monitor tiene un período de latencia de 15 minutos para rellenar los datos de registro. Para más información, consulte [Tiempo de la ingesta de datos de registro en Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 Si no le falta información, pero los datos todavía no se muestran correctamente, puede haber un problema en la consulta o en los orígenes de datos. Revise los problemas conocidos y las limitaciones. 
 
@@ -52,7 +52,7 @@ Si no le falta información, pero los datos todavía no se muestran correctament
 
 Azure Monitor para Windows Virtual Desktop usa los libros de Azure Monitor. Los libros permiten guardar una copia de la plantilla de libro de Windows Virtual Desktop y realizar sus propias personalizaciones.
 
-Por diseño, las plantillas de libro personalizadas no adoptarán automáticamente las actualizaciones del grupo de productos. Para obtener más información, consulte [Solución de problemas de conclusiones basadas en libros](../azure-monitor/insights/troubleshoot-workbooks.md) y la [información general sobre libros](../azure-monitor/platform/workbooks-overview.md).
+Por diseño, las plantillas de libro personalizadas no adoptarán automáticamente las actualizaciones del grupo de productos. Para obtener más información, consulte [Solución de problemas de conclusiones basadas en libros](../azure-monitor/insights/troubleshoot-workbooks.md) y la [información general sobre libros](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="i-cant-interpret-the-data"></a>No puedo interpretar los datos
 

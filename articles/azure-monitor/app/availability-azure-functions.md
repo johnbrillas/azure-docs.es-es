@@ -3,12 +3,12 @@ title: Creación y ejecución de pruebas de disponibilidad personalizadas median
 description: En este documento se explica cómo crear una función de Azure con TrackAvailability() que se ejecutará periódicamente según la configuración especificada en la función TimerTrigger. Los resultados de esta prueba se enviarán al recurso de Application Insights, donde podrá consultar los datos de los resultados de disponibilidad y generar alertas sobre ellos. Las pruebas personalizadas le permitirán escribir pruebas de disponibilidad más complejas de las que puede crear con la interfaz de usuario del portal, supervisar una aplicación dentro de la red virtual de Azure, cambiar la dirección del punto de conexión o crear una prueba de disponibilidad si no hay ninguna disponible en su región.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945658"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589946"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creación y ejecución de pruebas de disponibilidad personalizadas mediante Azure Functions
 
@@ -175,7 +175,7 @@ Si ejecutó todo tal cual (sin agregar lógica de negocios), verá que se produj
 
 ## <a name="query-in-logs-analytics"></a>Consulta en Registros (Analytics)
 
-Puede usar registros (Analytics) para ver los resultados de disponibilidad, dependencias, etc. Para más información acerca de los registros, visite [Introducción a las consultas de registros](../log-query/log-query-overview.md).
+Puede usar registros (Analytics) para ver los resultados de disponibilidad, dependencias, etc. Para más información acerca de los registros, visite [Introducción a las consultas de registros](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Resultados de disponibilidad](media/availability-azure-functions/availabilityresults.png)

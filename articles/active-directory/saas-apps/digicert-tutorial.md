@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 1c7befc0b42cfa3460a1c9b375a95b97e3e65746
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 1b4bf5b9d9b0341609d4caf0647c849ba92b073f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558437"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integración de Azure Active Directory con DigiCert
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar DigiCert con Azure Active Directory (Azur
 * Permitir que los usuarios inicien sesión automáticamente en DigiCert con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -156,8 +156,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de DigiCert para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de DigiCert en Aplicaciones, debería iniciar sesión automáticamente en la instancia de DigiCert para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de DigiCert en Aplicaciones, debería iniciar sesión automáticamente en la instancia de DigiCert para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado DigiCert, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado DigiCert, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526704"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673521"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciales para la autenticación de origen en Azure Purview
 
@@ -85,8 +85,9 @@ Estos tipos de credenciales se admiten en Purview:
 - Entidad de servicio: se agrega la **clave de entidad de servicio** como un secreto en el almacén de claves.
 - Autenticación de SQL: se agrega la **contraseña** como un secreto en el almacén de claves.
 - Clave de cuenta: se agrega la **clave de cuenta** como un secreto en el almacén de claves.
+- ARN de rol: en los orígenes de datos de Amazon S3, agregue su **ARN de rol** en AWS. 
 
-Para más información, consulte [Incorporación de un secreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Para más información, consulte [Incorporación de un secreto a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) y [Creación de un rol de AWS para Purview](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 Después de almacenar los secretos en el almacén de claves:
 

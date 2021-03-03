@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ef5cddc131e25a1966ca86c3c8650452f73be69e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5a9bc576541c5991bb5f9352dc41fb0cce99c601
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594267"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -174,9 +174,9 @@ Puede usar el acceso de red Just-in-Time de Azure Security Center para limitar l
 
 Use Azure Policy para validar (o corregir) las configuraciones de los recursos de red relacionados con Windows Virtual Machines.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Creación de alertas en Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas en Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -220,13 +220,13 @@ Para obtener una visibilidad avanzada de las aplicaciones y servicios que son co
 
 Asimismo, habilite Azure Monitor para el acceso a los registros de auditoría y actividad que incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles.
 
-* [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+* [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Introducción al agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Introducción al agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Extensión de máquina virtual de Log Analytics para Windows](../extensions/oms-windows.md)
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Introducción a Application Insights](../../azure-monitor/app/app-insights-overview.md)
 
@@ -242,7 +242,7 @@ Si su organización quiere conservar los datos del registro de eventos de seguri
 
 * [Recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [Para capturar los datos de Syslog para la supervisión, deberá habilitar la extensión de Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [Para capturar los datos de Syslog para la supervisión, deberá habilitar la extensión de Log Analytics](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -252,9 +252,9 @@ Si su organización quiere conservar los datos del registro de eventos de seguri
 
 **Guía**: asegúrese de que todas las cuentas de almacenamiento o áreas de trabajo de Log Analytics usadas para almacenar registros de máquina virtual tengan el período de retención de registros configurado de acuerdo con la normativa de cumplimiento de la organización.
 
-* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [Configuración del período de retención del área de trabajo de Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
+* [Configuración del período de retención del área de trabajo de Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -268,15 +268,15 @@ Analice y supervise los registros en busca de comportamientos anómalos y revise
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros para supervisar y revisar los registros.
 
-* [Introducción al agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Introducción al agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Extensión de máquina virtual de Log Analytics para Windows](../extensions/oms-windows.md)
 
 * [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -292,7 +292,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Administración de alertas de seguridad en Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -410,7 +410,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Integración de los registros de actividad de Azure en Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../../azure-monitor/platform/action-groups.md)
+* [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../../azure-monitor/alerts/action-groups.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -452,13 +452,13 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: configure opciones de diagnóstico para que Azure Active Directory envíe registros de auditoría y de inicio de sesión a un área de trabajo de Log Analytics. Además, use Azure Monitor para revisar los registros y realizar consultas en los datos de registro de las máquinas virtuales de Azure.
 
-* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Descripción del área de trabajo de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Integración de los registros de actividad de Azure en Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Supervisión de máquinas virtuales en Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -592,9 +592,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las máquinas virtuales y los recursos relacionados.
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Registro de Azure Storage Analytics](../../storage/common/storage-analytics-logging.md)
 

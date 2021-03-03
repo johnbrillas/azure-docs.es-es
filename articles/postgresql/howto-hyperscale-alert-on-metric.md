@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026461"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577086"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -26,8 +26,8 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 * Llamar a un webhook.
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI de Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI de Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API de REST de Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
@@ -109,5 +109,5 @@ A medida que el disco se aproxime al límite de espacio, pruebe estas técnicas 
 La supervisión del uso de CPU resulta útil para establecer una base de referencia para el rendimiento. Por ejemplo, puede observar que el uso de CPU suele ser de, aproximadamente, entre 40-60 %. Si, de repente, el uso de CPU empieza a rondar el 95 %, puede reconocer una anomalía. El uso de CPU puede reflejar el crecimiento orgánico, pero también puede revelar una consulta aislada. Al crear una alerta de CPU, defina una granularidad de agregación larga para capturar los aumentos prolongados e ignorar los picos momentáneos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenga [información general sobre la colección de métricas](../azure-monitor/platform/data-platform.md) para garantizar que el servicio está disponible y que responder adecuadamente.
+* Obtenga más información sobre cómo [configurar webhooks en las alertas](../azure-monitor/alerts/alerts-webhooks.md).
+* Obtenga [información general sobre la colección de métricas](../azure-monitor/data-platform.md) para garantizar que el servicio está disponible y que responder adecuadamente.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371616"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592063"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefacto de definición de vistas en Azure Managed Applications
 
@@ -137,7 +137,7 @@ Cuando proporciona esta vista en **viewDefinition.json**, esta reemplaza la pág
 
 `"kind": "Metrics"`
 
-La vista de métricas le permite recopilar y agregar datos de los recursos de la aplicación administrada a las [métricas de Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
+La vista de métricas le permite recopilar y agregar datos de los recursos de la aplicación administrada a las [métricas de Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -176,7 +176,7 @@ La vista de métricas le permite recopilar y agregar datos de los recursos de la
 |---------|---------|---------|
 |DisplayName|Sí|El título de visualización del gráfico.|
 |chartType|No|La visualización que se utilizará para este gráfico. De forma predeterminada, se utiliza un gráfico de líneas. Tipos de gráficos compatibles: `Bar, Line, Area, Scatter`.|
-|Métricas|Sí|La matriz de métricas que se trazarán en el gráfico. Para obtener más información acerca de las métricas compatibles con Azure Portal, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md).|
+|Métricas|Sí|La matriz de métricas que se trazarán en el gráfico. Para obtener más información acerca de las métricas compatibles con Azure Portal, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).|
 
 ### <a name="metric"></a>Métrica
 

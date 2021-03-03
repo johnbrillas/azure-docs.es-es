@@ -6,29 +6,25 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: a3c4026616b19656c708f4dd4ac8a419f7774198
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608697"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668629"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 Este documento describe los detalles acerca de las actualizaciones del sistema operativo en las instancias grandes HANA.
 
 >[!NOTE]
 >La actualización del sistema operativo es responsabilidad de los clientes. El servicio de soporte técnico de operaciones de Microsoft puede guiarle a las áreas clave que debe vigilar durante este proceso. Debe consultar con el proveedor del sistema operativo antes de planear una actualización.
-
-> [!NOTE]
-> Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 
 Durante el aprovisionamiento de la unidad HLI, el equipo de operaciones de Microsoft instala el sistema operativo.
 Con el tiempo, se le pide realizar mantenimiento al sistema operativo (por ejemplo: aplicación de revisiones, optimizaciones, actualizaciones, etc.) en la unidad HLI.

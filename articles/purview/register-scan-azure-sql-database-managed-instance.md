@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491729"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677858"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -117,7 +117,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Configuración del origen de datos de SQL.":::
 
-1. Seleccione **Escribir manualmente**.
+1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
 
 1. Proporcione el **nombre de dominio completo del punto de conexión público** y el **número de puerto**. Después, seleccione **Finalizar** para registrar el origen de datos.
 

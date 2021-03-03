@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595595"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Base de referencia de seguridad de Azure para Caja de seguridad del cliente para Microsoft Azure
 
@@ -44,7 +44,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -164,7 +164,7 @@ Incorporación de los registros de actividad generados por la Caja de seguridad 
 
 **Guía**: En Azure Monitor, establezca el período de retención de registros en las áreas de trabajo de Log Analytics vinculadas a la Caja de seguridad del cliente atendiendo a las normativas de cumplimiento de su organización.
 
-* [Establecimiento de parámetros de retención de registros](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Establecimiento de parámetros de retención de registros](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -186,7 +186,7 @@ Incorporación de los registros de actividad generados por la Caja de seguridad 
 
 * [Registros de auditoría para la Caja de seguridad del cliente](./customer-lockbox-overview.md#auditing-logs)
 
-* [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -246,7 +246,7 @@ En la organización del cliente, el usuario que tiene el rol de propietario de l
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
-**Instrucciones**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
+**Guía**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
 
 Además, para ayudarle a realizar un seguimiento de las cuentas administrativas dedicadas, puede seguir las recomendaciones de Azure Security Center o las directivas integradas de Azure, por ejemplo:
 - Debe haber más de un propietario asignado a su suscripción
@@ -461,9 +461,9 @@ Puede simplificar este proceso creando una configuración de diagnóstico para l
 
 * [Habilitación de la auditoría en la Caja de seguridad del cliente](./customer-lockbox-overview.md)
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Creación de alertas en Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas en Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -519,7 +519,7 @@ Puede simplificar este proceso creando una configuración de diagnóstico para l
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-**Instrucciones**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Resource Graph, se recomienda encarecidamente que cree y use los recursos de Azure Resource Manager.
 
@@ -731,7 +731,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

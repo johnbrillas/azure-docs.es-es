@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257277"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650981"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -141,7 +141,7 @@ Se recomiendan los siguientes métodos de aprovisionamiento:
 
     *   Bloquear el acceso a Azure Portal. Puede hacer excepciones raras, pero necesarias.  Cree una directiva de acceso condicional que incluya a todos los usuarios invitados y externos. Luego [implemente una directiva para bloquear el acceso](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Bosques desconectados**: Use el [aprovisionamiento en la nube de Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Este método le permite conectarse a los bosques desconectados, eliminando la necesidad de establecer una conexión o relaciones de confianza entre los bosques, lo que puede ampliar el efecto de una vulneración local. 
+* **Bosques desconectados**: Use el [aprovisionamiento en la nube de Azure AD](../cloud-sync/what-is-cloud-sync.md). Este método le permite conectarse a los bosques desconectados, eliminando la necesidad de establecer una conexión o relaciones de confianza entre los bosques, lo que puede ampliar el efecto de una vulneración local. 
  
 ### <a name="limitations-and-tradeoffs"></a>Limitaciones y concesiones
 

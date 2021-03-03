@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572228"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
@@ -42,7 +42,7 @@ Los eventos de auditoría se escriben en el espacio de nombres y en el centro de
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Los eventos de auditoría se escriben en el área de trabajo de Log Analytics definida durante la configuración de auditoría, en la tabla `AzureDiagnostics` con la categoría `SQLSecurityAuditEvents`. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Los eventos de auditoría se escriben en el área de trabajo de Log Analytics definida durante la configuración de auditoría, en la tabla `AzureDiagnostics` con la categoría `SQLSecurityAuditEvents`. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](../../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Campos del registro de auditoría
 

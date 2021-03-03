@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: d894ce71e0ffa5a0894a1f6b0035efe66271ded8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591466"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
 
@@ -224,7 +224,7 @@ En la tabla siguiente se enumeran estas características junto con instrucciones
 | **Directivas de administración del ciclo de vida** | [Administración del ciclo de vida de Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md) |
 | **Sitios web estáticos** | [Hospedaje de sitios web estáticos en Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
 | **Suscripciones a eventos** | [Reacción a eventos de Blob Storage](../blobs/storage-blob-event-overview.md) |
-| **Alertas** | [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Alertas** | [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados mediante HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 

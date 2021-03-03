@@ -4,12 +4,12 @@ description: Application Insights realiza un análisis inteligente de la telemet
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573726"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -70,12 +70,12 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 * *¿Puedo crear mis propias reglas de detección de anomalías o personalizar las existentes?*
 
   * Aún no, pero puede realizar lo siguiente:
-    * [Configurar alertas](../platform/alerts-log.md) que le indiquen cuándo una métrica cruza un umbral.
+    * [Configurar alertas](../alerts/alerts-log.md) que le indiquen cuándo una métrica cruza un umbral.
     * [Exportar telemetría](./export-telemetry.md) a una [base de datos](./code-sample-export-sql-stream-analytics.md) o a [PowerBI](./export-power-bi.md) para poder realizar un análisis usted mismo.
 * *¿Con qué frecuencia se lleva a cabo el análisis?*
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).
-* *¿Sustituye esto a las [alertas de métricas](../platform/alerts-log.md)?*
+* *¿Sustituye esto a las [alertas de métricas](../alerts/alerts-log.md)?*
   * No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
 
 
@@ -175,10 +175,10 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de tele
 
 * [Generador de perfiles](profiler.md) 
 * [depurador de instantáneas](./snapshot-debugger.md)
-* [Analytics](../log-query/log-analytics-tutorial.md)
-* [Diagnóstico de análisis inteligente](../log-query/log-query-overview.md)
+* [Analytics](../logs/log-analytics-tutorial.md)
+* [Diagnóstico de análisis inteligente](../logs/log-query-overview.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
+* [Alertas de métricas configuradas manualmente](../alerts/alerts-log.md)
 * [Pruebas web de disponibilidad](./monitor-web-app-availability.md)

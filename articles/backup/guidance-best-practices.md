@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258768"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593333"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -238,9 +238,9 @@ Como administrador o usuario de copias de seguridad, debe ser capaz de supervisa
   * Identificación de las tendencias clave con diferentes niveles de granularidad.
 
 * Además:
-  * Puede enviar datos (por ejemplo, trabajos, directivas, etc.) al **área de trabajo de Log Analytics**. Esto habilitará las características de los registros de Azure Monitor que permiten la correlación de estos datos con otros datos de supervisión recopilados por Azure Monitor, la consolidación de las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto, y el uso de consultas de registro para realizar análisis complejos y obtener información detallada sobre las entradas del registro. [Obtenga más información aquí](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Puede enviar datos al centro de eventos para después enviar entradas fuera de Azure, por ejemplo, a un sistema de administración de eventos e información de seguridad (SIEM) de terceros o a otra solución de análisis de registros. [Obtenga más información aquí](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * Puede enviar los datos de registro a una cuenta de Azure Storage si quiere conservarlos durante más de 90 días para su auditoría, análisis estático o copia de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividad se conservan en la plataforma de Azure durante ese tiempo. [Más información](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * Puede enviar datos (por ejemplo, trabajos, directivas, etc.) al **área de trabajo de Log Analytics**. Esto habilitará las características de los registros de Azure Monitor que permiten la correlación de estos datos con otros datos de supervisión recopilados por Azure Monitor, la consolidación de las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto, y el uso de consultas de registro para realizar análisis complejos y obtener información detallada sobre las entradas del registro. [Obtenga más información aquí](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * Puede enviar datos al centro de eventos para después enviar entradas fuera de Azure, por ejemplo, a un sistema de administración de eventos e información de seguridad (SIEM) de terceros o a otra solución de análisis de registros. [Obtenga más información aquí](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * Puede enviar los datos de registro a una cuenta de Azure Storage si quiere conservarlos durante más de 90 días para su auditoría, análisis estático o copia de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividad se conservan en la plataforma de Azure durante ese tiempo. [Más información](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Alertas
 

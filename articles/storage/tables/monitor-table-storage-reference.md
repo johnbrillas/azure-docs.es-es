@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ad56b6af9a9071812ad6fa581954010df3b6b5d7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780304"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574839"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Table Storage
 
@@ -36,7 +36,7 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="table-storage"></a>Almacenamiento de tablas
 
-En esta tabla se muestran [métricas de almacenamiento de tablas](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
+En esta tabla se muestran [métricas de almacenamiento de tablas](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |
@@ -80,4 +80,4 @@ En la tabla siguiente se indican las propiedades de los registros de recursos de
 ## <a name="see-also"></a>Consulta también
 
 - Vea [Supervisión de Azure Table Storage](monitor-table-storage.md) para ver una descripción de la supervisión de Azure Storage.
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).

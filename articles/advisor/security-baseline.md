@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2887b12e7ce24e9c5a881a2b3edeebb258532a49
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aae76d50811db87bdf4753ed456a6d8e6d95d6ab
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736497"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094631"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Línea de base de seguridad de Azure para Azure Advisor
 
@@ -175,7 +175,7 @@ Use los roles integrados para asignar los permisos y crear solo el rol personali
 
 Qué es el control de acceso basado en roles de Azure (Azure RBAC) ../role-based-access-control/overview.md. 
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -227,9 +227,9 @@ Use el acceso condicional de Azure para limitar la capacidad de los usuarios de 
 
 Los registros de actividad se pueden usar para encontrar errores al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -243,7 +243,7 @@ Asegúrese también de que integra los registros de actividad de Azure en el reg
 
 Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de terceros. Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -256,9 +256,9 @@ Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de 
 **Guía**: asegúrese de que todas las cuentas de almacenamiento o las áreas de trabajo de Log Analytics que se usan para almacenar registros de Azure Advisor tengan el período de retención de registros configurado de acuerdo a la normativa de cumplimiento de la organización.
 En Azure Monitor, puede establecer el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de área de trabajo de Azure Storage, Data Lake o Log Analytics para el almacenamiento de archivo a largo plazo.
 
-- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md) 
+- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md) 
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: No aplicable
 

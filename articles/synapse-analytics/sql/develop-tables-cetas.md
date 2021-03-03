@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ffb3a0948267ea40a5d0511de63a80ad23584d1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 23b74c06ebd45092b9efe36a870eeac7f6fb828a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454670"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677559"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS con Synapse SQL
 
@@ -29,7 +29,7 @@ Puede usar la instrucción CREATE EXTERNAL TABLE AS SELECT (CETAS) en el grupo d
 
 ## <a name="cetas-in-dedicated-sql-pool"></a>CETAS en el grupo de SQL dedicado
 
-Para más información sobre el grupo de SQL dedicado, y el uso y la sintaxis de CETAS, consulte el artículo [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Además, para instrucciones sobre CTAS con el grupo de SQL dedicado, consulte el artículo [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Para más información sobre el grupo de SQL dedicado, y el uso y la sintaxis de CETAS, consulte el artículo [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). Además, para instrucciones sobre CTAS con el grupo de SQL dedicado, consulte el artículo [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="cetas-in-serverless-sql-pool"></a>CETAS en el grupo de SQL sin servidor
 
@@ -72,11 +72,11 @@ Especifica el nombre del objeto de formato de archivo externo que contiene el fo
 
 WITH *<common_table_expression>*
 
-Especifica un conjunto de resultados temporal con nombre, conocido como expresión de tabla común (CTE). Para más información, consulte [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Especifica un conjunto de resultados temporal con nombre, conocido como expresión de tabla común (CTE). Para más información, consulte [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 SELECT <select_criteria>
 
-Rellena la nueva tabla con los resultados de una instrucción SELECT. *select_criteria* es el cuerpo de la instrucción SELECT que determina qué datos se copian en la nueva tabla. Para más información sobre las instrucciones SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Rellena la nueva tabla con los resultados de una instrucción SELECT. *select_criteria* es el cuerpo de la instrucción SELECT que determina qué datos se copian en la nueva tabla. Para más información sobre las instrucciones SELECT, consulte [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
 > La cláusula ORDER BY en SELECT no se admite en CETAS.

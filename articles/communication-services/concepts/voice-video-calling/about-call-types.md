@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028767"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657152"
 ---
 # <a name="voice-and-video-concepts"></a>Conceptos de voz y vídeo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Puede usar Azure Communication Services para hacer y recibir llamadas de voz o videollamadas individuales o de grupo. Las llamadas se pueden hacer a otros dispositivos conectados a Internet y en teléfonos convencionales. Puede usar las bibliotecas cliente JavaScript, Android o iOS de Communication Services para compilar aplicaciones que permitan a los usuarios hablar entre sí en conversaciones privadas o en discusiones grupales. Azure Communication Services admite hacer y recibir llamadas desde servicios o bots.
 
@@ -26,7 +24,7 @@ Puede usar Azure Communication Services para hacer y recibir llamadas de voz o v
 
 Hay varios tipos de llamadas que puede hacer en Azure Communication Services. El tipo de llamadas que haga determinará el esquema de señales, los flujos de tráfico multimedia y el modelo de precios.
 
-### <a name="voice-over-ip-voip"></a>Llamada de voz sobre IP (VoIP) 
+### <a name="voice-over-ip-voip"></a>Llamada de voz sobre IP (VoIP)
 
 Cuando un usuario de la aplicación llama a otro usuario de la aplicación a través de una conexión de datos o Internet, la llamada se hace a través de voz sobre IP (VoIP). En este caso, las señales y los elementos multimedia fluyen a través de Internet.
 
@@ -43,14 +41,14 @@ Una llamada uno a uno en Azure Communication Services se produce cuando uno de l
 Una llamada grupal en Azure Communication Services se produce cuando tres o más participantes se conectan entre sí. Cualquier combinación de usuarios con conexión VoIP o RTC puede estar presente en una llamada grupal. Una llamada de uno a uno se puede convertir en una llamada grupal si se agregan más participantes a la llamada. Uno de estos participantes puede ser un bot.
 
 ### <a name="supported-video-standards"></a>Estándares de vídeo compatibles
-Se admite H.264 (MPEG-4) 
+Se admite H.264 (MPEG-4)
 
 ### <a name="video-quality"></a>Calidad de vídeo
-En los SDK nativos (iOS y Android), se admite hasta Full HD 1080p. Para el SDK web (JS), se admite el Standard HD 720p. La calidad depende del ancho de banda disponible.  
+En los SDK nativos (iOS y Android), se admite hasta Full HD 1080p. Para el SDK web (JS), se admite el Standard HD 720p. La calidad depende del ancho de banda disponible.
 
 ### <a name="rooms-concept"></a>Concepto de salas
 Las salas son un conjunto de API y SDK que permiten agregar fácilmente interacciones de audio, vídeo, uso compartido de pantalla, RTC y SMS a su sitio web o aplicación nativa.
-Durante la vista previa, puede usar el identificador de grupo para unirse a la misma conversación. Puede crear tantos identificadores de grupo como necesite y separar los usuarios por "salas". Al avanzar, se introducirán más controles relativos a las "salas". 
+Durante la vista previa, puede usar el identificador de grupo para unirse a la misma conversación. Puede crear tantos identificadores de grupo como necesite y separar los usuarios por "salas". Al avanzar, se introducirán más controles relativos a las "salas".
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -59,5 +57,5 @@ Durante la vista previa, puede usar el identificador de grupo para unirse a la m
 
 Para más información, consulte los siguientes artículos.
 - Familiarización con los [flujos de llamada](../call-flows.md) generales
-- [Planeación de una solución RTC](../telephony-sms/plan-solution.md)
+- [Tipos de número de teléfono](../telephony-sms/plan-solution.md)
 - Más información sobre las [funcionalidades de las bibliotecas cliente de llamadas](../voice-video-calling/calling-sdk-features.md)

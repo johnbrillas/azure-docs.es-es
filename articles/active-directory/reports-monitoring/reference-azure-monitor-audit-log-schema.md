@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4d32e0b939731d64f3ef2495ab606b5dc0780e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231102"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592279"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretación del esquema de registros de auditoría de Azure AD en Azure Monitor (versión preliminar)
 
@@ -179,5 +179,5 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Interpretación del esquema de registros de inicio de sesión en Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Registros de Azure Diagnostics](../../azure-monitor/platform/platform-logs-overview.md)
+* [Registros de Azure Diagnostics](../../azure-monitor/essentials/platform-logs-overview.md)
 * [Preguntas frecuentes y problemas conocidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

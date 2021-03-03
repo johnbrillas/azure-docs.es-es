@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069f70d27bd7e721be2bf82f6ef64ce9c531ab8e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318103"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577563"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Azure Monitor
 
@@ -46,9 +46,9 @@ Después de agregar la solución y completar una comprobación, se muestra infor
 
 Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, cada controlador de dominio necesita un agente y conectividad a Azure Monitor mediante alguno de los siguientes métodos admitidos:
 
-1. Instale el [agente de Log Analytics para Windows](../platform/agent-windows.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+1. Instale el [agente de Log Analytics para Windows](../agents/agent-windows.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con Azure Monitor, el controlador de dominio se puede hospedar en varios hosts junto con Azure Monitor para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
-3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) una vez que habilite la solución en el área de trabajo.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) una vez que habilite la solución en el área de trabajo.  
 
 El agente del controlador de dominio que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración a Azure Monitor.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
@@ -215,5 +215,5 @@ Los resultados pueden exportarse a Excel para su revisión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use [consultas de registros de Azure Monitor](../log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.
+Use [consultas de registros de Azure Monitor](../logs/log-query-overview.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.
 

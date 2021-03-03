@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fccb0b2e382e56e83fbbe54c0f0afa50a5c9590
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d63150fc1d929b899281cdd0ed7abae5e728b115
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202477"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595269"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Base de referencia de seguridad de Azure para Azure Firewall
 
@@ -92,9 +92,9 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 - [Tutorial: Supervisión de métricas y registros de Azure Firewall](./firewall-diagnostics.md)
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -132,7 +132,7 @@ Nota: Ambos registros se pueden guardar en una cuenta de almacenamiento, transmi
 
 Lista de acciones de recursos en los registros de actividad: Operaciones del proveedor de recursos de Azure Resource Manager
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -174,7 +174,7 @@ se usan para la supervisión general en tiempo real de la aplicación o para exa
 
 - [Métricas y registros de Azure Firewall](logs-and-metrics.md)
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -216,7 +216,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -442,7 +442,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en Azure Firewall.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

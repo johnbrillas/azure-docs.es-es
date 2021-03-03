@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519412"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572775"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -100,9 +100,9 @@ Usar `containerd` para los nodos AKS mejora la latencia de inicio del pod y redu
 * Para `containerd`, se recomienda usar [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como CLI en lugar de la CLI de Docker para **solucionar problemas** de pods, contenedores e imágenes de contenedor en nodos Kubernetes (por ejemplo, `crictl ps`). 
    * No proporciona la funcionalidad completa de la CLI de Docker. Está pensado solo para solucionar problemas.
    * `crictl` ofrece una vista de los contenedores más compatible con Kubernetes, con conceptos como pods, etc.
-* `Containerd` configura el registro con el formato de registro `cri` normalizado (que es diferente de lo que se obtiene actualmente del controlador JSON de Docker). La solución de registro debe admitir el formato de registro `cri` (como [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* `Containerd` configura el registro con el formato de registro `cri` normalizado (que es diferente de lo que se obtiene actualmente del controlador JSON de Docker). La solución de registro debe admitir el formato de registro `cri` (como [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * Ya no puede tener acceso al motor de Docker, `/var/run/docker.sock`, ni usar Docker en Docker (DinD).
-  * Si actualmente extrae los registros de aplicación o los datos de supervisión del motor de Docker, utilice en su lugar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-enable-new-cluster.md), por ejemplo. Además, AKS no admite la ejecución de comandos fuera de banda en los nodos del agente que podrían provocar inestabilidad.
+  * Si actualmente extrae los registros de aplicación o los datos de supervisión del motor de Docker, utilice en su lugar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-enable-new-cluster.md), por ejemplo. Además, AKS no admite la ejecución de comandos fuera de banda en los nodos del agente que podrían provocar inestabilidad.
   * Incluso cuando se use Moby o Docker, es muy desaconsejable crear imágenes y aprovechar directamente el motor de Docker con los métodos anteriores. Kubernetes no es totalmente consciente de esos recursos consumidos y esos enfoques presentan numerosos problemas, que se detallan [aquí](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) y [aquí](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por ejemplo.
 * Compilación de imágenes: puede seguir usando su flujo de trabajo de compilación de Docker como de costumbre, a menos que vaya a compilar imágenes dentro del clúster de AKS. En este caso, considere la posibilidad de utilizar el enfoque recomendado para compilar imágenes con [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). O bien, una alternativa más segura dentro del clúster, como [docker buildx](https://github.com/docker/buildx).
 

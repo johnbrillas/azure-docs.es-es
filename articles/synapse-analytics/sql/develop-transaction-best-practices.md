@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 908f047a22491d50337f51c0a6dce7f2db8a2ebc
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 74deebb66bc0db316e2aa36588034c6afb3bbe40
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026819"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674034"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimización de transacciones con un grupo de SQL dedicado en Azure Synapse Analytics 
 
@@ -84,7 +84,7 @@ A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede
 
 ## <a name="optimize-deletes"></a>Optimización de eliminaciones
 
-DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para intercambiar la tabla por la que acaba de crear.
+DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) para intercambiar la tabla por la que acaba de crear.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

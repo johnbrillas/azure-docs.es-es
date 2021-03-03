@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807146"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574989"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importación de inteligencia sobre amenazas en Azure Sentinel
 
@@ -419,7 +419,7 @@ Veamos cómo buscar el libro de inteligencia sobre amenazas proporcionado en Azu
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
 
-Los libros proporcionan paneles interactivos eficaces que proporcionan información sobre todos los aspectos de Azure Sentinel. Hay muchas cosas que puede hacer con los libros y, aunque las plantillas proporcionadas son un buen punto de partida, es probable que quiera profundizar en estas plantillas y personalizarlas, o bien crear nuevos paneles que combinen muchos orígenes de datos diferentes para que pueda visualizar los datos de maneras únicas. Dado que los libros de Azure Sentinel se basan en los libros de Azure Monitor, ya hay una amplia documentación disponible y muchas más plantillas. Un buen punto de partida es este artículo sobre cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
+Los libros proporcionan paneles interactivos eficaces que proporcionan información sobre todos los aspectos de Azure Sentinel. Hay muchas cosas que puede hacer con los libros y, aunque las plantillas proporcionadas son un buen punto de partida, es probable que quiera profundizar en estas plantillas y personalizarlas, o bien crear nuevos paneles que combinen muchos orígenes de datos diferentes para que pueda visualizar los datos de maneras únicas. Dado que los libros de Azure Sentinel se basan en los libros de Azure Monitor, ya hay una amplia documentación disponible y muchas más plantillas. Un buen punto de partida es este artículo sobre cómo [crear informes interactivos con los libros de Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
 También hay una completa comunidad de [libros de Azure Monitor en GitHub](https://github.com/microsoft/Application-Insights-Workbooks) donde puede descargar plantillas adicionales y aportar sus propias plantillas.
 

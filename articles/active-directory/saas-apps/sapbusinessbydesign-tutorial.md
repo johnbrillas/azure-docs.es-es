@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: e8f1bff50c5f163894392a9e5d08cc8451d835fa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6db863f43deb6eb2787cda60650a267a62076aad
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896416"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integración de Azure Active Directory con SAP Business ByDesign
 
@@ -26,7 +26,7 @@ En este tutorial, descubrirá cómo SAP Business ByDesign se integra con Azure A
 * Permitir que los usuarios inicien sesión automáticamente en SAP Business ByDesign con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -192,8 +192,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Vaya directamente a la dirección URL de inicio de sesión de SAP Business ByDesign e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de SAP Business ByDesign de Aplicaciones, accederá a la dirección URL de inicio de sesión único de SAP Business ByDesign. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de SAP Business ByDesign de Aplicaciones, accederá a la dirección URL de inicio de sesión único de SAP Business ByDesign. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Una vez configurado SAP Business ByDesign, puede aplicar controles de sesión para proteger en tiempo real los datos confidenciales de la organización e impedir que se filtren dentro y fuera de esta. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado SAP Business ByDesign, puede aplicar controles de sesión para proteger en tiempo real los datos confidenciales de la organización e impedir que se filtren dentro y fuera de esta. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cbafa7997d203cf06a3e91965355258f0088d77e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043383"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589893"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidad
 
@@ -24,7 +24,7 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 ![Experiencia de creación](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Con las [nuevas alertas unificadas](../platform/alerts-overview.md), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](../platform/action-groups.md)**se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
+>  Con las [nuevas alertas unificadas](../alerts/alerts-overview.md), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](../alerts/action-groups.md)**se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
 
 1. Después de guardar la prueba de disponibilidad, en la pestaña de detalles, haga clic en el signo de puntos suspensivos junto a la prueba que acaba de realizar. Haga clic en “Editar alerta”.
 
@@ -39,7 +39,7 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertas para X de las Y ubicaciones que notifican errores
 
-La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada en la [nueva experiencia de alertas unificadas](../platform/alerts-overview.md) cuando se crea una prueba de disponibilidad. Puede cancelar esta acción si selecciona la opción "clásica" o si deshabilita la regla de alertas.
+La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada en la [nueva experiencia de alertas unificadas](../alerts/alerts-overview.md) cuando se crea una prueba de disponibilidad. Puede cancelar esta acción si selecciona la opción "clásica" o si deshabilita la regla de alertas.
 
 > [!NOTE]
 > Siga los pasos anteriores para configurar los grupos de acción para recibir notificaciones cuando se desencadene la alerta. Sin este paso, solo recibirá las notificaciones en el portal cuando se desencadene la regla.
@@ -47,7 +47,7 @@ La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada e
 
 ### <a name="alert-on-availability-metrics"></a>Alertas sobre las métricas de disponibilidad
 
-Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), también puede generar alertas sobre la disponibilidad total segmentada y las métricas de duración de la prueba:
+Mediante las [nuevas alertas unificadas](../alerts/alerts-overview.md), también puede generar alertas sobre la disponibilidad total segmentada y las métricas de duración de la prueba:
 
 1. Seleccione un recurso de Application Insights en la experiencia de métricas y seleccione una métrica de disponibilidad:
 
@@ -57,7 +57,7 @@ Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), tambi�
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alertas sobre las consultas de análisis personalizadas
 
-Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), puede generar alertas sobre las [consultas de registro personalizadas](../platform/alerts-unified-log.md). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Esta opción también la puede usar si envía resultados personalizados de disponibilidad mediante el SDK de TrackAvailability.
+Mediante las [nuevas alertas unificadas](../alerts/alerts-overview.md), puede generar alertas sobre las [consultas de registro personalizadas](../alerts/alerts-unified-log.md). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Esta opción también la puede usar si envía resultados personalizados de disponibilidad mediante el SDK de TrackAvailability.
 
 > [!Tip]
 > Las métricas sobre datos de disponibilidad incluyen los resultados personalizados de disponibilidad que puede enviar mediante una llamada a nuestro SDK de TrackAvailability. Puede usar la compatibilidad con las alertas sobre métricas para generar alertas sobre resultados personalizados de disponibilidad.
@@ -65,7 +65,7 @@ Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), puede 
 
 ## <a name="automate-alerts"></a>Automatización de alertas
 
-Para automatizar este proceso con plantillas de Azure Resource Manager, consulte la documentación relativa a la [creación de una alerta de métrica con una plantilla de Resource Manager](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+Para automatizar este proceso con plantillas de Azure Resource Manager, consulte la documentación relativa a la [creación de una alerta de métrica con una plantilla de Resource Manager](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258650"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570358"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configuración de registros de Azure Monitor para un clúster
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 Cuando haya terminado, siga los pasos descritos en la sección anterior para conectar los registros de Azure Monitor a la cuenta de almacenamiento adecuada.
 
-También puede agregar otras soluciones o realizar otras modificaciones al área de trabajo de Log Analytics mediante PowerShell. Para más información, consulte [Administración de los registros de Azure Monitor mediante PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+También puede agregar otras soluciones o realizar otras modificaciones al área de trabajo de Log Analytics mediante PowerShell. Para más información, consulte [Administración de los registros de Azure Monitor mediante PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implemente el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) en los nodos para recopilar contadores de rendimiento, así como estadísticas y registros de Docker de sus contenedores.
-* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/log-query/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
-* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Familiarícese con las características de [consultas y búsqueda de registros](../azure-monitor/logs/log-query-overview.md) que se ofrecen como parte de los registros de Azure Monitor.
+* [Uso del diseñador de vistas para crear vistas personalizadas en los registros de Azure Monitor](../azure-monitor/visualize/view-designer.md)

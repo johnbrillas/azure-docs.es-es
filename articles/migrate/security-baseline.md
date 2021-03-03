@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83ffab432be038a2fbec8672e5e0de8f5c902654
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e10413987a12b32a5f1ca507aa272bab01b20797
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880885"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094812"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Línea de base de seguridad de Azure para Azure Migrate
 
@@ -196,7 +196,7 @@ Use los roles integrados para asignar los permisos y crear solo el rol personali
 
 - [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md)
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -335,9 +335,9 @@ Azure Security Center también puede alertar sobre determinadas actividades sosp
 
 Los registros de actividad, que están disponibles automáticamente, contienen todas las operaciones de escritura (PUT, POST, DELETE) de los recursos de Azure Migrate, excepto las operaciones de lectura (GET). Los registros de actividad se pueden usar para encontrar errores al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -353,7 +353,7 @@ Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de 
 
 Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 

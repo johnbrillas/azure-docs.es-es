@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b7c683edd15ab05e9efc239ffe07759078754607
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a68e1a3f60930e290e97084ff2ec9350b18e2873
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222656"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594963"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Introducción a las directivas de red de Azure Kubernetes
 
@@ -130,7 +130,7 @@ Hay también una métrica "exec_time_count" y "exec_time_sum" para cada métrica
 Las métricas se pueden descartar mediante Azure Monitor para contenedores o de Prometheus.
 
 ### <a name="setup-for-azure-monitor"></a>Configuración de Azure Monitor
-El primer paso es habilitar Azure Monitor para contenedores para un clúster de Kubernetes. Los pasos se pueden encontrar en [Introducción a Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md). Una vez que Azure Monitor para contenedores está habilitado, configure [ConfigMap de Azure Monitor para contenedores](https://aka.ms/container-azm-ms-agentconfig) para habilitar la integración de NPM y la recopilación de métricas de NPM de Prometheus. ConfigMap Azure Monitor para contenedores tiene una sección ```integrations``` con la configuración para recopilar métricas de NPM. Esta configuración está deshabilitada de forma predeterminada en ConfigMap. La habilitación de la configuración básica ```collect_basic_metrics = true``` se recopilarán las métricas de NPM básicas. La habilitación de la configuración avanzada ```collect_advanced_metrics = true``` recopilará métricas avanzadas, además de las métricas básicas. 
+El primer paso es habilitar Azure Monitor para contenedores para un clúster de Kubernetes. Los pasos se pueden encontrar en [Introducción a Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md). Una vez que Azure Monitor para contenedores está habilitado, configure [ConfigMap de Azure Monitor para contenedores](https://aka.ms/container-azm-ms-agentconfig) para habilitar la integración de NPM y la recopilación de métricas de NPM de Prometheus. ConfigMap Azure Monitor para contenedores tiene una sección ```integrations``` con la configuración para recopilar métricas de NPM. Esta configuración está deshabilitada de forma predeterminada en ConfigMap. La habilitación de la configuración básica ```collect_basic_metrics = true``` se recopilarán las métricas de NPM básicas. La habilitación de la configuración avanzada ```collect_advanced_metrics = true``` recopilará métricas avanzadas, además de las métricas básicas. 
 
 Después de editar ConfigMap, guárdelo localmente y aplique ConfigMap al clúster como se indica a continuación.
 
@@ -143,7 +143,7 @@ integrations: |-
 ```
 Las métricas avanzadas son opcionales y al activarlas, se activará automáticamente la recopilación de métricas básicas. Actualmente, las métricas avanzadas solo incluyen `npm_ipset_counts`
 
-Más información acerca de la [configuración de la colección de la recopilación de Azure Monitor para contenedores en ConfigMap](../azure-monitor/insights/container-insights-agent-config.md)
+Más información acerca de la [configuración de la colección de la recopilación de Azure Monitor para contenedores en ConfigMap](../azure-monitor/containers/container-insights-agent-config.md)
 
 ### <a name="visualization-options-for-azure-monitor"></a>Opciones de visualización para Azure Monitor
 Una vez habilitada la recopilación de métricas de NPM, éstas se pueden ver en Azure Portal mediante Container Insights o en Grafana.
@@ -154,7 +154,7 @@ Abra Azure Portal. Una vez en la sección Información del clúster, vaya a "Lib
 Además de ver el libro (encontrará las imágenes más abajo), también puede consultar directamente las métricas de Prometheus en "Registros", en la sección Información. Por ejemplo, esta consulta devolverá todas las métricas que se recopilan.
 | where TimeGenerated > ago(5h) | where Name contains "npm_"
 
-También puede consultar las métricas directamente en Log Analytics. Más información al respecto en [Introducción a las consultas de Log Analytics](../azure-monitor/insights/container-insights-log-search.md) 
+También puede consultar las métricas directamente en Log Analytics. Más información al respecto en [Introducción a las consultas de Log Analytics](../azure-monitor/containers/container-insights-log-search.md) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Visualización en un panel de Grafana
 Configure un servidor de Grafana y un origen de datos de Log Analytics como se describe [aquí](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Luego, importe el [panel de Grafana con un back-end de Log Analytics](https://grafana.com/grafana/dashboards/10956) en Grafana Labs.

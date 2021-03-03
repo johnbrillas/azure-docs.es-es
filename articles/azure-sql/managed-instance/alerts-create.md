@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499278"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592713"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creación de alertas para Instancia administrada de Azure SQL mediante Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Puede configurar una alerta para hacer lo siguiente cuando se desencadena:
 * Llamar a un runbook de Azure
 * Llamar a un sistema externo de vales compatible con ITSM
 
-Puede configurar y obtener información sobre las reglas de alerta mediante [Azure Portal, PowerShell o la CLI de Azure](../../azure-monitor/platform/alerts-classic-portal.md) o la [API de REST de Azure Monitor](/rest/api/monitor/alertrules). 
+Puede configurar y obtener información sobre las reglas de alerta mediante [Azure Portal, PowerShell o la CLI de Azure](../../azure-monitor/alerts/alerts-classic-portal.md) o la [API de REST de Azure Monitor](/rest/api/monitor/alertrules). 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>Métricas de alertas disponibles para la instancia administrada
 
@@ -113,7 +113,7 @@ La nueva regla de alertas se activará en unos minutos y se desencadenará segú
 ## <a name="verifying-alerts"></a>Comprobación de las alertas
 
 > [!NOTE]
-> Para suprimir alertas falsas, consulte [Supresión de alertas mediante reglas de acción](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> Para suprimir alertas falsas, consulte [Supresión de alertas mediante reglas de acción](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Después de configurar una regla de alertas, compruebe que está satisfecho con el desencadenador de alertas y su frecuencia. En el ejemplo que aparece en esta página de configuración de una alerta en el espacio de almacenamiento usado, si la opción de alerta es correo electrónico, es posible que reciba un correo electrónico como el que se muestra a continuación.
 
@@ -142,8 +142,8 @@ Para ver, suspender, activar, modificar y eliminar las reglas de alertas existen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre el sistema de alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
-* Para más información acerca de las alertas de métrica, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md).
-* Para más información sobre cómo configurar un webhook en alertas, consulte [Llamada a un webhook con una alerta de métrica clásica](../../azure-monitor/platform/alerts-webhooks.md).
+* Obtenga información sobre el sistema de alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+* Para más información acerca de las alertas de métrica, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+* Para más información sobre cómo configurar un webhook en alertas, consulte [Llamada a un webhook con una alerta de métrica clásica](../../azure-monitor/alerts/alerts-webhooks.md).
 * Para más información sobre la configuración y administración de alertas con PowerShell, consulte las [Reglas de acción](/powershell/module/az.monitor/add-azmetricalertrulev2).
 * Para más información sobre la configuración y administración de alertas mediante la API, consulte la [referencia de la API REST de Azure Monitor](/rest/api/monitor/).

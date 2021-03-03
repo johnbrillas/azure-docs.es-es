@@ -2,22 +2,27 @@
 title: 'Inicio rápido: Biblioteca cliente de Form Recognizer para JavaScript'
 description: Use la biblioteca cliente de Form Recognizer para JavaScript con el fin de crear una aplicación de procesamiento de formularios que extraiga pares clave-valor y datos de tabla de los documentos personalizados.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: ebbf04db36b20420ae6de9d61837bcc4e664036e
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584658"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102910"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
+>
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. Para más información, consulte la siguiente documentación de referencia. 
 
 [Documentación de referencia](../../index.yml) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Paquete (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
@@ -28,8 +33,8 @@ ms.locfileid: "99584658"
 * La versión actual de [Node.js](https://nodejs.org/)
 * Un blob de Azure Storage que contenga un conjunto de datos de entrenamiento. Consulte [Creación de un conjunto de datos de aprendizaje para un modelo personalizado](../../build-training-data-set.md) para ver sugerencias y opciones para reunir el conjunto de datos de aprendizaje. En este inicio rápido puede usar los archivos de la carpeta **Train** del [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451) (descargue y extraiga *sample_data.zip*).
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="cree un recurso de Form Recognizer"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para obtener la clave y el punto de conexión. Una vez que se implemente, haga clic en **Ir al recurso**.
-    * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
-    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
+  * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Form Recognizer API. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+  * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 ## <a name="setting-up"></a>Instalación
 
@@ -61,7 +66,6 @@ Cree un archivo llamado `index.js`, ábralo e importe las bibliotecas siguientes
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
 
-
 > [!TIP]
 > ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), que contiene los ejemplos de código de este inicio rápido.
 
@@ -74,18 +78,20 @@ Cree variables para el punto de conexión y la clave de Azure del recurso.
 >
 > Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](../../../cognitive-services-security.md) de Cognitive Services.
 
-## <a name="object-model"></a>Modelo de objetos 
+## <a name="object-model"></a>Modelo de objetos
 
 Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `FormRecognizerClient`, se utiliza para consultar el servicio con los campos de formulario y el contenido reconocidos. El segundo, `FormTrainingClient`, se usa para crear y administrar los modelos personalizados que puede usar para mejorar el reconocimiento. 
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
+
 `FormRecognizerClient` proporciona operaciones para:
 
- * Reconocimiento de los campos de formulario y del contenido mediante el uso de modelos personalizados entrenados para analizar los formularios personalizados. Estos valores se devuelven en una colección de objetos `RecognizedForm`.
- * El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo. El contenido del formulario se devuelve en una colección de objetos `FormPage`.
- * El reconocimiento de los campos comunes de las recepciones mediante un modelo de recepción entrenado previamente en el servicio Form Recognizer. Estos campos y metadatos se devuelven en una colección de `RecognizedReceipt`.
+* Reconocimiento de los campos de formulario y del contenido mediante el uso de modelos personalizados entrenados para analizar los formularios personalizados. Estos valores se devuelven en una colección de objetos `RecognizedForm`.
+* El reconocimiento del contenido de los formularios, incluidas tablas, líneas y palabras, sin necesidad de entrenar un modelo. El contenido del formulario se devuelve en una colección de objetos `FormPage`.
+* El reconocimiento de los campos comunes de las recepciones mediante un modelo de recepción entrenado previamente en el servicio Form Recognizer. Estos campos y metadatos se devuelven en una colección de `RecognizedReceipt`.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
+
 `FormTrainingClient` proporciona operaciones para:
 
 * El entrenamiento de modelos personalizados para analizar todos los campos y los valores que se encuentren en los formularios personalizados. Se devuelve un `CustomFormModel` que indica los tipos de formulario que el modelo analizará y los campos que se extraerán para cada tipo de formulario. Consulte la [documentación del servicio sobre el entrenamiento de modelos sin etiquetas](#train-a-model-without-labels) si desea obtener una explicación más detallada de la creación de un conjunto de datos de entrenamiento.
@@ -95,7 +101,6 @@ Con Form Recognizer, puede crear dos tipos de cliente diferentes. El primero, `F
 
 > [!NOTE]
 > Los modelos también se pueden entrenar mediante una interfaz gráfica de usuario, como la [herramienta de etiquetado de Form Recognizer](../../quickstarts/label-tool.md).
-
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -307,7 +312,7 @@ Para analizar los recibos de un identificador URI, use el método `beginRecogniz
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
+> También puede analizar imágenes de recibos locales. Consulte los métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true ), como **beginRecognizeReceipts**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para escenarios relacionados con imágenes locales.
 
 ### <a name="output"></a>Resultados
 
@@ -326,7 +331,7 @@ First receipt:
 
 ## <a name="manage-your-custom-models"></a>Administración de modelos personalizados
 
-En esta sección se muestra cómo administrar los modelos personalizados almacenados en su cuenta. Como ejemplo, el código siguiente realiza todas las tareas de administración del modelo en una única función. 
+En esta sección se muestra cómo administrar los modelos personalizados almacenados en su cuenta. Como ejemplo, el código siguiente realiza todas las tareas de administración del modelo en una única función.
 
 ### <a name="get-number-of-models"></a>Obtención del número de modelos
 
@@ -334,13 +339,11 @@ El siguiente bloque de código obtiene el número de modelos que hay actualmente
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_count)]
 
-
 ### <a name="get-list-of-models-in-account"></a>Obtención de una lista de modelos en la cuenta
 
 El siguiente bloque de código proporciona una lista completa de los modelos disponibles en su cuenta, incluida información sobre cuándo se creó el modelo y su estado actual.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
-
 
 ### <a name="output"></a>Resultados
 
@@ -381,7 +384,6 @@ Este bloque de código proporciona una lista paginada de modelos e identificador
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
-
 ### <a name="output"></a>Resultados
 
 ```console
@@ -396,13 +398,11 @@ La siguiente función toma un identificador de modelo y obtiene el objeto de mod
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_getmodel)]
 
-
 ### <a name="delete-a-model-from-the-resource-account"></a>Eliminación de un modelo de la cuenta de recursos
 
 También puede eliminar un modelo de su cuenta haciendo referencia a su identificador. Esta función elimina el modelo con el identificador especificado. Esta función no recibe una llamada de forma predeterminada.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
-
 
 ### <a name="output"></a>Output
 
@@ -431,7 +431,7 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 Puede establecer la siguiente variable de entorno para ver los registros de depuración cuando se usa esta biblioteca.
 
-```
+```console
 export DEBUG=azure*
 ```
 

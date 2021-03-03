@@ -3,21 +3,21 @@ title: Creación de un clúster privado con Red Hat OpenShift 3.11 en Azure | M
 description: Creación de un clúster privado con Red Hat OpenShift 3.11 en Azure
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: aro, openshift, private cluster, red hat
-ms.openlocfilehash: 37e9dc996fddf2b592ea6bf7fff1e1f4825f3ca8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 28a21635da770a990a21e0da2a8034c754f4f7aa
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220635"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633247"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Creación de un clúster privado con Red Hat OpenShift 3.11 en Azure
 
 > [!IMPORTANT]
-> Red Hat OpenShift en Azure 3.11 se retirará el 30 de junio de 2022. La compatibilidad con la creación de nuevos clústeres de Red Hat OpenShift en Azure 3.11 continúa hasta el 30 de noviembre de 2020. Después de la retirada, los clústeres de Red Hat OpenShift en Azure 3.11 que queden se cerrarán para evitar vulnerabilidades de seguridad.
+> Red Hat OpenShift en Azure 3.11 se retirará el 30 de junio de 2022. La compatibilidad con la creación de nuevos clústeres de Red Hat OpenShift en Azure 3.11 continúa hasta el 30 de noviembre de 2020. Después de la retirada, los clústeres de Red Hat OpenShift en Azure 3.11 que queden se cerrarán para evitar puntos vulnerables de seguridad.
 > 
 > Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](tutorial-create-cluster.md).
 > Si tiene alguna pregunta específica, póngase en [contacto con nosotros](mailto:arofeedback@microsoft.com).

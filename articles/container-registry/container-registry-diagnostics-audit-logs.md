@@ -3,16 +3,16 @@ title: Recopilar y analizar registros de recursos
 description: Registre y analice los eventos del registro de recursos de Azure Container Registry como la autenticación, y el envío y la incorporación de cambios en imágenes.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 952f239e94df6b3b21317985f56d3d7a999813fe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348592"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571992"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico
 
-En este artículo se explica cómo recopilar datos de registro de un registro de contenedor de Azure mediante las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [registros de recursos](../azure-monitor/platform/platform-logs-overview.md) (anteriormente denominados *registros de diagnóstico*) de eventos controlados por el usuario en el registro. Recopile y consuma estos datos para satisfacer ciertas necesidades, por ejemplo:
+En este artículo se explica cómo recopilar datos de registro de un registro de contenedor de Azure mediante las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [registros de recursos](../azure-monitor/essentials/platform-logs-overview.md) (anteriormente denominados *registros de diagnóstico*) de eventos controlados por el usuario en el registro. Recopile y consuma estos datos para satisfacer ciertas necesidades, por ejemplo:
 
 * Auditar eventos de autenticación del registro para garantizar la seguridad y el cumplimiento 
 
@@ -39,21 +39,21 @@ Los registros de recurso de Azure contienen datos emitidos por los recursos de A
 
 * **ContainerRegistryLoginEvents**: estado y eventos de autenticación del registro, incluida la dirección IP y la identidad entrantes.
 * **ContainerRegistryRepositoryEvents**: operaciones tales como el envío y la incorporación de cambios en imágenes y otros artefactos de repositorios del registro.
-* **AzureMetrics**: [métricas del registro de contenedor](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries), como recuentos agregados de envío e incorporación de cambios.
+* **AzureMetrics**: [métricas del registro de contenedor](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerregistryregistries), como recuentos agregados de envío e incorporación de cambios.
 
 En el caso de las operaciones, los datos de registro incluyen lo siguiente:
   * Estado de operación correcta o errónea
   * Marcas de hora de inicio y finalización
 
-Además de los registros de recursos, Azure proporciona un [registro de actividad](../azure-monitor/platform/platform-logs-overview.md), un único registro de nivel de suscripción de eventos de administración de Azure, como la creación o eliminación de un registro de contenedor.
+Además de los registros de recursos, Azure proporciona un [registro de actividad](../azure-monitor/essentials/platform-logs-overview.md), un único registro de nivel de suscripción de eventos de administración de Azure, como la creación o eliminación de un registro de contenedor.
 
 ## <a name="enable-collection-of-resource-logs"></a>Habilitación de la recopilación de registros de recursos
 
-La recopilación de registros de recursos de un registro de contenedor no está habilitada de forma predeterminada. Habilite explícitamente la configuración de diagnóstico de cada registro que quiera supervisar. Si desea ver las opciones para habilitar la configuración de diagnóstico, consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/platform/diagnostic-settings.md).
+La recopilación de registros de recursos de un registro de contenedor no está habilitada de forma predeterminada. Habilite explícitamente la configuración de diagnóstico de cada registro que quiera supervisar. Si desea ver las opciones para habilitar la configuración de diagnóstico, consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
 Por ejemplo, para ver los registros y las métricas de un registro de contenedor casi en tiempo real en Azure Monitor, recopile los registros de recursos en un área de trabajo de Log Analytics. Para habilitar esta configuración de diagnóstico mediante Azure Portal, siga estos pasos:
 
-1. Si aún no tiene un área de trabajo, cree una mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Para minimizar la latencia en la colección de datos, asegúrese de que el área de trabajo se encuentra en la **misma región** que el registro de contenedor.
+1. Si aún no tiene un área de trabajo, cree una mediante [Azure Portal](../azure-monitor/logs/quick-create-workspace.md). Para minimizar la latencia en la colección de datos, asegúrese de que el área de trabajo se encuentra en la **misma región** que el registro de contenedor.
 1. En el portal, seleccione el registro y, a continuación, seleccione **Supervisión > Configuración de diagnóstico > Agregar configuración de diagnóstico**.
 1. Escriba un nombre para la configuración y seleccione **Enviar a Log Analytics**.
 1. Seleccione el área de trabajo para los registros de diagnóstico del registro.
@@ -81,9 +81,9 @@ En la imagen siguiente se muestra la salida de ejemplo:
 
 ![Consulta de datos de registro](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) o pruebe el [entorno de demostración](https://portal.loganalytics.io/demo) de Log Analytics. 
+Para obtener un tutorial sobre el uso de Log Analytics en Azure Portal, consulte [Introducción a Log Analytics de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) o pruebe el [entorno de demostración](https://portal.loganalytics.io/demo) de Log Analytics. 
 
-Para obtener más información sobre las consultas de registro, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para obtener más información sobre las consultas de registro, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="query-examples"></a>Ejemplos de consultas
 
@@ -146,5 +146,5 @@ Puede transmitir los eventos de registro de diagnóstico a un [centro de eventos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo usar [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) y crear [consultas de registro](../azure-monitor/log-query/get-started-queries.md).
-* Consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para obtener información sobre los registros de la plataforma que están disponibles en las diferentes capas de Azure.
+* Obtenga más información sobre cómo usar [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) y crear [consultas de registro](../azure-monitor/logs/get-started-queries.md).
+* Consulte [Introducción a los registros de plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md) para obtener información sobre los registros de la plataforma que están disponibles en las diferentes capas de Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77af95f2decbfb81ed930591b03f71fb71780def
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e71beb4e4b5d23dcd1cffa1f60462d782d37db2e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805255"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572190"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
 
@@ -116,9 +116,9 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 **Guía**: Si usa el agente de MARS en una máquina virtual de Azure que se protege mediante un grupo de seguridad de red o Azure Firewall, use el registro de actividad de Azure para supervisar la configuración del grupo de seguridad de red o el firewall. Puede crear alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -142,7 +142,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 Además, ingiera registros a través de Azure Monitor para agregar datos de seguridad generados por Azure Backup. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas para el almacenamiento de archivos a largo plazo. Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Uso de la configuración de diagnósticos para almacenes de Recovery Services](./backup-azure-diagnostic-events.md)
 
@@ -158,7 +158,7 @@ Además, ingiera registros a través de Azure Monitor para agregar datos de segu
 
 Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y usar para elaborar análisis, alertas e informes. Puede usar Azure Portal para configurar los valores de diagnóstico de los almacenes de Recovery Services. Puede enviar uno o varios eventos de diagnóstico a una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Uso de la configuración de diagnósticos para almacenes de Recovery Services](./backup-azure-diagnostic-events.md)
 
@@ -178,7 +178,7 @@ Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y u
 
 **Guía**: En Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a los almacenes de Azure Recovery Services según las normativas de cumplimiento de su organización.
 
-- [Cómo establecer parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cómo establecer parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -192,9 +192,9 @@ Habilite la configuración de diagnóstico en el registro de actividad de Azure 
 
 - [Supervisión de cargas de trabajo de Azure Backup](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -212,7 +212,7 @@ También puede incorporar el área de trabajo de Log Analytics a Azure Sentinel,
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -518,7 +518,7 @@ Cuando se realiza una copia de seguridad con el agente de MARS o mediante un alm
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure a fin de crear alertas para cuando se produzcan cambios en los almacenes de Azure Recovery Services y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

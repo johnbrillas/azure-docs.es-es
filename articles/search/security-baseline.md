@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f393c5df23b9552f598e05d25aaf09e529324abe
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202001"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668357"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Base de referencia de Azure Cognitive Search
 
@@ -171,7 +171,7 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -185,7 +185,7 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 - [Procedimiento para recopilar y analizar datos de registro en Azure Cognitive Search](./search-monitor-logs.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -205,9 +205,9 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos y a largo plazo. 
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -223,9 +223,9 @@ En Azure Monitor, establezca el período de retención del área de trabajo de L
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Información acerca de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Información acerca de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -239,7 +239,7 @@ En Azure Monitor, establezca el período de retención del área de trabajo de L
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -495,7 +495,7 @@ Microsoft administra la plataforma subyacente y trata todo el contenido de los c
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Uso de RBAC de Azure para administrar el acceso a los recursos
 
 **Guía**: en cuanto a la administración de servicios, use el control de acceso basado en roles de Azure (RBAC de Azure) para administrar el acceso a las claves y a la configuración. En el caso de las operaciones de contenido, como la indexación y las consultas, Cognitive Search usa claves en lugar de un modelo de control de acceso basado en identidades. Use RBAC de Azure para controlar el acceso a las claves.
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Procedimiento para configurar roles para el acceso administrativo a Cognitive Search](./search-security-rbac.md)
@@ -532,7 +532,7 @@ Microsoft administra la infraestructura subyacente de Cognitive Search y ha impl
 
 **Guía**: use Azure Monitor con el registro de actividad de Azure a fin de crear alertas cuando se produzcan cambios en las instancias de producción de Cognitive Search y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Procedimiento para crear alertas sobre actividades de Cognitive Search](./search-monitor-logs.md)
 

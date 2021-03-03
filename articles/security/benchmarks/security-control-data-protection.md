@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412704"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576832"
 ---
 # <a name="security-control-data-protection"></a>Control de seguridad: Protección de datos
 
@@ -126,7 +126,7 @@ Use el cifrado en reposo en todos los recursos de Azure. Microsoft recomienda pe
 
 Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos críticos de Azure.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

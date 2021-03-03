@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475699"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682437"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar la biblioteca cliente web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
@@ -29,7 +27,7 @@ Busque el código finalizado de este inicio rápido en [GitHub](https://github.c
 
 ## <a name="overview"></a>Información general
 
-El ejemplo tiene una aplicación del lado cliente y una aplicación del lado servidor. La **aplicación del lado cliente** es una aplicación web React/Redux que usa el marco de interfaz de usuario Fluent de Microsoft. Esta aplicación envía solicitudes a una **aplicación del lado servidor** de ASP.NET Core que ayuda a la aplicación del lado cliente a conectarse a Azure. 
+El ejemplo tiene una aplicación del lado cliente y una aplicación del lado servidor. La **aplicación del lado cliente** es una aplicación web React/Redux que usa el marco de interfaz de usuario Fluent de Microsoft. Esta aplicación envía solicitudes a una **aplicación del lado servidor** de ASP.NET Core que ayuda a la aplicación del lado cliente a conectarse a Azure.
 
 El ejemplo tendrá una apariencia similar a la siguiente:
 
@@ -91,7 +89,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 Para más información, consulte los siguientes artículos.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f28020ba431d3dfdc79c2d4a98b6e6138f563aeb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937180"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096479"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Línea base de seguridad de Azure para Azure Data Share
 
@@ -34,7 +34,7 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -48,11 +48,11 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 Habilite los registros de diagnóstico para Azure Data Share, específicamente los registros de diagnóstico de MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. Estos registros le permitirán capturar información clave, como la hora de inicio de la sincronización, la hora de finalización, el estado y otros detalles. Estos registros pueden ser críticos para la investigación posterior de incidentes de seguridad y la realización de ejercicios forenses.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -62,9 +62,9 @@ Habilite los registros de diagnóstico para Azure Data Share, específicamente l
 
 **Guía**: Asegúrese de que todas las cuentas de almacenamiento o las áreas de trabajo de Log Analytics que se usan para almacenar registros de Azure Data Share tengan el período de retención de registros configurado de acuerdo a la normativa de cumplimiento de la organización.
 
-- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -78,9 +78,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md) 
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -94,7 +94,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md) 
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md) 
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -199,7 +199,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use el control de acceso basado en rol de Azure (Azure RBAC) para administrar el acceso a los datos y recursos relacionados con Azure Data Share; si no, use métodos de control de acceso específicos del servicio.
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -209,7 +209,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas de Azure Monitor para cuando se produzcan cambios en los recursos críticos de Azure.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md) 
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Supervisión de Azure Security Center**: Sí
 

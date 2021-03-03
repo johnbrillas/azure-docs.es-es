@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: surmb
-ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437072"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576119"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Application Gateway
 
-Application Gateway publica puntos de datos, denominados métricas, para [Azure Monitor](../azure-monitor/overview.md) para el rendimiento de las instancias de Application Gateway y back-end. Estas métricas son valores numéricos de un conjunto ordenado de datos de serie temporal que describen algún aspecto de la puerta de enlace de aplicaciones en un momento determinado. Si hay solicitudes que fluyen a través de Application Gateway, mide y envía sus métricas en intervalos de 60 segundos. Si no hay ninguna solicitud que fluya a través de Application Gateway o no tiene datos para una métrica, no se informará de la métrica. Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform-metrics.md).
+Application Gateway publica puntos de datos, denominados métricas, para [Azure Monitor](../azure-monitor/overview.md) para el rendimiento de las instancias de Application Gateway y back-end. Estas métricas son valores numéricos de un conjunto ordenado de datos de serie temporal que describen algún aspecto de la puerta de enlace de aplicaciones en un momento determinado. Si hay solicitudes que fluyen a través de Application Gateway, mide y envía sus métricas en intervalos de 60 segundos. Si no hay ninguna solicitud que fluya a través de Application Gateway o no tiene datos para una métrica, no se informará de la métrica. Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas compatibles con la SKU de Application Gateway V2
 
@@ -200,7 +200,7 @@ En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Vista de métricas." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="alert-rules-on-metrics"></a>Reglas de alerta en métricas
 
@@ -230,9 +230,9 @@ Después de crear una alerta de métrica, aparece una lista de alertas. Proporci
 
 ![Lista de alertas y reglas][9]
 
-Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../azure-monitor/platform/alerts-overview.md).
+Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../azure-monitor/alerts/alerts-overview.md).
 
-Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/platform/alerts-webhooks.md).
+Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

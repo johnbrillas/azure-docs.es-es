@@ -1,18 +1,18 @@
 ---
 title: 'Serie NCv3: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie NCv3.
-ms.subservice: sizes
+ms.subservice: hpc
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b8eeb06b75ba0e0bdaf19957699ad638c6937891
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d42b4eac09579dfa09cc07bfbbfffa1bbdaa65b5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094765"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670198"
 ---
 # <a name="ncv3-series"></a>Serie NCv3
 

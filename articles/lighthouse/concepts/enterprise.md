@@ -3,12 +3,12 @@ title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573024"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 
@@ -38,7 +38,7 @@ En cualquier caso, asegúrese de [seguir el principio de privilegios mínimos al
 
 Azure Lighthouse solo proporciona vínculos lógicos entre el inquilino que realiza la administración y los inquilinos administrados, en lugar de mover físicamente los datos o los recursos. Además, el acceso siempre se realiza en la misma dirección, del inquilino encargado de la administración a los inquilinos administrados.  Los usuarios y grupos del encargado de la administración deben seguir usando la autenticación multifactor al realizar operaciones de administración en recursos de inquilinos administrados.
 
-Las empresas con protecciones internas o externas de gobernanza y cumplimiento pueden usar los [registros de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) para cumplir sus requisitos de transparencia. Cuando los inquilinos empresariales han establecido las relaciones de inquilino entre administrador y administrado, los usuarios de cada inquilino pueden ver la actividad registrada para ver las acciones realizadas por los usuarios en el inquilino administrador.
+Las empresas con protecciones internas o externas de gobernanza y cumplimiento pueden usar los [registros de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) para cumplir sus requisitos de transparencia. Cuando los inquilinos empresariales han establecido las relaciones de inquilino entre administrador y administrado, los usuarios de cada inquilino pueden ver la actividad registrada para ver las acciones realizadas por los usuarios en el inquilino administrador.
 
 ## <a name="onboarding-considerations"></a>Consideraciones de la incorporación
 

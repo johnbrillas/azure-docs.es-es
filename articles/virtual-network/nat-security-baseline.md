@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9276ce07c68afa6f229dbc32198bc624d8887ace
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 887648526c8da5fc829abe48911fd6785c3d856f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217828"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576599"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Base de referencia de seguridad de Azure para Virtual Network NAT
 
@@ -74,9 +74,9 @@ Use Azure Security Center y siga las recomendaciones de protección de redes par
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de recursos y detectar cambios en los recursos de puerta de enlace NAT y recursos de redes virtuales. Cree alertas en Azure Monitor para recibir una notificación cuando se produzcan cambios en recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -94,7 +94,7 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -106,9 +106,9 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 **Guía**: Los registros de actividad, que están disponibles automáticamente, contienen todas las operaciones de escritura (PUT, POST, DELETE) de los recursos de puerta de enlace NAT, excepto las operaciones de lectura (GET). Los registros de actividad se pueden usar para encontrar errores al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 Actualmente Virtual Network NAT no genera ningún registro de diagnóstico adicional que los clientes puedan configurar.
 
@@ -124,7 +124,7 @@ Actualmente Virtual Network NAT no genera ningún registro de diagnóstico adici
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 

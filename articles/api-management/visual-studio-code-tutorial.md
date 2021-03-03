@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97410075"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649553"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutorial: Uso de la extensión de API Management para Visual Studio Code a fin de importar y administrar las API
 
-En este tutorial aprenderá a utilizar la versión preliminar de la extensión de API Management para Visual Studio Code destinada a las operaciones comunes en API Management. Utilice el entorno familiar de Visual Studio Code para importar, actualizar, probar y administrar las API.
+En este tutorial aprenderá a utilizar la extensión de API Management para Visual Studio Code para realizar operaciones comunes en API Management. Utilice el entorno familiar de Visual Studio Code para importar, actualizar, probar y administrar las API.
 
 Aprenderá a:
 
@@ -32,7 +32,7 @@ Para ver una introducción a otras características de API Management, consulte 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 - Reconocimiento de la [terminología de Azure API Management](api-management-terminology.md)
-- Asegurarse de haber instalado [Visual Studio Code](https://code.visualstudio.com/) y la [extensión de Azure API Management para Visual Studio Code (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) más reciente
+- Asegurarse de haber instalado [Visual Studio Code](https://code.visualstudio.com/) y la [extensión de Azure API Management para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) más reciente.
 - [Creación de una instancia de API Management](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Importación de una API

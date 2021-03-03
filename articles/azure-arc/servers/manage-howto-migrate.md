@@ -3,12 +3,12 @@ title: Migración de servidores habilitados para Azure Arc entre regiones
 description: Aprenda a migrar un servidor habilitado para Azure Arc de una región a otra.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416834"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650182"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Migración de servidores habilitados para Azure Arc entre regiones
 
@@ -26,7 +26,7 @@ Para migrar un servidor habilitado para Azure Arc de una región de Azure a otra
 
 1. Quite las extensiones de VM instaladas desde [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension), con la [CLI de Azure](manage-vm-extensions-cli.md#remove-an-installed-extension) o con [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
 
-2. Use la herramienta **azcmagent** con el parámetro [Disconnect](manage-agent.md#disconnect) para desconectar la máquina de Azure Arc y eliminar el recurso de máquina de Azure. Al desconectar la máquina de los servidores habilitados para Arc, no se quita el agente de Connected Machine, y no es necesario quitar el agente como parte de este proceso. Puede realizar esta operación manualmente con la sesión iniciada de forma interactiva, o bien automatizarla usando la misma entidad de servicio que utilizó para incorporar varios agentes o con un [token de acceso](../../active-directory/develop/access-tokens.md) de la plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
+2. Use la herramienta **azcmagent** con el parámetro [Disconnect](manage-agent.md#disconnect) para desconectar la máquina de Azure Arc y eliminar el recurso de la máquina de Azure. Al desconectar la máquina de los servidores habilitados para Arc, no se quita el agente de Connected Machine, y no es necesario quitar el agente como parte de este proceso. Puede realizar esta operación manualmente con la sesión iniciada de forma interactiva, o bien usar la misma entidad de servicio que utilizó para incorporar varios agentes o un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 
 3. Vuelva a registrar el agente de Connected Machine en los servidores habilitados para Arc de la otra región. Ejecute la herramienta `azcmagent` con el parámetro [Connect](manage-agent.md#connect) para completar este paso.
 
@@ -36,4 +36,4 @@ Para migrar un servidor habilitado para Azure Arc de una región de Azure a otra
 
 * Puede encontrar información sobre la solución de problemas en la guía [Solución de problemas de conexión del agente de Connected Machine](troubleshoot-agent-onboard.md).
 
-* Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con la directiva de [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
+* Aprenda a administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para tareas como la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de la máquina virtual, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con la directiva de [Azure Monitor con máquinas virtuales](../../azure-monitor/vm/vminsights-enable-policy.md) y mucho más.

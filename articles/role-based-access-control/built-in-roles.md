@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: d9a2667907108cfb4c8d7a2a2c9b1558e02a9110
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535134"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576992"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -196,9 +196,9 @@ En la tabla siguiente se proporciona una breve descripción y el identificador �
 > | **Supervisión** |  |  |
 > | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). Si concede el rol Depurador de instantáneas de Application Insights a los usuarios, debe concederlo directamente al usuario. El rol no se reconoce cuando se agrega a un rol personalizado. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Supervisión del publicador de métricas](#monitoring-metrics-publisher) | Permite publicar las métricas de los recursos de Azure. | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Colaborador de libros](#workbook-contributor) | Puede guardar los libros compartidos. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Lector de libros](#workbook-reader) | Puede leer libros. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Administración y gobernanza** |  |  |
@@ -4774,7 +4774,7 @@ Crea y administra factorías de datos, así como recursos secundarios dentro de 
 
 ### <a name="data-purger"></a>Purgador de datos
 
-Puede purgar datos de análisis. [Más información](../azure-monitor/platform/personal-data-mgmt.md)
+Puede purgar datos de análisis. [Más información](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -4917,7 +4917,7 @@ Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Serv
 
 ### <a name="log-analytics-contributor"></a>Colaborador de Log Analytics
 
-Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. [Más información](../azure-monitor/platform/manage-access.md)
+Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. [Más información](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -4982,7 +4982,7 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
 
 ### <a name="log-analytics-reader"></a>Lector de Log Analytics
 
-Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. [Más información](../azure-monitor/platform/manage-access.md)
+Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. [Más información](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -8596,7 +8596,7 @@ Concede permiso al usuario para ver y descargar las instantáneas de depuración
 
 ### <a name="monitoring-contributor"></a>Colaborador de supervisión
 
-Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Más información](../azure-monitor/platform/roles-permissions-security.md)
+Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Más información](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -8742,7 +8742,7 @@ Permite publicar las métricas de los recursos de Azure. [Más información](../
 
 ### <a name="monitoring-reader"></a>Lector de supervisión
 
-Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Más información](../azure-monitor/platform/roles-permissions-security.md)
+Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Más información](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365453"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649325"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -28,21 +28,19 @@ Al agregar un usuario invitado al directorio, la cuenta de este tiene un estado 
    > - **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa Google Federation o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
    > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
-## <a name="redemption-through-the-invitation-email"></a>Canje a través del correo electrónico de invitación
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Canje e inicio de sesión mediante un punto de conexión común
 
-Al agregar un usuario invitado al directorio [mediante Azure Portal](./b2b-quickstart-add-guest-users-portal.md), se envía un correo electrónico de invitación al invitado. También puede enviar correos electrónicos de invitación cuando [use PowerShell](./b2b-quickstart-invite-powershell.md) para agregar usuarios invitados al directorio. Esta es una descripción de la experiencia del invitado cuando canjea el vínculo del correo electrónico.
+Ahora, los usuarios invitados pueden iniciar sesión en las aplicaciones multiinquilino o las aplicaciones propias de Microsoft mediante un punto de conexión común (una dirección URL); por ejemplo, `https://myapps.microsoft.com`. Anteriormente, si se utilizaba una dirección URL común, el usuario invitado accedía automáticamente al inquilino principal en lugar de al inquilino del recursos para autenticarse, por lo que se necesitaba un vínculo específico del inquilino (por ejemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`). Ahora, el usuario invitado puede ir a la dirección URL común de la aplicación, elegir **Opciones de inicio de sesión** y seleccionar **Sign in to an organization** (Iniciar sesión en una organización). A continuación, el usuario tiene que escribir el nombre de la organización.
 
-1. El invitado recibe un [correo electrónico de invitación](./invitation-email-elements.md) que se envía desde **Microsoft Invitations**.
-2. El invitado selecciona **Aceptar invitación** en el correo electrónico.
-3. El invitado usará sus propias credenciales para iniciar sesión en el directorio. Si el invitado no tiene una cuenta que se pueda federar al directorio y la característica [código de acceso de un solo uso (OTP) de correo electrónico](./one-time-passcode.md) no está habilitada, se solicita al invitado que cree una cuenta [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personal o una [cuenta de autoservicio de Azure AD](../enterprise-users/directory-self-service-signup.md). Consulte [Flujo de canje de invitación](#invitation-redemption-flow) para más información.
-4. Al invitado se le guiará por la [experiencia de consentimiento](#consent-experience-for-the-guest) que se describe a continuación.
+![Inicio de sesión con un punto de conexión común](media/redemption-experience/common-endpoint-flow-small.png)
 
+Después, el usuario accede automáticamente al punto de conexión del inquilino, donde puede iniciar sesión con su dirección de correo electrónico o seleccionar un proveedor de identidades que haya configurado.
 ## <a name="redemption-through-a-direct-link"></a>Canje a través de un vínculo directo
 
-Como alternativa a la invitación por correo electrónico, puede darle al invitado un vínculo directo a la aplicación o al portal. Primero debe agregar el usuario invitado a su directorio mediante [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Puede usar cualquiera de las [maneras personalizables para implementar las aplicaciones para los usuarios](../manage-apps/end-user-experiences.md), incluidos los vínculos de inicio de sesión en directo. Cuando un invitado usa un vínculo directo en lugar de la invitación por correo electrónico, también se le guía por la experiencia de consentimiento inicial.
+En lugar de la invitación por correo electrónico o la dirección URL común de la aplicación, también puede proporcionar al invitado un vínculo directo a la aplicación o al portal. Primero debe agregar el usuario invitado a su directorio mediante [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) o [PowerShell](./b2b-quickstart-invite-powershell.md). Puede usar cualquiera de las [maneras personalizables para implementar las aplicaciones para los usuarios](../manage-apps/end-user-experiences.md), incluidos los vínculos de inicio de sesión en directo. Cuando un invitado usa un vínculo directo en lugar de la invitación por correo electrónico, también se le guía por la experiencia de consentimiento inicial.
 
-> [!IMPORTANT]
-> El vínculo directo debe ser específico del inquilino. En otras palabras, debe incluir un identificador de inquilino o dominio comprobado de manera que el invitado se puede autenticar en el inquilino donde se encuentra la aplicación compartida. Una dirección URL típica, como https://myapps.microsoft.com, no funcionará para un invitado, ya que redirige al inquilino principal para la autenticación. Estos son algunos ejemplos de vínculos directos con el contexto del inquilino:
+> [!NOTE]
+> Los vínculos directos son específicos del inquilino. En otras palabras, contienen un identificador del inquilino o un dominio verificado para que el invitado puede autenticarse en el inquilino donde se encuentra la aplicación compartida. Estos son algunos ejemplos de vínculos directos con el contexto del inquilino:
  > - Panel de acceso de aplicaciones: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - Panel de acceso de aplicaciones para un dominio comprobado: `https://myapps.microsoft.com/<;verified domain>`
  > - Azure Portal: `https://portal.azure.com/<tenant id>`
@@ -53,6 +51,14 @@ En algunos casos se recomienda el correo electrónico de invitación en lugar de
  - A veces, el objeto de usuario invitado puede no tener una dirección de correo electrónico debido a un conflicto con un objeto de contacto (por ejemplo, un objeto de contacto de Outlook). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
  - El usuario puede iniciar sesión con un alias de la dirección de correo electrónico a la que se invitó. (Un alias es una dirección de correo electrónico adicional asociada con una cuenta de correo electrónico). En este caso, el usuario debe hacer clic en la dirección URL de canje en el correo electrónico de invitación.
 
+## <a name="redemption-through-the-invitation-email"></a>Canje a través del correo electrónico de invitación
+
+Al agregar un usuario invitado al directorio [mediante Azure Portal](./b2b-quickstart-add-guest-users-portal.md), se envía un correo electrónico de invitación al invitado. También puede enviar correos electrónicos de invitación cuando [use PowerShell](./b2b-quickstart-invite-powershell.md) para agregar usuarios invitados al directorio. Esta es una descripción de la experiencia del invitado cuando canjea el vínculo del correo electrónico.
+
+1. El invitado recibe un [correo electrónico de invitación](./invitation-email-elements.md) que se envía desde **Microsoft Invitations**.
+2. El invitado selecciona **Aceptar invitación** en el correo electrónico.
+3. El invitado usará sus propias credenciales para iniciar sesión en el directorio. Si el invitado no tiene una cuenta que se pueda federar al directorio y la característica [código de acceso de un solo uso (OTP) de correo electrónico](./one-time-passcode.md) no está habilitada, se solicita al invitado que cree una cuenta [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) personal o una [cuenta de autoservicio de Azure AD](../enterprise-users/directory-self-service-signup.md). Consulte [Flujo de canje de invitación](#invitation-redemption-flow) para más información.
+4. Al invitado se le guiará por la [experiencia de consentimiento](#consent-experience-for-the-guest) que se describe a continuación.
 ## <a name="invitation-redemption-flow"></a>Flujo del canje de invitación
 
 Cuando un usuario hace clic en el vínculo **Aceptar invitación** de un [correo electrónico de invitación](invitation-email-elements.md), Azure AD canjea automáticamente la invitación basándose en el flujo de canje, del modo que se muestra a continuación:

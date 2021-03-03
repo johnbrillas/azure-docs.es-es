@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 83c149e92276265b5b5236ae56c475d7307c18e4
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 54bfd7c6e691efbd754e9ea2b804e16b3e07ebbe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093917"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670964"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalación de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -69,7 +68,7 @@ En esta fase, debe seguir los pasos de implementación de las máquinas virtuale
     - [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690) (2292690 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 7) 
     -  [Nota de soporte técnico de SAP 2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999) (Red Hat Enterprise Linux 8.x: instalación y configuración) 
     -  [Nota de soporte técnico de SAP 2777782 - SAP HANA DB: Recommended OS settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782) (SAP HANA DB: configuración recomendada del sistema operativo para RHEL 8).
-    -  [SAP support note #2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582) (Nota de compatibilidad de SAP n.º 2455582 - Linux: Ejecución de aplicaciones SAP compiladas con GCC 6.x)
+    -  [Nota de soporte técnico de SAP 2455582 - Linux: Ejecución de aplicaciones SAP compiladas con GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582)
     -  [Nota de soporte técnico de SAP 2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421) (Optimización de la configuración de red en los niveles de HANA y de sistema operativo)
 
 1. Seleccione el tipo de almacenamiento de Azure para SAP HANA. En este paso, debe decidir el diseño del almacenamiento para la instalación de SAP HANA. Deberá usar discos de Azure conectados o recursos compartidos de NFS de Azure nativos. Los tipos de almacenamiento de Azure admitidos y las combinaciones de diferentes tipos de almacenamiento de Azure que puede usar están documentados en [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md). Use las configuraciones documentadas como punto inicial. En el caso de los sistemas que no son de producción, es posible que pueda configurar un rendimiento o IOPS inferiores. En el caso de la producción, es posible que necesite configurar un poco más de rendimiento e IOPS.

@@ -11,12 +11,12 @@ ms.date: 07/28/2020
 ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d960b64d71861044aa1b0344ccbfdaf5e6328e6a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1e0dfd597e7f445eeba6cef332d8ea12b27dc3a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120332"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676304"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Introducción a Delta Lake de Linux Foundation
 
@@ -749,7 +749,7 @@ El resultado es:
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|25-04-2020 00:37:09|STREAMING UPDATE|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epochId -> 0]|          4|
 |      4|25-04-2020 00:36:27|           MERGE|                                         [predicate -> (oldData.`id` = newData.`id`)]|          3|
-|      3|25-04-2020 00:36:08|          DELETE|                  [predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|          2|
+|      3|25-04-2020 00:36:08|          Delete|                  [predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|          2|
 |      2|25-04-2020 00:35:51|          UPDATE|                   [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|          1|
 |      1|25-04-2020 00:35:05|           WRITE|                                               [mode -> Overwrite, partitionBy -> []]|          0|
 |      0|25-04-2020 00:34:34|           WRITE|                                           [mode -> ErrorIfExists, partitionBy -> []]|       null|
@@ -996,5 +996,5 @@ Para obtener más información, consulte [Proyecto Delta Lake](https://github.co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* [Documentación de .NET para Apache Spark](/dotnet/spark)
 * [Azure Synapse Analytics](../index.yml)

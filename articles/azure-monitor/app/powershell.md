@@ -3,18 +3,18 @@ title: Automatización de Azure Application Insights con PowerShell | Microsoft 
 description: Automatice la creación y administración de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2e3d33be487b6a92cb7038d814e17fcd5a10064
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186293"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589811"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](./app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](./monitor-web-app-availability.md), [configurar alertas](../platform/alerts-log.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
+Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](./app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](./monitor-web-app-availability.md), [configurar alertas](../alerts/alerts-log.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
 
 La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../../azure-resource-manager/management/manage-resources-powershell.md). El procedimiento básico es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 
@@ -404,12 +404,12 @@ De este modo, establecerá el límite diario en 200 GB/día, configurará el ti
 
 ## <a name="add-a-metric-alert"></a>Agregar una alerta de métrica
 
-Para automatizar la creación de las alertas de métricas, consulte el artículo sobre la [plantilla de alertas de métricas](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert).
+Para automatizar la creación de las alertas de métricas, consulte el artículo sobre la [plantilla de alertas de métricas](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert).
 
 
 ## <a name="add-an-availability-test"></a>Agregar una prueba de disponibilidad
 
-Para automatizar las pruebas de disponibilidad, consulte el artículo sobre la [plantilla de alertas de métricas](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+Para automatizar las pruebas de disponibilidad, consulte el artículo sobre la [plantilla de alertas de métricas](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Agregar más recursos
 
@@ -469,6 +469,6 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
 Otros artículos de automatización:
 
 * [Script de PowerShell para crear un recurso de Application Insights](./create-new-resource.md#creating-a-resource-automatically) : método rápido sin necesidad de plantilla.
-* [Creación de pruebas web](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
+* [Creación de pruebas web](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Envío de Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
 * [Creación de anotaciones de versión](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

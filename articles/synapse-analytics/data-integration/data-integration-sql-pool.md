@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6156bd72e3f4965a74798a3f91496eb8a321444e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219536"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676640"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingesta de datos en un grupo de SQL dedicado
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) para crear una.
+* **Cuenta de Azure Storage**: Puede usar Azure Data Lake Storage Gen2 como almacén de datos de *origen*. Si no tiene una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md) para crear una.
 * **Azure Synapse Analytics**: Puede usar un grupo de SQL dedicado como almacén de datos *receptor*. Si no tiene una instancia de Azure Synapse Analytics, consulte [Creación de un grupo de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para ver los pasos para crear una.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados

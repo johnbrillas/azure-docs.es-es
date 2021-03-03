@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879737"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677749"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registro y examen de una instancia de Azure SQL Database
 
@@ -149,9 +149,7 @@ Para registrar una nueva instancia de Azure SQL Database en el catálogo de dato
 En la pantalla **Register sources (Azure SQL Database)** (Registrar orígenes [Azure SQL Database]), haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo quiere apuntar a la cuenta de almacenamiento elegida:
-   1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
-   1. O bien, puede seleccionar **Escribir manualmente** y especificar un valor para **Nombre del servidor**.
+1. Seleccione **From Azure subscription** (Desde la suscripción de Azure) y la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
 1. Haga clic en **Finalizar** para registrar el origen de datos.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="Opciones de registro de orígenes." border="true":::

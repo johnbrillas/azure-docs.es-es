@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594177"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
@@ -204,7 +204,7 @@ La puerta de enlace autohospedada genera registros en `stdout` y `stderr` de for
 kubectl logs <pod-name>
 ```
 
-Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](../azure-monitor/insights/container-insights-overview.md) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics. 
+Si la puerta de enlace autohospedada está implementada en Azure Kubernetes Service, puede habilitar [Azure Monitor para contenedores](../azure-monitor/containers/container-insights-overview.md) con el fin de recopilar `stdout` y `stderr` de sus cargas de trabajo y ver los registros en Log Analytics. 
 
 La puerta de enlace autohospedada también admite varios protocolos, como `localsyslog`, `rfc5424` y `journal`. En la tabla siguiente se resumen todas las opciones admitidas. 
 

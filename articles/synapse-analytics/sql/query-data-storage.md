@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735388"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675047"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos del almacenamiento con el grupo de SQL sin servidor en Azure Synapse Analytics
 
 El grupo de SQL sin servidor permite consultar los datos del lago de datos. Ofrece un área expuesta de consultas de T-SQL que admite consultas de datos semiestructurados y no estructurados. Para realizar consultas, se admiten los siguientes aspectos de T-SQL:
 
-- Área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, que incluye la mayoría de los [operadores y funciones de SQL](overview-features.md).
+- Área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa, que incluye la mayoría de los [operadores y funciones de SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crea una [tabla externa](develop-tables-external-tables.md) y, después, exporta en paralelo los resultados de una instrucción SELECT de Transact-SQL a Azure Storage.
 
 Para más información sobre lo que se admite o no actualmente, lea el artículo [Introducción a al grupo de SQL sin servidor](on-demand-workspace-overview.md) o los artículos siguientes:
@@ -184,21 +184,21 @@ De manera predeterminada, la función `OPENROWSET` hace coincidir el nombre de c
 - La función devuelve un valor escalar, como int, decimal y varchar, desde el elemento especificado y en la ruta de acceso especificada, para todos los tipos de archivo con formato Parquet que no están en el grupo de tipos anidados.
 - Si la ruta de acceso apunta a un elemento de un tipo anidado, la función devuelve un fragmento de JSON que comienza en el elemento superior de la ruta de acceso especificada. Este fragmento es del tipo varchar (8000).
 - Si la propiedad no se puede encontrar en la línea de column_name especificada, la función devuelve un error.
-- Si la propiedad no se encuentra en la línea de column_path especificada, que depende del [modo de la ruta](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), la función devuelve un error cuando está en modo strict o NULL cuando está en modo lax.
+- Si la propiedad no se encuentra en la línea de column_path especificada, que depende del [modo de la ruta](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE), la función devuelve un error cuando está en modo strict o NULL cuando está en modo lax.
 
 Para obtener ejemplos de consultas, revise la sección de acceso a elementos de columnas anidadas en el que se explica cómo [consultar tipos anidados con formato Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Acceso a elementos de columnas repetidas
 
-Para acceder a los elementos de una columna repetida, como un elemento de una matriz o una asignación, use la función [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para todos los elementos escalares que necesite proyectar y proporcionar:
+Para acceder a los elementos de una columna repetida, como un elemento de una matriz o una asignación, use la función [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) para todos los elementos escalares que necesite proyectar y proporcionar:
 
 - Columna anidada o repetida, como primer parámetro
-- Una [ruta de acceso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica el elemento o la propiedad a la que se va a acceder, como un segundo parámetro
+- Una [ruta de acceso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica el elemento o la propiedad a la que se va a acceder, como un segundo parámetro
 
-Para acceder a elementos no escalares de una columna repetida, use la función [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para todos los elementos no escalares que necesite proyectar y proporcionar:
+Para acceder a elementos no escalares de una columna repetida, use la función [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) para todos los elementos no escalares que necesite proyectar y proporcionar:
 
 - Columna anidada o repetida, como primer parámetro
-- Una [ruta de acceso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que especifica el elemento o la propiedad a la que se va a acceder, como segundo parámetro
+- Una [ruta de acceso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) que especifica el elemento o la propiedad a la que se va a acceder, como segundo parámetro
 
 Vea el fragmento de sintaxis siguiente:
 

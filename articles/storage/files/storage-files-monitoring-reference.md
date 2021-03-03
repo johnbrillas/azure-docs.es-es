@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780933"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592317"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Files
 
@@ -36,7 +36,7 @@ Azure Files proporciona las siguientes métricas de capacidad en Azure Monitor.
 
 #### <a name="azure-files"></a>Azure Files
 
-En esta tabla se muestran las [métricas de Azure Files](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+En esta tabla se muestran las [métricas de Azure Files](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |
@@ -88,4 +88,4 @@ En la tabla siguiente se indican las propiedades de los registros de recursos de
 ## <a name="see-also"></a>Consulta también
 
 - Vea [Supervisión de Azure Files](storage-files-monitoring-reference.md) para obtener una descripción de la supervisión de Azure Storage.
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).

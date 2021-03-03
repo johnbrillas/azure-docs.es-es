@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183726"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575997"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registros DNS para regiones de Azure utilizados por Azure Automation
 
@@ -21,7 +21,7 @@ El servicio de [Azure Automation](../automation-intro.md) utiliza varios registr
 * webhooks
 
 >[!NOTE]
->El registro de Hybrid Runbook Worker de Linux producirá un error con los nuevos registros a menos que sea de la versión 1.6.10.2 o posterior. Debe actualizar a una versión más reciente del [agente de Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md) para que la máquina reciba una versión actualizada del rol de trabajo y use estos nuevos registros. Los equipos existentes seguirán funcionando sin problemas.  
+>El registro de Hybrid Runbook Worker de Linux producirá un error con los nuevos registros a menos que sea de la versión 1.6.10.2 o posterior. Debe actualizar a una versión más reciente del [agente de Log Analytics para Linux](../../azure-monitor/agents/agent-linux.md) para que la máquina reciba una versión actualizada del rol de trabajo y use estos nuevos registros. Los equipos existentes seguirán funcionando sin problemas.  
 
 ## <a name="dns-records-per-region"></a>Registros DNS por región
 
@@ -42,7 +42,7 @@ En la tabla siguiente se proporciona el registro de DNS para cada región.
 | Norte de Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Centro-sur de EE. UU. |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | Sudeste de Asia |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Sur de Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| Sur de Reino Unido 2 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 | Centro-Oeste de EE. UU. | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Oeste de Europa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |

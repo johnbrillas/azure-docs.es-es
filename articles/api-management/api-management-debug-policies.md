@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400733"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648023"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Depuración de directivas de Azure API Management en Visual Studio Code
 
 Las [directivas](api-management-policies.md) de Azure API Management proporcionan funcionalidades eficaces que ayudan a los editores de API a abordar cuestiones transversales, como la autenticación, la autorización, la limitación, el almacenamiento en caché y la transformación. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. 
 
 En este artículo se describe cómo depurar directivas de API Management mediante la [extensión de Azure API Management para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
-
-> [!NOTE]
-> Esta característica está en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

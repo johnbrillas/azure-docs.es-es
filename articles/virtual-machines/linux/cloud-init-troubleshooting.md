@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434646"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666232"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solución de problemas de aprovisionamiento de VM con cloud-init
 
@@ -58,7 +58,7 @@ Mientras se ejecuta la VM, necesitará los registros de la VM para comprender po
 
 - [Consola serie](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Habilitar los diagnósticos de arranque](./tutorial-monitor.md#enable-boot-diagnostics) antes de crear la VM y, a continuación, [verlos](./tutorial-monitor.md#view-boot-diagnostics) durante el arranque.
+- [Habilitar los diagnósticos de arranque](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de crear la VM y, a continuación, [verlos](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) durante el arranque.
 
 - [Ejecute reparación de máquinas virtuales de AZ](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para conectar y montar el disco del sistema operativo, lo que le permitirá recopilar estos registros:
 ```bash
@@ -133,4 +133,4 @@ No todos los errores de cloud-init provocan un error de aprovisionamiento irrecu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si todavía no puede aislar por qué cloud-init no ejecutó la configuración, debe examinar más detenidamente lo que sucede en cada fase de cloud-init y cuándo se ejecutan los módulos. Consulte [profundizar en la configuración de Cloud-init](./cloud-init-deep-dive.md) para obtener más información. 
+Si todavía no puede aislar por qué cloud-init no ejecutó la configuración, debe examinar más detenidamente lo que sucede en cada fase de cloud-init y cuándo se ejecutan los módulos. Consulte [profundizar en la configuración de Cloud-init](./cloud-init-deep-dive.md) para obtener más información.

@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660164"
 ---
 # <a name="communication-services-notifications"></a>Notificaciones de Communication Services
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Las bibliotecas cliente de llamadas y chat de Azure Communication Services crean un canal de mensajería en tiempo real que permite insertar mensajes de señalización en los clientes conectados de una manera eficaz y confiable. De este modo, puede incluir una funcionalidad de comunicación enriquecida y en tiempo real en sus aplicaciones sin necesidad de implementar una lógica complicada de sondeo HTTP. Sin embargo, en las aplicaciones móviles, este canal de señalización solo permanece conectado si la aplicación está activa en primer plano. Si quiere que los usuarios reciban llamadas entrantes o mensajes de chat mientras la aplicación está en segundo plano, debe usar las notificaciones push.
 
@@ -34,7 +32,7 @@ Obtenga más información sobre el [control de eventos en Azure Communication Se
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Entrega de notificaciones push mediante Azure Notification Hubs
 
-Puede conectar una instancia de Azure Notification Hubs a su recurso de Communication Services para enviar automáticamente notificaciones push al dispositivo móvil de un usuario cuando recibe una llamada entrante. Estas notificaciones push se deben usar para reactivar la aplicación en segundo plano y mostrar la interfaz de usuario que permite al usuario aceptar o rechazar la llamada. 
+Puede conectar una instancia de Azure Notification Hubs a su recurso de Communication Services para enviar automáticamente notificaciones push al dispositivo móvil de un usuario cuando recibe una llamada entrante. Estas notificaciones push se deben usar para reactivar la aplicación en segundo plano y mostrar la interfaz de usuario que permite al usuario aceptar o rechazar la llamada.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagrama que muestra cómo se integra Communication Services con Azure Notification Hubs.":::
 
@@ -43,13 +41,13 @@ Communication Services usa Azure Notification Hubs como un servicio de tránsito
 > [!NOTE]
 > Actualmente solo se admite la llamada a las notificaciones push.
 
-### <a name="notification-hub-provisioning"></a>Aprovisionamiento de una instancia de Notification Hubs 
+### <a name="notification-hub-provisioning"></a>Aprovisionamiento de una instancia de Notification Hubs
 
 Para enviar notificaciones push a dispositivos cliente mediante Notification Hubs, [cree una instancia de Notification Hubs](../../notification-hubs/create-notification-hub-portal.md) dentro de la misma suscripción en la que se encuentra el recurso de Communication Services. Azure Notification Hubs se debe configurar específicamente para el Sistema de notificación de plataforma que se desee usar. Para información sobre cómo obtener notificaciones de inserción en la aplicación cliente desde Notification Hubs, consulte [Introducción a Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) y seleccione la plataforma cliente de destino en la lista desplegable que aparece cerca de la parte superior de la página.
 
 > [!NOTE]
-> Actualmente se admiten las plataformas APNs y FCM.  
-La plataforma de APNs debe configurarse con el modo de autenticación de tokens. El modo de autenticación de certificados no se admite por ahora. 
+> Actualmente se admiten las plataformas APNs y FCM.
+La plataforma de APNs debe configurarse con el modo de autenticación de tokens. El modo de autenticación de certificados no se admite por ahora.
 
 Una vez configurada la instancia de Notification Hubs, puede asociarla a su recurso de Communication Services; para ello, proporcione una cadena de conexión para el centro mediante el cliente de Azure Resource Manager o Azure Portal. La cadena de conexión debe contener permisos `Send`. Se recomienda crear otra directiva de acceso con permisos `Send` únicamente para el centro. Más información sobre las [directivas de seguridad y acceso de Notification Hubs](../../notification-hubs/notification-hubs-push-notification-security.md)
 
@@ -74,10 +72,10 @@ En el portal, navegue hasta el recurso de Azure Communication Services. En el re
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración de notificaciones push en Azure Portal.":::
 
 > [!NOTE]
-> Si se actualiza la cadena de conexión del centro de notificaciones de Azure, también se debe actualizar el recurso de Communication Services.  
+> Si se actualiza la cadena de conexión del centro de notificaciones de Azure, también se debe actualizar el recurso de Communication Services.
 Cualquier cambio en la forma en que se vincula el centro se reflejará en el plano de datos (es decir, al enviar una notificación) en un período máximo de ``10`` minutos. Esto es aplicable también cuando el centro se vincula por primera vez **si** se enviaron notificaciones antes.
 
-### <a name="device-registration"></a>Registro de dispositivos 
+### <a name="device-registration"></a>Registro de dispositivos
 
 Consulte la [guía de inicio rápido de llamada de voz](../quickstarts/voice-video-calling/getting-started-with-calling.md) para obtener información sobre cómo registrar el identificador del dispositivo con Communication Services.
 

@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092673"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644738"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -201,7 +201,7 @@ Según el tamaño del entorno, el proceso puede tardar un par de horas. Mientras
 **P: Recibí un correo electrónico para comunicarme que mi versión de actualización automática ya no funciona y que tengo que instalar una nueva. ¿Por qué tengo que hacerlo?**  
 El año pasado se publicó una versión de Azure AD Connect que, en determinadas circunstancias, podría haber deshabilitado la característica de actualización automática en el servidor. Se ha corregido el problema en Azure AD Connect versión 1.1.750.0. Si se ha visto afectado por el problema, puede mitigarlo con la ejecución de un script de PowerShell para repararlo o actualizando manualmente a la versión más reciente de Azure AD Connect. 
 
-Para ejecutar el script de PowerShell, [descargue el script](https://aka.ms/repairaadconnect) y ejecútelo en el servidor de Azure AD Connect en una ventana de PowerShell administrativa. Para obtener información sobre cómo ejecutar el script, [vea este breve vídeo](https://aka.ms/repairaadcau).
+Para ejecutar el script de PowerShell, [descargue el script](/samples/browse/?redirectedfrom=TechNet-Gallery) y ejecútelo en el servidor de Azure AD Connect en una ventana de PowerShell administrativa. Para obtener información sobre cómo ejecutar el script, [vea este breve vídeo](https://aka.ms/repairaadcau).
 
 Para actualizar manualmente, debe descargar y ejecutar la última versión del archivo AADConnect.msi.
  

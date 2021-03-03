@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408522"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575003"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -108,7 +108,7 @@ Las [soluciones de administración](../../azure-monitor/insights/solutions.md) s
 
 ![Soluciones de administración](./media/operational-security/azure-operational-security-fig4.png)
 
-Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](../../automation/update-management/overview.md). Esta solución utiliza el agente de [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
+Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](../../automation/update-management/overview.md). Esta solución utiliza el agente de [registros de Azure Monitor](../../azure-monitor/logs/log-query-overview.md) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
 
 Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](../../automation/automation-intro.md) para instalar las actualizaciones necesarias. Todo este proceso se administra en el portal y no tiene que preocuparse sobre los detalles subyacentes.
 
@@ -148,19 +148,19 @@ Security Center recopila datos de las máquinas virtuales (VM) para evaluar su e
 
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
 
--   **Segregación de datos** : los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
+-   **Segregación de datos**: los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
 
--   **Acceso a datos** : para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede acceder a la información recopilada o analizada por los servicios de Azure, incluidos archivos de volcado de memoria, eventos de creación de proceso, artefactos e instantáneas de disco de máquina virtual, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas virtuales. Cumplimos la [Declaración de privacidad y los Términos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), en donde se estipula que Microsoft no usa los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares.
+-   **Acceso a datos**: para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede acceder a la información recopilada o analizada por los servicios de Azure, incluidos archivos de volcado de memoria, eventos de creación de proceso, artefactos e instantáneas de disco de máquina virtual, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas virtuales. Cumplimos la [Declaración de privacidad y los Términos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), en donde se estipula que Microsoft no usa los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares.
 
--   **Uso de datos** : Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Uso de datos**: Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Ubicación de los datos
 
 Azure Security Center recopila copias efímeras de los archivos de volcado de memoria y las analiza para buscar pruebas de intentos de vulnerabilidad y de riesgos ciertos. Azure Security Center realiza este análisis en la misma geoárea en la que se encuentra el área de trabajo y elimina las copias efímeras una vez que el análisis se completa. Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual.
 
--   **Sus cuentas de almacenamiento** : se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan.
+-   **Sus cuentas de almacenamiento**: se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan.
 
--   **Azure Storage Security Center** : además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
+-   **Azure Storage Security Center**: además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -195,17 +195,17 @@ Estos registros los emite un recurso y proporcionan información detallada y fre
 
 Por ejemplo, los registros del sistema de eventos de Windows son una categoría de registro de diagnóstico para máquinas virtuales y los registros de blob, tabla y cola son categorías de los registros de diagnóstico para cuentas de almacenamiento.
 
-Los registros de diagnóstico son distintos del [registro de actividad (anteriormente conocido como registro de auditoría o registro operativo)](../../azure-monitor/platform/platform-logs-overview.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
+Los registros de diagnóstico son distintos del [registro de actividad (anteriormente conocido como registro de auditoría o registro operativo)](../../azure-monitor/essentials/platform-logs-overview.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
 
 ### <a name="metrics"></a>Métricas
 
-Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y consumir estas [métricas](../../azure-monitor/platform/data-platform.md) para supervisar y solucionar problemas. Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
+Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y consumir estas [métricas](../../azure-monitor/data-platform.md) para supervisar y solucionar problemas. Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
 
 -   **Realizar un seguimiento del rendimiento** del recurso (por ejemplo, una máquina virtual, un sitio web o una aplicación lógica) mediante el trazado de las métricas en un gráfico de portal y anclando ese gráfico a un panel.
 
 -   **Recibir una notificación de un problema** que afecta al rendimiento del recurso cuando una métrica cruza un umbral determinado.
 
--   **Configurar acciones automatizadas** , como escalar automáticamente un recurso o activar un runbook cuando una métrica cruza un umbral determinado.
+-   **Configurar acciones automatizadas**, como escalar automáticamente un recurso o activar un runbook cuando una métrica cruza un umbral determinado.
 
 -   **Realizar análisis avanzados** o elaborar informes de tendencias de rendimiento o de uso de los recursos.
 
@@ -213,7 +213,7 @@ Azure Monitor permite utilizar telemetría para obtener información sobre el re
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-Es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde diversos orígenes diferentes. Actualmente se admiten [roles web y de trabajo del servicio en la nube de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) que ejecutan Microsoft Windows, y [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Otros servicios de Azure tienen su propio diagnóstico independiente.
+Es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde diversos orígenes diferentes. Actualmente se admiten [roles web y de trabajo del servicio en la nube de Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) que ejecutan Microsoft Windows, y [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Otros servicios de Azure tienen su propio diagnóstico independiente.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

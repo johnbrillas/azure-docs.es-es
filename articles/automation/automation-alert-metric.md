@@ -4,16 +4,16 @@ description: En este artículo se describe cómo configurar una alerta de métri
 services: automation
 ms.date: 08/10/2020
 ms.topic: article
-ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a52824a7030d78647d8a664819f439d92d7296d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055942"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593944"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Supervisión de runbooks con alertas de métricas
 
-En este artículo, aprenderá a crear una [alerta de métrica](../azure-monitor/platform/alerts-metric-overview.md) basada en el estado de finalización del runbook.
+En este artículo, aprenderá a crear una [alerta de métrica](../azure-monitor/alerts/alerts-metric-overview.md) basada en el estado de finalización del runbook.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -52,7 +52,7 @@ Las alertas le permiten definir una condición para supervisar y una acción par
 
 ### <a name="define-the-action-to-take"></a>Definición de la acción que se realizará
 
-1. En **Action group** (Grupo de acciones), seleccione **Specify action group** (Especificar grupo de acciones). Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones y los pasos para crear uno que envíe una notificación por correo electrónico, consulte [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
+1. En **Action group** (Grupo de acciones), seleccione **Specify action group** (Especificar grupo de acciones). Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones y los pasos para crear uno que envíe una notificación por correo electrónico, consulte [Creación y administración de grupos de acciones](../azure-monitor/alerts/action-groups.md).
 
 ### <a name="define-alert-details"></a>Definición de detalles de la alerta
 

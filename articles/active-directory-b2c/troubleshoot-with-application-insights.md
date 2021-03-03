@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746009"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572902"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -101,7 +101,7 @@ A continuación se muestra una lista de consultas que puede usar para ver los re
 
 Las entradas pueden ser largas. Exporte a un archivo CSV para realizar un examen más detallado.
 
-Para más información sobre las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para más información sobre las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-application-insights-in-production"></a>Configuración de Application Insights en producción
 

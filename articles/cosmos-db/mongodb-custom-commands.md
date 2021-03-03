@@ -5,15 +5,15 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359653"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658493"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ Mediante las API de Azure Cosmos DB para MongoDB, puede disfrutar de las ventaja
 
 ## <a name="mongodb-protocol-support"></a>Compatibilidad de protocolo para MongoDB
 
-La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión 3.2 y 3.6 del servidor de MongoDB. Consulte la [sintaxis y las características admitidas](mongodb-feature-support.md) para obtener más detalles. 
+La API de Azure Cosmos DB para MongoDB es compatible de manera predeterminada con la versión 4.0, 3.6 y 3.2 del servidor de MongoDB. Consulte la sintaxis y las características admitidas en los artículos [4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md) y [3.2](mongodb-feature-support.md) para obtener más detalles. 
 
 Los siguientes comandos de extensión proporcionan la capacidad de crear y modificar recursos específicos de Azure Cosmos DB a través de solicitudes de base de datos:
 
@@ -90,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a name="update-database"></a><a id="update-database"></a> Actualizar una base de datos
 
-El comando de extensión de actualización de la base de datos actualiza las propiedades asociadas con la base de datos especificada. En la siguiente tabla se describen los parámetros del comando:
+El comando de extensión de actualización de la base de datos actualiza las propiedades asociadas con la base de datos especificada. Solo se admite en Azure Portal el cambio de la base de datos de rendimiento aprovisionado a la escalabilidad automática, y viceversa. En la siguiente tabla se describen los parámetros del comando:
 
 |**Campo**|**Tipo** |**Descripción** |
 |---------|---------|---------|
@@ -206,8 +206,8 @@ El comando de extensión de creación de colección crea una nueva colección de
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -292,13 +292,14 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a name="update-collection"></a><a id="update-collection"></a> Actualizar una colección
 
-El comando de extensión de actualización de la colección actualiza las propiedades asociadas con la colección especificada.
+El comando de extensión de actualización de la colección actualiza las propiedades asociadas con la colección especificada. Solo se admite en Azure Portal el cambio de la colección de rendimiento aprovisionado a la escalabilidad automática, y viceversa.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 

@@ -1,14 +1,14 @@
 ---
 title: 'Event Hubs: Capturar eventos de streaming mediante Azure Portal'
 description: En este artículo se describe cómo habilitar la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs mediante Azure Portal.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 8c89a6e56c2d0bc7b7ff09d5fd63737009239eb9
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613584"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653958"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Habilitación de la captura de eventos que se transmiten por streaming mediante Azure Event Hubs
 

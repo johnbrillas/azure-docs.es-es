@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Aprenda a solucionar problemas relacionados con la creación de definiciones de directivas, los diversos SDK y el complemento para Kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917750"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592605"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solución de errores mediante Azure Policy
 
@@ -87,7 +87,7 @@ Si todavía tiene un problema con la definición de la directiva integrada dupli
 
 #### <a name="issue"></a>Problema
 
-Azure Policy no está realizando ninguna acción sobre el recurso esperado y no hay ninguna entrada en el [registro de actividad de Azure](../../../azure-monitor/platform/platform-logs-overview.md).
+Azure Policy no está realizando ninguna acción sobre el recurso esperado y no hay ninguna entrada en el [registro de actividad de Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### <a name="cause"></a>Causa
 
@@ -123,7 +123,7 @@ Una asignación de directivas al ámbito en el que se encuentra el recurso nuevo
 
 #### <a name="resolution"></a>Solución
 
-El mensaje de error de una asignación de directiva de denegación incluye los identificadores de definición de directiva y de asignación de directivas. Si se pierde la información de error en el mensaje, también está disponible en el [registro de actividad](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use esta información para obtener más detalles para comprender las restricciones de recursos y ajustar las propiedades de los recursos de la solicitud para que coincidan con los valores permitidos.
+El mensaje de error de una asignación de directiva de denegación incluye los identificadores de definición de directiva y de asignación de directivas. Si se pierde la información de error en el mensaje, también está disponible en el [registro de actividad](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use esta información para obtener más detalles para comprender las restricciones de recursos y ajustar las propiedades de los recursos de la solicitud para que coincidan con los valores permitidos.
 
 ## <a name="template-errors"></a>Errores de plantilla
 

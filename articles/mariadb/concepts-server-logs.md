@@ -3,15 +3,15 @@ title: 'Registros de consultas lentas: Azure Database for MariaDB'
 description: Se describen los registros disponibles en Azure Database for MariaDB y los parámetros disponibles para habilitar diferentes niveles de registro.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664170"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570805"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registros de consultas lentas en Azure Database for MariaDB
 En Azure Database for MariaDB, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -53,7 +53,7 @@ Los registros se rotan cada 24 horas o 7 GB, lo que ocurra primero.
 > La retención de registros anterior no se aplica a los registros que se canalizan mediante los registros de diagnóstico de Azure Monitor. Puede cambiar el período de retención de los receptores de datos que se emiten a, por ejemplo, Azure Storage.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-Azure Database for MariaDB se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MariaDB, puede optar por hacer que se emitan a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database for MariaDB se integra con los registros de diagnóstico de Azure Monitor. Después de habilitar los registros de consultas lentas en el servidor MariaDB, puede optar por hacer que se emitan a los registros de Azure Monitor, Event Hubs o Azure Storage. Para más información sobre cómo habilitar los registros de diagnóstico, consulte la sección de la [documentación de registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md).
 
 En la tabla siguiente se describe lo que contiene cada registro. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 

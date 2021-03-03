@@ -4,16 +4,16 @@ description: Aprenda a obtener eventos de recursos mediante registros de activid
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20028a4f84dae9d292cf855a1e164bd69864909
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962305"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574036"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Obtención de eventos de recursos en Azure App Service
 
-Azure App Service proporciona herramientas integradas para supervisar el estado y el mantenimiento de los recursos. Los eventos de recursos le ayudan a entender los cambios que se realizaron en los recursos subyacentes de la aplicación web y a tomar las medidas necesarias. Algunos ejemplos de eventos son el escalado de instancias, las actualizaciones de la configuración de la aplicación, el reinicio de la aplicación web y muchas más. En este artículo, aprenderá a ver los [registros de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) y a habilitar [Event Grid](../event-grid/index.yml) para supervisar los eventos de recursos relacionados con la aplicación web de App Service.
+Azure App Service proporciona herramientas integradas para supervisar el estado y el mantenimiento de los recursos. Los eventos de recursos le ayudan a entender los cambios que se realizaron en los recursos subyacentes de la aplicación web y a tomar las medidas necesarias. Algunos ejemplos de eventos son el escalado de instancias, las actualizaciones de la configuración de la aplicación, el reinicio de la aplicación web y muchas más. En este artículo, aprenderá a ver los [registros de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) y a habilitar [Event Grid](../event-grid/index.yml) para supervisar los eventos de recursos relacionados con la aplicación web de App Service.
 
 > [!NOTE]
 > La integración de App Service con Event Grid se encuentra en **versión preliminar**. [Para más información, consulte el anuncio.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,7 +33,7 @@ Los registros de actividad de Azure para App Service contienen detalles como:
 
 Los registros de actividad de Azure se pueden consultar mediante Azure Portal, PowerShell, la API REST o la CLI. Puede enviar los registros a una cuenta de almacenamiento, a un centro de eventos y a Log Analytics. También puede analizarlos en Power BI o crear alertas para que permanezcan actualizados en los eventos de recursos.
 
-[Visualización y recuperación de eventos del registro de actividad de Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+[Visualización y recuperación de eventos del registro de actividad de Azure.](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Envío de registros de actividad a Event Grid
 
@@ -44,7 +44,7 @@ También puede usar Event Grid con Logic Apps para procesar datos en cualquier p
 [Visualización de las propiedades y el esquema de los eventos de Azure App Service.](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
-* [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consulta de registros con Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

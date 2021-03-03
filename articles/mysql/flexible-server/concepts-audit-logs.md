@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542225"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591761"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Seguimiento de la actividad de base de datos con Registros de auditoría en el Servidor flexible de Azure Database for MySQL
 
@@ -50,7 +50,7 @@ Entre otros parámetros que se pueden ajustar para controlar el comportamiento d
 
 ## <a name="access-audit-logs"></a>Acceso a registros de auditoría
 
-Los registros de auditoría están integrados con la configuración de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor flexible de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información acerca de la configuración de diagnóstico, vea la [documentación de los registros de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para obtener más información sobre cómo habilitar la configuración de diagnóstico en Azure Portal, vea el [artículo sobre registros de auditoría en el portal](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Los registros de auditoría están integrados con la configuración de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor flexible de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información acerca de la configuración de diagnóstico, vea la [documentación de los registros de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para obtener más información sobre cómo habilitar la configuración de diagnóstico en Azure Portal, vea el [artículo sobre registros de auditoría en el portal](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
 En las secciones siguientes se describe la salida de los registros de auditoría de MySQL en función del tipo de evento. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 

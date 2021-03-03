@@ -3,12 +3,12 @@ title: Evaluación del efecto de una nueva definición de Azure Policy
 description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873875"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590808"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Evaluación del efecto de una nueva definición de Azure Policy
 
@@ -63,7 +63,7 @@ Cualquier cambio en el ámbito (nivel o exclusiones) debe validarse y comunicars
 
 ## <a name="monitor-your-policy-and-compliance"></a>Supervisión de la directiva y cumplimiento
 
-La implementación y asignación de la definición de directiva no es el paso final. Supervise continuamente el nivel de [cumplimiento](../how-to/get-compliance-data.md) de los recursos con la nueva definición de directiva y configure las [alertas y notificaciones de Azure Monitor](../../../azure-monitor/platform/alerts-overview.md) adecuadas para la configuración de los dispositivos no compatibles. También se recomienda evaluar la definición de directiva y las asignaciones relacionadas de forma programada para validar que la definición de directiva cumple las necesidades de cumplimiento y directivas empresariales. Las directivas deben quitarse si ya no se necesitan. Las directivas también necesitan actualizarse de vez en cuando a medida que los recursos de Azure subyacentes evolucionan y agregan nuevas propiedades y funcionalidades.
+La implementación y asignación de la definición de directiva no es el paso final. Supervise continuamente el nivel de [cumplimiento](../how-to/get-compliance-data.md) de los recursos con la nueva definición de directiva y configure las [alertas y notificaciones de Azure Monitor](../../../azure-monitor/alerts/alerts-overview.md) adecuadas para la configuración de los dispositivos no compatibles. También se recomienda evaluar la definición de directiva y las asignaciones relacionadas de forma programada para validar que la definición de directiva cumple las necesidades de cumplimiento y directivas empresariales. Las directivas deben quitarse si ya no se necesitan. Las directivas también necesitan actualizarse de vez en cuando a medida que los recursos de Azure subyacentes evolucionan y agregan nuevas propiedades y funcionalidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

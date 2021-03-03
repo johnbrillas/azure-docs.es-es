@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573064"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Línea de base de seguridad de Azure Policy para Azure Security Benchmark
 
@@ -31,9 +31,9 @@ Azure Policy usa el término _Propiedad_ en lugar de _Responsabilidad_. Para obt
 
 **Guía**: Azure Policy utiliza los registros de actividad, que están habilitados automáticamente, para incluir el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles.
 
-* [Recopilación de registros y métricas de plataforma con Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Recopilación de registros y métricas de plataforma con Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Descripción del registro y de los distintos tipos de registro de Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Descripción del registro y de los distintos tipos de registro de Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Supervisión de Azure Security Center**: no disponible actualmente
@@ -89,7 +89,7 @@ También puede habilitar una solución de acceso Just-in-Time/Just-Enough usando
 
 **Instrucciones**: Use Azure Monitor con los registros de actividad para crear alertas para cuando se produzcan cambios en Azure Policy.
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Supervisión de Azure Security Center**: no disponible actualmente

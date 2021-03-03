@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257192"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649429"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257192"
 
 En este artículo se describe cómo establecer una federación directa con otra organización para la colaboración B2B. Puede establecer una federación directa con cualquier organización cuyo proveedor de identidades (IdP) admita el protocolo SAML 2.0 o WS-Fed.
 Al configurar una federación directa con el proveedor de identidades de un asociado, los nuevos usuarios invitados de ese dominio pueden utilizar su propia cuenta de organización administrada por el proveedor de identidades para iniciar sesión con su inquilino de Azure AD y empezar a colaborar con usted. No es necesario que el usuario invitado cree otra cuenta de Azure AD.
-> [!NOTE]
-> Los usuarios invitados de federación directa deben iniciar sesión con un vínculo que incluye el contexto del inquilino (por ejemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>`, o, en el caso de un dominio comprobado, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Los vínculos directos a aplicaciones y los recursos también funcionan siempre que incluyan el contexto del inquilino. Actualmente, los usuarios de federación directa no pueden iniciar sesión con puntos de conexión comunes sin contexto de inquilino. Por ejemplo, si se usa `https://myapps.microsoft.com`, `https://portal.azure.com` o `https://teams.microsoft.com`, se producirá un error.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>¿Cuándo se autentica un usuario invitado con la federación directa?
 Después de configurar la federación directa con una organización, cualquier nuevo usuario invitado se autenticará mediante la federación directa. Es importante tener en cuenta que la configuración de la federación directa no cambia el método de autenticación para los usuarios invitados que ya han canjeado una invitación. Estos son algunos ejemplos:
  - Si los usuarios invitados ya han canjeado sus invitaciones y posteriormente configura la federación directa con su organización, esos usuarios invitados seguirán utilizando el mismo método de autenticación que utilizaron antes de configurar la federación directa.
@@ -42,10 +40,28 @@ La federación directa está asociada a espacios de nombres de dominio, como con
 ## <a name="end-user-experience"></a>Experiencia del usuario final 
 Con la federación directa, los usuarios invitados inician sesión en el inquilino de Azure AD mediante su propia cuenta de organización. Cuando acceden a los recursos compartidos y se les pide que inicien sesión, los usuarios de la federación directa se redirigen al proveedor de identidades. Después del inicio de sesión correcto, vuelven a Azure AD para acceder a los recursos. Los tokens de actualización de los usuarios de la federación directa son válidos durante 12 horas, [la duración predeterminada del token de actualización de acceso directo](../develop/active-directory-configurable-token-lifetimes.md#exceptions)en Azure AD. Si el proveedor de identidades federado tiene el inicio de sesión único habilitado, el usuario experimentará un inicio de sesión único y no verá ninguna solicitud de inicio de sesión después de la autenticación inicial.
 
+## <a name="sign-in-endpoints"></a>Puntos de conexión de inicio de sesión
+
+Ahora, los usuarios invitados de la federación pueden iniciar sesión en sus aplicaciones multiinquilino o en las aplicaciones propias de Microsoft utilizando un [punto de conexión común](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en otras palabras, una dirección URL general de la aplicación que no incluya el contexto del inquilino). A continuación, se muestran algunos ejemplos de puntos de conexión comunes:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durante el proceso de inicio de sesión, el usuario invitado elige **Opciones de inicio de sesión** y después selecciona **Sign in to an organization** (Iniciar sesión en una organización). Después, escribe el nombre de la organización y continúa iniciando sesión con sus propias credenciales.
+
+Los usuarios invitados de federación directa también pueden usar puntos de conexión de la aplicación que incluyan la información del inquilino; por ejemplo:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+También puede proporcionar a los usuarios invitados de federación directa un vínculo directo a una aplicación o recurso que incluya la información del inquilino; por ejemplo, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
+
 ## <a name="limitations"></a>Limitaciones
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
-El dominio con el que desea federarse ***no** _ puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
+El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
 
 ### <a name="authentication-url"></a>Dirección URL de autenticación
 La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
@@ -60,7 +76,7 @@ La federación directa solo se permite para las directivas en las que el dominio
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por ejemplo, al configurar la federación directa para _*fabrikam.com**, la dirección URL de autenticación `https://fabrikam.com/adfs` pasará la validación. Un host en el mismo dominio también pasará, por ejemplo `https://sts.fabrikam.com/adfs`. Sin embargo, la dirección URL de autenticación `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` para el mismo dominio no pasará.
+Por ejemplo, al configurar la federación directa para **fabrikam.com**, la dirección URL de autenticación `https://fabrikam.com/adfs` pasará la validación. Un host en el mismo dominio también pasará, por ejemplo `https://sts.fabrikam.com/adfs`. Sin embargo, la dirección URL de autenticación `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` para el mismo dominio no pasará.
 
 ### <a name="signing-certificate-renewal"></a>Renovación del certificado de firma
 Si especifica la dirección URL de metadatos en la configuración del proveedor de identidades, Azure AD renovará automáticamente el certificado de firma cuando expire. Sin embargo, si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
@@ -147,7 +163,7 @@ A continuación, va a configurar la federación con el proveedor de identidades 
 
 1. Vaya a [Azure Portal](https://portal.azure.com/). En el panel izquierdo, seleccione **Azure Active Directory**. 
 2. Seleccione **External Identities** > **Todos los proveedores de identidades**.
-3. Seleccione y, después, **Nuevo proveedor de identidades de SAML/WS-Fed**.
+3. Seleccione **Nuevo IdP de SAML/WS-Fed**.
 
     ![Captura de pantalla que muestra el botón para agregar un nuevo proveedor de identidades de SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 

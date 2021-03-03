@@ -321,11 +321,14 @@
             - name: Creación de conjuntos de datos con etiquetas
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Obtener datos
+        - name: Obtención y preparación de datos
           items:
             - name: Ingesta de datos con Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Preparación de datos con Azure Synapse
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps para la ingesta de datos
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Conexión a Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: Acceso a datos basado en identidad para almacenamiento
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: Obtención de datos desde un almacén de datos (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: Habilitamiento de registros
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Ver registros
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: Visualización de registros y métricas de las ejecuciones
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Visualización de ejecuciones con TensorBoard
               displayName: 'log, monitor, metrics'
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implementación de canalizaciones de Machine Learning (Python)
           href: how-to-deploy-pipelines.md
+        - name: Uso de grupos de Apache Spark de Azure Synapse en una canalización de ML (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Desencadenar una canalización
           href: how-to-trigger-published-pipeline.md
         - name: Designer (arrastrar y colocar)

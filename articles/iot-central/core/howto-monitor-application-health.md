@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: d0e59f73dd9b62b528c3d86d315b613312df7773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515876"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577054"
 ---
 # <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Supervisión del estado general de una aplicación de IoT Central
 
@@ -23,7 +23,7 @@ ms.locfileid: "100515876"
 
 En este artículo, se explica cómo usar el conjunto de métricas que proporciona IoT Central para evaluar el estado de los dispositivos conectados a su aplicación de IoT Central y el estado de las exportaciones de datos en ejecución.
 
-De forma predeterminada, las métricas están habilitadas para la aplicación de IoT Central y se accede a estas desde [Azure Portal](https://portal.azure.com/). La [plataforma de datos de Azure Monitor expone estas métricas](../../azure-monitor/platform/data-platform-metrics.md) y proporciona varias formas de interactuar con ellas. Por ejemplo, puede usar los gráficos de Azure Portal, una API de REST o consultas de PowerShell o la CLI de Azure.
+De forma predeterminada, las métricas están habilitadas para la aplicación de IoT Central y se accede a estas desde [Azure Portal](https://portal.azure.com/). La [plataforma de datos de Azure Monitor expone estas métricas](../../azure-monitor/essentials/data-platform-metrics.md) y proporciona varias formas de interactuar con ellas. Por ejemplo, puede usar los gráficos de Azure Portal, una API de REST o consultas de PowerShell o la CLI de Azure.
 
 ### <a name="trial-applications"></a>Aplicaciones de prueba
 
@@ -46,7 +46,7 @@ El acceso a las métricas en Azure Portal se administra mediante el [control de 
 
 ## <a name="iot-central-metrics"></a>Métricas de IoT Central
 
-Para obtener una lista de las métricas que están disponibles actualmente en IoT Central, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps).
+Para obtener una lista de las métricas que están disponibles actualmente en IoT Central, consulte [Métricas compatibles con Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### <a name="metrics-and-invoices"></a>Métricas y facturas
 

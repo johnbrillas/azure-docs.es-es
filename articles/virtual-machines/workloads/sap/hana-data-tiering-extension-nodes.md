@@ -6,27 +6,26 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a1fc1c3b332d033e453db11ce4451cd626c4217
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: eb780d10996cb22f5e6fe5bc8889e897e8c3854d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967812"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666770"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Uso de los nodos de extensión y las capas de datos de SAP HANA
 
 SAP admite un modelo de capas de datos para SAP BW de las diferentes versiones de SAP NetWeaver y SAP BW/4HANA. Para más información sobre el modelo de capas de datos, consulte el documento de SAP [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA y SAP BW en HANA con nodos de extensión de SAP HANA).
 Con HANA (instancias grandes), puede utilizar la configuración de la opción 1 de los nodos de extensión de SAP HANA, tal como se detalla en estas preguntas más frecuentes y en los documentos del blog de SAP. Las configuraciones de la opción-2 se pueden configurar con las siguientes SKU las instancias grandes de HANA (Instancias grandes): S72m, S192, S192m, S384 y S384m. 
 
-Al examinar la documentación, es posible que la ventaja no se vea de inmediato. Sin embargo, si se examinan las directrices de ajuste de tamaño de SAP, se puede ver una ventaja mediante el uso de los nodos de extensión de SAP HANA de las opciones 1 y 2. Estos son algunos ejemplos:
+Al examinar la documentación, es posible que la ventaja no se vea de inmediato. Sin embargo, si se examinan las directrices de ajuste de tamaño de SAP, se puede ver una ventaja mediante el uso de los nodos de extensión de SAP HANA de las opciones 1 y 2. Estos son unos ejemplos:
 
 - Las directrices de ajuste de tamaño de SAP HANA suelen requerir que la cantidad de volumen de datos sea el doble que la memoria. Si ejecuta una instancia de SAP HANA con los datos activos, solo se llenará de datos el 50 % de la memoria o menos. Lo ideal es que el resto de la memoria se use para el funcionamiento del propio SAP HANA.
 - Eso significa que en una unidad S192 de la instancia grande de HANA con 2 TB de memoria que ejecuta una base de datos de SAP BW, solo tiene 1 TB de volumen de datos.

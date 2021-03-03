@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f03195c801f241a79a6bf68ef9d398370b0d4c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c66ca0b61e00ad8259b8d3e06366bfc58d304fe6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391820"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660923"
 ---
 # <a name="sms-concepts"></a>Conceptos de SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services le permite enviar y recibir mensajes de texto SMS mediante las bibliotecas cliente de SMS de Communication Services. Estas bibliotecas cliente se pueden usar para admitir escenarios de servicio al cliente, recordatorios de citas, autenticación en dos fases y otros requisitos de comunicación en tiempo real. Los SMS de Communication Services permiten enviar mensajes de manera confiable a la vez que exponen las conclusiones sobre la entrega y tasa de respuesta de las campañas.
 

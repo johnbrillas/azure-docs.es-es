@@ -10,25 +10,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2020
+ms.date: 02/01/2021
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7673a42afa3b85a2aaf3f11f5e9b74fd46d48488
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ad8f2d150c3cf17c4b24c6dc92188be9017dcfa9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945094"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666002"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configuración de la preferencia de enrutamiento de una VM mediante la CLI de Azure
 
 En este artículo se muestra cómo configurar las preferencias de enrutamiento para una máquina virtual. El tráfico de Internet enlazado desde la VM se enrutará a través de la red del ISP cuando elija **Internet** como opción de preferencia de enrutamiento. El enrutamiento predeterminado se hará a través de la red global de Microsoft.
 
 En este artículo se muestra cómo crear una máquina virtual con una dirección IP pública que esté configurada para enrutar el tráfico a través de la red pública de Internet mediante la CLI de Azure.
-
-> [!IMPORTANT]
-> La preferencia de enrutamiento se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 1. Si usa Cloud Shell, continúe al paso 2. Abra una sesión de comandos e inicie sesión en Azure con `az login`.

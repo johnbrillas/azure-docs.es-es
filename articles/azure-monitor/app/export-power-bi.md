@@ -3,12 +3,12 @@ title: Exportación a Power BI desde Azure Application Insights | Microsoft Docs
 description: Las consultas de Analytics se pueden mostrar en Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4bdae09d193d5ae9c59fe9352e07b8219a76841d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584319"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Para importar la consulta de Application Insights, utilice la versión de escrit
 Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportación de una consulta de Analytics
-1. [Abra Analytics y escriba la consulta](../log-query/log-analytics-tutorial.md).
+1. [Abra Analytics y escriba la consulta](../logs/log-analytics-tutorial.md).
 2. Pruebe y refine la consulta hasta que esté satisfecho con los resultados. Asegúrese de que la consulta se ejecuta correctamente en Analytics antes de exportarla.
 3. En el menú **Exportar**, elija **Power BI (M)** . Guarde el archivo de texto.
    
@@ -146,4 +146,4 @@ Después de la importación inicial, el panel y los informes seguirán actualiz�
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Power BI: más información](https://www.powerbi.com/learning/)
-* [Tutorial de Analytics](../log-query/log-analytics-tutorial.md)
+* [Tutorial de Analytics](../logs/log-analytics-tutorial.md)

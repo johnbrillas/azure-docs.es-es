@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4f0c64abf150165e3239e78e8cf9b824b34eed6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1ba497094a28e056d5984f1e58e2f15c9d21eae2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202375"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094440"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Línea de base de seguridad de Azure para Azure Resource Manager
 
@@ -31,9 +31,9 @@ El contenido se agrupa por los **controles de seguridad** definidos por Azure Se
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md) 
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -45,9 +45,9 @@ El contenido se agrupa por los **controles de seguridad** definidos por Azure Se
 
 **Guía**: Azure Resource Manager utiliza los registros de actividad, que están habilitados automáticamente, para incluir el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -61,9 +61,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introducción a las consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -77,7 +77,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Administración de alertas de seguridad en Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -241,7 +241,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use RBAC de Azure AD para controlar el acceso a datos y recursos; para otros fines, use métodos de control de acceso específicos del servicio.
 
-- [Configuración de RBAC en Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Configuración de Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -261,7 +261,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos críticos de Azure.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 

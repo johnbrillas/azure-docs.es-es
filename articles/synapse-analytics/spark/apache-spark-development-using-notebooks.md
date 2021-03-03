@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898501"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671590"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
@@ -497,7 +497,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 |Ejecutar la celda actual e insertar una a continuación | Alt+Entrar |
 |Seleccionar la celda anterior| Arriba |
 |Seleccionar la celda siguiente| Bajar |
-|Insertar una celda encima| Un |
+|Insertar una celda encima| A |
 |Insertar una celda debajo| B |
 |Extender las celdas seleccionadas encima| Mayús+Arriba |
 |Extender las celdas seleccionadas debajo| Mayús+Abajo|
@@ -517,7 +517,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 |Seleccionar la celda siguiente| Bajar |
 |Seleccionar celda anterior| K |
 |Seleccionar celda siguiente| J |
-|Insertar una celda encima| Un |
+|Insertar una celda encima| A |
 |Insertar una celda debajo| B |
 |Eliminar celdas seleccionadas| Mayús+D |
 |Cambiar al modo de edición| Escriba |
@@ -554,5 +554,5 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 - [Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web](../quickstart-apache-spark-notebook.md)
 - [Qué es Apache Spark en Azure Synapse Analytics](apache-spark-overview.md)
 - [Uso de .NET para Apache Spark con Azure Synapse Analytics](spark-dotnet.md)
-- [Documentación de .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentación de .NET para Apache Spark](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)

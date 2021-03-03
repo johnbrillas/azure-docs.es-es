@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Kubernetes habilitado para Azure Arc (versión preliminar)
+title: Kubernetes habilitado para Azure Arc
 summary: Aprenda a administrar clústeres de Kubernetes con Azure Arc
 metadata:
   title: Kubernetes habilitado para Azure Arc
@@ -7,14 +7,14 @@ metadata:
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/15/2021
+  ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: 97343e8c23e202e70ec30bb0a522105889ea08b3
-  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100560241"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101647853"
 landingContent:
 - title: Conexión de clústeres de Kubernetes con Azure mediante Azure Arc
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: ¿Qué es Kubernetes habilitado para Azure Arc?
       url: overview.md
+    - text: Programa de validación de Azure Arc
+      url: validation-program.md
   - linkListType: concept
     links:
     - text: Arquitectura de agente
@@ -34,14 +36,18 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Conexión de un clúster
-      url: connect-cluster.md
+    - text: Conexión de un clúster a Azure Arc
+      url: quickstart-connect-cluster.md
+- title: Implementación de configuraciones mediante GitOps
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementación de configuraciones mediante GitOps
+      url: tutorial-use-gitops-connected-cluster.md
 - title: Configuración, gobierno y supervisión de clústeres
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Implementación de configuraciones mediante GitOps
-      url: use-gitops-connected-cluster.md
     - text: Implementación de gráficos de Helm mediante GitOps
       url: use-gitops-with-helm.md
     - text: Aplicación de GitOps mediante Azure Policy

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 461d7a82854ce62ee99eef1227c13c7a8f0371e2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594865"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solución de problemas de Azure Digital Twins: Alertas
 
 Azure Digital Twins recopila [métricas](troubleshoot-metrics.md) para la instancia del servicio que proporcionan información sobre el estado de los recursos. Puede usar estas métricas para evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él.
 
-Las **alertas** le informan de manera proactiva cuando se detectan condiciones importantes en los datos de métricas. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Puede leer más información sobre las alertas en [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+Las **alertas** le informan de manera proactiva cuando se detectan condiciones importantes en los datos de métricas. Le permiten identificar y solucionar los problemas antes de que los usuarios del sistema puedan verlos. Puede leer más información sobre las alertas en [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="turn-on-alerts"></a>Activación de las alertas
 
@@ -38,7 +38,7 @@ Aquí se describe cómo habilitar las alertas para la instancia de Azure Digital
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de pantalla que muestra la página Crear regla de alertas con secciones para el ámbito, la condición, el grupo de acciones y los detalles de la regla de alertas" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-Para un tutorial guiado sobre cómo rellenar estos campos, consulte [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). A continuación se muestran algunos ejemplos de cómo se verán los pasos en Azure Digital Twins.
+Para un tutorial guiado sobre cómo rellenar estos campos, consulte [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md). A continuación se muestran algunos ejemplos de cómo se verán los pasos en Azure Digital Twins.
 
 ### <a name="select-conditions"></a>Selección de condiciones
 
@@ -58,6 +58,6 @@ Después de configurar las alertas, aparecen de nuevo en la página *Alertas* de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las alertas con Azure Monitor, consulte [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* Para más información sobre las alertas con Azure Monitor, consulte [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 * Para información sobre las métricas de Azure Digital Twins, consulte el artículo [*Solución de problemas: visualización de las métricas con Azure Monitor*](troubleshoot-metrics.md).
 * Para ver cómo habilitar el registro de diagnóstico para las métricas, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).

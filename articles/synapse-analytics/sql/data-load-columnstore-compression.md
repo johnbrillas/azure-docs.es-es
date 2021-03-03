@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 18350dc39fceaf6f4c50f8e1053a2972bbce7f44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120944"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676633"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad de un grupo de filas para mejorar el rendimiento de un índice de almacén de columnas
 
@@ -26,7 +26,7 @@ El número de filas de un grupo de filas determina la calidad del grupo de filas
 
 Como los índices de almacén de columnas examinan una tabla mediante el examen de segmentos de columna de grupos de filas individuales, al maximizar el número de filas de cada grupo de estas, se mejora el rendimiento de las consultas. Cuando los grupos de filas presentan un gran número de filas, la compresión de datos mejora; es decir, hay menos datos que se deben leer en el disco.
 
-Para obtener más información sobre los grupos de filas, consulte [Guía de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Para obtener más información sobre los grupos de filas, consulte [Guía de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Tamaño objetivo de los grupos de filas
 
@@ -38,11 +38,11 @@ Durante una carga masiva o una regeneración de índice de almacén columnas, a 
 
 Cuando no hay memoria suficiente para comprimir al menos 10 000 filas en cada grupo de filas, se genera un error.
 
-Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
+Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?view=azure-sqldw-latest#bulk&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
 
-La vista de administración dinámica sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contiene la definición de vista que coincide con SQL Database) que expone información útil, como el número de filas en los grupos de filas y el motivo del recorte (si es que se recortó). Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
+La vista de administración dinámica sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contiene la definición de vista que coincide con SQL Database) que expone información útil, como el número de filas en los grupos de filas y el motivo del recorte (si es que se recortó). Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -142,5 +142,5 @@ Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para descubrir más formas de mejorar el rendimiento de SQL en Synapse, consulte el tema de [información general sobre rendimiento](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+Para descubrir más formas de mejorar el rendimiento de SQL en Synapse, consulte el tema de [información general sobre rendimiento](../overview-terminology.md).
 

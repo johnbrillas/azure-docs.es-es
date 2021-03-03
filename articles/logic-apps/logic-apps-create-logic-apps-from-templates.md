@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066247"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593105"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -50,7 +50,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
    | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree o seleccione un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) para esta aplicación lógica y organice todos los recursos asociados a esta aplicación. | 
    | **Ubicación** | *your-Azure-datacenter-region* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE.UU. | 
-   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Configure el [registro de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para su aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
+   | **Log Analytics** | **Off** (Desactivar) (valor predeterminado) o **On** (Activar) | Configure el [registro de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para su aplicación lógica mediante los [registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md). Es necesario que ya tenga un área de trabajo de Log Analytics. | 
    |||| 
 
 4. Cuando esté listo, elija **Anclar al panel**. De este modo, la aplicación lógica aparecerá automáticamente en el panel de Azure y se abrirá después de la implementación. Seleccione **Create**.

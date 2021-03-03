@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 88f8d62a6321deae8a46d32441625c5960547694
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b03d4fb51021019da4c7d31fccf28b0ee157f32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982078"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670548"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux 3.0 para supervisar métricas y registros
 
@@ -825,6 +825,6 @@ Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-about.md) per
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Cree alertas de métricas de [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para las métricas que recopile.
-* Cree [gráficos de supervisión](../../azure-monitor/platform/data-platform.md) para las métricas.
+* Cree alertas de métricas de [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para las métricas que recopile.
+* Cree [gráficos de supervisión](../../azure-monitor/data-platform.md) para las métricas.
 * Obtenga información sobre cómo [crear un conjunto de escalado de máquinas virtuales](../linux/tutorial-create-vmss.md) con sus propias métricas para controlar el escalado automático.

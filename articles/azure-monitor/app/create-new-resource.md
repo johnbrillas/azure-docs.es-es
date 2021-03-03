@@ -3,12 +3,12 @@ title: Creación de un recurso de Azure Application Insights | Microsoft Docs
 description: Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 3233aed895eac269bd34a961728b3302581ff360
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575620"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 
@@ -35,7 +35,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de 
    | **Modo de recursos** | `Classic` o `Workspace-based` | Los recursos basados en el área de trabajo se encuentran actualmente en versión preliminar pública y permiten enviar la telemetría de Application Insights a un área de trabajo común de Log Analytics. Para obtener más información, consulte el [artículo sobre los recursos basados en áreas de trabajo](create-workspace-resource.md).
 
 > [!NOTE]
-> Aunque puede usar el mismo nombre de recurso en distintos grupos de recursos, puede ser beneficioso usar un nombre único global. Esto puede ser útil si tiene previsto [realizar consultas entre recursos](../log-query/cross-workspace-query.md#identifying-an-application) ya que simplifica la sintaxis necesaria.
+> Aunque puede usar el mismo nombre de recurso en distintos grupos de recursos, puede ser beneficioso usar un nombre único global. Esto puede ser útil si tiene previsto [realizar consultas entre recursos](../logs/cross-workspace-query.md#identifying-an-application) ya que simplifica la sintaxis necesaria.
 
 Escriba los valores apropiados en los campos obligatorios y, a continuación, seleccione **Revisar y crear**.
 
@@ -159,13 +159,13 @@ Para obtener la documentación completa de la CLI de Azure para este comando y o
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de diagnóstico](./diagnostic-search.md)
-* [Exploración de métricas](../platform/metrics-charts.md)
-* [Escribir consultas de Analytics](../log-query/log-query-overview.md)
+* [Exploración de métricas](../essentials/metrics-charts.md)
+* [Escribir consultas de Analytics](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
 

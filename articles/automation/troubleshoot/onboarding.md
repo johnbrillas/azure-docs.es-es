@@ -2,15 +2,14 @@
 title: Solución de problemas con la implementación de características de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas surgidos al implementar las características de Azure Automation.
 services: automation
-ms.subservice: ''
-ms.date: 06/30/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008169"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651126"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solución de incidencias en la implementación de características
 
@@ -20,7 +19,7 @@ Cuando implemente la característica Update Management de Azure Automation o la 
 
 ### <a name="scenario-renaming-a-registered-node-requires-unregister-or-register-again"></a><a name="node-rename"></a>Escenario: el cambio de nombre de un nodo registrado existe la anulación o la repetición del registro
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Un nodo se registra en Azure Automation y después se modifica el nombre del equipo del sistema operativo. Los informes del nodo continúan apareciendo con el nombre original.
 
@@ -28,13 +27,13 @@ Un nodo se registra en Azure Automation y después se modifica el nombre del equ
 
 Cuando se modifica el nombre de los nodos registrados, no se actualiza el nombre del nodo de Azure Automation.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Anule el registro del nodo en State Configuration de Azure Automation y después vuelva a registrarlo. Los informes publicados en el servicio antes de ese momento ya no estarán disponibles.
 
 ### <a name="scenario-re-signing-certificates-via-https-proxy-isnt-supported"></a><a name="resigning-cert"></a>Escenario: No se permite volver a firmar certificados con el proxy HTTPS
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Al conectarse con un proxy que finaliza el tráfico HTTPS y, después, vuelve a cifrar el tráfico utilizando un nuevo certificado, el servicio no permite la conexión.
 
@@ -42,7 +41,7 @@ Al conectarse con un proxy que finaliza el tráfico HTTPS y, después, vuelve a 
 
 Azure Automation no permite volver a firmar los certificados usados para cifrar el tráfico.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Actualmente, no hay ninguna solución alternativa para este problema.
 
@@ -50,7 +49,7 @@ Actualmente, no hay ninguna solución alternativa para este problema.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Escenario: Se produce un error en la implementación de características con el mensaje "No se puede habilitar la solución".
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Al intentar habilitar una característica en una VM, recibe uno de los siguientes mensajes:
 
@@ -66,13 +65,13 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 Este error se produce porque faltan permisos para la VM, el área de trabajo o el usuario, o porque los permisos son incorrectos.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Asegúrese de que tiene los [permisos de implementación de características](../automation-role-based-access-control.md#feature-setup-permissions) correctos y, a continuación, intente implementar la característica de nuevo. Si recibe el mensaje de error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, consulte la siguiente [información de solución de problemas](update-management.md#failed-to-enable-error).
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Escenario: Se produce un error en la implementación de características con el mensaje "No se pudo configurar la cuenta de Automation para el registro de diagnóstico".
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Al intentar habilitar una característica en una máquina virtual, recibe el mensaje siguiente:
 
@@ -82,15 +81,15 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
+Este error puede producirse si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para más información, consulte [Supervisión del uso y costos estimados en Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Cree manualmente el área de trabajo de Log Analytics y repita el proceso de implementación de características para seleccionar el área de trabajo creada.
 
 ### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Este código de error significa que la consulta de búsqueda guardada del grupo de equipos que se utilizó para definir el destino de la característica no tenía un formato correcto. 
 
@@ -98,13 +97,13 @@ Este código de error significa que la consulta de búsqueda guardada del grupo 
 
 Es posible que haya modificado la consulta o que lo haya hecho el sistema.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Puede eliminar la consulta de la característica y volver a habilitar la característica, lo que creará de nuevo la consulta. La consulta se encuentra en la opción **Búsquedas guardadas** del área de trabajo. El nombre de la consulta es **MicrosoftDefaultComputerGroup** y la categoría de la consulta es el nombre de la característica asociada. Si hay varias características habilitadas, la consulta **MicrosoftDefaultComputerGroup** aparecerá varias veces en **Búsquedas guardadas**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Escenario: PolicyViolation
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Este código de error indica que no se pudo realizar la implementación debido a la infracción de una o varias directivas.
 
@@ -112,7 +111,7 @@ Este código de error indica que no se pudo realizar la implementación debido a
 
 Una directiva impide que se complete la operación.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para implementar correctamente la característica, debe considerar la posibilidad de modificar la directiva indicada. Como se pueden definir muchos tipos diferentes de directivas, los cambios necesarios dependerán de la directiva que se haya infringido. Por ejemplo, si se ha definido una directiva en un grupo de recursos que deniega el permiso para cambiar el contenido de algunos recursos incluidos, puede elegir una de estas correcciones:
 
@@ -125,7 +124,7 @@ Consulte las notificaciones en la esquina superior derecha de Azure Portal o des
 
 ### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Escenario: Error al intentar desvincular un área de trabajo
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Recibirá el siguiente mensaje de error cuando intente desvincular un área de trabajo:
 
@@ -137,7 +136,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 Este error se produce cuando todavía dispone de características activas en el área de trabajo de Log Analytics que dependen de que su cuenta de Automation y el área de trabajo de Log Analytics estén vinculadas.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Quite los recursos de las siguientes características del área de trabajo si las usa:
 
@@ -163,7 +162,7 @@ Se puede producir un error en la instalación de la extensión del agente de Log
 
 La extensión de Log Analytics para Windows en la VM no puede comunicarse con los recursos externos y la implementación produce un error.
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Los siguientes son ejemplos de mensajes de error que se devuelven:
 
@@ -182,7 +181,7 @@ Algunas de las posibles causas de este error son:
 * Un servidor proxy configurado en la VM solo permite puertos específicos.
 * Una configuración de firewall ha bloqueado el acceso a los puertos y las direcciones necesarios.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Asegúrese de que los puertos y las direcciones adecuados están abiertos para la comunicación. Para obtener una lista de direcciones y puertos, consulte este artículo sobre el [planeamiento de red](../automation-hybrid-runbook-worker.md#network-planning).
 
@@ -190,7 +189,7 @@ Asegúrese de que los puertos y las direcciones adecuados están abiertos para l
 
 La instalación de la extensión de Log Analytics para Windows no se pudo realizar durante la implementación porque otra instalación o acción la bloquea.
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 A continuación, se muestran ejemplos de mensajes de error que podrían devolverse:
 
@@ -213,7 +212,7 @@ Algunas de las posibles causas de este error son:
 * Hay otra instalación en curso.
 * El sistema se desencadenó para reiniciarse durante la implementación de plantillas.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Este error es transitorio por naturaleza. Vuelva a intentar la implementación para instalar la extensión.
 
@@ -221,7 +220,7 @@ Este error es transitorio por naturaleza. Vuelva a intentar la implementación p
 
 No se completó la instalación de la extensión de Log Analytics para Windows porque se agotó el tiempo de espera.
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 El siguiente es un ejemplo de mensaje de error que se puede devolver:
 
@@ -233,7 +232,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Este tipos de error se produce porque la VM se somete a una carga pesada durante la instalación.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Intente instalar la extensión del agente de Log Analytics para Windows cuando la VM esté sometida a una carga menor.
 

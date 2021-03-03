@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 00ab5c85a477c9c4080acf252cbbde9d4ce816a9
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 15dba02d3db45d663b8ba0aa7eb93bbc3f388532
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620246"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645881"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de entidades de servicio en Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ Para comprobar qué entidad de servicio falta y debe volver a crearse, haga lo s
 1. Seleccione **Aplicaciones empresariales**. En el menú desplegable **Tipo de aplicación**, seleccione *Todas las aplicaciones* y **Aplicar**.
 1. Busque cada uno de los siguientes identificadores de aplicación. Si no se encuentra ninguna aplicación existente, siga los pasos de la *Resolución* para crear la entidad de servicio o volver a registrar el espacio de nombres.
 
-    | Identificador de aplicación | Resolución |
+    | Identificador de aplicación | Solución |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Volver a crear una entidad de servicio que falta](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -85,7 +85,7 @@ El estado del dominio administrado se actualiza automáticamente en dos horas y 
 
 Azure AD DS sincroniza automáticamente las cuentas de usuario y las credenciales de Azure AD. Si hay un problema con la aplicación de Azure AD utilizada para este proceso, se producirá un error en la sincronización de credenciales entre Azure AD DS y Azure AD.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para volver a crear la aplicación de Azure AD utilizada para la sincronización de credenciales, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [Instalación de Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 

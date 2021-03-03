@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682977"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667504"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Grupo de SQL sin servidor en Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ La seguridad se puede reforzar mediante:
 
 T-SQL compatible:
 
-- Se admite el área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, que incluye la mayoría de las funciones de SQL.
+- Se admite el área expuesta [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa, que incluye la mayoría de las funciones de SQL.
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - Instrucciones de DDL relacionadas solo con vistas y seguridad
 
@@ -89,7 +89,7 @@ El grupo de SQL sin servidor no tiene almacenamiento local, solo se almacenan en
 
 ### <a name="extensions"></a>Extensiones
 
-Con el fin de permitir una experiencia fluida para la consulta en contexto de los datos que residen en el lago de datos, el grupo de SQL sin servidor amplía la función [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) existente con la incorporación de las siguientes funcionalidades:
+Con el fin de permitir una experiencia fluida para la consulta en contexto de los datos que residen en el lago de datos, el grupo de SQL sin servidor amplía la función [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) existente con la incorporación de las siguientes funcionalidades:
 
 [Consulta de varios archivos o carpetas](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ El grupo de SQL sin servidor ofrece mecanismos para proteger el acceso a los dat
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 
-El grupo de SQL sin servidor permite administrar centralmente las identidades de usuario de base de datos y otros servicios de Microsoft con la [integración de Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esta funcionalidad simplifica la administración de permisos y mejora la seguridad. Azure Active Directory (Azure AD) admite la [autenticación multifactor](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) para aumentar la seguridad tanto de los datos como de las aplicaciones y admite un proceso de inicio de sesión único.
+El grupo de SQL sin servidor permite administrar centralmente las identidades de usuario de base de datos y otros servicios de Microsoft con la [integración de Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md). Esta funcionalidad simplifica la administración de permisos y mejora la seguridad. Azure Active Directory (Azure AD) admite la [autenticación multifactor](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) para aumentar la seguridad tanto de los datos como de las aplicaciones y admite un proceso de inicio de sesión único.
 
 #### <a name="authentication"></a>Authentication
 
@@ -125,7 +125,7 @@ La autenticación del grupo de SQL sin servidor hace referencia a cómo prueban 
 
 - **Autenticación con Azure Active Directory**:
 
-  Este método de autenticación usa identidades administradas por Azure Active Directory. Se puede habilitar la autenticación multifactor para los usuarios de Azure AD. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+  Este método de autenticación usa identidades administradas por Azure Active Directory. Se puede habilitar la autenticación multifactor para los usuarios de Azure AD. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="authorization"></a>Authorization
 

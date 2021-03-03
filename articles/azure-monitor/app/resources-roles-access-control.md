@@ -4,12 +4,12 @@ description: Propietarios, colaboradores y lectores de las perspectivas de su or
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076691"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589603"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
 
@@ -76,7 +76,7 @@ Cuando corresponda, tendrá un vínculo a la documentación de referencia oficia
 | [Lector](../../role-based-access-control/built-in-roles.md#reader) |Puede ver, pero no puede cambiar nada. |
 | [Depurador de instantáneas de Application Insights](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Concede permiso al usuario para usar las características de Application Insights Snapshot Debugger. Tenga en cuenta que este rol no se incluye en los roles de propietario ni colaborador. |
 | Colaborador para la administración de versiones de implementación de servicios de Azure | Rol de colaborador para servicios que se implementan a través de implementación de servicios de Azure. |
-| [Purgador de datos](../../role-based-access-control/built-in-roles.md#data-purger) | Rol especial para purgar datos personales. Para más información, consulte nuestros [guía para datos personales](../platform/personal-data-mgmt.md).   |
+| [Purgador de datos](../../role-based-access-control/built-in-roles.md#data-purger) | Rol especial para purgar datos personales. Para más información, consulte nuestros [guía para datos personales](../logs/personal-data-mgmt.md).   |
 | Administrador de ExpressRoute | Puede crear, eliminar y administrar rutas rápidas.|
 | [Colaborador de Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure.  |
 | [Lector de Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. |

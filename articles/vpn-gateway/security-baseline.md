@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8221e814b4555a75d596cec3ab00aa3b63e41a14
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: caff705a03f7c4645eedc9423f6a9f9649c1167e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197411"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571287"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Línea de base de seguridad de Azure para VPN Gateway
 
@@ -78,9 +78,9 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de recursos y detectar cambios en los recursos de redes virtuales. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos críticos relacionados con su instancia de VPN Gateway.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -100,7 +100,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -112,9 +112,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: habilite Configuración de diagnóstico en los recursos de VPN Gateway para poder acceder a los registros de auditoría, seguridad y diagnóstico. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -124,7 +124,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos y a largo plazo. 
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -140,9 +140,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -158,7 +158,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -382,7 +382,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 - [Configuración de alertas de eventos de registro de diagnóstico de VPN Gateway](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

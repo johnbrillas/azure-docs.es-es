@@ -3,12 +3,12 @@ title: 'Supervisión del rendimiento de aplicaciones web: Azure Application Insi
 description: Cómo encaja Application Insights en el ciclo de devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc897cc0259894964e0b6164219b1e5459e824b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324495"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579556"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -110,7 +110,7 @@ El mapa de aplicación detecta automáticamente la topología de la aplicación 
 ![Mapa de aplicación](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
-Con [Analytics](../log-query/log-query-overview.md), puede escribir consultas arbitrarias en un lenguaje avanzado, tipo SQL.  El diagnóstico en la pila entera de aplicaciones se convierte en una tarea sencilla gracias a la conexión de diversas perspectivas, y puede formular las preguntas adecuadas para correlacionar el rendimiento del servicio con las métricas empresariales y la experiencia del cliente. 
+Con [Analytics](../logs/log-query-overview.md), puede escribir consultas arbitrarias en un lenguaje avanzado, tipo SQL.  El diagnóstico en la pila entera de aplicaciones se convierte en una tarea sencilla gracias a la conexión de diversas perspectivas, y puede formular las preguntas adecuadas para correlacionar el rendimiento del servicio con las métricas empresariales y la experiencia del cliente. 
 
 Puede consultar todas instancias de telemetría y los datos sin procesar de métricas en el portal. El lenguaje incluye el filtro, unión, agregación y otras operaciones. Puede calcular campos y realizar análisis estadísticos. Dispone de visualizaciones tanto gráficas como tabulares.
 

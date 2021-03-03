@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493230"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658578"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Solución de problemas habituales de Cassandra API de Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Algunas de las causas y soluciones más populares son las siguientes:
 Puede aparecer este error: `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
 
 ### <a name="solution"></a>Solución
-Esto podría deberse al agotamiento de SNAT en el lado del cliente. Siga los pasos descritos en [Uso de SNAT para conexiones salientes](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para descartar este problema. También puede tratarse de un problema de tiempo de espera de inactividad en el que Azure Load Balancer tiene 4 minutos de tiempo de espera de inactividad de manera predeterminada. Consulte la documentación en [Tiempo de espera de inactividad de Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Habilite TCP-keep alive desde la configuración del controlador (consulte la información [siguiente](#enable-keep-alive-for-java-driver)) y establezca el intervalo de `keepAlive` en el sistema operativo en menos de 4 minutos.
+Esto podría deberse al agotamiento de SNAT en el lado del cliente. Siga los pasos descritos en [Uso de SNAT para conexiones salientes](../load-balancer/load-balancer-outbound-connections.md) para descartar este problema. También puede tratarse de un problema de tiempo de espera de inactividad en el que Azure Load Balancer tiene 4 minutos de tiempo de espera de inactividad de manera predeterminada. Consulte la documentación en [Tiempo de espera de inactividad de Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Habilite TCP-keep alive desde la configuración del controlador (consulte la información [siguiente](#enable-keep-alive-for-java-driver)) y establezca el intervalo de `keepAlive` en el sistema operativo en menos de 4 minutos.
 
  
 

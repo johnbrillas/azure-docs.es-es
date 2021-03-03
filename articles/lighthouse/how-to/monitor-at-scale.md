@@ -3,21 +3,21 @@ title: Supervisión de los recursos delegados a escala
 description: Aprenda a usar los registros de Azure Monitor de forma eficaz y escalable en los inquilinos del cliente que está administrando.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379240"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593121"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
 Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../overview.md). Azure Lighthouse permite a los proveedores de servicios realizar operaciones a escala a través de varios inquilinos a la vez, lo que hace que las tareas de administración sean más eficaces.
 
-En este tema se muestra cómo usar los [registros de Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) de forma eficaz y escalable en los inquilinos del cliente que está administrando. Aunque en este tema hacemos referencia a proveedores de servicios y clientes, esta guía es aplicable también a [empresas que usan Azure Lighthouse para administrar varios inquilinos](../concepts/enterprise.md).
+En este tema se muestra cómo usar los [registros de Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) de forma eficaz y escalable en los inquilinos del cliente que está administrando. Aunque en este tema hacemos referencia a proveedores de servicios y clientes, esta guía es aplicable también a [empresas que usan Azure Lighthouse para administrar varios inquilinos](../concepts/enterprise.md).
 
 > [!NOTE]
-> Asegúrese de que se han concedido a los usuarios de los inquilinos de administración los [roles necesarios para administrar las áreas de trabajo de Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) en las suscripciones de clientes delegados.
+> Asegúrese de que se han concedido a los usuarios de los inquilinos de administración los [roles necesarios para administrar las áreas de trabajo de Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) en las suscripciones de clientes delegados.
 
 ## <a name="create-log-analytics-workspaces"></a>Creación de áreas de trabajo de Log Analytics
 
@@ -28,7 +28,7 @@ Se recomienda crear estas áreas de trabajo directamente en los inquilinos del c
 > [!TIP]
 > Cualquier cuenta de Automation usada para acceder a los datos de un área de trabajo de Log Analytics debe crearse en el mismo inquilino que el área de trabajo.
 
-Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md) o [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+Puede crear un área de trabajo de Log Analytics mediante [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), la [CLI de Azure](../../azure-monitor/logs/quick-create-workspace-cli.md) o [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Incluso si todas las áreas de trabajo se crean en el inquilino del cliente, el proveedor de recursos Microsoft.Insights también debe registrarse en una suscripción del inquilino de administración.
@@ -43,11 +43,11 @@ Cuando haya determinado las directivas que se van a implementar, puede [implemen
 
 ## <a name="analyze-the-gathered-data"></a>Análisis de los datos recopilados
 
-Una vez implementadas las directivas, los datos se registrarán en las áreas de trabajo de Log Analytics que ha creado en cada inquilino del cliente. Para obtener información sobre todos los clientes administrados, puede usar herramientas como [Libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) para recopilar y analizar información de varios orígenes de datos.
+Una vez implementadas las directivas, los datos se registrarán en las áreas de trabajo de Log Analytics que ha creado en cada inquilino del cliente. Para obtener información sobre todos los clientes administrados, puede usar herramientas como [Libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) para recopilar y analizar información de varios orígenes de datos.
 
 ## <a name="view-alerts-across-customers"></a>Visualización de alertas entre clientes
 
-Puede ver [alertas](../../azure-monitor/platform/alerts-overview.md) para las suscripciones delegadas en los inquilinos de clientes que administra.
+Puede ver [alertas](../../azure-monitor/alerts/alerts-overview.md) para las suscripciones delegadas en los inquilinos de clientes que administra.
 
 Desde el inquilino de administración, puede [crear, ver y administrar las alertas del registro de actividad](../../azure-monitor/platform/alerts-activity-log.md) en Azure Portal o a través de las API y las herramientas de administración.
 

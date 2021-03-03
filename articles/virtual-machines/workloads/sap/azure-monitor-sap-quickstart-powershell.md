@@ -4,18 +4,16 @@ description: Implementación de Azure Monitor para soluciones de SAP con Azure P
 author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
-ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28b26b8d4d6acdffb4083d182c6a0ce0539080c9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1cea4b72049386ad7a1cc3e67003861c694812c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957374"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671952"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Inicio rápido: Implementación de Azure Monitor para soluciones de SAP con Azure PowerShell
 
@@ -26,7 +24,7 @@ En este artículo se describe cómo puede crear recursos de Azure Monitor para s
 
 ## <a name="requirements"></a>Requisitos
 
-si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 Si decide usar PowerShell de forma local, para este artículo es preciso que instale el módulo Az PowerShell y que se conecte a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para más información sobre cómo instalar el módulo Az PowerShell, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Si decide usar Cloud Shell, consulte [Introducción a Azure Cloud Shell](../../../cloud-shell/overview.md) para más información.
 

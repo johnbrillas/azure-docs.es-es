@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546455"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591737"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -196,7 +196,7 @@ También puede acceder a las métricas mediante programación. Para más informa
 
 - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET). En este ejemplo, se utiliza el nombre de usuario y la contraseña. Si quiere usar un certificado, sobrecargue el método FromServicePrincipal para proporcionar un certificado, tal y como se muestra en [este ejemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/) (Obtención de métricas y registros de actividad de un recurso)
-- [Tutorial sobre la API de REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Tutorial sobre la API de REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > La entrega correcta de las notificaciones significa simplemente que las notificaciones push se entregaron al PNS externo (por ejemplo APNs para iOS y macOS, o FCM para dispositivos Android). Entregar las notificaciones a los dispositivos de destino es responsabilidad del PNS. Habitualmente, el PNS no muestra las métricas de entrega a terceros.  
@@ -211,7 +211,7 @@ También puede acceder a las métricas mediante programación. Para más informa
 [Modelo de seguridad de Notification Hubs]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Tutorial sobre inserciones seguras de Notification Hubs]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Solución de problemas de Notification Hubs]: ./notification-hubs-push-notification-fixer.md
-[Métricas de Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Notification Hubs]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Procedimiento: cómo exportar y modificar registros en bloque]: ./export-modify-registrations-bulk.md
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

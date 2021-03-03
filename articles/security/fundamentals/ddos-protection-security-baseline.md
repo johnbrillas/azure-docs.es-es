@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873967"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575067"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Línea de base de seguridad de Azure para Azure DDoS Protection Estándar
 
@@ -26,7 +26,7 @@ Esta línea de base de seguridad aplica la guía de [Azure Security Benchmark](.
 
 **Guía**: Habilite la configuración de diagnóstico del registro de actividad de Azure y envíela a un área de trabajo de Log Analytics, un centro de eventos de Azure o una cuenta de almacenamiento de Azure para su archivo. Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los planes de Azure DDoS Protection en el nivel del plano de control. Con los datos del registro de actividad de Azure, puede responder a las preguntas "qué, quién y cuándo" de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en el nivel del plano de control para las instancias de Azure DDoS Protection.
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -40,7 +40,7 @@ Habilite la configuración de diagnóstico del registro de actividad de Azure y 
 
 - [Visualización y configuración del registro de diagnóstico de DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -50,7 +50,7 @@ Habilite la configuración de diagnóstico del registro de actividad de Azure y 
 
 **Guía**: En Azure Monitor, establezca el período de retención de registros en las áreas de trabajo de Log Analytics vinculadas a los planes de Azure DDoS Protection atendiendo a las normativas de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Establecimiento de parámetros de retención de registros](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -62,9 +62,9 @@ Habilite la configuración de diagnóstico del registro de actividad de Azure y 
 
 - [Información sobre cómo acceder a la telemetría, los registros y el análisis de ataques del servicio DDoS Protection Estándar](../../ddos-protection/telemetry.md)
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../../azure-monitor/essentials/activity-log.md)
 
-- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -80,7 +80,7 @@ Incorpore un área de trabajo de Log Analytics a Azure Sentinel, ya que proporci
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -276,7 +276,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas cuando se produzcan cambios en los planes de Azure DDoS Protection y en otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -370,7 +370,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
-**Instrucciones**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
+**Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
 - [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
@@ -430,7 +430,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementación de la supervisión de la configuración automatizada para los recursos de Azure
 
-**Instrucciones**: Use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Use la directiva de Azure Policy [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones en los recursos de Azure.
+**Guía**: use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Use la directiva de Azure Policy [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones en los recursos de Azure.
 
 - [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 

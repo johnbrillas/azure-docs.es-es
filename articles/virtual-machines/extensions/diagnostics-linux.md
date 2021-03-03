@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667310"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux 4.0 para supervisar métricas y registros
 
 En este documento se describen las versiones 4.0 y posteriores de la extensión Diagnostics de Linux.
 
 > [!IMPORTANT]
-> Para obtener información sobre la versión 3.*, consulte [este documento](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Para obtener información sobre las versiones 2.3 y anteriores, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Para obtener información sobre la versión 3.*, consulte [este documento](./diagnostics-linux-v3.md). Para obtener información sobre las versiones 2.3 y anteriores, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introducción
 
@@ -108,7 +108,7 @@ El ejecutable python2 debe tener un alias para *python*. A continuación se ofre
 La configuración de ejemplo descargada en estos ejemplos recopila un conjunto de datos estándar y los envía a un almacenamiento de tabla. La dirección URL de la configuración de muestreo y su contenido están sujetos a cambios. En la mayoría de los casos, conviene descargar una copia del archivo JSON de configuración del portal y personalizarlo según sus necesidades y, tras ello, hacer que las plantillas o automatizaciones que se creen usen su propia versión del archivo de configuración, en lugar de tener que descargar esa dirección URL una y otra vez.
 
 > [!NOTE]
-> Para habilitar el nuevo receptor de Azure Monitor, las máquinas virtuales deben tener habilitada la identidad asignada por el sistema para la generación de tokens de autenticación de MSI. Esto puede hacerse durante la creación de VM o una vez que la máquina virtual se haya creado. Pasos para habilitar la identidad asignada por el sistema a través del portal, la CLI, PowerShell y el administrador de recursos.  se muestran detalladamente [aquí](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> Para habilitar el nuevo receptor de Azure Monitor, las máquinas virtuales deben tener habilitada la identidad asignada por el sistema para la generación de tokens de autenticación de MSI. Esto puede hacerse durante la creación de VM o una vez que la máquina virtual se haya creado. Pasos para habilitar la identidad asignada por el sistema a través del portal, la CLI, PowerShell y el administrador de recursos.  se muestran detalladamente [aquí](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### <a name="azure-cli-sample"></a>Ejemplo de la CLI de Azure
 
@@ -490,7 +490,7 @@ Algunos ejemplos son `LinuxSyslog20170410` y `LinuxSyslog20170609`.
 En esta sección opcional se controla la habilitación del envío de métricas al receptor de Azure Monitor, además de la cuenta de Storage y la hoja Métricas de invitado predeterminada.
 
 > [!NOTE]
-> Esto requiere que la identidad asignada por el sistema esté habilitada en las máquinas virtuales/VMSS. Esto puede hacerse a través del portal, la CLI, PowerShell y el administrador de recursos. Los pasos se muestran detalladamente [aquí](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). Los pasos para habilitarla también se muestran en los ejemplos de instalación de la CLI de Azure, PowerShell, etc., anteriores. 
+> Esto requiere que la identidad asignada por el sistema esté habilitada en las máquinas virtuales/VMSS. Esto puede hacerse a través del portal, la CLI, PowerShell y el administrador de recursos. Los pasos se muestran detalladamente [aquí](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). Los pasos para habilitarla también se muestran en los ejemplos de instalación de la CLI de Azure, PowerShell, etc., anteriores. 
 
 ```json
   "sinksConfig": {
@@ -581,7 +581,7 @@ Esta clase de métricas tiene una sola instancia. El atributo "condition" no tie
 
 ### <a name="builtin-metrics-for-the-network-class"></a>Métricas builtin para la clase Network
 
-La clase de métricas Network proporciona información sobre la actividad de red de una interfaz de red individual desde el arranque. LAD no expone las métricas de ancho de banda, las cuales pueden recuperarse a partir de métricas de host.
+La clase de métricas Network proporciona información sobre la actividad de red de una interfaz de red concreta desde el arranque. LAD no expone las métricas de ancho de banda, las cuales pueden recuperarse a partir de métricas de host.
 
 counter | Significado
 ------- | -------
@@ -827,6 +827,6 @@ Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-about.md) per
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Cree alertas de métricas de [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para las métricas que recopile.
-* Cree [gráficos de supervisión](../../azure-monitor/platform/data-platform.md) para las métricas.
+* Cree alertas de métricas de [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para las métricas que recopile.
+* Cree [gráficos de supervisión](../../azure-monitor/data-platform.md) para las métricas.
 * Obtenga información sobre cómo [crear un conjunto de escalado de máquinas virtuales](../linux/tutorial-create-vmss.md) con sus propias métricas para controlar el escalado automático.

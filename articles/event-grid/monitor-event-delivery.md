@@ -3,12 +3,12 @@ title: Visualización de las métricas de Azure Event Grid y configuración de a
 description: En este artículo se describe cómo usar Azure Portal para ver las métricas de temas y suscripciones de Azure Event Grid, y cómo crear alertas en ellas.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577399"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 En este artículo se describe cómo usar el portal para ver las métricas de temas y suscripciones de Event Grid, y cómo crear alertas en ellas. 
@@ -52,7 +52,7 @@ Puede crear gráficos con métricas compatibles mediante la pestaña de **Métri
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temas: página de métricas":::
 
-Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
 Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicados**.
 
@@ -91,7 +91,7 @@ Puede crear gráficos con métricas compatibles mediante la pestaña de **Métri
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temas del sistema: página de métricas":::
 
-Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,5 +1,5 @@
 ---
-title: Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
+title: Creación de una entidad de servicio de incorporación para Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/09/2021
@@ -8,20 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Creación de una entidad de servicio de incorporación habilitada para Azure Arc '
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bda088bdae5c866493718db94c9a2da89cada8c9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390494"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650353"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
+# <a name="create-an-onboarding-service-principal-for-azure-arc-enabled-kubernetes"></a>Creación de una entidad de servicio de incorporación para Kubernetes habilitado para Azure Arc
 
 ## <a name="overview"></a>Información general
 
-Los clústeres de Kubernetes se pueden incorporar a Azure Arc mediante entidades de servicio con asignaciones de roles con privilegios limitados. Esta funcionalidad resulta útil en las canalizaciones de integración continua e implementación continua (CI/CD), como Azure Pipelines y las Acciones de GitHub.
+Los clústeres de Kubernetes se pueden conectar a Azure Arc mediante entidades de servicio con asignaciones de roles con privilegios limitados. Esta funcionalidad resulta útil en las canalizaciones de integración continua e implementación continua (CI/CD), como Azure Pipelines y las Acciones de GitHub.
 
-Realiza los pasos siguientes para obtener información sobre el uso de entidades de servicio para la incorporación de clústeres de Kubernetes a Azure Arc.
+Siga los pasos que se indican a continuación para aprender a usar entidades de servicio para conectar clústeres de Kubernetes a Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Creación de una entidad de servicio
 
@@ -49,11 +49,11 @@ Asigne el rol "Clúster de Kubernetes: incorporación de Azure Arc" a la entidad
 
 Dado que las capacidades son limitadas, los clientes pueden volver a usar fácilmente esta entidad de seguridad para incorporar varios clústeres.
 
-Los permisos se pueden limitar aún más si se pasa el argumento `--scope` adecuado al asignar el rol. Esto permite que los clientes restrinjan el registro del clúster. Los distintos parámetros `--scope` admiten los siguientes escenarios:
+Los permisos se pueden limitar aún más si se pasa el argumento `--scope` adecuado al asignar el rol. Esto permite a los administradores restringir el registro de clústeres al ámbito de la suscripción o del grupo de recursos. Los distintos parámetros `--scope` admiten los siguientes escenarios:
 
 | Resource  | Argumento `scope`| Efecto |
 | ------------- | ------------- | ------------- |
-| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | La entidad de servicio puede registrar cualquier clúster en un grupo de recursos existente en la suscripción especificada. |
+| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | La entidad de servicio puede registrar un clúster en cualquier grupo de recursos de la suscripción en que se encuentre. |
 | Grupo de recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | La entidad de servicio __solo__ puede registrar clústeres en el grupo de recursos `myGroup`. |
 
 ```console

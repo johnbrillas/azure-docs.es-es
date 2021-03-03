@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681372"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677441"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Cifrado del lado servidor de Azure Disk Storage
 
@@ -51,6 +51,17 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 #### <a name="supported-regions"></a>Regiones admitidas
 
 Las claves administradas por el cliente están disponibles en todas las regiones en las que están disponibles los discos administrados.
+
+La rotación automática de claves está en versión preliminar y solo está disponible en las siguientes regiones:
+
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Centro-sur de EE. UU.
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+- Norte de Europa
+- Oeste de Europa
+- Centro de Francia
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente dependen de identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). Al configurar claves administradas por el cliente, se asigna automáticamente una identidad administrada a los recursos en segundo plano. Si posteriormente mueve la suscripción, el grupo de recursos o el disco administrado de un directorio de Azure AD a otro, la identidad administrada asociada a los discos administrados no se transfiere al nuevo inquilino, por lo que es posible que las claves administradas por el cliente dejen de funcionar. Para obtener más información, consulte [Transferencia de una suscripción entre directorios de Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

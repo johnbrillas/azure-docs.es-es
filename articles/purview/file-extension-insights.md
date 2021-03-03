@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202630"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668576"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Conclusiones de extensión de archivo sobre los datos en Azure Purview 
 
 En esta guía paso a paso se describe cómo acceder a las conclusiones sobre las extensiones de archivo o los tipos de archivo que se encuentran en los datos. En la guía también se describe cómo ver y filtrar esas conclusiones.
 
-Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1 y Azure Data Lake Storage (ADLS) GEN 2
+Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2 y cubos de Amazon S3
 
 En esta guía paso a paso, aprenderá a:
 > [!div class="checklist"]
@@ -30,9 +30,9 @@ En esta guía paso a paso, aprenderá a:
 
 Antes de empezar con las conclusiones de Purview, asegúrese de que ha completado los pasos siguientes:
 
-- Configurar los recursos de Azure y rellenar las cuentas pertinentes con los datos de prueba
+- Configurar los recursos de Azure y rellenar las cuentas pertinentes con los datos de prueba.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
 - Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

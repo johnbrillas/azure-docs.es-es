@@ -3,25 +3,26 @@ title: Uso de la CLI para implementar máquinas virtuales de acceso puntual de A
 description: Aprenda a usar la CLI para implementar máquinas virtuales de acceso puntual de Azure con la finalidad de ahorrar costos.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f1ad1dff695755e88881773bdcbebc2da283b75d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554776"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669375"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementación de máquinas virtuales de acceso puntual de Azure con la CLI de Azure
 
-El uso de [máquinas virtuales de acceso puntual de Azure](../spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, la infraestructura de esta plataforma expulsará las máquinas virtuales de acceso puntual de Azure. Por lo tanto, estas máquinas son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo y pruebas, las cargas de trabajo de proceso de gran tamaño, etc.
+El uso de [máquinas virtuales de acceso puntual de Azure](../spot-vms.md) permite aprovechar las ventajas de nuestra capacidad no utilizada con un importante ahorro en los costos. Siempre que Azure necesite recuperar la capacidad, su infraestructura expulsará las máquinas virtuales de acceso puntual de Azure. Por lo tanto, las máquinas virtuales de acceso puntual de Azure son excelentes para cargas de trabajo que puedan soportar interrupciones, como los trabajos de procesamiento por lotes, los entornos de desarrollo/pruebas, las grandes cargas de trabajo de proceso, etc.
 
-Los precios de las máquinas virtuales de acceso puntual de Azure son variables, según la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Los precios de las máquinas virtuales de acceso puntual de Azure son variables, en función de la región y la SKU. Para más información, consulte precios de las máquinas virtuales para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de acceso puntual de Azure se puede establecer en dólares estadounidenses (USD), con hasta cinco decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el precio actual de la máquina virtual de acceso puntual de Azure o, de ser menor, el de una máquina virtual estándar, siempre que haya capacidad y cuota disponibles. Para más información sobre cómo se establece el precio máximo, consulte [Máquinas virtuales de acceso puntual de Azure: precios](../spot-vms.md#pricing).
+Puede establecer el precio máximo por hora que esté dispuesto por la máquina virtual. El precio máximo de una máquina virtual de acceso puntual de Azure se puede establecer en dólares estadounidenses (USD), con un máximo de 5 decimales. Por ejemplo, el valor `0.98765` correspondería a un precio máximo de 0,98765 USD por hora. Si establece el precio máximo en `-1`, la máquina virtual no se expulsará por precio. El precio de la máquina virtual será el precio actual de la máquina virtual de acceso puntual de Azure o, de ser menor, el de una máquina virtual estándar, siempre que haya capacidad y cuota disponibles. Para más información sobre cómo se establece el precio máximo, consulte [Máquinas virtuales de acceso puntual de Azure: precios](../spot-vms.md#pricing).
 
 El proceso de creación de una máquina virtual de acceso puntual de Azure con la CLI de Azure es el mismo que el que se detalla en el [artículo de inicio rápido](./quick-create-cli.md). Tan solo agregue el parámetro "--priority Spot", establezca `--eviction-policy` en Desasignar (este es el valor predeterminado) o en `Delete` e indique un precio máximo o `-1`. 
 

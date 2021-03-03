@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 08aa69db90901447297e06cd111b6b0174e6637a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881323"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575095"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -155,9 +155,9 @@ En el caso de un recurso de la red virtual de Azure Machine Learning que admita 
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con Azure Machine Learning. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -193,9 +193,9 @@ En el caso de un recurso de la red virtual de Azure Machine Learning que admita 
 
 También puede poner en correlación los registros de operaciones de Machine Learning Service con fines de seguridad y cumplimiento.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Habilitación del registro en Azure Machine Learning](./how-to-track-experiments.md)
 
@@ -211,7 +211,7 @@ También puede poner en correlación los registros de operaciones de Machine Lea
 
 Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes recursos de proceso e incluso en sus propios recursos de proceso. Para cualquier recurso de proceso que sea propiedad de su organización, use Azure Security Center para supervisar el sistema operativo. 
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Descripción de la recopilación de datos de Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
@@ -223,7 +223,7 @@ Azure Machine Learning tiene distintas modalidades de soporte técnico en los di
 
 **Instrucciones**: En Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a las instancias de Azure Machine Learning según las normativas de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Establecimiento de parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -241,9 +241,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -257,7 +257,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 - [Para más información sobre las alertas de Azure Machine Learning](monitor-azure-machine-learning.md#alerts)
 
-- [Alertas sobre datos de registro del área de trabajo de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro del área de trabajo de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -565,7 +565,7 @@ Microsoft administra la infraestructura subyacente para Machine Learning y ha im
 
 **Instrucciones**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure Machine Learning y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

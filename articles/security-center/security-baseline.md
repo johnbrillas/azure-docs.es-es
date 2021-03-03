@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e4c749d875ab22f8cdf26adf6050e1fa0476b28
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572935"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Línea de base de seguridad de Azure para Security Center
 
@@ -30,7 +30,7 @@ Esta línea de base de seguridad aplica la guía de [Azure Security Benchmark](.
 
 - [Filtrado del tráfico de red con un grupo de seguridad de red](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [¿Qué es Azure Private Link?](../private-link/private-link-overview.md) 
 
@@ -46,7 +46,7 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 - [Recopilación de datos en Azure Security Center](security-center-enable-data-collection.md)
 
-- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -70,7 +70,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones e
 
 - [Recopilación de datos en Azure Security Center](security-center-enable-data-collection.md)
 
-- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Requisitos de firewall para usar el agente de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md) 
 
@@ -86,9 +86,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones e
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con Azure Security Center. Cree alertas en Azure Monitor para recibir una notificación cuando se produzcan cambios en recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -112,9 +112,9 @@ Como alternativa, puede enviar los datos generados por Security Center a Azure S
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -126,11 +126,11 @@ Como alternativa, puede enviar los datos generados por Security Center a Azure S
 
 **Guía**: Los registros de actividad de Azure Monitor están disponibles de forma automática y contienen todas las operaciones de escritura para el recurso, como Azure Security Center, incluidas las operaciones que se realizaron, quién inició la operación y cuándo. Envíe los registros de actividad de Azure a un área de trabajo de Log Analytics para consolidarlos y aumentar la retención.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Envío de registros de actividad a un área de trabajo de Log Analytics](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)
+- [Envío de registros de actividad a un área de trabajo de Log Analytics](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -140,7 +140,7 @@ Como alternativa, puede enviar los datos generados por Security Center a Azure S
 
 **Guía**: En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos y a largo plazo. 
 
-- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -156,9 +156,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -174,11 +174,11 @@ También puede habilitar e incorporar los datos relacionados con Azure Security 
 
 - [Administración de alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) 
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Alertas de registro en Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)
+- [Alertas de registro en Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -368,7 +368,7 @@ De forma predeterminada, los datos de Azure Security Center se almacenan en el s
 
 Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el cifrado en tránsito, si procede. 
 
-- [Envío de datos de forma segura a Log Analytics](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)
+- [Envío de datos de forma segura a Log Analytics](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
 - [Descripción del cifrado en tránsito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -394,7 +394,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 **Guía**: Azure Security Center usa un área de trabajo de Log Analytics configurada para almacenar los datos, las alertas y las recomendaciones que genera. Configure una clave administrada por el cliente (CMK) para el área de trabajo que ha configurado para la recopilación de datos de Security Centers. CMK permite cifrar todos los datos guardados o enviados en el área de trabajo con una clave de Azure Key Vault que usted mismo puede crear y que será de su propiedad. 
 
-- [Clave administrada por el cliente de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
+- [Clave administrada por el cliente de Azure Monitor](../azure-monitor/logs/customer-managed-keys.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -404,7 +404,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 **Guía**: Use Azure Monitor para crear alertas cuando se realicen cambios en recursos críticos de Azure relacionados con Azure Security Center. Estos cambios pueden incluir cualquier acción que modifique configuraciones relacionadas con Security Center, como la deshabilitación de alertas o recomendaciones, o la actualización o eliminación de almacenes de datos.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -596,7 +596,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 **Guía**: Azure Security Center usa un área de trabajo de Log Analytics configurada para almacenar los datos, las alertas y las recomendaciones que genera. Configure una clave administrada por el cliente (CMK) para el área de trabajo que ha configurado para la recopilación de datos de Security Centers. CMK permite cifrar todos los datos guardados o enviados en el área de trabajo con una clave de Azure Key Vault que usted mismo puede crear y que será de su propiedad. 
 
-- [Clave administrada por el cliente de Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
+- [Clave administrada por el cliente de Azure Monitor](../azure-monitor/logs/customer-managed-keys.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -656,7 +656,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 **Guía**: garantice la restauración periódica con copias de seguridad de los archivos de plantilla de Azure Resource Manager. Pruebe la restauración de la copia de seguridad de las claves administradas por el cliente.
 
-- [Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md)
+- [Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [Restauración de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

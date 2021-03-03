@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633185"
 ---
 # <a name="monitor-module-twins"></a>Supervisión de módulos gemelos
 
@@ -213,7 +213,7 @@ Si realiza cambios, seleccione **Update Module Twin** (Actualizar módulo gemelo
 
 Para ver si IoT Edge se está ejecutando, use el comando [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) para hacer ping al agente de IoT Edge.
 
-La estructura [az iot hub module-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) proporciona estos comandos:
+La estructura [az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) proporciona estos comandos:
 
 * **az iot hub module-twin show**: muestra una definición del módulo gemelo.
 * **az iot hub module-twin update**: actualiza la definición de un módulo gemelo.

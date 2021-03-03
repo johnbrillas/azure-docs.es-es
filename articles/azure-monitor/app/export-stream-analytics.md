@@ -3,12 +3,12 @@ title: Exportación mediante Stream Analytics desde Azure Application Insights |
 description: Stream Analytics puede transformar, filtrar y enrutar continuamente los datos de que exportan desde Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8486d7e5656a7770aec4a50739d3a9160e123e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979178"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584334"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -55,7 +55,7 @@ La exportación continua siempre envía los datos a una cuenta de Azure Storage,
 
     ![Elija los tipos de evento.](./media/export-stream-analytics/080.png)
 
-1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../platform/metrics-charts.md) y eventos individuales en la [búsqueda de diagnóstico](./diagnostic-search.md). 
+1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../essentials/metrics-charts.md) y eventos individuales en la [búsqueda de diagnóstico](./diagnostic-search.md). 
    
     Y, además, exportará los datos en el almacenamiento. 
 2. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no tiene esta opción de menú, deberá instalar Azure SDK: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener Microsoft Azure SDK para. NET).

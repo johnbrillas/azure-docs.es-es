@@ -3,22 +3,22 @@ title: 'Supervisión de servidores: Azure Database for MariaDB'
 description: En este artículo se describen las métricas de supervisión y alertas de Azure Database for MariaDB, incluidas las estadísticas de CPU, almacenamiento y conexión.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 3d2cf88dba44a7f18f73fbafb66381d2ef8b29c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f63b0b523184917097c73c852a7624b366fbbb24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664289"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595213"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
 
 Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-metric.md) (Configuración de alertas).
 
@@ -67,6 +67,6 @@ Puede encontrar más información sobre cómo configurar notificaciones en el do
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
+- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/data-platform.md).
 - Consulte [How to set up alerts](howto-alert-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - Más información sobre las [notificaciones de mantenimiento planeado](./concepts-planned-maintenance-notification.md) en Azure Database for MariaDB.

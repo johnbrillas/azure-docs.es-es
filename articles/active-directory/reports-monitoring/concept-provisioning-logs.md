@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091939"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651944"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Información general sobre los registros de aprovisionamiento en Azure Portal (versión preliminar)
 
@@ -60,8 +60,8 @@ Para ver el informe de actividades de aprovisionamiento, el inquilino debe tener
 Los clientes pueden interactuar con los registros de aprovisionamiento de cuatro maneras:
 
 - Acceder a los registros desde Azure Portal, como se describe en la siguiente sección.
-- Transmitir los registros de aprovisionamiento a [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Este método permite la retención extendida de datos y la creación de paneles, alertas y consultas personalizados.
-- Consultar la [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
+- Transmitir los registros de aprovisionamiento a [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). Este método permite la retención extendida de datos y la creación de paneles, alertas y consultas personalizados.
+- Consultar la [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para los registros de aprovisionamiento.
 - Descargar los registros de aprovisionamiento como un archivo CSV o JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Acceso a los registros desde Azure Portal
@@ -207,7 +207,7 @@ El archivo JSON se descarga en formato reducido para reducir el tamaño de la de
 
 Estos son algunos comandos de ejemplo para trabajar con el archivo JSON mediante PowerShell. Puede usar cualquier lenguaje de programación con el que esté familiarizado.  
 
-En primer lugar, para [leer el archivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1), ejecute este comando:
+En primer lugar, para [leer el archivo JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1), ejecute este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

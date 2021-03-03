@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355603"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653329"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
-Si configura la federación con Google, puede permitir que los usuarios invitados puedan iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft. 
+Si configura la federación con Google, puede permitir que los usuarios invitados puedan iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft.
+
+Cuando haya agregado Google como una de las opciones de inicio de sesión en la página **Iniciar sesión**, el usuario solo tendrá que escribir el correo electrónico que utiliza para iniciar sesión en Google o seleccionar **Opciones de inicio de sesión** y elegir **Iniciar sesión con Google**. En los dos casos, accederá automáticamente a la página de inicio de sesión de Google, donde tendrá que autenticarse.
+
+![Opciones de inicio de sesión para los usuarios de Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > La federación de Google está diseñada específicamente para los usuarios de Gmail. Para realizar la federación con los dominios de G Suite, use la [federación directa](direct-federation.md).
@@ -30,13 +34,33 @@ Si configura la federación con Google, puede permitir que los usuarios invitado
 > **A partir del 4 de enero de 2021**, Google [retira la compatibilidad con el inicio de sesión en WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa la federación de Google o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
-Cuando envíe una invitación a usuarios de Gmail de Google, el usuario invitado debe acceder a sus aplicaciones o recursos compartidos mediante un vínculo que incluya el contexto del inquilino. Su experiencia varía en función de si ya han iniciado sesión en Google:
-  - Se pedirá a los usuarios invitados que no hayan iniciado sesión en Google que lo hagan.
-  - Se pedirá a los usuarios invitados que ya hayan iniciado sesión en Google que elijan la cuenta que desean usar. Deben elegir la cuenta donde hayan recibido la invitación.
+
+Cuando un usuario de Google canjee su invitación, su experiencia variará en función de si ya ha iniciado sesión o no en Google:
+
+- Se pedirá a los usuarios invitados que no hayan iniciado sesión en Google que lo hagan.
+- Se pedirá a los usuarios invitados que ya hayan iniciado sesión en Google que elijan la cuenta que desean usar. Deben elegir la cuenta donde hayan recibido la invitación.
 
 Los usuarios invitados que ven un error "encabezado demasiado largo" pueden eliminar sus cookies o abrir una ventana privada o de incógnito e intentar iniciar sesión de nuevo.
 
 ![Captura de pantalla en la que se muestra la página de inicio de sesión de Google.](media/google-federation/google-sign-in.png)
+
+## <a name="sign-in-endpoints"></a>Puntos de conexión de inicio de sesión
+
+Ahora, los usuarios invitados de Google pueden iniciar sesión en sus aplicaciones multiinquilino o en las aplicaciones propias de Microsoft utilizando un [punto de conexión común](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (en otras palabras, una dirección URL general de la aplicación que no incluya el contexto del inquilino). A continuación, se muestran algunos ejemplos de puntos de conexión comunes:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Durante el proceso de inicio de sesión, el usuario invitado elige **Opciones de inicio de sesión** y después selecciona **Sign in to an organization** (Iniciar sesión en una organización). A continuación, el usuario escribe el nombre de la organización y continúa iniciando sesión con las credenciales de Google.
+
+Los usuarios invitados de Google también pueden usar puntos de conexión de la aplicación que incluyan la información del inquilino; por ejemplo:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+También puede proporcionar a los usuarios invitados de Google un vínculo directo a una aplicación o recurso que incluya la información del inquilino; por ejemplo, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
 ## <a name="deprecation-of-webview-sign-in-support"></a>Desuso de la compatibilidad con el inicio de sesión en WebView
 
@@ -66,23 +90,13 @@ Seguimos probando varias plataformas y escenarios y actualizaremos este artícul
    - Si la aplicación de Windows usa WebView insertado o WebAccountManager (WAM) en una versión anterior de Windows, actualice a la versión más reciente de esta plataforma.
    - Modifique sus aplicaciones para que usen el explorador del sistema para el inicio de sesión. Para más información, consulte [Interfaz de usuario web del sistema frente a insertada](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) en la documentación de MSAL.NET.  
 
-## <a name="sign-in-endpoints"></a>Puntos de conexión de inicio de sesión
 
-Teams admite totalmente a los usuarios invitados de Google en todos los dispositivos. Los usuarios de Google pueden iniciar sesión en Teams desde un punto de conexión común, como `https://teams.microsoft.com`.
-
-Es posible que los puntos de conexión comunes de otras aplicaciones no admitan a los usuarios de Google. Los usuarios invitados de Google deberán iniciar sesión con un vínculo que incluya la información del inquilino. A continuación, se muestran algunos ejemplos:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   Si los usuarios invitados de Google intentan usar un vínculo como `https://myapps.microsoft.com` o `https://portal.azure.com`, recibirán un error.
-
-También puede proporcionar a los usuarios invitados de Google un vínculo directo a una aplicación o recurso, siempre que el vínculo incluya la información del inquilino. Por ejemplo, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## <a name="step-1-configure-a-google-developer-project"></a>Paso 1: configuración de un proyecto de desarrollador de Google
 En primer lugar, cree un proyecto en la consola de desarrolladores de Google para obtener un identificador y un secreto de cliente que pueda agregar después a Azure Active Directory (Azure AD). 
 1. Vaya a las API de Google de https://console.developers.google.com e inicie sesión con su cuenta de Google. Se recomienda utilizar una cuenta de Google compartida con el equipo.
 2. Si se le solicita, acepte los términos del servicio.
-3. Cree un nuevo proyecto: En el panel, seleccione **Crear proyecto**, asigne un nombre al proyecto (por ejemplo, **Azure AD B2B**), y, después, seleccione **Crear**: 
+3. Cree un nuevo proyecto: en la esquina superior izquierda de la página, seleccione la lista de proyectos y, en la página **Seleccionar un proyecto**, haga clic en **Nuevo proyecto**.
+4. En la página **Nuevo proyecto**, escriba un nombre para el proyecto (por ejemplo, **Azure AD B2B**) y seleccione **Crear**: 
    
    ![Captura en la que se muestra una página Nuevo proyecto.](media/google-federation/google-new-project.png)
 

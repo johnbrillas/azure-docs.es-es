@@ -5,15 +5,16 @@ author: cynthn
 ms.author: cynthn
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e902798284240b55a3b08ea55ab6ee55add2431
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e4213b4d135d517dcf0e2ec025716be136f587f2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575845"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667988"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder mediante PowerShell
 
@@ -22,7 +23,7 @@ En este artículo se muestra cómo puede crear una imagen personalizada de Windo
 > [!CAUTION]
 > Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública. Esta versión preliminar se proporciona sin un acuerdo de nivel de servicio. No se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

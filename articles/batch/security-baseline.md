@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737242"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593311"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -142,7 +142,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -200,7 +200,7 @@ Si es necesario, es posible conectarse a los nodos individuales de un grupo medi
 
 - [Configuración del registro y la supervisión de Azure Batch](monitoring-overview.md)
 
-- [Configuración del período de retención del área de trabajo de Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Configuración del período de retención del área de trabajo de Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -514,7 +514,7 @@ Azure Disk Encryption se puede usar para custodiar y proteger sus datos con el f
 
 Configure los valores de diagnóstico para las cuentas de almacenamiento asociadas al grupo de Azure Batch para supervisar y registrar todas las operaciones CRUD en los datos del grupo.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Habilitación de registro o auditoría adicionales para una cuenta de Azure Storage](../storage/common/storage-monitor-storage-account.md)
 

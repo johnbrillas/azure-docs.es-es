@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: d35a97b0008a7ce3069185dd557a60221776b0ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530525"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595467"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recopilación de datos de orígenes basados en Linux mediante Syslog
 
@@ -34,7 +34,7 @@ Puede transmitir eventos de máquinas o dispositivos compatibles con Syslog basa
 
 **Syslog** es un protocolo de registro de eventos que es común a Linux. Al instalar el **agente de Log Analytics para Linux** en su VM o dispositivo, la rutina de instalación configura el demonio Syslog local para que reenvíe mensajes al agente en el puerto TCP 25224. Después, el agente envía el mensaje al área de trabajo de Log Analytics a través de HTTPS, donde se analiza en una entrada del registro de eventos de la tabla Syslog en **Azure Sentinel > Registros**.
 
-Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
 
 ## <a name="configure-syslog-collection"></a>Configuración de recopilaciones de Syslog
 
@@ -83,7 +83,7 @@ Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor]
 
 1. Para consultar los datos de registro de Syslog en **Registros**, escriba `Syslog` en la ventana de consulta.
 
-1. Puede usar los parámetros de consulta que se describen en [Uso de funciones en consultas de registros de Azure Monitor](../azure-monitor/log-query/functions.md) para analizar los mensajes de Syslog. Después, puede guardar la consulta como una nueva función de Log Analytics y usarla como un nuevo tipo de datos.
+1. Puede usar los parámetros de consulta que se describen en [Uso de funciones en consultas de registros de Azure Monitor](../azure-monitor/logs/functions.md) para analizar los mensajes de Syslog. Después, puede guardar la consulta como una nueva función de Log Analytics y usarla como un nuevo tipo de datos.
 
 > [!NOTE]
 > **Uso del mismo equipo para reenviar Syslog sin formato *y* mensajes de CEF**
@@ -92,7 +92,7 @@ Para más información, consulte [Orígenes de datos de Syslog en Azure Monitor]
 >
 >    Cuando ya haya configurado la [recopilación de datos de los orígenes de CEF](connect-common-event-format.md) y haya configurado el agente de Log Analytics como se ha indicado anteriormente:
 >
-> 1. En cada máquina que envíe registros en formato CEF, debe editar el archivo de configuración de Syslog para quitar las funciones que se usan para enviar mensajes CEF. De este modo, las instalaciones que se envían en CEF no se enviarán también en Syslog. Consulte [Configuración de Syslog en agente de Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) para obtener instrucciones detalladas sobre cómo hacerlo.
+> 1. En cada máquina que envíe registros en formato CEF, debe editar el archivo de configuración de Syslog para quitar las funciones que se usan para enviar mensajes CEF. De este modo, las instalaciones que se envían en CEF no se enviarán también en Syslog. Consulte [Configuración de Syslog en agente de Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) para obtener instrucciones detalladas sobre cómo hacerlo.
 >
 > 1. Debe ejecutar el siguiente comando en esas máquinas para deshabilitar la sincronización del agente con la configuración de Syslog en Azure Sentinel. Esto garantiza que el cambio de configuración que ha realizado en el paso anterior no se sobrescriba.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

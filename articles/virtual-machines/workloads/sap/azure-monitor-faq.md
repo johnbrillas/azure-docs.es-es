@@ -2,18 +2,16 @@
 title: 'Preguntas frecuentes: Azure Monitor para soluciones de SAP | Microsoft Docs'
 description: En este artículo, obtendrá respuestas a preguntas frecuentes sobre las soluciones de Azure Monitor para SAP.
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 204b809966fbf63a48f6d1ce1d80f87f706c9a56
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968577"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675947"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Preguntas frecuentes acerca de las soluciones de Azure Monitor para SAP (versión preliminar)
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

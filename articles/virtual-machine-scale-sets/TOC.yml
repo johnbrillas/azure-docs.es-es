@@ -164,6 +164,8 @@
     - name: Distribuciones de Linux promocionadas
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
+    - name: Modo de orquestación (versión preliminar)
+      href: virtual-machine-scale-sets-orchestration-modes.md
     - name: Mantenimiento y actualizaciones
       items:
         - name: Información general
@@ -210,7 +212,7 @@
           href: security-baseline.md
       maintainContext: true
     - name: Supervisión
-      href: ../azure-monitor/insights/monitor-vm-azure.md
+      href: ../azure-monitor/vm/monitor-vm-azure.md
       maintainContext: true
     - name: Consideraciones de la implementación
       items:
@@ -304,7 +306,7 @@
             - name: Uso de Azure Portal
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Escalado automático avanzado
-              href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
               maintainContext: true
             - name: Solución de problemas de escalado automático
               href: virtual-machine-scale-sets-troubleshoot.md
@@ -344,7 +346,7 @@
               href: ../virtual-machines/windows/dedicated-hosts-powershell.md
             - name: Portal
               href: ../virtual-machines/dedicated-hosts-portal.md
-        - name: Uso de instancia de Spot
+        - name: Máquinas virtuales de Azure Spot
           href: use-spot.md
     - name: Administrar
       items:

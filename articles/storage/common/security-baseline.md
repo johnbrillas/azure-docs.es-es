@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195728"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591549"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Línea de referencia de seguridad de Azure para Azure Storage
 
@@ -158,7 +158,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 - [Configuración y administración de Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Creación de alertas en Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -180,7 +180,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 **Instrucciones**: Ingiera recursos mediante Azure Monitor para agregar datos de seguridad agregados generados por dispositivos de punto de conexión, recursos de red y otros sistemas de seguridad. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y utilice cuentas de Azure Storage para el almacenamiento de archivos a largo plazo, lo que puede incluir, opcionalmente, características de seguridad como almacenamiento inmutable y aplicación de suspensiones de retención.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -210,7 +210,7 @@ También puede usar definiciones de directivas integradas relacionadas con la cu
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](./storage-monitor-storage-account.md#configure-logging)
 
-- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -238,7 +238,7 @@ Además, habilite Advanced Threat Protection en la cuenta de Azure Storage. Adva
 
 - [Administración de alertas de seguridad en Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Registro de Azure Storage Analytics](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough mediante roles de Az
 
 - [Información sobre las detecciones de riesgo de Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../../azure-monitor/platform/action-groups.md)
+- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../../azure-monitor/alerts/action-groups.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -572,7 +572,7 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos de la cuenta de Storage. También puede habilitar el registro de Azure Storage para realizar un seguimiento de cómo se autorizó cada solicitud realizada en Azure Storage. Los registros indican si una solicitud se realizó de forma anónima o mediante un token OAuth 2.0, una clave compartida o una firma de acceso compartido (SAS). Además, use Azure Monitor para alertar sobre el acceso anónimo a cuentas de Storage mediante la condición de autenticación anónima.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Registro de Azure Storage Analytics](./storage-analytics-logging.md)
 

@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676570"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
 En esta guía paso a paso se describe cómo acceder a conclusiones de seguridad que las etiquetas de confidencialidad que se aplican a los datos proporcionan. En la guía también se describe cómo ver y filtrar esas conclusiones.
 
-Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database y Azure SQL Managed Instance
+Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance y cubos de Amazon S3
 
 En esta guía paso a paso, aprenderá a:
 
@@ -40,7 +40,7 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - [Etiquetas de confidencialidad de Microsoft 365 extendidas a los recursos de Azure ámbito](create-sensitivity-label.md), y crear o seleccionar las etiquetas que desea aplicar a los datos.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
 - Iniciar sesión en Purview con una cuenta con un [rol de lector o conservador de datos](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: 5abece0e272d4b72ba6f787ad44b091df5d45226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e7193ee5d076538689078ce634b8170926df20b6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416762"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653259"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Compatibilidad con la autenticación sin contraseña con claves FIDO2 en aplicaciones desarrolladas por el usuario
 
@@ -47,7 +47,7 @@ En primer lugar, se les presentará el método de inicio de sesión usado más r
 Las opciones recomendadas para implementar la autenticación son, en orden:
 
 - Las aplicaciones de escritorio de .NET que usan la biblioteca de autenticación de Microsoft (MSAL) deben usar el administrador de autenticación de Windows (WAM). Esta integración y sus ventajas están [documentadas en GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) para admitir FIDO2 en un explorador incrustado.
+- Use [WebView2](/microsoft-edge/webview2/) para admitir FIDO2 en un explorador incrustado.
 - Utilice el explorador del sistema. Las bibliotecas MSAL para plataformas de escritorio usan este método de forma predeterminada. Puede consultar nuestra página sobre la compatibilidad de exploradores de FIDO2 para asegurarse de que el explorador que usa admite la autenticación FIDO2.
 
 ### <a name="mobile"></a>Móvil

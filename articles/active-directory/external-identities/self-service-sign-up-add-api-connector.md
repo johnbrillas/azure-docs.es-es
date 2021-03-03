@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807027"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647394"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adición de un conector de API a un flujo de usuario
 
@@ -30,7 +30,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de Azure AD.
 2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
-4. Seleccione **All API connectors (Preview)** (Todos los conectores de API [versión preliminar]) y, después, seleccione **New API connector** (Nuevo conector de API).
+4. Seleccione **All API connectors** (Todos los conectores de API) y **New API connector** (Nuevo conector de API).
 
    ![Adición de un conector de API nuevo](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -97,7 +97,7 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de autose
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de Azure AD.
 2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
-4. Seleccione **Flujos de usuario (versión preliminar)** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
+4. Seleccione **Flujos de usuario** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
 5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
 
    - **Después de iniciar sesión con un proveedor de identidades**
@@ -247,7 +247,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -269,7 +269,7 @@ Content-type: application/json
 
 ```
 
-| Parámetro   | Tipo   | Requerido | Descripción                                                                |
+| Parámetro   | Tipo   | Obligatorio | Descripción                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sí      | La versión de la API.                                                    |
 | action      | String | Sí      | El valor debe ser `ShowBlockPage`.                                              |
@@ -295,7 +295,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro   | Tipo    | Requerido | Descripción                                                                |
+| Parámetro   | Tipo    | Obligatorio | Descripción                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sí      | La versión de la API.                                                    |
 | action      | String  | Sí      | El valor debe ser `ValidationError`.                                           |

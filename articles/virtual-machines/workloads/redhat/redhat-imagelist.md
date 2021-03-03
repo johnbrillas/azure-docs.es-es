@@ -2,18 +2,18 @@
 title: Imágenes de Red Hat Enterprise Linux disponibles en Azure
 description: Obtenga información sobre las imágenes de Red Hat Enterprise Linux en Microsoft Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411621"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676028"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imágenes de Red Hat Enterprise Linux (RHEL) disponibles en Azure
 Azure ofrece una variedad de imágenes de RHEL para diferentes casos de uso.

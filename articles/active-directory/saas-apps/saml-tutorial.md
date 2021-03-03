@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b6273c504edfd96b61fe3fc9ea35baa6f1e08f3
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 477180a6576d52e3386e18b6e2ba12dd33e4d794
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093223"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654421"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integración de Azure Active Directory con una aplicación de línea de negocio (LOB) habilitada para el token SAML 1.1
 
@@ -133,8 +133,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de la aplicación de línea de negocio habilitada para tokens de SAML 1.1 en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación de línea de negocio habilitada para tokens de SAML 1.1. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado la aplicación de línea de negocio habilitada para tokens de SAML 1.1, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez configurado la aplicación de línea de negocio habilitada para tokens de SAML 1.1, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

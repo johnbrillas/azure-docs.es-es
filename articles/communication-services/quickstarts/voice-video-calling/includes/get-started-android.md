@@ -6,14 +6,17 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b4719fcf046ce7ef5d74ccf1863b0400c2c52845
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438712"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656644"
 ---
 En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca cliente de llamadas de Azure Communication Services para Android.
+
+> [!NOTE]
+> En este documento se usa la versión 1.0.0-beta.8 de la biblioteca de cliente para llamadas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -78,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -180,8 +183,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.communication.calling.CallAgent;
 import com.azure.communication.calling.CallClient;
 import com.azure.communication.calling.StartCallOptions;
@@ -257,13 +260,14 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Las siguientes clases e interfaces controlan algunas de las características principales de la biblioteca cliente de llamadas de Azure Communication Services:
+Las clases e interfaces siguientes controlan algunas de las características principales de la biblioteca cliente para llamadas de Azure Communication Services:
 
 | Nombre                                  | Descripción                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient es el punto de entrada principal a la biblioteca cliente de llamadas.|
+| CallClient| CallClient es el punto de entrada principal a la biblioteca cliente para llamadas.|
 | CallAgent | CallAgent se usa para iniciar y administrar llamadas. |
 | CommunicationUserCredential | CommunicationUserCredential se usa como la credencial de token para crear una instancia de CallAgent.|
+| CommunicationIdentifier | CommunicationIdentifier se usa como un tipo de participante diferente que podría formar parte de una llamada.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Creación de un agente a partir del token de acceso de usuario
 
@@ -278,7 +282,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -303,7 +307,7 @@ private void startCall() {
 
     callAgent.call(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8492e986b378ea19f8c3c4cb7f94fcb0f155b427
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cfa2548abb28fa6f84178a1fb5716d0c03b163f1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487854"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570729"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Control de seguridad: Registro y supervisión
 
@@ -42,9 +42,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -56,9 +56,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 Habilite Configuración de diagnóstico en los recursos de Azure para poder acceder a los registros de auditoría, seguridad y diagnóstico. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recopilación de registros de seguridad de sistemas operativos
 
@@ -68,7 +68,7 @@ Habilite Configuración de diagnóstico en los recursos de Azure para poder acce
 
 Si el recurso de proceso es propiedad de Microsoft, este será responsable de su supervisión. Si el recurso de proceso es propiedad de su organización, la responsabilidad de su supervisión recaerá sobre usted. Puede usar Azure Security Center para supervisar el sistema operativo. Entre los datos que recopila Security Center del sistema operativo se incluyen: tipo y versión del sistema operativo, sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Log Analytics también recopila los archivos de volcado de memoria.
 
-- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Recopilación de registros de host internos de máquina virtual de Azure con Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Descripción de la recopilación de datos de Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
@@ -80,7 +80,7 @@ Si el recurso de proceso es propiedad de Microsoft, este será responsable de su
 
 En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
-- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Descripción del área de trabajo de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Descripción del área de trabajo de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 ## <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Habilitación de alertas para actividades anómalas
 
@@ -110,11 +110,11 @@ Use Azure Security Center con el área de trabajo de Log Analytics para la super
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
-- [Incoporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
+- [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 - [Administración de alertas de seguridad en Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 ## <a name="28-centralize-anti-malware-logging"></a>2.8: Centralización del registro antimalware
 
@@ -148,9 +148,9 @@ Use Microsoft Monitoring Agent en todas las máquinas virtuales Windows de Azure
 
 - [Recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-- [Orígenes de datos de Syslog en Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+- [Orígenes de datos de Syslog en Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

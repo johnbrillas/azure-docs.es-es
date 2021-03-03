@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 00d19d7b554e8a867412cfb982e1377fd90bd936
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8b3a67fc06594a4782ba55c17ab36c0bad9cf2a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624530"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574917"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de referencia de seguridad de Azure para Service Bus
 
@@ -143,9 +143,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con Azure Service Bus. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -161,7 +161,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Procedimiento para definir la configuración de diagnóstico en Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [Descripción del registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -177,7 +177,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Procedimiento para habilitar la configuración de diagnóstico en Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -187,7 +187,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: en Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización, con el fin de capturar y revisar los incidentes relacionados con Service Bus.
 
-- [Procedimiento para configurar parámetros de retención de registros en áreas de trabajo de Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Procedimiento para configurar parámetros de retención de registros en áreas de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -197,9 +197,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: analice y supervise los registros en busca de comportamientos anómalos y revise periódicamente los resultados relacionados con las entidades de Service Bus. Use Azure Monitor para revisar los registros y realizar consultas en los datos de los registros relacionados con Service Bus.
 
-- [Más información sobre el área de trabajo de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Más información sobre el área de trabajo de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -215,7 +215,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -491,7 +491,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Guía**: use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure Service Bus y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

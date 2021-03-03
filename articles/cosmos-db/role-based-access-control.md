@@ -6,15 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 813bb99be0d072ebc9b21dba07ed85671a925910
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526948"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659450"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Control de acceso basado en rol de Azure en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> En este artículo se trata el control de acceso basado en rol para las operaciones del plano de administración en Azure Cosmos DB. Si usa operaciones de plano de datos, consulte [RBAC de Azure Cosmos DB](how-to-setup-rbac.md) para el control de acceso basado en rol que se aplica a las operaciones del plano de datos.
 
 Azure Cosmos DB proporciona un control de acceso basado en rol de Azure (Azure RBAC) integrado para escenarios de administración comunes en Azure Cosmos DB. Los usuarios con un perfil en Azure Active Directory pueden asignar estos roles de Azure a usuarios, grupos, entidades de servicio o identidades administradas para conceder o denegar el acceso a recursos y operaciones en los recursos de Azure Cosmos DB. Las asignaciones de roles están dirigidas únicamente al acceso al plano de control, que incluye el acceso a las cuentas, bases de datos, contenedores y ofertas de Azure Cosmos (rendimiento).
 
@@ -69,7 +72,7 @@ Esta configuración impedirá que se realicen cambios en cualquier recurso de Co
 
 - Modificar procedimientos almacenados, desencadenadores o funciones definidas por el usuario.
 
-Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), la [CLI de Azure](manage-with-cli.md), REST o la [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](/azure/?product=featured#languages-and-tools).
+Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), la [CLI de Azure](manage-with-cli.md), REST o la [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](../index.yml?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Definición mediante una plantilla de ARM
 

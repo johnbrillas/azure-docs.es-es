@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369079"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576818"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Control de seguridad V2: registro y detección de amenazas
 
@@ -20,7 +20,7 @@ El registro y la detección de amenazas cubre los controles para detectar amenaz
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Habilitación de la detección de amenazas para recursos de Azure
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -54,7 +54,7 @@ Además, use Azure Sentinel para compilar reglas de análisis, que capturan las 
 
 ## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Habilitación de la detección de amenazas para la administración de identidades y acceso de Azure
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-2 | 6,8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -91,7 +91,7 @@ Azure Security Center también puede alertar sobre determinadas actividades sosp
 
 ## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3: Habilitación del registro para las actividades de red de Azure
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -125,7 +125,7 @@ Habilite y recopile registros de recursos de grupos de seguridad de red (NSG), r
 
 ## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: Habilitación del registro para recursos de Azure
 
-| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
+| Identificador de Azure | Identificadores de CIS Controls v7.1 | Identificadores de NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
@@ -133,7 +133,7 @@ Habilite el registro de los recursos de Azure para satisfacer los requisitos de 
 
 Puede usar Azure Security Center y Azure Policy para habilitar la recopilación de registros de recursos y datos de registro sobre los recursos de Azure para el acceso a registros de auditoría, seguridad y recursos. Los registros de actividad, que están disponibles automáticamente, incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Descripción de la recopilación de datos de Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
@@ -163,7 +163,7 @@ Además, habilite e incorpore los datos a Azure Sentinel o a un sistema SIEM de 
 
 Muchas organizaciones optan por usar Azure Sentinel para los datos de acceso frecuente y Azure Storage para los datos inactivos que se usan con menos frecuencia. 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Incorporación de Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -187,7 +187,7 @@ Configure la retención de registros según sus requisitos de cumplimiento, norm
 
 En Azure Monitor, puede establecer el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de área de trabajo de Azure Storage, Data Lake o Log Analytics para el almacenamiento de archivo a largo plazo.
 
-- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 

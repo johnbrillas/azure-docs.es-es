@@ -7,12 +7,12 @@ ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581608"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570956"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Supervisión de la referencia a datos de Azure IoT Hub
 
@@ -24,25 +24,48 @@ En esta sección se enumeran todas las métricas de la plataforma recopiladas au
 
 En las subsecciones siguientes se desglosan las métricas de la plataforma IoT Hub por categoría general y se enumeran por el nombre para mostrar con el que aparecen en Azure Portal. También se proporciona información relacionada con las métricas que aparecen en cada subsección.
 
-Además, en la documentación de Azure Monitor, encontrará una sola tabla donde se muestran todas las métricas de la plataforma IoT Hub por el nombre de la métrica en [Microsoft.Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs). Tenga en cuenta que, en esta tabla, no se proporciona toda la información, como las [agregaciones admitidas](#supported-aggregations) en algunas métricas, disponible en este artículo.
+Además, en la documentación de Azure Monitor, encontrará una sola tabla donde se muestran todas las métricas de la plataforma IoT Hub por el nombre de la métrica en [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs). Tenga en cuenta que, en esta tabla, no se proporciona toda la información, como las [agregaciones admitidas](#supported-aggregations) en algunas métricas, disponible en este artículo.
 
-Para información sobre las métricas admitidas por otros servicios de Azure, consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Para información sobre las métricas admitidas por otros servicios de Azure, consulte [Métricas compatibles con Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Temas de esta sección**
 
-- [Agregaciones compatibles](#supported-aggregations)
-- [Métricas de comandos de nube a dispositivo](#cloud-to-device-command-metrics)
-- [Métricas de métodos directos de nube a dispositivo](#cloud-to-device-direct-methods-metrics)
-- [Métricas de operaciones de nube a dispositivo gemelo](#cloud-to-device-twin-operations-metrics)
-- [Métricas de configuraciones](#configurations-metrics)
-- [Métricas de cuotas diarias](#daily-quota-metrics)
-- [Métricas de dispositivos](#device-metrics)
-- [Métricas de telemetría de dispositivos](#device-telemetry-metrics)
-- [Métricas de operaciones de dispositivo gemelo a nube](#device-to-cloud-twin-operations-metrics)
-- [Métricas de Event Grid](#event-grid-metrics)
-- [Métricas de trabajos](#jobs-metrics)
-- [Métricas de enrutamiento](#routing-metrics)
-- [Métricas de consultas de gemelos](#twin-query-metrics)
+- [Supervisión de la referencia a datos de Azure IoT Hub](#monitoring-azure-iot-hub-data-reference)
+  - [Métricas](#metrics)
+    - [Agregaciones compatibles](#supported-aggregations)
+    - [Métricas de comandos de nube a dispositivo](#cloud-to-device-command-metrics)
+    - [Métricas de métodos directos de nube a dispositivo](#cloud-to-device-direct-methods-metrics)
+    - [Métricas de operaciones de nube a dispositivo gemelo](#cloud-to-device-twin-operations-metrics)
+    - [Métricas de configuraciones](#configurations-metrics)
+    - [Métricas de cuotas diarias](#daily-quota-metrics)
+    - [Métricas de dispositivos](#device-metrics)
+    - [Métricas de telemetría de dispositivos](#device-telemetry-metrics)
+    - [Métricas de operaciones de dispositivo gemelo a nube](#device-to-cloud-twin-operations-metrics)
+    - [Métricas de Event Grid](#event-grid-metrics)
+    - [Métricas de trabajos](#jobs-metrics)
+    - [Métricas de enrutamiento](#routing-metrics)
+    - [Métricas de consultas de gemelos](#twin-query-metrics)
+  - [Dimensiones de métricas](#metric-dimensions)
+  - [Registros de recursos](#resource-logs)
+    - [Conexiones](#connections)
+    - [Telemetría del dispositivo](#device-telemetry)
+    - [Comandos de nube a dispositivo](#cloud-to-device-commands)
+    - [Operaciones de identidad de dispositivos](#device-identity-operations)
+    - [Operaciones de carga de archivos](#file-upload-operations)
+    - [Rutas](#routes)
+    - [Operaciones gemelas del dispositivo a la nube](#device-to-cloud-twin-operations)
+    - [Operaciones gemelas de la nube al dispositivo](#cloud-to-device-twin-operations)
+    - [Consultas gemelas](#twin-queries)
+    - [Operaciones de trabajos](#jobs-operations)
+    - [Métodos directos](#direct-methods)
+    - [Seguimiento distribuido (versión preliminar)](#distributed-tracing-preview)
+      - [Registros D2C (dispositivo a nube) de IoT Hub](#iot-hub-d2c-device-to-cloud-logs)
+      - [Registros de entrada de IoT Hub](#iot-hub-ingress-logs)
+      - [Registros de salida de IoT Hub](#iot-hub-egress-logs)
+    - [Configuraciones](#configurations)
+    - [Flujos de dispositivos (versión preliminar)](#device-streams-preview)
+  - [Tablas de registros de Azure Monitor](#azure-monitor-logs-tables)
+  - [Vea también](#see-also)
 
 ### <a name="supported-aggregations"></a>Agregaciones compatibles
 
@@ -226,31 +249,50 @@ Azure IoT Hub tiene las siguientes dimensiones asociadas a algunas de sus métri
 |**Resultado**| **success** o **failure**.|
 |**RoutingSource**| Mensajes del dispositivo<br>Eventos de cambio de gemelo<br>Eventos de ciclo de vida del dispositivo|
 
-Para más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+Para más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Registros del recurso
 
-En esta sección se enumeran todos los tipos y esquemas de categorías de registros de recursos recopilados para Azure IoT Hub. El proveedor de recursos y el tipo de todos los registros de IoT Hub es [Microsoft.Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
+En esta sección se enumeran todos los tipos y esquemas de categorías de registros de recursos recopilados para Azure IoT Hub. El proveedor de recursos y el tipo de todos los registros de IoT Hub es [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Temas de esta sección**
 
-- [Conexiones](#connections)
-- [Telemetría del dispositivo](#device-telemetry)
-- [Comandos de nube a dispositivo](#cloud-to-device-commands)
-- [Operaciones de identidad de dispositivos](#device-identity-operations)
-- [Operaciones de carga de archivos](#file-upload-operations)
-- [Rutas](#routes)
-- [Operaciones gemelas del dispositivo a la nube](#device-to-cloud-twin-operations)
-- [Operaciones gemelas de la nube al dispositivo](#cloud-to-device-twin-operations)
-- [Consultas gemelas](#twin-queries)
-- [Operaciones de trabajos](#jobs-operations)
-- [Métodos directos](#direct-methods)
-- [Seguimiento distribuido (versión preliminar)](#distributed-tracing-preview)
-  - [Registros D2C (dispositivo a nube) de IoT Hub](#iot-hub-d2c-device-to-cloud-logs)
-  - [Registros de entrada de IoT Hub](#iot-hub-ingress-logs)
-  - [Registros de salida de IoT Hub](#iot-hub-egress-logs)
-- [Configuraciones](#configurations)
-- [Flujos de dispositivos (versión preliminar)](#device-streams-preview)
+- [Supervisión de la referencia a datos de Azure IoT Hub](#monitoring-azure-iot-hub-data-reference)
+  - [Métricas](#metrics)
+    - [Agregaciones compatibles](#supported-aggregations)
+    - [Métricas de comandos de nube a dispositivo](#cloud-to-device-command-metrics)
+    - [Métricas de métodos directos de nube a dispositivo](#cloud-to-device-direct-methods-metrics)
+    - [Métricas de operaciones de nube a dispositivo gemelo](#cloud-to-device-twin-operations-metrics)
+    - [Métricas de configuraciones](#configurations-metrics)
+    - [Métricas de cuotas diarias](#daily-quota-metrics)
+    - [Métricas de dispositivos](#device-metrics)
+    - [Métricas de telemetría de dispositivos](#device-telemetry-metrics)
+    - [Métricas de operaciones de dispositivo gemelo a nube](#device-to-cloud-twin-operations-metrics)
+    - [Métricas de Event Grid](#event-grid-metrics)
+    - [Métricas de trabajos](#jobs-metrics)
+    - [Métricas de enrutamiento](#routing-metrics)
+    - [Métricas de consultas de gemelos](#twin-query-metrics)
+  - [Dimensiones de métricas](#metric-dimensions)
+  - [Registros de recursos](#resource-logs)
+    - [Conexiones](#connections)
+    - [Telemetría del dispositivo](#device-telemetry)
+    - [Comandos de nube a dispositivo](#cloud-to-device-commands)
+    - [Operaciones de identidad de dispositivos](#device-identity-operations)
+    - [Operaciones de carga de archivos](#file-upload-operations)
+    - [Rutas](#routes)
+    - [Operaciones gemelas del dispositivo a la nube](#device-to-cloud-twin-operations)
+    - [Operaciones gemelas de la nube al dispositivo](#cloud-to-device-twin-operations)
+    - [Consultas gemelas](#twin-queries)
+    - [Operaciones de trabajos](#jobs-operations)
+    - [Métodos directos](#direct-methods)
+    - [Seguimiento distribuido (versión preliminar)](#distributed-tracing-preview)
+      - [Registros D2C (dispositivo a nube) de IoT Hub](#iot-hub-d2c-device-to-cloud-logs)
+      - [Registros de entrada de IoT Hub](#iot-hub-ingress-logs)
+      - [Registros de salida de IoT Hub](#iot-hub-egress-logs)
+    - [Configuraciones](#configurations)
+    - [Flujos de dispositivos (versión preliminar)](#device-streams-preview)
+  - [Tablas de registros de Azure Monitor](#azure-monitor-logs-tables)
+  - [Vea también](#see-also)
 
 ### <a name="connections"></a>Conexiones
 
@@ -690,4 +732,4 @@ Puede encontrar una referencia de todas las tablas de registros de Azure Monitor
 ## <a name="see-also"></a>Consulte también
 
 * Consulte [Supervisión de Azure IoT Hub](monitor-iot-hub.md) para ver una descripción de la supervisión de Azure IoT Hub.
-* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
+* Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

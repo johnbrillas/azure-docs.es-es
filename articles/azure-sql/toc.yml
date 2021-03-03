@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: Características de varios modelos
           href: multi-model-features.md
+        - name: Mantenimiento programado
+          items:
+            - name: Ventana de mantenimiento
+              href: database/maintenance-window.md
+            - name: Configuración de ventana de mantenimiento
+              href: database/maintenance-window-configure.md
+            - name: Preguntas más frecuentes sobre la ventana de mantenimiento
+              href: database/maintenance-window-faq.yml
+            - name: Notificaciones anticipadas
+              href: database/advance-notifications.md
         - name: OLTP en memoria (optimización en memoria
           href: in-memory-oltp-overview.md
         - name: Tablas temporales
@@ -266,7 +276,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -434,7 +444,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure portal
+                - name: Azure Portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -1127,7 +1137,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: Configuración manual
                           items:
-                            - name: Requisitos previos
+                            - name: Prerrequisitos
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: Tutorial
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

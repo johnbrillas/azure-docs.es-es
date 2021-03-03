@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 150269dd2cc6a25a507f03c7d6b47544a89da12a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221850"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579706"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Cómo crear alertas para Update Management
 
@@ -18,7 +18,7 @@ Las alertas de Azure le notifican proactivamente los resultados de los trabajos 
 
 ## <a name="available-metrics"></a>Métricas disponibles
 
-Azure Automation crea dos métricas de plataforma distintas relacionadas con Update Management que se recopilan y reenvían a Azure Monitor. Estas métricas están disponibles para su análisis mediante el [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) y para enviar alertas con una [regla de alertas de métricas](../../azure-monitor/platform/alerts-metric.md).
+Azure Automation crea dos métricas de plataforma distintas relacionadas con Update Management que se recopilan y reenvían a Azure Monitor. Estas métricas están disponibles para su análisis mediante el [Explorador de métricas](../../azure-monitor/essentials/metrics-charts.md) y para enviar alertas con una [regla de alertas de métricas](../../azure-monitor/alerts/alerts-metric.md).
 
 Las dos métricas emitidas son:
 
@@ -34,15 +34,15 @@ Cuando se usan en las alertas, ambas métricas admiten dimensiones que contienen
 
 ## <a name="create-alert"></a>Crear una alerta
 
-Realice los pasos siguientes para configurar alertas que le permitan saber el estado de una implementación de actualizaciones. Si no está familiarizado con las alertas de Azure, consulte la [información general sobre alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
+Realice los pasos siguientes para configurar alertas que le permitan saber el estado de una implementación de actualizaciones. Si no está familiarizado con las alertas de Azure, consulte la [información general sobre alertas de Azure](../../azure-monitor/alerts/alerts-overview.md).
 
-1. En la cuenta de Automation, seleccione **Alertas** en la opción de **supervisión** y, a continuación, seleccione **Nueva regla de alerta** .
+1. En la cuenta de Automation, seleccione **Alertas** en la opción de **supervisión** y, a continuación, seleccione **Nueva regla de alerta**.
 
-2. En la página de **creación de reglas de alertas** , su cuenta de Automation aparece seleccionada como recurso. Si quiere cambiar esto, seleccione la opción para **editar recursos** .
+2. En la página de **creación de reglas de alertas**, su cuenta de Automation aparece seleccionada como recurso. Si quiere cambiar esto, seleccione la opción para **editar recursos**.
 
-3. En la página para seleccionar un recurso, elija **Cuentas de Automation** en la lista desplegable **Filtrar por tipo de recurso** .
+3. En la página para seleccionar un recurso, elija **Cuentas de Automation** en la lista desplegable **Filtrar por tipo de recurso**.
 
-4. Seleccione la cuenta de Automation que quiera usar y, a continuación, haga clic en **Listo** .
+4. Seleccione la cuenta de Automation que quiera usar y, a continuación, haga clic en **Listo**.
 
 5. Seleccione **Agregar condición** para elegir la señal adecuada para sus requisitos.
 
@@ -50,11 +50,11 @@ Realice los pasos siguientes para configurar alertas que le permitan saber el es
 
     ![Configuración de la lógica de señal](./media/manage-updates-for-vm/signal-logic.png)
 
-7. En **Lógica de alerta** , escriba los valores en los campos **Agregación de tiempo** y **Umbral** , y seleccione **Listo** .
+7. En **Lógica de alerta**, escriba los valores en los campos **Agregación de tiempo** y **Umbral**, y seleccione **Listo**.
 
 8. En el siguiente panel, escriba un nombre y una descripción para la alerta.
 
-9. En el campo **Gravedad** , seleccione **Información (gravedad 2)** para una ejecución correcta, o bien **Información (gravedad 1)** para una ejecución con errores.
+9. En el campo **Gravedad**, seleccione **Información (gravedad 2)** para una ejecución correcta, o bien **Información (gravedad 1)** para una ejecución con errores.
 
     ![Captura de pantalla que muestra la sección Definir detalles de la alerta con los campos Nombre de la regla de alertas, Descripción y Gravedad resaltados.](./media/manage-updates-for-vm/define-alert-details.png)
 
@@ -62,32 +62,32 @@ Realice los pasos siguientes para configurar alertas que le permitan saber el es
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configuración de grupos de acciones para las alertas
 
-Una vez que haya configurado las alertas, puede configurar un grupo de acciones para usarlas con varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y mucho más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../../azure-monitor/platform/action-groups.md).
+Una vez que haya configurado las alertas, puede configurar un grupo de acciones para usarlas con varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y mucho más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../../azure-monitor/alerts/action-groups.md).
 
-1. Seleccione una alerta y, a continuación, **Crear nueva** en **Grupos de acciones** .
+1. Seleccione una alerta y, a continuación, **Crear nueva** en **Grupos de acciones**.
 
 2. Escriba un nombre completo y un nombre corto para el grupo de acciones. Update Management usa el nombre corto en lugar del nombre completo para enviar notificaciones mediante el grupo especificado.
 
-3. En **Acciones** , escriba un nombre para especificar la acción (por ejemplo, **Notificación por correo electrónico** ).
+3. En **Acciones**, escriba un nombre para especificar la acción (por ejemplo, **Notificación por correo electrónico**).
 
-4. En **Tipo de acción** , seleccione el tipo adecuado (por ejemplo, **Correo electrónico, SMS, Push o Voz** ).
+4. En **Tipo de acción**, seleccione el tipo adecuado (por ejemplo, **Correo electrónico, SMS, Push o Voz**).
 
-5. Seleccione **Editar detalles** .
+5. Seleccione **Editar detalles**.
 
-6. Escriba el tipo de acción en el panel. Por ejemplo, si usa la opción **Correo electrónico, SMS, Push o Voz** , escriba un nombre de acción, seleccione la casilla **Correo electrónico** , escriba una dirección de correo electrónico válida y, por último, haga clic en **Aceptar** .
+6. Escriba el tipo de acción en el panel. Por ejemplo, si usa la opción **Correo electrónico, SMS, Push o Voz**, escriba un nombre de acción, seleccione la casilla **Correo electrónico**, escriba una dirección de correo electrónico válida y, por último, haga clic en **Aceptar**.
 
     ![Configuración de un grupo de acciones de correo electrónico](./media/manage-updates-for-vm/configure-email-action-group.png)
 
-7. En el panel Agregar grupo de acciones, seleccione **Aceptar** .
+7. En el panel Agregar grupo de acciones, seleccione **Aceptar**.
 
-8. Para un correo electrónico de alerta, puede personalizar el asunto. Seleccione **Personalizar acciones** en **Crear regla** y, a continuación, seleccione **Asunto del correo electrónico** .
+8. Para un correo electrónico de alerta, puede personalizar el asunto. Seleccione **Personalizar acciones** en **Crear regla** y, a continuación, seleccione **Asunto del correo electrónico**.
 
-9. Cuando finalice, seleccione **Crear regla de alertas** .
+9. Cuando finalice, seleccione **Crear regla de alertas**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre [alertas en Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+* Obtenga más información sobre [alertas en Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
-* Obtenga información sobre las [consultas de registros](../../azure-monitor/log-query/log-query-overview.md) para recuperar y analizar datos provenientes de un área de trabajo de Log Analytics.
+* Obtenga información sobre las [consultas de registros](../../azure-monitor/logs/log-query-overview.md) para recuperar y analizar datos provenientes de un área de trabajo de Log Analytics.
 
-* En [Administrar el uso y los costos con los registros de Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md) se describe cómo controlar los costos cambiando el período de retención de datos, y cómo analizar y alertar sobre el uso de los datos.
+* En [Administrar el uso y los costos con los registros de Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md) se describe cómo controlar los costos cambiando el período de retención de datos, y cómo analizar y alertar sobre el uso de los datos.

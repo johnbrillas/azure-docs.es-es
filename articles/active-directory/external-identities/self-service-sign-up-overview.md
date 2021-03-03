@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13023ef93cabcf46924cc2cc76dc2d868c4a1ddd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907640"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653575"
 ---
-# <a name="self-service-sign-up-preview"></a>Registro de autoservicio (versión preliminar)
-
-> [!NOTE]
-> El registro de autoservicio es la característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="self-service-sign-up"></a>Registro de autoservicio
 
 Al compartir una aplicación con usuarios externos, es posible que no siempre sepa de antemano quién necesitará tener acceso a la aplicación. Como alternativa al envío de invitaciones directamente a los usuarios, puede permitir que los usuarios externos se registren en aplicaciones específicas habilitando el registro de autoservicio. Puede crear una experiencia de registro personalizada mediante la personalización del flujo de usuario de registro de autoservicio. Por ejemplo, puede proporcionar opciones de registro con Azure AD o proveedores de identidades sociales y recopilar información sobre el usuario durante el proceso de registro.
 

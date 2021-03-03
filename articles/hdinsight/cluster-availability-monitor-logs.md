@@ -4,12 +4,12 @@ description: Aprenda a usar los registros de Azure Monitor para supervisar la di
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946958"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571889"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Supervisión de la disponibilidad de un clúster con los registros Azure Monitor en HDInsight
 
@@ -19,7 +19,7 @@ Los clústeres de HDInsight incluyen la integración de registros de Azure Monit
 
 Los registros de Azure Monitor permiten la recolección de los datos generados por varios recursos, como clústeres de HDInsight, y su agregación en un solo lugar para lograr una experiencia de supervisión unificada.
 
-Como requisito previo, necesitará un área de trabajo de Log Analytics para almacenar los datos recopilados. Si aún no ha creado una, puede seguir estas instrucciones: [Crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Como requisito previo, necesitará un área de trabajo de Log Analytics para almacenar los datos recopilados. Si aún no ha creado una, puede seguir estas instrucciones: [Crear un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Habilitar la integración de registros de Azure Monitor de HDInsight
 
@@ -81,7 +81,7 @@ Dado que esta consulta devuelve solo nodos no disponibles como resultado, si el 
 
 En la sección **Se evaluó basándose en**, establezca el **período** y la **frecuencia** según la frecuencia con la que desea comprobar si hay nodos no disponibles.
 
-Para esta alerta, debería asegurarse de que **Período=Frecuencia**. Puede encontrar más información sobre el período, la frecuencia y otros parámetros de alerta [aquí](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
+Para esta alerta, debería asegurarse de que **Período=Frecuencia**. Puede encontrar más información sobre el período, la frecuencia y otros parámetros de alerta [aquí](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition).
 
 Seleccione **Listo** cuando haya terminado de configurar la lógica de señal.
 
@@ -94,7 +94,7 @@ Si no dispone de un grupo de acciones existente, haga clic en **Crear nuevo** en
 Se abrirá **Agregar grupo de acciones**. Elija un valor de **Nombre del grupo de acciones**, **Nombre corto**, **Suscripción** y **Grupo de recursos**. En la sección **Acciones**, elija un valor de **Nombre de acción** y seleccione **Correo electrónico/SMS/Inserción/Voz** como el valor de **Tipo de acción.**
 
 > [!NOTE]
-> Hay muchas otras acciones que una alerta puede desencadenar además de correo electrónico, SMS, inserción o voz, como una función de Azure, LogicApp, Webhook, ITSM y Automation Runbook. [Más información](../azure-monitor/platform/action-groups.md#action-specific-information).
+> Hay muchas otras acciones que una alerta puede desencadenar además de correo electrónico, SMS, inserción o voz, como una función de Azure, LogicApp, Webhook, ITSM y Automation Runbook. [Más información](../azure-monitor/alerts/action-groups.md#action-specific-information).
 
 Se abrirá **Correo electrónico/SMS/Inserción/Voz**. Elija un valor de **Nombre** para el destinatario, **active** la casilla **Correo electrónico** y escriba una dirección de correo electrónico a la que enviar la alerta. Seleccione **Aceptar** en **Correo electrónico/SMS/Inserción/Voz** y luego en **Agregar grupo de acciones** para terminar de configurar el grupo de acciones.
 

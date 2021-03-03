@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202307"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570860"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Línea de base de seguridad de Azure para Azure IoT Hub
 
@@ -148,9 +148,9 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con Azure IoT Hub. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -185,9 +185,9 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 - [Configuración de registros de Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -205,7 +205,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: En Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a las instancias de Azure IoT Hub según las normativas de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Establecimiento de parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -220,9 +220,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 - [Supervisión del estado de Azure IoT](monitor-iot-hub.md)
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -236,7 +236,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Alertas de Azure Security Center para IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -527,7 +527,7 @@ Azure IoT Hub proporciona cifrado de datos en reposo y en tránsito a medida que
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en las instancias de producción de Azure IoT Hub y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

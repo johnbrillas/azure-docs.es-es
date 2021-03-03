@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365555"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645830"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 
@@ -78,11 +78,11 @@ De manera predeterminada, todos los usuarios, incluidos los invitados, pueden in
    >
    >![Habilitación de la participación en el código de acceso de un solo uso por correo electrónico](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. En **Enable guest self-service sign up via user flows (Preview)** (Habilitación del registro de invitados de autoservicio mediante flujos de usuario [versión preliminar]), seleccione **Yes** (Sí) si desea crear flujos de usuario que permitan a los usuarios suscribirse a aplicaciones. para más información sobre esta opción, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)](self-service-sign-up-user-flow.md).
+7. En **Enable guest self-service sign up via user flows** (Habilitación del registro de autoservicio de invitados mediante flujos de usuario), seleccione **Yes** (Sí) si desea crear flujos de usuario que permitan a los usuarios suscribirse a las aplicaciones. Para más información sobre este valor, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](self-service-sign-up-user-flow.md).
 
     ![Configuración de la suscripción de autoservicio a través de flujos de usuario](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. En **Restricciones de colaboración**, elija si desea permitir o denegar las invitaciones a los dominios que especifique. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
+7. En **Restricciones de colaboración**, puede elegir si desea permitir o denegar las invitaciones a los dominios que especifique y especificar nombres de dominio concretos en los cuadros de texto. Si hay varios dominios, especifique cada dominio en una nueva línea. Para obtener más información, consulte [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md) (Permitir o bloquear invitaciones a usuarios de B2B procedentes de determinadas organizaciones).
 
     ![Configuración de restricciones de colaboración](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Asignación del rol de invitador de usuarios invitados a un usuario

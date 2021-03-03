@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361254"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667662"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Cómo ejecutar o restablecer indizadores, aptitudes o documentos
 
@@ -101,7 +101,7 @@ Si no se especifica ninguna aptitud, se ejecutará todo el conjunto de aptitudes
 > [!IMPORTANT] 
 > [Restablecimiento de documentos](/rest/api/searchservice/preview-api/reset-documents) está en versión preliminar pública, disponible solo a través de la API de REST en versión preliminar. Las características en vista previa (GB) se ofrecen tal cual, en [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La [API de restablecimiento de documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) acepta una lista de claves de documento para que pueda actualizar documentos específicos. Si se especifica, los parámetros de restablecimiento se convierten en el único factor determinante de lo que se procesa, independientemente de otros cambios en los datos subyacentes. Por ejemplo, si se agregaron o actualizaron 20 blobs desde la última vez que se ejecutó el indizador, pero solo se restablece un documento, solo se procesará dicho documento.
+La [API de restablecimiento de documentos](/rest/api/searchservice/preview-api/reset-documents) acepta una lista de claves de documento para que pueda actualizar documentos específicos. Si se especifica, los parámetros de restablecimiento se convierten en el único factor determinante de lo que se procesa, independientemente de otros cambios en los datos subyacentes. Por ejemplo, si se agregaron o actualizaron 20 blobs desde la última vez que se ejecutó el indizador, pero solo se restablece un documento, solo se procesará dicho documento.
 
 En cada documento, todos los campos de ese documento de búsqueda se actualizan con los valores del origen de datos. No se pueden elegir los campos que se van a actualizar. 
 

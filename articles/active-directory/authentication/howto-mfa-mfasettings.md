@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9566560aaebaaa7ba3fc6d963a30637e33118077
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361628"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651066"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configuración de Azure AD Multi-Factor Authentication
 
@@ -120,8 +120,6 @@ Azure AD admite el uso de tokens TOTP SHA-1 de OATH, que actualizan los código
 Los tokens de hardware TOTP de OATH suelen incluir una clave secreta, o valor de inicialización, programada previamente en el token. Estas claves se deben introducir en Azure AD según se describe en los pasos siguientes. Las claves secretas se limitan a 128 caracteres lo que puede no ser compatible con todos los tokens. La clave secreta solo puede contener los caracteres *a-z* o *A-Z* y los dígitos *1-7*, y debe estar codificada en *base 32*.
 
 Los tokens de hardware TOTP de OATH programables que se pueden reinicializar también se pueden configurar con Azure AD en el flujo de configuración de los tokens de software.
-
-Los tokens de hardware OATH se admiten como parte de una versión preliminar pública. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Carga de tokens OATH en la hoja de tokens OATH de MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 

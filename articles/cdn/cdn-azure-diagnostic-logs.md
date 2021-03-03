@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573225"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registros de diagnóstico: Azure Content Delivery Network
 
@@ -78,7 +78,7 @@ Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pas
 Para usar Log Analytics para los registros, siga estos pasos:
 
 >[!NOTE] 
->Se requiere un área de trabajo de Log Analytics para completar estos pasos. Consulte **[Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md)** para obtener más información.
+>Se requiere un área de trabajo de Log Analytics para completar estos pasos. Consulte **[Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/logs/quick-create-workspace.md)** para obtener más información.
     
 1. En **Diagnostic setting name** (Nombre de la configuración de diagnóstico), escriba un nombre para la configuración del registro de diagnóstico.
 
@@ -369,7 +369,7 @@ Propiedades de ejemplo:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Registros de diagnóstico de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Análisis básico mediante el portal complementario de Azure CDN](./cdn-analyze-usage-patterns.md)
-* [Registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Registros de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [API de REST de Azure Log Analytics](/rest/api/loganalytics)
